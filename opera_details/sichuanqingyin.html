@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四川清音 - 中国传统戏曲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STSong', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.8), rgba(240,240,240,0.8));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #CD853F;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CD853F;
+        }
+        
+        h3 {
+            color: #5D4037;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .classic-line {
+            background-color: #f9f3e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #CD853F;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .classic-line p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .classic-line .source {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #CD853F;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>四川清音</h1>
+            <p>四川地方传统戏曲，中国国家级非物质文化遗产</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#origin">起源</a></li>
+                <li><a href="#development">发展</a></li>
+                <li><a href="#art-features">艺术特点</a></li>
+                <li><a href="#roles">行当</a></li>
+                <li><a href="#representative-plays">代表剧目</a></li>
+                <li><a href="#classic-lines">经典戏词</a></li>
+            </ul>
+        </nav>
+        
+        <section id="origin" class="section">
+            <h2>起源</h2>
+            <p>四川清音，原名“唱琵琶”“唱月琴”，是四川省的地方传统戏曲剧种，流行于四川、重庆及贵州、云南部分地区。其起源可追溯至清代乾隆年间，由民间小曲、明清俗曲与四川方言相结合发展而成。</p>
+            <p>清代中期，江南地区的民间小曲传入四川，与当地的民间音乐、方言土语相结合，逐渐形成了具有四川地方特色的说唱艺术。早期的四川清音主要由民间艺人在茶馆、街头巷尾演唱，内容多为民间故事和爱情题材。</p>
+        </section>
+        
+        <section id="development" class="section">
+            <h2>发展</h2>
+            <p>清代末年至民国时期，四川清音进入发展期。这一时期，四川清音的演唱形式更加多样化，出现了专业班社和著名艺人。演唱内容也更加丰富，不仅有传统的民间故事，还增加了反映社会现实的题材。</p>
+            <p>新中国成立后，四川清音得到了党和政府的重视与扶持。1953年，成立了专业的四川清音表演团体，对传统曲目进行了整理、改编和创作，同时在音乐、表演等方面进行了改革创新，使四川清音的艺术水平得到显著提高。</p>
+            <p>改革开放以来，四川清音在继承传统的基础上，不断吸收现代音乐元素，创作了一批反映新时代生活的新曲目，同时通过各种媒体平台扩大了影响力，成为四川文化的重要代表之一。</p>
+        </section>
+        
+        <section id="art-features" class="section">
+            <h2>艺术特点</h2>
+            <h3>音乐唱腔</h3>
+            <p>四川清音的音乐唱腔丰富多样，主要包括大调、曲牌和小调三类。大调结构严谨，旋律优美；曲牌则是根据不同的题材和情绪选用的特定曲调；小调活泼轻快，富有民间色彩。演唱时多使用四川方言，语音柔和，富有韵律感。</p>
+            
+            <h3>表演艺术</h3>
+            <p>四川清音的表演形式以唱为主，辅以少量的动作和表情。演员通常坐在舞台中央，手持琵琶或月琴自弹自唱，或由伴奏员伴奏。表演风格质朴自然，注重情感表达，通过声音的高低、强弱、快慢来表现人物的情绪变化。</p>
+            
+            <h3>伴奏乐器</h3>
+            <p>四川清音的伴奏乐器主要有琵琶、月琴、二胡、笛子、扬琴等。其中，琵琶和月琴是四川清音的标志性乐器，其独特的音色为四川清音增添了浓郁的地方特色。伴奏音乐与唱腔紧密结合，相互映衬，形成了和谐统一的艺术效果。</p>
+        </section>
+        
+        <section id="roles" class="section">
+            <h2>行当</h2>
+            <p>四川清音是一种说唱艺术，其行当划分相对简单，主要分为以下几类：</p>
+            <ul>
+                <li><strong>演唱演员</strong>：四川清音的主要表演者，通常为一人或多人，负责演唱和少量的动作表演。演唱演员需要具备良好的嗓音条件和音乐素养，能够准确表达曲目的情感内涵。</li>
+                <li><strong>伴奏演员</strong>：负责为演唱演员伴奏，主要使用琵琶、月琴、二胡等乐器。伴奏演员需要与演唱演员密切配合，根据演唱的节奏和情绪变化调整伴奏音乐。</li>
+                <li><strong>创作人员</strong>：负责四川清音曲目的创作、改编和整理，包括作词、作曲等。创作人员需要深入了解四川的民间文化和语言特色，创作出符合四川清音艺术风格的曲目。</li>
+            </ul>
+        </section>
+        
+        <section id="representative-plays" class="section">
+            <h2>代表剧目</h2>
+            <p>四川清音的传统曲目丰富多样，题材广泛，包括民间故事、爱情故事、历史传说等。以下是一些代表性剧目：</p>
+            <ul>
+                <li><strong>《昭君出塞》</strong>：讲述王昭君出塞和亲的故事，是四川清音的经典曲目之一。</li>
+                <li><strong>《黛玉焚稿》</strong>：根据《红楼梦》改编，讲述林黛玉焚稿断情的故事，是四川清音的代表作。</li>
+                <li><strong>《放风筝》</strong>：民间题材曲目，讲述春天放风筝的欢乐场景，是四川清音的传统曲目。</li>
+                <li><strong>《断桥》</strong>：根据《白蛇传》改编，讲述白素贞与许仙在断桥相会的故事，是四川清音的经典曲目。</li>
+                <li><strong>《绣荷包》</strong>：民间爱情题材曲目，讲述女子绣荷包送给情郎的故事，是四川清音的传统曲目。</li>
+                <li><strong>《江姐上华蓥》</strong>：现代题材曲目，讲述江姐在华蓥山开展革命工作的故事，是四川清音的现代代表作。</li>
+            </ul>
+        </section>
+        
+        <section id="classic-lines" class="section">
+            <h2>经典戏词</h2>
+            <div class="classic-line">
+                <p>朔风吹，雪花飘，昭君出塞泪滔滔。
+                一步一回头，故国何处是，白云悠悠路迢迢。</p>
+                <div class="source">——《昭君出塞》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>焚稿断情丝，泪洒潇湘馆。
+                质本洁来还洁去，强于污淖陷渠沟。</p>
+                <div class="source">——《黛玉焚稿》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>三月里来放风筝，姐妹双双到郊原。
+                风筝飞得高又远，线儿在手一线牵。</p>
+                <div class="source">——《放风筝》 佚名</div>
+            </div>
+        </section>
+        
+        <a href="../opera_regional.html" class="back-link">返回剧种列表</a>
+    </div>
+</body>
+</html>

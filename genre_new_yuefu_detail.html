@@ -1,0 +1,573 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新乐府诗派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        .genre-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.1));
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease;
+        }
+        
+        .genre-header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+        
+        .genre-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            margin: 50px auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+        }
+        
+        .genre-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .genre-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .genre-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #8B4513;
+            border-radius: 2px;
+        }
+        
+        .genre-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            border-left: 4px solid #8B4513;
+            padding-left: 15px;
+        }
+        
+        .genre-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .genre-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .genre-section ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .genre-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        
+        .poem-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .poem-example h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: left;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 派别导航栏样式 */
+        .genre-nav {
+            background-color: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(206, 212, 218, 0.3);
+        }
+        
+        .genre-nav h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .genre-nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .genre-nav-menu li {
+            flex: 0 0 auto;
+        }
+        
+        .genre-nav-menu a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+        
+        .genre-nav-menu a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            border-color: #c0392b;
+        }
+        
+        .genre-nav-menu a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .genre-header {
+                padding: 80px 0;
+            }
+            
+            .genre-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .genre-header p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .genre-content {
+                padding: 30px 20px;
+                margin: 30px 20px;
+            }
+            
+            .genre-section h2 {
+                font-size: 2rem;
+            }
+            
+            .genre-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .genre-section p,
+            .genre-section ul li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 20px;
+            }
+            
+            .poem-example h4 {
+                font-size: 1.1rem;
+            }
+            
+            .back-link {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .genre-nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .genre-nav-menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: #A0522D;
+            transform: scale(1.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>新乐府诗派</h1>
+                <p>文章合为时而著，歌诗合为事而作</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                    <a href="poetry_categories.html" class="back-link">诗歌分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="genre-main">
+        <div class="container">
+            <div class="genre-content">
+                <!-- 派别导航栏 -->
+                <div class="genre-nav">
+                    <h3>诗歌派别导航</h3>
+                    <ul class="genre-nav-menu">
+                        <li><a href="genre_landscape_detail.html">山水田园诗派</a></li>
+                        <li><a href="genre_frontier_detail.html">边塞诗派</a></li>
+                        <li><a href="genre_romantic_detail.html">浪漫主义诗派</a></li>
+                        <li><a href="genre_realistic_detail.html">现实主义诗派</a></li>
+                        <li><a href="genre_new_yuefu_detail.html" class="active">新乐府诗派</a></li>
+                        <li><a href="genre_jiangxi_detail.html">江西诗派</a></li>
+                        <li><a href="genre_gongan_detail.html">公安派</a></li>
+                        <li><a href="genre_tongcheng_detail.html">桐城派</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 流派概述 -->
+                <section class="genre-section">
+                    <h2>流派概述</h2>
+                    <p>新乐府诗派是中唐时期的一个重要诗歌流派，以白居易、元稹为代表，主张"文章合为时而著，歌诗合为事而作"，强调诗歌的社会功能和现实意义。新乐府诗派的诗歌通俗晓畅，反映社会现实，对后世诗歌产生了深远的影响。</p>
+                </section>
+
+                <!-- 历史发展 -->
+                <section class="genre-section">
+                    <h3>历史发展</h3>
+                    <p>新乐府诗派的发展是一个具有鲜明时代特色的历史过程，经历了以下几个重要阶段：</p>
+                    <ul>
+                        <li><strong>萌芽阶段：汉乐府时期</strong>
+                            <p>新乐府诗派的萌芽可以追溯到汉乐府时期，汉乐府民歌继承了《诗经》的现实主义传统，反映了当时的社会现实和人民疾苦，如《孔雀东南飞》、《十五从军征》、《陌上桑》等。这些作品语言质朴，情感真挚，深刻反映了当时的社会矛盾和人民的悲惨遭遇，为新乐府诗派的形成奠定了基础。</p>
+                        </li>
+                        <li><strong>形成阶段：中唐时期</strong>
+                            <p>新乐府诗派的形成始于中唐时期，当时社会矛盾尖锐，政治腐败，人民生活困苦。白居易、元稹等诗人有感于社会现实，继承了《诗经》和汉乐府的现实主义传统，提倡新乐府运动，主张"文章合为时而著，歌诗合为事而作"。</p>
+                            <p>新乐府运动的核心主张是"文章合为时而著，歌诗合为事而作"，即文章和诗歌要为时代服务，反映社会现实。白居易在《与元九书》中详细阐述了这一主张，强调诗歌的社会功能和教育作用。他认为诗歌应该"救济人病，裨补时阙"，即帮助人们解决疾苦，弥补时代的缺陷。</p>
+                            <p>新乐府诗派的其他重要成员包括张籍、王建、李绅等。张籍的诗歌语言简练，反映社会现实，代表作有《塞下曲》、《征妇怨》等。王建的诗歌语言简练，反映社会现实，代表作有《田家行》、《水夫谣》等。李绅的诗歌反映社会现实，代表作有《悯农》等。</p>
+                        </li>
+                        <li><strong>鼎盛阶段：中唐后期</strong>
+                            <p>新乐府诗派的诗歌创作在中唐后期达到了顶峰，白居易、元稹等诗人创作了大量反映社会现实的诗歌，如白居易的《卖炭翁》、《长恨歌》、《琵琶行》等，元稹的《连昌宫词》等。这些诗歌在当时广泛流传，甚至远播到日本、朝鲜等国家。</p>
+                            <p>白居易的《新乐府》五十首和《秦中吟》十首是新乐府诗派的代表作，这些诗歌深刻反映了中唐时期的社会现实和人民疾苦，表达了对人民的同情和对统治阶级的批判。元稹的《新题乐府》二十首也是新乐府诗派的重要作品，这些诗歌同样反映了社会现实和人民疾苦。</p>
+                        </li>
+                        <li><strong>延续阶段：晚唐及以后</strong>
+                            <p>晚唐及以后，新乐府诗派的影响继续存在，出现了皮日休、聂夷中、杜荀鹤等诗人，他们的诗歌继承了新乐府诗派的传统，反映了晚唐时期的社会现实和人民疾苦，代表作有皮日休的《橡媪叹》、聂夷中的《咏田家》、杜荀鹤的《山中寡妇》等。</p>
+                            <p>宋代及以后，新乐府诗派的影响仍然存在，如宋代的梅尧臣、苏舜钦等诗人就继承了新乐府诗派的传统，主张诗歌要反映现实，关注民生。清代的黄遵宪等诗人也受到了新乐府诗派的影响，提倡"诗界革命"，主张诗歌要反映现实，关注民生。</p>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="genre-section">
+                    <h3>艺术特点</h3>
+                    <ul>
+                        <li><strong>通俗晓畅</strong>：新乐府诗歌语言通俗晓畅，易于理解，白居易的诗歌甚至被称为"老妪能解"，意思是连老太太都能理解。</li>
+                        <li><strong>反映社会现实</strong>：新乐府诗歌深刻反映社会现实，关注民生疾苦，如《卖炭翁》反映了宫市制度的腐败，《观刈麦》反映了农民的辛苦。</li>
+                        <li><strong>主题明确</strong>：新乐府诗歌主题明确，针对性强，每首诗都有明确的社会问题或现实主题。</li>
+                        <li><strong>形式自由</strong>：新乐府诗歌形式自由，不受古体诗的严格限制，句式长短不一，用韵灵活。</li>
+                        <li><strong>注重叙事</strong>：新乐府诗歌注重叙事，通过具体的故事和人物来反映社会现实，增强诗歌的感染力。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="genre-section">
+                    <h3>代表人物</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin: 40px 0;">
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/白居易.jpg" alt="白居易" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>白居易</h4>
+                            <p>白居易（772年-846年），字乐天，号香山居士，唐代著名诗人，新乐府运动的领袖之一。他的诗通俗晓畅，反映社会现实，代表作有《长恨歌》、《琵琶行》、《卖炭翁》等。他提出了"文章合为时而著，歌诗合为事而作"的文学主张。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/元稹.jpg" alt="元稹" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>元稹</h4>
+                            <p>元稹（779年-831年），字微之，唐代著名诗人，新乐府运动的领袖之一，与白居易并称"元白"。他的诗通俗晓畅，反映社会现实，代表作有《连昌宫词》、《遣悲怀三首》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/张籍.jpg" alt="张籍" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>张籍</h4>
+                            <p>张籍（约767年-约830年），字文昌，唐代著名诗人，新乐府运动的重要成员。他的诗语言简练，反映社会现实，代表作有《塞下曲》、《征妇怨》等。与王建并称"张王乐府"。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/王建.jpg" alt="王建" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>王建</h4>
+                            <p>王建（约767年-约830年），字仲初，唐代著名诗人，新乐府运动的重要成员。他的诗语言简练，反映社会现实，代表作有《田家行》、《水夫谣》等。与张籍并称"张王乐府"。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 经典作品 -->
+                <section class="genre-section">
+                    <h3>经典作品</h3>
+                    
+                    <div class="poem-example">
+                        <h4>《卖炭翁》（白居易）</h4>
+                        <p>卖炭翁，伐薪烧炭南山中。满面尘灰烟火色，两鬓苍苍十指黑。卖炭得钱何所营？身上衣裳口中食。可怜身上衣正单，心忧炭贱愿天寒。夜来城外一尺雪，晓驾炭车辗冰辙。牛困人饥日已高，市南门外泥中歇。翩翩两骑来是谁？黄衣使者白衫儿。手把文书口称敕，回车叱牛牵向北。一车炭，千余斤，宫使驱将惜不得。半匹红绡一丈绫，系向牛头充炭直。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《观刈麦》（白居易）</h4>
+                        <p>田家少闲月，五月人倍忙。夜来南风起，小麦覆陇黄。妇姑荷箪食，童稚携壶浆，相随饷田去，丁壮在南冈。足蒸暑土气，背灼炎天光，力尽不知热，但惜夏日长。复有贫妇人，抱子在其旁，右手秉遗穗，左臂悬敝筐。听其相顾言，闻者为悲伤。家田输税尽，拾此充饥肠。今我何功德？曾不事农桑。吏禄三百石，岁晏有余粮，念此私自愧，尽日不能忘。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《连昌宫词》（节选）（元稹）</h4>
+                        <p>连昌宫中满宫竹，岁久无人森似束。又有墙头千叶桃，风动落花红蔌蔌。宫边老翁为余泣，小年进食曾因入。上皇正在望仙楼，太真同凭阑干立。楼上楼前尽珠翠，炫转荧煌照天地。归来如梦复如痴，何暇备言宫里事。初过寒食一百六，店舍无烟宫树绿。夜半月高弦索鸣，贺老琵琶定场屋。力士传呼觅念奴，念奴潜伴诸郎宿。须臾觅得又连催，特敕街中许然烛。春娇满眼睡红绡，掠削云鬟旋装束。飞上九天歌一声，二十五郎吹管逐。</p>
+                    </div>
+                </section>
+
+                <!-- 流派影响 -->
+                <section class="genre-section">
+                    <h3>流派影响</h3>
+                    <p>新乐府诗派对中国后世诗歌和文化产生了深远的影响，具体表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>对后世诗人的影响</strong>
+                            <p>新乐府诗派的艺术风格和创作方法对后世诗人产生了重要影响。宋代的梅尧臣、苏舜钦等诗人继承了新乐府诗派的传统，主张诗歌要反映现实，关注民生。他们的诗歌反映了宋代的社会现实和人民疾苦，表达了对人民的同情和对统治阶级的批判。清代的黄遵宪等诗人也受到了新乐府诗派的影响，提倡"诗界革命"，主张诗歌要反映现实，关注民生。现代诗人艾青、臧克家等也受到了新乐府诗派的影响，他们的诗歌反映了现代中国的社会现实和人民疾苦，表达了对美好生活的向往。</p>
+                        </li>
+                        <li><strong>对诗歌理论的影响</strong>
+                            <p>新乐府诗派的"文章合为时而著，歌诗合为事而作"的文学主张，对后世的诗歌理论产生了深远的影响，成为中国文学史上的重要理论遗产。这一主张强调诗歌的社会功能和现实意义，主张诗歌要为时代服务，反映社会现实，为后世许多诗人所继承和发展。例如，宋代的陆游、辛弃疾等诗人就主张诗歌要反映现实，关注民生；清代的黄宗羲、顾炎武等思想家也强调诗歌的社会功能，主张诗歌要为时代服务。</p>
+                        </li>
+                        <li><strong>对中国文化的影响</strong>
+                            <p>新乐府诗派的诗歌真实地反映了中唐时期的社会现实和人民疾苦，成为中国文化的重要组成部分，也是研究唐代历史和社会的重要资料。新乐府诗派的许多经典作品，如白居易的《卖炭翁》、《长恨歌》、《琵琶行》等，至今仍被广泛传诵，成为中国文化的瑰宝。新乐府诗派所表达的对人民疾苦的同情、对社会现实的批判和对美好生活的向往，也成为中国文化的重要精神遗产。</p>
+                        </li>
+                        <li><strong>对世界文学的影响</strong>
+                            <p>新乐府诗派的作品被翻译成多种文字，在世界范围内广泛传播，为世界文学的发展做出了重要贡献。白居易的诗歌被翻译成英语、法语、德语等多种语言，受到了世界各国读者的喜爱。新乐府诗派的艺术风格和创作方法也对世界文学产生了影响，如日本的平安时代文学就受到了新乐府诗派的影响，出现了许多反映社会现实的作品。</p>
+                        </li>
+                        <li><strong>对社会的影响</strong>
+                            <p>新乐府诗派的诗歌反映了社会现实和人民疾苦，对社会产生了重要的影响。许多新乐府诗歌揭露了社会的黑暗和不公，引起了人们对社会问题的关注，推动了社会的进步和改革。例如，白居易的《卖炭翁》揭露了宫市制度的腐败，引起了人们对这一制度的批判，最终导致了宫市制度的废除。元稹的《连昌宫词》则通过对唐代由盛转衰的历史过程的描写，表达了对国家命运的关注，引起了人们对政治腐败的反思。</p>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.innerHTML = '↑';
+            document.body.appendChild(backToTopBtn);
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

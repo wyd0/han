@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七言诗 - 诗歌体裁详细说明</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="poetry_styles.css">
+    <style>
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        /* 页面头部样式 */
+        .poetry-detail-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .poetry-detail-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .poetry-detail-header p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 主要内容样式 */
+        .poetry-detail-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .poetry-detail-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 15px;
+        }
+        
+        .genre-detail {
+            margin-bottom: 40px;
+        }
+        
+        .genre-detail h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #8B4513;
+        }
+        
+        .genre-detail p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .genre-detail ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .genre-detail li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* 诗歌示例样式 */
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+        }
+        
+        .poem-example h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* 返回链接样式 */
+        .back-link-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-2px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .poetry-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .poetry-detail-content {
+                padding: 20px;
+            }
+            
+            .poetry-detail-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .genre-detail h3 {
+                font-size: 1.3rem;
+            }
+            
+            .genre-detail p,
+            .genre-detail li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 15px;
+            }
+            
+            .back-link {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 诗歌导航栏 -->
+    <nav class="poetry-nav">
+        <div class="container">
+            <ul class="poetry-nav-links">
+                <li><a href="poetry_gu_ti.html">古体诗</a></li>
+                <li><a href="poetry_jin_ti.html">近体诗</a></li>
+                <li><a href="poetry_ci.html">词</a></li>
+                <li><a href="poetry_qu.html">曲</a></li>
+                <li><a href="poetry_lyric.html">抒情诗</a></li>
+                <li><a href="poetry_narrative.html">叙事诗</a></li>
+                <li><a href="poetry_landscape.html">山水田园诗</a></li>
+                <li><a href="poetry_frontier.html">边塞诗</a></li>
+                <li><a href="poetry_epic.html">咏史诗</a></li>
+                <li><a href="poetry_object.html">咏物诗</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <section class="poetry-detail-header">
+        <div class="container">
+            <div class="poetry-detail-header-content">
+                <h1>七言诗</h1>
+                <p>语言流畅，气势磅礴的诗歌形式</p>
+                <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="poetry-detail-main">
+        <div class="container">
+            <div class="poetry-detail-content">
+                <!-- 七言诗详细说明 -->
+                <section class="poetry-detail-section">
+                    <h2>七言诗</h2>
+                    <div class="genre-detail">
+                        <h3>概述</h3>
+                        <p>七言诗是中国古代诗歌的重要体裁之一，以七字句式为主。它起源于汉代乐府民歌，成熟于唐代，是中国诗歌发展的重要形式。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>历史发展</h3>
+                        <p>七言诗是中国古代诗歌的重要体裁之一，其起源可以追溯到先秦时期的民间歌谣。在《诗经》中，已经有一些七言句式的萌芽，如《豳风·七月》中的"二之日凿冰冲冲，三之日纳于凌阴"等。</p>
+                        <p>汉代是七言诗的形成时期。西汉时期，七言诗主要流行于民间，乐府民歌中出现了一些七言句式的诗歌，如《有所思》、《上邪》等。这些民歌语言质朴，感情真挚，为七言诗的发展奠定了基础。</p>
+                        <p>东汉时期，文人开始尝试创作七言诗，但数量较少，艺术水平也不高。班固的《竹扇赋》残篇是现存最早的文人七言作品，但它还不是完整的七言诗。张衡的《四愁诗》是较早的文人七言诗作品，虽然每句中间有"兮"字，但已经具备了七言诗的基本形式。</p>
+                        <p>魏晋南北朝时期，七言诗得到了初步的发展。曹丕的《燕歌行》二首，是现存最早的完整七言诗，标志着七言诗的正式形成。这两首诗语言优美，感情真挚，艺术水平较高，为七言诗的发展树立了典范。随后，陆机、谢灵运、鲍照等诗人也创作了一些七言诗作品，虽然数量不多，但艺术水平不断提高。鲍照的《拟行路难》十八首，是这一时期七言诗的代表作品，风格刚健豪放，对后世产生了深远的影响。</p>
+                        <p>唐代是七言诗的鼎盛时期，不仅有大量的七言古诗，还有成熟的七言律诗和七言绝句。唐代七言诗的题材更加广泛，风格更加多样，艺术水平达到了登峰造极的地步。</p>
+                        <p>初唐时期，七言诗开始兴起，出现了卢照邻的《长安古意》、骆宾王的《帝京篇》等长篇七言古诗，风格豪放，气势磅礴。盛唐时期，七言诗达到了鼎盛，出现了李白、杜甫、王维、孟浩然等著名诗人。李白的七言古诗，如《将进酒》、《蜀道难》等，风格豪放飘逸，想象丰富，成为中国文学史上的经典之作；杜甫的七言律诗，如《登高》、《秋兴八首》等，被称为"七律之冠"，艺术水平达到了登峰造极的地步；王维、孟浩然的七言山水田园诗，风格清新自然，意境深远。中唐时期，白居易的七言古诗，如《长恨歌》、《琵琶行》等，篇幅宏大，情节完整，成为叙事诗的典范。晚唐时期，李商隐、杜牧的七言律诗，风格婉约，意境朦胧，艺术水平很高。</p>
+                        <p>宋代是七言诗的继续发展时期，出现了苏轼、陆游、黄庭坚等著名诗人。苏轼的七言诗，风格豪放，意境开阔，如《题西林壁》、《饮湖上初晴后雨》等；陆游的七言诗，风格沉郁悲壮，如《金错刀行》、《长歌行》等，数量众多，艺术水平很高。</p>
+                        <p>元代以后，七言诗继续发展，但由于词、曲等体裁的兴起，其地位逐渐下降。不过，仍有一些著名诗人创作了优秀的七言诗作品，如明代的高启、清代的龚自珍等。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>艺术特点</h3>
+                        <ul>
+                            <li><strong>句式流畅</strong>：七字句式比五言诗更长，表达更加充分，语言更加流畅。</li>
+                            <li><strong>节奏明快</strong>：七言诗的节奏通常为四三拍或二二三拍，韵律明快。</li>
+                            <li><strong>气势磅礴</strong>：七言诗篇幅较长，适合表达宏大的主题和强烈的情感。</li>
+                            <li><strong>题材广泛</strong>：可以表现各种题材，如山水田园、边塞战争、思乡怀人、咏史抒怀等。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>代表作品</h3>
+                        <div class="poem-example">
+                            <h4>《将进酒》（李白）</h4>
+                            <p>君不见黄河之水天上来，奔流到海不复回。</p>
+                            <p>君不见高堂明镜悲白发，朝如青丝暮成雪。</p>
+                            <p>人生得意须尽欢，莫使金樽空对月。</p>
+                            <p>天生我材必有用，千金散尽还复来。</p>
+                            <p>烹羊宰牛且为乐，会须一饮三百杯。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《茅屋为秋风所破歌》（杜甫）</h4>
+                            <p>八月秋高风怒号，卷我屋上三重茅。</p>
+                            <p>茅飞渡江洒江郊，高者挂罥长林梢，下者飘转沉塘坳。</p>
+                            <p>南村群童欺我老无力，忍能对面为盗贼。</p>
+                            <p>公然抱茅入竹去，唇焦口燥呼不得，归来倚杖自叹息。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《黄鹤楼》（崔颢）</h4>
+                            <p>昔人已乘黄鹤去，此地空余黄鹤楼。</p>
+                            <p>黄鹤一去不复返，白云千载空悠悠。</p>
+                            <p>晴川历历汉阳树，芳草萋萋鹦鹉洲。</p>
+                            <p>日暮乡关何处是？烟波江上使人愁。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《登高》（杜甫）</h4>
+                            <p>风急天高猿啸哀，渚清沙白鸟飞回。</p>
+                            <p>无边落木萧萧下，不尽长江滚滚来。</p>
+                            <p>万里悲秋常作客，百年多病独登台。</p>
+                            <p>艰难苦恨繁霜鬓，潦倒新停浊酒杯。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>分类</h3>
+                        <p>七言诗主要分为以下几类：</p>
+                        <ul>
+                            <li><strong>七言古诗</strong>：句式自由，不严格讲究平仄和对仗，用韵也比较自由。</li>
+                            <li><strong>七言律诗</strong>：唐代形成的格律诗，严格讲究平仄、对仗和用韵，每首八句。</li>
+                            <li><strong>七言绝句</strong>：唐代形成的格律诗，严格讲究平仄、对仗和用韵，每首四句。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>影响与地位</h3>
+                        <p>七言诗在中国文学史上占有极其重要的地位，它是中国古代诗歌的重要体裁之一，对后世诗歌的发展产生了深远的影响。</p>
+                        <p><strong>对诗歌形式的影响</strong>：七言诗的句式流畅、气势磅礴的特点，为后世诗歌的发展提供了新的可能性。它的四三节拍或二二三节拍，成为中国古典诗歌的重要节奏模式，影响了词、曲等后世诗歌形式的发展。七言诗的出现，标志着中国古代诗歌从简短到繁复，从古朴到华丽的方向发展。</p>
+                        <p><strong>对文学创作的影响</strong>：七言诗的发展，推动了中国古代文学创作的繁荣。从汉代的民间歌谣到魏晋南北朝的文人创作，再到唐代的鼎盛时期，七言诗的题材不断扩大，风格不断丰富，艺术水平不断提高，成为中国古代文学的重要组成部分。七言诗的篇幅较长，适合表达更加复杂的情感和更加宏大的主题，为诗人提供了更广阔的创作空间。</p>
+                        <p><strong>对诗歌理论的影响</strong>：七言诗的发展，促进了中国古代诗歌理论的形成和发展。唐代的诗歌理论著作，如司空图的《二十四诗品》、皎然的《诗式》等，都对七言诗的创作和批评进行了深入的探讨，为中国古代诗歌理论的发展做出了重要贡献。</p>
+                        <p><strong>对后世诗人的影响</strong>：七言诗的优秀作品，对后世诗人产生了深远的影响。李白的豪放飘逸、杜甫的沉郁顿挫、白居易的通俗易懂、李商隐的婉约朦胧等风格，都成为后世诗人学习和模仿的典范。许多著名诗人，如苏轼、陆游、辛弃疾等，都在七言诗的创作上取得了很高的成就。</p>
+                        <p><strong>在文学史上的地位</strong>：七言诗是中国古代诗歌发展的重要阶段，它上承四言诗和五言诗，下启词、曲等体裁，是中国古代诗歌从古朴到成熟的重要标志。七言诗的发展，标志着中国古代诗歌进入了一个新的阶段，为唐代诗歌的鼎盛奠定了基础。</p>
+                        <p><strong>对文化传承的影响</strong>：七言诗不仅是文学作品，也是中国传统文化的重要载体。它反映了中国古代社会的政治、经济、文化等各个方面的情况，是研究中国古代社会历史和文化的重要资料。七言诗中的许多优秀作品，如《将进酒》、《登高》、《长恨歌》等，成为中国文化的经典之作，被后世广泛传诵和研究。</p>
+                        <p><strong>对世界文学的影响</strong>：七言诗作为中国古代文学的重要组成部分，对世界文学也产生了一定的影响。许多外国学者和诗人对中国的七言诗产生了浓厚的兴趣，进行了翻译和研究，促进了中外文化的交流。</p>
+                        <p>七言诗在中国文学史上的地位不可动摇，它是中国古代诗歌的重要组成部分，也是中华民族文化遗产中的瑰宝。它的发展历程，反映了中国古代文学从民间到文人，从自由到格律的演变过程，是中国文学发展的重要见证。七言诗的优秀作品，不仅是中国文学的经典之作，也是世界文学宝库中的重要财富。</p>
+                    </div>
+                </section>
+                
+                <!-- 返回链接 -->
+                <div class="back-link-container">
+                    <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="poetry_script.js"></script>
+</body>
+</html>

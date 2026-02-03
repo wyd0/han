@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土家族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 详细页面特定样式 */
+        .detail-header {
+            background-image: url('images/ethnicity.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-main {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .detail-content h2 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .detail-header h1 {
+                font-size: 28px;
+            }
+            
+            .detail-content h2 {
+                font-size: 24px;
+            }
+            
+            .detail-content h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="detail-header">
+        <div class="container">
+            <div class="detail-header-content">
+                <h1>土家族传统节日</h1>
+                <a href="tujia.html" class="back-link">返回土家族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-content">
+                <p>土家族有许多传统节日，这些节日承载着丰富的文化内涵，是土家族文化的重要组成部分。每个节日都有其独特的起源、习俗和意义，反映了土家族人民的生活方式、宗教信仰和价值观念。</p>
+                
+                <h2>赶年</h2>
+                <p>赶年是土家族最重要的传统节日，比汉族的春节提前一天或几天举行。赶年的起源与土家族的历史密切相关，据说是为了纪念古代土家族人民为了抗击外敌而提前过年的历史事件。</p>
+                <h3>主要活动</h3>
+                <ul>
+                    <li><strong>祭祖：</strong>赶年期间，土家族人民会举行隆重的祭祖仪式，向祖先献上祭品，祈求祖先的保佑。</li>
+                    <li><strong>跳摆手舞：</strong>摆手舞是土家族传统的舞蹈形式，赶年期间，人们会聚集在一起跳摆手舞，庆祝节日。</li>
+                    <li><strong>吃年饭：</strong>赶年的年饭非常丰盛，有腊肉、糍粑、合渣等传统食品，一家人围坐在一起，共度佳节。</li>
+                    <li><strong>拜年：</strong>赶年期间，土家族人民会走亲访友，互相拜年，增进感情。</li>
+                </ul>
+                
+                <h2>摆手节</h2>
+                <p>摆手节是土家族传统节日，主要流行于湖南、湖北、重庆等土家族聚居地区。摆手节的主要活动是跳摆手舞，因此得名。</p>
+                <h3>主要活动</h3>
+                <ul>
+                    <li><strong>摆手舞：</strong>摆手舞是摆手节的核心活动，舞者手持道师，边唱边跳，节奏明快，气氛热烈。</li>
+                    <li><strong>撒叶儿嗬：</strong>撒叶儿嗬是土家族传统舞蹈形式，舞者头戴面具，身着彩衣，表现原始人类的生活场景。</li>
+                    <li><strong>祭祀：</strong>摆手节期间，土家族人民会举行祭祀活动，祈求风调雨顺、五谷丰登。</li>
+                </ul>
+                
+                <h2>牛王节</h2>
+                <p>牛王节是土家族传统节日，在每年的农历四月初八举行。牛王节是为了纪念牛王菩萨，感谢牛为人类做出的贡献。</p>
+                <h3>主要活动</h3>
+                <ul>
+                    <li><strong>祭祀牛王：</strong>牛王节期间，土家族人民会在牛栏前举行祭祀仪式，向牛王菩萨献上祭品，祈求牛的健康。</li>
+                    <li><strong>放牛休息：</strong>牛王节当天，土家族人民会让牛休息一天，不给牛安排劳动任务。</li>
+                    <li><strong>吃牛王饭：</strong>牛王节期间，土家族人民会制作特殊的食品，如牛王粑等，庆祝节日。</li>
+                </ul>
+                
+                <h2>六月六</h2>
+                <p>六月六是土家族传统节日，在每年的农历六月初六举行。六月六的起源与土家族的农业生产密切相关，是为了祈求农业丰收。</p>
+                <h3>主要活动</h3>
+                <ul>
+                    <li><strong>晒衣物：</strong>六月六当天，土家族人民会把家中的衣物、被褥等拿出来晾晒，据说这样可以防虫蛀。</li>
+                    <li><strong>祭祀祖先：</strong>六月六期间，土家族人民会举行祭祀活动，向祖先献上祭品，祈求祖先的保佑。</li>
+                    <li><strong>吃六月六饭：</strong>六月六期间，土家族人民会制作特殊的食品，如六月六粑等，庆祝节日。</li>
+                </ul>
+                
+                <h2>中元节</h2>
+                <p>中元节是土家族传统节日，与汉族的中元节相同，在每年的农历七月十五日举行。中元节是为了祭祀祖先和超度亡灵。</p>
+                <h3>主要活动</h3>
+                <ul>
+                    <li><strong>祭祖：</strong>中元节期间，土家族人民会举行隆重的祭祖仪式，向祖先献上祭品，祈求祖先的保佑。</li>
+                    <li><strong>放河灯：</strong>中元节晚上，土家族人民会在河流、湖泊等水域放河灯，超度亡灵。</li>
+                    <li><strong>吃中元节饭：</strong>中元节期间，土家族人民会制作特殊的食品，如中元节粑等，庆祝节日。</li>
+                </ul>
+                
+                <h2>节日的文化意义</h2>
+                <p>土家族的传统节日不仅是土家族人民庆祝丰收、祈求平安的重要方式，也是传承和弘扬土家族文化的重要载体。通过这些节日，土家族人民可以增强民族凝聚力，传承民族文化，同时也可以促进各民族之间的文化交流和融合。</p>
+                <p>土家族的传统节日反映了土家族人民对自然的敬畏、对祖先的敬仰、对美好生活的向往，是土家族文化的重要组成部分，也是中华文化的瑰宝。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

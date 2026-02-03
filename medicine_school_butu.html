@@ -1,0 +1,426 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>补土派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 医学流派导航样式 */
+        .school-nav {
+            background-color: rgba(192, 57, 43, 0.05);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .school-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .school-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            font-size: 16px;
+            border: 1px solid #c0392b;
+        }
+        
+        .school-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+        }
+        
+        .school-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+            
+            .school-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .school-nav a {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>补土派</h1>
+                <p>中国传统医学的重要流派之一</p>
+                <a href="medicine.html" class="back-home">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 医学流派导航 -->
+                <nav class="school-nav">
+                    <ul>
+                        <li><a href="medicine_school_butu.html" class="active">补土派</a></li>
+                        <li><a href="medicine_school_gongxie.html">攻邪派</a></li>
+                        <li><a href="medicine_school_huoshen.html">火神派</a></li>
+                        <li><a href="medicine_school_jingfang.html">经方派</a></li>
+                        <li><a href="medicine_school_shanghan.html">伤寒学派</a></li>
+                        <li><a href="medicine_school_shifang.html">时方派</a></li>
+                        <li><a href="medicine_school_wenbing.html">温病学派</a></li>
+                        <li><a href="medicine_school_ziyin.html">滋阴派</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 创始人 -->
+                <section class="medicine-section">
+                    <h2>创始人</h2>
+                    <p>补土派的创始人是金元时期著名医学家李杲（1180-1251年）。李杲，字明之，号东垣老人，河北真定（今河北省正定县）人，金元四大家之一。</p>
+                    <p>李杲生活在金元时期，当时社会动荡，战乱频繁，他观察到许多人因脾胃虚弱而导致的疾病，于是开始研究医学，提出了“脾胃为后天之本”的理论，创立了补土派，为中医脾胃学的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 起源 -->
+                <section class="medicine-section">
+                    <h2>起源</h2>
+                    <p>补土派的起源可以追溯到金元时期，当时李杲根据自己的临床实践，撰写了《脾胃论》、《内外伤辨惑论》等著作，系统地阐述了脾胃在人体中的重要作用，创立了补土派。</p>
+                    <p>补土派的核心思想是强调脾胃在人体中的重要作用，认为脾胃虚弱是导致多种疾病的根本原因，主张通过调理脾胃来治疗疾病。补土派的理论对后世中医的发展产生了深远的影响。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="medicine-section">
+                    <h2>发展</h2>
+                    <h3>金元时期：补土派的创立</h3>
+                    <p>金元时期是补土派创立的关键时期。李杲（1180-1251年）是补土派的创始人，他生活在金元战乱时期，观察到许多人因脾胃虚弱而导致的疾病，于是开始研究医学，提出了“脾胃为后天之本”的理论，创立了补土派。</p>
+                    <p>李杲的学术思想主要包括以下几个方面：</p>
+                    <ul>
+                        <li>提出了“脾胃为后天之本，气血生化之源”的理论</li>
+                        <li>建立了“内伤脾胃，百病由生”的病因病机理论</li>
+                        <li>提出了“升阳益气，甘温除热”的治疗原则</li>
+                        <li>创制了大量调理脾胃的方剂，如补中益气汤、四君子汤、参苓白术散等</li>
+                    </ul>
+                    <p>李杲的著作主要有《脾胃论》、《内外伤辨惑论》、《兰室秘藏》等，这些著作系统地阐述了补土派的理论和方法，为补土派的发展奠定了基础。</p>
+                    
+                    <h3>明代：补土派的传承与发展</h3>
+                    <p>明代是补土派传承与发展的重要时期。许多医学家在继承李杲理论的基础上，结合自己的临床实践，进一步丰富和发展了补土派的理论和方法。</p>
+                    <ul>
+                        <li><strong>薛己（1487-1559年）</strong>：著有《内科摘要》、《外科发挥》等著作，继承了李杲的脾胃学说，并将其应用于外科疾病的治疗，提出了“外科必本于内，知内以求于外”的观点。</li>
+                        <li><strong>张景岳（1563-1640年）</strong>：著有《景岳全书》，进一步丰富和发展了补土派的理论和方法。他提出了“阳非有余，阴常不足”的观点，并创制了大量调理脾胃的方剂，如大补元煎、五福饮等。</li>
+                        <li><strong>李中梓（1588-1655年）</strong>：著有《医宗必读》，强调脾胃在人体中的重要作用，提出了“肾为先天之本，脾为后天之本”的理论，进一步完善了中医的脾胃学说。</li>
+                    </ul>
+                    
+                    <h3>清代：补土派的进一步发展</h3>
+                    <p>清代是补土派进一步发展的时期。许多医学家在继承李杲理论的基础上，结合自己的临床实践，对补土派的理论和方法进行了创新和发展。</p>
+                    <ul>
+                        <li><strong>叶天士（1667-1746年）</strong>：著有《临证指南医案》，继承了李杲的脾胃学说，并将其与温病学相结合，提出了“顾护脾胃”的理论，丰富了补土派的治疗方法。</li>
+                        <li><strong>吴鞠通（1758-1836年）</strong>：著有《温病条辨》，在治疗温病时注重顾护脾胃，提出了“治中焦如衡，非平不安”的治疗原则。</li>
+                        <li><strong>王孟英（1808-1868年）</strong>：著有《温热经纬》，在治疗温病时强调顾护脾胃，提出了“脾阴不足，胃阴不足”的观点，丰富了补土派的理论。</li>
+                        <li><strong>陈修园（1753-1823年）</strong>：著有《医学三字经》、《时方妙用》等著作，对李杲的脾胃学说进行了通俗的解释和推广，使补土派的理论更加普及。</li>
+                    </ul>
+                    
+                    <h3>现代：补土派的传承与创新</h3>
+                    <p>现代，补土派的传承与创新进入了一个新的阶段。许多医学家在继承传统补土派理论的基础上，结合现代医学知识和临床实践，对补土派的理论和方法进行了深入的研究和发展。</p>
+                    <ul>
+                        <li><strong>李济仁（1860-1933年）</strong>：著有《医学从众录》，继承了李杲的脾胃学说，并结合现代医学知识，创制了大量调理脾胃的方剂，如健脾丸、开胃散等。</li>
+                        <li><strong>蒲辅周（1881-1969年）</strong>：现代著名中医学家，继承了李杲的脾胃学说，并将其与现代医学相结合，提出了“脾胃为中心，整体调理”的治疗原则。</li>
+                        <li><strong>董建华（1918-2001年）</strong>：现代著名中医学家，著有《脾胃病论治》等著作，对脾胃疾病的诊疗规律进行了深入的研究，提出了“通降理论”，丰富了补土派的治疗方法。</li>
+                        <li><strong>周学霆（1928- ）</strong>：现代著名中医学家，继承了李杲的脾胃学说，并将其应用于疑难杂病的治疗，提出了“脾胃为本，辨证施治”的治疗原则。</li>
+                    </ul>
+                    <p>近年来，随着中医现代化的推进，补土派的理论和方法也在不断地创新和发展。通过现代科学手段的研究，人们对脾胃的生理功能和病理变化有了更深入的认识，补土派的治疗方法也得到了科学的验证。</p>
+                    <p>现代研究表明，补土派的方剂如补中益气汤、四君子汤等具有调节免疫功能、促进消化吸收、改善胃肠功能等作用，这些研究成果为补土派的理论和方法提供了科学依据。</p>
+                    <p>补土派作为中国传统医学的重要流派，将继续为人类的健康事业做出重要的贡献。</p>
+                </section>
+
+                <!-- 理论 -->
+                <section class="medicine-section">
+                    <h2>理论</h2>
+                    <p>补土派的核心理论包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>脾胃为后天之本</strong>：补土派强调脾胃在人体中的重要作用，认为脾胃是人体后天之本，气血生化之源，脾胃虚弱是导致多种疾病的根本原因。</li>
+                        <li><strong>内伤脾胃，百病由生</strong>：补土派认为，脾胃虚弱会导致多种疾病的发生，因此治疗疾病时应该从调理脾胃入手。</li>
+                        <li><strong>升阳益气</strong>：补土派主张通过升阳益气来调理脾胃，常用的方剂有补中益气汤、四君子汤等。</li>
+                        <li><strong>甘温除热</strong>：补土派认为，脾胃虚弱会导致气虚发热，因此主张通过甘温之剂来治疗这种发热。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="medicine-section">
+                    <h2>影响</h2>
+                    <p>补土派对中国传统医学的发展产生了深远的影响，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>脾胃学说</strong>：补土派的理论推动了中医脾胃学说的发展，为中医治疗脾胃疾病提供了理论基础。</li>
+                        <li><strong>临床实践</strong>：补土派的理论和方法被广泛应用于临床实践，成为中医治疗脾胃疾病的重要方法之一。</li>
+                        <li><strong>医学教育</strong>：补土派的理论是中医教育的重要内容，是培养中医人才的重要组成部分。</li>
+                        <li><strong>学术流派</strong>：补土派的发展推动了其他医学流派的形成和发展，丰富了中医的学术体系。</li>
+                    </ul>
+                </section>
+
+                <!-- 著作 -->
+                <section class="medicine-section">
+                    <h2>著作</h2>
+                    <ul>
+                        <li><strong>《脾胃论》</strong>：金元时期李杲著，补土派的奠基之作，系统地阐述了脾胃在人体中的重要作用。</li>
+                        <li><strong>《内外伤辨惑论》</strong>：金元时期李杲著，专门论述内外伤疾病的区别诊断和治疗方法。</li>
+                        <li><strong>《兰室秘藏》</strong>：金元时期李杲著，记录了大量治疗脾胃疾病的方剂。</li>
+                        <li><strong>《景岳全书》</strong>：明代张景岳著，进一步丰富和发展了补土派的理论和方法。</li>
+                        <li><strong>《脾胃病论治》</strong>：现代董建华著，对脾胃疾病的诊疗规律进行了深入的研究。</li>
+                    </ul>
+                </section>
+
+                <!-- 语句 -->
+                <section class="medicine-section">
+                    <h2>语句</h2>
+                    <ul>
+                        <li><strong>“脾胃为后天之本，气血生化之源。”</strong> ——《脾胃论》</li>
+                        <li><strong>“内伤脾胃，百病由生。”</strong> ——《脾胃论》</li>
+                        <li><strong>“脾胃虚弱，阳气下陷，故用升提。”</strong> ——《内外伤辨惑论》</li>
+                        <li><strong>“甘温除热，升阳益气。”</strong> ——《兰室秘藏》</li>
+                        <li><strong>“脾胃健，则气血生化有源，百病不生。”</strong> ——《景岳全书》</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

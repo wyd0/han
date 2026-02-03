@@ -1,0 +1,430 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思想文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 思想文化详情页面特定样式 */
+        body {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .culture-header {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .culture-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .culture-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .culture-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .culture-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .culture-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .culture-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .culture-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .culture-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .culture-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .culture-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .culture-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .culture-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .culture-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .culture-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .school-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .school-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .school-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .school-item p {
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .culture-header h1 {
+                font-size: 36px;
+            }
+            
+            .culture-header p {
+                font-size: 18px;
+            }
+            
+            .culture-section h2 {
+                font-size: 28px;
+            }
+            
+            .schools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="culture-header">
+        <div class="container">
+            <div class="culture-header-content">
+                <h1>思想文化</h1>
+                <p>中华文化的多元智慧与精神传承</p>
+                <a href="index.html" class="back-home">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="culture-main">
+        <div class="container">
+            <div class="culture-content">
+                <!-- 思想文化概述 -->
+                <section class="culture-section">
+                    <h2>思想文化概述</h2>
+                    <p>中国思想文化是中华文化的核心组成部分，涵盖了哲学、伦理、政治、教育等多个领域，是中华民族精神的凝聚。自先秦时期形成的百家争鸣格局，到后来的儒家学说地位确立，再到宋明理学的发展，中国思想文化经历了漫长的历史变迁，形成了独具特色的思想体系。</p>
+                    <p>中国思想文化不仅对中国社会的发展产生了深远影响，也对东亚乃至世界文化的发展做出了重要贡献。在现代社会，中国传统思想文化中的许多精神和价值观，仍然具有重要的现实意义。</p>
+                </section>
+
+                <!-- 主要思想流派 -->
+                <section class="culture-section">
+                    <h2>主要思想流派</h2>
+                    <div class="schools-grid">
+                        <a href="confucianism_detail.html" class="school-item">
+                            <h4>儒家</h4>
+                            <p>以孔子、孟子、荀子为代表，强调仁爱、礼制、中庸、道德等价值观，主张德治和仁政</p>
+                        </a>
+                        <a href="taoism_detail.html" class="school-item">
+                            <h4>道家</h4>
+                            <p>以老子、庄子为代表，强调自然无为、顺应天理，追求精神自由和内心宁静</p>
+                        </a>
+                        <a href="legalism_detail.html" class="school-item">
+                            <h4>法家</h4>
+                            <p>以韩非、商鞅为代表，强调法治、集权，主张以严刑峻法治理国家</p>
+                        </a>
+                        <a href="mohism_detail.html" class="school-item">
+                            <h4>墨家</h4>
+                            <p>以墨子为代表，强调兼爱、非攻、尚贤、节用，主张平等和互助</p>
+                        </a>
+                        <a href="military_detail.html" class="school-item">
+                            <h4>兵家</h4>
+                            <p>以孙武、孙膑为代表，强调军事战略，研究战争规律和用兵智慧</p>
+                        </a>
+                        <a href="mingjia_detail.html" class="school-item">
+                            <h4>名家</h4>
+                            <p>以公孙龙、惠施为代表，强调名实关系，研究逻辑和辩论技巧</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 历史发展 -->
+                <section class="culture-section">
+                    <h2>历史发展</h2>
+                    <h3>先秦时期：百家争鸣</h3>
+                    <p>先秦时期（公元前21世纪-公元前221年）是中国思想文化的萌芽时期，出现了百家争鸣的局面。这一时期，各种思想流派竞相涌现，相互辩难、相互影响，为中国思想文化的发展奠定了基础。</p>
+                    <p>儒家、道家、法家、墨家等主要思想流派都在这一时期形成，他们的思想对中国乃至世界文化都产生了深远的影响。</p>
+                    
+                    <h3>秦汉时期：统一与整合</h3>
+                    <p>秦朝统一六国后，实行焚书坑儒，对思想文化造成了严重破坏。汉朝建立后，汉武帝采纳董仲舒的建议，"罢黜百家，独尊儒术"，确立了儒家思想的正统地位。</p>
+                    <p>这一时期，儒家思想与法家、道家思想相互融合，形成了新的思想体系，为中国封建社会的稳定和发展提供了理论基础。</p>
+                    
+                    <h3>魏晋南北朝：玄学与佛道融合</h3>
+                    <p>魏晋南北朝时期（220年-589年），社会动荡不安，儒家思想的正统地位受到挑战。这一时期，玄学兴起，佛教传入中国，道教也得到了发展。</p>
+                    <p>玄学以老庄思想为基础，融合了儒家思想，形成了新的哲学体系。佛教和道教的传入，为中国思想文化注入了新的活力。</p>
+                    
+                    <h3>宋明时期：理学与心学</h3>
+                    <p>宋明时期（960年-1644年），儒家思想与佛教、道教思想进一步融合，形成了宋明理学。理学以程颐、程颢、朱熹为代表，强调"存天理，灭人欲"的道德修养。</p>
+                    <p>明朝时期，王守仁提出了心学，主张"心即理"、"知行合一"，对理学进行了革新和发展。</p>
+                    
+                    <h3>近代以来：转型与创新</h3>
+                    <p>近代以来，中国面临着西方文化的冲击和现代化的挑战。中国思想文化开始了转型与创新的过程，出现了维新思想、民主思想、科学思想等新的思想潮流。</p>
+                    <p>在这一过程中，中国传统思想文化与西方文化相互碰撞、相互融合，为中国的现代化进程提供了思想动力。</p>
+                </section>
+
+                <!-- 中国古代哲学观 -->
+                <section class="culture-section">
+                    <h2>中国古代哲学观</h2>
+                    <h3>天人合一</h3>
+                    <p>天人合一是中国古代哲学的重要观念，强调人与自然的和谐统一。儒家认为人应当遵循天道，道家主张道法自然，都体现了这种思想。天人合一的观念影响了中国传统的宇宙观、伦理观和价值观，成为中国传统文化的重要特征。</p>
+                    
+                    <h3>阴阳五行</h3>
+                    <p>阴阳五行学说是中国古代哲学的重要组成部分，用来解释宇宙万物的生成和变化。阴阳表示事物的对立统一关系，五行（金、木、水、火、土）表示事物的五种基本元素及其相互关系。这种思想方法对中国古代的医学、天文、历法等领域产生了深远的影响。</p>
+                    
+                    <h3>道器之辨</h3>
+                    <p>道器之辨是中国古代哲学关于本体与现象关系的探讨。"道"指的是宇宙的本原和规律，"器"指的是具体的事物和现象。儒家、道家、法家等学派都对道器关系有不同的阐述，反映了中国古代哲学对本体论问题的关注。</p>
+                    
+                    <h3>知行合一</h3>
+                    <p>知行合一是中国古代哲学关于认识与实践关系的重要思想。儒家强调知识与实践的统一，王阳明提出"知行合一"的学说，认为真正的知识必须通过实践来体现，而实践也必须基于正确的认识。这种思想对中国传统的教育观和道德观产生了深远的影响。</p>
+                    
+                    <h3>中庸之道</h3>
+                    <p>中庸之道是儒家哲学的重要方法，强调在处理问题时寻求适度和平衡，避免极端。孔子认为"过犹不及"，主张在各种对立的因素之间找到平衡点。中庸之道不仅是一种思维方式，也是一种生活态度和道德修养的方法。</p>
+                </section>
+
+                <!-- 核心价值观 -->
+                <section class="culture-section">
+                    <h2>核心价值观</h2>
+                    <h3>仁爱和谐</h3>
+                    <p>仁爱是儒家思想的核心，强调人与人之间的互相关爱和尊重。和谐是中国传统思想文化的重要价值观，强调人与自然、人与社会、人与人之间的和谐相处。</p>
+                    
+                    <h3>诚信正义</h3>
+                    <p>诚信是中国传统道德的重要规范，强调真诚待人、言行一致。正义是社会秩序的重要保障，强调行为符合道德规范和社会正义。</p>
+                    
+                    <h3>自强不息</h3>
+                    <p>自强不息是中华民族的传统美德，强调积极进取、奋发向上。《周易》中说："天行健，君子以自强不息"，体现了中华民族的进取精神。</p>
+                    
+                    <h3>厚德载物</h3>
+                    <p>厚德载物强调品德高尚、包容万物。《周易》中说："地势坤，君子以厚德载物"，体现了中华民族的宽广胸怀和道德追求。</p>
+                    
+                    <h3>中庸之道</h3>
+                    <p>中庸之道是儒家的重要方法，强调适度、平衡，避免极端。"过犹不及"是中庸思想的核心，主张在各种关系中寻求和谐与平衡。</p>
+                </section>
+
+                <!-- 现代意义 -->
+                <section class="culture-section">
+                    <h2>现代意义</h2>
+                    <p>在现代社会，中国传统思想文化仍然具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>和谐社会建设</strong>：中国传统思想文化中的和谐理念，对于构建现代和谐社会具有积极的借鉴意义。</li>
+                        <li><strong>道德建设</strong>：传统思想文化中的仁爱、诚信、正义等价值观，对于提高现代社会的道德水平具有重要作用。</li>
+                        <li><strong>生态环境保护</strong>：道家的"天人合一"思想，对于现代生态环境保护具有启发意义。</li>
+                        <li><strong>人际关系处理</strong>：儒家的"己所不欲，勿施于人"等思想，有助于建立良好的人际关系。</li>
+                        <li><strong>企业文化建设</strong>：传统思想文化中的许多精神，如诚信经营、团队合作、社会责任等，对于现代企业文化建设具有重要价值。</li>
+                        <li><strong>全球治理</strong>：中国传统思想文化中的"和而不同"、"天下大同"等理念，对于构建人类命运共同体具有重要的参考价值。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.culture-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

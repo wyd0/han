@@ -1,0 +1,408 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传统工艺</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统工艺页面特定样式 */
+        body {
+            background-image: url('images/传统工艺.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .craft-header {
+            background-image: url('images/传统工艺.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .craft-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .craft-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .craft-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .craft-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .craft-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .craft-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .craft-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .craft-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .craft-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .craft-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .craft-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .craft-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .craft-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .craft-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 工艺类型网格 */
+        .craft-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .craft-type {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .craft-type:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .craft-type h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 工艺类型导航栏 */
+        .craft-nav {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px 0;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .craft-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .craft-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .craft-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            border: 2px solid #c0392b;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .craft-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+        }
+        
+        .craft-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .craft-header h1 {
+                font-size: 36px;
+            }
+            
+            .craft-header p {
+                font-size: 18px;
+            }
+            
+            .craft-section h2 {
+                font-size: 28px;
+            }
+            
+            .craft-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .craft-nav a {
+                width: 200px;
+                text-align: center;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="craft-header">
+        <div class="container">
+            <div class="craft-header-content">
+                <h1>传统工艺</h1>
+                <p>中国汉族传统工艺的魅力与传承</p>
+                <a href="index.html" class="back-home">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="craft-main">
+        <div class="container">
+            <div class="craft-content">
+                <!-- 工艺类型导航栏 -->
+                <section class="craft-nav">
+                    <ul>
+                        <li><a href="craft.html" class="active">工艺首页</a></li>
+                        <li><a href="craft_ceramic.html">陶瓷工艺</a></li>
+                        <li><a href="craft_embroidery.html">刺绣工艺</a></li>
+                        <li><a href="craft_silk.html">丝绸工艺</a></li>
+                        <li><a href="craft_papercut.html">剪纸工艺</a></li>
+                        <li><a href="craft_woodcarving.html">木雕工艺</a></li>
+                        <li><a href="craft_jadecarving.html">玉雕工艺</a></li>
+                    </ul>
+                </section>
+                
+                <!-- 介绍部分 -->
+                <section class="craft-section">
+                    <h2>传统工艺介绍</h2>
+                    <p>中国汉族传统工艺是中华传统文化的重要组成部分，是中华民族在长期的生产实践中创造的工艺技术和艺术形式。它包括陶瓷、丝绸、刺绣、剪纸、木雕、玉雕等多个种类，具有独特的艺术风格和文化内涵。</p>
+                    <p>传统工艺的发展与中国的历史、文化、社会生活密切相关，每个时代都有其独特的工艺技术和艺术风格。从先秦时期的青铜工艺，到秦汉时期的漆器工艺，再到隋唐时期的陶瓷工艺，宋元明清时期的丝绸、刺绣工艺，汉族传统工艺不断创新和发展，形成了具有鲜明特色的工艺体系。</p>
+                </section>
+
+                <!-- 主要传统工艺类型 -->
+                <section class="craft-section">
+                    <h2>主要传统工艺类型</h2>
+                    <div class="craft-types">
+                        <div class="craft-type">
+                            <h4><a href="craft_ceramic.html" style="color: #c0392b; text-decoration: none;">陶瓷工艺</a></h4>
+                            <p>中国陶瓷工艺历史悠久，技术精湛，以景德镇陶瓷为代表，具有独特的工艺风格和文化内涵。陶瓷工艺包括制坯、施釉、烧制等多个环节，每个环节都需要精湛的技艺。</p>
+                        </div>
+                        <div class="craft-type">
+                            <h4><a href="craft_silk.html" style="color: #c0392b; text-decoration: none;">丝绸工艺</a></h4>
+                            <p>中国是世界上最早发明丝绸的国家，丝绸工艺精湛，品种繁多，以苏州丝绸为代表。丝绸工艺包括养蚕、缫丝、织绸等多个环节，每个环节都需要精湛的技艺。</p>
+                        </div>
+                        <div class="craft-type">
+                            <h4><a href="craft_embroidery.html" style="color: #c0392b; text-decoration: none;">刺绣工艺</a></h4>
+                            <p>中国刺绣工艺历史悠久，风格多样，以苏绣、湘绣、粤绣、蜀绣为代表，被誉为"四大名绣"。刺绣工艺包括设计、配线、刺绣等多个环节，每个环节都需要精湛的技艺。</p>
+                        </div>
+                        <div class="craft-type">
+                            <h4><a href="craft_papercut.html" style="color: #c0392b; text-decoration: none;">剪纸工艺</a></h4>
+                            <p>剪纸是一种民间传统工艺，通过剪刻或镂刻在纸上剪出各种图案，具有独特的工艺魅力。剪纸工艺包括设计、剪纸、装裱等多个环节，每个环节都需要精湛的技艺。</p>
+                        </div>
+                        <div class="craft-type">
+                            <h4><a href="craft_woodcarving.html" style="color: #c0392b; text-decoration: none;">木雕工艺</a></h4>
+                            <p>木雕工艺是将木材雕刻成各种形状和图案的工艺形式，以东阳木雕、潮州木雕为代表。木雕工艺包括设计、选材、雕刻、打磨等多个环节，每个环节都需要精湛的技艺。</p>
+                        </div>
+                        <div class="craft-type">
+                            <h4><a href="craft_jadecarving.html" style="color: #c0392b; text-decoration: none;">玉雕工艺</a></h4>
+                            <p>玉雕工艺是将玉石雕刻成各种形状和图案的工艺形式，以和田玉、翡翠为主要材料，具有很高的艺术价值。玉雕工艺包括设计、选材、雕刻、打磨等多个环节，每个环节都需要精湛的技艺。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统工艺的特点 -->
+                <section class="craft-section">
+                    <h2>传统工艺的特点</h2>
+                    <ul>
+                        <li><strong>历史悠久</strong>：许多传统工艺都有着悠久的历史，有些甚至可以追溯到几千年前。</li>
+                        <li><strong>工艺精湛</strong>：传统工艺通常需要经过长期的学习和实践才能掌握，工艺精湛，制作精美。</li>
+                        <li><strong>文化内涵丰富</strong>：传统工艺蕴含着丰富的文化内涵和民族智慧，是中华民族精神的结晶。</li>
+                        <li><strong>地域特色明显</strong>：不同地区的传统工艺具有不同的风格和特点，反映了当地的自然环境和文化传统。</li>
+                        <li><strong>与生活密切相关</strong>：传统工艺与人们的日常生活密切相关，许多传统工艺产品都是人们日常生活中不可或缺的物品。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统工艺的影响 -->
+                <section class="craft-section">
+                    <h2>传统工艺的影响</h2>
+                    <p>传统工艺对汉族人民的生活和社会发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>丰富文化生活</strong>：传统工艺为人们提供了丰富多彩的文化产品，丰富了人们的精神生活。</li>
+                        <li><strong>传承文化遗产</strong>：传统工艺是中华传统文化的重要载体，通过传统工艺，传承和弘扬了中华优秀传统文化。</li>
+                        <li><strong>促进经济发展</strong>：传统工艺是重要的文化产业，通过传统工艺，促进了经济的发展和就业的增加。</li>
+                        <li><strong>增强民族创造力</strong>：传统工艺是中华民族的共同文化记忆，通过传统工艺，增强了民族创造力和认同感。</li>
+                        <li><strong>促进文化交流</strong>：传统工艺是中华民族与其他民族文化交流的重要纽带，通过传统工艺，向世界展示了中华文化的魅力。</li>
+                    </ul>
+                    <p>在现代社会，传统工艺仍然具有重要的价值和意义。我们应该重视和传承这些宝贵的文化遗产，让传统工艺在新时代焕发出新的活力，为人类的文化事业做出更大的贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

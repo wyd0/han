@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戏曲艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 戏曲页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .opera-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .opera-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .opera-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opera-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .opera-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .opera-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .opera-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .opera-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .opera-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .opera-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .opera-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .opera-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .opera-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 剧种介绍 */
+        .opera-type {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .opera-type h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 代表人物 */
+        .representative {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .representative h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典剧目 */
+        .classic-plays {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .classic-plays h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典戏词 */
+        .classic-lines {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .classic-lines h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .line-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-left: 4px solid #c0392b;
+            border-radius: 5px;
+        }
+        
+        .line-item p {
+            margin-bottom: 10px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        .line-info {
+            text-align: right;
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .opera-header h1 {
+                font-size: 36px;
+            }
+            
+            .opera-header p {
+                font-size: 18px;
+            }
+            
+            .opera-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="opera-header">
+        <div class="container">
+            <div class="opera-header-content">
+                <h1>戏曲艺术</h1>
+                <p>中国传统戏曲的璀璨瑰宝</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="literature.html" class="back-link">返回文学艺术</a>
+                    <a href="opera_regional.html" class="back-link">戏曲地域分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="opera-main">
+        <div class="container">
+            <div class="opera-content">
+                <!-- 戏曲概述 -->
+                <section class="opera-section">
+                    <h2>戏曲概述</h2>
+                    <p>戏曲是中国传统艺术的重要组成部分，是中华民族文化的瑰宝。它融合了文学、音乐、舞蹈、美术、武术、杂技等多种艺术形式，具有悠久的历史和独特的艺术魅力。</p>
+                    <p>中国戏曲的发展与中国历史的演进密切相关，每个时代都有其独特的戏曲风格和特点。从先秦时期的优孟衣冠，到秦汉时期的百戏，再到唐宋时期的参军戏、宋杂剧，元明清时期的元曲、明清传奇，戏曲艺术不断创新和发展，形成了独具特色的艺术体系。</p>
+                </section>
+
+                <!-- 戏曲的起源和发展 -->
+                <section class="opera-section">
+                    <h2>戏曲的起源和发展</h2>
+                    
+                    <h3>起源</h3>
+                    <p>中国戏曲的起源可以追溯到原始社会的歌舞仪式。早在原始社会，先民们就已经开始用歌舞来表达他们的情感和愿望，这些歌舞仪式是戏曲的萌芽。</p>
+                    <p>到了奴隶社会，出现了专门的乐舞奴隶和宫廷乐师，他们的表演更加专业化。商周时期的傩舞、春秋时期的优孟衣冠等，都为戏曲的形成奠定了基础。</p>
+                    
+                    <h3>发展</h3>
+                    <p>中国戏曲的发展经历了漫长而辉煌的历史过程，从萌芽到成熟，从简单到复杂，形成了独具特色的艺术体系。</p>
+                    
+                    <h4>秦汉时期（公元前221年-公元220年）：百戏的繁荣</h4>
+                    <p>秦汉时期，百戏盛行，包括角抵、杂技、幻术、歌舞等多种表演形式。百戏是中国戏曲的前身，为戏曲的形成积累了丰富的艺术经验。</p>
+                    
+                    <h4>魏晋南北朝时期（公元220年-公元589年）：歌舞戏的出现</h4>
+                    <p>魏晋南北朝时期，出现了歌舞戏，如《踏摇娘》、《大面》等。这些歌舞戏已经具备了戏曲的基本要素，如角色、剧情、歌舞等。</p>
+                    
+                    <h4>唐宋时期（公元618年-公元1279年）：戏曲的形成</h4>
+                    <p>唐宋时期是中国戏曲的形成时期，出现了参军戏、宋杂剧、南戏等戏曲形式。这些戏曲形式已经具备了完整的戏曲要素，如角色行当、故事情节、唱念做打等。</p>
+                    
+                    <h4>元明清时期（公元1271年-公元1911年）：戏曲的鼎盛</h4>
+                    <p>元明清时期是中国戏曲的鼎盛时期，出现了元曲、明清传奇等戏曲形式。元曲以关汉卿、马致远、白朴、郑光祖为代表，明清传奇则以汤显祖、洪昇、孔尚任为代表。这一时期，戏曲艺术达到了前所未有的高度，出现了许多经典剧目和杰出的戏曲家。</p>
+                    
+                    <h4>近现代时期（公元1911年至今）：戏曲的改革与创新</h4>
+                    <p>近现代时期，中国戏曲面临着新的挑战和机遇。一方面，西方文化的传入对传统戏曲产生了冲击；另一方面，戏曲艺术家们也在不断改革和创新，使戏曲艺术适应时代的发展。京剧、越剧、黄梅戏等戏曲剧种在这一时期得到了广泛的传播和发展。</p>
+                </section>
+
+                <!-- 主要戏曲剧种 -->
+                <section class="opera-section">
+                    <h2>主要戏曲剧种</h2>
+                    <p>中国戏曲种类繁多，据统计，全国有300多种戏曲剧种。其中，京剧、昆曲、豫剧、越剧、黄梅戏等是最具代表性的剧种：</p>
+                    
+                    <div class="opera-type">
+                        <h4>京剧</h4>
+                        <p>京剧是中国最具代表性的戏曲剧种，被誉为"国剧"。它形成于清代乾隆年间，融合了徽剧、汉剧、昆曲等多种戏曲元素。京剧的唱腔优美，表演程式严谨，角色行当齐全，是中国戏曲艺术的瑰宝。代表剧目有《霸王别姬》、《贵妃醉酒》、《空城计》等。</p>
+                    </div>
+                    
+                    <div class="opera-type">
+                        <h4>昆曲</h4>
+                        <p>昆曲是中国最古老的戏曲剧种之一，被誉为"百戏之祖"。它形成于明代嘉靖年间，起源于江苏昆山一带。昆曲的唱腔优美婉转，表演细腻典雅，剧本文学性强，是中国戏曲艺术的典范。代表剧目有《牡丹亭》、《长生殿》、《桃花扇》等。</p>
+                    </div>
+                    
+                    <div class="opera-type">
+                        <h4>豫剧</h4>
+                        <p>豫剧是中国最大的地方戏曲剧种之一，主要流行于河南、河北、山东等地。它形成于清代乾隆年间，起源于河南开封一带。豫剧的唱腔粗犷豪放，表演朴实自然，深受广大观众的喜爱。代表剧目有《花木兰》、《穆桂英挂帅》、《朝阳沟》等。</p>
+                    </div>
+                    
+                    <div class="opera-type">
+                        <h4>越剧</h4>
+                        <p>越剧是中国第二大戏曲剧种，主要流行于浙江、上海、江苏等地。它形成于清代末年，起源于浙江嵊县一带。越剧的唱腔优美动听，表演细腻传神，以擅长表现爱情题材著称。代表剧目有《梁山伯与祝英台》、《红楼梦》、《祥林嫂》等。</p>
+                    </div>
+                    
+                    <div class="opera-type">
+                        <h4>黄梅戏</h4>
+                        <p>黄梅戏是中国著名的地方戏曲剧种，主要流行于安徽、湖北、江西等地。它形成于清代末年，起源于安徽黄梅一带。黄梅戏的唱腔清新明快，表演活泼生动，富有浓郁的生活气息。代表剧目有《天仙配》、《女驸马》、《牛郎织女》等。</p>
+                    </div>
+                </section>
+
+                <!-- 戏曲的艺术特点 -->
+                <section class="opera-section">
+                    <h2>戏曲的艺术特点</h2>
+                    <p>中国戏曲具有独特的艺术特点，这些特点使它区别于其他艺术形式：</p>
+                    
+                    <h3>综合性</h3>
+                    <p>中国戏曲是一种综合性的艺术形式，它融合了文学、音乐、舞蹈、美术、武术、杂技等多种艺术形式。戏曲的综合性不仅体现在艺术形式的融合上，还体现在艺术手段的综合运用上，如唱、念、做、打等。</p>
+                    
+                    <h3>程式性</h3>
+                    <p>中国戏曲具有严格的程式性，包括表演程式、音乐程式、舞台美术程式等。程式是戏曲艺术家在长期的艺术实践中总结出来的艺术规范，它使戏曲表演更加规范化和艺术化。</p>
+                    
+                    <h3>虚拟性</h3>
+                    <p>中国戏曲具有独特的虚拟性，它通过演员的表演来创造舞台意境，而不是依靠真实的景物。例如，演员通过手势来表现开门、关门，通过步伐来表现骑马、坐车等。虚拟性是中国戏曲的重要艺术特征，它使戏曲表演更加灵活多样，富有艺术感染力。</p>
+                    
+                    <h3>唱、念、做、打</h3>
+                    <p>唱、念、做、打是中国戏曲表演的四种基本手段，也是戏曲艺术的重要组成部分：</p>
+                    <ul>
+                        <li><strong>唱</strong>：是戏曲表演的核心，通过唱腔来表达人物的情感和思想。不同的戏曲剧种有不同的唱腔特点，如京剧的皮黄腔、昆曲的昆腔、豫剧的梆子腔等。</li>
+                        <li><strong>念</strong>：是戏曲表演的重要手段，通过念白来交代剧情、刻画人物性格。念白包括韵白和京白两种，韵白是有韵律的念白，京白是接近口语的念白。</li>
+                        <li><strong>做</strong>：是戏曲表演的形体动作，通过手势、眼神、身段等动作来表达人物的情感和思想。做派是戏曲表演的重要组成部分，不同的角色行当有不同的做派特点。</li>
+                        <li><strong>打</strong>：是戏曲表演的武打动作，通过武术、杂技等手段来表现战斗场面。打是戏曲表演的重要组成部分，它不仅具有观赏性，还能增强戏曲的艺术感染力。</li>
+                    </ul>
+                </section>
+
+                <!-- 戏曲的角色行当 -->
+                <section class="opera-section">
+                    <h2>戏曲的角色行当</h2>
+                    <p>中国戏曲的角色行当是戏曲艺术的重要组成部分，它是根据人物的性别、年龄、性格、身份等因素划分的。不同的戏曲剧种有不同的角色行当划分，但基本都包括生、旦、净、丑四大行当：</p>
+                    
+                    <h3>生</h3>
+                    <p>生是戏曲中的男性角色，包括老生、小生、武生等：</p>
+                    <ul>
+                        <li><strong>老生</strong>：饰演中年以上的男性角色，性格正直刚毅，如《空城计》中的诸葛亮、《铡美案》中的包拯等。</li>
+                        <li><strong>小生</strong>：饰演青年男性角色，性格文雅潇洒，如《西厢记》中的张生、《牡丹亭》中的柳梦梅等。</li>
+                        <li><strong>武生</strong>：饰演擅长武艺的男性角色，如《长坂坡》中的赵云、《三岔口》中的任堂惠等。</li>
+                    </ul>
+                    
+                    <h3>旦</h3>
+                    <p>旦是戏曲中的女性角色，包括青衣、花旦、武旦、老旦等：</p>
+                    <ul>
+                        <li><strong>青衣</strong>：饰演端庄贤淑的女性角色，如《窦娥冤》中的窦娥、《铡美案》中的秦香莲等。</li>
+                        <li><strong>花旦</strong>：饰演活泼可爱的青年女性角色，如《西厢记》中的红娘、《拾玉镯》中的孙玉姣等。</li>
+                        <li><strong>武旦</strong>：饰演擅长武艺的女性角色，如《穆桂英挂帅》中的穆桂英、《杨门女将》中的佘太君等。</li>
+                        <li><strong>老旦</strong>：饰演老年女性角色，如《四郎探母》中的佘太君、《岳母刺字》中的岳母等。</li>
+                    </ul>
+                    
+                    <h3>净</h3>
+                    <p>净是戏曲中的花脸角色，饰演性格粗犷豪放的男性角色，如《铡美案》中的包拯、《打龙袍》中的赵匡胤等。净角的脸谱色彩鲜明，图案复杂，是戏曲艺术的重要组成部分。</p>
+                    
+                    <h3>丑</h3>
+                    <p>丑是戏曲中的喜剧角色，饰演幽默诙谐的男性角色，如《七品芝麻官》中的唐成、《三岔口》中的刘利华等。丑角的表演夸张幽默，能给观众带来欢乐。</p>
+                </section>
+
+                <!-- 戏曲的影响 -->
+                <section class="opera-section">
+                    <h2>戏曲的影响</h2>
+                    <p>中国戏曲对中国文化和世界文化都产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>对中国文化的影响</strong>：中国戏曲是中国文化的重要组成部分，它反映了中国历史的发展和社会的变迁，表达了中国人的思想情感和价值观念。戏曲对中国的文学、音乐、舞蹈、美术等都产生了重要影响，是中国文化的精神象征。</li>
+                        <li><strong>对世界文化的影响</strong>：中国戏曲早在明代就开始传入日本、朝鲜等国家，对这些国家的戏剧发展产生了重要影响。近代以来，中国戏曲又被介绍到欧洲、美洲等国家和地区，受到了世界人民的喜爱和赞赏。</li>
+                        <li><strong>对现代人的影响</strong>：中国戏曲中的许多经典剧目至今仍被人们广泛演出和欣赏，它们不仅是艺术的瑰宝，也是人们了解中国历史和文化的重要途径。戏曲中的许多传统美德和价值观念，对现代人的生活和思想仍然具有重要的启示意义。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="opera-section">
+                    <h2>代表人物</h2>
+                    
+                    <div class="representative">
+                        <h4>梅兰芳（1894年-1961年）</h4>
+                        <p>梅兰芳是中国著名的京剧表演艺术家，被誉为"京剧大师"。他擅长饰演旦角，唱腔优美，表演细腻，创造了独具特色的"梅派"艺术。代表剧目有《霸王别姬》、《贵妃醉酒》、《穆桂英挂帅》等。梅兰芳的艺术成就不仅在中国，而且在世界范围内都享有盛誉，他曾多次出国演出，为中国戏曲的传播做出了重要贡献。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>程砚秋（1904年-1958年）</h4>
+                        <p>程砚秋是中国著名的京剧表演艺术家，与梅兰芳、尚小云、荀慧生并称为"京剧四大名旦"。他擅长饰演青衣，唱腔低回婉转，表演细腻含蓄，创造了独具特色的"程派"艺术。代表剧目有《锁麟囊》、《荒山泪》、《窦娥冤》等。程砚秋的艺术成就对中国京剧的发展产生了深远的影响。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>关汉卿（约1220年-约1300年）</h4>
+                        <p>关汉卿是元代著名的戏曲家，被誉为"元曲四大家"之首。他的戏曲作品题材广泛，内容深刻，语言生动，具有强烈的现实主义精神。代表剧目有《窦娥冤》、《救风尘》、《望江亭》等。关汉卿的戏曲作品对中国戏曲的发展产生了深远的影响，被誉为"东方的莎士比亚"。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>汤显祖（1550年-1616年）</h4>
+                        <p>汤显祖是明代著名的戏曲家，被誉为"东方的莎士比亚"。他的戏曲作品题材广泛，内容深刻，语言优美，具有强烈的浪漫主义精神。代表剧目有《牡丹亭》、《紫钗记》、《邯郸记》、《南柯记》等，合称为"临川四梦"。汤显祖的戏曲作品对中国戏曲的发展产生了深远的影响，是中国戏曲艺术的瑰宝。</p>
+                    </div>
+                </section>
+
+                <!-- 经典剧目 -->
+                <section class="opera-section">
+                    <h2>经典剧目</h2>
+                    <div class="classic-plays">
+                        <h4>《牡丹亭》</h4>
+                        <p>《牡丹亭》是明代戏曲家汤显祖的代表作，讲述了杜丽娘和柳梦梅之间的爱情故事。该剧情节曲折动人，语言优美典雅，是中国戏曲艺术的典范。</p>
+                    </div>
+                    
+                    <div class="classic-plays">
+                        <h4>《窦娥冤》</h4>
+                        <p>《窦娥冤》是元代戏曲家关汉卿的代表作，讲述了窦娥被冤枉处死的故事。该剧情节悲壮感人，语言生动有力，是中国戏曲艺术的经典之作。</p>
+                    </div>
+                    
+                    <div class="classic-plays">
+                        <h4>《霸王别姬》</h4>
+                        <p>《霸王别姬》是京剧经典剧目，讲述了项羽和虞姬之间的爱情故事。该剧情节悲壮感人，表演精湛细腻，是中国京剧艺术的代表作。</p>
+                    </div>
+                    
+                    <div class="classic-plays">
+                        <h4>《天仙配》</h4>
+                        <p>《天仙配》是黄梅戏经典剧目，讲述了董永和七仙女之间的爱情故事。该剧情节优美动人，唱腔清新明快，是中国黄梅戏艺术的代表作。</p>
+                    </div>
+                    
+                    <div class="classic-plays">
+                        <h4>《梁山伯与祝英台》</h4>
+                        <p>《梁山伯与祝英台》是越剧经典剧目，讲述了梁山伯和祝英台之间的爱情故事。该剧情节优美动人，唱腔婉转悠扬，是中国越剧艺术的代表作。</p>
+                    </div>
+                </section>
+                
+                <!-- 经典戏词 -->
+                <section class="opera-section">
+                    <h2>经典戏词</h2>
+                    <div class="classic-lines">
+                        <div class="line-item">
+                            <p>良辰美景奈何天，赏心乐事谁家院？</p>
+                            <div class="line-info">—— 昆曲《牡丹亭》 · 汤显祖</div>
+                        </div>
+                        <div class="line-item">
+                            <p>为善的受贫穷更命短，造恶的享富贵又寿延。</p>
+                            <div class="line-info">—— 杂剧《窦娥冤》 · 关汉卿</div>
+                        </div>
+                        <div class="line-item">
+                            <p>力拔山兮气盖世，时不利兮骓不逝。骓不逝兮可奈何，虞兮虞兮奈若何！</p>
+                            <div class="line-info">—— 京剧《霸王别姬》 · 项羽（历史人物）</div>
+                        </div>
+                        <div class="line-item">
+                            <p>树上的鸟儿成双对，绿水青山带笑颜。</p>
+                            <div class="line-info">—— 黄梅戏《天仙配》 · 陆洪非（编剧）</div>
+                        </div>
+                        <div class="line-item">
+                            <p>我本是女娇娥，又不是男儿郎。</p>
+                            <div class="line-info">—— 京剧《霸王别姬》 · 李碧华（编剧）</div>
+                        </div>
+                        <div class="line-item">
+                            <p>满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味？</p>
+                            <div class="line-info">—— 昆曲《红楼梦》 · 曹雪芹（原著）</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.opera-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

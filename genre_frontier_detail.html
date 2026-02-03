@@ -1,0 +1,539 @@
+﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边塞诗派 - 诗歌派别详细介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/边塞诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        .genre-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/边塞诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.1));
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease;
+        }
+        
+        .genre-header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+        
+        .genre-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            margin: 50px auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+        }
+        
+        /* 派别导航栏样式 */
+        .genre-nav {
+            background-color: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(206, 212, 218, 0.3);
+        }
+        
+        .genre-nav h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .genre-nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .genre-nav-menu li {
+            flex: 0 0 auto;
+        }
+        
+        .genre-nav-menu a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+        
+        .genre-nav-menu a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            border-color: #c0392b;
+        }
+        
+        .genre-nav-menu a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .genre-nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .genre-nav-menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        .genre-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .genre-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .genre-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #8B4513;
+            border-radius: 2px;
+        }
+        
+        .genre-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            border-left: 4px solid #8B4513;
+            padding-left: 15px;
+        }
+        
+        .genre-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .genre-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .genre-section ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .genre-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        
+        .poem-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .poem-example h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: left;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .genre-header {
+                padding: 80px 0;
+            }
+            
+            .genre-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .genre-header p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .genre-content {
+                padding: 30px 20px;
+                margin: 30px 20px;
+            }
+            
+            .genre-section h2 {
+                font-size: 2rem;
+            }
+            
+            .genre-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .genre-section p,
+            .genre-section ul li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 20px;
+            }
+            
+            .poem-example h4 {
+                font-size: 1.1rem;
+            }
+            
+            .back-link {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: #A0522D;
+            transform: scale(1.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>边塞诗派</h1>
+                <p>以描写边塞风光和战争生活为主的诗歌流派</p>
+                <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="genre-content">
+                <!-- 派别导航栏 -->
+                <div class="genre-nav">
+                    <h3>诗歌派别导航</h3>
+                    <ul class="genre-nav-menu">
+                        <li><a href="genre_landscape_detail.html">山水田园诗派</a></li>
+                        <li><a href="genre_frontier_detail.html" class="active">边塞诗派</a></li>
+                        <li><a href="genre_romantic_detail.html">浪漫主义诗派</a></li>
+                        <li><a href="genre_realistic_detail.html">现实主义诗派</a></li>
+                        <li><a href="genre_new_yuefu_detail.html">新乐府诗派</a></li>
+                        <li><a href="genre_jiangxi_detail.html">江西诗派</a></li>
+                        <li><a href="genre_gongan_detail.html">公安派</a></li>
+                        <li><a href="genre_tongcheng_detail.html">桐城派</a></li>
+                    </ul>
+                </div>
+                
+                <section class="genre-section">
+                    <h2>边塞诗派详细介绍</h2>
+                    
+                    <h3>概述</h3>
+                    <p>边塞诗派是中国古代诗歌的重要流派之一，以描写边塞风光和战争生活为主，风格雄浑悲壮，气势磅礴。该流派起源于汉魏时期，在唐代达到鼎盛，对后世诗歌产生了深远的影响。</p>
+                    
+                    <h3>历史发展</h3>
+                    <p>边塞诗派的发展是一个与边疆战争和民族交流密切相关的历史过程，经历了以下几个重要阶段：</p>
+                    <ul>
+                        <li><strong>起源阶段（汉魏时期）</strong>：汉魏时期，随着汉朝对匈奴的战争和边疆的开拓，边塞诗开始出现。这一时期的边塞诗主要描写战争的残酷和将士的艰辛，风格质朴刚健。曹操的《苦寒行》描写了行军的艰难，陈琳的《饮马长城窟行》反映了筑城役卒的痛苦，蔡琰的《悲愤诗》则记录了战乱中的悲惨遭遇。这些作品为边塞诗派的形成奠定了基础。</li>
+                        <li><strong>发展阶段（南北朝时期）</strong>：南北朝时期，民族融合加剧，边塞战争频繁，边塞诗得到进一步发展。南朝的边塞诗多为模拟之作，风格较为柔弱；北朝的边塞诗则更加刚健质朴，如《木兰诗》、《敕勒歌》等。庾信是这一时期的重要诗人，他的《拟咏怀》二十七首反映了对故国的思念和对战争的厌恶，风格苍凉悲壮。</li>
+                        <li><strong>鼎盛阶段（唐代）</strong>：唐代是边塞诗派的鼎盛时期，政治开明，国力强盛，边疆战争频繁，为边塞诗的发展提供了良好的社会环境。这一时期出现了高适、岑参、王昌龄、王之涣、李颀、王翰等杰出的边塞诗人，他们的作品风格雄浑悲壮，气势磅礴，题材广泛，包括边塞风光、战争生活、将士情怀等。高适的《燕歌行》、岑参的《白雪歌送武判官归京》、王昌龄的《出塞》等成为千古名篇。</li>
+                        <li><strong>延续阶段（宋代及以后）</strong>：宋代及以后，边塞诗继续发展，但影响力不如唐代。宋代的边塞诗多以词的形式出现，如范仲淹的《渔家傲·秋思》、苏轼的《江城子·密州出猎》等，风格更加深沉悲壮。元代的边塞诗多描写草原风光和民族生活，如萨都剌的《上京即事》。明代的边塞诗则反映了对蒙古的战争，如陈子龙的《辽事杂诗》。清代的边塞诗多描写边疆的开发和民族的融合，如纳兰性德的《长相思·山一程》。</li>
+                    </ul>
+                    
+                    <h3>艺术特点</h3>
+                    <ul>
+                        <li><strong>描写边塞风光</strong>：边塞诗以描写边塞的自然风光、地理环境和民族风情为主，展现了边塞的独特魅力。</li>
+                        <li><strong>反映战争生活</strong>：边塞诗反映了边塞战争的残酷和将士的艰辛，表达了对和平的向往。</li>
+                        <li><strong>风格雄浑悲壮</strong>：边塞诗的风格雄浑悲壮，气势磅礴，给人以强烈的视觉和听觉冲击。</li>
+                        <li><strong>情感真挚强烈</strong>：边塞诗表达了将士的思乡之情、报国之志和对战争的厌恶，情感真挚强烈。</li>
+                        <li><strong>语言质朴刚健</strong>：边塞诗的语言质朴刚健，富有力量感，符合边塞的粗犷风格。</li>
+                    </ul>
+                    
+                    <h3>代表人物</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 30px 0;">
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/高适.jpg" alt="高适" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>高适</h4>
+                            <p>高适（704年-765年），字达夫，唐代著名边塞诗人。他的边塞诗以描写战争生活和将士情怀为主，风格雄浑悲壮，气势磅礴。代表作有《燕歌行》、《别董大》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/岑参.jpg" alt="岑参" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>岑参</h4>
+                            <p>岑参（715年-770年），唐代著名边塞诗人。他的边塞诗以描写边塞风光为主，语言瑰丽，想象丰富。代表作有《白雪歌送武判官归京》、《走马川行奉送出师西征》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/王昌龄.jpg" alt="王昌龄" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>王昌龄</h4>
+                            <p>王昌龄（698年-757年），字少伯，唐代著名边塞诗人。他的边塞诗以描写将士情怀为主，语言简洁明快，意境深远。代表作有《出塞》、《从军行》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/王之涣.jpg" alt="王之涣" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>王之涣</h4>
+                            <p>王之涣（688年-742年），字季凌，唐代著名边塞诗人。他的边塞诗以描写边塞风光为主，语言简洁明快，意境深远。代表作有《凉州词》、《登鹳雀楼》等。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>代表作品</h3>
+                    <div class="poem-example">
+                        <h4>《燕歌行》（高适）</h4>
+                        <p>汉家烟尘在东北，汉将辞家破残贼。男儿本自重横行，天子非常赐颜色。摐金伐鼓下榆关，旌旆逶迤碣石间。校尉羽书飞瀚海，单于猎火照狼山。山川萧条极边土，胡骑凭陵杂风雨。战士军前半死生，美人帐下犹歌舞。大漠穷秋塞草腓，孤城落日斗兵稀。身当恩遇恒轻敌，力尽关山未解围。铁衣远戍辛勤久，玉箸应啼别离后。少妇城南欲断肠，征人蓟北空回首。边庭飘飖那可度，绝域苍茫更何有。杀气三时作阵云，寒声一夜传刁斗。相看白刃血纷纷，死节从来岂顾勋。君不见沙场征战苦，至今犹忆李将军。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《白雪歌送武判官归京》（岑参）</h4>
+                        <p>北风卷地白草折，胡天八月即飞雪。忽如一夜春风来，千树万树梨花开。散入珠帘湿罗幕，狐裘不暖锦衾薄。将军角弓不得控，都护铁衣冷难着。瀚海阑干百丈冰，愁云惨淡万里凝。中军置酒饮归客，胡琴琵琶与羌笛。纷纷暮雪下辕门，风掣红旗冻不翻。轮台东门送君去，去时雪满天山路。山回路转不见君，雪上空留马行处。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《出塞》（王昌龄）</h4>
+                        <p>秦时明月汉时关，万里长征人未还。但使龙城飞将在，不教胡马度阴山。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《凉州词》（王之涣）</h4>
+                        <p>黄河远上白云间，一片孤城万仞山。羌笛何须怨杨柳，春风不度玉门关。</p>
+                    </div>
+                    
+                    <h3>影响与地位</h3>
+                    <p>边塞诗派对中国古代诗歌和文化产生了深远的影响，具体表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>对诗歌发展的影响</strong>：边塞诗派丰富了中国古代诗歌的题材和风格，为后世诗歌的发展提供了重要的借鉴。它拓展了诗歌的表现领域，将边塞风光、战争生活、民族风情等纳入诗歌的描写范围，使诗歌更加丰富多彩。边塞诗的艺术手法，如情景交融、对比烘托、夸张渲染等，也为后世诗歌所继承和发展。</li>
+                        <li><strong>对民族精神的影响</strong>：边塞诗表达了将士的报国之志和爱国主义精神，成为中华民族精神的重要组成部分。它弘扬了爱国主义、英雄主义和民族团结的精神，激励着一代又一代中华儿女为国家和民族的利益而奋斗。边塞诗中的许多名句，如"黄沙百战穿金甲，不破楼兰终不还"、"醉卧沙场君莫笑，古来征战几人回"等，成为中华民族精神的象征。</li>
+                        <li><strong>对文化交流的影响</strong>：边塞诗描写了边塞的民族风情和文化交流，促进了中原文化与边疆文化的融合。它记录了不同民族之间的交往和融合，展现了各民族的文化特色，为研究中国古代民族关系和文化交流提供了重要的资料。边塞诗中的许多描写，如对胡琴、琵琶等乐器的描写，对游牧生活的描写等，都反映了各民族文化的交流与融合。</li>
+                        <li><strong>对后世文学的影响</strong>：边塞诗的艺术手法和意境创造，对后世的诗歌、散文、戏剧等艺术形式都产生了深远的影响。唐代以后，许多诗人都创作了边塞诗，如宋代的陆游、辛弃疾，明代的陈子龙，清代的纳兰性德等。边塞诗的意境也被引入散文、戏剧等艺术形式中，如元代的杂剧《汉宫秋》、清代的小说《红楼梦》等都受到了边塞诗的影响。</li>
+                        <li><strong>对历史研究的影响</strong>：边塞诗是中国古代历史的重要资料，它记录了边疆战争、民族关系、地理环境等方面的情况，为研究中国古代历史提供了重要的参考。边塞诗中的许多描写，如对战争场面的描写、对边疆地理的描写等，都具有重要的历史价值。</li>
+                        <li><strong>对世界文学的影响</strong>：边塞诗的艺术成就和思想内涵也对世界文学产生了影响。自唐代以来，边塞诗就被翻译成多种文字，在世界范围内广泛传播。高适、岑参、王昌龄等诗人的作品受到了世界各国读者的喜爱，成为世界文学宝库中的重要组成部分。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.innerHTML = '↑';
+            document.body.appendChild(backToTopBtn);
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

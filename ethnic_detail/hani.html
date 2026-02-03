@@ -1,0 +1,697 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尼族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哈尼族文化页面特定样式 */
+        .hani-header {
+            background-image: url('images/ethnicity.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hani-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hani-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hani-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hani-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hani-section {
+            margin-bottom: 80px;
+        }
+        
+        .hani-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h5 {
+            color: #333;
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .hani-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hani-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hani-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hani-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hani-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hani-header h1 {
+                font-size: 36px;
+            }
+            
+            .hani-header p {
+                font-size: 18px;
+            }
+            
+            .hani-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .hani-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .hani-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .hani-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .hani-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .hani-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        .clothing-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .culture-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .clothing-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="hani-header">
+        <div class="container">
+            <div class="hani-header-content">
+                <h1>哈尼族文化</h1>
+                <p>独具特色的民族风情与梯田文化传承</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hani-main">
+        <div class="container">
+            <div class="hani-content">
+                <!-- 介绍部分 -->
+                <section class="hani-section">
+                    <h2>哈尼族文化概览</h2>
+                    <p>哈尼族是中国西南地区的古老民族，主要分布在云南、贵州等省份，其中云南省是哈尼族人口最多的省份。哈尼族有着悠久的历史和独特的文化，其文化深受中国传统文化、彝族文化、傣族文化等周边民族文化的影响，同时保持着自己独特的民族特色。</p>
+                    <p>哈尼族人民勤劳勇敢，擅长农耕和手工艺术，有着丰富的民间文学艺术和传统节日。哈尼族的语言属于汉藏语系藏缅语族彝语支，有着自己的文字——哈尼文。</p>
+                </section>
+
+                <!-- 哈尼族历史 -->
+                <section class="hani-section">
+                    <h2>哈尼族历史</h2>
+                    <p>哈尼族的历史可以追溯到古代氐羌族系，是中国西南地区的土著民族之一。</p>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>哈尼族的先民属于氐羌族系，居住在今甘肃、青海一带，后来逐渐南迁到云南、贵州地区。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>唐宋时期</h5>
+                            <p>哈尼族地区先后隶属于南诏国和大理国，与中原王朝保持着密切的政治、经济和文化联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>元明清时期</h5>
+                            <p>中央王朝加强对哈尼族地区的统治，实行土司制度，哈尼族社会得到进一步发展。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代</h5>
+                            <p>1949年后，哈尼族地区实行民族区域自治，成立了多个哈尼族自治州、县，哈尼族人民的生活水平得到显著提高。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 哈尼族来源 -->
+                <section class="hani-section">
+                    <h2>哈尼族来源</h2>
+                    <p>哈尼族的族源可以追溯到古代氐羌族系，是中国西南地区的土著民族之一。</p>
+                    <h3>主要来源</h3>
+                    <ul>
+                        <li><strong>氐羌族系：</strong>哈尼族是氐羌族系的后裔，与彝族、傈僳族等民族有着密切的血缘关系。</li>
+                        <li><strong>当地土著：</strong>长期居住在西南地区，与当地其他民族融合发展。</li>
+                        <li><strong>古代移民：</strong>历史上有部分汉族、彝族等民族的人融合入哈尼族。</li>
+                    </ul>
+                    <p>哈尼族的形成是一个多民族融合的过程，在长期的历史发展中，形成了自己独特的民族文化和传统。</p>
+                </section>
+
+                <!-- 哈尼族文化 -->
+                <section class="hani-section">
+                    <h2>哈尼族文化</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <a href="hani_language.html" style="text-decoration: none; color: inherit;">
+                                <h5>语言文字</h5>
+                                <p>哈尼语属于汉藏语系藏缅语族彝语支，分为哈雅、碧卡、豪白三个方言区。哈尼族有着自己的文字——哈尼文，是1957年创建的以拉丁字母为基础的拼音文字。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="hani_religion.html" style="text-decoration: none; color: inherit;">
+                                <h5>宗教信仰</h5>
+                                <p>哈尼族主要信仰原始宗教，崇拜自然神灵和祖先，同时也受到佛教的影响。哈尼族人民有着丰富的祭祀活动和宗教仪式，如祭龙、祭山等。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="hani_festival.html" style="text-decoration: none; color: inherit;">
+                                <h5>传统节日</h5>
+                                <p>哈尼族的传统节日有十月年、六月年、新米节、祭龙节等，其中十月年是哈尼族最重要的传统节日，相当于汉族的春节。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="hani_literature.html" style="text-decoration: none; color: inherit;">
+                                <h5>文学艺术</h5>
+                                <p>哈尼族有着丰富的民间文学艺术，包括神话传说、民间故事、诗歌、谚语等。哈尼族的传统音乐舞蹈也很有特色，如铓鼓舞、棕扇舞等。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="hani_customs.html" style="text-decoration: none; color: inherit;">
+                                <h5>风俗习惯</h5>
+                                <p>哈尼族有着独特的风俗习惯，如尊老爱幼、热情好客、重视家庭观念等。哈尼族的婚姻习俗也很有特色，有着独特的礼仪程序。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="hani_architecture.html" style="text-decoration: none; color: inherit;">
+                                <h5>建筑风格</h5>
+                                <p>哈尼族传统建筑以蘑菇房为代表，工艺精湛，风格独特，是中国传统建筑的重要组成部分。哈尼族的梯田景观也很有特色，被列入世界文化遗产名录。</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 哈尼族服饰 -->
+                <section class="hani-section">
+                    <h2>哈尼族服饰</h2>
+                    <p>哈尼族服饰具有独特的风格和特点，色彩鲜艳，图案美丽，反映了哈尼族人民的审美观念和生活习俗。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>喜欢使用红、黑、蓝、绿、紫等鲜艳的颜色，体现了哈尼族人民开朗活泼的性格。</li>
+                        <li><strong>图案美丽：</strong>服饰上绣有各种美丽的图案，如花卉、动物、几何图形等，寓意吉祥如意。</li>
+                        <li><strong>款式多样：</strong>不同地区、不同年龄段的哈尼族服饰款式有所不同，体现了哈尼族文化的多样性。</li>
+                        <li><strong>头饰丰富：</strong>哈尼族女性喜欢佩戴各种头饰，如银头饰、布头饰、羽毛头饰等，体现了哈尼族人民对美的追求。</li>
+                        <li><strong>刺绣工艺：</strong>哈尼族的刺绣工艺历史悠久，图案美丽，是中国传统工艺的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>服饰展示</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/哈尼族女性服饰.jpg" alt="哈尼族 - 女性服饰">
+                            <p>哈尼族女性服饰：色彩鲜艳，图案美丽，装饰丰富</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/哈尼族男性服饰.jpg" alt="哈尼族 - 男性服饰">
+                            <p>哈尼族男性服饰：简洁大方，适合劳动生产</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/哈尼族头饰.jpg" alt="哈尼族 - 头饰">
+                            <p>哈尼族头饰：工艺精细，寓意丰富，彰显身份</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/哈尼族刺绣.jpg" alt="哈尼族 - 刺绣">
+                            <p>哈尼族刺绣：图案美丽，工艺精湛，体现民族特色</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 哈尼族饮食文化 -->
+                <section class="hani-section">
+                    <h2>哈尼族饮食文化</h2>
+                    <p>哈尼族饮食文化具有独特的风格和特点，深受西南地区自然环境和生活方式的影响。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>以大米为主食：</strong>西南地区气候温暖湿润，适合种植水稻，哈尼族人民以大米为主食。</li>
+                        <li><strong>喜欢酸辣口味：</strong>西南地区气候潮湿，哈尼族人民喜欢吃酸辣食物，有助于开胃消食。</li>
+                        <li><strong>擅长制作腌制食品：</strong>哈尼族的腌制食品制作工艺悠久，种类繁多，味道鲜美。</li>
+                        <li><strong>重视茶文化：</strong>哈尼族人民喜欢饮茶，茶文化是哈尼族饮食文化的重要组成部分。</li>
+                        <li><strong>喜欢饮酒：</strong>哈尼族人民喜欢饮用自酿的白酒和黄酒，是重要的社交活动之一。</li>
+                    </ul>
+                    
+                    <h3>传统食物</h3>
+                    <ul>
+                        <li><strong>竹筒饭：</strong>哈尼族传统食品，将米饭和各种食材放入竹筒中烤制而成，味道清香，是哈尼族饮食文化的重要组成部分。</li>
+                        <li><strong>哈尼蘸水：</strong>哈尼族传统调料，以辣椒为原料制作而成，味道鲜美，是哈尼族人民喜爱的传统调料。</li>
+                        <li><strong>酸角：</strong>哈尼族传统食品，以酸角为原料腌制而成，味道酸甜可口，是哈尼族宴席上的常见食品。</li>
+                        <li><strong>哈尼梯田红米：</strong>哈尼族传统食品，以梯田种植的红米为原料制作而成，口感香糯，营养丰富。</li>
+                        <li><strong>哈尼腊肉：</strong>哈尼族传统食品，以当地产的猪肉为原料，是哈尼族人民喜爱的传统食品。</li>
+                    </ul>
+                </section>
+
+                <!-- 哈尼族传统节日 -->
+                <section class="hani-section">
+                    <h2>哈尼族传统节日</h2>
+                    <p>哈尼族有许多传统节日，这些节日承载着丰富的文化内涵，是哈尼族文化的重要组成部分。</p>
+                    
+                    <h3>主要传统节日</h3>
+                    <ul>
+                        <li><strong>十月年：</strong>哈尼族最重要的传统节日，相当于汉族的春节，主要活动有祭祀、歌舞、吃团圆饭等。</li>
+                        <li><strong>六月年：</strong>哈尼族传统节日，在每年的农历六月，主要活动有祭祀、歌舞、体育比赛等。</li>
+                        <li><strong>新米节：</strong>哈尼族传统节日，在每年的农历八月，主要活动有祭祀、尝新米等。</li>
+                        <li><strong>祭龙节：</strong>哈尼族传统节日，在每年的农历二月，主要活动有祭祀龙神、祈求风调雨顺等。</li>
+                        <li><strong>火把节：</strong>哈尼族传统节日，与彝族等民族一样，主要活动有点燃火把、歌舞等。</li>
+                    </ul>
+                </section>
+
+                <!-- 哈尼族文学艺术 -->
+                <section class="hani-section">
+                    <h2>哈尼族文学艺术</h2>
+                    <p>哈尼族在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展做出了重要贡献。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>《哈尼族迁徙史诗》：</strong>哈尼族传统史诗，讲述了哈尼族的起源、迁徙和发展历史，是哈尼族文化的重要组成部分。</li>
+                        <li><strong>哈尼民歌：</strong>哈尼族传统民歌，内容丰富，旋律优美，是哈尼族人民喜爱的传统文学形式。</li>
+                        <li><strong>民间故事：</strong>哈尼族有着丰富的民间故事，如《阿匹阿话》《白鹇鸟的传说》等，具有浓郁的民族特色和艺术感染力。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>铓鼓舞：</strong>哈尼族传统舞蹈，鼓手手持铓鼓，边敲边舞，节奏明快，气氛热烈。</li>
+                        <li><strong>棕扇舞：</strong>哈尼族传统舞蹈，舞者手持棕扇，翩翩起舞，姿态优美。</li>
+                        <li><strong>蘑菇房建筑：</strong>哈尼族传统建筑，工艺精湛，风格独特，是中国传统建筑的重要组成部分。</li>
+                        <li><strong>梯田景观：</strong>哈尼族传统农耕文化的杰作，被列入世界文化遗产名录，是中国乃至世界农业文化的重要遗产。</li>
+                    </ul>
+                </section>
+
+                <!-- 哈尼族对中国文化的影响 -->
+                <section class="hani-section">
+                    <h2>哈尼族对中国文化的影响</h2>
+                    <p>哈尼族文化是中华文化的重要组成部分，对中国文化的发展产生了重要影响。</p>
+                    
+                    <ul>
+                        <li><strong>文学艺术：</strong>哈尼族的民间文学艺术，如神话传说、民间故事、音乐舞蹈等，丰富了中国文学艺术的宝库。</li>
+                        <li><strong>建筑艺术：</strong>哈尼族传统建筑以蘑菇房为代表，工艺精湛，风格独特，丰富了中国传统建筑的内涵。</li>
+                        <li><strong>农耕文化：</strong>哈尼族的梯田农耕文化，是中国传统农耕文化的重要组成部分，被列入世界文化遗产名录，是中国乃至世界农业文化的重要遗产。</li>
+                        <li><strong>工艺技术：</strong>哈尼族的刺绣、银饰等传统工艺，丰富了中国传统工艺的内涵。</li>
+                        <li><strong>饮食文化：</strong>哈尼族的饮食文化，如竹筒饭、哈尼蘸水等，丰富了中国饮食文化的多样性。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

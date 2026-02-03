@@ -1,0 +1,472 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兵家 - 思想文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 兵家详细页面特定样式 */
+        body {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .school-header {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .school-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .school-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .school-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .school-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .school-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.92);
+        }
+        
+        .school-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .school-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .school-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .school-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .school-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .school-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .school-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .school-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .school-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .quotes-section {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .quote-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .quote-item p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .quote-item .author {
+            font-weight: bold;
+        }
+        
+        /* 子导航样式 */
+        .sub-nav {
+            background-color: rgba(192, 57, 43, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sub-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .sub-nav:hover::before {
+            left: 100%;
+        }
+        
+        .sub-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .sub-nav-links li {
+            margin: 0 12px;
+            position: relative;
+        }
+        
+        .sub-nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .sub-nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .sub-nav-links a:hover::before {
+            left: 100%;
+        }
+        
+        .sub-nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        
+        .sub-nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sub-nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .school-header h1 {
+                font-size: 36px;
+            }
+            
+            .school-header p {
+                font-size: 18px;
+            }
+            
+            .school-section h2 {
+                font-size: 28px;
+            }
+            
+            .sub-nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sub-nav-links li {
+                margin: 5px 0;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="school-header">
+        <div class="container">
+            <div class="school-header-content">
+                <h1>兵家</h1>
+                <p>谋略兵法，军事智慧</p>
+                <a href="confucianism.html" class="back-link">返回思想文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 思想文化子导航 -->
+    <nav class="sub-nav">
+        <div class="container">
+            <ul class="sub-nav-links">
+                <li><a href="confucianism_detail.html">儒家</a></li>
+                <li><a href="taoism_detail.html">道家</a></li>
+                <li><a href="legalism_detail.html">法家</a></li>
+                <li><a href="mohism_detail.html">墨家</a></li>
+                <li><a href="military_detail.html">兵家</a></li>
+                <li><a href="mingjia_detail.html">名家</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="school-main">
+        <div class="container">
+            <div class="school-content">
+                <!-- 学派介绍 -->
+                <section class="school-section">
+                    <h2>兵家介绍</h2>
+                    <p>兵家是中国古代重要的思想学派之一，以孙子、吴起为代表，强调军事战略，研究战争规律和军事智慧。兵家思想对中国古代军事学的发展产生了深远的影响，是中国古代军事理论的重要组成部分。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="school-section">
+                    <h2>起源与发展</h2>
+                    <h3>创立与形成</h3>
+                    <p>兵家思想的起源可以追溯到先秦时期，其早期代表人物有司马穰苴、孙武等。司马穰苴是春秋时期的军事家，他的军事思想对后世产生了深远的影响。孙武是战国时期的军事家，他的著作《孙子兵法》是中国古代重要的军事著作。</p>
+                    
+                    <h3>发展与传承</h3>
+                    <p>秦国时期，兵家思想得到了进一步的发展，出现了尉缭、白起、王翦等杰出的军事家。白起（约公元前545年-公元前370年）是战国时期的军事家，他的著作《孙子兵法》是中国古代最重要的军事著作，被后世称为"兵学圣典"。白起（约公元前440年-公元前381年）是战国时期的军事家，他的著作《吴子兵法》是中国古代重要的军事著作。王翦（约公元前380年-公元前320年）是战国时期的军事家，他的著作《孙膑兵法》是中国古代重要的军事著作。孙膑（约公元前300年-公元前230年）是战国时期的军事家，他的著作《孙膑兵法》是中国古代重要的军事著作。</p>
+                    
+                    <h3>后世影响</h3>
+                    <p>秦汉时期，兵家思想继续发展，出现了韩信、彭越、英布等杰出的军事家。韩信是秦汉时期的军事家，他的军事思想对后世产生了深远的影响。彭越是秦汉时期的军事家，他的军事思想对后世产生了深远的影响。英布是秦汉时期的军事家，他的军事思想对后世产生了深远的影响。</p>
+                    <p>三国时期，兵家思想得到了广泛的应用，出现了曹操、诸葛亮、孙权等杰出的军事家。曹操是三国时期的军事家，他的军事思想对后世产生了深远的影响。诸葛亮是三国时期的军事家，他的军事思想对后世产生了深远的影响。孙权是三国时期的军事家，他的军事思想对后世产生了深远的影响。</p>
+                    <p>唐宋时期，兵家思想继续发展，出现了李靖、郭子仪、李光弼等杰出的军事家。李靖是唐代的军事家，他的军事思想对后世产生了深远的影响。郭子仪是唐代的军事家，他的军事思想对后世产生了深远的影响。李光弼是唐代的军事家，他的军事思想对后世产生了深远的影响。</p>
+                    <p>明清时期，兵家思想继续发展，出现了戚继光、袁崇焕、郑成功等杰出的军事家。戚继光是明代的军事家，他的军事思想对后世产生了深远的影响。袁崇焕是明代的军事家，他的军事思想对后世产生了深远的影响。郑成功是清代的军事家，他的军事思想对后世产生了深远的影响。</p>
+                </section>
+
+                <!-- 哲学观 -->
+                <section class="school-section">
+                    <h2>哲学观</h2>
+                    <h3>战略哲学</h3>
+                    <p>兵家的战略哲学强调全局思维和长远规划，认为战争是一个系统工程，需要从整体上考虑各种因素。孙子提出"五事七计"作为战略分析的框架，包括道、天、地、将、法五个基本要素，以及主孰有道、将孰有能等七个比较方面。这种系统思维方法不仅适用于军事领域，也对其他领域的决策具有重要的参考价值。</p>
+                    
+                    <h3>辩证思维</h3>
+                    <p>兵家思想包含丰富的辩证思维，强调矛盾的对立统一和相互转化。孙子提出了一系列对立统一的范畴，如敌我、强弱、攻守、虚实、劳逸等，认为这些矛盾在一定条件下可以相互转化。例如，"乱生于治，怯生于勇，弱生于强"，强调了矛盾转化的可能性和条件性。</p>
+                    
+                    <h3>实用主义</h3>
+                    <p>兵家强调实用主义，注重实际效果和可行性。孙子说："兵者，国之大事，死生之地，存亡之道，不可不察也。"这种实用主义思想体现在兵家对战争目的的明确认识上，认为战争的最终目的是取得胜利，而不是追求形式上的完美。</p>
+                    
+                    <h3>变化观</h3>
+                    <p>兵家认为世界是不断变化的，战争形势也是瞬息万变的。孙子说："兵无常势，水无常形；能因敌变化而取胜者，谓之神。"这种变化观强调在战争中要根据形势的变化及时调整战略战术，反对教条主义和墨守成规。</p>
+                    
+                    <h3>人本思想</h3>
+                    <p>兵家重视人的因素在战争中的作用，认为将帅的素质和士兵的士气是决定战争胜负的关键因素。孙子提出了将帅应该具备"智、信、仁、勇、严"五种品质，强调了将帅的重要性。同时，兵家也重视士兵的训练和士气的鼓舞，认为只有高素质的军队才能取得战争的胜利。</p>
+                </section>
+
+                <!-- 核心思想 -->
+                <section class="school-section">
+                    <h2>核心思想</h2>
+                    <h3>知彼知己</h3>
+                    <p>"知彼知己"是兵家思想的核心概念，强调在战争中要了解自己和敌人的情况，才能取得胜利。孙子说："知彼知己，百战不殆；不知彼而知己，一胜一负；不知彼不知己，每战必殆。"</p>
+                    
+                    <h3>兵贵神速</h3>
+                    <p>"兵贵神速"是兵家思想的重要原则，强调在战争中要行动迅速，出其不意，攻其不备。孙子说："兵之情主速，乘人之不及，由不虞之道，攻其所不戒也。"</p>
+                    
+                    <h3>避实击虚</h3>
+                    <p>"避实击虚"是兵家思想的重要原则，强调在战争中要避开敌人的坚实之处，攻击敌人的虚弱之处。孙子说："水因地而制流，兵因敌而制胜。故兵无常势，水无常形；能因敌变化而取胜者，谓之神。"</p>
+                    
+                    <h3>以正合，以奇胜</h3>
+                    <p>"以正合，以奇胜"是兵家思想的重要原则，强调在战争中要以正兵与敌人正面交锋，以奇兵取得胜利。孙子说："凡战者，以正合，以奇胜。故善出奇者，无穷如天地，不竭如江河。"</p>
+                    
+                    <h3>因敌制胜</h3>
+                    <p>"因敌制胜"是兵家思想的重要原则，强调在战争中要根据敌人的情况制定战略战术，灵活应对。孙子说："水因地而制流，兵因敌而制胜。故兵无常势，水无常形；能因敌变化而取胜者，谓之神。"</p>
+                    
+                    <h3>兵不厌诈</h3>
+                    <p>"兵不厌诈"是兵家思想的重要原则，强调在战争中要使用计谋，迷惑敌人。孙子说："兵者，诡道也。故能而示之不能，用而示之不用，近而示之远，远而示之近。"</p>
+                    
+                    <h3>攻心为上</h3>
+                    <p>"攻心为上"是兵家思想的重要原则，强调在战争中要以最小的代价取得最大的胜利，最好是不战而屈人之兵。孙子说："是故百战百胜，非善之善者也；不战而屈人之兵，善之善者也。"</p>
+                </section>
+
+                <!-- 历史影响 -->
+                <section class="school-section">
+                    <h2>历史影响</h2>
+                    <h3>军事影响</h3>
+                    <p>兵家思想对中国古代军事学的发展产生了深远影响。兵家提出的战略战术原则，如知彼知己、兵贵神速、避实击虚等，成为中国古代军事学的重要组成部分，影响了中国两千多年的军事发展。</p>
+                    
+                    <h3>政治影响</h3>
+                    <p>兵家思想对中国古代政治的发展产生了一定的影响。兵家强调的战略思维和权谋策略，对中国古代政治治理产生了重要影响，被许多政治家和统治者所采用。</p>
+                    
+                    <h3>文化影响</h3>
+                    <p>兵家思想对中国古代文化的发展产生了一定的影响。兵家强调的实用主义和实证精神，对中国古代文化的发展产生了一定的积极影响。</p>
+                    
+                    <h3>国际影响</h3>
+                    <p>兵家思想对世界军事学的发展产生了深远影响。《孙子兵法》等兵书被翻译成多种语言，在世界范围内广泛传播，对世界军事学的发展产生了重要影响。</p>
+                </section>
+
+                <!-- 主要著作 -->
+                <section class="school-section">
+                    <h2>主要著作</h2>
+                    <ul>
+                        <li><strong>《孙子兵法》</strong>：孙子的著作，是中国古代最重要的军事著作，被后世称为"兵学圣典"。</li>
+                        <li><strong>《吴子兵法》</strong>：吴起的著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《孙膑兵法》</strong>：孙膑的著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《司马法》</strong>：司马穰苴的著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《孙膑兵法》</strong>：孙膑的著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《六韬》</strong>：姜子牙的著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《三略》</strong>：黄石公的著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《唐太宗李卫公问对》</strong>：唐太宗和李靖的问答录，是中国古代重要的军事著作。</li>
+                        <li><strong>《武经总要》</strong>：北宋官修的军事著作，是中国古代重要的军事著作。</li>
+                        <li><strong>《纪效新书》</strong>：戚继光的著作，是中国古代重要的军事著作。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典言论 -->
+                <section class="school-section">
+                    <h2>经典言论</h2>
+                    <div class="quotes-section">
+                        <div class="quote-item">
+                            <p>"知彼知己，百战不殆；不知彼而知己，一胜一负；不知彼不知己，每战必殆。"</p>
+                            <p class="author

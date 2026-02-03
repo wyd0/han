@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四言诗 - 诗歌体裁详细说明</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="poetry_styles.css">
+    <style>
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        /* 页面头部样式 */
+        .poetry-detail-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .poetry-detail-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .poetry-detail-header p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 主要内容样式 */
+        .poetry-detail-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .poetry-detail-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 15px;
+        }
+        
+        .genre-detail {
+            margin-bottom: 40px;
+        }
+        
+        .genre-detail h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #8B4513;
+        }
+        
+        .genre-detail p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .genre-detail ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .genre-detail li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* 诗歌示例样式 */
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+        }
+        
+        .poem-example h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* 返回链接样式 */
+        .back-link-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-2px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .poetry-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .poetry-detail-content {
+                padding: 20px;
+            }
+            
+            .poetry-detail-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .genre-detail h3 {
+                font-size: 1.3rem;
+            }
+            
+            .genre-detail p,
+            .genre-detail li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 15px;
+            }
+            
+            .back-link {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 诗歌导航栏 -->
+    <nav class="poetry-nav">
+        <div class="container">
+            <ul class="poetry-nav-links">
+                <li><a href="poetry_gu_ti.html">古体诗</a></li>
+                <li><a href="poetry_jin_ti.html">近体诗</a></li>
+                <li><a href="poetry_ci.html">词</a></li>
+                <li><a href="poetry_qu.html">曲</a></li>
+                <li><a href="poetry_lyric.html">抒情诗</a></li>
+                <li><a href="poetry_narrative.html">叙事诗</a></li>
+                <li><a href="poetry_landscape.html">山水田园诗</a></li>
+                <li><a href="poetry_frontier.html">边塞诗</a></li>
+                <li><a href="poetry_epic.html">咏史诗</a></li>
+                <li><a href="poetry_object.html">咏物诗</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <section class="poetry-detail-header">
+        <div class="container">
+            <div class="poetry-detail-header-content">
+                <h1>四言诗</h1>
+                <p>中国最古老的诗歌形式之一</p>
+                <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="poetry-detail-main">
+        <div class="container">
+            <div class="poetry-detail-content">
+                <!-- 四言诗详细说明 -->
+                <section class="poetry-detail-section">
+                    <h2>四言诗</h2>
+                    <div class="genre-detail">
+                        <h3>概述</h3>
+                        <p>四言诗是中国最古老的诗歌形式之一，以四字句式为主。它是中国诗歌发展的早期形式，也是中国文学史上的重要组成部分。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>历史发展</h3>
+                        <p>四言诗是中国最古老的诗歌形式之一，其起源可以追溯到原始社会的劳动歌谣。在文字产生之前，先民们通过口头传唱的方式记录劳动生活和表达情感，这些歌谣就是四言诗的雏形。</p>
+                        <p>夏商时期，四言诗开始形成初步的形式。到了西周时期，四言诗达到了成熟阶段，《诗经》的编纂标志着四言诗的巅峰。《诗经》共收录了从西周初期到春秋中叶的诗歌305篇，其中大部分都是四言诗，内容涵盖了劳动、爱情、战争、祭祀等各个方面，成为中国文学史上第一部诗歌总集。</p>
+                        <p>春秋战国时期，四言诗仍然是主要的诗歌形式，但随着社会的变革和语言的发展，开始逐渐衰落。这一时期的四言诗在内容和形式上都有所创新，如《楚辞》虽然以杂言为主，但也吸收了四言诗的元素。</p>
+                        <p>汉代以后，五言诗和七言诗兴起，四言诗的地位逐渐被取代，但仍有一些文人墨客出于对古典的崇尚而继续创作四言诗。例如，曹操的《短歌行》、嵇康的《赠秀才入军》、陶渊明的《归园田居》等作品，都以四言形式表达了深刻的思想情感，成为四言诗的传世佳作。</p>
+                        <p>魏晋南北朝时期，四言诗虽然不再是主流，但在一些正式场合和祭祀活动中仍然被使用。唐代以后，四言诗的创作更加稀少，但偶尔仍有佳作出现，如韩愈的《元和圣德诗》、柳宗元的《平淮夷雅》等。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>艺术特点</h3>
+                        <ul>
+                            <li><strong>句式整齐</strong>：以四字句式为主，句式整齐，节奏明快。</li>
+                            <li><strong>语言古朴</strong>：语言简洁古朴，富有典雅之美。</li>
+                            <li><strong>节奏鲜明</strong>：每句四字，节奏为二二拍，韵律和谐。</li>
+                            <li><strong>适合庄重题材</strong>：适合表达庄重、典雅的情感和主题。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>代表作品</h3>
+                        <div class="poem-example">
+                            <h4>《关雎》（《诗经》）</h4>
+                            <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
+                            <p>参差荇菜，左右流之。窈窕淑女，寤寐求之。</p>
+                            <p>求之不得，寤寐思服。悠哉悠哉，辗转反侧。</p>
+                            <p>参差荇菜，左右采之。窈窕淑女，琴瑟友之。</p>
+                            <p>参差荇菜，左右芼之。窈窕淑女，钟鼓乐之。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《蒹葭》（《诗经》）</h4>
+                            <p>蒹葭苍苍，白露为霜。所谓伊人，在水一方。</p>
+                            <p>溯洄从之，道阻且长。溯游从之，宛在水中央。</p>
+                            <p>蒹葭萋萋，白露未晞。所谓伊人，在水之湄。</p>
+                            <p>溯洄从之，道阻且跻。溯游从之，宛在水中坻。</p>
+                            <p>蒹葭采采，白露未已。所谓伊人，在水之涘。</p>
+                            <p>溯洄从之，道阻且右。溯游从之，宛在水中沚。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《短歌行》（曹操）</h4>
+                            <p>对酒当歌，人生几何？譬如朝露，去日苦多。</p>
+                            <p>慨当以慷，忧思难忘。何以解忧？唯有杜康。</p>
+                            <p>青青子衿，悠悠我心。但为君故，沉吟至今。</p>
+                            <p>呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>影响与地位</h3>
+                        <p>四言诗在中国文学史上占有极其重要的地位，它是中国诗歌的源头之一，对后世诗歌的发展产生了深远的影响。</p>
+                        <p><strong>对诗歌形式的影响</strong>：四言诗的句式整齐、节奏明快的特点，为后世诗歌的格律化奠定了基础。它的二二节拍成为中国古典诗歌节奏的基本模式，影响了五言诗、七言诗等后世诗歌形式的发展。</p>
+                        <p><strong>对文学创作的影响</strong>：《诗经》作为四言诗的代表作品，开创了现实主义的文学传统，强调诗歌的社会功能和教化作用。这种传统被后世诗人继承和发扬，成为中国文学的重要特色。</p>
+                        <p><strong>对思想文化的影响</strong>：《诗经》中的四言诗蕴含着丰富的思想文化内涵，包括儒家的伦理道德、道家的自然观念、法家的社会理想等，成为中国传统文化的重要组成部分。它不仅是文学作品，也是研究中国古代社会历史、思想文化的重要资料。</p>
+                        <p><strong>对语言发展的影响</strong>：四言诗的语言简洁古朴，富有表现力，为汉语的发展做出了重要贡献。《诗经》中的许多词汇和成语至今仍在使用，如"窈窕淑女"、"求之不得"、"辗转反侧"等，成为汉语词汇宝库中的重要财富。</p>
+                        <p><strong>在文学史上的地位</strong>：四言诗是中国文学史上第一个成熟的诗歌形式，它的出现标志着中国诗歌从原始歌谣进入了成熟的文学创作阶段。《诗经》作为四言诗的巅峰之作，与《楚辞》并称为中国诗歌的两大源头，对后世文学的发展产生了深远的影响。</p>
+                        <p>虽然四言诗在汉代以后逐渐被五言诗和七言诗所取代，但它在中国文学史上的地位不可动摇。它不仅是中国古代文学的重要组成部分，也是中华民族文化遗产中的瑰宝，值得我们永远珍视和传承。</p>
+                    </div>
+                </section>
+                
+                <!-- 返回链接 -->
+                <div class="back-link-container">
+                    <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="poetry_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,536 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 文学艺术页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .literature-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .literature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .literature-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .literature-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .literature-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .literature-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .literature-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .literature-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .literature-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .literature-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .literature-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .literature-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .literature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .literature-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .literature-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学形式网格 */
+        .literature-forms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .literature-form {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .literature-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .literature-form h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 文学发展时间线 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #c0392b;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #c0392b;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: "";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid rgba(249, 249, 249, 0.95);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent rgba(249, 249, 249, 0.95);
+        }
+        
+        .right::before {
+            content: "";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid rgba(249, 249, 249, 0.95);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent rgba(249, 249, 249, 0.95) transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        .timeline-content h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .literature-header h1 {
+                font-size: 36px;
+            }
+            
+            .literature-header p {
+                font-size: 18px;
+            }
+            
+            .literature-section h2 {
+                font-size: 28px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after {
+                left: 18px;
+            }
+            
+            .right::after {
+                left: 18px;
+            }
+            
+            .left::before {
+                left: 60px;
+                border: medium solid rgba(249, 249, 249, 0.95);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent rgba(249, 249, 249, 0.95) transparent transparent;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="literature-header">
+        <div class="container">
+            <div class="literature-header-content">
+                <h1>文学艺术</h1>
+                <p>中国汉族文学艺术的璀璨瑰宝</p>
+                <a href="index.html" class="back-home">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="literature-main">
+        <div class="container">
+            <div class="literature-content">
+                <!-- 文学形式导航 -->
+                <div style="background-color: rgba(255, 248, 240, 0.9); padding: 30px; border-radius: 15px; margin-bottom: 50px; box-shadow: 0 5px 20px rgba(192, 57, 43, 0.15); border: 1px solid rgba(192, 57, 43, 0.2);">
+                    <h3 style="color: #c0392b; margin-bottom: 25px; text-align: center; font-family: 'SimSun', serif; font-size: 24px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">文学形式导航</h3>
+                    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px;">
+                        <a href="poetry_detail.html" style="display: inline-block; padding: 15px 30px; background-color: #c0392b; color: white; text-decoration: none; border-radius: 8px; transition: all 0.3s ease; font-family: 'SimSun', serif; font-size: 18px; box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3); position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 2;">诗歌</span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease;"></span>
+                        </a>
+                        <a href="prose_detail.html" style="display: inline-block; padding: 15px 30px; background-color: #c0392b; color: white; text-decoration: none; border-radius: 8px; transition: all 0.3s ease; font-family: 'SimSun', serif; font-size: 18px; box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3); position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 2;">散文</span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease;"></span>
+                        </a>
+                        <a href="novel_detail.html" style="display: inline-block; padding: 15px 30px; background-color: #c0392b; color: white; text-decoration: none; border-radius: 8px; transition: all 0.3s ease; font-family: 'SimSun', serif; font-size: 18px; box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3); position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 2;">小说</span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease;"></span>
+                        </a>
+                        <a href="opera_detail.html" style="display: inline-block; padding: 15px 30px; background-color: #c0392b; color: white; text-decoration: none; border-radius: 8px; transition: all 0.3s ease; font-family: 'SimSun', serif; font-size: 18px; box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3); position: relative; overflow: hidden;">
+                            <span style="position: relative; z-index: 2;">戏曲</span>
+                            <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background-color: rgba(255,255,255,0.2); transition: all 0.3s ease;"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <style>
+                    /* 导航按钮动画效果 */
+                    .literature-content a:hover span:nth-child(2) {
+                        left: 100%;
+                    }
+                    
+                    .literature-content a:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 6px 16px rgba(192, 57, 43, 0.4);
+                    }
+                    
+                    /* 响应式导航 */
+                    @media (max-width: 768px) {
+                        .literature-content > div:first-child {
+                            padding: 20px;
+                        }
+                        
+                        .literature-content > div:first-child h3 {
+                            font-size: 20px;
+                        }
+                        
+                        .literature-content > div:first-child a {
+                            padding: 12px 24px;
+                            font-size: 16px;
+                        }
+                    }
+                </style>
+                
+                <!-- 简介部分 -->
+                <section class="literature-section">
+                    <h2>文学艺术概述</h2>
+                    <p>中国汉族文学艺术是中华传统文化的重要组成部分，是中华民族智慧和创造力的结晶。它包括诗词、散文、小说、绘画、音乐、舞蹈、戏曲等多种形式，具有悠久的历史和丰富的内涵。</p>
+                    <p>汉族文学艺术的发展与中国历史的演进密切相关，每个时代都有其独特的文学艺术风格和特点。从先秦时期的《诗经》、楚辞，到秦汉时期的汉赋，再到唐宋时期的唐诗宋词，元明清时期的元曲、明清小说，汉族文学艺术不断创新和发展，形成了独具特色的艺术体系。</p>
+                </section>
+
+                <!-- 文学发展时间线 -->
+                <section class="literature-section">
+                    <h2>中国文学发展历程</h2>
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>先秦时期（公元前21世纪-公元前221年）</h4>
+                                <p>中国文学的开端，包括《诗经》、楚辞、诸子散文等。《诗经》是中国第一部诗歌总集，楚辞以屈原的《离骚》为代表，诸子散文以孔子、孟子、庄子等的著作为代表。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>秦汉时期（公元前221年-公元220年）</h4>
+                                <p>文学形式更加丰富，包括汉赋、乐府民歌等。汉赋以司马相如、扬雄的作品为代表，乐府民歌则反映了当时的社会生活和人民情感。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>魏晋南北朝时期（公元220年-公元589年）</h4>
+                                <p>文学艺术更加注重个人情感表达，包括建安文学、山水田园诗等。建安文学以曹操、曹丕、曹植为代表，山水田园诗以陶渊明、谢灵运为代表。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>唐宋时期（公元618年-公元1279年）</h4>
+                                <p>唐诗宋词达到了中国文学的巅峰，涌现出众多杰出的文学家。唐代有李白、杜甫、白居易等，宋代有苏轼、李清照、辛弃疾等。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>元明清时期（公元1271年-公元1911年）</h4>
+                                <p>元曲、明清小说等通俗文学形式兴起，文学更加贴近民众生活。元曲以关汉卿、马致远为代表，明清小说则有《三国演义》、《水浒传》、《西游记》、《红楼梦》等经典作品。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 主要文学形式 -->
+                <section class="literature-section">
+                    <h2>主要文学形式</h2>
+                    <div class="literature-forms">
+                        <div class="literature-form">
+                            <h4><a href="poetry_detail.html" style="color: #c0392b; text-decoration: none;">诗歌</a></h4>
+                            <p>诗歌是中国文学中最具代表性的形式，包括古体诗、近体诗、词、曲等。诗歌语言凝练，意境深远，是中国文学的瑰宝。</p>
+                            <a href="poetry_detail.html" style="color: #c0392b; text-decoration: none; font-weight: bold;">了解更多 →</a>
+                        </div>
+                        <div class="literature-form">
+                            <h4><a href="prose_detail.html" style="color: #c0392b; text-decoration: none;">散文</a></h4>
+                            <p>散文形式灵活多样，包括议论文、记叙文、抒情文等。散文内容丰富，语言优美，是中国文学的重要组成部分。</p>
+                            <a href="prose_detail.html" style="color: #c0392b; text-decoration: none; font-weight: bold;">了解更多 →</a>
+                        </div>
+                        <div class="literature-form">
+                            <h4><a href="novel_detail.html" style="color: #c0392b; text-decoration: none;">小说</a></h4>
+                            <p>小说是通俗文学的主要形式，包括古代神话、传奇、话本、章回小说等。小说情节生动，人物形象鲜明，深受广大民众喜爱。</p>
+                            <a href="novel_detail.html" style="color: #c0392b; text-decoration: none; font-weight: bold;">了解更多 →</a>
+                        </div>
+                        <div class="literature-form">
+                            <h4><a href="opera_detail.html" style="color: #c0392b; text-decoration: none;">戏曲</a></h4>
+                            <p>戏曲是中国传统艺术的重要组成部分，包括京剧、昆曲、豫剧等多种剧种。戏曲融合了音乐、舞蹈、文学等多种艺术形式，是中国传统文化的瑰宝。</p>
+                            <a href="opera_detail.html" style="color: #c0392b; text-decoration: none; font-weight: bold;">了解更多 →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的特点 -->
+                <section class="literature-section">
+                    <h2>汉族文学艺术的特点</h2>
+                    <ul>
+                        <li><strong>注重意境</strong>：汉族文学艺术强调意境的营造，通过具体的意象来表达抽象的情感和思想。</li>
+                        <li><strong>追求和谐</strong>：汉族文学艺术注重和谐美，追求形式与内容的统一，人与自然的和谐。</li>
+                        <li><strong>强调道德教化</strong>：汉族文学艺术往往寓教于乐，通过艺术作品传递道德观念和价值取向。</li>
+                        <li><strong>继承与创新并重</strong>：汉族文学艺术在继承传统的基础上不断创新，形成了独特的艺术风格。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的影响 -->
+                <section class="literature-section">
+                    <h2>文学艺术的影响</h2>
+                    <p>汉族文学艺术对中国乃至世界文化都产生了深远的影响。它不仅是中华民族的精神财富，也是世界文化宝库中的重要组成部分。</p>
+                    <p>汉族文学艺术中的许多经典作品被翻译成多种文字，在世界范围内广泛传播，为世界文化的发展做出了重要贡献。同时，汉族文学艺术也吸收了其他民族和国家的文化元素，不断丰富和发展自己。</p>
+                    <p>在现代社会，汉族文学艺术仍然具有重要的价值和意义，它不仅是我们了解历史、认识社会的重要窗口，也是我们陶冶情操、提升审美素养的重要途径。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

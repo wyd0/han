@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傣族传统习俗 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傣族传统习俗页面特定样式 */
+        .dai-customs-header {
+            background-image: url('images/傣族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .dai-customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .dai-customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dai-customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .dai-customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-dai {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-dai:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dai-customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .dai-customs-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .dai-customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dai-customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-customs-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .dai-customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .dai-customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .dai-customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .dai-customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 习俗特点卡片 */
+        .customs-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 习俗详情 */
+        .customs-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .customs-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .customs-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .customs-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 节日习俗 */
+        .festival-customs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .festival-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .festival-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dai-customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .dai-customs-header p {
+                font-size: 18px;
+            }
+            
+            .dai-customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .dai-customs-section h3 {
+                font-size: 24px;
+            }
+            
+            .customs-features,
+            .customs-details,
+            .festival-customs {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="dai-customs-header">
+        <div class="container">
+            <div class="dai-customs-header-content">
+                <h1>傣族传统习俗</h1>
+                <p>传承千年的文化瑰宝</p>
+                <a href="dai.html" class="back-dai">返回傣族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="dai-customs-main">
+        <div class="container">
+            <div class="dai-customs-content">
+                <!-- 习俗概述 -->
+                <section class="dai-customs-section">
+                    <h2>习俗概述</h2>
+                    <p>傣族是一个历史悠久、文化绚丽的民族，有着丰富多样的传统习俗。这些习俗是傣族人民在长期的生产生活中形成的，反映了傣族的历史、文化、宗教信仰和价值观念，是傣族文化的重要组成部分。</p>
+                    <p>傣族的传统习俗涵盖了生活的方方面面，包括婚姻、丧葬、节日、日常起居、社交礼仪等。这些习俗不仅是傣族人民生活的重要组成部分，也是他们文化认同的重要标志。随着社会的发展和现代化进程的推进，傣族的传统习俗也在不断演变和发展，呈现出传统与现代相结合的特点。</p>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="dai-customs-section">
+                    <h2>婚姻习俗</h2>
+                    
+                    <h3>传统婚姻制度</h3>
+                    <p>傣族的传统婚姻制度是一夫一妻制，婚姻通常由父母包办，但也尊重青年男女的意愿。傣族青年男女通过"串寨子"、"丢包"等方式相互认识和恋爱，然后由父母出面提亲、订婚和结婚。</p>
+                    
+                    <h3>婚姻仪式</h3>
+                    <p>傣族的婚姻仪式隆重而繁琐，通常包括以下几个步骤：</p>
+                    <ul>
+                        <li><strong>提亲：</strong>男方父母或媒人到女方家提亲，带上礼物如酒、肉、茶叶等。</li>
+                        <li><strong>订婚：</strong>双方父母商定婚期和彩礼，举行订婚仪式，宴请亲朋好友。</li>
+                        <li><strong>结婚：</strong>结婚当天，男方家派出迎亲队伍到女方家迎亲，女方家则举行送亲仪式。新娘到达男方家后，要举行拜堂、敬酒等仪式，宴请亲朋好友。</li>
+                        <li><strong>回门：</strong>结婚几天后，新娘要回娘家省亲，带上礼物看望父母和亲友。</li>
+                    </ul>
+                    
+                    <h3>婚姻习俗特点</h3>
+                    <div class="customs-details">
+                        <div class="customs-card">
+                            <h5>丢包</h5>
+                            <p>丢包是傣族青年男女恋爱的重要方式，通常在节日或集会上进行。青年男女通过丢包来传递情谊，表达爱慕之情。丢包的过程中，男女双方可以相互认识和了解，是傣族青年男女自由恋爱的重要途径。</p>
+                        </div>
+                        <div class="customs-card">
+                            <h5>串寨子</h5>
+                            <p>串寨子是傣族青年男女恋爱的另一种方式，通常在晚上进行。青年男子会到其他寨子去拜访青年女子，通过唱歌、聊天等方式相互认识和了解。串寨子是傣族青年男女自由恋爱的重要形式，也是傣族婚姻文化的重要组成部分。</p>
+                        </div>
+                        <div class="customs-card">
+                            <h5>婚俗禁忌</h5>
+                            <p>傣族的婚姻习俗有一些禁忌，如禁止同姓通婚、禁止近亲结婚等。此外，在结婚仪式中也有一些禁忌，如新娘在结婚当天不能回头看娘家，不能踩门槛等。这些禁忌反映了傣族的宗教信仰和价值观念，是傣族婚姻文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="dai-customs-section">
+                    <h2>丧葬习俗</h2>
+                    
+                    <h3>传统丧葬方式</h3>
+                    <p>傣族的传统丧葬方式主要是土葬和火葬，不同地区和不同支系的傣族可能有不同的丧葬方式。在西双版纳地区，傣族主要实行土葬；在德宏地区，傣族主要实行火葬。此外，还有一些特殊情况下的丧葬方式，如天葬、水葬等。</p>
+                    
+                    <h3>丧葬仪式</h3>
+                    <p>傣族的丧葬仪式隆重而繁琐，通常包括以下几个步骤：</p>
+                    <ul>
+                        <li><strong>报丧：</strong>死者去世后，家人要立即向亲友报丧，通知他们前来吊唁。</li>
+                        <li><strong>停灵：</strong>死者的遗体要停放在家中，供亲友吊唁。停灵期间，要请僧侣念经超度亡灵。</li>
+                        <li><strong>出殡：</strong>出殡当天，要举行隆重的出殡仪式，亲友们要为死者送行。出殡时，要鸣锣开道，燃放鞭炮，以示驱邪。</li>
+                        <li><strong>安葬：</strong>死者的遗体要按照传统方式安葬，土葬或火葬。安葬后，要在墓地上举行祭祀仪式，祈求死者的灵魂安息。</li>
+                        <li><strong>守孝：</strong>死者的家人要守孝一段时间，期间要穿着孝服，避免参加娱乐活动。</li>
+                    </ul>
+                    
+                    <h3>丧葬习俗特点</h3>
+                    <p>傣族的丧葬习俗受到佛教的影响，注重超度亡灵和祈求死者的灵魂安息。在丧葬仪式中，僧侣的作用非常重要，他们要为死者念经超度，引导死者的灵魂进入西方极乐世界。此外，傣族的丧葬习俗也注重家族和社区的参与，亲友们要共同为死者送行，表达对死者的敬意和怀念之情。</p>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="dai-customs-section">
+                    <h2>节日习俗</h2>
+                    
+                    <div class="festival-customs">
+                        <div class="festival-card">
+                            <h5>泼水节</h5>
+                            <p>泼水节是傣族最重要的传统节日，也是傣族的新年，通常在公历4月中旬举行，为期3-7天。在节日期间，傣族人民会穿上盛装，举行泼水、划龙舟、放高升、跳孔雀舞等庆祝活动。泼水节象征着洗去过去一年的烦恼和不幸，迎来新的一年的幸福和吉祥。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>关门节</h5>
+                            <p>关门节是傣族的传统节日，通常在公历7月中旬举行，为期三个月。在关门节期间，傣族人民会停止一切娱乐活动，集中精力从事生产劳动和宗教活动。关门节象征着进入雨季，农业生产开始。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>开门节</h5>
+                            <p>开门节是傣族的传统节日，通常在公历10月中旬举行，标志着关门节的结束。在开门节期间，傣族人民会举行各种庆祝活动，如赕佛、跳舞、唱歌等。开门节象征着雨季结束，农业生产结束，新的娱乐季节开始。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>火把节</h5>
+                            <p>火把节是傣族的传统节日，通常在农历六月二十四日举行。在节日期间，傣族人民会点燃火把，围绕村寨游行，祈求平安和丰收。火把节象征着驱邪避灾，保佑人畜平安。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 日常习俗 -->
+                <section class="dai-customs-section">
+                    <h2>日常习俗</h2>
+                    
+                    <h3>起居习俗</h3>
+                    <p>傣族的起居习俗与他们的生活环境和气候条件密切相关。傣族人民喜欢居住在竹楼里，竹楼通风透气，适合热带和亚热带气候。傣族人民的日常生活规律，早睡早起，喜欢在户外活动。</p>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>傣族的饮食习俗以米饭为主食，喜欢吃酸、辣、鲜、香等口味的食物，擅长制作各种发酵食品。傣族人民喜欢用竹筒蒸饭，用芭蕉叶包饭，喜欢饮用自酿的米酒和各种果汁。</p>
+                    
+                    <h3>服饰习俗</h3>
+                    <p>傣族的服饰习俗具有鲜明的民族特色，男子通常穿着无领对襟或大襟小袖短衫，下着长裤，用白布、青布或蓝布包头。女子通常穿着紧身短上衣，下着筒裙，用银腰带束腰，喜欢佩戴各种银饰。</p>
+                    
+                    <h3>生产习俗</h3>
+                    <p>傣族的生产习俗主要与农业生产有关，他们是一个以农业为主的民族，主要种植水稻、甘蔗、茶叶等作物。傣族人民的生产活动与季节密切相关，他们根据季节的变化安排生产活动，如春耕、夏耘、秋收、冬藏等。</p>
+                </section>
+
+                <!-- 社交礼仪 -->
+                <section class="dai-customs-section">
+                    <h2>社交礼仪</h2>
+                    
+                    <h3>基本礼仪</h3>
+                    <p>傣族是一个热情好客、讲究礼仪的民族，他们的社交礼仪丰富多彩，体现了傣族人民的文化素养和道德观念。</p>
+                    
+                    <div class="customs-details">
+                        <div class="customs-card">
+                            <h5>见面礼仪</h5>
+                            <p>傣族人民见面时，要相互问好，行合十礼。晚辈见到长辈要主动问好，行合十礼，长辈则回礼。朋友之间见面时，要相互拥抱或握手，表达亲密之情。</p>
+                        </div>
+                        <div class="customs-card">
+                            <h5>待客礼仪</h5>
+                            <p>傣族人民热情好客，客人来访时，要拿出最好的食物和饮料款待客人。客人入座时，要请客人坐在上座，主人坐在下座。客人离开时，要送到门口，表达不舍之情。</p>
+                        </div>
+                        <div class="customs-card">
+                            <h5>作客礼仪</h5>
+                            <p>到傣族人家作客时，要尊重主人的习俗和禁忌，如不要进入主人的卧室，不要触摸主人的宗教物品等。要主动与主人交流，表达友好之情。离开时，要向主人致谢，表达感谢之情。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>禁忌习俗</h3>
+                    <p>傣族有一些禁忌习俗，需要遵守：</p>
+                    <ul>
+                        <li>不要摸别人的头，傣族认为头是神圣的部位</li>
+                        <li>不要在佛寺内大声喧哗，要保持安静</li>
+                        <li>不要穿着暴露的衣服进入佛寺</li>
+                        <li>不要在村寨的神树下大小便</li>
+                        <li>不要在水源地洗澡、洗衣服等</li>
+                    </ul>
+                </section>
+
+                <!-- 习俗的现代变迁 -->
+                <section class="dai-customs-section">
+                    <h2>习俗的现代变迁</h2>
+                    
+                    <h3>传统与现代的融合</h3>
+                    <p>在现代社会，傣族的传统习俗面临着新的挑战和机遇。随着社会的发展和现代化进程的推进，傣族的传统习俗也在不断演变和发展，呈现出传统与现代相结合的特点。</p>
+                    <p>一方面，傣族的传统习俗得到了保护和传承，如泼水节、关门节、开门节等传统节日仍然是傣族人民最重要的节日，传统的婚姻、丧葬、社交礼仪等习俗仍然在傣族社会中发挥着重要作用。另一方面，傣族的传统习俗也在不断适应现代社会的需要，如婚姻观念的变化、丧葬方式的简化、节日庆祝方式的创新等。</p>
+                    
+                    <h3>保护与传承</h3>
+                    <p>傣族的传统习俗是其文化遗产的重要组成部分，保护和传承傣族的传统习俗对于弘扬傣族文化、维护文化多样性具有重要意义。目前，傣族传统习俗的保护和传承工作主要包括以下几个方面：</p>
+                    <ul>
+                        <li>加强对傣族传统习俗的调查和研究，整理和保存相关资料</li>
+                        <li>通过教育、媒体等方式宣传傣族的传统习俗，提高人们的认识和重视程度</li>
+                        <li>在节日和庆典中展示傣族的传统习俗，增强人们的文化认同</li>
+                        <li>鼓励年轻人学习和传承傣族的传统习俗，培养传承人</li>
+                        <li>加强对傣族传统习俗的法律保护，制定相关法律法规</li>
+                    </ul>
+                    
+                    <h3>未来发展展望</h3>
+                    <p>在全球化和现代化的背景下，傣族的传统习俗面临着机遇和挑战。一方面，现代科技和媒体为傣族传统习俗的传播和发展提供了新的手段和平台；另一方面，强势文化的影响和文化同质化的趋势，也对傣族传统习俗的生存和发展构成了威胁。</p>
+                    <p>为了确保傣族传统习俗的可持续发展，我们需要采取以下措施：</p>
+                    <ul>
+                        <li>加强对傣族传统习俗的保护和传承，使其适应现代社会的需要</li>
+                        <li>促进傣族传统习俗与现代文化的交流和融合，丰富其内涵和表现力</li>
+                        <li>利用现代科技和媒体，创新傣族传统习俗的传播方式和手段</li>
+                        <li>加强对傣族传统习俗的研究和教育，提高其学术地位和社会认知</li>
+                        <li>尊重傣族人民的传统习俗，保障其自由表达和实践的权利</li>
+                    </ul>
+                    <p>相信在政府、社会各界和傣族人民的共同努力下，傣族的传统习俗一定能够在现代社会中继续发挥重要作用，为傣族文化的传承和发展做出贡献，为中华文化的多样性增添光彩。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面特定的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.dai-customs-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

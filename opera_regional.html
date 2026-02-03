@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>戏曲地域分类 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 戏曲地域分类页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .opera-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .opera-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .opera-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opera-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .opera-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .opera-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .opera-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .opera-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .opera-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .opera-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .opera-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .opera-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .opera-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 地域分类 */
+        .regional-category {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .regional-category h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-list {
+            margin-top: 20px;
+        }
+        
+        .opera-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            border-left: 3px solid #c0392b;
+        }
+        
+        .opera-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-item p {
+            margin-bottom: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .opera-header h1 {
+                font-size: 36px;
+            }
+            
+            .opera-header p {
+                font-size: 18px;
+            }
+            
+            .opera-section h2 {
+                font-size: 28px;
+            }
+            
+            .opera-section h3 {
+                font-size: 24px;
+            }
+            
+            .regional-category {
+                padding: 20px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="opera-header">
+        <div class="container">
+            <div class="opera-header-content">
+                <h1>戏曲地域分类</h1>
+                <p>按地区和地域分类的中国传统戏曲</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="opera_detail.html" class="back-link">返回戏曲艺术</a>
+                    <a href="literature.html" class="back-link">返回文学艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="opera-main">
+        <div class="container">
+            <div class="opera-content">
+                <!-- 搜索和筛选 -->
+                <section class="opera-section">
+                    <h2>戏曲搜索</h2>
+                    <div style="background-color: rgba(249, 249, 249, 0.95); padding: 30px; border-radius: 10px; margin: 30px 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center;">
+                            <!-- 搜索框 -->
+                    <div style="flex: 1; min-width: 300px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">关键词搜索：</label>
+                        <div style="position: relative;">
+                            <input type="text" id="search-input" placeholder="请输入戏曲名称或关键词" style="width: 100%; padding: 12px 70px 12px 15px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                            <button id="clear-btn" style="position: absolute; right: 60px; top: 50%; transform: translateY(-50%); background-color: transparent; color: #666; border: none; padding: 8px; border-radius: 5px; cursor: pointer; transition: all 0.3s; display: none;">×</button>
+                            <button id="search-btn" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background-color: #c0392b; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">搜索</button>
+                            <!-- 搜索联想下拉框 -->
+                            <div id="search-suggestions" style="position: absolute; top: 100%; left: 0; right: 0; background-color: white; border: 1px solid #e0e0e0; border-radius: 0 0 5px 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000; max-height: 200px; overflow-y: auto; display: none;"></div>
+                            <!-- 搜索历史 -->
+                            <div id="search-history" style="position: absolute; top: 100%; left: 0; right: 0; background-color: white; border: 1px solid #e0e0e0; border-radius: 0 0 5px 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 999; max-height: 200px; overflow-y: auto; display: none;">
+                                <div style="padding: 10px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: bold; color: #c0392b;">搜索历史</span>
+                                    <button id="clear-history-btn" style="background-color: transparent; color: #666; border: none; padding: 5px; cursor: pointer; font-size: 12px;">清空历史</button>
+                                </div>
+                                <div id="history-list" style="padding: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                            <!-- 地区筛选 -->
+                            <div style="flex: 1; min-width: 200px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">地区筛选：</label>
+                                <select id="region-filter" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                                    <option value="all">全部地区</option>
+                                    <option value="north">华北地区</option>
+                                    <option value="northeast">东北地区</option>
+                                    <option value="east">华东地区</option>
+                                    <option value="central">中南地区</option>
+                                    <option value="southwest">西南地区</option>
+                                    <option value="northwest">西北地区</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 省份筛选 -->
+                            <div style="flex: 1; min-width: 200px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">省份筛选：</label>
+                                <select id="province-filter" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                                    <option value="all">全部省份</option>
+                                    <option value="beijing">北京市</option>
+                                    <option value="tianjin">天津市</option>
+                                    <option value="hebei">河北省</option>
+                                    <option value="shanxi">山西省</option>
+                                    <option value="liaoning">辽宁省</option>
+                                    <option value="jilin">吉林省</option>
+                                    <option value="heilongjiang">黑龙江省</option>
+                                    <option value="shanghai">上海市</option>
+                                    <option value="jiangsu">江苏省</option>
+                                    <option value="zhejiang">浙江省</option>
+                                    <option value="anhui">安徽省</option>
+                                    <option value="fujian">福建省</option>
+                                    <option value="shandong">山东省</option>
+                                    <option value="jiangxi">江西省</option>
+                                    <option value="henan">河南省</option>
+                                    <option value="hubei">湖北省</option>
+                                    <option value="hunan">湖南省</option>
+                                    <option value="guangdong">广东省</option>
+                                    <option value="guangxi">广西壮族自治区</option>
+                                    <option value="hainan">海南省</option>
+                                    <option value="sichuan">四川省</option>
+                                    <option value="chongqing">重庆市</option>
+                                    <option value="yunnan">云南省</option>
+                                    <option value="guizhou">贵州省</option>
+                                    <option value="tibet">西藏自治区</option>
+                                    <option value="shaanxi">陕西省</option>
+                                    <option value="gansu">甘肃省</option>
+                                    <option value="qinghai">青海省</option>
+                                    <option value="ningxia">宁夏回族自治区</option>
+                                    <option value="xinjiang">新疆维吾尔自治区</option>
+                                    <option value="neimenggu">内蒙古自治区</option>
+                                    <option value="hongkong">香港特别行政区</option>
+                                    <option value="macau">澳门特别行政区</option>
+                                    <option value="taiwan">台湾地区</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 重置按钮 -->
+                            <div style="flex-shrink: 0; align-self: flex-end;">
+                                <button id="reset-btn" style="background-color: #6c757d; color: white; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; font-size: 16px;">重置</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 地域分类概述 -->
+                <section class="opera-section">
+                    <h2>地域分类概述</h2>
+                    <p>中国戏曲种类繁多，据统计，全国有300多种戏曲剧种。这些戏曲剧种因地域文化、语言特色、音乐风格等差异，形成了各具特色的艺术风格。按地区和地域分类，有助于我们更好地了解和欣赏中国戏曲的多样性。</p>
+                    <p>以下是按照中国主要地区划分的戏曲剧种分类：</p>
+                </section>
+
+                <!-- 华北地区 -->
+                <section class="opera-section" data-region="north">
+                    <h3>华北地区</h3>
+                    <div class="regional-category" data-province="beijing">
+                        <h4>北京市</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jingju.html" style="color: #c0392b; text-decoration: none;">京剧</a></h5>
+                                <p>中国最具代表性的戏曲剧种，被誉为"国剧"。融合了徽剧、汉剧、昆曲等多种戏曲元素，唱腔优美，表演程式严谨。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/beijing_quju.html" style="color: #c0392b; text-decoration: none;">北京曲剧</a></h5>
+                                <p>北京地方戏曲剧种，形成于20世纪50年代，以北京方言为基础，吸收了单弦、大鼓等说唱艺术元素。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/hebei_bangzi.html" style="color: #c0392b; text-decoration: none;">河北梆子</a></h5>
+                                <p>流行于北京、河北等地的戏曲剧种，唱腔高亢激昂，表演粗犷豪放。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="tianjin">
+                        <h4>天津市</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/pingju.html" style="color: #c0392b; text-decoration: none;">评剧</a></h5>
+                                <p>中国主要戏曲剧种之一，起源于河北唐山，流行于天津、北京、河北等地。唱腔通俗易懂，表演生动活泼。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/hebei_bangzi.html" style="color: #c0392b; text-decoration: none;">河北梆子</a></h5>
+                                <p>流行于河北、天津等地的戏曲剧种，唱腔高亢激昂，表演粗犷豪放。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jingju.html" style="color: #c0392b; text-decoration: none;">京剧</a></h5>
+                                <p>中国最具代表性的戏曲剧种，在天津有广泛的影响力，拥有众多著名演员和戏迷。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="hebei">
+                        <h4>河北省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/hebei_bangzi.html" style="color: #c0392b; text-decoration: none;"></a>河北梆子</a></h5>
+                                <p>河北主要戏曲剧种，唱腔高亢激昂，表演粗犷豪放。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/pingju.html" style="color: #c0392b; text-decoration: none;">评剧</a></h5>
+                                <p>起源于河北唐山，流行于河北、天津、北京等地。唱腔通俗易懂，表演生动活泼。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/sixianxi.html" style="color: #c0392b; text-decoration: none;">丝弦戏</a></h5>
+                                <p>流行于河北中南部的戏曲剧种，以丝弦乐器伴奏，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jingju.html" style="color: #c0392b; text-decoration: none;">京剧</a></h5>
+                                <p>中国最具代表性的戏曲剧种，在河北有一定的影响力，河北是京剧的重要发源地之一。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="shanxi">
+                        <h4>山西省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jinju.html" style="color: #c0392b; text-decoration: none;">晋剧</a></h5>
+                                <p>山西主要戏曲剧种，流行于山西各地，唱腔高亢激昂，表演朴实自然。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/puju.html" style="color: #c0392b; text-decoration: none;">蒲剧</a></h5>
+                                <p>山西地方戏曲剧种，流行于山西南部，唱腔粗犷豪放。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/beilu_bangzi.html" style="color: #c0392b; text-decoration: none;">北路梆子</a></h5>
+                                <p>山西地方戏曲剧种，流行于山西北部，唱腔高亢激昂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/shangdang_bangzi.html" style="color: #c0392b; text-decoration: none;">上党梆子</a></h5>
+                                <p>山西地方戏曲剧种，流行于山西东南部，唱腔丰富多样。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 东北地区 -->
+                <section class="opera-section" data-region="northeast">
+                    <h3>东北地区</h3>
+                    <div class="regional-category" data-province="liaoning">
+                        <h4>辽宁省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/pingju.html" style="color: #c0392b; text-decoration: none;">评剧</a></h5>
+                                <p>流行于辽宁、吉林、黑龙江等地的戏曲剧种，唱腔通俗易懂，表演生动活泼。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/liaoju.html" style="color: #c0392b; text-decoration: none;">辽剧</a></h5>
+                                <p>辽宁地方戏曲剧种，形成于20世纪50年代，以辽宁方言为基础，吸收了皮影戏等艺术元素。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="jilin">
+                        <h4>吉林省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/pingju.html" style="color: #c0392b; text-decoration: none;">评剧</a></h5>
+                                <p>流行于吉林、辽宁、黑龙江等地的戏曲剧种，唱腔通俗易懂，表演生动活泼。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jiju.html" style="color: #c0392b; text-decoration: none;">吉剧</a></h5>
+                                <p>吉林地方戏曲剧种，形成于20世纪50年代，以二人转为基础，吸收了京剧等戏曲元素。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="heilongjiang">
+                        <h4>黑龙江省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/pingju.html" style="color: #c0392b; text-decoration: none;">评剧</a></h5>
+                                <p>流行于黑龙江、吉林、辽宁等地的戏曲剧种，唱腔通俗易懂，表演生动活泼。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/longjiangju.html" style="color: #c0392b; text-decoration: none;">龙江剧</a></h5>
+                                <p>黑龙江地方戏曲剧种，形成于20世纪50年代，以二人转为基础，吸收了京剧等戏曲元素。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 华东地区 -->
+                <section class="opera-section" data-region="east">
+                    <h3>华东地区</h3>
+                    <div class="regional-category" data-province="shanghai">
+                        <h4>上海市</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yueju.html" style="color: #c0392b; text-decoration: none;">越剧</a></h5>
+                                <p>中国第二大戏曲剧种，主要流行于上海、浙江、江苏等地。唱腔优美动听，表演细腻传神。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/huju.html" style="color: #c0392b; text-decoration: none;">沪剧</a></h5>
+                                <p>上海地方戏曲剧种，起源于上海浦东，以上海方言为基础，唱腔柔和委婉。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/kunqu.html" style="color: #c0392b; text-decoration: none;">昆曲</a></h5>
+                                <p>中国最古老的戏曲剧种之一，被誉为"百戏之祖"，在上海有悠久的演出历史。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jingju.html" style="color: #c0392b; text-decoration: none;">京剧</a></h5>
+                                <p>中国最具代表性的戏曲剧种，在上海有广泛的影响力，拥有众多著名演员和戏迷。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="jiangsu">
+                        <h4>江苏省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/kunqu.html" style="color: #c0392b; text-decoration: none;">昆曲</a></h5>
+                                <p>起源于江苏昆山一带，中国最古老的戏曲剧种之一，被誉为"百戏之祖"。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/xiju.html" style="color: #c0392b; text-decoration: none;">锡剧</a></h5>
+                                <p>江苏地方戏曲剧种，流行于江苏无锡、常州等地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/huaiju.html" style="color: #c0392b; text-decoration: none;">淮剧</a></h5>
+                                <p>江苏地方戏曲剧种，流行于江苏淮安、盐城等地，唱腔粗犷豪放。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/jingju.html" style="color: #c0392b; text-decoration: none;">京剧</a></h5>
+                                <p>中国最具代表性的戏曲剧种，在江苏有一定的影响力，特别是在南京等地。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="zhejiang">
+                        <h4>浙江省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yueju.html" style="color: #c0392b; text-decoration: none;">越剧</a></h5>
+                                <p>起源于浙江嵊县一带，中国第二大戏曲剧种，唱腔优美动听，表演细腻传神。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/shaoju.html" style="color: #c0392b; text-decoration: none;">绍剧</a></h5>
+                                <p>浙江地方戏曲剧种，流行于浙江绍兴等地，唱腔高亢激昂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/wuju.html" style="color: #c0392b; text-decoration: none;">婺剧</a></h5>
+                                <p>浙江地方戏曲剧种，流行于浙江金华等地，唱腔丰富多样。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="anhui">
+                        <h4>安徽省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/huangmeixi.html" style="color: #c0392b; text-decoration: none;">黄梅戏</a></h5>
+                                <p>安徽地方戏曲剧种，起源于安徽黄梅一带，唱腔清新明快，表演活泼生动。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/huiju.html" style="color: #c0392b; text-decoration: none;">徽剧</a></h5>
+                                <p>安徽地方戏曲剧种，是京剧的重要源头之一，唱腔高亢激昂。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="fujian">
+                        <h4>福建省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/minju.html" style="color: #c0392b; text-decoration: none;">闽剧</a></h5>
+                                <p>福建地方戏曲剧种，流行于福建福州等地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/puxianxi.html" style="color: #c0392b; text-decoration: none;">莆仙戏</a></h5>
+                                <p>福建地方戏曲剧种，流行于福建莆田、仙游等地，是中国最古老的戏曲剧种之一。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/liyuanxi.html" style="color: #c0392b; text-decoration: none;">梨园戏</a></h5>
+                                <p>福建地方戏曲剧种，流行于福建泉州等地，是中国最古老的戏曲剧种之一。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="shandong">
+                        <h4>山东省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/lvju.html" style="color: #c0392b; text-decoration: none;">吕剧</a></h5>
+                                <p>山东地方戏曲剧种，流行于山东济南、淄博等地，唱腔通俗易懂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/shandong_bangzi.html" style="color: #c0392b; text-decoration: none;">山东梆子</a></h5>
+                                <p>山东地方戏曲剧种，流行于山东菏泽、济宁等地，唱腔高亢激昂。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="jiangxi">
+                        <h4>江西省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/ganju.html" style="color: #c0392b; text-decoration: none;">赣剧</a></h5>
+                                <p>江西主要戏曲剧种，流行于江西各地，唱腔优美动听，表演细腻传神。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/caichaxi.html" style="color: #c0392b; text-decoration: none;">采茶戏</a></h5>
+                                <p>江西地方戏曲剧种，流行于江西各地，唱腔活泼明快，表演生动有趣。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 中南地区 -->
+                <section class="opera-section" data-region="central">
+                    <h3>中南地区</h3>
+                    <div class="regional-category" data-province="henan">
+                        <h4>河南省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yuju.html" style="color: #c0392b; text-decoration: none;">豫剧</a></h5>
+                                <p>中国最大的地方戏曲剧种之一，起源于河南开封一带，唱腔粗犷豪放，表演朴实自然。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/quju.html" style="color: #c0392b; text-decoration: none;">曲剧</a></h5>
+                                <p>河南地方戏曲剧种，流行于河南各地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yuediao.html" style="color: #c0392b; text-decoration: none;">越调</a></h5>
+                                <p>河南地方戏曲剧种，流行于河南南阳等地，唱腔高亢激昂。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="hubei">
+                        <h4>湖北省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/hanju.html" style="color: #c0392b; text-decoration: none;">汉剧</a></h5>
+                                <p>湖北地方戏曲剧种，是京剧的重要源头之一，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/chuju.html" style="color: #c0392b; text-decoration: none;">楚剧</a></h5>
+                                <p>湖北地方戏曲剧种，流行于湖北武汉等地，唱腔活泼明快。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="hunan">
+                        <h4>湖南省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/xiangju.html" style="color: #c0392b; text-decoration: none;">湘剧</a></h5>
+                                <p>湖南地方戏曲剧种，流行于湖南长沙等地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/huaguxi.html" style="color: #c0392b; text-decoration: none;">花鼓戏</a></h5>
+                                <p>湖南地方戏曲剧种，流行于湖南各地，唱腔活泼明快。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="guangdong">
+                        <h4>广东省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yueju_gd.html" style="color: #c0392b; text-decoration: none;">粤剧</a></h5>
+                                <p>广东地方戏曲剧种，流行于广东、香港、澳门等地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/chaoju.html" style="color: #c0392b; text-decoration: none;">潮剧</a></h5>
+                                <p>广东地方戏曲剧种，流行于广东潮州等地，唱腔优美动听。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="guangxi">
+                        <h4>广西壮族自治区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/guiju.html" style="color: #c0392b; text-decoration: none;">桂剧</a></h5>
+                                <p>广西地方戏曲剧种，流行于广西桂林等地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/caidiao.html" style="color: #c0392b; text-decoration: none;">彩调</a></h5>
+                                <p>广西地方戏曲剧种，流行于广西各地，唱腔活泼明快。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="hainan">
+                        <h4>海南省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qiongju.html" style="color: #c0392b; text-decoration: none;">琼剧</a></h5>
+                                <p>海南主要戏曲剧种，流行于海南各地，唱腔优美动听，表演细腻传神。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 西南地区 -->
+                <section class="opera-section" data-region="southwest">
+                    <h3>西南地区</h3>
+                    <div class="regional-category" data-province="sichuan">
+                        <h4>四川省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/chuanju.html" style="color: #c0392b; text-decoration: none;">川剧</a></h5>
+                                <p>四川地方戏曲剧种，流行于四川、重庆等地，以变脸、喷火等特技著称。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/sichuanqingyin.html" style="color: #c0392b; text-decoration: none;">四川清音</a></h5>
+                                <p>四川地方戏曲剧种，流行于四川各地，唱腔优美动听。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="chongqing">
+                        <h4>重庆市</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/chuanju.html" style="color: #c0392b; text-decoration: none;">川剧</a></h5>
+                                <p>流行于重庆、四川等地的戏曲剧种，以变脸、喷火等特技著称。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/chongqingquju.html" style="color: #c0392b; text-decoration: none;">重庆曲剧</a></h5>
+                                <p>重庆地方戏曲剧种，形成于20世纪50年代，以重庆方言为基础。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="yunnan">
+                        <h4>云南省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/dianju.html" style="color: #c0392b; text-decoration: none;">滇剧</a></h5>
+                                <p>云南地方戏曲剧种，流行于云南各地，唱腔优美动听。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yunnanhuadeng.html" style="color: #c0392b; text-decoration: none;">云南花灯</a></h5>
+                                <p>云南地方戏曲剧种，流行于云南各地，唱腔活泼明快。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="guizhou">
+                        <h4>贵州省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qianju.html" style="color: #c0392b; text-decoration: none;">黔剧</a></h5>
+                                <p>贵州地方戏曲剧种，形成于20世纪50年代，以贵州方言为基础。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/guizhouhuadeng.html" style="color: #c0392b; text-decoration: none;">贵州花灯</a></h5>
+                                <p>贵州地方戏曲剧种，流行于贵州各地，唱腔活泼明快。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="tibet">
+                        <h4>西藏自治区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/zangxi.html" style="color: #c0392b; text-decoration: none;">藏戏</a></h5>
+                                <p>西藏主要戏曲剧种，流行于西藏各地，是藏族文化的重要组成部分，表演形式独特。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 西北地区 -->
+                <section class="opera-section" data-region="northwest">
+                    <h3>西北地区</h3>
+                    <div class="regional-category" data-province="shaanxi">
+                        <h4>陕西省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qinqiang.html" style="color: #c0392b; text-decoration: none;"></a>秦腔</a></h5>
+                                <p>陕西地方戏曲剧种，流行于陕西、甘肃等地，唱腔高亢激昂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/wanwanqiang.html" style="color: #c0392b; text-decoration: none;">碗碗腔</a></h5>
+                                <p>陕西地方戏曲剧种，流行于陕西各地，唱腔优美动听。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="gansu">
+                        <h4>甘肃省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qinqiang.html" style="color: #c0392b; text-decoration: none;">秦腔</a></h5>
+                                <p>流行于甘肃、陕西等地的戏曲剧种，唱腔高亢激昂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/longju.html" style="color: #c0392b; text-decoration: none;">陇剧</a></h5>
+                                <p>甘肃地方戏曲剧种，形成于20世纪50年代，以甘肃方言为基础。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="qinghai">
+                        <h4>青海省</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qinqiang.html" style="color: #c0392b; text-decoration: none;">秦腔</a></h5>
+                                <p>流行于青海、陕西等地的戏曲剧种，唱腔高亢激昂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qinghaipingxianxi.html" style="color: #c0392b; text-decoration: none;">青海平弦戏</a></h5>
+                                <p>青海地方戏曲剧种，流行于青海各地，唱腔优美动听。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="ningxia">
+                        <h4>宁夏回族自治区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qinqiang.html" style="color: #c0392b; text-decoration: none;">秦腔</a></h5>
+                                <p>流行于宁夏、陕西等地的戏曲剧种，唱腔高亢激昂。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="xinjiang">
+                        <h4>新疆维吾尔自治区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/qinqiang.html" style="color: #c0392b; text-decoration: none;">秦腔</a></h5>
+                                <p>流行于新疆、陕西等地的戏曲剧种，唱腔高亢激昂。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/xinjiangquzixi.html" style="color: #c0392b; text-decoration: none;">新疆曲子戏</a></h5>
+                                <p>新疆地方戏曲剧种，流行于新疆各地，吸收了汉族和维吾尔族等民族的音乐元素。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="neimenggu">
+                        <h4>内蒙古自治区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/errentai.html" style="color: #c0392b; text-decoration: none;">二人台</a></h5>
+                                <p>内蒙古地方戏曲剧种，流行于内蒙古各地，是蒙古族和汉族文化融合的产物，表演形式活泼。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/manhanju.html" style="color: #c0392b; text-decoration: none;">漫瀚剧</a></h5>
+                                <p>内蒙古地方戏曲剧种，形成于20世纪80年代，吸收了蒙古族和汉族的音乐元素。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 港澳台地区 -->
+                <section class="opera-section" data-region="hongkong-macau-taiwan">
+                    <h3>港澳台地区</h3>
+                    <div class="regional-category" data-province="hongkong">
+                        <h4>香港特别行政区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yueju_gd.html" style="color: #c0392b; text-decoration: none;">粤剧</a></h5>
+                                <p>香港主要戏曲剧种，流行于香港、广东等地，唱腔优美动听。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="macau">
+                        <h4>澳门特别行政区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/yueju_gd.html" style="color: #c0392b; text-decoration: none;">粤剧</a></h5>
+                                <p>澳门主要戏曲剧种，流行于澳门、广东等地，唱腔优美动听。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regional-category" data-province="taiwan">
+                        <h4>台湾地区</h4>
+                        <div class="opera-list">
+                            <div class="opera-item">
+                                <h5><a href="opera_details/gezaixi.html" style="color: #c0392b; text-decoration: none;">歌仔戏</a></h5>
+                                <p>台湾主要戏曲剧种，流行于台湾各地，唱腔活泼明快。</p>
+                            </div>
+                            <div class="opera-item">
+                                <h5><a href="opera_details/beiguanxi.html" style="color: #c0392b; text-decoration: none;">北管戏</a></h5>
+                                <p>台湾地方戏曲剧种，流行于台湾各地，唱腔高亢激昂。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 修改和增加戏曲种类建议 -->
+                <section class="opera-section">
+                    <h2>修改和增加戏曲种类建议</h2>
+                    <p>如果您发现页面中的戏曲种类信息有误，或者希望添加新的戏曲种类，请填写以下表单提交您的建议：</p>
+                    <div style="background-color: rgba(249, 249, 249, 0.95); padding: 40px; border-radius: 10px; margin: 30px 0; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <form id="suggestion-form" onsubmit="submitSuggestion(event)" style="max-width: 700px; margin: 0 auto;">
+                            <div style="margin-bottom: 25px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">建议类型：</label>
+                                <select name="suggestion-type" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                                    <option value="modify">修改现有戏曲种类</option>
+                                    <option value="add">增加新戏曲种类</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 25px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">戏曲名称：</label>
+                                <input type="text" name="opera-name" placeholder="请输入戏曲名称" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            <div style="margin-bottom: 25px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">建议内容：</label>
+                                <textarea name="suggestion-content" placeholder="请详细描述您的建议，包括修改原因或新戏曲种类的相关信息" rows="6" required style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; resize: vertical; transition: border-color 0.3s;"></textarea>
+                            </div>
+                            <div style="margin-bottom: 30px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #c0392b; font-size: 16px;">联系方式（可选）：</label>
+                                <input type="text" name="contact-info" placeholder="请输入您的邮箱或电话" style="width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 5px; font-size: 16px; transition: border-color 0.3s;">
+                            </div>
+                            <div style="text-align: center;">
+                                <button type="submit" style="background-color: #c0392b; color: white; padding: 14px 40px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 5px rgba(192, 57, 43, 0.3);">
+                                    提交建议
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>管理员入口</h4>
+                    <ul>
+                        <li><a href="admin/suggestions.html" style="color: #c0392b; font-weight: bold;">查看建议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.opera-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+    
+    <script>
+        // 处理建议表单提交
+        function submitSuggestion(event) {
+            event.preventDefault();
+            
+            // 模拟表单提交，跳转到管理员建议查看页面
+            window.location.href = 'admin/suggestions.html?submitted=true';
+        }
+    </script>
+    
+    <script>
+        // 搜索和筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const regionFilter = document.getElementById('region-filter');
+            const provinceFilter = document.getElementById('province-filter');
+            const searchBtn = document.getElementById('search-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const searchSuggestions = document.getElementById('search-suggestions');
+            const searchHistory = document.getElementById('search-history');
+            const historyList = document.getElementById('history-list');
+            const clearHistoryBtn = document.getElementById('clear-history-btn');
+            const operaSections = document.querySelectorAll('.opera-section[data-region]');
+            const operaItems = document.querySelectorAll('.opera-item');
+            
+            // 搜索关键词数据
+            const searchKeywords = [
+                '京剧', '越剧', '黄梅戏', '吕剧', '粤剧', '川剧', '豫剧', '评剧',
+                '晋剧', '蒲剧', '北路梆子', '上党梆子', '河北梆子', '北京曲剧',
+                '沪剧', '昆曲', '锡剧', '淮剧', '绍剧', '婺剧', '徽剧',
+                '闽剧', '莆仙戏', '梨园戏', '山东梆子', '赣剧', '采茶戏',
+                '曲剧', '越调', '汉剧', '楚剧', '湘剧', '花鼓戏', '潮剧',
+                '桂剧', '彩调', '琼剧', '四川清音', '重庆曲剧', '滇剧', '云南花灯',
+                '黔剧', '贵州花灯', '藏戏', '秦腔', '碗碗腔', '陇剧', '青海平弦戏',
+                '新疆曲子戏', '二人台', '漫瀚剧', '歌仔戏', '北管戏'
+            ];
+            
+            // 获取搜索历史
+            function getSearchHistory() {
+                try {
+                    const history = localStorage.getItem('searchHistory');
+                    return history ? JSON.parse(history) : [];
+                } catch (e) {
+                    console.error('Error getting search history:', e);
+                    return [];
+                }
+            }
+            
+            // 保存搜索历史
+            function saveSearchHistory(term) {
+                if (!term.trim()) return;
+                
+                try {
+                    let history = getSearchHistory();
+                    // 移除重复项
+                    history = history.filter(item => item !== term);
+                    // 添加到开头
+                    history.unshift(term);
+                    // 限制历史记录数量
+                    if (history.length > 10) {
+                        history = history.slice(0, 10);
+                    }
+                    localStorage.setItem('searchHistory', JSON.stringify(history));
+                    renderSearchHistory();
+                } catch (e) {
+                    console.error('Error saving search history:', e);
+                }
+            }
+            
+            // 渲染搜索历史
+            function renderSearchHistory() {
+                const history = getSearchHistory();
+                if (history.length === 0) {
+                    searchHistory.style.display = 'none';
+                    return;
+                }
+                
+                historyList.innerHTML = '';
+                history.forEach(term => {
+                    const historyItem = document.createElement('div');
+                    historyItem.style.padding = '8px 10px';
+                    historyItem.style.cursor = 'pointer';
+                    historyItem.style.borderBottom = '1px solid #f0f0f0';
+                    historyItem.style.transition = 'background-color 0.2s';
+                    historyItem.innerHTML = `<span style="margin-right: 10px;">🔍</span>${term}`;
+                    
+                    historyItem.addEventListener('mouseover', function() {
+                        this.style.backgroundColor = '#f5f5f5';
+                    });
+                    
+                    historyItem.addEventListener('mouseout', function() {
+                        this.style.backgroundColor = 'transparent';
+                    });
+                    
+                    historyItem.addEventListener('click', function() {
+                        searchInput.value = term;
+                        // 执行搜索操作
+                        performSearch();
+                    });
+                    
+                    historyList.appendChild(historyItem);
+                });
+                
+                // 显示搜索历史
+                searchHistory.style.display = 'block';
+            }
+            
+            // 清空搜索历史
+            function clearSearchHistory() {
+                try {
+                    localStorage.removeItem('searchHistory');
+                    renderSearchHistory();
+                } catch (e) {
+                    console.error('Error clearing search history:', e);
+                }
+            }
+            
+            // 显示搜索联想
+            function showSuggestions() {
+                const term = searchInput.value.toLowerCase().trim();
+                if (term === '') {
+                    searchSuggestions.style.display = 'none';
+                    renderSearchHistory();
+                    return;
+                }
+                
+                searchHistory.style.display = 'none';
+                
+                const filteredKeywords = searchKeywords.filter(keyword => 
+                    keyword.toLowerCase().includes(term)
+                );
+                
+                if (filteredKeywords.length === 0) {
+                    searchSuggestions.style.display = 'none';
+                    return;
+                }
+                
+                searchSuggestions.innerHTML = '';
+                filteredKeywords.forEach(keyword => {
+                    const suggestionItem = document.createElement('div');
+                    suggestionItem.style.padding = '8px 10px';
+                    suggestionItem.style.cursor = 'pointer';
+                    suggestionItem.style.borderBottom = '1px solid #f0f0f0';
+                    suggestionItem.style.transition = 'background-color 0.2s';
+                    
+                    // 高亮匹配部分
+                    const highlightedKeyword = keyword.replace(new RegExp(term, 'gi'), match => 
+                        `<span style="color: #c0392b; font-weight: bold;">${match}</span>`
+                    );
+                    suggestionItem.innerHTML = highlightedKeyword;
+                    
+                    suggestionItem.addEventListener('mouseover', function() {
+                        this.style.backgroundColor = '#f5f5f5';
+                    });
+                    
+                    suggestionItem.addEventListener('mouseout', function() {
+                        this.style.backgroundColor = 'transparent';
+                    });
+                    
+                    suggestionItem.addEventListener('click', function() {
+                        searchInput.value = keyword;
+                        // 执行搜索操作
+                        performSearch();
+                    });
+                    
+                    searchSuggestions.appendChild(suggestionItem);
+                });
+                
+                searchSuggestions.style.display = 'block';
+            }
+            
+            // 搜索和筛选函数
+            function searchAndFilter() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const selectedRegion = regionFilter.value;
+                const selectedProvince = provinceFilter.value;
+                
+                // 遍历所有地区section
+                operaSections.forEach(section => {
+                    const region = section.dataset.region;
+                    const sectionVisible = selectedRegion === 'all' || region === selectedRegion;
+                    
+                    // 遍历该地区下的所有省份category
+                    const provinceCategories = section.querySelectorAll('.regional-category[data-province]');
+                    let hasVisibleCategories = false;
+                    
+                    provinceCategories.forEach(category => {
+                        const province = category.dataset.province;
+                        const categoryVisible = selectedProvince === 'all' || province === selectedProvince;
+                        
+                        // 遍历该省份下的所有戏曲item
+                        const categoryItems = category.querySelectorAll('.opera-item');
+                        let hasVisibleItems = false;
+                        
+                        categoryItems.forEach(item => {
+                            const itemText = item.textContent.toLowerCase();
+                            const itemVisible = (searchTerm === '' || itemText.includes(searchTerm)) && sectionVisible && categoryVisible;
+                            
+                            if (itemVisible) {
+                                item.style.display = 'block';
+                                hasVisibleItems = true;
+                                hasVisibleCategories = true;
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                        
+                        // 显示或隐藏整个省份category
+                        if (hasVisibleItems) {
+                            category.style.display = 'block';
+                        } else {
+                            category.style.display = 'none';
+                        }
+                    });
+                    
+                    // 显示或隐藏整个地区section
+                    if (hasVisibleCategories) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+            
+            // 执行搜索操作
+            function performSearch() {
+                // 重置地区和省份筛选器
+                regionFilter.value = 'all';
+                provinceFilter.value = 'all';
+                // 保存搜索历史
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    saveSearchHistory(searchTerm);
+                }
+                // 执行搜索
+                searchAndFilter();
+                // 关闭下拉框
+                searchSuggestions.style.display = 'none';
+                searchHistory.style.display = 'none';
+                // 显示/隐藏清空按钮
+                if (searchTerm) {
+                    clearBtn.style.display = 'block';
+                } else {
+                    clearBtn.style.display = 'none';
+                }
+            }
+            
+            // 搜索按钮点击事件
+            searchBtn.addEventListener('click', performSearch);
+            
+            // 回车键搜索
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // 输入框输入事件
+            searchInput.addEventListener('input', function() {
+                showSuggestions();
+                // 显示/隐藏清空按钮
+                if (this.value.trim()) {
+                    clearBtn.style.display = 'block';
+                } else {
+                    clearBtn.style.display = 'none';
+                }
+            });
+            
+            // 输入框获得焦点事件
+            searchInput.addEventListener('focus', function() {
+                showSuggestions();
+            });
+            
+            // 清空按钮点击事件
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                clearBtn.style.display = 'none';
+                searchSuggestions.style.display = 'none';
+                renderSearchHistory();
+                searchHistory.style.display = 'block';
+                searchAndFilter();
+            });
+            
+            // 地区筛选变化事件
+            regionFilter.addEventListener('change', searchAndFilter);
+            
+            // 省份筛选变化事件
+            provinceFilter.addEventListener('change', searchAndFilter);
+            
+            // 重置按钮点击事件
+            resetBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                clearBtn.style.display = 'none';
+                regionFilter.value = 'all';
+                provinceFilter.value = 'all';
+                searchSuggestions.style.display = 'none';
+                searchHistory.style.display = 'none';
+                searchAndFilter();
+            });
+            
+            // 点击页面其他地方关闭下拉框
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && 
+                    !searchSuggestions.contains(e.target) && 
+                    !searchHistory.contains(e.target)) {
+                    searchSuggestions.style.display = 'none';
+                    searchHistory.style.display = 'none';
+                }
+            });
+            
+            // 清空历史按钮点击事件
+            clearHistoryBtn.addEventListener('click', clearSearchHistory);
+            
+            // 初始化
+            renderSearchHistory();
+            if (searchInput.value.trim()) {
+                clearBtn.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

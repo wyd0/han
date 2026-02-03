@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裕固族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 裕固族风俗习惯页面特定样式 */
+        .yugur-customs-header {
+            background-image: url('images/裕固族女子传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .yugur-customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yugur-customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yugur-customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .yugur-customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yugur {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yugur:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yugur-customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yugur-customs-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .yugur-customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .yugur-customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yugur-customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yugur-customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yugur-customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yugur-customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yugur-customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗特色 */
+        .customs-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .yugur-customs-section.visible .feature-item,
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-customs-section.visible .feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .yugur-customs-section.visible .feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .yugur-customs-section.visible .feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yugur-customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .yugur-customs-header p {
+                font-size: 18px;
+            }
+            
+            .yugur-customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="yugur.html">裕固族文化</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yugur-customs-header">
+        <div class="container">
+            <div class="yugur-customs-header-content">
+                <h1>裕固族风俗习惯</h1>
+                <p>独特的生活方式，传承民族文化精髓</p>
+                <a href="yugur.html" class="back-yugur">返回裕固族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="yugur-customs-main">
+        <div class="container">
+            <div class="yugur-customs-content">
+                <!-- 风俗概况 -->
+                <section class="yugur-customs-section">
+                    <h2>风俗概况</h2>
+                    <p>裕固族的风俗习惯是其民族文化的重要组成部分，反映了裕固族的历史传统、生活方式和价值观念。这些风俗习惯涵盖了居住、饮食、婚姻、丧葬、节日等各个方面，形成了裕固族独特的文化特色。</p>
+                    <p>裕固族的风俗习惯既有游牧民族的特点，又受到藏传佛教和汉族文化的影响，呈现出多元融合的特点。这些风俗习惯不仅是裕固族人民生活的重要内容，也是中华民族文化宝库中的宝贵财富。</p>
+                </section>
+
+                <!-- 风俗特色 -->
+                <section class="yugur-customs-section">
+                    <h2>风俗特色</h2>
+                    <div class="customs-features">
+                        <div class="feature-item">
+                            <h5>居住习俗</h5>
+                            <p>裕固族传统的居住形式是帐篷，多为圆形和就地结构的穹庐。帐篷由木杆支撑，外覆毛毡，顶部留有天窗用于通风和采光。这种居住形式适应了裕固族传统的游牧生活方式，便于搬迁和搭建。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>婚姻习俗</h5>
+                            <p>裕固族实行一夫一妻制，婚姻习俗丰富多彩。传统婚礼包括求婚、订婚、结婚等多个环节，仪式隆重热烈，富有民族特色。婚礼期间会举行歌舞表演、赛马、射箭等活动，是裕固族重要的社交场合。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>服饰习俗</h5>
+                            <p>裕固族的服饰样式根据藏传佛教的规定进行，具有鲜明的民族特色。男子一般穿长袍、长靴，外披短褂，头戴狐皮帽或礼帽；女子则梳高盘长辫，外披坎肩，头戴圆筒形红缨帽，佩戴各种装饰品。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 重要习俗 -->
+                <section class="yugur-customs-section">
+                    <h2>重要习俗</h2>
+                    <h3>节日习俗</h3>
+                    <p>裕固族的传统节日主要有春节、祭祀新年、转山会等。春节是裕固族最隆重的传统节日，期间会举行各种庆祝活动，如贴春联、吃团圆饭、拜年等。祭祀新年是裕固族的宗教节日，通常在农历正月举行，主要活动包括祭祀神灵、诵经祈福等。转山会是裕固族的传统宗教节日，通常在农历六月举行，届时裕固族群众会穿上盛装，前往附近的神山进行转山活动，祈求神灵保佑人畜平安、风调雨顺。</p>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>裕固族的饮食习俗具有典型的游牧民族特色，以肉类和奶制品为主。主要食物包括手抓羊肉、奶皮子、酥油、酸奶、青稞饼等。裕固族人民喜欢喝茶和奶茶，奶茶是裕固族日常生活中不可或缺的饮品。在重要的节日或喜庆场合，裕固族会酿制青稞酒，用于招待客人和庆祝活动。</p>
+                    
+                    <h3>礼仪习俗</h3>
+                    <p>裕固族是一个注重礼仪的民族，有着丰富的礼仪习俗。在日常生活中，裕固族人民尊重长辈，讲究礼貌；在社交场合，注重热情好客，真诚待人。客人来访时，裕固族会拿出最好的食物和饮品招待客人，以示尊重和欢迎。在重要的节日或仪式上，裕固族会举行各种礼仪活动，如敬献哈达、磕头礼拜等。</p>
+                </section>
+
+                <!-- 习俗与文化 -->
+                <section class="yugur-customs-section">
+                    <h2>习俗与文化的关系</h2>
+                    <p>裕固族的风俗习惯与文化之间存在着密切的关系，风俗习惯是文化的重要载体，文化通过风俗习惯得以传承和发展。</p>
+                    <ul>
+                        <li><strong>对文化传承的作用：</strong>裕固族的风俗习惯是其文化传承的重要方式，通过一代又一代的口耳相传和实践，裕固族的历史传统、价值观念、艺术技能等文化内容得以保存和延续。</li>
+                        <li><strong>对民族认同的作用：</strong>裕固族的风俗习惯是其民族认同的重要标志，共同的风俗习惯使裕固族人民产生强烈的民族归属感和认同感，增强了民族凝聚力。</li>
+                        <li><strong>对文化多样性的贡献：</strong>裕固族的风俗习惯是中华民族文化多样性的重要组成部分，丰富了中华民族的文化宝库，为人类文化的多样性做出了贡献。</li>
+                        <li><strong>对社会和谐的作用：</strong>裕固族的风俗习惯中蕴含着许多积极的价值观念，如尊重长辈、团结互助、热情好客等，这些观念对于维护社会和谐、促进人际关系的融洽具有重要的作用。</li>
+                    </ul>
+                    <p>保护和传承裕固族的风俗习惯，不仅是保护裕固族的文化遗产，也是维护中华民族文化多样性的需要。在现代社会，我们应该在尊重传统的基础上，推动裕固族风俗习惯的创新和发展，使其适应现代社会的发展需求，继续发挥其积极的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                        <li><a href="yugur.html">裕固族文化</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

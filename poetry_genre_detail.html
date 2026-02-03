@@ -1,0 +1,855 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗歌体裁详细说明 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="poetry_styles.css">
+    <style>
+        /* 诗歌体裁详细说明页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        .poetry-detail-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poetry-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.1));
+            z-index: 1;
+        }
+        
+        .poetry-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .poetry-detail-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease;
+        }
+        
+        .poetry-detail-header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+        
+        /* 搜索容器样式 */
+        .search-container {
+            margin: 30px auto;
+            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            animation: slideInUp 1s ease 0.6s both;
+        }
+        
+        .search-input {
+            width: 350px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            width: 400px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+        }
+        
+        .search-btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            background-color: #8B4513;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .search-btn:hover {
+            background-color: #A0522D;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        /* 标签容器样式 */
+        .genre-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: slideInUp 1s ease 0.9s both;
+        }
+        
+        .tab-btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(139, 69, 19, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .tab-btn:hover::before {
+            left: 100%;
+        }
+        
+        .tab-btn:hover {
+            background-color: rgba(139, 69, 19, 0.9);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+        }
+        
+        .tab-btn.active {
+            background-color: #8B4513;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+        
+        /* 内容区域样式 */
+        .poetry-detail-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 体裁概述样式 */
+        .genre-overview h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .genre-overview h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #8B4513;
+            border-radius: 2px;
+        }
+        
+        .genre-overview p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* 卡片网格样式 */
+        .genre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .genre-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #8B4513, #D2B48C);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .genre-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .genre-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            border-color: #8B4513;
+        }
+        
+        .genre-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .genre-card h3 a {
+            color: #8B4513;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .genre-card h3 a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #8B4513;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .genre-card h3 a:hover {
+            color: #A0522D;
+        }
+        
+        .genre-card h3 a:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .genre-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        .tab-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3);
+            font-weight: 500;
+        }
+        
+        .tab-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .poetry-detail-header {
+                padding: 80px 0;
+            }
+            
+            .poetry-detail-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .poetry-detail-header p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .search-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 0 20px;
+            }
+            
+            .search-input {
+                width: 100%;
+                max-width: 300px;
+                border-radius: 25px;
+            }
+            
+            .search-input:focus {
+                width: 100%;
+            }
+            
+            .search-btn {
+                border-radius: 25px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .genre-tabs {
+                flex-direction: column;
+                align-items: center;
+                padding: 0 20px;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .poetry-detail-content {
+                padding: 30px 20px;
+                margin: 0 20px 50px;
+            }
+            
+            .genre-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .genre-card {
+                padding: 25px;
+            }
+            
+            .genre-overview h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* 加载动画 */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .genre-card:nth-child(1) {
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+        
+        .genre-card:nth-child(2) {
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+        
+        .genre-card:nth-child(3) {
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+        
+        .genre-card:nth-child(4) {
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 诗歌导航栏 -->
+    <nav class="poetry-nav">
+        <div class="container">
+            <ul class="poetry-nav-links">
+                <li><a href="poetry_gu_ti.html">古体诗</a></li>
+                <li><a href="poetry_jin_ti.html">近体诗</a></li>
+                <li><a href="poetry_ci.html">词</a></li>
+                <li><a href="poetry_qu.html">曲</a></li>
+                <li><a href="poetry_lyric.html">抒情诗</a></li>
+                <li><a href="poetry_narrative.html">叙事诗</a></li>
+                <li><a href="poetry_landscape.html">山水田园诗</a></li>
+                <li><a href="poetry_frontier.html">边塞诗</a></li>
+                <li><a href="poetry_epic.html">咏史诗</a></li>
+                <li><a href="poetry_object.html">咏物诗</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <section class="poetry-detail-header">
+        <div class="container">
+            <div class="poetry-detail-header-content">
+                <h1>诗歌体裁详细说明</h1>
+                <p>探索中国古代诗歌的各种体裁形式</p>
+                <div class="search-container">
+                    <input type="text" id="genre-search" placeholder="搜索诗歌体裁..." class="search-input">
+                    <button class="search-btn">搜索</button>
+                </div>
+                <a href="poetry_categories.html" class="back-link">返回诗歌分类</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="poetry-detail-main">
+        <div class="container">
+            <!-- 分类标签 -->
+            <div class="genre-tabs">
+                <button class="tab-btn active" data-tab="overview">体裁概述</button>
+                <button class="tab-btn" data-tab="form">按句式分类</button>
+                <button class="tab-btn" data-tab="meter">按格律分类</button>
+                <button class="tab-btn" data-tab="content">按内容分类</button>
+                <button class="tab-btn" data-tab="other">其他重要体裁</button>
+            </div>
+            
+            <div class="poetry-detail-content">
+                <!-- 诗歌体裁概述 -->
+                <section id="overview" class="tab-content active">
+                    <div class="genre-overview">
+                        <h2>诗歌体裁概述</h2>
+                        <p>诗歌体裁是指诗歌的形式分类，是诗歌在形式上的具体表现。中国古代诗歌有着丰富多样的体裁，每种体裁都有其独特的特点和发展历史。</p>
+                        <p>诗歌体裁的分类标准有很多，常见的分类方式包括：按句式分类（如四言诗、五言诗、七言诗等）、按格律分类（如古体诗、近体诗等）、按内容分类（如抒情诗、叙事诗等）、按时代分类（如唐诗、宋诗等）等。</p>
+                        
+                        <div class="genre-grid">
+                            <div class="genre-card">
+                                <h3>按句式分类</h3>
+                                <p>根据诗歌的句式长度和结构进行分类，包括四言诗、五言诗、七言诗、杂言诗等。</p>
+                                <a href="#" class="tab-link" data-tab="form">查看详情</a>
+                            </div>
+                            <div class="genre-card">
+                                <h3>按格律分类</h3>
+                                <p>根据诗歌的格律要求进行分类，包括古体诗和近体诗两大类。</p>
+                                <a href="#" class="tab-link" data-tab="meter">查看详情</a>
+                            </div>
+                            <div class="genre-card">
+                                <h3>按内容分类</h3>
+                                <p>根据诗歌的内容主题进行分类，包括抒情诗、叙事诗、山水田园诗、边塞诗等。</p>
+                                <a href="#" class="tab-link" data-tab="content">查看详情</a>
+                            </div>
+                            <div class="genre-card">
+                                <h3>其他重要体裁</h3>
+                                <p>包括词、曲、楚辞体、乐府诗等在中国文学史上占有重要地位的诗歌体裁。</p>
+                                <a href="#" class="tab-link" data-tab="other">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 按句式分类的体裁 -->
+                <section id="form" class="tab-content">
+                    <h2>按句式分类</h2>
+                    <div class="genre-grid">
+                        <div class="genre-card">
+                            <h3><a href="genre_siyan.html">四言诗</a></h3>
+                            <p>中国最古老的诗歌形式之一，以四字句式为主。《诗经》中的大部分作品都是四言诗，如《关雎》、《蒹葭》等。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_wuyan.html">五言诗</a></h3>
+                            <p>以五字句式为主，是中国古代诗歌中最常见的体裁之一。起源于汉代乐府民歌，成熟于魏晋南北朝时期。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_qiyan.html">七言诗</a></h3>
+                            <p>以七字句式为主，起源于汉代乐府民歌，成熟于唐代。篇幅较长，句式灵活，适合表达宏大的主题。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_zayan.html">杂言诗</a></h3>
+                            <p>句式长短不一，没有固定的句式，是古体诗中最自由的体裁之一。起源于楚辞，如屈原的《离骚》。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 按格律分类的体裁 -->
+                <section id="meter" class="tab-content">
+                    <h2>按格律分类</h2>
+                    <div class="genre-grid">
+                        <div class="genre-card">
+                            <h3><a href="genre_guti.html">古体诗</a></h3>
+                            <p>又称古诗、古风，是与近体诗相对而言的一种诗歌形式。句式自由，不严格讲究平仄和对仗，用韵也比较自由。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_jinti.html">近体诗</a></h3>
+                            <p>又称今体诗，是唐代形成的一种诗歌形式，包括律诗和绝句。严格讲究平仄、对仗和用韵，句式整齐。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 按内容分类的体裁 -->
+                <section id="content" class="tab-content">
+                    <h2>按内容分类</h2>
+                    <div class="genre-grid">
+                        <div class="genre-card">
+                            <h3><a href="genre_lyric.html">抒情诗</a></h3>
+                            <p>以抒发诗人的情感为主，表达诗人的喜怒哀乐、人生感慨等。是中国古代诗歌中最常见的体裁之一。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_narrative.html">叙事诗</a></h3>
+                            <p>以叙述故事情节为主，往往篇幅较长，情节完整。在中国古代诗歌中也占有重要地位。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_landscape.html">山水田园诗</a></h3>
+                            <p>以描绘自然景色和田园生活为主，表达诗人对大自然的热爱和对闲适生活的向往。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_frontier.html">边塞诗</a></h3>
+                            <p>以描写边塞风光和战争生活为主，表达诗人对战争的看法和对戍边将士的同情。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_epic.html">咏史诗</a></h3>
+                            <p>以吟咏历史事件和历史人物为主，表达诗人对历史的看法和感慨。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_object.html">咏物诗</a></h3>
+                            <p>以描绘自然景物或社会事物为主，往往托物言志，表达诗人的思想感情。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 其他重要体裁 -->
+                <section id="other" class="tab-content">
+                    <h2>其他重要体裁</h2>
+                    <div class="genre-grid">
+                        <div class="genre-card">
+                            <h3><a href="genre_ci.html">词</a></h3>
+                            <p>又称长短句、诗余，是宋代最流行的诗歌形式。有固定的词牌，句式长短不一，讲究平仄和用韵。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_qu.html">曲</a></h3>
+                            <p>又称散曲，是元代最流行的诗歌形式。比词更加口语化，句式更加自由，用韵也更加宽松。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_chuci.html">楚辞体</a></h3>
+                            <p>又称骚体，是战国时期屈原创造的一种诗歌形式，句式长短不一，常用"兮"字作为语助词。</p>
+                        </div>
+                        <div class="genre-card">
+                            <h3><a href="genre_yuefu.html">乐府诗</a></h3>
+                            <p>原指汉代乐府采集和创作的诗歌，后来泛指仿照乐府古题创作的诗歌。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="poetry_script.js"></script>
+    <script>
+        // 标签切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const searchInput = document.getElementById('genre-search');
+            const searchBtn = document.querySelector('.search-btn');
+            const genreCards = document.querySelectorAll('.genre-card');
+
+            // 标签按钮点击事件
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // 移除所有标签按钮的active类
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // 添加当前标签按钮的active类
+                    this.classList.add('active');
+                    
+                    // 隐藏所有内容
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    // 显示当前内容
+                    const targetContent = document.getElementById(tabId);
+                    targetContent.classList.add('active');
+                    
+                    // 添加滚动效果
+                    targetContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // 标签链接点击事件
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // 移除所有标签按钮的active类
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // 添加对应标签按钮的active类
+                    const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+                    if (targetBtn) {
+                        targetBtn.classList.add('active');
+                    }
+                    
+                    // 隐藏所有内容
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    // 显示对应内容
+                    const targetContent = document.getElementById(tabId);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                        // 添加滚动效果
+                        targetContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // 搜索功能
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // 如果搜索词为空，显示所有卡片
+                    genreCards.forEach(card => {
+                        card.style.display = 'block';
+                        // 添加淡入动画
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.transition = 'opacity 0.5s ease';
+                            card.style.opacity = '1';
+                        }, 10);
+                    });
+                    return;
+                }
+                
+                let foundResults = false;
+                
+                genreCards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        // 添加淡入动画
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.transition = 'opacity 0.5s ease';
+                            card.style.opacity = '1';
+                        }, 10);
+                        foundResults = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // 如果没有找到结果，显示提示
+                const existingMessage = document.querySelector('.search-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                
+                if (!foundResults && searchTerm !== '') {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = 'search-message';
+                    messageDiv.style.textAlign = 'center';
+                    messageDiv.style.marginTop = '30px';
+                    messageDiv.style.padding = '20px';
+                    messageDiv.style.backgroundColor = '#f9f9f9';
+                    messageDiv.style.borderRadius = '8px';
+                    messageDiv.style.color = '#666';
+                    messageDiv.innerHTML = `<p>没有找到与 "${searchTerm}" 相关的体裁</p><p>请尝试其他关键词</p>`;
+                    
+                    const genreGrid = document.querySelector('.genre-grid');
+                    if (genreGrid) {
+                        genreGrid.parentNode.insertBefore(messageDiv, genreGrid.nextSibling);
+                    }
+                }
+            }
+
+            // 搜索按钮点击事件
+            searchBtn.addEventListener('click', performSearch);
+
+            // 搜索输入框回车事件
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // 搜索输入框实时搜索
+            searchInput.addEventListener('input', function() {
+                // 清除之前的搜索提示
+                const existingMessage = document.querySelector('.search-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                
+                // 延迟搜索，提高性能
+                clearTimeout(this.searchTimeout);
+                this.searchTimeout = setTimeout(performSearch, 300);
+            });
+
+            // 添加卡片悬停效果
+            genreCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // 添加返回顶部按钮
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.innerHTML = '↑';
+            backToTopBtn.style.position = 'fixed';
+            backToTopBtn.style.bottom = '30px';
+            backToTopBtn.style.right = '30px';
+            backToTopBtn.style.width = '50px';
+            backToTopBtn.style.height = '50px';
+            backToTopBtn.style.borderRadius = '50%';
+            backToTopBtn.style.backgroundColor = '#8B4513';
+            backToTopBtn.style.color = '#fff';
+            backToTopBtn.style.border = 'none';
+            backToTopBtn.style.fontSize = '1.5rem';
+            backToTopBtn.style.cursor = 'pointer';
+            backToTopBtn.style.boxShadow = '0 4px 15px rgba(139, 69, 19, 0.3)';
+            backToTopBtn.style.transition = 'all 0.3s ease';
+            backToTopBtn.style.opacity = '0';
+            backToTopBtn.style.visibility = 'hidden';
+            backToTopBtn.style.zIndex = '1000';
+            
+            backToTopBtn.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#A0522D';
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            backToTopBtn.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#8B4513';
+                this.style.transform = 'scale(1)';
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            document.body.appendChild(backToTopBtn);
+            
+            // 滚动显示/隐藏返回顶部按钮
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.visibility = 'visible';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.visibility = 'hidden';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

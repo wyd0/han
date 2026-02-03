@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平仄详解 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 平仄页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .pingze-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .pingze-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .pingze-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pingze-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .pingze-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .pingze-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .pingze-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .pingze-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pingze-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pingze-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pingze-section h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pingze-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .pingze-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .pingze-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .pingze-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .pingze-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 示例表格 */
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(249, 249, 249, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .example-table th,
+        .example-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .example-table th {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-table tr:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .pingze-header h1 {
+                font-size: 36px;
+            }
+            
+            .pingze-header p {
+                font-size: 18px;
+            }
+            
+            .pingze-section h2 {
+                font-size: 28px;
+            }
+            
+            .pingze-section h3 {
+                font-size: 24px;
+            }
+            
+            .pingze-section h4 {
+                font-size: 20px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="pingze-header">
+        <div class="container">
+            <div class="pingze-header-content">
+                <h1>平仄详解</h1>
+                <p>中国古典诗歌的声调艺术</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速导航栏 -->
+    <div style="background-color: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; overflow-x: auto; padding: 15px 0;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#overview" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        平仄概述
+                    </a>
+                    <a href="#history" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        历史演变
+                    </a>
+                    <a href="#concepts" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        基本概念
+                    </a>
+                    <a href="#rules" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        运用规则
+                    </a>
+                    <a href="#application" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        实际应用
+                    </a>
+                    <a href="#effects" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        艺术效果
+                    </a>
+                    <a href="#modern" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        现代意义
+                    </a>
+                    <a href="#examples" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        平仄示例
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            a[href="#overview"]:hover,
+            a[href="#history"]:hover,
+            a[href="#concepts"]:hover,
+            a[href="#rules"]:hover,
+            a[href="#application"]:hover,
+            a[href="#effects"]:hover,
+            a[href="#modern"]:hover,
+            a[href="#examples"]:hover {
+                background-color: #c0392b;
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            }
+        </style>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="pingze-main">
+        <div class="container">
+            <div class="pingze-content">
+                <!-- 快速导航 -->
+                <div style="background-color: rgba(249, 249, 249, 0.95); padding: 20px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #c0392b; font-size: 22px; margin-bottom: 15px; font-family: 'SimSun', serif; text-align: center;">快速导航</h3>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="pingze_detail.html" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">平仄详解</a>
+                        <a href="duizhang_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">对仗详解</a>
+                        <a href="yunlv_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">韵律详解</a>
+                    </div>
+                    <style>
+                        a[href="duizhang_detail.html"]:hover,
+                        a[href="yunlv_detail.html"]:hover {
+                            background-color: #c0392b;
+                            color: #fff;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                        }
+                        a[href="pingze_detail.html"] {
+                            font-weight: bold;
+                        }
+                    </style>
+                </div>
+                
+                <!-- 平仄概述 -->
+                <section id="overview" class="pingze-section">
+                    <h2>平仄概述</h2>
+                    <p>平仄是中国古典诗歌中一个重要的概念，指的是汉字的声调。平仄的运用是中国古典诗歌，特别是近体诗（律诗和绝句）的重要艺术特征，也是诗歌形式美的重要体现。</p>
+                    <p>在汉语中，声调是音节的重要组成部分，不同的声调可以表达不同的意义。中国古代的语言学家将汉字的声调分为平、上、去、入四声，其中平声为平，上、去、入三声为仄。</p>
+                </section>
+
+                <!-- 平仄的历史演变 -->
+                <section id="history" class="pingze-section">
+                    <h3>平仄的历史演变</h3>
+                    <p>平仄的概念和运用在中国诗歌的发展过程中经历了一个逐渐形成、完善和多样化的过程，从最初的不自觉运用到后来的严格规范，再到灵活创新，体现了中国诗歌艺术的不断发展和成熟：</p>
+                    
+                    <h4>先秦时期：平仄的萌芽与不自觉运用</h4>
+                    <p>先秦时期是中国诗歌的起源和萌芽阶段，虽然还没有形成明确的平仄概念，但已经开始注意到声调的和谐运用：</p>
+                    
+                    <h5>《诗经》时期</h5>
+                    <p>《诗经》是中国第一部诗歌总集，收录了从西周初年到春秋中叶的诗歌305篇。《诗经》中的诗歌在声调运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>自然和谐的声调搭配</strong>：《诗经》中的诗歌虽然没有严格的平仄规则，但诗人在创作时已经不自觉地注意到了声调的和谐搭配，通过声调的高低、长短变化来增强诗歌的音乐美。</li>
+                        <li><strong>重章叠句的节奏美</strong>：《诗经》中大量使用重章叠句的形式，通过重复的句式和声调来形成鲜明的节奏美，这种节奏美在一定程度上弥补了平仄规则的缺失。</li>
+                        <li><strong>押韵的重要性</strong>：《诗经》中的诗歌主要依靠押韵来形成音乐美，声调的和谐搭配处于次要地位。</li>
+                    </ul>
+                    
+                    <h5>楚辞时期</h5>
+                    <p>楚辞是战国时期楚国诗人屈原开创的一种诗歌形式，其在声调运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>自由灵活的句式</strong>：楚辞的句式长短不一，以"兮"字为特色，声调的运用更加自由灵活，不受严格规则的束缚。</li>
+                        <li><strong>情感化的声调表达</strong>：楚辞的声调运用更加注重情感的表达，通过声调的变化来体现情感的起伏和变化。</li>
+                        <li><strong>地域特色的影响</strong>：楚辞的声调运用受到楚国地域文化的影响，具有独特的南方音乐特色。</li>
+                    </ul>
+                    
+                    <h4>汉魏时期：平仄概念的初步形成</h4>
+                    <p>汉魏时期，随着汉语语音的发展和诗歌形式的演变，平仄的概念开始初步形成，诗人对声调的搭配更加自觉：</p>
+                    
+                    <h5>汉乐府民歌</h5>
+                    <p>汉乐府民歌是汉代官方采集的民间歌谣，其在声调运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>口语化的声调</strong>：汉乐府民歌的语言更加口语化，声调的运用更加贴近生活，富有民间气息。</li>
+                        <li><strong>叙事性的声调安排</strong>：汉乐府民歌多为叙事诗，声调的运用服务于叙事的需要，通过声调的变化来推动故事情节的发展。</li>
+                        <li><strong>多样化的押韵方式</strong>：汉乐府民歌的押韵方式更加多样化，有时句句押韵，有时隔句押韵，有时换韵频繁，这种多样化的押韵方式也影响了声调的搭配。</li>
+                    </ul>
+                    
+                    <h5>文人五言诗的兴起</h5>
+                    <p>东汉时期，文人五言诗逐渐兴起并成熟，其在声调运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>自觉的声调搭配</strong>：文人五言诗的作者开始自觉地注意声调的搭配，追求声调的和谐美。</li>
+                        <li><strong>五言句式的声调平衡</strong>：五言句式的出现为声调的平衡搭配提供了更好的条件，诗人开始尝试在五言句式中安排平仄的交替。</li>
+                        <li><strong>对后世平仄规则的影响</strong>：文人五言诗的声调运用为后世近体诗的平仄规则奠定了基础，是平仄概念形成的重要阶段。</li>
+                    </ul>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>诗歌</th>
+                                <th>作者</th>
+                                <th>声调分析</th>
+                            </tr>
+                            <tr>
+                                <td>行行重行行，与君生别离。相去万余里，各在天一涯。</td>
+                                <td>《古诗十九首》</td>
+                                <td>虽然没有严格的平仄规则，但声调搭配自然和谐，体现了诗人对声调美的自觉追求。</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>南北朝时期：平仄规则的理论化与规范化</h4>
+                    <p>南北朝时期，随着音韵学的发展和文学自觉意识的增强，平仄的概念和规则得到了理论化和规范化：</p>
+                    
+                    <h5>反切法的应用</h5>
+                    <p>反切法是中国古代的一种注音方法，通过两个汉字的拼读来标注另一个汉字的读音。反切法的应用为汉语语音的研究提供了重要的工具，也为平仄规则的形成奠定了基础。</p>
+                    
+                    <h5>四声的发现与划分</h5>
+                    <p>南齐永明年间，周颙、沈约等音韵学家根据汉语的实际发音特点，发现并划分了平、上、去、入四声：</p>
+                    <ul>
+                        <li><strong>平声</strong>：声调平缓，没有明显的升降变化。</li>
+                        <li><strong>上声</strong>：声调由低到高，再由高到低，呈曲折变化。</li>
+                        <li><strong>去声</strong>：声调由高到低，呈下降变化。</li>
+                        <li><strong>入声</strong>：声调短促，发音时气流在口腔或鼻腔中受到阻碍。</li>
+                    </ul>
+                    
+                    <h5>四声八病说的提出</h5>
+                    <p>沈约等音韵学家在发现四声的基础上，提出了"四声八病"说，对诗歌创作中的声调运用进行了严格的规范：</p>
+                    <ul>
+                        <li><strong>四声的运用</strong>：主张在诗歌创作中合理运用平、上、去、入四声，使声调和谐搭配。</li>
+                        <li><strong>八病的避免</strong>：提出了诗歌创作中应该避免的八种声病，包括平头、上尾、蜂腰、鹤膝、大韵、小韵、旁纽、正纽。这些声病的提出，标志着平仄规则的理论化和规范化。</li>
+                    </ul>
+                    
+                    <h5>永明体的出现</h5>
+                    <p>以沈约、谢朓等为代表的诗人，根据"四声八病"说创作的诗歌被称为"永明体"。永明体在声调运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>严格的四声搭配</strong>：永明体诗歌开始严格讲究四声的搭配，追求声调的和谐美。</li>
+                        <li><strong>初步的平仄概念</strong>：永明体诗歌中已经初步形成了平仄的概念，将平声与上、去、入三声相对立。</li>
+                        <li><strong>对近体诗的影响</strong>：永明体的声调运用为唐代近体诗的平仄规则奠定了直接的基础，是平仄规则形成的关键阶段。</li>
+                    </ul>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>诗歌</th>
+                                <th>作者</th>
+                                <th>声调分析</th>
+                            </tr>
+                            <tr>
+                                <td>余霞散成绮，澄江静如练。</td>
+                                <td>谢朓《晚登三山还望京邑》</td>
+                                <td>声调搭配和谐，已经初步体现了平仄的对立和交替。</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>唐代：平仄规则的成熟与鼎盛</h4>
+                    <p>唐代是中国诗歌的鼎盛时期，也是平仄规则的成熟时期。在这一时期，近体诗正式形成，平仄规则得到了严格的规范和广泛的应用：</p>
+                    
+                    <h5>近体诗的形成</h5>
+                    <p>近体诗是唐代形成的一种诗歌形式，包括律诗和绝句。近体诗在平仄运用上具有严格的规则：</p>
+                    <ul>
+                        <li><strong>平仄交替</strong>：诗句中平声字和仄声字要交替使用，避免单调。</li>
+                        <li><strong>平仄对立</strong>：一联中的上下句平仄要相对，形成对比。</li>
+                        <li><strong>平仄粘对</strong>：律诗中相邻两联的平仄要相粘，保持连贯。</li>
+                    </ul>
+                    
+                    <h5>唐代诗人的平仄运用</h5>
+                    <p>唐代诗人在平仄运用上达到了炉火纯青的境界，他们不仅严格遵守平仄规则，还能在规则的约束下创造出丰富多彩的诗歌作品：</p>
+                    <ul>
+                        <li><strong>李白</strong>：李白的诗歌虽然以豪放飘逸著称，但在平仄运用上仍然非常讲究，他的近体诗作品平仄和谐，符合规则。</li>
+                        <li><strong>杜甫</strong>：杜甫是唐代最擅长平仄运用的诗人之一，他的律诗作品在平仄运用上达到了完美的境界，被后人称为"诗圣"。</li>
+                        <li><strong>王维</strong>：王维的诗歌以清新自然著称，他的近体诗作品平仄和谐，意境深远，体现了平仄规则与诗歌意境的完美结合。</li>
+                    </ul>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>诗歌</th>
+                                <th>作者</th>
+                                <th>平仄分析</th>
+                            </tr>
+                            <tr>
+                                <td>国破山河在，城春草木深。感时花溅泪，恨别鸟惊心。</td>
+                                <td>杜甫《春望》</td>
+                                <td>平仄交替严格，上下句平仄对立，相邻联平仄相粘，是近体诗平仄运用的典范。</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>宋元明清时期：平仄规则的延续与创新</h4>
+                    <p>宋元明清时期，虽然诗歌形式有所变化，如词、曲的兴起，但平仄规则仍然是诗歌创作的重要原则，同时也出现了一些新的变化和创新：</p>
+                    
+                    <h5>词的平仄运用</h5>
+                    <p>词是宋代最流行的诗歌形式，其在平仄运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>词牌的平仄规定</strong>：每个词牌都有固定的平仄规定，词人在填词时必须严格遵守。</li>
+                        <li><strong>更加灵活的平仄搭配</strong>：词的平仄搭配比近体诗更加灵活，允许一些特殊的平仄变化。</li>
+                        <li><strong>仄声韵的广泛使用</strong>：词中经常使用仄声韵，仄声韵的平仄变化更加丰富多样。</li>
+                    </ul>
+                    
+                    <h5>曲的平仄运用</h5>
+                    <p>曲是元代最流行的诗歌形式，其在平仄运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>更加口语化的平仄</strong>：曲的语言更加口语化，平仄的运用更加贴近生活，富有民间气息。</li>
+                        <li><strong>更加灵活的平仄规则</strong>：曲的平仄规则比词更加灵活，允许更多的平仄变化和破格。</li>
+                        <li><strong>衬字的使用</strong>：曲中可以添加衬字，这些衬字的平仄比较自由，不受严格规则的束缚。</li>
+                    </ul>
+                    
+                    <h5>传统诗歌的平仄延续</h5>
+                    <p>宋元明清时期，传统的近体诗仍然是诗歌创作的重要形式，其平仄运用基本继承了唐代的规则，但也有一些新的变化：</p>
+                    <ul>
+                        <li><strong>韵部的变化</strong>：随着汉语语音的变化，韵部系统也发生了变化，如宋代的《广韵》、元代的《中原音韵》、清代的《佩文诗韵》等，这些变化也间接影响了平仄的运用。</li>
+                        <li><strong>风格的变化</strong>：不同时代的诗歌风格不同，平仄的运用也有所不同，如宋代诗歌注重理趣，元代诗歌注重自然，明代诗歌注重复古，清代诗歌注重创新。</li>
+                        <li><strong>个人风格的差异</strong>：不同诗人的个人风格不同，平仄的运用也有所差异，如苏轼的诗歌平仄运用比较自由，黄庭坚的诗歌平仄运用比较严格。</li>
+                    </ul>
+                </section>
+
+                <!-- 平仄的基本概念 -->
+                <section id="concepts" class="pingze-section">
+                    <h3>平仄的基本概念</h3>
+                    
+                    <h4>四声的划分</h4>
+                    <p>中国古代的语言学家将汉字的声调分为平、上、去、入四声：</p>
+                    <ul>
+                        <li><strong>平声</strong>：声调平缓，没有明显的升降变化。在现代汉语普通话中，平声分为阴平和阳平，即第一声和第二声。</li>
+                        <li><strong>上声</strong>：声调由低到高，再由高到低，呈曲折变化。在现代汉语普通话中，上声对应第三声。</li>
+                        <li><strong>去声</strong>：声调由高到低，呈下降变化。在现代汉语普通话中，去声对应第四声。</li>
+                        <li><strong>入声</strong>：声调短促，发音时气流在口腔或鼻腔中受到阻碍。在现代汉语普通话中，入声已经消失，分别归入阴平、阳平、上声、去声中。</li>
+                    </ul>
+                    
+                    <h4>平仄的分类</h4>
+                    <p>根据声调的特点，汉字的声调可以分为平声和仄声两大类：</p>
+                    <ul>
+                        <li><strong>平声</strong>：包括阴平和阳平，声调平缓。</li>
+                        <li><strong>仄声</strong>：包括上声、去声和入声，声调有升降变化或短促。</li>
+                    </ul>
+                </section>
+
+                <!-- 平仄的运用规则 -->
+                <section id="rules" class="pingze-section">
+                    <h3>平仄的运用规则</h3>
+                    <p>中国古典诗歌，特别是近体诗，对平仄的运用有严格的规则，主要包括以下几个方面：</p>
+                    
+                    <h4>平仄交替</h4>
+                    <p>平仄交替是指在一句诗中，平声字和仄声字要交替使用，避免单调。这样可以形成和谐的节奏和韵律。</p>
+                    <p>例如，五言律诗的基本句式之一：</p>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>句式</th>
+                                <th>声调</th>
+                                <th>示例</th>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平仄</td>
+                                <td>仄仄平平仄</td>
+                                <td>床前明月光</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>平仄对立</h4>
+                    <p>平仄对立是指在一联诗中，上下句的平仄要相对，形成对比。这样可以增强诗歌的节奏感和音乐美。</p>
+                    <p>例如，五言律诗的一联：</p>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>上句</th>
+                                <th>下句</th>
+                                <th>示例</th>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平仄</td>
+                                <td>平平仄仄平</td>
+                                <td>床前明月光，疑是地上霜</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>平仄粘对</h4>
+                    <p>平仄粘对是指在律诗中，相邻两联的平仄要相粘，保持连贯。具体来说，上一联的下句和下一联的上句平仄要相同（除了句尾的平仄相反外）。</p>
+                    <p>例如，五言律诗的两联：</p>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>第一联上句</th>
+                                <th>第一联下句</th>
+                                <th>第二联上句</th>
+                                <th>第二联下句</th>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平仄</td>
+                                <td>平平仄仄平</td>
+                                <td>平平平仄仄</td>
+                                <td>仄仄仄平平</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div style="margin-top: 40px; text-align: center;">
+                        <a href="pingze_rules.html" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 2px solid #c0392b; font-weight: bold;">查看平仄全部规则</a>
+                        <style>
+                            a[href="pingze_rules.html"]:hover {
+                                background-color: transparent;
+                                color: #c0392b;
+                                transform: translateY(-2px);
+                                box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                            }
+                        </style>
+                    </div>
+                </section>
+
+                <!-- 平仄的实际应用 -->
+                <section id="application" class="pingze-section">
+                    <h3>平仄的实际应用</h3>
+                    
+                    <h4>近体诗的平仄格式</h4>
+                    <p>近体诗（律诗和绝句）有固定的平仄格式，主要有以下几种基本句式：</p>
+                    
+                    <h5>五言律诗的基本句式</h5>
+                    <ul>
+                        <li>仄仄平平仄</li>
+                        <li>平平仄仄平</li>
+                        <li>平平平仄仄</li>
+                        <li>仄仄仄平平</li>
+                    </ul>
+                    
+                    <h5>七言律诗的基本句式</h5>
+                    <ul>
+                        <li>平平仄仄平平仄</li>
+                        <li>仄仄平平仄仄平</li>
+                        <li>仄仄平平平仄仄</li>
+                        <li>平平仄仄仄平平</li>
+                    </ul>
+                    
+                    <h4>词的平仄要求</h4>
+                    <p>词的平仄要求比近体诗更加严格，不同的词牌有不同的平仄格式。词的平仄格式是固定的，诗人在填词时必须按照词牌的要求使用平仄。</p>
+                    
+                    <h4>曲的平仄要求</h4>
+                    <p>曲的平仄要求比词更加宽松，更加口语化。曲的平仄格式虽然也有一定的规定，但允许更多的变化和灵活性。</p>
+                    
+                    <div style="margin-top: 40px; text-align: center;">
+                        <a href="pingze_format.html" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 2px solid #c0392b; font-weight: bold;">查看平仄的格式</a>
+                        <style>
+                            a[href="pingze_format.html"]:hover {
+                                background-color: transparent;
+                                color: #c0392b;
+                                transform: translateY(-2px);
+                                box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                            }
+                        </style>
+                    </div>
+                </section>
+
+                <!-- 平仄的艺术效果 -->
+                <section id="effects" class="pingze-section">
+                    <h3>平仄的艺术效果</h3>
+                    <p>平仄的运用在中国古典诗歌中具有重要的艺术效果：</p>
+                    
+                    <h4>和谐的节奏</h4>
+                    <p>通过平仄的交替、对立和粘对，诗歌可以形成和谐的节奏，增强诗歌的音乐美。</p>
+                    
+                    <h4>鲜明的层次感</h4>
+                    <p>平仄的对立可以使诗歌的上下句形成鲜明的对比，增强诗歌的层次感和表现力。</p>
+                    
+                    <h4>情感的表达</h4>
+                    <p>不同的平仄组合可以表达不同的情感。例如，平声字较多的诗句往往显得平和、舒缓，而仄声字较多的诗句往往显得激昂、有力。</p>
+                    
+                    <h4>形式的美感</h4>
+                    <p>平仄的运用是中国古典诗歌形式美的重要组成部分，它使诗歌在形式上更加整齐、和谐，增强了诗歌的艺术感染力。</p>
+                </section>
+
+                <!-- 平仄的现代意义 -->
+                <section id="modern" class="pingze-section">
+                    <h3>平仄的现代意义</h3>
+                    <p>虽然现代汉语普通话与古代汉语在语音上有很大的差异，入声已经消失，但平仄的概念和运用仍然具有重要的现代意义：</p>
+                    
+                    <h4>对古典诗歌的理解</h4>
+                    <p>了解平仄的概念和运用规则，有助于我们更好地理解和欣赏古典诗歌的艺术魅力。</p>
+                    
+                    <h4>对现代诗歌的启示</h4>
+                    <p>平仄的运用原则对现代诗歌的创作也有一定的启示，它提醒我们在创作诗歌时要注意语言的节奏和韵律。</p>
+                    
+                    <h4>对汉语教学的意义</h4>
+                    <p>平仄的概念和运用规则是汉语语音学的重要内容，对汉语教学，特别是对外汉语教学具有重要的意义。</p>
+                    
+                    <h4>对文化传承的意义</h4>
+                    <p>平仄是中国古典诗歌的重要特征，也是中国传统文化的重要组成部分。了解和传承平仄的知识，有助于我们更好地传承和弘扬中国传统文化。</p>
+                </section>
+
+                <!-- 平仄示例 -->
+                <section id="examples" class="pingze-section">
+                    <h3>平仄示例</h3>
+                    <p>以下是一些古典诗歌中的平仄示例，帮助我们更好地理解平仄的运用：</p>
+                    
+                    <h4>五言绝句示例</h4>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>诗歌</th>
+                                <th>作者</th>
+                                <th>平仄分析</th>
+                            </tr>
+                            <tr>
+                                <td>床前明月光，疑是地上霜。举头望明月，低头思故乡。</td>
+                                <td>李白《静夜思》</td>
+                                <td>仄仄平平仄，平平仄仄平。平平平仄仄，仄仄仄平平。</td>
+                            </tr>
+                            <tr>
+                                <td>春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。</td>
+                                <td>孟浩然《春晓》</td>
+                                <td>平平平仄仄，仄仄平平仄。仄平平仄平，平仄平平仄。</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>七言绝句示例</h4>
+                    <div class="example-table">
+                        <table>
+                            <tr>
+                                <th>诗歌</th>
+                                <th>作者</th>
+                                <th>平仄分析</th>
+                            </tr>
+                            <tr>
+                                <td>两个黄鹂鸣翠柳，一行白鹭上青天。窗含西岭千秋雪，门泊东吴万里船。</td>
+                                <td>杜甫《绝句》</td>
+                                <td>仄仄平平平仄仄，平平仄仄仄平平。平平仄仄平平仄，仄仄平平仄仄平。</td>
+                            </tr>
+                            <tr>
+                                <td>朝辞白帝彩云间，千里江陵一日还。两岸猿声啼不住，轻舟已过万重山。</td>
+                                <td>李白《早发白帝城》</td>
+                                <td>平平仄仄仄平平，平仄平平仄仄平。仄仄平平平仄仄，平平仄仄仄平平。</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.pingze-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

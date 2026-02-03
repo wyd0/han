@@ -1,0 +1,582 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浪漫主义诗派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 浪漫主义诗派页面特定样式 */
+        body {
+            background-image: url('images/浪漫主义诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .genre-header {
+            background-image: url('images/浪漫主义诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .genre-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .genre-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .genre-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .genre-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .genre-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .genre-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .genre-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .genre-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .genre-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .genre-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .genre-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 代表人物 */
+        .representative {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .representative h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典作品 */
+        .classic-works {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .classic-works h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .work-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-left: 4px solid #c0392b;
+            border-radius: 5px;
+        }
+        
+        .work-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 派别导航栏样式 */
+        .genre-nav {
+            background-color: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(206, 212, 218, 0.3);
+        }
+        
+        .genre-nav h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .genre-nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .genre-nav-menu li {
+            flex: 0 0 auto;
+        }
+        
+        .genre-nav-menu a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+        
+        .genre-nav-menu a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            border-color: #c0392b;
+        }
+        
+        .genre-nav-menu a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .genre-header h1 {
+                font-size: 36px;
+            }
+            
+            .genre-header p {
+                font-size: 18px;
+            }
+            
+            .genre-section h2 {
+                font-size: 28px;
+            }
+            
+            .genre-nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .genre-nav-menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>浪漫主义诗派</h1>
+                <p>想象丰富，豪放飘逸的诗歌流派</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                    <a href="poetry_categories.html" class="back-link">诗歌分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="genre-main">
+        <div class="container">
+            <div class="genre-content">
+                <!-- 派别导航栏 -->
+                <div class="genre-nav">
+                    <h3>诗歌派别导航</h3>
+                    <ul class="genre-nav-menu">
+                        <li><a href="genre_landscape_detail.html">山水田园诗派</a></li>
+                        <li><a href="genre_frontier_detail.html">边塞诗派</a></li>
+                        <li><a href="genre_romantic_detail.html" class="active">浪漫主义诗派</a></li>
+                        <li><a href="genre_realistic_detail.html">现实主义诗派</a></li>
+                        <li><a href="genre_new_yuefu_detail.html">新乐府诗派</a></li>
+                        <li><a href="genre_jiangxi_detail.html">江西诗派</a></li>
+                        <li><a href="genre_gongan_detail.html">公安派</a></li>
+                        <li><a href="genre_tongcheng_detail.html">桐城派</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 流派概述 -->
+                <section class="genre-section">
+                    <h2>流派概述</h2>
+                    <p>浪漫主义诗派是中国诗歌史上一个重要的流派，以李白为代表，其诗歌风格豪放飘逸，想象丰富，语言清新自然，意境奇妙。浪漫主义诗派强调个人情感的表达，追求自由奔放的艺术风格，对后世诗歌产生了深远的影响。</p>
+                </section>
+
+                <!-- 历史发展 -->
+                <section class="genre-section">
+                    <h3>历史发展</h3>
+                    <p>浪漫主义诗派的发展是一个漫长而丰富的历史过程，经历了多个重要阶段：</p>
+                    <ul>
+                        <li><strong>萌芽阶段：先秦时期</strong>
+                            <p>浪漫主义诗歌的萌芽可以追溯到先秦时期的《楚辞》，屈原是这一时期最杰出的浪漫主义诗人。他的作品充满了浪漫主义色彩，想象丰富，情感真挚，如《离骚》中对美好理想的追求和对黑暗现实的批判，《九歌》中对神灵和自然的描绘，都体现了浪漫主义的精神特质。</p>
+                        </li>
+                        <li><strong>发展阶段：汉代至魏晋南北朝</strong>
+                            <p>汉代的汉乐府民歌中也有一些浪漫主义元素，如《有所思》、《上邪》等作品，情感真挚热烈，想象丰富。魏晋南北朝时期，随着玄学的兴起和文人个性的觉醒，浪漫主义诗歌得到了进一步发展，如曹植的《洛神赋》、阮籍的《咏怀诗》等，都具有浓郁的浪漫主义色彩。</p>
+                        </li>
+                        <li><strong>鼎盛阶段：唐代</strong>
+                            <p>唐代是浪漫主义诗派的鼎盛时期，政治开明，经济繁荣，文化发达，为浪漫主义诗歌的发展提供了良好的社会环境。李白是这一时期最杰出的浪漫主义诗人，他的诗歌豪放飘逸，想象丰富，语言清新自然，意境奇妙，代表作有《将进酒》、《望庐山瀑布》、《蜀道难》等。李白的诗歌融合了《楚辞》的浪漫主义传统和道家思想的自由精神，创造出了独特的浪漫主义诗歌风格，将浪漫主义诗派推向了顶峰。</p>
+                            <p>除了李白，唐代还有其他一些浪漫主义诗人，如李贺、李商隐等。李贺的诗歌想象奇特，语言瑰丽，风格幽婉凄艳，代表作有《李凭箜篌引》、《雁门太守行》等。李商隐的诗歌情感真挚，意境朦胧，代表作有《锦瑟》、《无题》等。</p>
+                        </li>
+                        <li><strong>延续阶段：宋代及以后</strong>
+                            <p>宋代及以后，浪漫主义诗歌继续发展，出现了苏轼、陆游等浪漫主义诗人。苏轼的诗歌豪放洒脱，想象丰富，代表作有《念奴娇·赤壁怀古》、《水调歌头·明月几时有》等。陆游的诗歌情感真挚，气势磅礴，代表作有《金错刀行》、《长歌行》等。清代的龚自珍也是一位重要的浪漫主义诗人，他的诗歌充满了对自由的向往和对现实的批判，代表作有《己亥杂诗》等。</p>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="genre-section">
+                    <h3>艺术特点</h3>
+                    <ul>
+                        <li><strong>想象丰富</strong>：浪漫主义诗歌善于运用丰富的想象，创造出奇妙的意境和形象，如李白的《蜀道难》中对蜀道艰险的描写，想象奇特，气势磅礴。</li>
+                        <li><strong>语言豪放</strong>：浪漫主义诗歌的语言豪放洒脱，充满激情，如李白的《将进酒》中"天生我材必有用，千金散尽还复来"的豪情壮志。</li>
+                        <li><strong>情感真挚</strong>：浪漫主义诗歌注重个人情感的表达，情感真挚热烈，如李白的《静夜思》中对故乡的思念之情，感人至深。</li>
+                        <li><strong>意境奇妙</strong>：浪漫主义诗歌善于创造奇妙的意境，如李白的《望庐山瀑布》中"飞流直下三千尺，疑是银河落九天"的壮丽景象。</li>
+                        <li><strong>题材广泛</strong>：浪漫主义诗歌的题材广泛，包括山水田园、边塞战争、饮酒作乐、求仙访道等多个方面。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="genre-section">
+                    <h3>代表人物</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 30px 0;">
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/李白.jpg" alt="李白" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>李白（701年-762年）</h4>
+                            <p>字太白，号青莲居士，唐代伟大的浪漫主义诗人，被后人誉为"诗仙"。李白的诗豪放飘逸，想象丰富，语言清新自然，意境奇妙，代表作有《将进酒》、《望庐山瀑布》、《蜀道难》等。他的诗歌充满了对自由的向往和对现实的不满，体现了浪漫主义的精神内核。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/李贺.jpg" alt="李贺" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>李贺（790年-816年）</h4>
+                            <p>字长吉，唐代中期的浪漫主义诗人，被后人称为"诗鬼"。李贺的诗想象奇特，语言瑰丽，风格幽婉凄艳，代表作有《李凭箜篌引》、《雁门太守行》等。他的诗歌充满了神秘色彩和浪漫主义情怀，对后世的浪漫主义诗歌产生了一定的影响。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 经典作品 -->
+                <section class="genre-section">
+                    <h3>经典作品</h3>
+                    
+                    <div class="classic-works">
+                        <div class="work-item">
+                            <h5>《将进酒》 - 李白</h5>
+                            <p>君不见，黄河之水天上来，奔流到海不复回。<br>
+                            君不见，高堂明镜悲白发，朝如青丝暮成雪。<br>
+                            人生得意须尽欢，莫使金樽空对月。<br>
+                            天生我材必有用，千金散尽还复来。<br>
+                            烹羊宰牛且为乐，会须一饮三百杯。<br>
+                            岑夫子，丹丘生，将进酒，杯莫停。<br>
+                            与君歌一曲，请君为我倾耳听。<br>
+                            钟鼓馔玉不足贵，但愿长醉不复醒。<br>
+                            古来圣贤皆寂寞，惟有饮者留其名。<br>
+                            陈王昔时宴平乐，斗酒十千恣欢谑。<br>
+                            主人何为言少钱，径须沽取对君酌。<br>
+                            五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</p>
+                        </div>
+                        
+                        <div class="work-item">
+                            <h5>《望庐山瀑布》 - 李白</h5>
+                            <p>日照香炉生紫烟，遥看瀑布挂前川。<br>
+                            飞流直下三千尺，疑是银河落九天。</p>
+                        </div>
+                        
+                        <div class="work-item">
+                            <h5>《蜀道难》 - 李白</h5>
+                            <p>噫吁嚱，危乎高哉！蜀道之难，难于上青天！<br>
+                            蚕丛及鱼凫，开国何茫然！<br>
+                            尔来四万八千岁，不与秦塞通人烟。<br>
+                            西当太白有鸟道，可以横绝峨眉巅。<br>
+                            地崩山摧壮士死，然后天梯石栈相钩连。<br>
+                            上有六龙回日之高标，下有冲波逆折之回川。<br>
+                            黄鹤之飞尚不得过，猿猱欲度愁攀援。<br>
+                            青泥何盘盘，百步九折萦岩峦。<br>
+                            扪参历井仰胁息，以手抚膺坐长叹。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 流派影响 -->
+                <section class="genre-section">
+                    <h3>流派影响</h3>
+                    <p>浪漫主义诗派对中国后世诗歌和文化产生了深远的影响，具体表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>对后世诗人的影响</strong>
+                            <p>浪漫主义诗派的艺术风格和创作方法对后世诗人产生了重要影响。唐代的李贺、李商隐等诗人继承了浪漫主义诗派的想象丰富、语言瑰丽的特点，创造出了独特的诗歌风格。宋代的苏轼、陆游等诗人也受到了浪漫主义诗派的影响，他们的诗歌豪放洒脱，情感真挚。清代的龚自珍、梁启超等诗人则进一步发展了浪漫主义诗歌，使其更加贴近时代精神。</p>
+                        </li>
+                        <li><strong>对诗歌理论的影响</strong>
+                            <p>浪漫主义诗派强调个人情感的表达和自由奔放的艺术风格，对后世的诗歌理论产生了深远的影响。明代公安派的"独抒性灵"说，清代袁枚的"性灵说"，都受到了浪漫主义诗派的启发。这些理论强调诗歌要表达个人的真情实感，反对复古模拟，为后世诗歌的发展提供了重要的理论指导。</p>
+                        </li>
+                        <li><strong>对中国文化的影响</strong>
+                            <p>浪漫主义诗派的诗歌充满了对自由的向往和对美好生活的追求，体现了中华民族的精神特质，成为中国文化的重要组成部分。浪漫主义诗歌中的许多经典作品，如李白的《将进酒》、《望庐山瀑布》等，至今仍被广泛传诵，成为中国文化的瑰宝。浪漫主义诗歌所表达的"天人合一"思想、对自由的向往和对现实的批判，也成为中国文化的重要精神遗产。</p>
+                        </li>
+                        <li><strong>对世界文学的影响</strong>
+                            <p>浪漫主义诗派的作品被翻译成多种文字，在世界范围内广泛传播，为世界文学的发展做出了重要贡献。李白的诗歌被翻译成英语、法语、德语等多种语言，受到了世界各国读者的喜爱。浪漫主义诗派的艺术风格和创作方法也对世界文学产生了影响，如美国诗人爱默生、英国诗人拜伦等都对中国的浪漫主义诗歌表示了赞赏。</p>
+                        </li>
+                        <li><strong>对现代文学的影响</strong>
+                            <p>浪漫主义诗派对中国现代文学也产生了重要影响。现代诗人郭沫若、闻一多等都受到了浪漫主义诗派的影响，他们的诗歌充满了浪漫主义色彩，表达了对自由的向往和对现实的批判。现代文学中的许多作品，如郭沫若的《女神》等，都体现了浪漫主义的精神特质。</p>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.genre-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // 返回顶部按钮
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.textContent = '↑';
+            backToTopBtn.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #c0392b;
+                color: white;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.3s, transform 0.3s;
+                transform: translateY(20px);
+                z-index: 1000;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            `;
+            document.body.appendChild(backToTopBtn);
+            
+            function toggleBackToTopBtn() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.transform = 'translateY(0)';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.transform = 'translateY(20px)';
+                }
+            }
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            window.addEventListener('scroll', toggleBackToTopBtn);
+        });
+    </script>
+</body>
+</html>

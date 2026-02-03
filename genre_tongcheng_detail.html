@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桐城派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 桐城派页面特定样式 */
+        body {
+            background-image: url('images/桐城派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .genre-header {
+            background-image: url('images/桐城派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .genre-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .genre-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .genre-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .genre-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .genre-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .genre-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .genre-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .genre-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .genre-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .genre-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .genre-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 代表人物 */
+        .representative {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .representative h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典作品 */
+        .classic-works {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .classic-works h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .work-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-left: 4px solid #c0392b;
+            border-radius: 5px;
+        }
+        
+        .work-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 派别导航栏样式 */
+        .genre-nav {
+            background-color: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(206, 212, 218, 0.3);
+        }
+        
+        .genre-nav h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .genre-nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .genre-nav-menu li {
+            flex: 0 0 auto;
+        }
+        
+        .genre-nav-menu a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+        
+        .genre-nav-menu a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            border-color: #c0392b;
+        }
+        
+        .genre-nav-menu a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .genre-header h1 {
+                font-size: 36px;
+            }
+            
+            .genre-header p {
+                font-size: 18px;
+            }
+            
+            .genre-section h2 {
+                font-size: 28px;
+            }
+            
+            .genre-nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .genre-nav-menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>桐城派</h1>
+                <p>义理、考据、辞章并重的文学流派</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                    <a href="poetry_categories.html" class="back-link">诗歌分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="genre-main">
+        <div class="container">
+            <div class="genre-content">
+                <!-- 派别导航栏 -->
+                <div class="genre-nav">
+                    <h3>诗歌派别导航</h3>
+                    <ul class="genre-nav-menu">
+                        <li><a href="genre_landscape_detail.html">山水田园诗派</a></li>
+                        <li><a href="genre_frontier_detail.html">边塞诗派</a></li>
+                        <li><a href="genre_romantic_detail.html">浪漫主义诗派</a></li>
+                        <li><a href="genre_realistic_detail.html">现实主义诗派</a></li>
+                        <li><a href="genre_new_yuefu_detail.html">新乐府诗派</a></li>
+                        <li><a href="genre_jiangxi_detail.html">江西诗派</a></li>
+                        <li><a href="genre_gongan_detail.html">公安派</a></li>
+                        <li><a href="genre_tongcheng_detail.html" class="active">桐城派</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 流派概述 -->
+                <section class="genre-section">
+                    <h2>流派概述</h2>
+                    <p>桐城派是清代影响最大的文学流派，以方苞、刘大櫆、姚鼐为代表，因他们是安徽桐城人而得名。桐城派主张"义理、考据、辞章"并重，强调文学的思想性、学术性和艺术性的统一，对后世文学产生了深远的影响。</p>
+                </section>
+
+                <!-- 历史发展 -->
+                <section class="genre-section">
+                    <h3>历史发展</h3>
+                    <p>桐城派的发展是一个具有鲜明学术特色的历史过程，经历了以下几个重要阶段：</p>
+                    <ul>
+                        <li><strong>萌芽阶段：明代后期</strong>
+                            <p>桐城派的萌芽可以追溯到明代后期，当时文坛上流行的是公安派和竟陵派的文学主张，这些主张强调文学要表达个人的真情实感，反对复古模拟。但这些主张也导致了文学作品的内容空洞、语言晦涩。方苞的前辈戴名世对这种文学思潮进行了批判，提倡文学要符合儒家的义理，同时要注重文章的章法和技巧，为桐城派的形成奠定了基础。</p>
+                        </li>
+                        <li><strong>形成阶段：清代康熙年间</strong>
+                            <p>桐城派的形成始于清代康熙年间，由方苞创立。方苞提出了"义法"说，强调文学要符合儒家的义理，同时要注重文章的章法和技巧。"义"指的是文章的思想内容，要符合儒家的义理；"法"指的是文章的章法和技巧，要注重文章的结构、层次和语言。方苞的文学主张得到了许多文人的响应，形成了一个以方苞为中心的文学流派。</p>
+                        </li>
+                        <li><strong>发展阶段：清代乾隆年间</strong>
+                            <p>桐城派在清代乾隆年间得到了进一步发展，刘大櫆继承了方苞的文学主张，进一步发展了"义法"说，强调文章的神气和音节。刘大櫆认为，文章的神气是文章的灵魂，音节是文章的血肉，只有神气和音节相结合，才能写出好的文章。刘大櫆的文学主张丰富了桐城派的文学理论，为桐城派的发展做出了重要贡献。</p>
+                        </li>
+                        <li><strong>鼎盛阶段：清代嘉庆年间</strong>
+                            <p>桐城派在清代嘉庆年间达到了顶峰，姚鼐是桐城派的集大成者，他提出了"义理、考据、辞章"并重的文学主张，使桐城派的文学理论更加完善。"义理"指的是文章的思想内容，要符合儒家的义理；"考据"指的是文章的材料要准确可靠，要注重对历史文献的研究；"辞章"指的是文章的章法和技巧，要注重文章的结构、层次和语言。姚鼐的文学主张得到了广泛的响应，桐城派成为当时最有影响的文学流派。</p>
+                            <p>桐城派的成员众多，影响广泛，除了方苞、刘大櫆、姚鼐外，还有梅曾亮、管同、方东树、刘开等诗人。他们的文学作品以简洁明了、条理清晰、语言优美为特色，受到了广大读者的喜爱。</p>
+                        </li>
+                        <li><strong>延续阶段：清代后期及民初</strong>
+                            <p>桐城派的影响一直延续到清代后期及民初，对中国近代文学的发展产生了重要影响。清代后期的曾国藩是桐城派的重要成员，他进一步发展了桐城派的文学主张，提出了"经济、义理、考据、辞章"并重的文学主张，强调文学要为现实服务。民初的严复、林纾等翻译家也受到了桐城派的影响，他们的翻译作品语言优美，条理清晰，受到了广大读者的喜爱。</p>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="genre-section">
+                    <h3>艺术特点</h3>
+                    <ul>
+                        <li><strong>义理、考据、辞章并重</strong>：桐城派主张"义理、考据、辞章"并重，强调文学的思想性、学术性和艺术性的统一。</li>
+                        <li><strong>注重文章的章法和技巧</strong>：桐城派注重文章的章法和技巧，讲究文章的结构、层次、过渡等。</li>
+                        <li><strong>语言简洁明了</strong>：桐城派的文学作品语言简洁明了，条理清晰，不事雕琢。</li>
+                        <li><strong>风格典雅庄重</strong>：桐城派的文学作品风格典雅庄重，具有较高的艺术价值。</li>
+                        <li><strong>强调文学的社会功能</strong>：桐城派强调文学的社会功能，主张文学要为社会服务，为儒家的义理服务。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="genre-section">
+                    <h3>代表人物</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin: 40px 0;">
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 500px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/方苞.jpg" alt="方苞" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>方苞（1668年-1749年）</h4>
+                            <p>字灵皋，号望溪，清代著名文学家，桐城派的创始人。方苞的文学作品简洁明了，条理清晰，代表作有《狱中杂记》、《左忠毅公逸事》等。他提出了"义法"说，强调文学要符合儒家的义理，同时要注重文章的章法和技巧。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 500px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/刘大櫆.jpg" alt="刘大櫆" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>刘大櫆（1698年-1780年）</h4>
+                            <p>字才甫，号海峰，清代著名文学家，桐城派的重要成员。刘大櫆的文学作品语言优美，气势磅礴，代表作有《游三游洞记》、《论文偶记》等。他继承了方苞的"义法"说，进一步发展了桐城派的文学理论，强调文章的神气和音节。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 500px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/姚鼐.jpg" alt="姚鼐" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>姚鼐（1732年-1815年）</h4>
+                            <p>字姬传，号惜抱，清代著名文学家，桐城派的集大成者。姚鼐的文学作品典雅庄重，意境深远，代表作有《登泰山记》、《游灵岩记》等。他提出了"义理、考据、辞章"并重的文学主张，使桐城派的文学理论更加完善。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 经典作品 -->
+                <section class="genre-section">
+                    <h3>经典作品</h3>
+                    
+                    <div class="classic-works">
+                        <div class="work-item">
+                            <h5>《狱中杂记》 - 方苞</h5>
+                            <p>康熙五十一年三月，余在刑部狱，见死而由窦出者，日四三人。有洪洞令杜君者，作而言曰："此疫作也。今天时顺正，死者尚稀，往岁多至日十数人。"余叩所以。杜君曰："是疾易传染，遘者虽戚属不敢同卧起。而狱中为老监者四，监五室，禁卒居中央，牖其前以通明，屋极有窗以达气。旁四室则无之，而系囚常二百余。每薄暮下管键，矢溺皆闭其中，与饮食之气相薄，又隆冬，贫者席地而卧，春气动，鲜不疫矣。狱中成法，质明启钥，方夜中，生人与死者并踵顶而卧，无可旋避，此所以染者众也。又可怪者，大盗积贼，杀人重囚，气杰旺，染此者十不一二，或随有瘳；其骈死，皆轻系及牵连佐证法所不及者。"</p>
+                        </div>
+                        
+                        <div class="work-item">
+                            <h5>《登泰山记》 - 姚鼐</h5>
+                            <p>泰山之阳，汶水西流；其阴，济水东流。阳谷皆入汶，阴谷皆入济。当其南北分者，古长城也。最高日观峰，在长城南十五里。<br>
+                            余以乾隆三十九年十二月，自京师乘风雪，历齐河、长清，穿泰山西北谷，越长城之限，至于泰安。是月丁未，与知府朱孝纯子颍由南麓登。四十五里，道皆砌石为磴，其级七千有余。泰山正南面有三谷。中谷绕泰安城下，郦道元所谓环水也。余始循以入，道少半，越中岭，复循西谷，遂至其巅。古时登山，循东谷入，道有天门。东谷者，古谓之天门溪水，余所不至也。今所经中岭及山巅，崖限当道者，世皆谓之天门云。道中迷雾冰滑，磴几不可登。及既上，苍山负雪，明烛天南；望晚日照城郭，汶水、徂徕如画，而半山居雾若带然。<br>
+                            戊申晦，五鼓，与子颍坐日观亭，待日出。大风扬积雪击面。亭东自足下皆云漫。稍见云中白若摴蒱数十立者，山也。极天云一线异色，须臾成五采。日上，正赤如丹，下有红光，动摇承之。或曰，此东海也。回视日观以西峰，或得日或否，绛皓驳色，而皆若偻。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 流派影响 -->
+                <section class="genre-section">
+                    <h3>流派影响</h3>
+                    <p>桐城派对中国后世文学和文化产生了深远的影响，具体表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>对后世文学的影响</strong>
+                            <p>桐城派的"义理、考据、辞章"并重的文学主张，对后世文学产生了重要影响。清代的曾国藩、近代的严复等都受到了桐城派的启发。曾国藩进一步发展了桐城派的文学主张，提出了"经济、义理、考据、辞章"并重的文学主张，强调文学要为现实服务。严复、林纾等翻译家也受到了桐城派的影响，他们的翻译作品语言优美，条理清晰，受到了广大读者的喜爱。现代的文学理论也强调文学要注重思想内容、材料准确和艺术形式的统一，这与桐城派的文学主张是一致的。</p>
+                        </li>
+                        <li><strong>对文学理论的影响</strong>
+                            <p>桐城派的文学理论，对后世的文学理论产生了深远的影响，成为中国文学史上的重要理论遗产。桐城派强调文学要"义理、考据、辞章"并重，注重文章的思想内容、材料准确和艺术形式的统一，这一主张为后世许多文学理论所继承和发展。例如，现代的文学理论也强调文学要注重思想性、学术性和艺术性的统一。</p>
+                        </li>
+                        <li><strong>对中国文化的影响</strong>
+                            <p>桐城派的作品以简洁明了、条理清晰、语言优美为特色，丰富了中国文学的艺术表现力，成为中国文化的重要组成部分。桐城派的许多经典作品，如方苞的《狱中杂记》、姚鼐的《登泰山记》等，至今仍被广泛传诵，成为中国文化的瑰宝。桐城派所强调的"义理、考据、辞章"并重的文学主张，也成为中国文化的重要精神遗产，影响了后世许多文人的学术研究和文学创作。</p>
+                        </li>
+                        <li><strong>对世界文学的影响</strong>
+                            <p>桐城派的作品被翻译成多种文字，在世界范围内广泛传播，为世界文学的发展做出了重要贡献。姚鼐的散文被翻译成英语、法语、德语等多种语言，受到了世界各国读者的喜爱。桐城派的文学主张和创作方法也对世界文学产生了影响，如美国作家爱默生、英国作家王尔德等都对中国的桐城派表示了赞赏。</p>
+                        </li>
+                        <li><strong>对教育的影响</strong>
+                            <p>桐城派的文学理论和创作实践对中国的教育产生了重要影响。桐城派强调文学要"义理、考据、辞章"并重，注重文章的思想内容、材料准确和艺术形式的统一，这种教育方法被后世许多教育者所继承和发展。例如，现代的教育也强调学生要注重思想道德、知识学习和能力培养的统一，这与桐城派的教育思想是一致的。</p>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.genre-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // 返回顶部按钮
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.textContent = '↑';
+            backToTopBtn.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #c0392b;
+                color: white;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.3s, transform 0.3s;
+                transform: translateY(20px);
+                z-index: 1000;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            `;
+            document.body.appendChild(backToTopBtn);
+            
+            function toggleBackToTopBtn() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.transform = 'translateY(0)';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.transform = 'translateY(20px)';
+                }
+            }
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            window.addEventListener('scroll', toggleBackToTopBtn);
+        });
+    </script>
+</body>
+</html>

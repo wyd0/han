@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壮族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 壮族传统节日页面特定样式 */
+        .zhuang-festival-header {
+            background-image: url('images/zhuang-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .zhuang-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .zhuang-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .zhuang-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .zhuang-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .zhuang-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .zhuang-festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .zhuang-festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .zhuang-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .zhuang-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .zhuang-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .zhuang-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日展示 */
+        .festival-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .zhuang-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .zhuang-festival-header p {
+                font-size: 18px;
+            }
+            
+            .zhuang-festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="zhuang-festival-header">
+        <div class="container">
+            <div class="zhuang-festival-header-content">
+                <h1>壮族传统节日</h1>
+                <p>丰富多彩的壮族节日文化与庆典活动</p>
+                <a href="zhuang.html" class="back-link">返回壮族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="zhuang-festival-main">
+        <div class="container">
+            <div class="zhuang-festival-content">
+                <!-- 节日概述 -->
+                <section class="zhuang-festival-section">
+                    <h2>节日概述</h2>
+                    <p>壮族有着丰富多彩的传统节日，这些节日反映了壮族人民的生活方式、价值观念和文化传统。壮族的传统节日大多与农业生产、宗教信仰、祖先崇拜等有关，具有浓厚的民族特色。</p>
+                    <p>壮族的传统节日包括三月三歌圩、牛魂节、中元节、铜鼓节等，每个节日都有独特的庆祝方式和文化内涵。这些节日不仅是壮族人民团聚、娱乐的重要时刻，也是传承壮族文化的重要载体。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="zhuang-festival-section">
+                    <h3>主要传统节日</h3>
+                    
+                    <div class="festival-showcase">
+                        <div class="festival-item">
+                            <h4>三月三歌圩</h4>
+                            <p>三月三歌圩是壮族最重要的传统节日，每年农历三月初三举行。这个节日起源于壮族人民对歌仙刘三姐的纪念，现在已经成为壮族人民的狂欢节。节日期间，壮族人民会举行对歌、抛绣球、碰彩蛋、抢花炮等活动，共度欢乐时光。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>牛魂节</h4>
+                            <p>牛魂节是壮族的传统节日，每年农历四月初八举行。这个节日是壮族人民祭祀牛神、感谢牛的辛勤劳动的重要节日。节日期间，壮族人民会给牛洗澡、喂好吃的、给牛戴花等，表达对牛的感激之情。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>中元节</h4>
+                            <p>中元节是壮族的传统节日，每年农历七月十五日举行。这个节日是壮族人民祭祀祖先、超度亡灵的重要节日。节日期间，壮族人民会举行祭祖、烧纸钱、放河灯等活动。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="festival-showcase">
+                        <div class="festival-item">
+                            <h4>铜鼓节</h4>
+                            <p>铜鼓节是壮族的传统节日，每年农历正月初一至二月初二举行。这个节日是壮族人民展示铜鼓文化的重要聚会，也是展示壮族文化的重要窗口。节日期间，人们会举行铜鼓舞表演、对歌、斗牛等活动。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>蚂拐节</h4>
+                            <p>蚂拐节是壮族的传统节日，主要流行于广西河池、百色等地。每年农历正月初一至三十举行，是壮族人民祭祀蚂拐（青蛙）、祈求风调雨顺的重要节日。节日期间，人们会举行蚂拐舞表演、对歌、放炮等活动。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>花朝节</h4>
+                            <p>花朝节是壮族的传统节日，每年农历二月初二举行。这个节日是壮族人民祭祀花神、祈求百花盛开的重要节日。节日期间，人们会举行赏花、对歌、跳舞等活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日庆祝方式 -->
+                <section class="zhuang-festival-section">
+                    <h3>节日庆祝方式</h3>
+                    
+                    <h4>三月三歌圩庆祝方式</h4>
+                    <ul>
+                        <li><strong>对歌：</strong>青年男女通过对歌的方式寻找伴侣，表达爱意。</li>
+                        <li><strong>抛绣球：</strong>青年男女通过抛绣球的方式传递爱意，是壮族传统的恋爱方式。</li>
+                        <li><strong>碰彩蛋：</strong>人们用彩蛋互相碰撞，象征着吉祥如意。</li>
+                        <li><strong>抢花炮：</strong>人们通过抢花炮的方式祈求好运，是壮族传统的体育活动。</li>
+                        <li><strong>歌舞表演：</strong>人们会举行各种歌舞表演，展示壮族的文化艺术。</li>
+                        <li><strong>美食分享：</strong>人们会准备各种美食，如五色糯米饭、酸笋、酸鱼等，与亲朋好友分享。</li>
+                    </ul>
+                    
+                    <h4>牛魂节庆祝方式</h4>
+                    <ul>
+                        <li><strong>给牛洗澡：</strong>人们会给牛洗澡，让牛干净整洁。</li>
+                        <li><strong>喂好吃的：</strong>人们会给牛喂好吃的，如糯米、玉米等。</li>
+                        <li><strong>给牛戴花：</strong>人们会给牛戴上花环，表达对牛的喜爱。</li>
+                        <li><strong>祭祀牛神：</strong>人们会举行祭祀牛神的仪式，祈求牛神保佑牛群健康。</li>
+                        <li><strong>休息：</strong>这一天，人们会让牛休息，不进行任何劳动。</li>
+                    </ul>
+                    
+                    <h4>中元节庆祝方式</h4>
+                    <ul>
+                        <li><strong>祭祖：</strong>人们会举行祭祖仪式，缅怀祖先。</li>
+                        <li><strong>烧纸钱：</strong>人们会烧纸钱，给祖先送钱。</li>
+                        <li><strong>放河灯：</strong>人们会放河灯，超度亡灵。</li>
+                        <li><strong>供品：</strong>人们会准备各种供品，如水果、糕点、肉类等，供奉祖先。</li>
+                        <li><strong>禁忌：</strong>这一天，人们会避免外出，尤其是晚上，以免撞到鬼魂。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日文化内涵 -->
+                <section class="zhuang-festival-section">
+                    <h3>节日文化内涵</h3>
+                    <p>壮族的传统节日不仅是壮族人民团聚、娱乐的重要时刻，也是传承壮族文化的重要载体。这些节日蕴含着丰富的文化内涵，反映了壮族人民的价值观念、宗教信仰和生活方式。</p>
+                    
+                    <h4>农业文化</h4>
+                    <p>壮族的传统节日大多与农业生产有关，如三月三歌圩、牛魂节等。这些节日反映了壮族人民对农业生产的重视，以及对风调雨顺、五谷丰登的祈求。</p>
+                    
+                    <h4>宗教文化</h4>
+                    <p>壮族的传统节日大多与宗教信仰有关，如中元节、蚂拐节等。这些节日反映了壮族人民的宗教信仰，以及对祖先、神灵的崇拜。</p>
+                    
+                    <h4>社交文化</h4>
+                    <p>壮族的传统节日是壮族人民社交的重要场合，如三月三歌圩、铜鼓节等。这些节日为壮族人民提供了一个交流、互动的平台，促进了民族团结和社会和谐。</p>
+                    
+                    <h4>艺术文化</h4>
+                    <p>壮族的传统节日是壮族文化艺术的重要展示平台，如三月三歌圩、铜鼓节等。这些节日为壮族人民提供了一个展示音乐、舞蹈、工艺等艺术形式的机会，促进了壮族文化艺术的传承和发展。</p>
+                </section>
+
+                <!-- 节日的传承与发展 -->
+                <section class="zhuang-festival-section">
+                    <h3>节日的传承与发展</h3>
+                    <p>新中国成立以来，壮族的传统节日得到了前所未有的重视和保护。政府采取了一系列措施，保护和传承壮族的传统节日，如将三月三歌圩列为国家非物质文化遗产、举办各种节日庆典活动、加强节日文化教育等。</p>
+                    <p>同时，壮族的传统节日也在不断创新和发展。现代壮族人民在继承传统的基础上，吸收现代文化元素，对传统节日进行了适当的调整和创新，使其更加适应现代社会的需要。例如，在三月三歌圩期间，除了传统的对歌、抛绣球等活动外，还会举行各种文化展览、体育比赛、经贸活动等，丰富了节日的内容和形式。</p>
+                    <p>如今，壮族的传统节日已经成为中华文化的重要组成部分，得到了越来越多的关注和认可。壮族的三月三歌圩、牛魂节、中元节等传统节日已经成为中国非物质文化遗产的重要组成部分，展现了壮族文化的独特魅力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

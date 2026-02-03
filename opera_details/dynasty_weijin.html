@@ -1,0 +1,411 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魏晋南北朝时期服装 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 魏晋南北朝时期页面特定样式 */
+        .dynasty-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .dynasty-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .dynasty-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dynasty-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .dynasty-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dynasty-main {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+            overflow-x: auto;
+        }
+        
+        .dynasty-content {
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            min-width: max-content;
+        }
+        
+        .dynasty-section {
+            flex: 0 0 500px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .dynasty-section-content {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #333;
+        }
+        
+        .dynasty-section-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .dynasty-section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 20px;
+        }
+        
+        .dynasty-section-content li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.8;
+        }
+        
+        .dynasty-section-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .dynasty-section:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        .dynasty-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dynasty-section h2 {
+            color: #c0392b;
+            font-size: 38px;
+            margin-bottom: 45px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c0392b;
+            display: inline-block;
+        }
+        
+        .dynasty-section h3 {
+            color: #c0392b;
+            font-size: 30px;
+            margin: 50px 0 30px;
+            font-family: 'SimSun', serif;
+            padding-left: 15px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .dynasty-section h4 {
+            color: #c0392b;
+            font-size: 26px;
+            margin: 35px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 服装比较部分 */
+        .clothing-comparison {
+            margin: 20px 0;
+        }
+        
+        .comparison-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dynasty-header h1 {
+                font-size: 36px;
+            }
+            
+            .dynasty-header p {
+                font-size: 18px;
+            }
+            
+            .dynasty-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="dynasty-header">
+        <div class="container">
+            <div class="dynasty-header-content">
+                <h1>魏晋南北朝时期服装</h1>
+                <p>公元220年-公元589年</p>
+                <a href="clothing.html" class="back-link">返回服装首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="dynasty-main">
+        <div class="container">
+            <div class="dynasty-content">
+                <!-- 历史概述 -->
+                <section class="dynasty-section">
+                    <h2>历史概述</h2>
+                    <div class="dynasty-section-content">
+                        <p>魏晋南北朝时期是中国历史上的分裂时期，政权更迭频繁，民族融合加强，服装风格也变得更加多元化和自由奔放。这一时期的服装受到玄学思想的影响，追求自然、飘逸的风格，同时也吸收了北方少数民族的服装元素。</p>
+                        <h3>发展阶段</h3>
+                        <h4>三国时期（公元220年-公元280年）</h4>
+                        <p>三国时期，服装风格基本继承了东汉时期的风格，但由于战争频繁，服装制度有所简化。这一时期，文人雅士开始追求个性解放，服装风格也变得更加宽松飘逸。</p>
+                        
+                        <h4>晋朝（公元265年-公元420年）</h4>
+                        <p>晋朝时期，玄学思想流行，文人雅士追求自然、自由的生活方式，服装风格也随之变得更加潇洒倜傥，形成了"褒衣博带"的独特风格。晋朝时期，单衣取代了深衣，成为主要的服装款式，女性可以穿着。</p>
+                        
+                        <h4>南北朝时期（公元420年-公元589年）</h4>
+                        <p>南北朝时期，民族融合加强，北方少数民族的服装元素对汉族服装产生了深远的影响。这一时期，胡服成为时尚，如翻领袍、裤褶、靴等。同时，女性服装也变得更加华丽多样，出现了多种新的款式，如间色裙、高腰长裙等。</p>
+                    </div>
+                </section>
+
+                <!-- 服装特色 -->
+                <section class="dynasty-section">
+                    <h2>服装特色</h2>
+                    <div class="dynasty-section-content">
+                        <ul>
+                            <li><strong>褒衣博带</strong>：服装变得宽松飘逸，大袖宽衫，衣裾宽大，展现了文人雅士的洒脱气质</li>
+                            <li><strong>单衣流行</strong>：单衣（裲裆）取代了深衣，成为主要的服装款式，女性可以穿着</li>
+                            <li><strong>头巾流行</strong>：各种头巾成为时尚，如纶巾、角巾、紫巾等，体现了文人的儒雅风度</li>
+                            <li><strong>胡服影响</strong>：融合了部分少数民族服装元素，如裤褶、靴等，使服装更加实用</li>
+                            <li><strong>玄学思想的影响</strong>：服装风格追求自然、飘逸，体现了玄学思想中的"魏晋风度"</li>
+                            <li><strong>女性服装华丽</strong>：女性服装变得更加华丽多样，出现了多种新的款式，如间色裙、高腰长裙等</li>
+                            <li><strong>服装制度简化</strong>：由于战争频繁，服装制度有所简化，人们可以更加自由地选择服装款式</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 男女与官民服装比较 -->
+                <section class="dynasty-section">
+                    <h2>男女与官民服装比较</h2>
+                    <div class="dynasty-section-content">
+                        <div class="clothing-comparison">
+                            <div class="comparison-item">
+                                <h5>贵族服装</h5>
+                                <h4>材质与工艺</h4>
+                                <ul>
+                                    <li>使用丝绸、锦缎等高级面料</li>
+                                    <li>精美刺绣和复杂纹样</li>
+                                    <li>精湛的缝制工艺</li>
+                                    <li>使用金线和宝石装饰</li>
+                                </ul>
+                                <h4>款式与颜色</h4>
+                                <ul>
+                                    <li>褒衣博带：文人雅士的典型服装，宽松飘逸</li>
+                                    <li>杂裾垂髾服：女性官民的礼服，大袖宽衫，下摆有垂髾</li>
+                                    <li>裤褶：从少数民族传入的服装，成为贵族的常服</li>
+                                    <li>使用正色（青、赤、黄、白、黑）</li>
+                                    <li>色彩鲜艳，装饰华丽</li>
+                                </ul>
+                                <h4>配饰</h4>
+                                <ul>
+                                    <li>纶巾：文人的头巾，用青色丝绸制成，如诸葛亮所戴的"诸葛巾"，体现了文人的儒雅风度</li>
+                                    <li>角巾：文人的头巾，更加简单大方</li>
+                                    <li>绶带：官员的重要配饰</li>
+                                    <li>玉佩：佩戴有璜、璧和各种玉饰</li>
+                                    <li>靴：从少数民族传入的 footwear，成为唐代的时尚</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h5>平民服装</h5>
+                                <h4>材质与工艺</h4>
+                                <ul>
+                                    <li>使用棉、麻、葛布等低级面料</li>
+                                    <li>简单的织造和染色工艺</li>
+                                    <li>基本没有刺绣和复杂纹样</li>
+                                    <li>使用天然材料，颜色单一</li>
+                                </ul>
+                                <h4>款式与颜色</h4>
+                                <ul>
+                                    <li>短褐：葛布短衣，款式简单</li>
+                                    <li>犊鼻裈：下层劳动者的裤子</li>
+                                    <li>绮襦短衣：款式简单，没有装饰</li>
+                                    <li>使用间色（混合色）</li>
+                                    <li>颜色以素色为主，如灰色、棕色</li>
+                                </ul>
+                                <h4>配饰</h4>
+                                <ul>
+                                    <li>简单的布带或麻绳</li>
+                                    <li>草编或木底鞋</li>
+                                    <li>基本没有饰品和宝石装饰</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 代表服装 -->
+                <section class="dynasty-section">
+                    <h2>代表服装</h2>
+                    <div class="dynasty-section-content">
+                        <h3>文人服装</h3>
+                        <p><strong>褒衣博带</strong>：文人雅士的典型服装，宽松飘逸，体现了魏晋风度。大袖宽衫，衣裾宽大，展现了文人的洒脱气质。</p>
+                        <p><strong>纶巾</strong>：文人的头巾，用青色丝绸制成，如诸葛亮所戴的"诸葛巾"，体现了文人的儒雅风度。</p>
+                        
+                        <h3>女性服装</h3>
+                        <p><strong>杂裾垂髾服</strong>：女性官民的礼服，大袖宽衫，下摆有垂髾，装饰华丽，体现了女性的柔美气质。</p>
+                        <p><strong>间色裙</strong>：女性的日常服装，用不同颜色的布条拼接而成，色彩鲜艳，款式多样。</p>
+                        
+                        <h3>男性服装</h3>
+                        <p><strong>裤褶</strong>：从少数民族传入的服装，上短衣下裤，便于骑射，成为男性的常服。</p>
+                        <p><strong>裲裆</strong>：单衣，取代了深衣，成为主要的服装款式。</p>
+                    </div>
+                </section>
+
+                <!-- 文化内涵 -->
+                <section class="dynasty-section">
+                    <h2>文化内涵</h2>
+                    <div class="dynasty-section-content">
+                        <ul>
+                            <li><strong>玄学思想的影响</strong>：魏晋时期，玄学思想流行，文人雅士追求自然、自由的生活方式，服装风格也体现了这种思想，形成了"褒衣博带"的独特风格。</li>
+                            <li><strong>民族融合</strong>：南北朝时期，民族融合加强，汉族服装吸收了北方少数民族的服装元素，如裤褶、靴等，使服装更加多样化。</li>
+                            <li><strong>个性解放</strong>：魏晋时期，文人阶层追求个性解放，服装风格也变得更加自由奔放，不再严格遵守传统的服装制度。</li>
+                            <li><strong>审美观念的变化</strong>：魏晋时期的服装注重自然、飘逸之美，体现了当时的审美观念，对后世的服装发展产生了深远的影响。</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

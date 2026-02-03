@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>羌族音乐舞蹈 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 羌族音乐舞蹈页面特定样式 */
+        .qiang-detail-header {
+            background-image: url('images/羌族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .qiang-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .qiang-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .qiang-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .qiang-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-qiang {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-qiang:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .qiang-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .qiang-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .qiang-detail-content h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .qiang-detail-content h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .qiang-detail-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .qiang-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .qiang-detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .qiang-detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 音乐舞蹈样式 */
+        .music-dance-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .type-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .type-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .type-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .type-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 乐器样式 */
+        .musical-instruments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .instrument-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .instrument-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .instrument-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .instrument-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .qiang-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .qiang-detail-header p {
+                font-size: 18px;
+            }
+            
+            .qiang-detail-content h2 {
+                font-size: 28px;
+            }
+            
+            .music-dance-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .musical-instruments {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="qiang-detail-header">
+        <div class="container">
+            <div class="qiang-detail-header-content">
+                <h1>羌族音乐舞蹈</h1>
+                <p>羌族的音乐艺术与舞蹈文化</p>
+                <a href="qiang.html" class="back-qiang">返回羌族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="qiang-detail-main">
+        <div class="container">
+            <div class="qiang-detail-content">
+                <h2>羌族音乐舞蹈概述</h2>
+                <p>羌族的音乐舞蹈具有独特的民族风格。羌族的民间歌谣主要包括劳动歌、情歌、叙事歌等，旋律优美，节奏明快。羌族的舞蹈以锅庄舞最负盛名，动作粗犷有力，充满生命力。</p>
+                
+                <h3>羌族音乐</h3>
+                <p>羌族音乐是羌族文化的重要组成部分，具有浓郁的民族特色和地域风格。羌族音乐主要包括民间歌谣、宗教音乐和器乐等。</p>
+                
+                <h4>民间歌谣</h4>
+                <div class="music-dance-types">
+                    <div class="type-item">
+                        <h4>劳动歌</h4>
+                        <p>劳动歌是羌族人民在劳动过程中创作的歌谣，主要包括耕地歌、收割歌、放牧歌、砍柴歌等。这些歌谣节奏明快，旋律优美，能够激发劳动者的热情，提高劳动效率。</p>
+                    </div>
+                    <div class="type-item">
+                        <h4>情歌</h4>
+                        <p>情歌是羌族青年男女表达爱情的重要方式，主要包括初恋歌、热恋歌、离别歌、思念歌等。这些歌谣旋律优美，情感真挚，反映了羌族青年男女对爱情的向往和追求。</p>
+                    </div>
+                    <div class="type-item">
+                        <h4>叙事歌</h4>
+                        <p>叙事歌是羌族人民讲述历史故事、神话传说的重要方式，主要包括创世歌、英雄歌、迁徙歌等。这些歌谣篇幅较长，内容丰富，是研究羌族历史和文化的重要资料。</p>
+                    </div>
+                    <div class="type-item">
+                        <h4>仪式歌</h4>
+                        <p>仪式歌是羌族人民在宗教仪式、节日庆典等场合演唱的歌谣，主要包括祭天歌、祭山歌、婚礼歌、葬礼歌等。这些歌谣具有浓郁的宗教色彩和仪式感。</p>
+                    </div>
+                </div>
+                
+                <h4>宗教音乐</h4>
+                <p>宗教音乐是羌族宗教活动的重要组成部分，主要由释比（巫师）在祭祀、驱邪、占卜等宗教仪式中演唱。宗教音乐的旋律庄重肃穆，歌词神秘难懂，具有浓郁的宗教色彩。</p>
+                
+                <h4>器乐</h4>
+                <p>羌族的器乐主要包括羌笛、口弦、羊皮鼓、锣、鼓等。这些乐器制作简单，音色独特，是羌族音乐的重要组成部分。</p>
+                
+                <div class="musical-instruments">
+                    <div class="instrument-item">
+                        <h4>羌笛</h4>
+                        <p>羌笛是羌族最具代表性的乐器，已有2000多年的历史。羌笛用竹子制成，长约20厘米，有6个音孔。羌笛的音色清脆悠扬，能够表达出羌族人民的喜怒哀乐。</p>
+                    </div>
+                    <div class="instrument-item">
+                        <h4>口弦</h4>
+                        <p>口弦是羌族妇女喜爱的乐器，用竹子或铜片制成。口弦的音色柔和细腻，能够表达出羌族妇女的温柔情感。</p>
+                    </div>
+                    <div class="instrument-item">
+                        <h4>羊皮鼓</h4>
+                        <p>羊皮鼓是羌族宗教活动中常用的乐器，用羊皮和木头制成。羊皮鼓的声音深沉有力，能够营造出庄重肃穆的宗教氛围。</p>
+                    </div>
+                    <div class="instrument-item">
+                        <h4>锣、鼓</h4>
+                        <p>锣、鼓是羌族节日庆典中常用的乐器，声音响亮，能够营造出喜庆热闹的氛围。</p>
+                    </div>
+                </div>
+                
+                <h3>羌族舞蹈</h3>
+                <p>羌族舞蹈是羌族文化的重要组成部分，具有浓郁的民族特色和地域风格。羌族舞蹈主要包括锅庄舞、羊皮鼓舞、祭祀舞等。</p>
+                
+                <div class="music-dance-types">
+                    <div class="type-item">
+                        <h4>锅庄舞</h4>
+                        <p>锅庄舞是羌族最具代表性的舞蹈，也是羌族人民最喜欢的舞蹈形式。锅庄舞通常在节日庆典、婚礼等场合表演，参加者围成圆圈，手拉手，边唱边跳。锅庄舞的动作粗犷有力，节奏明快，充满生命力。</p>
+                    </div>
+                    <div class="type-item">
+                        <h4>羊皮鼓舞</h4>
+                        <p>羊皮鼓舞是羌族宗教活动中常用的舞蹈，由释比（巫师）表演。表演者手持羊皮鼓，边敲边舞，动作神秘庄重，具有浓郁的宗教色彩。</p>
+                    </div>
+                    <div class="type-item">
+                        <h4>祭祀舞</h4>
+                        <p>祭祀舞是羌族人民在祭祀活动中表演的舞蹈，主要包括祭天舞、祭山舞、祭祖舞等。这些舞蹈动作庄重肃穆，具有浓郁的宗教色彩。</p>
+                    </div>
+                    <div class="type-item">
+                        <h4>节日舞</h4>
+                        <p>节日舞是羌族人民在节日庆典中表演的舞蹈，主要包括羌历年舞、转山会舞等。这些舞蹈动作欢快活泼，充满喜庆氛围。</p>
+                    </div>
+                </div>
+                
+                <h3>羌族音乐舞蹈的特点</h3>
+                <p>羌族音乐舞蹈具有以下特点：</p>
+                <ul>
+                    <li><strong>民族特色浓郁：</strong>羌族音乐舞蹈反映了羌族人民的生活、思想和价值观，具有浓郁的民族特色。</li>
+                    <li><strong>地域风格明显：</strong>羌族音乐舞蹈与羌族的自然环境、生产生活方式密切相关，具有明显的地域风格。</li>
+                    <li><strong>宗教色彩浓厚：</strong>羌族音乐舞蹈与羌族的宗教信仰密切相关，具有浓厚的宗教色彩。</li>
+                    <li><strong>群众参与性强：</strong>羌族音乐舞蹈是羌族人民集体创作和参与的艺术形式，具有很强的群众参与性。</li>
+                    <li><strong>传承方式独特：</strong>羌族音乐舞蹈主要通过口传心授的方式传承，具有独特的传承方式。</li>
+                </ul>
+                
+                <h3>羌族音乐舞蹈的现代意义</h3>
+                <p>羌族音乐舞蹈不仅是羌族文化的重要组成部分，也是中华民族文化宝库中的重要财富。它对于维护羌族社会的和谐稳定、传承羌族文化、促进民族团结等都具有重要的意义。</p>
+                <p>在现代社会，羌族音乐舞蹈面临着一些挑战，如传承人才短缺、创新不足等。为了保护和传承羌族音乐舞蹈，党和政府采取了一系列措施，如建立羌族音乐舞蹈传承基地、培养传承人才、举办羌族音乐舞蹈比赛等。羌族人民也积极参与羌族音乐舞蹈的保护和传承工作，如成立羌族音乐舞蹈协会、开展羌族音乐舞蹈培训等。通过这些努力，羌族音乐舞蹈的保护和传承工作取得了显著的成效。</p>
+                <p>羌族音乐舞蹈是羌族人民的精神寄托，也是中华民族文化的重要组成部分。我们应该珍惜和保护这一宝贵的文化遗产，让它在现代社会中继续发扬光大。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

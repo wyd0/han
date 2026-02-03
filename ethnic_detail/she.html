@@ -1,0 +1,687 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畲族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 畲族文化页面特定样式 */
+        .she-header {
+            background-image: url('images/畲族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .she-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .she-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .she-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .she-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .she-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .she-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .she-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .she-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .she-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .she-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .she-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .she-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .she-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .she-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .she-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .she-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .she-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .she-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .she-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .she-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .she-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .she-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .she-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .she-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .she-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .she-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .she-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .she-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .she-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .she-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .she-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .she-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .she-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .food-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .food-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 节日庆祝样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 25px 0;
+        }
+        
+        .festival-celebration h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .she-header h1 {
+                font-size: 36px;
+            }
+            
+            .she-header p {
+                font-size: 18px;
+            }
+            
+            .she-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .food-culture {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="she-header">
+        <div class="container">
+            <div class="she-header-content">
+                <h1>畲族</h1>
+                <p>盘瓠的子孙，守望家园的民族</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="she-main">
+        <div class="container">
+            <div class="she-content">
+                <!-- 畲族文化概览 -->
+                <section class="she-section">
+                    <h2>畲族文化概览</h2>
+                    <p>畲族是中国55个少数民族之一，主要分布在福建省、浙江省、江西省、广东省、安徽省等省份。畲族是一个历史悠久、文化独特的民族，有着丰富的语言、文字、宗教信仰和艺术。</p>
+                    <p>畲族人民主要从事农业，擅长种植水稻、茶叶、甘蔗等农作物。他们勤劳勇敢，认为盘瓠是始祖、祖先的象征。畲族的文化受到中原文化的影响，同时也保留了许多独特的少数民族文化特色。</p>
+                </section>
+
+                <!-- 历史与起源 -->
+                <section class="she-section">
+                    <h2>历史与起源</h2>
+                    
+                    <h3>畲族的起源</h3>
+                    <p>畲族的起源可以追溯到古代的百越族群，与古代的越人、东越等有着密切的联系。根据畲族的创世神话《高皇歌》，畲族人民是盘瓠的后裔，盘瓠是一只神犬，因帮助黄帝平息战乱而被封为侯，并娶了黄帝的女儿为妻，繁衍了畲族人民。</p>
+                    
+                    <h3>历史发展</h3>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>先秦时期</h5>
+                            <p>畲族的先民越人就已经在东南沿海地区活动，是东南沿海地区的古老民族之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>秦汉时期</h5>
+                            <p>畲族的先民东越人在瓯越地区建立了闽越国，与中原地区的联系逐渐加强。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>隋唐时期</h5>
+                            <p>畲族人民开始大规模迁徙，从福建地区向浙江、江西、广东、安徽等省份扩展。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>宋元明时期</h5>
+                            <p>中央政府在畲族地区实行土司制度和流官制度，加强了对畲族地区的管理，同时也促进了畲族与汉族的文化交流。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>1949年以后</h5>
+                            <p>中华人民共和国成立后，畲族地区实行了民族区域自治，畲族人民获得了平等的民族权利，经济社会得到了快速发展。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>文化传承与发展</h3>
+                    <p>畲族有着悠久的文化传统，他们通过口头传承和传统手工艺等方式保存了丰富的民族文化。在现代社会，畲族文化得到了进一步的保护和发展，传统的音乐、舞蹈、手工艺等都得到了传承和创新。</p>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="she-section">
+                    <h2>文化方面</h2>
+                    
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="she-language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>畲族有自己的语言，但没有统一的文字。畲语属于汉藏语系苗瑶语族苗语支，分为福建、浙江、江西三个方言区。虽然没有统一的文字，但畲族人民通过汉字记录本民族的历史文化，如《高皇歌》等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="she-religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>畲族主要信仰原始宗教，崇拜祖先，信仰多神，如盘瓠、祖先神、土地神、天神等。他们也信仰道教和佛教，尤其是道教对畲族的宗教影响深远。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="she-customs.html" style="color: #c0392b; text-decoration: none;">传统习俗</a></h5>
+                            <p>畲族有着丰富的传统习俗，如婚礼、葬礼、节日等都有独特的仪式和文化内涵。他们热情好客，崇尚礼仪，重视家庭和社区的团结。畲族人民热爱大自然，有着朴素的环保意识。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="she-art.html" style="color: #c0392b; text-decoration: none;">文学艺术</a></h5>
+                            <p>畲族有着丰富的民间文学和艺术，如民间故事、诗歌、谚语、谜语等。其中，《高皇歌》是畲族最著名的长篇叙事诗歌，讲述了畲族人民的起源和发展历程，充满了传奇色彩。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服饰文化 -->
+                <section class="she-section">
+                    <h2>服饰文化</h2>
+                    <p>畲族的服饰具有鲜明的民族特色，以蓝色、黑色、青色为主色调，设计简洁大方，穿着美观。</p>
+                    
+                    <h3>男子服饰</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/畲族男子传统服饰.jpg" alt="畲族男子服饰">
+                            <p>畲族男子传统服饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/畲族男子装扮.jpg" alt="畲族男子装扮">
+                            <p>畲族男子装扮</p>
+                        </div>
+                    </div>
+                    <p>畲族男子通常穿着蓝色或黑色的对襟短衫，下着蓝色或黑色的长裤，用蓝色或黑色的头巾包头。他们喜欢在衣服上绣花纹或图案，显得整洁大方。</p>
+                    
+                    <h3>女子服饰</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/畲族女子传统服饰.jpg" alt="畲族女子服饰">
+                            <p>畲族女子传统服饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/畲族女子装扮.jpg" alt="畲族女子装扮">
+                            <p>畲族女子装扮</p>
+                        </div>
+                    </div>
+                    <p>畲族女子的服饰更加华丽多彩，通常穿着蓝色或黑色的上衣，下着蓝色或黑色的百褶裙，用蓝色或黑色的头巾包大包头。上衣多为对襟或大襟，上面绣有精美的图案。畲族妇女喜欢戴银饰，如银簪、银钗、银链等，显得雍容华贵。她们的服装也喜欢用鲜花、彩线等装饰，显得活泼可爱。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>以蓝黑为主：</strong>畲族服饰以蓝色、黑色、青色为主色调，显得庄重、朴素。</li>
+                        <li><strong>装饰精美：</strong>服饰上绣有各种精美的图案，如凤凰、动物、几何图形等，展现了畲族人民的艺术才华。</li>
+                        <li><strong>民族特色鲜明：</strong>服饰的款式、色彩、装饰等都展现出鲜明的畲族特色，是畲族文化的重要象征。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="she-section">
+                    <h2>饮食文化</h2>
+                    <p>畲族的饮食文化受到东南沿海地区自然环境的影响，以米饭为主食，喜欢吃甜、酸、辣等口味的食物，擅长制作各种农产品和糕点。</p>
+                    
+                    <div class="food-culture">
+                        <div class="food-item">
+                            <h5>主食</h5>
+                            <p>畲族以大米为主食，喜欢吃糯米，如粽子、年糕、糍粑等。他们的米饭通常用竹筒蒸煮，香气扑鼻，口感软糯。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>菜肴</h5>
+                            <p>畲族的菜肴以甜、酸、辣等口味为主，如糖醋排骨、酸梅鸭、甜酒酿、茶叶蛋等。他们也喜欢吃各种野味和蔬菜，如竹笋、香菇、蕨菜等。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>腌制食品</h5>
+                            <p>畲族擅长制作各种腌制食品，如酸菜、酸笋、酸萝卜、咸菜等。这些腌制食品不仅味道独特，而且易于保存，是畲族饮食文化的重要组成部分。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>传统食品</h5>
+                            <p>畲族的传统食品有茶、酒、水果等。茶是畲族人民日常生活中不可或缺的食品，他们擅长种茶和制作茶叶，如绿茶、红茶、乌龙茶等。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>畲族有着独特的饮食习俗，如吃饭时要长辈先动筷，晚上才能开始吃饭。他们热情好客，客人来访时，会拿出最好的食物招待，如糯米酒、糍粑、年糕等。畲族人民重视饮食卫生，讲究饮食礼仪，有着悠久的饮食文化传统。</p>
+                </section>
+
+                <!-- 节日庆祝 -->
+                <section class="she-section">
+                    <h2>节日庆祝</h2>
+                    <p>畲族有着丰富多彩的传统节日，如三月三、四月八、六月六、七月七等，这些节日都有着独特的庆祝方式和文化内涵。</p>
+                    
+                    <div class="festival-celebration">
+                        <h5>三月三</h5>
+                        <p>三月三是畲族最重要的传统节日，通常在农历三月初三举行。在节日期间，畲族人民会穿上盛装，举行对歌、跳舞、祭祀等庆祝活动，祈求来年风调雨顺，五谷丰登。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>四月八</h5>
+                        <p>四月八是畲族祭祀祖先盘瓠的节日，通常在农历四月初八举行。在节日期间，畲族人民会举行隆重的祭祀活动，供奉盘瓠，祈求祖先保佑后代平安幸福。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>六月六</h5>
+                        <p>六月六是畲族的晒衣节，通常在农历六月初六举行。在节日期间，畲族人民会把家里的衣服、被褥等拿出来晾晒，祈求消灾避祸，平安吉祥。</p>
+                    </div>
+                </section>
+
+                <!-- 文学与艺术 -->
+                <section class="she-section">
+                    <h2>文学与艺术</h2>
+                    
+                    <h3>民间文学</h3>
+                    <p>畲族有着丰富的民间文学，如民间故事、诗歌、谚语、谜语等。其中，《高皇歌》是畲族最著名的长篇叙事诗歌，讲述了畲族人民的起源和发展历程，充满了传奇色彩。此外，《盘歌》《祖先歌》等也是畲族重要的文学作品。</p>
+                    
+                    <h3>音乐与舞蹈</h3>
+                    <p>畲族的音乐和舞蹈非常独特，具有浓郁的民族特色。他们的传统乐器有笛子、箫、二胡、三弦等，其中笛子是最具代表性的乐器。畲族的舞蹈形式多样，如龙头舞、狮舞、铜鼓舞、对舞等，其中狮舞是最著名的舞蹈，以其欢快的节奏和优美的舞姿闻名中外。</p>
+                    
+                    <h3>手工艺</h3>
+                    <p>畲族的手工艺也非常发达，如织锦、刺绣、编织、竹编等。他们的织锦工艺历史悠久，擅长用麻、棉等原料织成各种布料。刺绣品如头巾、背包、鞋子等，图案精美，色彩鲜艳。竹编品如竹席、竹篮、竹帽等，实用美观，耐用性强。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="she-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>畲族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。</p>
+                    
+                    <h3>经济交流</h3>
+                    <p>畲族地区是中国东南沿海地区的重要组成部分，历史上就是海上丝绸之路的重要节点。畲族人民通过与中原地区和海外的经济交流，促进了中外贸易往来和文化交流。</p>
+                    
+                    <h3>文化融合</h3>
+                    <p>畲族文化与中华文化相互交融，相互影响。畲族的音乐、舞蹈、手工艺等都对中华文化产生了深远的影响，同时，畲族也吸收了中华文化的精华，如儒家思想、汉字文化等，丰富了自己的文化内涵。</p>
+                    
+                    <h3>民族团结</h3>
+                    <p>畲族人民热爱祖国，具有中华民族的共同意识，积极参与国家建设和发展。他们与其他民族和睦相处，共同维护国家的统一和民族团结。畲族文化的传承和发展，对于促进各民族之间的文化交流和融合，增强中华民族的凝聚力和向心力，具有重要意义。</p>
+                    
+                    <h3>文化多样性</h3>
+                    <p>畲族文化的独特性和多样性，丰富了中华文化的内涵，促进了中华文化的多元发展。保护和发展畲族文化，对于维护中华文化的多样性和丰富性，推动中华文化的创新和发展，具有重要意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

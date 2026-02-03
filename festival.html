@@ -1,0 +1,515 @@
+﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传统节日 - 汉族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统节日页面特定样式 */
+        .festival-header {
+            background-image: url('images/传统节日.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-han {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-han:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日卡片 */
+        .festivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .festival-card h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-card p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .festival-card .date {
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 10px;
+        }
+        
+        /* 节日习俗 */
+        .festival-customs {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .festival-customs h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .festival-header p {
+                font-size: 18px;
+            }
+            
+            .festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festivals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .festival-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .festival-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="festival-header">
+        <div class="container">
+            <div class="festival-header-content">
+                <h1>传统节日</h1>
+                <p>汉族文化的重要组成部分与精神寄托</p>
+                <a href="han.html" class="back-han">返回汉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="festival-main">
+        <div class="container">
+            <div class="festival-content">
+                <!-- 介绍部分 -->
+                <section class="festival-section">
+                    <h2>汉族传统节日概述</h2>
+                    <p>汉族传统节日是汉族文化的重要组成部分，承载着丰富的文化内涵和民族精神。这些节日大多与农业生产、宗教信仰、历史事件等有关，反映了汉族人民的生活方式和价值观念。</p>
+                    <p>汉族传统节日具有悠久的历史和深厚的文化底蕴，它们不仅是汉族人民的重要节日，也是中华民族共同的文化遗产。通过庆祝这些节日，汉族人民传承和弘扬着优秀的传统文化，增强了民族凝聚力和认同感。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="festival-section">
+                    <h2>主要传统节日</h2>
+                    <div class="festivals-grid">
+                        <div class="festival-card">
+                            <h5>春节</h5>
+                            <div class="date">农历正月初一</div>
+                            <p>春节是汉族最重要的传统节日，象征着辞旧迎新，合家团圆。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>元宵节</h5>
+                            <div class="date">农历正月十五</div>
+                            <p>元宵节又称上元节，是春节后的第一个重要节日，主要习俗有赏灯、吃元宵等。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>清明节</h5>
+                            <div class="date">公历4月4日或5日</div>
+                            <p>清明节是祭祀祖先、缅怀先人的节日，也是踏青的好时节。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>端午节</h5>
+                            <div class="date">农历五月初五</div>
+                            <p>端午节纪念屈原，有吃粽子、赛龙舟等传统习俗。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>七夕节</h5>
+                            <div class="date">农历七月初七</div>
+                            <p>七夕节又称乞巧节，是中国的传统情人节，相传是牛郎织女相会的日子。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>中秋节</h5>
+                            <div class="date">农历八月十五</div>
+                            <p>中秋节象征着团圆，有赏月、吃月饼等传统习俗。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>重阳节</h5>
+                            <div class="date">农历九月初九</div>
+                            <p>重阳节有登高、插茱萸、饮菊花酒等传统习俗，也是敬老节。</p>
+                        </div>
+                        <div class="festival-card">
+                            <h5>冬至</h5>
+                            <div class="date">公历12月21日或22日</div>
+                            <p>冬至有吃饺子、进补等传统习俗，是二十四节气之一。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 春节 -->
+                <section class="festival-section">
+                    <h2>春节</h2>
+                    <p>春节是汉族最重要的传统节日，也是中国最隆重的节日之一，通常从农历腊月二十三或二十四的祭灶开始，一直到正月十五元宵节结束。</p>
+                    
+                    <div class="festival-customs">
+                        <h5>春节习俗</h5>
+                        <ul>
+                            <li><strong>贴春联：</strong>用红纸写成的对联，贴在门框上，表达对新年的美好祝愿。</li>
+                            <li><strong>贴窗花：</strong>用彩纸剪成各种图案，贴在窗户上，增加节日气氛。</li>
+                            <li><strong>挂灯笼：</strong>在门口、庭院挂起红灯笼，象征团圆和喜庆。</li>
+                            <li><strong>放鞭炮：</strong>驱邪避灾，增加节日气氛。</li>
+                            <li><strong>吃年夜饭：</strong>全家人团聚在一起吃年夜饭，象征团圆和幸福。</li>
+                            <li><strong>守岁：</strong>除夕夜熬夜迎接新年的到来，象征着对旧年的留恋和对新年的期待。</li>
+                            <li><strong>拜年：</strong>新年第一天，人们互相拜年，祝福新年吉祥如意。</li>
+                            <li><strong>压岁钱：</strong>长辈给晚辈压岁钱，象征着平安和幸福。</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>春节的文化内涵</h3>
+                    <p>春节不仅是一个传统节日，更是一种文化现象，承载着丰富的文化内涵：</p>
+                    <ul>
+                        <li><strong>团圆观念：</strong>春节强调 family reunion，无论多远，人们都会回家过年，体现了汉族人民重视家庭的传统观念。</li>
+                        <li><strong>辞旧迎新：</strong>春节是辞旧迎新的时刻，人们通过各种习俗，表达对过去一年的总结和对新一年的美好祝愿。</li>
+                        <li><strong>祈福纳祥：</strong>春节期间的各种习俗，如贴春联、放鞭炮等，都有祈福纳祥的含义，表达了人们对美好生活的向往。</li>
+                        <li><strong>文化传承：</strong>春节是汉族文化的重要载体，通过庆祝春节，汉族人民传承和弘扬着优秀的传统文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 清明节 -->
+                <section class="festival-section">
+                    <h2>清明节</h2>
+                    <p>清明节是汉族传统节日之一，也是二十四节气之一，通常在公历4月4日或5日。清明节是祭祀祖先、缅怀先人的节日，也是踏青的好时节。</p>
+                    
+                    <div class="festival-customs">
+                        <h5>清明节习俗</h5>
+                        <ul>
+                            <li><strong>扫墓：</strong>人们前往祖先的墓地，清扫墓地，献上鲜花、食品等祭品，表达对祖先的缅怀和敬意。</li>
+                            <li><strong>踏青：</strong>清明节正值春季，万物复苏，人们纷纷走出家门，欣赏春天的美景，感受大自然的生机。</li>
+                            <li><strong>植树：</strong>清明节是植树的好时节，人们通过植树来表达对生命的尊重和对环境的保护。</li>
+                            <li><strong>放风筝：</strong>清明节有放风筝的习俗，象征着放走晦气，迎来好运。</li>
+                            <li><strong>吃青团：</strong>青团是清明节的传统食品，用糯米粉和艾草汁制成，象征着对祖先的思念。</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>清明节的文化内涵</h3>
+                    <p>清明节不仅是一个祭祀节日，更是一种文化现象，承载着丰富的文化内涵：</p>
+                    <ul>
+                        <li><strong>孝道观念：</strong>清明节强调对祖先的尊敬和缅怀，体现了汉族人民重视孝道的传统观念。</li>
+                        <li><strong>生命意识：</strong>清明节正值春季，万物复苏，人们通过扫墓和踏青，表达对生命的尊重和对死亡的思考。</li>
+                        <li><strong>环保意识：</strong>清明节的植树习俗，体现了汉族人民重视环境保护的传统观念。</li>
+                        <li><strong>文化传承：</strong>清明节是汉族文化的重要载体，通过庆祝清明节，汉族人民传承和弘扬着优秀的传统文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 端午节 -->
+                <section class="festival-section">
+                    <h2>端午节</h2>
+                    <p>端午节是汉族传统节日之一，通常在农历五月初五。端午节纪念屈原，有吃粽子、赛龙舟等传统习俗。</p>
+                    
+                    <div class="festival-customs">
+                        <h5>端午节习俗</h5>
+                        <ul>
+                            <li><strong>吃粽子：</strong>粽子是端午节的传统食品，用糯米包裹着各种馅料，象征着对屈原的纪念。</li>
+                            <li><strong>赛龙舟：</strong>赛龙舟是端午节的重要习俗，象征着人们划船救屈原的情景。</li>
+                            <li><strong>挂艾草：</strong>在门口挂艾草，象征着驱邪避灾。</li>
+                            <li><strong>佩香囊：</strong>佩戴香囊，象征着驱邪避灾，保平安。</li>
+                            <li><strong>喝雄黄酒：</strong>喝雄黄酒，象征着驱邪避灾，保健康。</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>端午节的文化内涵</h3>
+                    <p>端午节不仅是一个传统节日，更是一种文化现象，承载着丰富的文化内涵：</p>
+                    <ul>
+                        <li><strong>爱国主义：</strong>端午节纪念屈原，体现了汉族人民爱国主义的传统观念。</li>
+                        <li><strong>健康意识：</strong>端午节正值夏季，天气炎热，各种习俗如挂艾草、喝雄黄酒等，都有预防疾病的含义。</li>
+                        <li><strong>竞技精神：</strong>赛龙舟是一种竞技活动，体现了汉族人民的竞技精神和团队合作精神。</li>
+                        <li><strong>文化传承：</strong>端午节是汉族文化的重要载体，通过庆祝端午节，汉族人民传承和弘扬着优秀的传统文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 中秋节 -->
+                <section class="festival-section">
+                    <h2>中秋节</h2>
+                    <p>中秋节是汉族传统节日之一，通常在农历八月十五。中秋节象征着团圆，有赏月、吃月饼等传统习俗。</p>
+                    
+                    <div class="festival-customs">
+                        <h5>中秋节习俗</h5>
+                        <ul>
+                            <li><strong>赏月：</strong>中秋节的月亮最圆最亮，人们纷纷走出家门，欣赏月亮的美景，表达对团圆的向往。</li>
+                            <li><strong>吃月饼：</strong>月饼是中秋节的传统食品，象征着团圆和幸福。</li>
+                            <li><strong>祭月：</strong>人们在庭院中设置供桌，献上月饼、水果等祭品，祭祀月亮女神。</li>
+                            <li><strong>燃灯：</strong>中秋节有燃灯的习俗，象征着光明和希望。</li>
+                            <li><strong>走月：</strong>人们在中秋节的夜晚，结伴而行，欣赏月亮的美景，感受节日的气氛。</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>中秋节的文化内涵</h3>
+                    <p>中秋节不仅是一个传统节日，更是一种文化现象，承载着丰富的文化内涵：</p>
+                    <ul>
+                        <li><strong>团圆观念：</strong>中秋节强调团圆，无论多远，人们都会回家过节，体现了汉族人民重视家庭的传统观念。</li>
+                        <li><strong>思乡之情：</strong>中秋节是思乡之情最浓的节日，远离家乡的人们，通过赏月、吃月饼等习俗，表达对家乡和亲人的思念。</li>
+                        <li><strong>感恩意识：</strong>中秋节正值秋季，是收获的季节，人们通过各种习俗，表达对大自然的感恩和对美好生活的珍惜。</li>
+                        <li><strong>文化传承：</strong>中秋节是汉族文化的重要载体，通过庆祝中秋节，汉族人民传承和弘扬着优秀的传统文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日的现代意义 -->
+                <section class="festival-section">
+                    <h2>传统节日的现代意义</h2>
+                    <p>在现代社会，汉族传统节日仍然具有重要的意义和价值：</p>
+                    <ul>
+                        <li><strong>文化认同：</strong>传统节日是汉族文化的重要组成部分，通过庆祝传统节日，汉族人民增强了文化认同感和民族自豪感。</li>
+                        <li><strong>家庭和谐：</strong>传统节日强调 family reunion，通过庆祝传统节日，家庭成员之间的关系更加和谐，家庭更加幸福。</li>
+                        <li><strong>社会凝聚力：</strong>传统节日是社会的重要纽带，通过庆祝传统节日，社会成员之间的关系更加融洽，社会更加和谐。</li>
+                        <li><strong>文化传承：</strong>传统节日是文化传承的重要载体，通过庆祝传统节日，汉族优秀传统文化得以传承和弘扬。</li>
+                        <li><strong>心理调节：</strong>传统节日是人们放松身心、调节心理的重要时刻，通过庆祝传统节日，人们的压力得到释放，心情更加愉悦。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日的保护与传承 -->
+                <section class="festival-section">
+                    <h2>传统节日的保护与传承</h2>
+                    <p>随着社会的发展和时代的变迁，汉族传统节日面临着一些挑战，需要我们采取措施加以保护和传承：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>通过学校教育、社会教育等方式，向年轻一代传授传统节日的知识和文化内涵，增强他们对传统节日的认识和认同。</li>
+                        <li><strong>创新形式：</strong>在保留传统节日核心内涵的基础上，创新传统节日的庆祝形式，使其更加适应现代社会的需求和年轻人的喜好。</li>
+                        <li><strong>政府支持：</strong>政府应加强对传统节日的保护和支持，通过立法、政策等方式，保障传统节日的地位和传承。</li>
+                        <li><strong>社会参与：</strong>鼓励社会各界参与传统节日的保护和传承，形成全社会共同保护和传承传统节日的良好氛围。</li>
+                        <li><strong>国际传播：</strong>通过各种渠道，向世界传播汉族传统节日的文化内涵和魅力，增强汉族文化的国际影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.festival-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

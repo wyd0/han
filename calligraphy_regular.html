@@ -1,0 +1,505 @@
+﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楷书 - 书法艺术</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 楷书页面特定样式 */
+        body {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .calligraphy-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .calligraphy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .calligraphy-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .calligraphy-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .calligraphy-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .calligraphy-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .calligraphy-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .calligraphy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .calligraphy-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .calligraphy-section h3 {
+            color: #8B4513;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .calligraphy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .calligraphy-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .calligraphy-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .calligraphy-content li {
+            margin-bottom: 10px;
+        }
+        
+        /* 字帖展示 */
+        .copybook-section {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .copybook-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .copybook-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .copybook-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .copybook-item h4 {
+            color: #c0392b;
+            margin-bottom: 10px;
+        }
+        
+        /* 主要字体导航样式 */
+        .font-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .font-nav h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .font-nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .font-nav-links li {
+            margin: 0 10px;
+        }
+        
+        .font-nav-links a {
+            color: #c0392b;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 2px solid transparent;
+        }
+        
+        .font-nav-links a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(192, 57, 43, 0.3);
+        }
+        
+        .font-nav-links a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .calligraphy-header h1 {
+                font-size: 36px;
+            }
+            
+            .calligraphy-header p {
+                font-size: 18px;
+            }
+            
+            .calligraphy-section h2 {
+                font-size: 28px;
+            }
+            
+            .calligraphy-section h3 {
+                font-size: 20px;
+            }
+            
+            .copybook-section {
+                padding: 20px;
+            }
+            
+            .font-nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .font-nav-links li {
+                margin: 5px 0;
+            }
+            
+            .font-nav-links a {
+                display: block;
+                text-align: center;
+                width: 100%;
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="calligraphy-header">
+        <div class="container">
+            <div class="calligraphy-header-content">
+                <h1>楷书艺术</h1>
+                <p>端庄严谨的书体，中国书法的典范之作</p>
+                <a href="calligraphy.html" class="back-home">返回书法艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="calligraphy-main">
+        <div class="container">
+            <div class="calligraphy-content">
+                <!-- 主要字体导航 -->
+                <div class="font-nav">
+                    <h3>主要字体导航</h3>
+                    <ul class="font-nav-links">
+                        <li><a href="calligraphy_seal.html">篆书</a></li>
+                        <li><a href="calligraphy_official.html">隶书</a></li>
+                        <li><a href="calligraphy_regular.html" class="active">楷书</a></li>
+                        <li><a href="calligraphy_running.html">行书</a></li>
+                        <li><a href="calligraphy_cursive.html">草书</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 起源 -->
+                <section class="calligraphy-section">
+                    <h2>楷书的起源</h2>
+                    <p>楷书，又称正书、真书，是中国书法史上最重要的书体之一。楷书的起源可以追溯到汉代，它是在隶书的基础上发展演变而来的。</p>
+                    <p>东汉后期，随着社会的发展和文字使用的日益频繁，人们需要一种更加规范、整齐的字体。于是，在隶书的基础上，逐渐演变出了一种新的书体——楷书。楷书的名称来源于其书写规整、整齐的特点，"楷"有楷模、标准的意思。</p>
+                    <p>楷书的形成过程经历了漫长的发展时期。从东汉后期开始，经过魏晋南北朝的发展和完善，到唐代达到了鼎盛时期。唐代楷书结构严谨，笔画规范，成为后世楷书的典范。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="calligraphy-section">
+                    <h2>楷书的发展</h2>
+                    <h3>魏晋南北朝时期（公元220年-公元589年）</h3>
+                    <p>魏晋南北朝时期是楷书的形成和发展时期。这一时期的楷书保留了较多隶书的特点，笔画还不够成熟，但已经具备了楷书的基本特征。</p>
+                    <ul>
+                        <li><strong>三国时期</strong>：钟繇是这一时期的代表书法家，他的楷书被称为"钟体"，取法于古文字，结构质朴，笔画自然流畅。钟繇的楷书作品如《宣示表》、《荐季直表》等，虽然已经失传，但通过后人的摹本，我们仍然可以感受到其古朴典雅的风格。钟繇被后人称为"楷书之祖"，他的书法对后世产生了深远的影响。</li>
+                        <li><strong>东晋时期</strong>：王羲之、王献之父子对楷书的发展做出了重要贡献。王羲之的楷书风格典雅秀丽，结构端庄，笔画流畅自然，代表作如《黄庭经》、《乐毅论》等。王献之的楷书则更加飘逸洒脱，代表作如《洛神赋十三行》。王氏父子的楷书被视为魏晋楷书的典范，对后世楷书的发展产生了深远的影响。</li>
+                        <li><strong>南北朝时期</strong>：南北朝时期，楷书在北方和南方呈现出不同的风格特点。北朝的魏碑楷书风格粗犷豪放，结构错落有致，笔画刚劲有力，如《龙门二十品》、《张猛龙碑》等。南朝的楷书则继承了东晋王氏父子的风格，典雅秀丽，结构端庄，如《爨宝子碑》、《爨龙颜碑》等。南北朝时期的楷书为唐代楷书的鼎盛奠定了基础。</li>
+                    </ul>
+                    
+                    <h3>唐代（公元618年-公元907年）</h3>
+                    <p>唐代是楷书的鼎盛时期。唐代楷书结构严谨，笔画规范，风格多样，出现了许多著名的书法家和作品。唐代楷书的发展与唐代的政治、经济、文化密切相关，唐代统治者重视书法艺术，设立了书学，培养书法人才，同时唐代的科举制度也将书法作为选拔人才的重要标准。</p>
+                    <ul>
+                        <li><strong>初唐</strong>：欧阳询、虞世南、褚遂良是这一时期的代表书法家，他们的楷书风格各异，被称为"初唐三家"。欧阳询的楷书险峻严谨，结构精密，笔画刚劲有力，代表作如《九成宫醴泉铭》、《皇甫诞碑》等。虞世南的楷书典雅秀丽，结构端庄，笔画圆润流畅，代表作如《孔子庙堂碑》等。褚遂良的楷书飘逸流畅，结构疏朗，笔画纤细柔美，代表作如《雁塔圣教序》、《孟法师碑》等。</li>
+                        <li><strong>中唐</strong>：颜真卿是这一时期的代表书法家，他的楷书被称为"颜体"，取法于篆籀，结构宽博，笔画浑厚有力，气势磅礴。颜真卿的楷书作品如《多宝塔碑》、《颜勤礼碑》、《麻姑仙坛记》等，风格各异，但都体现了颜体的典型特征。颜真卿的书法对后世产生了深远的影响，被视为唐代书法的典范。</li>
+                        <li><strong>晚唐</strong>：柳公权是这一时期的代表书法家，他的楷书被称为"柳体"，取法于颜真卿，但更加严谨规范，笔画刚劲有力，结构紧凑。柳公权的楷书作品如《玄秘塔碑》、《神策军碑》等，体现了柳体的典型特征。柳公权与颜真卿并称为"颜柳"，他们的书法被视为唐代楷书的最高成就。</li>
+                    </ul>
+                    
+                    <h3>宋代（公元960年-公元1279年）</h3>
+                    <p>宋代楷书融合了唐代楷书的特点，风格更加多样化。宋代书法家注重个性表达，强调书法的艺术性，因此宋代楷书在继承唐代楷书传统的基础上，出现了许多新的风格特点。</p>
+                    <p>宋代楷书的代表书法家有苏轼、黄庭坚、米芾、蔡襄等，他们被称为"宋四家"。苏轼的楷书风格豪放洒脱，结构宽博，笔画浑厚有力，代表作如《醉翁亭记》、《丰乐亭记》等。黄庭坚的楷书风格开张多变，结构跌宕，笔画长枪大戟，代表作如《松风阁诗帖》等。米芾的楷书风格跌宕起伏，结构变化多端，笔画八面出锋，代表作如《向太后挽词》等。蔡襄的楷书风格典雅秀丽，结构端庄，笔画圆润流畅，代表作如《万安桥记》等。</p>
+                    
+                    <h3>元代（公元1271年-公元1368年）</h3>
+                    <p>元代楷书的发展受到了赵孟頫的深刻影响。赵孟頫是元代最著名的书法家，他的楷书被称为"赵体"，取法于王羲之，结构严谨，笔画圆润流畅，风格典雅秀丽。赵孟頫的楷书作品如《胆巴碑》、《妙严寺记》、《三门记》等，体现了赵体的典型特征。赵孟頫的书法对元代和明代楷书的发展产生了深远的影响，被视为元代书法的典范。</p>
+                    <p>除了赵孟頫之外，元代的楷书书法家还有鲜于枢、邓文原等，他们的楷书风格也受到了赵孟頫的影响，典雅秀丽，结构严谨。</p>
+                    
+                    <h3>明代（公元1368年-公元1644年）</h3>
+                    <p>明代楷书的发展继承了元代赵孟頫的风格，同时也受到了唐代楷书的影响，风格更加多样化。明代前期的楷书书法家如宋濂、沈度等，风格典雅秀丽，结构严谨，受到了赵孟頫的深刻影响。明代中期的楷书书法家如文徵明、祝允明等，风格更加多样化，文徵明的楷书风格典雅秀丽，结构严谨，代表作如《前后赤壁赋》等；祝允明的楷书则更加豪放洒脱，结构跌宕，代表作如《黄庭经》等。明代后期的楷书书法家如董其昌、张瑞图等，风格更加注重个性表达，董其昌的楷书风格疏朗秀逸，结构简约，代表作如《东方朔画像赞》等；张瑞图的楷书则更加奇崛开张，结构跌宕，代表作如《后赤壁赋》等。</p>
+                    
+                    <h3>清代（公元1644年-公元1912年）</h3>
+                    <p>清代楷书的发展呈现出多元化的趋势，书法家们在继承传统的基础上，不断创新，形成了各具特色的楷书风格。清代前期的楷书书法家如傅山、王铎等，风格豪放洒脱，结构跌宕，受到了明代后期书法的影响。清代中期的楷书书法家如刘墉、梁同书等，风格典雅秀丽，结构严谨，受到了赵孟頫和唐代楷书的影响。清代后期的楷书书法家如何绍基、赵之谦等，风格更加多样化，何绍基的楷书融合了颜真卿和北碑的特点，风格浑厚有力，结构宽博；赵之谦的楷书则融合了北碑和帖学的特点，风格奇崛开张，结构跌宕。</p>
+                    <p>清代楷书的发展与清代的金石学研究密切相关，大量出土的古代碑刻为书法家提供了学习楷书的重要资料，促进了楷书的创新和发展。</p>
+                    
+                    <h3>近现代楷书</h3>
+                    <p>近现代以来，楷书在书法艺术中的地位更加突出。许多书法家在继承传统的基础上，不断创新，形成了各具特色的楷书风格。如于右任的楷书融合了北碑的特点，风格豪放洒脱，结构跌宕；沈尹默的楷书则继承了唐代楷书的传统，风格典雅秀丽，结构严谨；启功的楷书融合了赵孟頫和唐代楷书的特点，风格疏朗秀逸，结构简约。</p>
+                    <p>现代楷书的发展呈现出多元化的趋势，书法家们不仅继承了传统楷书的特点，还融合了其他书体的特点，创造出了许多新的楷书风格，使楷书这一古老的书体在现代社会中仍然具有强大的生命力。</p>
+                </section>
+
+                <!-- 影响 -->
+                <section class="calligraphy-section">
+                    <h2>楷书的影响</h2>
+                    <p>楷书作为中国书法史上最重要的书体之一，对中国书法艺术的发展产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>成为汉字书写的标准</strong>：楷书结构严谨，笔画规范，成为汉字书写的标准字体，被广泛应用于官方文书、书籍等领域。</li>
+                        <li><strong>影响了其他书体的发展</strong>：楷书的笔画和结构对行书、草书等字体的发展产生了重要影响，成为它们的基础。</li>
+                        <li><strong>体现了中国传统美学观念</strong>：楷书的端庄、方正、中和等特点，体现了中国传统艺术中的和谐、平衡、中庸等观念。</li>
+                        <li><strong>传承了中华文化</strong>：楷书作为一种规范的字体，承载着丰富的文化信息，是中华文化传承的重要载体。</li>
+                        <li><strong>对周边国家的影响</strong>：楷书对日本、朝鲜半岛、越南等周边国家的文字和书法艺术产生了重要影响。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="calligraphy-section">
+                    <h2>楷书的代表人物</h2>
+                    
+                    <h3>钟繇（151年-230年）</h3>
+                    <p>三国时期魏国著名书法家，擅长楷书、隶书。钟繇的楷书被称为"钟体"，取法于古文字，结构质朴，代表作品有《宣示表》、《荐季直表》等。他被后人称为"楷书之祖"。</p>
+                    
+                    <h3>王羲之（303年-361年）</h3>
+                    <p>东晋著名书法家，擅长楷书、行书、草书。王羲之的楷书风格典雅秀丽，结构端庄，代表作品有《黄庭经》、《乐毅论》等。他被后人称为"书圣"。</p>
+                    
+                    <h3>欧阳询（557年-641年）</h3>
+                    <p>唐代著名书法家，擅长楷书。欧阳询的楷书被称为"欧体"，险峻严谨，结构精密，代表作品有《九成宫醴泉铭》、《皇甫诞碑》等。</p>
+                    
+                    <h3>颜真卿（709年-785年）</h3>
+                    <p>唐代著名书法家，擅长楷书、行书。颜真卿的楷书被称为"颜体"，取法于篆籀，结构宽博，代表作品有《多宝塔碑》、《颜勤礼碑》等。</p>
+                    
+                    <h3>柳公权（778年-865年）</h3>
+                    <p>唐代著名书法家，擅长楷书。柳公权的楷书被称为"柳体"，取法于颜真卿，结构严谨规范，代表作品有《玄秘塔碑》、《神策军碑》等。</p>
+                    
+                    <h3>赵孟頫（1254年-1322年）</h3>
+                    <p>元代著名书法家，擅长楷书、行书。赵孟頫的楷书被称为"赵体"，取法于王羲之，结构严谨，代表作品有《胆巴碑》、《妙严寺记》等。</p>
+                </section>
+
+                <!-- 字帖 -->
+                <section class="calligraphy-section">
+                    <div class="copybook-section">
+                        <h3>楷书经典字帖</h3>
+                        <div class="copybook-list">
+                            <div class="copybook-item">
+                                <h4>《九成宫醴泉铭》</h4>
+                                <p>唐代欧阳询所书，楷书的代表作品，险峻严谨，结构精密。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《颜勤礼碑》</h4>
+                                <p>唐代颜真卿所书，楷书的代表作品，取法于篆籀，结构宽博。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《玄秘塔碑》</h4>
+                                <p>唐代柳公权所书，楷书的代表作品，取法于颜真卿，结构严谨规范。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《胆巴碑》</h4>
+                                <p>元代赵孟頫所书，楷书的代表作品，取法于王羲之，结构严谨。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《宣示表》</h4>
+                                <p>三国时期钟繇所书，楷书的早期代表作品，取法于古文字，结构质朴。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《黄庭经》</h4>
+                                <p>东晋王羲之所书，楷书的代表作品，风格典雅秀丽，结构端庄。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.calligraphy-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

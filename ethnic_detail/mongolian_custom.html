@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒙古族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 蒙古族风俗习惯页面特定样式 */
+        .mongolian-custom-header {
+            background-image: url('images/蒙古袍.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mongolian-custom-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mongolian-custom-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mongolian-custom-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-custom-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-mongolian {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-mongolian:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mongolian-custom-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mongolian-custom-section {
+            margin-bottom: 80px;
+        }
+        
+        .mongolian-custom-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-custom-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-custom-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-custom-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mongolian-custom-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mongolian-custom-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mongolian-custom-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mongolian-custom-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯特点网格 */
+        .custom-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .custom-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mongolian-custom-header h1 {
+                font-size: 36px;
+            }
+            
+            .mongolian-custom-header p {
+                font-size: 18px;
+            }
+            
+            .mongolian-custom-section h2 {
+                font-size: 28px;
+            }
+            
+            .custom-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="mongolian-custom-header">
+        <div class="container">
+            <div class="mongolian-custom-header-content">
+                <h1>蒙古族风俗习惯</h1>
+                <p>草原民族的独特习俗，传承千年的生活智慧</p>
+                <a href="mongolian.html" class="back-mongolian">返回蒙古族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mongolian-custom-main">
+        <div class="container">
+            <div class="mongolian-custom-content">
+                <!-- 风俗习惯概述 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族风俗习惯概述</h2>
+                    <p>蒙古族的风俗习惯是蒙古族文化的重要组成部分，反映了蒙古族人民的生活方式、价值观念和审美情趣。蒙古族的风俗习惯具有悠久的历史和独特的风格，是蒙古族人民在长期的草原游牧生活中形成的，体现了蒙古族人民的智慧和创造力。</p>
+                    <p>蒙古族的风俗习惯涉及生活的方方面面，包括礼仪、饮食、服饰、居住、婚姻、丧葬、节日等。这些风俗习惯不仅是蒙古族人民生活的重要组成部分，也是蒙古族文化的瑰宝。</p>
+                </section>
+
+                <!-- 礼仪习俗 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族礼仪习俗</h2>
+                    
+                    <h3>日常礼仪</h3>
+                    <div class="custom-features-grid">
+                        <div class="custom-feature-item">
+                            <h5>献哈达</h5>
+                            <p>献哈达是蒙古族的重要礼仪，是蒙古族人民表达敬意和祝福的方式。哈达是一种丝质的长条巾，通常为白色，象征着纯洁和吉祥。在重要的节日、庆典或拜访客人时，蒙古族人民会献上哈达。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>问候礼节</h5>
+                            <p>蒙古族人民见面时会相互问候，通常会握手、拥抱或贴面。长辈和晚辈见面时，晚辈会向长辈请安，长辈会抚摸晚辈的头表示祝福。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>做客礼仪</h5>
+                            <p>到蒙古族人家做客时，客人要先敲门或呼喊，得到主人的允许后才能进入。进入蒙古包后，客人要坐在主人指定的位置上，不能随便乱动蒙古包内的物品。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>饮食礼仪</h3>
+                    <ul>
+                        <li><strong>敬茶：</strong>蒙古族人民有敬茶的习俗，主人会用双手给客人递茶，客人要双手接茶，以示尊重。</li>
+                        <li><strong>敬酒：</strong>蒙古族人民有敬酒的习俗，主人会用银碗给客人敬酒，客人要双手接碗，一饮而尽，以示对主人的尊重。</li>
+                        <li><strong>分食：</strong>蒙古族人民有分食的习俗，在食用手抓肉时，主人会将肉分给客人，客人要接受主人的分食，以示对主人的尊重。</li>
+                    </ul>
+                    
+                    <h3>节日礼仪</h3>
+                    <ul>
+                        <li><strong>拜年：</strong>在白节（蒙古族新年）期间，蒙古族人民会走家串户拜年，互致问候和祝福。</li>
+                        <li><strong>祭敖包：</strong>在祭敖包期间，蒙古族人民会举行隆重的祭祀仪式，祈求天地、山水、祖先等神灵的保佑。</li>
+                        <li><strong>那达慕大会：</strong>在那达慕大会期间，蒙古族人民会举行摔跤、赛马、射箭等体育比赛，以及歌舞表演等活动。</li>
+                    </ul>
+                </section>
+
+                <!-- 居住习俗 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族居住习俗</h2>
+                    
+                    <h3>蒙古包</h3>
+                    <p>蒙古包是蒙古族的传统民居，是蒙古族人民在长期的草原游牧生活中创造的一种独特的居住形式。蒙古包具有易搭建、易拆卸、易搬迁的特点，非常适合草原游牧生活的需要。</p>
+                    
+                    <h3>蒙古包的结构</h3>
+                    <ul>
+                        <li><strong>哈那：</strong>蒙古包的围墙，由木条和牛皮绳编织而成，具有伸缩性，可以根据需要调整蒙古包的大小。</li>
+                        <li><strong>乌尼：</strong>蒙古包的顶杆，由木条制成，连接哈那和天窗。</li>
+                        <li><strong>天窗：</strong>蒙古包的顶部开口，用于通风和采光。</li>
+                        <li><strong>门：</strong>蒙古包的入口，通常朝向东南方向，以避免西北风的侵袭。</li>
+                        <li><strong>毛毡：</strong>蒙古包的覆盖物，由羊毛制成，用于保暖和防雨。</li>
+                    </ul>
+                    
+                    <h3>蒙古包的内部布置</h3>
+                    <ul>
+                        <li><strong>炉灶：</strong>蒙古包的中央是炉灶，用于做饭和取暖。</li>
+                        <li><strong>家具：</strong>蒙古包内的家具通常包括桌子、椅子、柜子等，这些家具通常是便携式的，便于搬迁。</li>
+                        <li><strong>装饰品：</strong>蒙古包内的装饰品通常包括挂毯、地毯、佛像等，这些装饰品反映了蒙古族人民的审美情趣。</li>
+                    </ul>
+                    
+                    <h3>居住禁忌</h3>
+                    <ul>
+                        <li><strong>方向禁忌：</strong>蒙古包的门通常朝向东南方向，不能随便改变方向。</li>
+                        <li><strong>炉灶禁忌：</strong>蒙古包的炉灶是神圣的，不能在炉灶上放置不洁的物品，不能从炉灶上跨过。</li>
+                        <li><strong>座位禁忌：</strong>蒙古包内的座位有尊卑之分，长辈和客人要坐在上座，晚辈要坐在下座。</li>
+                    </ul>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族婚姻习俗</h2>
+                    
+                    <h3>传统婚姻仪式</h3>
+                    <p>蒙古族的传统婚姻仪式具有浓厚的民族特色，通常包括以下几个环节：</p>
+                    
+                    <div class="custom-features-grid">
+                        <div class="custom-feature-item">
+                            <h5>说媒</h5>
+                            <p>蒙古族的传统婚姻通常由媒人说合，媒人会往返于男女双方家庭之间，协商婚姻事宜。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>定亲</h5>
+                            <p>男女双方家庭同意后，会举行定亲仪式，男方会向女方赠送聘礼，女方会向男方赠送回礼。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>婚礼</h5>
+                            <p>蒙古族的传统婚礼通常在女方家举行，为期三天。第一天，女方家会举行盛大的宴会，招待亲朋好友；第二天，男方会带领迎亲队伍到女方家迎亲；第三天，新人会回到男方家，举行婚礼仪式。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>婚姻习俗的特点</h3>
+                    <ul>
+                        <li><strong>自由恋爱：</strong>蒙古族的婚姻比较自由，青年男女可以自由恋爱，然后通过媒人说合。</li>
+                        <li><strong>重视聘礼：</strong>蒙古族的婚姻重视聘礼，聘礼通常包括牲畜、皮毛、奶制品等。</li>
+                        <li><strong>盛大的婚礼：</strong>蒙古族的婚礼通常比较盛大，会邀请亲朋好友参加，举行隆重的仪式。</li>
+                        <li><strong>婚后居住：</strong>蒙古族的传统婚后居住方式是"从夫居"，即新娘婚后会到新郎家居住。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族丧葬习俗</h2>
+                    
+                    <h3>传统丧葬方式</h3>
+                    <p>蒙古族的传统丧葬方式主要有土葬、火葬、天葬等，其中天葬是蒙古族的传统丧葬方式之一。</p>
+                    
+                    <h3>天葬</h3>
+                    <p>天葬是蒙古族的传统丧葬方式，是将死者的尸体放置在指定的地点，让鸟类啄食，以达到"回归自然"的目的。天葬是蒙古族的一种传统习俗，反映了蒙古族人民对自然的敬畏之情。</p>
+                    
+                    <h3>丧葬仪式</h3>
+                    <ul>
+                        <li><strong>停灵：</strong>死者去世后，会将尸体停放在蒙古包内，为期3-7天。</li>
+                        <li><strong>守灵：</strong>死者的家属会守在尸体旁边，为死者祈祷。</li>
+                        <li><strong>出殡：</strong>停灵结束后，会将尸体运往天葬地点或墓地。</li>
+                        <li><strong>祭祀：</strong>死者去世后，家属会定期举行祭祀仪式，祈求死者的灵魂得到安息。</li>
+                    </ul>
+                </section>
+
+                <!-- 禁忌习俗 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族禁忌习俗</h2>
+                    
+                    <h3>日常生活禁忌</h3>
+                    <ul>
+                        <li><strong>火的禁忌：</strong>蒙古族人民视火为神圣的东西，不能在火上放置不洁的物品，不能从火上跨过，不能向火中吐痰。</li>
+                        <li><strong>水的禁忌：</strong>蒙古族人民视水为神圣的东西，不能在水中洗衣服，不能向水中吐痰，不能在水中大小便。</li>
+                        <li><strong>奶的禁忌：</strong>蒙古族人民视奶为神圣的东西，不能浪费奶，不能将奶倒入污水中。</li>
+                        <li><strong>草的禁忌：</strong>蒙古族人民视草为神圣的东西，不能随意践踏草原，不能在草原上大小便。</li>
+                    </ul>
+                    
+                    <h3>社交禁忌</h3>
+                    <ul>
+                        <li><strong>称呼禁忌：</strong>蒙古族人民忌讳直呼长辈的姓名，要使用尊称。</li>
+                        <li><strong>行为禁忌：</strong>蒙古族人民忌讳在长辈面前大声说话，忌讳在长辈面前跷二郎腿。</li>
+                        <li><strong>礼物禁忌：</strong>蒙古族人民忌讳送单数的礼物，要送双数的礼物。</li>
+                    </ul>
+                    
+                    <h3>宗教禁忌</h3>
+                    <ul>
+                        <li><strong>佛像禁忌：</strong>蒙古族人民忌讳在佛像面前大声说话，忌讳在佛像面前做不恭敬的动作。</li>
+                        <li><strong>寺庙禁忌：</strong>蒙古族人民忌讳在寺庙内吸烟，忌讳在寺庙内大声说话。</li>
+                        <li><strong>宗教仪式禁忌：</strong>蒙古族人民忌讳在宗教仪式上迟到，忌讳在宗教仪式上做不恭敬的动作。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的特点 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族风俗习惯的特点</h2>
+                    
+                    <h3>草原特色</h3>
+                    <p>蒙古族的风俗习惯具有鲜明的草原特色，反映了草原游牧生活的特点。例如，蒙古包的设计适合草原游牧生活的需要；蒙古族的饮食以牛羊肉和奶制品为主，适合草原游牧生活的需要。</p>
+                    
+                    <h3>民族特色</h3>
+                    <p>蒙古族的风俗习惯具有鲜明的民族特色，反映了蒙古族人民的生活方式、价值观念和审美情趣。例如，蒙古族的献哈达礼仪是蒙古族特有的；蒙古族的那达慕大会是蒙古族特有的传统节日。</p>
+                    
+                    <h3>宗教色彩</h3>
+                    <p>蒙古族的风俗习惯具有浓厚的宗教色彩，反映了蒙古族人民的宗教信仰。例如，蒙古族的祭敖包仪式是一种宗教仪式；蒙古族的丧葬习俗受到宗教信仰的影响。</p>
+                    
+                    <h3>融合性</h3>
+                    <p>蒙古族的风俗习惯具有融合性的特点，吸收了其他民族的文化元素。例如，蒙古族的饮食习俗吸收了汉族的饮食元素；蒙古族的服饰习俗吸收了满族的服饰元素。</p>
+                </section>
+
+                <!-- 风俗习惯的传承与发展 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族风俗习惯的传承与发展</h2>
+                    
+                    <h3>传承方式</h3>
+                    <ul>
+                        <li><strong>家庭传承：</strong>蒙古族的风俗习惯主要通过家庭传承的方式流传下来，父母会将风俗习惯传授给子女。</li>
+                        <li><strong>社会传承：</strong>蒙古族的风俗习惯通过社会传承的方式流传下来，如通过节日、庆典等活动传承。</li>
+                        <li><strong>书面传承：</strong>蒙古族的风俗习惯通过书面传承的方式流传下来，如通过书籍、文献等记载。</li>
+                    </ul>
+                    
+                    <h3>现代发展</h3>
+                    <p>在现代社会，蒙古族的风俗习惯发生了一些变化：</p>
+                    <ul>
+                        <li><strong>居住方式：</strong>随着城市化的发展，越来越多的蒙古族人民开始居住在城市的楼房中，蒙古包的使用逐渐减少。</li>
+                        <li><strong>饮食习俗：</strong>随着生活水平的提高，蒙古族人民的饮食习俗发生了变化，开始食用更多的汉族食品。</li>
+                        <li><strong>婚姻习俗：</strong>随着社会的发展，蒙古族的婚姻习俗发生了变化，开始实行自由恋爱、一夫一妻制。</li>
+                        <li><strong>节日习俗：</strong>随着社会的发展，蒙古族的节日习俗发生了变化，开始融入一些现代元素。</li>
+                    </ul>
+                    
+                    <h3>保护与传承</h3>
+                    <p>为了保护和传承蒙古族的风俗习惯，中国政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>法律保护：</strong>将蒙古族的风俗习惯纳入非物质文化遗产保护名录，受到法律保护。</li>
+                        <li><strong>文化教育：</strong>在学校教育中融入蒙古族风俗习惯的知识，促进风俗习惯的传承。</li>
+                        <li><strong>媒体宣传：</strong>通过电视、报纸、网络等媒体，宣传蒙古族的风俗习惯，扩大风俗习惯的影响。</li>
+                        <li><strong>旅游开发：</strong>通过旅游开发，让更多的人了解和喜爱蒙古族的风俗习惯。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的意义 -->
+                <section class="mongolian-custom-section">
+                    <h2>蒙古族风俗习惯的意义</h2>
+                    
+                    <h3>文化意义</h3>
+                    <p>蒙古族的风俗习惯是蒙古族文化的重要组成部分，是蒙古族文化的瑰宝。通过风俗习惯，蒙古族人民传承了自己的文化传统，保持了自己的文化特色。</p>
+                    
+                    <h3>社会意义</h3>
+                    <p>蒙古族的风俗习惯是蒙古族社会的重要组成部分，是蒙古族人民社会生活的重要内容。通过风俗习惯，蒙古族人民加强了彼此之间的联系，促进了社会的和谐发展。</p>
+                    
+                    <h3>历史意义</h3>
+                    <p>蒙古族的风俗习惯是蒙古族历史的重要组成部分，是蒙古族历史的活化石。通过风俗习惯，我们可以了解蒙古族的历史发展和文化演变。</p>
+                    
+                    <h3>现实意义</h3>
+                    <p>蒙古族的风俗习惯在现代社会仍然具有重要的现实意义，它可以丰富蒙古族人民的精神生活，增强蒙古族人民的民族认同感和自豪感，促进蒙古族地区的经济发展和社会进步。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

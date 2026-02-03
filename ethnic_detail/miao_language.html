@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 苗族语言页面特定样式 */
+        .miao-header {
+            background-image: url('images/miao-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .miao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .miao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .miao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .miao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .miao-section {
+            margin-bottom: 80px;
+        }
+        
+        .miao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .miao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .miao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .miao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .miao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .miao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .miao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .miao-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .miao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .miao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .miao-header h1 {
+                font-size: 36px;
+            }
+            
+            .miao-header p {
+                font-size: 18px;
+            }
+            
+            .miao-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="miao-header">
+        <div class="container">
+            <div class="miao-header-content">
+                <h1>苗族语言文字</h1>
+                <p>苗族语言的历史演变与文化传承</p>
+                <a href="miao.html" class="back-link">返回苗族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="miao-main">
+        <div class="container">
+            <div class="miao-content">
+                <!-- 语言概况 -->
+                <section class="miao-section">
+                    <h2>语言概况</h2>
+                    <p>苗族语言是苗族人民的重要文化遗产，属于汉藏语系苗瑶语族苗语支。苗族语言有着悠久的历史，是苗族人民交流思想、传承文化的重要工具。</p>
+                    <p>根据语言特点和分布区域，苗族语言可以分为三大方言：黔东方言、湘西方言和川黔滇方言。这三大方言内部又有许多土语和次土语，反映了苗族分布的广泛性和文化的多样性。</p>
+                </section>
+
+                <!-- 方言分布 -->
+                <section class="miao-section">
+                    <h2>方言分布</h2>
+                    <h3>黔东方言</h3>
+                    <p>黔东方言主要分布在贵州东部、湖南西部、广西北部等地，使用人口约300万。黔东方言的特点是声母较少，韵母较多，声调为6个。</p>
+                    
+                    <h3>湘西方言</h3>
+                    <p>湘西方言主要分布在湖南西部、重庆东南部、贵州东北部等地，使用人口约200万。湘西方言的特点是声母较多，韵母较少，声调为4个。</p>
+                    
+                    <h3>川黔滇方言</h3>
+                    <p>川黔滇方言主要分布在四川南部、贵州西部、云南东部、广西西部等地，使用人口约600万。川黔滇方言是苗族三大方言中分布最广、使用人口最多的一种，内部差异也最大。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="miao-section">
+                    <h2>语言特点</h2>
+                    <ul>
+                        <li><strong>语音特点：</strong>苗族语言的语音系统比较复杂，声母、韵母和声调都比较丰富。不同方言的语音特点有所不同，但都具有苗语支语言的共同特征。</li>
+                        <li><strong>词汇特点：</strong>苗族语言的词汇丰富，反映了苗族人民的生产生活、风俗习惯和宗教信仰。苗族语言中有许多与自然、农业、狩猎等相关的词汇。</li>
+                        <li><strong>语法特点：</strong>苗族语言的语法以虚词和语序为主要语法手段，没有形态变化。句子的基本语序为"主语-谓语-宾语"。</li>
+                        <li><strong>借词现象：</strong>由于长期与汉族等其他民族交往，苗族语言中吸收了大量汉语借词，特别是现代科技、政治、经济等方面的词汇。</li>
+                    </ul>
+                </section>
+
+                <!-- 文字历史 -->
+                <section class="miao-section">
+                    <h2>文字历史</h2>
+                    <p>苗族历史上曾经使用过一些文字形式，但没有形成统一的、广泛使用的本民族文字。</p>
+                    
+                    <h3>历史上的文字尝试</h3>
+                    <ul>
+                        <li><strong>方块苗文：</strong>历史上，一些苗族知识分子曾经借用汉字的偏旁部首创造了一些方块苗文，但这些文字没有得到广泛使用。</li>
+                        <li><strong>传教士苗文：</strong>19世纪末20世纪初，西方传教士为了传教的需要，曾经用拉丁字母为苗族语言创造了一些拼音文字，如柏格理苗文、党居仁苗文等。这些文字在部分地区曾经使用过，但也没有得到广泛推广。</li>
+                    </ul>
+                    
+                    <h3>现代苗文</h3>
+                    <p>新中国成立后，党和政府重视少数民族语言文字的发展。1956年，国家组织专家学者为苗族三大方言分别创制了拉丁字母形式的拼音文字，即：</p>
+                    <ul>
+                        <li><strong>黔东苗文：</strong>以贵州凯里语音为标准音，使用26个拉丁字母。</li>
+                        <li><strong>湘西苗文：</strong>以湖南花垣语音为标准音，使用26个拉丁字母。</li>
+                        <li><strong>川黔滇苗文：</strong>以贵州毕节语音为标准音，使用26个拉丁字母。</li>
+                    </ul>
+                    <p>这些苗文在苗族地区的学校教育、出版印刷、广播影视等领域得到了一定程度的使用，为苗族文化的传承和发展发挥了重要作用。</p>
+                </section>
+
+                <!-- 语言现状 -->
+                <section class="miao-section">
+                    <h2>语言现状</h2>
+                    <p>随着社会的发展和民族交往的加深，苗族语言的使用情况发生了很大变化。</p>
+                    
+                    <h3>使用情况</h3>
+                    <ul>
+                        <li><strong>农村地区：</strong>在苗族聚居的农村地区，苗族语言仍然是主要的交际工具，特别是中老年人和儿童，基本上都能熟练使用苗语。</li>
+                        <li><strong>城镇地区：</strong>在城镇地区，由于人口流动和汉语的普及，苗族语言的使用范围逐渐缩小，许多年轻人已经不能熟练使用苗语。</li>
+                        <li><strong>学校教育：</strong>在一些苗族地区的学校，已经开始实行双语教育，既教授汉语，也教授苗语，为苗族语言的传承创造了有利条件。</li>
+                    </ul>
+                    
+                    <h3>保护与传承</h3>
+                    <p>为了保护和传承苗族语言，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li>建立苗族语言文字保护基地，开展苗族语言的调查、研究和保护工作。</li>
+                        <li>在苗族地区的学校推行双语教育，培养苗族语言文字的传承人。</li>
+                        <li>利用现代媒体手段，如广播、电视、网络等，推广苗族语言文字。</li>
+                        <li>鼓励苗族群众在日常生活中使用苗语，营造良好的语言环境。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="miao-section">
+                    <h2>语言与文化</h2>
+                    <p>苗族语言是苗族文化的重要载体，与苗族的宗教信仰、文学艺术、风俗习惯等密切相关。</p>
+                    
+                    <h3>语言与口头文学</h3>
+                    <p>苗族有着丰富的口头文学，如神话、传说、故事、诗歌等，这些文学作品都是通过苗语口头传承的。《苗族古歌》是苗族文学的代表作，记载了苗族的起源、迁徙和发展历史，是研究苗族历史文化的重要资料。</p>
+                    
+                    <h3>语言与宗教仪式</h3>
+                    <p>苗族的宗教仪式，如祭祀、祈年、驱鬼等，都需要使用苗语进行念诵和祈祷。苗族的宗教经典和咒语都是用苗语传承的，是苗族宗教文化的重要组成部分。</p>
+                    
+                    <h3>语言与音乐舞蹈</h3>
+                    <p>苗族的音乐舞蹈，如芦笙舞、铜鼓舞等，都与苗语密切相关。苗族的歌曲大多是用苗语演唱的，歌词内容丰富，反映了苗族人民的生产生活和情感世界。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

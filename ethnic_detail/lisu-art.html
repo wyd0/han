@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傈僳族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傈僳族文学艺术页面特定样式 */
+        .lisu-art-header {
+            background-image: url('images/傈僳族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lisu-art-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lisu-art-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lisu-art-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-art-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lisu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lisu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lisu-art-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lisu-art-section {
+            margin-bottom: 80px;
+        }
+        
+        .lisu-art-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-art-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-art-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lisu-art-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lisu-art-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lisu-art-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lisu-art-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 艺术形式样式 */
+        .art-forms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .art-form-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .art-form-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .art-form-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 文学作品样式 */
+        .literature-works {
+            margin: 25px 0;
+        }
+        
+        .work-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        
+        .work-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lisu-art-header h1 {
+                font-size: 36px;
+            }
+            
+            .lisu-art-header p {
+                font-size: 18px;
+            }
+            
+            .lisu-art-section h2 {
+                font-size: 28px;
+            }
+            
+            .art-forms {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lisu-art-header">
+        <div class="container">
+            <div class="lisu-art-header-content">
+                <h1>傈僳族文学艺术</h1>
+                <p>民族智慧的结晶</p>
+                <a href="lisu.html" class="back-lisu">返回傈僳族</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lisu-art-main">
+        <div class="container">
+            <div class="lisu-art-content">
+                <!-- 文学艺术概述 -->
+                <section class="lisu-art-section">
+                    <h2>文学艺术概述</h2>
+                    <p>傈僳族有着丰富的文学艺术遗产，这些文学艺术是傈僳族文化的重要组成部分，反映了傈僳族的历史、社会生活和精神世界。傈僳族的文学艺术形式多样，包括民间文学、音乐、舞蹈、手工艺等，展现了傈僳族独特的艺术魅力和创造力。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="lisu-art-section">
+                    <h2>民间文学</h2>
+                    <p>傈僳族的民间文学是傈僳族文学艺术的重要组成部分，通过口头传承的方式，代代相传，延续至今：</p>
+                    
+                    <div class="literature-works">
+                        <div class="work-item">
+                            <h4>神话传说</h4>
+                            <p>傈僳族的神话传说丰富多彩，反映了傈僳族对自然、人类起源的认识和理解：</p>
+                            <ul>
+                                <li><strong>创世纪：</strong>讲述了傈僳族先民创造天地万物的故事，充满了奇幻色彩。</li>
+                                <li><strong>人类起源神话：</strong>讲述了人类的起源，如《洪水滔天》等故事。</li>
+                                <li><strong>自然神话：</strong>讲述了自然现象的起源，如《太阳和月亮的故事》等。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="work-item">
+                            <h4>民间故事</h4>
+                            <p>傈僳族的民间故事内容丰富，题材多样，包括生活故事、爱情故事、动物故事等：</p>
+                            <ul>
+                                <li><strong>生活故事：</strong>反映了傈僳族的日常生活，如《聪明的阿古》等。</li>
+                                <li><strong>爱情故事：</strong>讲述了傈僳族青年男女的爱情经历，如《彩虹姑娘》等。</li>
+                                <li><strong>动物故事：</strong>通过动物的形象，反映了人类的生活和道德观念，如《狐狸和兔子》等。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="work-item">
+                            <h4>诗歌谚语</h4>
+                            <p>傈僳族的诗歌谚语简洁明快，富有哲理，是傈僳族人民智慧的结晶：</p>
+                            <ul>
+                                <li><strong>民歌：</strong>傈僳族的民歌内容丰富，形式多样，如劳动歌、爱情歌、叙事歌等。</li>
+                                <li><strong>谚语：</strong>傈僳族的谚语简洁明了，富有哲理，反映了傈僳族的生活经验和价值观念。</li>
+                                <li><strong>谜语：</strong>傈僳族的谜语生动有趣，富有智慧，是傈僳族人民娱乐和教育的重要方式。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐与舞蹈 -->
+                <section class="lisu-art-section">
+                    <h2>音乐与舞蹈</h2>
+                    <p>傈僳族的音乐与舞蹈是傈僳族文学艺术的重要组成部分，具有浓郁的民族特色：</p>
+                    
+                    <div class="art-forms">
+                        <div class="art-form-item">
+                            <h4>传统音乐</h4>
+                            <p>傈僳族的传统音乐丰富多彩，包括民歌、器乐等：</p>
+                            <ul>
+                                <li><strong>民歌：</strong>傈僳族的民歌内容丰富，形式多样，如劳动歌、爱情歌、叙事歌等。民歌的旋律优美，节奏明快，富有感染力。</li>
+                                <li><strong>器乐：</strong>傈僳族的传统乐器有三弦、葫芦笙、巴乌、口弦等，其中三弦是最具代表性的乐器。</li>
+                            </ul>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>传统舞蹈</h4>
+                            <p>傈僳族的传统舞蹈形式多样，风格独特：</p>
+                            <ul>
+                                <li><strong>刀杆舞：</strong>是傈僳族最著名的舞蹈之一，以其惊险的表演和勇敢的精神闻名中外。</li>
+                                <li><strong>三弦舞：</strong>是傈僳族最流行的舞蹈之一，以三弦为伴奏，动作欢快，节奏明快。</li>
+                                <li><strong>葫芦笙舞：</strong>以葫芦笙为伴奏，动作优美，富有民族特色。</li>
+                                <li><strong>对脚舞：</strong>是傈僳族青年男女喜欢的舞蹈，通过对脚的动作，表达彼此之间的感情。</li>
+                            </ul>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>音乐舞蹈的特点</h4>
+                            <p>傈僳族的音乐舞蹈具有以下特点：</p>
+                            <ul>
+                                <li><strong>民族特色鲜明：</strong>傈僳族的音乐舞蹈具有鲜明的民族特色，反映了傈僳族的历史、文化和生活方式。</li>
+                                <li><strong>与生活密切相关：</strong>傈僳族的音乐舞蹈与傈僳族的日常生活密切相关，如劳动、爱情、节日等。</li>
+                                <li><strong>形式多样：</strong>傈僳族的音乐舞蹈形式多样，风格各异，满足了不同场合的需求。</li>
+                                <li><strong>富有感染力：</strong>傈僳族的音乐舞蹈富有感染力，能够激发人们的情感共鸣。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 手工艺 -->
+                <section class="lisu-art-section">
+                    <h2>手工艺</h2>
+                    <p>傈僳族的手工艺历史悠久，技艺精湛，是傈僳族文学艺术的重要组成部分：</p>
+                    
+                    <div class="art-forms">
+                        <div class="art-form-item">
+                            <h4>纺织工艺</h4>
+                            <p>傈僳族的纺织工艺历史悠久，技艺精湛：</p>
+                            <ul>
+                                <li><strong>原料：</strong>主要使用棉、麻等天然纤维作为原料。</li>
+                                <li><strong>工具：</strong>使用传统的纺车、织布机等工具。</li>
+                                <li><strong>产品：</strong>主要有麻布、棉布、毛毯等，图案精美，色彩斑斓。</li>
+                            </ul>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>刺绣工艺</h4>
+                            <p>傈僳族的刺绣工艺精湛，图案精美：</p>
+                            <ul>
+                                <li><strong>应用：</strong>主要应用于服装、饰品等物品上。</li>
+                                <li><strong>图案：</strong>图案多样，包括花鸟、动物、几何图形等。</li>
+                                <li><strong>色彩：</strong>色彩鲜艳，对比强烈，富有民族特色。</li>
+                            </ul>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>编织工艺</h4>
+                            <p>傈僳族的编织工艺多样，产品实用美观：</p>
+                            <ul>
+                                <li><strong>竹编：</strong>主要有竹篮、竹席、竹帽等，实用美观，耐用性强。</li>
+                                <li><strong>草编：</strong>主要有草帽、草席等，轻便透气，适合夏季使用。</li>
+                                <li><strong>藤编：</strong>主要有藤箱、藤椅等，坚固耐用，美观大方。</li>
+                            </ul>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>雕刻工艺</h4>
+                            <p>傈僳族的雕刻工艺粗犷豪放，富有民族特色：</p>
+                            <ul>
+                                <li><strong>木刻：</strong>主要有家具、乐器等，雕刻图案精美，富有民族特色。</li>
+                                <li><strong>骨刻：</strong>主要有饰品、工具等，工艺精湛，造型独特。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的特点 -->
+                <section class="lisu-art-section">
+                    <h2>文学艺术的特点</h2>
+                    <p>傈僳族的文学艺术具有以下几个特点：</p>
+                    
+                    <ul>
+                        <li><strong>民族性：</strong>傈僳族的文学艺术具有鲜明的民族特色，反映了傈僳族的历史、文化和生活方式。</li>
+                        <li><strong>民间性：</strong>傈僳族的文学艺术主要来源于民间，是傈僳族人民集体智慧的结晶。</li>
+                        <li><strong>口头性：</strong>傈僳族的文学艺术主要通过口头传承的方式，代代相传，延续至今。</li>
+                        <li><strong>实用性：</strong>傈僳族的文学艺术与傈僳族的日常生活密切相关，具有实用价值。</li>
+                        <li><strong>多样性：</strong>傈僳族的文学艺术形式多样，风格各异，满足了不同场合的需求。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的价值 -->
+                <section class="lisu-art-section">
+                    <h2>文学艺术的价值</h2>
+                    <p>傈僳族的文学艺术具有重要的价值：</p>
+                    
+                    <div class="art-forms">
+                        <div class="art-form-item">
+                            <h4>文化价值</h4>
+                            <p>傈僳族的文学艺术是傈僳族文化的重要组成部分，承载着傈僳族的历史记忆、文化传统和价值观念，是傈僳族文化传承的重要载体。</p>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>艺术价值</h4>
+                            <p>傈僳族的文学艺术具有独特的艺术魅力，展现了傈僳族人民的创造力和艺术才华，为中国乃至世界的艺术宝库增添了宝贵的财富。</p>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>社会价值</h4>
+                            <p>傈僳族的文学艺术在傈僳族社会中发挥着重要的作用，如凝聚民族精神、传承文化传统、促进社会和谐等。</p>
+                        </div>
+                        <div class="art-form-item">
+                            <h4>经济价值</h4>
+                            <p>傈僳族的文学艺术可以转化为经济资源，促进傈僳族地区的经济发展，如手工艺品的制作和销售、文化旅游等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的保护与传承 -->
+                <section class="lisu-art-section">
+                    <h2>文学艺术的保护与传承</h2>
+                    <p>随着社会的发展和变迁，傈僳族的文学艺术面临着一些挑战，需要采取措施加以保护和传承：</p>
+                    
+                    <ul>
+                        <li><strong>加强教育：</strong>通过教育，让年轻一代了解和认识傈僳族的文学艺术，增强他们的文化认同感和自豪感。</li>
+                        <li><strong>培养传承人：</strong>重视对傈僳族文学艺术传承人的培养，确保傈僳族文学艺术能够代代相传。</li>
+                        <li><strong>记录保存：</strong>通过文字、图片、音频、视频等方式，对傈僳族的文学艺术进行记录和保存，为后人留下宝贵的文化遗产。</li>
+                        <li><strong>创新发展：</strong>在保持傈僳族文学艺术核心内涵的同时，对傈僳族文学艺术进行适当的创新和发展，使其适应现代社会的需求。</li>
+                        <li><strong>政策支持：</strong>政府应制定相关政策，支持傈僳族文学艺术的保护和传承，如设立专项资金、建立文化保护区等。</li>
+                        <li><strong>宣传推广：</strong>通过各种媒体和渠道，宣传和推广傈僳族的文学艺术，提高傈僳族文学艺术的知名度和影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

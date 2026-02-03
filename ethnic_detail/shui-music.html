@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐舞蹈 - 水族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 音乐舞蹈页面特定样式 */
+        .music-header {
+            background-image: url('images/水族女装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .music-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .music-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .music-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .music-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-shui {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-shui:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .music-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .music-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .music-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .music-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .music-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .music-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .music-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .music-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .music-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .music-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 民间音乐样式 */
+        .folk-music {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 民间舞蹈样式 */
+        .folk-dance {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .music-header h1 {
+                font-size: 36px;
+            }
+            
+            .music-header p {
+                font-size: 18px;
+            }
+            
+            .music-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="music-header">
+        <div class="container">
+            <div class="music-header-content">
+                <h1>音乐舞蹈</h1>
+                <p>水族的艺术瑰宝</p>
+                <a href="shui.html" class="back-shui">返回水族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="music-main">
+        <div class="container">
+            <div class="music-content">
+                <!-- 音乐舞蹈概述 -->
+                <section class="music-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>水族的音乐舞蹈具有独特的民族风格，是水族文化的重要组成部分。水族的民间音乐主要有民歌、器乐等，其中民歌包括叙事歌、情歌、劳动歌等多种类型。水族的民间舞蹈主要有铜鼓舞、芦笙舞、斗角舞等，动作优美、节奏明快，充满了民族特色。</p>
+                    <p>水族的音乐舞蹈与水族的生产生活、宗教信仰、传统节日等密切相关，是水族人民表达情感、传承文化的重要方式。通过音乐舞蹈，水族人民展现了自己的艺术才华，表达了对美好生活的向往和追求。</p>
+                </section>
+                
+                <!-- 民间音乐 -->
+                <section class="music-section">
+                    <h2>民间音乐</h2>
+                    <div class="folk-music">
+                        <h3>民歌</h3>
+                        <p>水族的民歌内容丰富、形式多样，是水族民间音乐的重要组成部分。根据内容和功能的不同，水族的民歌可以分为以下几种类型：</p>
+                        <ul>
+                            <li><strong>叙事歌：</strong>叙事歌是水族民歌的重要类型，主要讲述水族的历史传说、英雄故事、民间传说等内容。叙事歌的歌词较长，结构严谨，旋律优美动听，是传承水族历史文化的重要方式。</li>
+                            <li><strong>情歌：</strong>情歌是水族青年男女表达爱情的重要方式，主要讲述青年男女之间的爱情故事、相思之情等内容。情歌的歌词优美、旋律动听，充满了浪漫主义色彩。</li>
+                            <li><strong>劳动歌：</strong>劳动歌是水族人民在生产劳动过程中创作的歌曲，主要讲述劳动的过程、劳动的收获、劳动的快乐等内容。劳动歌的节奏明快、旋律有力，能够激发劳动热情，提高劳动效率。</li>
+                            <li><strong>仪式歌：</strong>仪式歌是水族人民在宗教仪式、传统节日等场合演唱的歌曲，主要包括祭祀歌、节日歌、婚礼歌、葬礼歌等。仪式歌的歌词庄重、旋律肃穆，具有浓厚的宗教色彩和民族特色。</li>
+                            <li><strong>儿歌：</strong>儿歌是水族儿童演唱的歌曲，主要讲述儿童的生活、游戏、学习等内容。儿歌的歌词简单、旋律优美，充满了童真童趣。</li>
+                        </ul>
+                        
+                        <h3>器乐</h3>
+                        <p>水族的器乐主要包括吹奏乐器、打击乐器、弦乐器等，其中吹奏乐器和打击乐器最为常见。水族的器乐在水族的社会生活中占有重要地位，是水族音乐的重要组成部分。</p>
+                        <p>水族的主要乐器包括：</p>
+                        <ul>
+                            <li><strong>铜鼓：</strong>铜鼓是水族最具代表性的乐器之一，也是水族宗教仪式、传统节日等场合的重要乐器。铜鼓的声音洪亮、深沉，能够营造出庄严、神圣的氛围。</li>
+                            <li><strong>芦笙：</strong>芦笙是水族的传统吹奏乐器，主要由竹管和铜簧片组成。芦笙的声音清脆、悦耳，是水族民间舞蹈的重要伴奏乐器。</li>
+                            <li><strong>唢呐：</strong>唢呐是水族的传统吹奏乐器，主要用于婚礼、葬礼等场合。唢呐的声音高亢、嘹亮，能够营造出喜庆、悲伤等不同的氛围。</li>
+                            <li><strong>笛子：</strong>笛子是水族的传统吹奏乐器，主要用于独奏和伴奏。笛子的声音悠扬、动听，是水族民间音乐的重要乐器之一。</li>
+                            <li><strong>锣鼓：</strong>锣鼓是水族的传统打击乐器，主要用于宗教仪式、传统节日等场合。锣鼓的声音响亮、有力，能够营造出热烈、欢快的氛围。</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- 民间舞蹈 -->
+                <section class="music-section">
+                    <h2>民间舞蹈</h2>
+                    <div class="folk-dance">
+                        <h3>铜鼓舞</h3>
+                        <p>铜鼓舞是水族最具代表性的民间舞蹈之一，也是水族宗教仪式、传统节日等场合的重要舞蹈形式。铜鼓舞的起源可以追溯到水族的原始宗教信仰，最初是水族人民祭祀神灵、祈求平安的一种仪式。</p>
+                        <p>铜鼓舞的表演形式主要包括：</p>
+                        <ul>
+                            <li><strong>单人舞：</strong>由一名舞者表演，主要展示舞者的个人技巧和表现力。</li>
+                            <li><strong>双人舞：</strong>由两名舞者表演，主要展示舞者之间的配合和默契。</li>
+                            <li><strong>集体舞：</strong>由多名舞者表演，主要展示舞者的群体协作和整体美感。</li>
+                        </ul>
+                        <p>铜鼓舞的动作特点：</p>
+                        <ul>
+                            <li><strong>动作粗犷有力：</strong>铜鼓舞的动作幅度较大，节奏明快，充满了力量感。</li>
+                            <li><strong>步伐稳健：</strong>铜鼓舞的步伐稳健有力，能够展现出土家族人民的勇敢和坚韧。</li>
+                            <li><strong>手势丰富：</strong>铜鼓舞的手势丰富多样，能够表达出不同的情感和意境。</li>
+                            <li><strong>与铜鼓配合紧密：</strong>铜鼓舞的动作与铜鼓的节奏配合紧密，能够营造出强烈的艺术感染力。</li>
+                        </ul>
+                        
+                        <h3>芦笙舞</h3>
+                        <p>芦笙舞是水族的传统民间舞蹈，主要由青年男女表演，是水族青年男女表达爱情、交流感情的重要方式。芦笙舞的起源可以追溯到水族的原始宗教信仰，最初是水族人民祭祀神灵、祈求丰收的一种仪式。</p>
+                        <p>芦笙舞的表演形式主要包括：</p>
+                        <ul>
+                            <li><strong>单人舞：</strong>由一名舞者表演，主要展示舞者的个人技巧和表现力。</li>
+                            <li><strong>双人舞：</strong>由两名舞者表演，主要展示舞者之间的配合和默契。</li>
+                            <li><strong>集体舞：</strong>由多名舞者表演，主要展示舞者的群体协作和整体美感。</li>
+                        </ul>
+                        <p>芦笙舞的动作特点：</p>
+                        <ul>
+                            <li><strong>动作轻盈优美：</strong>芦笙舞的动作轻盈优美，充满了动感和活力。</li>
+                            <li><strong>步伐灵活：</strong>芦笙舞的步伐灵活多变，能够展现出舞者的灵活性和协调性。</li>
+                            <li><strong>与芦笙配合紧密：</strong>芦笙舞的动作与芦笙的节奏配合紧密，能够营造出优美的艺术氛围。</li>
+                        </ul>
+                        
+                        <h3>斗角舞</h3>
+                        <p>斗角舞是水族的传统民间舞蹈，主要模拟牛打架的动作，是水族人民庆祝丰收、祈求平安的一种仪式。斗角舞的起源可以追溯到水族的原始宗教信仰，最初是水族人民祭祀神灵、祈求丰收的一种仪式。</p>
+                        <p>斗角舞的表演形式：</p>
+                        <p>斗角舞通常由两名舞者表演，他们头戴用竹篾和布料制作的牛角，模拟牛打架的动作。舞者的动作粗犷有力、节奏明快，充满了力量感和趣味性。</p>
+                        <p>斗角舞的动作特点：</p>
+                        <ul>
+                            <li><strong>动作粗犷有力：</strong>斗角舞的动作幅度较大，节奏明快，充满了力量感。</li>
+                            <li><strong>模拟逼真：</strong>斗角舞的动作模拟牛打架的动作，非常逼真，充满了趣味性。</li>
+                            <li><strong>与锣鼓配合紧密：</strong>斗角舞的动作与锣鼓的节奏配合紧密，能够营造出热烈的艺术氛围。</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- 音乐舞蹈的文化意义 -->
+                <section class="music-section">
+                    <h2>音乐舞蹈的文化意义</h2>
+                    <h3>传承文化传统</h3>
+                    <p>音乐舞蹈是水族文化的重要载体，通过音乐舞蹈，水族的语言文字、文学艺术、风俗习惯等文化传统得到了传承和发展。例如，水族的叙事歌讲述了水族的历史传说、英雄故事等内容，是传承水族历史文化的重要方式。</p>
+                    
+                    <h3>凝聚民族精神</h3>
+                    <p>音乐舞蹈是水族民族精神的重要组成部分，是水族人民团结奋斗、共同发展的精神纽带。通过共同的音乐舞蹈，水族人民形成了共同的价值观念、行为准则和社会规范，增强了民族凝聚力和向心力。</p>
+                    
+                    <h3>丰富精神生活</h3>
+                    <p>音乐舞蹈是水族人民精神生活的重要组成部分，是水族人民表达情感、放松身心的重要方式。通过音乐舞蹈，水族人民获得了精神上的满足和愉悦，缓解了生活中的压力和困难，增强了面对生活的信心和勇气。</p>
+                    
+                    <h3>促进文化交流</h3>
+                    <p>音乐舞蹈是水族与其他民族进行文化交流的重要方式，通过音乐舞蹈，水族人民向其他民族展示了自己的文化特色，同时也吸收了其他民族的优秀文化成果，促进了水族文化的发展和繁荣。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

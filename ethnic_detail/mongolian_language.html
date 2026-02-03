@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒙古族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 蒙古族语言文字页面特定样式 */
+        .mongolian-language-header {
+            background-image: url('images/蒙古袍.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mongolian-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mongolian-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mongolian-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-mongolian {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-mongolian:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mongolian-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mongolian-language-section {
+            margin-bottom: 80px;
+        }
+        
+        .mongolian-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-language-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mongolian-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mongolian-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mongolian-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mongolian-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点网格 */
+        .language-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .language-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .language-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .language-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mongolian-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .mongolian-language-header p {
+                font-size: 18px;
+            }
+            
+            .mongolian-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="mongolian-language-header">
+        <div class="container">
+            <div class="mongolian-language-header-content">
+                <h1>蒙古族语言文字</h1>
+                <p>阿尔泰语系的独特语言，承载着蒙古族的历史与文化</p>
+                <a href="mongolian.html" class="back-mongolian">返回蒙古族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mongolian-language-main">
+        <div class="container">
+            <div class="mongolian-language-content">
+                <!-- 语言概述 -->
+                <section class="mongolian-language-section">
+                    <h2>蒙古语概述</h2>
+                    <p>蒙古语是蒙古族使用的语言，属于阿尔泰语系蒙古语族，是中国少数民族语言之一。蒙古语有着悠久的历史，是蒙古族文化的重要载体，也是世界上最古老的语言之一。</p>
+                    <p>蒙古语主要分布在中国的内蒙古自治区、新疆维吾尔自治区、青海省、甘肃省、黑龙江省、吉林省、辽宁省等地区，以及蒙古国、俄罗斯等国家。蒙古语在中国被列为国家通用语言之一，受到法律保护。</p>
+                </section>
+
+                <!-- 蒙古语特点 -->
+                <section class="mongolian-language-section">
+                    <h2>蒙古语特点</h2>
+                    <div class="language-features-grid">
+                        <div class="language-feature-item">
+                            <h5>语音特点</h5>
+                            <p>蒙古语有8个元音和24个辅音，语音系统丰富。蒙古语的元音和谐律是其显著特点，即一个词中的元音必须属于同一类别（阳性或阴性）。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h5>词汇特点</h5>
+                            <p>蒙古语词汇丰富，特别是与游牧生活相关的词汇非常发达。蒙古语词汇由固有词、借词和派生词组成，借词主要来自汉语、藏语、俄语等语言。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h5>语法特点</h5>
+                            <p>蒙古语是黏着语，通过在词根后添加各种后缀来表示语法意义。蒙古语的语序是主宾谓结构，修饰语通常位于被修饰语之前。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 蒙古文发展 -->
+                <section class="mongolian-language-section">
+                    <h2>蒙古文发展</h2>
+                    
+                    <h3>古代蒙古文</h3>
+                    <p>蒙古文的历史可以追溯到13世纪初。据史书记载，1204年，成吉思汗统一蒙古各部后，命人参照回鹘文创制了蒙古文，这就是所谓的"回鹘式蒙古文"或"古代蒙古文"。</p>
+                    <p>回鹘式蒙古文是一种拼音文字，自上而下竖写，从左向右排列。这种文字系统适应了蒙古语的特点，成为蒙古族记录历史、文学和宗教经典的重要工具。</p>
+                    
+                    <h3>现代蒙古文</h3>
+                    <p>经过多次改革，蒙古文逐渐发展成为现代形式。在内蒙古自治区，现行的蒙古文是在回鹘式蒙古文基础上改进的，称为"传统蒙古文"或"胡都木文"。</p>
+                    <p>此外，在20世纪30年代，蒙古国曾推行过拉丁化蒙古文，后来又改为西里尔字母蒙古文。但在中国内蒙古自治区，传统蒙古文一直被广泛使用。</p>
+                    
+                    <h3>蒙古文的应用</h3>
+                    <ul>
+                        <li><strong>官方语言：</strong>在内蒙古自治区，蒙古文是官方语言之一，与汉文并用。</li>
+                        <li><strong>教育教学：</strong>内蒙古自治区有专门的蒙古语学校，从小学到大学都有蒙古语教学。</li>
+                        <li><strong>出版传媒：</strong>有大量的蒙古文书籍、报纸、杂志和广播电视节目。</li>
+                        <li><strong>文化传承：</strong>蒙古文是蒙古族传统文化的重要载体，许多古代文献和文学作品都是用蒙古文写成的。</li>
+                    </ul>
+                </section>
+
+                <!-- 蒙古语方言 -->
+                <section class="mongolian-language-section">
+                    <h2>蒙古语方言</h2>
+                    <p>蒙古语分为多个方言，主要包括以下几种：</p>
+                    
+                    <h3>主要方言</h3>
+                    <ul>
+                        <li><strong>中部方言：</strong>主要分布在内蒙古自治区中部和东部，是蒙古语的标准方言，也是使用人口最多的方言。</li>
+                        <li><strong>西部方言：</strong>主要分布在内蒙古自治区西部、甘肃省和青海省等地，语音和词汇与中部方言有一定差异。</li>
+                        <li><strong>北部方言：</strong>主要分布在蒙古国，与中国境内的蒙古语有一定差异。</li>
+                        <li><strong>东北部方言：</strong>主要分布在黑龙江省、吉林省和辽宁省等地的蒙古族聚居区。</li>
+                    </ul>
+                </section>
+
+                <!-- 蒙古语的文化意义 -->
+                <section class="mongolian-language-section">
+                    <h2>蒙古语的文化意义</h2>
+                    <p>蒙古语作为蒙古族的母语，具有重要的文化意义：</p>
+                    
+                    <h3>文化传承</h3>
+                    <p>蒙古语是蒙古族传统文化的重要载体，蒙古族的历史、文学、哲学、宗教等方面的知识都是通过蒙古语传承下来的。许多蒙古族的史诗、民间故事、谚语等都是用蒙古语创作和传播的。</p>
+                    
+                    <h3>民族认同</h3>
+                    <p>蒙古语是蒙古族民族认同的重要标志之一。使用蒙古语不仅是一种语言行为，也是一种文化身份的表达。对于蒙古族来说，蒙古语是连接过去与现在的桥梁，是民族精神的象征。</p>
+                    
+                    <h3>文化交流</h3>
+                    <p>蒙古语在历史上曾经是亚洲北部地区的重要交际语言，促进了蒙古族与其他民族之间的文化交流。通过蒙古语，蒙古族吸收了其他民族的文化精华，同时也将自己的文化传播到其他地区。</p>
+                </section>
+
+                <!-- 蒙古语的保护与发展 -->
+                <section class="mongolian-language-section">
+                    <h2>蒙古语的保护与发展</h2>
+                    <p>在现代社会，蒙古语面临着一些挑战，如人口流动、语言环境变化等。为了保护和发展蒙古语，中国政府和社会各界采取了一系列措施：</p>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>法律保障：</strong>《中华人民共和国民族区域自治法》规定，民族自治地方的自治机关保障本地方各民族都有使用和发展自己的语言文字的自由。</li>
+                        <li><strong>教育投入：</strong>加大对蒙古语教育的投入，改善教学条件，培养蒙古语教师。</li>
+                        <li><strong>媒体发展：</strong>支持蒙古语广播电视、报纸杂志、出版等事业的发展，扩大蒙古语的使用范围。</li>
+                        <li><strong>学术研究：</strong>鼓励对蒙古语的学术研究，推动蒙古语的标准化和规范化。</li>
+                    </ul>
+                    
+                    <h3>发展前景</h3>
+                    <p>随着社会的发展和科技的进步，蒙古语也在不断适应新的环境。现在，蒙古语已经实现了计算机信息化，可以在电脑、手机等设备上使用。同时，蒙古语的国际交流也在不断加强，与蒙古国、俄罗斯等国家的蒙古语使用者保持着密切的联系。</p>
+                    <p>在未来，蒙古语将继续作为蒙古族的母语，承载着蒙古族的文化传统，同时也将不断吸收新的元素，焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

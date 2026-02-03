@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌仔戏 - 汉韵风华</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* 戏曲详情页面特定样式 */
+        body {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .opera-detail-header {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .opera-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .opera-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opera-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .opera-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .opera-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .opera-detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .opera-detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .opera-detail-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+        }
+        
+        .opera-detail-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .opera-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .opera-detail-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .opera-detail-section li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .opera-line {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 3px solid #c0392b;
+        }
+        
+        .opera-line p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .opera-line .play-name {
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .opera-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .opera-detail-header p {
+                font-size: 18px;
+            }
+            
+            .opera-detail-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../culture.html">传统文化</a></li>
+                    <li><a href="../clothing.html">中国服饰</a></li>
+                    <li><a href="../difference.html">文化区别</a></li>
+                    <li><a href="../index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="opera-detail-header">
+        <div class="container">
+            <div class="opera-detail-header-content">
+                <h1>歌仔戏</h1>
+                <p>台湾地区代表性戏曲剧种</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="../opera_regional.html" class="back-link">返回地域分类</a>
+                    <a href="../opera_detail.html" class="back-link">返回戏曲艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="opera-detail-main">
+        <div class="container">
+            <div class="opera-detail-content">
+                <!-- 起源与发展 -->
+                <section class="opera-detail-section">
+                    <h2>起源与发展</h2>
+                    <p>歌仔戏是台湾地区最具代表性的戏曲剧种之一，起源于福建漳州一带的锦歌、车鼓戏等民间艺术形式。清代末年，随着闽南移民渡海到台湾，这些民间艺术也传入台湾，并与当地的民间音乐、舞蹈相结合，逐渐形成了歌仔戏。</p>
+                    <p>歌仔戏的发展经历了几个重要阶段：</p>
+                    <ul>
+                        <li>清末民初：歌仔戏在台湾形成并逐渐成熟</li>
+                        <li>日据时期：歌仔戏受到压制，但仍在民间流传</li>
+                        <li>战后时期：歌仔戏得到恢复和发展，成为台湾最受欢迎的戏曲剧种之一</li>
+                        <li>现代：歌仔戏不断创新，融入现代元素，同时保持传统特色</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="opera-detail-section">
+                    <h2>艺术特点</h2>
+                    <p>歌仔戏具有以下艺术特点：</p>
+                    <ul>
+                        <li><strong>语言：</strong>以闽南语为主要演唱语言，贴近民间生活</li>
+                        <li><strong>音乐：</strong>音乐旋律优美动听，节奏明快，以民族乐器伴奏，如二胡、笛子、唢呐等</li>
+                        <li><strong>表演：</strong>表演风格活泼自然，贴近生活，注重情感表达</li>
+                        <li><strong>服装：</strong>服装色彩鲜艳，装饰华丽，体现传统戏曲特色</li>
+                        <li><strong>剧目：</strong>剧目内容丰富，多取材于民间故事、历史传说和文学作品</li>
+                    </ul>
+                </section>
+
+                <!-- 行当 -->
+                <section class="opera-detail-section">
+                    <h2>行当</h2>
+                    <p>歌仔戏的行当主要分为：</p>
+                    <ul>
+                        <li><strong>生：</strong>扮演男性角色，如小生、老生、武生等</li>
+                        <li><strong>旦：</strong>扮演女性角色，如小旦、老旦、武旦等</li>
+                        <li><strong>净：</strong>扮演性格鲜明的男性角色，如花脸</li>
+                        <li><strong>丑：</strong>扮演滑稽幽默的角色，如小丑</li>
+                    </ul>
+                </section>
+
+                <!-- 代表剧目 -->
+                <section class="opera-detail-section">
+                    <h2>代表剧目</h2>
+                    <ul>
+                        <li>《陈三五娘》</li>
+                        <li>《梁山伯与祝英台》</li>
+                        <li>《王宝钏》</li>
+                        <li>《孟丽君》</li>
+                        <li>《狸猫换太子》</li>
+                    </ul>
+                </section>
+
+                <!-- 经典戏词 -->
+                <section class="opera-detail-section">
+                    <h2>经典戏词</h2>
+                    <div class="opera-line">
+                        <p>"月光光，照地堂，年卅晚，摘槟榔。"</p>
+                        <p class="play-name">——《陈三五娘》</p>
+                    </div>
+                    <div class="opera-line">
+                        <p>"山伯英台同窗友，情投意合相敬爱。"</p>
+                        <p class="play-name">——《梁山伯与祝英台》</p>
+                    </div>
+                    <div class="opera-line">
+                        <p>"王宝钏守寒窑一十八年，只为等得薛平贵回还。"</p>
+                        <p class="play-name">——《王宝钏》</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../culture.html">传统文化</a></li>
+                        <li><a href="../clothing.html">中国服饰</a></li>
+                        <li><a href="../difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.opera-detail-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

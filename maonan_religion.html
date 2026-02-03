@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毛南族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 毛南族文化页面特定样式 */
+        .maonan-header {
+            background-image: url('images/毛南族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .maonan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .maonan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .maonan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .maonan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .maonan-section {
+            margin-bottom: 80px;
+        }
+        
+        .maonan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .maonan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .maonan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .maonan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .maonan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教仪式样式 */
+        .religion-rituals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .ritual-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .ritual-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .maonan-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .maonan-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .maonan-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .maonan-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .maonan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="maonan-header">
+        <div class="container">
+            <div class="maonan-header-content">
+                <h1>毛南族宗教信仰</h1>
+                <p>多神信仰与自然崇拜的融合</p>
+                <a href="maonan.html" class="back-difference">返回毛南族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="maonan-main">
+        <div class="container">
+            <div class="maonan-content">
+                <!-- 宗教信仰概述 -->
+                <section class="maonan-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>毛南族的宗教信仰是一个复杂的体系，融合了多神教、道教和佛教的元素。毛南族人民信仰万物有灵，认为自然界的一切事物都有神灵主宰，因此形成了丰富的自然崇拜传统。</p>
+                    <p>毛南族的宗教信仰与其生产生活密切相关，反映了毛南族人民对自然的敬畏和对美好生活的向往。宗教活动在毛南族的社会生活中占有重要地位，是毛南族文化的重要组成部分。</p>
+                </section>
+
+                <!-- 自然崇拜 -->
+                <section class="maonan-section">
+                    <h3>自然崇拜</h3>
+                    <p>毛南族人民信仰万物有灵，对自然界的各种事物都充满敬畏之情。他们认为自然界的一切事物，如太阳、月亮、山川、河流、树木、石头等，都有神灵主宰。</p>
+                    <ul>
+                        <li><strong>太阳神：</strong>毛南族人民崇拜太阳神，认为太阳是万物之源，是生命的象征。在重要的节日和仪式中，毛南族人民会祭祀太阳神，祈求阳光普照、万物生长。</li>
+                        <li><strong>地神：</strong>毛南族人民崇拜地神，认为土地是人类生存的基础，是农作物生长的保障。在播种和收获季节，毛南族人民会祭祀地神，祈求土地肥沃、五谷丰登。</li>
+                        <li><strong>山神：</strong>毛南族人民崇拜山神，认为山神是山林的主宰，掌管着山上的飞禽走兽和草木植被。在进山狩猎或采集之前，毛南族人民会祭祀山神，祈求平安和丰收。</li>
+                        <li><strong>水神：</strong>毛南族人民崇拜水神，认为水是生命之源，是人类生存不可或缺的资源。在干旱季节，毛南族人民会祭祀水神，祈求雨水充足、水源丰沛。</li>
+                    </ul>
+                </section>
+
+                <!-- 祖先崇拜 -->
+                <section class="maonan-section">
+                    <h3>祖先崇拜</h3>
+                    <p>毛南族人民非常重视祖先崇拜，认为祖先的灵魂会保佑子孙后代的平安和幸福。毛南族的祖先崇拜主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>家神祭祀：</strong>毛南族人民在家庭中设有祖先牌位，每天早晚都会烧香祭拜，表达对祖先的敬意和思念。</li>
+                        <li><strong>清明节扫墓：</strong>每年清明节，毛南族人民都会前往祖先的墓地扫墓，清理墓地、献上祭品、焚烧纸钱，表达对祖先的追思和敬意。</li>
+                        <li><strong>中元节祭祀：</strong>每年农历七月，毛南族人民会举行中元节祭祀活动，祭祀祖先和孤魂野鬼，祈求平安和吉祥。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教仪式 -->
+                <section class="maonan-section">
+                    <h3>宗教仪式</h3>
+                    <p>毛南族的宗教仪式主要由师公主持，师公是毛南族宗教活动的专业人员，他们熟悉毛南族的宗教经典和仪式程序，能够与神灵沟通，为人们祈福消灾。</p>
+                    <div class="religion-rituals">
+                        <div class="ritual-item">
+                            <h4>祭祀仪式</h4>
+                            <p>毛南族的祭祀仪式种类繁多，包括祭祀自然神灵、祖先神灵和家神等。祭祀仪式通常包括准备祭品、设置祭坛、烧香祭拜、念诵经文等环节。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>驱鬼仪式</h4>
+                            <p>当人们遇到疾病、灾难或不幸时，毛南族人民会请师公举行驱鬼仪式，驱赶附在人身上的恶鬼，恢复人的健康和平安。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>占卜仪式</h4>
+                            <p>毛南族人民在做重要决定之前，如结婚、建房、出行等，会请师公进行占卜，预测吉凶祸福，指导人们的行动。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>超度仪式</h4>
+                            <p>当亲人去世后，毛南族人民会请师公举行超度仪式，引导死者的灵魂进入阴间，免受苦难，早日转世投胎。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教与生活 -->
+                <section class="maonan-section">
+                    <h3>宗教与生活</h3>
+                    <p>毛南族的宗教信仰与日常生活密切相关，渗透到毛南族人民的衣、食、住、行等各个方面。宗教信仰不仅是毛南族人民精神生活的重要组成部分，也是毛南族社会凝聚力的重要来源。</p>
+                    <p>毛南族的宗教信仰教导人们要敬畏自然、尊重祖先、和睦相处、勤劳善良。这些价值观对于维护毛南族社会的和谐稳定，促进毛南族文化的传承和发展，都起到了积极的作用。</p>
+                </section>
+
+                <!-- 宗教信仰的现代变迁 -->
+                <section class="maonan-section">
+                    <h3>宗教信仰的现代变迁</h3>
+                    <p>随着社会的发展和进步，毛南族的宗教信仰也发生了一些变化。现代毛南族人民的宗教信仰更加理性和开放，他们既保留了传统的宗教信仰和仪式，又接受了现代科学文化知识。</p>
+                    <p>在现代社会中，毛南族的宗教信仰更多地体现为一种文化传统和精神寄托，而不是盲目崇拜。毛南族人民在继承和发扬传统宗教文化的同时，也积极适应现代社会的发展需求，为毛南族文化的创新和发展做出了贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

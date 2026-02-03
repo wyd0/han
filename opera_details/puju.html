@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒲剧 - 汉韵风华</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* 剧种详情页面特定样式 */
+        body {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .opera-header {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .opera-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .opera-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opera-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .opera-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .opera-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .opera-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .opera-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .opera-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .opera-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .opera-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .opera-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .opera-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 艺术特点卡片 */
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典戏词样式 */
+        .lyrics-section {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .lyrics-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .lyrics-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .lyrics-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lyrics-item p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .lyrics-item .source {
+            font-size: 14px;
+            color: #888;
+            text-align: right;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .opera-header h1 {
+                font-size: 36px;
+            }
+            
+            .opera-header p {
+                font-size: 18px;
+            }
+            
+            .opera-section h2 {
+                font-size: 28px;
+            }
+            
+            .opera-section h3 {
+                font-size: 24px;
+            }
+            
+            .feature-card {
+                padding: 20px;
+            }
+            
+            .lyrics-section {
+                padding: 20px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../culture.html">传统文化</a></li>
+                    <li><a href="../clothing.html">中国服饰</a></li>
+                    <li><a href="../difference.html">文化区别</a></li>
+                    <li><a href="../index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="opera-header">
+        <div class="container">
+            <div class="opera-header-content">
+                <h1>蒲剧</h1>
+                <p>山西地方戏曲剧种</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="../opera_regional.html" class="back-link">返回戏曲地域分类</a>
+                    <a href="../opera_detail.html" class="back-link">返回戏曲艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="opera-main">
+        <div class="container">
+            <div class="opera-content">
+                <!-- 剧种概述 -->
+                <section class="opera-section">
+                    <h2>剧种概述</h2>
+                    <p>蒲剧，又称"蒲州梆子"，是山西的主要戏曲剧种之一，流行于山西南部的运城、临汾等地以及陕西、河南、甘肃等邻近地区。蒲剧形成于明代嘉靖年间，是中国最古老的梆子剧种之一。</p>
+                    <p>蒲剧的唱腔粗犷豪放，表演朴实自然，具有浓郁的山西地方特色。它的音乐旋律优美，板式丰富多样，包括慢板、二性、流水、介板等多种板式。蒲剧的剧目丰富，题材广泛，既有历史故事剧，也有民间生活剧。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="opera-section">
+                    <h3>起源与发展</h3>
+                    <p>蒲剧的起源可以追溯到明代嘉靖年间。当时，山西南部的蒲州（今运城永济）一带是南北交通的要冲，商业发达，文化繁荣。当地的民间艺人在吸收了北曲、昆曲等艺术形式的基础上，逐渐形成了具有地方特色的蒲州梆子。</p>
+                    <p>清代乾隆年间，蒲剧开始在山西各地广泛流传，并逐渐形成了自己的艺术风格。到了清代末年和民国初年，蒲剧进入了繁荣发展的时期，出现了许多著名的演员和剧目。</p>
+                    <p>中华人民共和国成立后，蒲剧得到了进一步的发展和繁荣。政府对蒲剧进行了整理和改革，培养了一批新的演员和编剧，创作了许多新的剧目，使蒲剧焕发出新的生机和活力。</p>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="opera-section">
+                    <h3>艺术特点</h3>
+                    <div class="feature-card">
+                        <h4>唱腔特点</h4>
+                        <p>蒲剧的唱腔粗犷豪放，富有激情，具有浓郁的山西地方特色。它的音乐旋律优美，板式丰富多样，包括慢板、二性、流水、介板等多种板式。蒲剧的唱腔讲究吐字清晰，行腔流畅，音色圆润。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>表演特点</h4>
+                        <p>蒲剧的表演朴实自然，注重人物性格的刻画。演员的表演动作幅度较大，富有表现力，注重手、眼、身、法、步的协调统一。蒲剧的武打动作干净利落，富有观赏性。</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>音乐特点</h4>
+                        <p>蒲剧的音乐以梆子、板胡、二弦、三弦、唢呐等乐器为主，音乐旋律优美，节奏明快，富有山西地方特色。蒲剧的曲牌丰富多样，包括丝弦曲牌和唢呐曲牌两大类。</p>
+                    </div>
+                </section>
+
+                <!-- 行当 -->
+                <section class="opera-section">
+                    <h3>行当</h3>
+                    <p>蒲剧的行当分为生、旦、净、丑四大类，每类又有细分：</p>
+                    <ul>
+                        <li><strong>生行</strong>：包括老生、小生、武生等，主要扮演男性角色。</li>
+                        <li><strong>旦行</strong>：包括青衣、花旦、老旦、武旦等，主要扮演女性角色。</li>
+                        <li><strong>净行</strong>：包括大花脸、二花脸等，主要扮演性格粗犷、豪放的男性角色。</li>
+                        <li><strong>丑行</strong>：包括文丑、武丑等，主要扮演滑稽、诙谐的角色。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表剧目 -->
+                <section class="opera-section">
+                    <h3>代表剧目</h3>
+                    <p>蒲剧的代表剧目丰富多样，包括历史故事剧、民间生活剧等多种类型。以下是一些经典的代表剧目：</p>
+                    <ul>
+                        <li>《挂画》：讲述了宋代杨排风挂帅出征的故事。</li>
+                        <li>《杀狗》：讲述了古代一个妇女杀死恶狗救丈夫的故事。</li>
+                        <li>《火焰驹》：讲述了宋代忠臣后代被奸臣陷害，最终平反昭雪的故事。</li>
+                        <li>《窦娥冤》：讲述了元代窦娥被冤枉处死的故事。</li>
+                        <li>《西厢记》：讲述了唐代张生和崔莺莺之间的爱情故事。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典戏词 -->
+                <section class="opera-section">
+                    <h3>经典戏词</h3>
+                    <div class="lyrics-section">
+                        <div class="lyrics-item">
+                            <h5>《挂画》</h5>
+                            <p>杨排风在绣楼自思自叹，想起了当年事好不惨然。想当年我本是杨府的丫鬟，今日里挂帅出征上金銮。</p>
+                            <p class="source">戏名：《挂画》 作者：佚名</p>
+                        </div>
+                        <div class="lyrics-item">
+                            <h5>《杀狗》</h5>
+                            <p>我本是一个贤良的妇人，嫁与了丈夫过光阴。谁料想丈夫被恶狗所伤，我只得杀狗救夫君。</p>
+                            <p class="source">戏名：《杀狗》 作者：佚名</p>
+                        </div>
+                        <div class="lyrics-item">
+                            <h5>《窦娥冤》</h5>
+                            <p>窦娥在法场自思自叹，想起了当年事好不惨然。想当年我本是良家女子，今日里被冤枉要赴黄泉。</p>
+                            <p class="source">戏名：《窦娥冤》 作者：关汉卿</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../culture.html">传统文化</a></li>
+                        <li><a href="../clothing.html">中国服饰</a></li>
+                        <li><a href="../difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.opera-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

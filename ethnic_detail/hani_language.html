@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尼族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哈尼族语言文字页面特定样式 */
+        .hani-header {
+            background-image: url('images/哈尼族女性服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hani-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hani-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hani-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hani {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hani:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hani-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hani-section {
+            margin-bottom: 80px;
+        }
+        
+        .hani-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hani-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hani-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hani-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hani-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 文字示例样式 */
+        .writing-examples {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .example-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .example-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .example-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .example-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hani-header h1 {
+                font-size: 36px;
+            }
+            
+            .hani-header p {
+                font-size: 18px;
+            }
+            
+            .hani-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="hani-header">
+        <div class="container">
+            <div class="hani-header-content">
+                <h1>哈尼族语言文字</h1>
+                <p>独特的语言系统与文字传承</p>
+                <a href="hani.html" class="back-hani">返回哈尼族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hani-main">
+        <div class="container">
+            <div class="hani-content">
+                <!-- 语言概述 -->
+                <section class="hani-section">
+                    <h2>语言概述</h2>
+                    <p>哈尼语是哈尼族的民族语言，属于汉藏语系藏缅语族彝语支，是哈尼族人民在长期的历史发展中创造和使用的交流工具。哈尼语不仅是哈尼族文化的重要组成部分，也是中国少数民族语言宝库中的瑰宝。</p>
+                    <p>哈尼语具有丰富的词汇、独特的语法结构和鲜明的民族特色，反映了哈尼族人民的生活方式、思维方式和文化传统。</p>
+                </section>
+
+                <!-- 语言分类 -->
+                <section class="hani-section">
+                    <h2>语言分类</h2>
+                    <p>根据语言特点和地理分布，哈尼语可分为三个主要方言区：</p>
+                    
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>哈雅方言</h4>
+                            <p>主要分布在云南省南部的红河哈尼族彝族自治州、西双版纳傣族自治州等地，是哈尼语中使用人口最多、分布最广的方言。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>碧卡方言</h4>
+                            <p>主要分布在云南省中部的墨江哈尼族自治县、镇沅彝族哈尼族拉祜族自治县等地，与哈雅方言有一定的差异。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>豪白方言</h4>
+                            <p>主要分布在云南省西部的元江哈尼族彝族傣族自治县、新平彝族傣族自治县等地，在语音、词汇和语法方面都有独特的特点。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="hani-section">
+                    <h2>语言特点</h2>
+                    
+                    <h3>语音特点</h3>
+                    <ul>
+                        <li><strong>辅音丰富：</strong>哈尼语有较多的辅音，包括塞音、擦音、塞擦音、鼻音、边音等。</li>
+                        <li><strong>元音复杂：</strong>元音系统较为复杂，有单元音和复元音，部分方言还有鼻化元音。</li>
+                        <li><strong>声调系统：</strong>哈尼语是声调语言，一般有3-5个声调，声调的变化会影响词义。</li>
+                    </ul>
+                    
+                    <h3>语法特点</h3>
+                    <ul>
+                        <li><strong>语序：</strong>基本语序为“主语-宾语-谓语”，与汉语的“主语-谓语-宾语”有所不同。</li>
+                        <li><strong>词类：</strong>有名词、动词、形容词、数词、量词、代词、副词、连词等词类。</li>
+                        <li><strong>构词法：</strong>主要有派生法、合成法等构词方式，通过词根和词缀的组合构成新词。</li>
+                    </ul>
+                    
+                    <h3>词汇特点</h3>
+                    <ul>
+                        <li><strong>丰富的农业词汇：</strong>反映了哈尼族以农业为主的生产方式，如梯田、水稻、耕作等相关词汇。</li>
+                        <li><strong>文化特色词汇：</strong>包含了大量与哈尼族传统文化相关的词汇，如宗教仪式、传统节日、民族工艺等。</li>
+                        <li><strong>借词：</strong>吸收了汉语、傣语等周边民族语言的词汇，丰富了哈尼语的词汇系统。</li>
+                    </ul>
+                </section>
+
+                <!-- 哈尼文 -->
+                <section class="hani-section">
+                    <h2>哈尼文</h2>
+                    <p>哈尼族历史上没有本民族的文字，直到1957年，在党和政府的关怀下，才创制了以拉丁字母为基础的拼音文字——哈尼文。</p>
+                    
+                    <h3>哈尼文的创制</h3>
+                    <p>1956年，中国科学院少数民族语言研究所派出专家，对哈尼语进行了全面的调查研究。1957年，根据哈尼语的特点和实际需要，创制了以哈雅方言为基础方言、以绿春县大寨话为标准音的哈尼文。</p>
+                    
+                    <h3>哈尼文的特点</h3>
+                    <ul>
+                        <li><strong>拉丁字母基础：</strong>使用26个拉丁字母，部分字母加附加符号表示哈尼语特有的音素。</li>
+                        <li><strong>音素文字：</strong>一个字母或字母组合表示一个音素，拼写规则与发音基本一致。</li>
+                        <li><strong>声调标记：</strong>使用声调符号标记不同的声调，确保语音的准确性。</li>
+                    </ul>
+                    
+                    <div class="writing-examples">
+                        <h3>哈尼文示例</h3>
+                        
+                        <div class="example-item">
+                            <h5>问候语</h5>
+                            <p><strong>哈尼文：</strong>Sa la! (萨拉！)</p>
+                            <p><strong>汉语：</strong>你好！</p>
+                        </div>
+                        
+                        <div class="example-item">
+                            <h5>日常用语</h5>
+                            <p><strong>哈尼文：</strong>Ni q'oq ya? (尼翘亚？)</p>
+                            <p><strong>汉语：</strong>你去哪里？</p>
+                        </div>
+                        
+                        <div class="example-item">
+                            <h5>祝福语</h5>
+                            <p><strong>哈尼文：</strong>Za lə q'oq! (扎勒翘！)</p>
+                            <p><strong>汉语：</strong>一路平安！</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言的传承与发展 -->
+                <section class="hani-section">
+                    <h2>语言的传承与发展</h2>
+                    <p>哈尼语和哈尼文是哈尼族文化的重要载体，对于传承和弘扬哈尼族文化具有重要意义。</p>
+                    
+                    <h3>传承现状</h3>
+                    <ul>
+                        <li><strong>口耳相传：</strong>哈尼语主要通过口耳相传的方式在家庭和社区中传承，是哈尼族人民日常交流的主要工具。</li>
+                        <li><strong>学校教育：</strong>在哈尼族聚居地区的学校中，开设了哈尼语课程，使用哈尼文教材，培养双语人才。</li>
+                        <li><strong>文化活动：</strong>通过民族歌舞、民间故事、传统节日等文化活动，促进哈尼语的使用和传承。</li>
+                    </ul>
+                    
+                    <h3>面临的挑战</h3>
+                    <ul>
+                        <li><strong>语言环境变化：</strong>随着社会的发展和人口的流动，哈尼族人民与其他民族的交流日益频繁，汉语的使用范围不断扩大。</li>
+                        <li><strong>年轻一代的语言态度：</strong>部分年轻哈尼族同胞对本民族语言的重视程度不够，存在语言转用的现象。</li>
+                        <li><strong>语言资源流失：</strong>一些传统的哈尼语词汇和表达方式随着社会的变迁而逐渐消失。</li>
+                    </ul>
+                    
+                    <h3>保护与发展措施</h3>
+                    <ul>
+                        <li><strong>政策支持：</strong>国家制定了一系列保护少数民族语言文字的政策法规，为哈尼语的传承和发展提供了法律保障。</li>
+                        <li><strong>教育推广：</strong>加强哈尼语教育，在学校中推广双语教学，培养学生的母语意识。</li>
+                        <li><strong>文化传承：</strong>通过收集、整理、出版哈尼族民间文学作品，制作哈尼语广播电视节目，建立哈尼语网站等方式，丰富哈尼语的使用场景。</li>
+                        <li><strong>学术研究：</strong>加强对哈尼语的研究，深入挖掘哈尼语的文化价值，为哈尼语的保护和发展提供理论支持。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言的文化价值 -->
+                <section class="hani-section">
+                    <h2>语言的文化价值</h2>
+                    <p>哈尼语不仅是一种交流工具，更是哈尼族文化的重要组成部分，具有不可替代的文化价值。</p>
+                    
+                    <ul>
+                        <li><strong>文化载体：</strong>哈尼语承载着哈尼族的历史记忆、文化传统和价值观念，是哈尼族文化传承的重要媒介。</li>
+                        <li><strong>民族认同：</strong>哈尼语是哈尼族民族认同的重要标志，使用哈尼语能够增强哈尼族人民的民族凝聚力和自豪感。</li>
+                        <li><strong>学术价值：</strong>哈尼语对于研究汉藏语系的历史演变、语言类型学以及人类语言的多样性具有重要的学术价值。</li>
+                        <li><strong>世界语言多样性：</strong>哈尼语是世界语言多样性的重要组成部分，保护哈尼语对于维护世界语言生态平衡具有重要意义。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

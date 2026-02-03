@@ -1,0 +1,466 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宫廷礼仪 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 宫廷礼仪页面特定样式 */
+        body {
+            background-image: url('images/礼仪制度.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .court-header {
+            background-image: url('images/礼仪制度.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .court-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .court-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .court-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .court-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-ritual {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-ritual:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .court-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .court-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .court-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .court-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .court-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .court-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .court-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .court-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .court-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .court-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宫廷礼仪类型网格 */
+        .court-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .court-type {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .court-type:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .court-type h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .court-header h1 {
+                font-size: 36px;
+            }
+            
+            .court-header p {
+                font-size: 18px;
+            }
+            
+            .court-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 内部导航栏样式 */
+        .internal-nav {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+        
+        .internal-nav .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .internal-nav .nav-links li {
+            margin: 0 10px;
+        }
+        
+        .internal-nav .nav-links a {
+            text-decoration: none;
+            color: #c0392b;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .internal-nav .nav-links a:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="court-header">
+        <div class="container">
+            <div class="court-header-content">
+                <h1>宫廷礼仪</h1>
+                <p>中国汉族传统礼仪文化的深邃内涵</p>
+                <a href="ritual.html" class="back-ritual">返回礼仪分类</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 内部导航栏 -->
+    <section class="internal-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="ritual_sacrifice.html">祭祀礼仪</a></li>
+                <li><a href="ritual_marriage.html">婚姻礼仪</a></li>
+                <li><a href="ritual_funeral.html">丧葬礼仪</a></li>
+                <li><a href="ritual_social.html">社交礼仪</a></li>
+                <li><a href="ritual_court.html">宫廷礼仪</a></li>
+                <li><a href="ritual_festival.html">节日礼仪</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="court-main">
+        <div class="container">
+            <div class="court-content">
+                <!-- 宫廷礼仪介绍 -->
+                <section class="court-section">
+                    <h2>宫廷礼仪介绍</h2>
+                    <p>宫廷礼仪是中国汉民族传统文化中最严谨、最繁琐的组成部分之一，是中华民族在长期的历史发展过程中形成的宫廷生活的行为规范和准则。它包括朝会、祭祀、庆典等多个方面，体现了皇权等等级制度和礼仪的尊严。</p>
+                    <p>宫廷礼仪是中国古代宫廷生活的重要组成部分，是权力的象征和体现。它不仅规范了宫廷内部的等级秩序，也影响了整个社会的礼仪制度。宫廷礼仪的发展与中国的历史、文化、社会生活密切相关，每个时代都有其独特的宫廷礼仪和特点。</p>
+                </section>
+
+                <!-- 宫廷礼仪的起源 -->
+                <section class="court-section">
+                    <h2>宫廷礼仪的起源</h2>
+                    <p>宫廷礼仪的起源可以追溯到原始社会末期。在那个时期，随着私有财产的出现和阶级的分化，逐渐形成了国家和君主制度，为了维护统治的权威和尊严，产生了一些基本的宫廷礼仪。</p>
+                    <h3>夏商周时期的宫廷礼仪</h3>
+                    <ul>
+                        <li><strong>夏朝</strong>：夏朝是中国历史上第一个朝代，已经有了初步的宫廷礼仪。据史料记载，夏朝的君主已经开始使用一些礼仪来显示自己的权威。</li>
+                        <li><strong>商朝</strong>：商朝的宫廷礼仪更加完善，已经形成了一些基本的朝会和祭祀礼仪。商朝的君主通过这些礼仪来显示自己的权威和与神灵的沟通能力。</li>
+                        <li><strong>周朝</strong>：周朝是中国古代宫廷礼仪形成的重要时期。在这个时期，周公旦制定了详细的礼仪制度，即《周礼》，其中包括了宫廷礼仪的各个方面，如朝会、祭祀等。</li>
+                    </ul>
+                    <p>周朝的宫廷礼仪为后世的宫廷礼仪奠定了基础，成为中国古代宫廷礼仪的典范。</p>
+                </section>
+
+                <!-- 宫廷礼仪的发展 -->
+                <section class="court-section">
+                    <h2>宫廷礼仪的发展</h2>
+                    <p>宫廷礼仪的发展经历了漫长的演变过程，每个时代都有其独特的宫廷礼仪和特点。</p>
+                    
+                    <h3>夏商周时期</h3>
+                    <p>夏商周时期是中国古代宫廷礼仪形成的重要时期。在这个时期，宫廷礼仪逐渐规范化、制度化，形成了一套完整的宫廷礼仪体系。</p>
+                    <ul>
+                        <li><strong>夏朝</strong>：夏朝已经有了初步的宫廷礼仪，如君主的朝会礼仪、祭祀礼仪等。夏朝的宫廷礼仪注重君主的权威和尊严，通过简单的仪式和礼节来显示君主的地位。夏朝的宫廷礼仪还比较简单和原始，没有形成完整的体系。</li>
+                        <li><strong>商朝</strong>：商朝的宫廷礼仪更加完善，已经形成了一些基本的宫廷礼仪，如朝会礼仪、祭祀礼仪、庆典礼仪等。商朝的宫廷礼仪注重宗教信仰，通过祭祀活动来显示君主与神灵的沟通能力，增强君主的权威。商朝的宫廷礼仪也注重等级制度，不同等级的人使用不同的礼仪。</li>
+                        <li><strong>周朝</strong>：周朝是中国古代宫廷礼仪的鼎盛时期，制定了详细的宫廷礼仪制度，即《周礼》。周朝的宫廷礼仪注重等级制度和伦理道德，不同等级的人使用不同的宫廷礼仪。周朝规定了"五礼"制度，即吉礼、凶礼、军礼、宾礼、嘉礼，其中吉礼、宾礼、嘉礼都包含了大量的宫廷礼仪。周朝还设立了专门的宫廷礼仪机构和官员，如大宗伯、小宗伯等，负责管理宫廷礼仪事务。周朝的宫廷礼仪更加规范化和制度化，形成了一套完整的宫廷礼仪体系。</li>
+                    </ul>
+                    
+                    <h3>秦汉时期</h3>
+                    <p>秦汉时期是中国古代宫廷礼仪的发展时期。在这个时期，宫廷礼仪在继承周朝礼仪制度的基础上，不断变革和发展，适应了中央集权制度的需要。</p>
+                    <ul>
+                        <li><strong>秦朝</strong>：秦朝统一六国后，秦始皇制定了一套完整的宫廷礼仪，以显示自己的权威和尊贵。秦朝的宫廷礼仪更加繁琐和严格，体现了中央集权制度的特点。秦朝规定了严格的朝会礼仪，如群臣朝见皇帝时必须行跪拜礼，称呼皇帝为"陛下"。秦朝还规定了严格的宫廷等级制度，不同等级的官员在宫廷中使用不同的礼仪和服饰。秦朝的宫廷礼仪更加注重君主的权威和尊严，强调君主的至高无上。</li>
+                        <li><strong>汉朝</strong>：汉朝的宫廷礼仪在继承秦朝礼仪制度的基础上，更加注重礼仪的象征意义和文化内涵。汉朝的宫廷礼仪更加规范化、制度化，形成了一套完整的宫廷礼仪体系。汉朝规定了更加详细的朝会礼仪，如"三朝"制度，即元旦朝会、冬至朝会、皇帝生日朝会。汉朝还规定了更加详细的宫廷等级制度，不同等级的官员在宫廷中使用不同的礼仪、服饰和车马。汉朝的宫廷礼仪也更加注重文化内涵，如在宫廷中举行经学讲座、文学创作等活动。</li>
+                    </ul>
+                    
+                    <h3>魏晋南北朝时期</h3>
+                    <p>魏晋南北朝时期是中国古代宫廷礼仪的融合时期。在这个时期，宫廷礼仪更加开放和包容，融合了少数民族的礼仪文化，形成了具有独特风格的宫廷礼仪体系。</p>
+                    <ul>
+                        <li><strong>魏晋时期</strong>：魏晋的宫廷礼仪更加开放和包容，融合了少数民族的礼仪文化，形成了具有独特风格的宫廷礼仪体系。魏晋的宫廷礼仪更加注重礼仪的艺术价值和观赏性，如在朝会中加入了音乐、舞蹈等艺术元素。魏晋的宫廷礼仪也更加注重个人的才华和气质，如在宫廷中举行文学宴会、书法比赛等活动。魏晋的宫廷礼仪相对宽松和自由，不像秦汉时期那样严格和繁琐。</li>
+                        <li><strong>南北朝时期</strong>：南北朝的宫廷礼仪更加注重礼仪的规范价值和等级性，形成了一套更加完善的宫廷礼仪体系。南北朝的宫廷礼仪融合了汉族和少数民族的礼仪文化，如南朝的宫廷礼仪继承了魏晋的传统，更加注重文化内涵和艺术性；北朝的宫廷礼仪则融合了少数民族的元素，更加注重实用性和简洁性。南北朝的宫廷礼仪也更加注重礼仪的教育功能，通过礼仪来培养官员的道德品质和行为规范。</li>
+                    </ul>
+                    
+                    <h3>唐宋时期</h3>
+                    <p>唐宋时期是中国古代宫廷礼仪的成熟时期。在这个时期，宫廷礼仪在继承前代礼仪制度的基础上，不断变革和发展，适应了不同时代的社会需求。</p>
+                    <ul>
+                        <li><strong>唐朝</strong>：唐朝的宫廷礼仪融合了胡族的礼仪文化，形成了具有胡族特色的宫廷礼仪体系。唐朝的宫廷礼仪更加注重实用性和简洁性，同时也更加注重礼仪的文化内涵和艺术性。唐朝的宫廷礼仪更加开放和自由，如允许女子参与宫廷活动，与男子一起饮酒赋诗。唐朝的宫廷礼仪也更加注重国际交流，吸收了外国的礼仪文化元素，如来自西域、日本、朝鲜等国家的礼仪元素。</li>
+                        <li><strong>宋朝</strong>：宋朝的宫廷礼仪在继承唐朝礼仪制度的基础上，更加注重礼仪的规范价值和等级性，形成了一套更加完善的宫廷礼仪体系。宋朝制定了详细的宫廷礼仪制度，如《政和五礼新仪》等，对宫廷礼仪的各个方面都有详细的规定。宋朝的宫廷礼仪更加注重伦理道德，强调"存天理，灭人欲"的观念，对宫廷成员的行为举止要求更加严格。宋朝的宫廷礼仪也更加注重文化内涵，如在宫廷中举行经学讲座、文学创作、书画展览等活动。</li>
+                    </ul>
+                    
+                    <h3>元明清时期</h3>
+                    <p>元明清时期是中国古代宫廷礼仪的鼎盛时期。在这个时期，宫廷礼仪在继承前代礼仪制度的基础上，融入了少数民族的礼仪文化，形成了具有时代特色的宫廷礼仪体系。</p>
+                    <ul>
+                        <li><strong>元朝</strong>：元朝的宫廷礼仪融合了蒙古族的礼仪文化，形成了具有蒙古族特色的宫廷礼仪体系。元朝的宫廷礼仪更加注重实用性和简洁性，同时也保留了一些蒙古族的传统习俗，如"诈马宴"、"那达慕"等。元朝的宫廷礼仪也更加注重等级制度，严格规定了不同等级的人使用不同的礼仪和服饰。</li>
+                        <li><strong>明朝</strong>：明朝的宫廷礼仪在继承宋朝礼仪制度的基础上，更加注重礼仪的规范价值和等级性，形成了一套更加完善的宫廷礼仪体系。明朝制定了详细的宫廷礼仪制度，如《大明集礼》等，对宫廷礼仪的各个方面都有详细的规定。明朝的宫廷礼仪更加注重君主的权威和尊严，强调君主的至高无上。明朝的宫廷礼仪也更加注重文化内涵，如在宫廷中举行经学讲座、文学创作、书画展览等活动。</li>
+                        <li><strong>清朝</strong>：清朝的宫廷礼仪融合了满族的礼仪文化，形成了具有满族特色的宫廷礼仪体系。清朝的宫廷礼仪更加注重礼仪的严格性和等级性，体现了君主专制制度的特点。清朝制定了详细的宫廷礼仪制度，如《大清会典》等，对宫廷礼仪的各个方面都有详细的规定。清朝的宫廷礼仪也更加注重民族特色，保留了一些满族的传统习俗，如"萨满祭祀"、"八旗制度"等。清朝的宫廷礼仪是中国古代宫廷礼仪的集大成者，形成了一套完整、严格、繁琐的宫廷礼仪体系。</li>
+                    </ul>
+                    
+                    <h3>现代时期</h3>
+                    <p>现代时期，宫廷礼仪已经不再是社会的主要礼仪形式，但它的影响仍然存在。现代的礼仪制度在继承传统宫廷礼仪的基础上，不断变革和发展，适应了现代社会的需求。</p>
+                    <ul>
+                        <li><strong>民国时期</strong>：民国时期，宫廷礼仪被废除，取而代之的是现代的礼仪制度。民国时期的礼仪制度融合了传统礼仪和西方礼仪的元素，更加注重平等和自由。民国时期的礼仪制度也更加简约和实用，不再像传统宫廷礼仪那样繁琐和严格。</li>
+                        <li><strong>新中国时期</strong>：新中国时期，礼仪制度更加注重平等、民主、文明的原则。新中国的礼仪制度融合了传统礼仪和现代礼仪的元素，形成了具有中国特色的现代礼仪体系。新中国的礼仪制度更加注重实用性和简洁性，强调尊重他人、理解他人、帮助他人的原则。</li>
+                    </ul>
+                    
+                    <p>总之，宫廷礼仪的发展是一个不断演变和完善的过程，每个时代都有其独特的宫廷礼仪和特点。宫廷礼仪的发展反映了中国社会的变迁和文化的传承，是中华传统文化的重要组成部分。</p>
+                </section>
+
+                <!-- 宫廷礼仪的主要类型 -->
+                <section class="court-section">
+                    <h2>宫廷礼仪的主要类型</h2>
+                    <div class="court-types">
+                        <div class="court-type">
+                            <h4>朝会礼仪</h4>
+                            <p>朝会礼仪是宫廷礼仪中最重要的组成部分之一，是君主与群臣朝会时的礼仪。朝会礼仪包括朝会的时间、地点、程序、君臣的位置、礼仪等多个方面，体现了皇权等等级制度和礼仪的尊严。</p>
+                        </div>
+                        <div class="court-type">
+                            <h4>祭祀礼仪</h4>
+                            <p>祭祀礼仪是宫廷礼仪中的重要组成部分，是君主祭祀天地、祖先、社稷等的礼仪。祭祀礼仪包括祭祀的时间、地点、程序、祭祀的物品、礼仪等多个方面，体现了君主与天地、祖先的沟通和敬畏。</p>
+                        </div>
+                        <div class="court-type">
+                            <h4>庆典礼仪</h4>
+                            <p>庆典礼仪是宫廷礼仪中的重要组成部分，是君主庆祝重大节日、生日、胜利等的礼仪。庆典礼仪包括庆典的时间、地点、程序、礼仪等多个方面，体现了国家的繁荣和君主的尊贵。</p>
+                        </div>
+                        <div class="court-type">
+                            <h4>宫廷宴会礼仪</h4>
+                            <p>宫廷宴会礼仪是宫廷礼仪中的重要组成部分，是君主宴请群臣、外国使节等的礼仪。宫廷宴会礼仪包括宴会的时间、地点、程序、座位安排、饮食、音乐、舞蹈等多个方面，体现了皇权等级制度和宫廷的奢华。</p>
+                        </div>
+                        <div class="court-type">
+                            <h4>宫廷起居礼仪</h4>
+                            <p>宫廷起居礼仪是宫廷礼仪中的重要组成部分，是君主和后妃日常生活中的礼仪。宫廷起居礼仪包括起床、就寝、饮食、服饰等多个方面，体现了皇权等级制度和宫廷的规范。</p>
+                        </div>
+                        <div class="court-type">
+                            <h4>外交礼仪</h4>
+                            <p>外交礼仪是宫廷礼仪中的重要组成部分，是君主接待外国使节的礼仪。外交礼仪包括接待的时间、地点、程序、物品、礼仪等多个方面，体现了国家的实力和尊严。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宫廷礼仪的核心原则 -->
+                <section class="court-section">
+                    <h2>宫廷礼仪的核心原则</h2>
+                    <ul>
+                        <li><strong>皇权至上</strong>：宫廷礼仪的核心原则是皇权至上，一切礼仪都要体现君主的权威和尊严。</li>
+                        <li><strong>等级分明</strong>：宫廷礼仪强调等级差异，不同身份、地位的人在礼仪中有不同的规范和要求。</li>
+                        <li><strong>礼仪繁琐</strong>：宫廷礼仪非常繁琐，每个环节都有详细的规定和要求，体现了宫廷生活的严格和规范。</li>
+                        <li><strong>象征意义</strong>：宫廷礼仪注重象征意义，通过各种礼仪形式来象征君主的权威、国家的繁荣和社会的稳定。</li>
+                        <li><strong>文化内涵</strong>：宫廷礼仪融合了音乐、舞蹈、文学、艺术等多种文化元素，具有丰富的文化内涵。</li>
+                    </ul>
+                </section>
+
+                <!-- 宫廷礼仪的影响 -->
+                <section class="court-section">
+                    <h2>宫廷礼仪的影响</h2>
+                    <p>宫廷礼仪作为中华传统文化的重要组成部分，对中国社会和文化产生了深远的影响，主要表现在以下几个方面：</p>
+                    
+                    <h3>对政治制度的影响</h3>
+                    <ul>
+                        <li><strong>维护权力体系</strong>：宫廷礼仪通过具体的等级规定和繁琐的礼仪程序，维护了皇权的权威和尊严，巩固了君主专制统治秩序。</li>
+                        <li><strong>规范政治行为</strong>：宫廷礼仪规范了君主和群臣的政治行为，促进了政治制度的规范化和制度化。</li>
+                        <li><strong>体现政治文化</strong>：宫廷礼仪体现了中国古代的政治文化，如皇权至上、等级差异、家国同构等。</li>
+                    </ul>
+                    
+                    <h3>对社会文化的影响</h3>
+                    <ul>
+                        <li><strong>影响社会礼仪</strong>：宫廷礼仪是社会礼仪的典范，对社会礼仪的发展和传承产生了深远的影响。</li>
+                        <li><strong>促进文化发展</strong>：宫廷礼仪融合了音乐、舞蹈、文学、艺术等多种文化元素，促进了文化的发展和繁荣。</li>
+                        <li><strong>塑造民族性格</strong>：宫廷礼仪培养了中华民族重礼仪、守规范、尊权威的民族性格。</li>
+                    </ul>
+                    
+                    <h3>对现代社会的意义</h3>
+                    <ul>
+                        <li><strong>文化传承价值</strong>：宫廷礼仪是中国非物质文化遗产的重要组成部分，具有重要的文化传承价值。</li>
+                        <li><strong>历史研究价值</strong>：宫廷礼仪是研究中国古代历史、政治、文化的重要资料，具有重要的历史研究价值。</li>
+                        <li><strong>艺术欣赏价值</strong>：宫廷礼仪中的音乐、舞蹈、文学、艺术等元素，具有重要的艺术欣赏价值。</li>
+                        <li><strong>现代管理借鉴</strong>：宫廷礼仪中的等级管理、规范运作等方面，对现代企业管理和组织管理有一定的借鉴意义。</li>
+                    </ul>
+                    
+                    <p>在现代社会，我们应该理性看待宫廷礼仪，取其精华，去其糟粕，继承和发扬其中的优秀成分，同时根据现代社会的特点和需要，对其进行适当的调整和创新，使其在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

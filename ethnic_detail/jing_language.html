@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 京族语言文字页面特定样式 */
+        .jing-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jing-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jing-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jing-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jing-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jing-section {
+            margin-bottom: 80px;
+        }
+        
+        .jing-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jing-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jing-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jing-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jing-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 特色内容样式 */
+        .feature-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .jing-header h1 {
+                font-size: 36px;
+            }
+            
+            .jing-header p {
+                font-size: 18px;
+            }
+            
+            .jing-section h2 {
+                font-size: 28px;
+            }
+            
+            .feature-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jing-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jing-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jing-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jing-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .jing-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jing-header">
+        <div class="container">
+            <div class="jing-header-content">
+                <h1>京族语言文字</h1>
+                <p>探索京族独特的语言系统和文字发展</p>
+                <a href="jing.html" class="back-difference">返回京族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="jing-main">
+        <div class="container">
+            <div class="jing-content">
+                <!-- 语言概况 -->
+                <section class="jing-section">
+                    <h2>语言概况</h2>
+                    <p>京族有自己的语言，属于南亚语系越芒语族越语支。京语是京族人民的母语，也是他们日常生活和文化传承的重要工具。京语与越南语有密切的亲缘关系，但由于长期的地理隔离和文化交流，也形成了一些独特的特点。</p>
+                    <p>京族语言的语音系统包括声母、韵母和声调，其中声调是区别词义的重要手段。京语的词汇丰富，涵盖了日常生活、海洋渔业、宗教信仰等各个方面，反映了京族人民的生活环境和文化传统。</p>
+                </section>
+
+                <!-- 文字系统 -->
+                <section class="jing-section">
+                    <h2>文字系统</h2>
+                    <p>京族使用以拉丁字母为基础的京文，这是一种拼音文字系统。京文的历史可以追溯到17世纪，当时西方传教士为了传教需要，设计了以拉丁字母为基础的拼写方案。后来经过多次改革和完善，形成了现在使用的京文系统。</p>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>京文的特点</h4>
+                            <p>京文使用26个拉丁字母，并添加了一些变音符号来表示京语中的特殊音素。它采用分词连写的方式，标点符号与汉语拼音系统类似。京文的拼写规则相对简单，易于学习和使用。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>汉字的使用</h4>
+                            <p>由于长期与汉族和其他民族的交流，京族也普遍使用汉语和汉字。在历史上，汉字曾经是京族地区官方和文人使用的主要文字，许多京族的历史文献和文化遗产都是用汉字记载的。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>双语教育</h4>
+                            <p>现在，京族地区实行双语教育，学生在学校同时学习汉语和京语。这种双语教育模式不仅有利于京族文化的传承和发展，也有助于京族人民更好地融入现代社会，参与国家的经济和文化建设。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言保护与传承 -->
+                <section class="jing-section">
+                    <h2>语言保护与传承</h2>
+                    <p>随着社会的发展和现代化进程的加速，京族语言面临着一些挑战。为了保护和传承京族语言，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li>建立京语教学体系，在京族地区的学校中开设京语课程</li>
+                        <li>组织专家学者对京语进行系统的调查和研究，编写京语教材和词典</li>
+                        <li>利用现代媒体手段，如广播、电视、互联网等，推广和传播京语</li>
+                        <li>鼓励京族人民在日常生活中使用京语，特别是在家庭和社区中</li>
+                        <li>举办京语演讲比赛、文艺演出等活动，增强京族人民的语言自豪感</li>
+                    </ul>
+                    <p>这些措施的实施，对于京族语言的保护和传承起到了积极的作用。现在，京族语言仍然是京族人民日常生活和文化活动的重要工具，同时也成为了中华民族语言宝库中的重要组成部分。</p>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="jing-section">
+                    <h2>语言与文化</h2>
+                    <p>京族语言与京族文化有着密切的关系。语言是文化的载体，京语中蕴含着丰富的文化内涵：</p>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>海洋文化词汇</h4>
+                            <p>由于京族是一个海洋民族，京语中包含了大量与海洋、渔业相关的词汇，如各种鱼类、贝类、海洋现象、捕鱼工具和技术等。这些词汇反映了京族人民与海洋的密切关系，是京族海洋文化的重要组成部分。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>民间文学</h4>
+                            <p>京族的民间文学，如神话传说、故事、歌谣等，大多是用京语创作和传承的。这些口头文学作品不仅是京族文化的重要遗产，也是研究京族历史、社会和思想的宝贵资料。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>宗教仪式用语</h4>
+                            <p>京族的宗教仪式和祭祀活动中，使用了许多特殊的京语词汇和表达方式。这些语言形式具有神圣性和象征性，是京族宗教文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

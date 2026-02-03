@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佤族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 佤族文学艺术页面特定样式 */
+        .wa-art-header {
+            background-image: url('images/佤族女子传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .wa-art-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .wa-art-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .wa-art-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .wa-art-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-wa {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-wa:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .wa-art-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .wa-art-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .wa-art-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .wa-art-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .wa-art-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .wa-art-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .wa-art-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .wa-art-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .wa-art-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .wa-art-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .wa-art-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术特点卡片 */
+        .art-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 艺术形式详情 */
+        .art-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .art-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .art-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .art-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 文学作品示例 */
+        .literature-examples {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .example-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .example-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .example-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .wa-art-header h1 {
+                font-size: 36px;
+            }
+            
+            .wa-art-header p {
+                font-size: 18px;
+            }
+            
+            .wa-art-section h2 {
+                font-size: 28px;
+            }
+            
+            .wa-art-section h3 {
+                font-size: 24px;
+            }
+            
+            .art-features,
+            .art-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="wa-art-header">
+        <div class="container">
+            <div class="wa-art-header-content">
+                <h1>佤族文学艺术</h1>
+                <p>大山深处的文化瑰宝</p>
+                <a href="wa.html" class="back-wa">返回佤族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="wa-art-main">
+        <div class="container">
+            <div class="wa-art-content">
+                <!-- 文学艺术概述 -->
+                <section class="wa-art-section">
+                    <h2>文学艺术概述</h2>
+                    <p>佤族是一个有着悠久历史和灿烂文化的民族，其文学艺术丰富多彩，独具特色。佤族的文学艺术是其文化的重要组成部分，反映了佤族的历史、社会、宗教信仰和价值观念，是佤族人民智慧的结晶。</p>
+                    <p>佤族的文学艺术形式多样，包括民间文学、音乐、舞蹈、绘画、雕刻、织锦等。这些艺术形式相互融合，相互影响，共同构成了佤族独特的文化景观。佤族的文学艺术不仅在国内享有盛誉，在国际上也受到了广泛的关注和赞赏。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="wa-art-section">
+                    <h2>民间文学</h2>
+                    
+                    <h3>神话传说</h3>
+                    <p>佤族的神话传说丰富多彩，题材广泛，包括创世神话、人类起源神话、自然神话等。这些神话传说反映了佤族人民对宇宙、自然和人类的认识和理解，表达了他们对美好生活的向往和对邪恶势力的憎恨。</p>
+                    
+                    <div class="literature-examples">
+                        <div class="example-item">
+                            <h5>《司岗里》</h5>
+                            <p>《司岗里》是佤族最著名的创世神话，讲述了人类从葫芦中诞生的故事。传说在远古时代，天地混沌，万物未生。后来，大神创造了天地万物，并在葫芦中孕育了人类。人类从葫芦中出来后，分散到各地生活，形成了不同的民族。这个神话传说反映了佤族人民对人类起源的认识和理解，是佤族文化的重要组成部分。</p>
+                        </div>
+                        <div class="example-item">
+                            <h5>《木依吉神》</h5>
+                            <p>《木依吉神》是佤族的一个重要神话传说，讲述了木依吉神创造万物和人类的故事。传说木依吉神是佤族的最高神灵，他创造了天地万物，并教会了人类种植、狩猎、建房等技能。这个神话传说反映了佤族人民对自然和神灵的崇拜，是佤族宗教文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>民间故事</h3>
+                    <p>佤族的民间故事丰富多彩，题材广泛，包括生活故事、爱情故事、动物故事等。这些故事反映了佤族人民的生活和思想，表达了他们对美好生活的向往和对邪恶势力的憎恨。</p>
+                    
+                    <h3>诗歌与歌谣</h3>
+                    <p>佤族的诗歌与歌谣历史悠久，形式多样，包括劳动歌、爱情歌、生活歌、仪式歌等。佤族的诗歌与歌谣语言朴素，感情真挚，富有表现力。</p>
+                    <p>劳动歌是佤族人民在劳动过程中创作的歌曲，节奏明快，富有节奏感，能够激发劳动热情。爱情歌是佤族人民表达爱情的歌曲，旋律优美，情感真挚。生活歌是佤族人民反映日常生活的歌曲，内容丰富多彩，形式多样。仪式歌是佤族人民在宗教仪式、节日庆典等场合演唱的歌曲，庄重肃穆，富有宗教色彩。</p>
+                </section>
+
+                <!-- 音乐与舞蹈 -->
+                <section class="wa-art-section">
+                    <h2>音乐与舞蹈</h2>
+                    
+                    <h3>传统音乐</h3>
+                    <p>佤族的传统音乐丰富多彩，形式多样，包括民间歌曲、器乐演奏等。佤族的音乐风格独特，旋律优美，节奏明快，富有山地风情。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>民间歌曲</h5>
+                            <p>佤族的民间歌曲题材广泛，包括劳动歌、爱情歌、生活歌、仪式歌等。劳动歌是佤族人民在劳动过程中创作的歌曲，节奏明快，富有节奏感，能够激发劳动热情。爱情歌是佤族人民表达爱情的歌曲，旋律优美，情感真挚。生活歌是佤族人民反映日常生活的歌曲，内容丰富多彩，形式多样。仪式歌是佤族人民在宗教仪式、节日庆典等场合演唱的歌曲，庄重肃穆，富有宗教色彩。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>传统乐器</h5>
+                            <p>佤族的传统乐器种类繁多，包括打击乐器、弦乐器、管乐器等。打击乐器主要有木鼓、铜鼓、铓锣等；弦乐器主要有三弦、葫芦丝等；管乐器主要有竹笛、洞箫等。其中，木鼓是佤族最具代表性的乐器，是佤族音乐的重要组成部分。木鼓的声音洪亮，节奏明快，是佤族人民在节日庆典、宗教仪式等场合的重要伴奏乐器。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>传统舞蹈</h3>
+                    <p>佤族的传统舞蹈丰富多彩，形式多样，包括木鼓舞、甩发舞、刀舞、拳舞等。佤族的舞蹈风格独特，动作粗犷有力，节奏明快，富有山地风情。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>木鼓舞</h5>
+                            <p>木鼓舞是佤族最著名的传统舞蹈，以木鼓为主要伴奏乐器。木鼓舞的动作粗犷有力，节奏明快，富有阳刚之气。木鼓舞通常在节日庆典、宗教仪式等场合表演，是佤族文化的重要象征。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>甩发舞</h5>
+                            <p>甩发舞是佤族的传统舞蹈之一，主要由佤族女子表演。甩发舞的动作优美，节奏明快，富有女性魅力。甩发舞通常在节日庆典、婚礼等场合表演，是佤族女子展示美丽和魅力的重要方式。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>刀舞</h5>
+                            <p>刀舞是佤族的传统舞蹈之一，以刀为主要道具。刀舞的动作矫健有力，节奏明快，富有战斗气息。刀舞通常在节日庆典、宗教仪式等场合表演，是佤族人民展示勇敢和力量的重要方式。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 绘画与雕刻 -->
+                <section class="wa-art-section">
+                    <h2>绘画与雕刻</h2>
+                    
+                    <h3>传统绘画</h3>
+                    <p>佤族的传统绘画历史悠久，形式多样，包括壁画、帛画、纸画等。佤族的绘画风格独特，色彩鲜艳，线条流畅，富有装饰性。</p>
+                    <p>壁画是佤族传统绘画的重要形式，主要绘制在房屋、村寨的墙壁上。壁画的内容多与佤族的历史、生活、宗教信仰有关，包括神话传说、狩猎场景、农耕场景等。壁画的色彩鲜艳，线条流畅，人物形象生动，是佤族绘画艺术的重要代表。</p>
+                    
+                    <h3>传统雕刻</h3>
+                    <p>佤族的传统雕刻历史悠久，形式多样，包括木雕、竹雕、石雕等。佤族的雕刻风格独特，工艺精湛，富有装饰性。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>木雕</h5>
+                            <p>木雕是佤族传统雕刻的重要形式，主要用于房屋、村寨的装饰，以及制作家具、工艺品等。佤族的木雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。木雕的风格独特，线条流畅，富有装饰性，是佤族雕刻艺术的重要代表。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>竹雕</h5>
+                            <p>竹雕是佤族传统雕刻的另一种形式，主要用于制作竹器、工艺品等。佤族的竹雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。竹雕的风格独特，线条流畅，富有装饰性，是佤族人民日常生活中的重要装饰品。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>石雕</h5>
+                            <p>石雕是佤族传统雕刻的另一种形式，主要用于制作石碑、石像等。佤族的石雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。石雕的风格独特，线条流畅，富有装饰性，是佤族雕刻艺术的重要代表。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 织锦与手工艺 -->
+                <section class="wa-art-section">
+                    <h2>织锦与手工艺</h2>
+                    
+                    <h3>佤锦</h3>
+                    <p>佤锦是佤族传统的纺织工艺品，以其精美的图案和精湛的工艺闻名中外。佤锦的历史悠久，起源于古代，经过千百年的发展，形成了独特的风格和工艺。</p>
+                    <p>佤锦的原料主要是棉线和丝线，图案丰富多彩，包括几何图案、花卉、动物、人物等。佤锦的工艺精湛，采用手工织机编织，需要经过设计图案、染色、经线、纬线、编织等多个工序。佤锦的色彩鲜艳，图案精美，质地柔软，是佤族人民日常生活中的重要装饰品，也是佤族文化的重要象征。</p>
+                    
+                    <h3>其他手工艺</h3>
+                    <p>佤族的手工艺种类繁多，除了织锦之外，还包括竹编、草编、陶艺等。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>竹编</h5>
+                            <p>竹编是佤族传统的手工艺之一，主要用于制作竹篮、竹席、竹凳、竹桌等日常生活用品。佤族的竹编工艺精湛，图案精美，质地坚固，是佤族人民日常生活中的重要用品。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>草编</h5>
+                            <p>草编是佤族传统的手工艺之一，主要用于制作草帽、草席、草袋等日常生活用品。佤族的草编工艺精湛，图案精美，质地轻便，是佤族人民日常生活中的重要用品。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>陶艺</h5>
+                            <p>陶艺是佤族传统的手工艺之一，主要用于制作陶器、瓷器等日常生活用品。佤族的陶艺工艺精湛，造型美观，质地坚固，是佤族人民日常生活中的重要用品。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的现代发展 -->
+                <section class="wa-art-section">
+                    <h2>文学艺术的现代发展</h2>
+                    
+                    <h3>传统与现代的融合</h3>
+                    <p>在现代社会，佤族的文学艺术面临着新的挑战和机遇。随着社会的发展和现代化进程的推进，佤族的文学艺术也在不断演变和发展，呈现出传统与现代相结合的特点。</p>
+                    <p>一方面，佤族的传统文学艺术得到了保护和传承，如木鼓舞、甩发舞、佤锦等传统艺术形式仍然在佤族社会中发挥着重要作用，并且被列入了国家非物质文化遗产名录。另一方面，佤族的文学艺术也在不断吸收现代元素，创新表现形式，如现代佤族音乐、现代佤族舞蹈、现代佤族文学等，这些新的艺术形式既保留了传统的元素，又融入了现代的元素，更加符合现代社会的审美需求。</p>
+                    
+                    <h3>保护与传承</h3>
+                    <p>佤族的文学艺术是其文化遗产的重要组成部分，保护和传承佤族的文学艺术对于弘扬佤族文化、维护文化多样性具有重要意义。目前，佤族文学艺术的保护和传承工作主要包括以下几个方面：</p>
+                    <ul>
+                        <li>加强对佤族传统文学艺术的调查和研究，整理和保存相关资料</li>
+                        <li>通过教育、媒体等方式宣传佤族的传统文学艺术，提高人们的认识和重视程度</li>
+                        <li>在学校开设佤族传统文学艺术课程，培养年轻一代的兴趣和爱好</li>
+                        <li>举办佤族传统文学艺术展览、表演等活动，增强人们的文化认同</li>
+                        <li>加强对佤族传统文学艺术传承人的培养和扶持，确保传统技艺的传承</li>
+                        <li>利用现代科技和媒体，创新佤族文学艺术的传播方式和手段</li>
+                    </ul>
+                    
+                    <h3>未来发展展望</h3>
+                    <p>在全球化和现代化的背景下，佤族的文学艺术面临着机遇和挑战。一方面，现代科技和媒体为佤族文学艺术的传播和发展提供了新的手段和平台；另一方面，强势文化的影响和文化同质化的趋势，也对佤族文学艺术的生存和发展构成了威胁。</p>
+                    <p>为了确保佤族文学艺术的可持续发展，我们需要采取以下措施：</p>
+                    <ul>
+                        <li>加强对佤族传统文学艺术的保护和传承，使其适应现代社会的需要</li>
+                        <li>促进佤族传统文学艺术与现代文化的交流和融合，丰富其内涵和表现力</li>
+                        <li>利用现代科技和媒体，创新佤族文学艺术的传播方式和手段</li>
+                        <li>加强对佤族文学艺术的研究和教育，提高其学术地位和社会认知</li>
+                        <li>鼓励佤族文学艺术的创新和发展，培养新的艺术形式和风格</li>
+                    </ul>
+                    <p>相信在政府、社会各界和佤族人民的共同努力下，佤族的文学艺术一定能够在现代社会中继续发挥重要作用，为佤族文化的传承和发展做出贡献，为中华文化的多样性增添光彩。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面特定的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.wa-art-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

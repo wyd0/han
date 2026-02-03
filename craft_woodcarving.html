@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木雕工艺</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 木雕工艺页面特定样式 */
+        body {
+            background-image: url('images/传统工艺.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .craft-detail-header {
+            background-image: url('images/传统工艺.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .craft-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .craft-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .craft-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .craft-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-craft {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-craft:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .craft-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .craft-detail-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .craft-detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .craft-detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .craft-detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .craft-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .craft-detail-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .craft-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .craft-detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .craft-detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 工艺类型导航栏 */
+        .craft-nav {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px 0;
+            margin: 40px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .craft-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .craft-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .craft-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            border: 2px solid #c0392b;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .craft-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+        }
+        
+        .craft-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .craft-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .craft-detail-header p {
+                font-size: 18px;
+            }
+            
+            .craft-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .craft-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .craft-nav a {
+                width: 200px;
+                text-align: center;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="craft-detail-header">
+        <div class="container">
+            <div class="craft-detail-header-content">
+                <h1>木雕工艺</h1>
+                <p>中国传统雕刻艺术的瑰宝</p>
+                <a href="craft.html" class="back-craft">返回传统工艺</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="craft-detail-main">
+        <div class="container">
+            <div class="craft-detail-content">
+                <!-- 工艺类型导航栏 -->
+                <section class="craft-nav">
+                    <ul>
+                        <li><a href="craft.html">工艺首页</a></li>
+                        <li><a href="craft_ceramic.html">陶瓷工艺</a></li>
+                        <li><a href="craft_embroidery.html">刺绣工艺</a></li>
+                        <li><a href="craft_silk.html">丝绸工艺</a></li>
+                        <li><a href="craft_papercut.html">剪纸工艺</a></li>
+                        <li><a href="craft_woodcarving.html" class="active">木雕工艺</a></li>
+                        <li><a href="craft_jadecarving.html">玉雕工艺</a></li>
+                    </ul>
+                </section>
+                
+                <!-- 起源 -->
+                <section class="craft-detail-section">
+                    <h2>起源</h2>
+                    <p>中国木雕工艺历史悠久，起源于新石器时代。据考古发现，早在距今7000多年前的河姆渡文化时期，就已经出现了简单的木雕作品。</p>
+                    <p>木雕的起源与人类的生活密切相关。早期的人类用木材制作工具、武器和生活用品，后来逐渐发展出用木材雕刻艺术品的工艺。</p>
+                    <p>商周时期，木雕工艺已经相当发达，主要用于装饰宫殿、庙宇等建筑。《周礼》中就有关于木雕的记载，说明当时木雕已经成为一种重要的工艺形式。</p>
+                </section>
+
+                <!-- 传承与发展 -->
+                <section class="craft-detail-section">
+                    <h2>传承与发展</h2>
+                    <p>中国木雕工艺的发展经历了漫长的历史过程，每个时代都有其独特的木雕风格和工艺特点：</p>
+                    
+                    <h3>秦汉时期（公元前221年-公元220年）</h3>
+                    <p>秦汉时期的木雕工艺得到了进一步发展，木雕的应用范围更加广泛，不仅用于装饰建筑，还用于装饰车辆、船只等交通工具。这一时期的木雕图案以云气纹、动物纹为主，风格粗犷豪放。</p>
+                    
+                    <h3>魏晋南北朝时期（公元220年-公元589年）</h3>
+                    <p>魏晋南北朝时期的木雕工艺继续发展，受到佛教文化的影响，木雕图案中出现了佛像、莲花等佛教题材。这一时期的木雕工艺更加精细，出现了许多精美的木雕佛像。</p>
+                    
+                    <h3>唐宋时期（公元618年-公元1279年）</h3>
+                    <p>唐宋时期是中国木雕工艺的黄金时代，木雕的工艺和艺术水平都达到了前所未有的高度。唐代的木雕以色彩艳丽、图案丰富多彩为特色，宋代的木雕则更加注重写实，出现了许多精美的木雕作品。</p>
+                    
+                    <h3>元明清时期（公元1271年-公元1912年）</h3>
+                    <p>元明清时期的木雕工艺继续发展，形成了各具特色的地方木雕流派。明代出现了著名的东阳木雕、黄杨木雕等流派，清代的木雕则更加注重装饰性，出现了许多复杂的木雕作品。</p>
+                    
+                    <h3>现代（20世纪至今）</h3>
+                    <p>现代木雕工艺在传统的基础上不断创新和发展，进入了一个新的历史时期，展现出勃勃生机。</p>
+                    
+                    <h4>工艺创新</h4>
+                    <p>现代木雕工艺融合了传统技艺与现代科技，在材料、工具、设计等方面都取得了重大突破。</p>
+                    <ul>
+                        <li><strong>材料创新</strong>：除了传统的硬木外，还使用了软木、竹材、藤材等多种材料，甚至使用了复合材料、环保材料等现代材料，丰富了木雕的表现力。</li>
+                        <li><strong>工具创新</strong>：除了传统的雕刻刀外，还使用了电动雕刻机、激光雕刻机、数控雕刻机等现代工具，提高了雕刻的精度和效率。同时，保留了传统的手工雕刻技艺，如东阳木雕、黄杨木雕等。</li>
+                        <li><strong>设计创新</strong>：结合了传统图案与现代设计元素，创造出具有现代风格的木雕作品，如抽象图案、几何图案、现代人物、动漫形象等。</li>
+                        <li><strong>形式创新</strong>：在传统平面木雕的基础上，创造了立体木雕、浮雕、透雕、圆雕等多种形式，提高了木雕的艺术水平。</li>
+                    </ul>
+                    
+                    <h4>市场发展</h4>
+                    <p>现代中国木雕产业发展迅速，形成了多个木雕产业集群，如浙江东阳、福建莆田、广东潮州、云南剑川等。这些地区的木雕产业各具特色，形成了完整的产业链。</p>
+                    <ul>
+                        <li><strong>传统木雕</strong>：传统木雕品种如建筑装饰、古典家具等依然保持着旺盛的生命力，产品远销世界各地。</li>
+                        <li><strong>现代木雕</strong>：现代木雕艺术家创作了许多具有现代风格的木雕艺术品，在国内外艺术市场上备受青睐。</li>
+                        <li><strong>木雕衍生品</strong>：开发了许多木雕衍生品，如木雕摆件、木雕挂件、木雕首饰、木雕文具等，扩大了木雕的应用范围。</li>
+                        <li><strong>木雕旅游</strong>：许多木雕产地发展了木雕旅游，如东阳木雕博物馆、莆田木雕博物馆等，吸引了大量国内外游客。</li>
+                    </ul>
+                    
+                    <h4>国际影响</h4>
+                    <p>现代中国木雕工艺在国际上的影响力不断扩大，成为中华文化的重要使者。</p>
+                    <ul>
+                        <li><strong>国际展览</strong>：中国木雕作品多次在国际展览中展出，如巴黎卢浮宫、纽约大都会博物馆等，受到国际艺术界的高度评价。</li>
+                        <li><strong>文化交流</strong>：通过木雕文化节、木雕艺术研讨会等活动，促进了中外木雕文化的交流与合作。</li>
+                        <li><strong>技术输出</strong>：中国的木雕技术和工艺被许多国家引进和学习，对世界木雕业的发展做出了重要贡献。</li>
+                        <li><strong>品牌建设</strong>：涌现出一批具有国际影响力的木雕品牌，如东阳木雕、莆田木雕等，提升了中国木雕的国际形象。</li>
+                    </ul>
+                </section>
+
+                <!-- 工艺 -->
+                <section class="craft-detail-section">
+                    <h2>工艺</h2>
+                    <p>木雕工艺是一门复杂而又绮丽的传统工艺，需要经过长期的学习和实践才能掌握。主要工艺包括：</p>
+                    
+                    <h3>基本工具</h3>
+                    <ul>
+                        <li><strong>雕刻刀</strong>：木雕的主要工具，包括平刀、圆刀、斜刀、三棱刀等多种类型，每种刀都有其特定的用途。</li>
+                        <li><strong>凿子</strong>：用于凿削木雕作品，以便于雕刻。</li>
+                        <li><strong>砂纸</strong>：用于打磨木雕作品，使其表面光滑。</li>
+                        <li><strong>墨斗</strong>：用于在木材上绘制线条，以便于雕刻。</li>
+                    </ul>
+                    
+                    <h3>主要流派</h3>
+                    <ul>
+                        <li><strong>东阳木雕</strong>：产于浙江东阳，以雕工精细、图案精美著称。东阳木雕的代表作品有建筑装饰、家居等，以浮雕闻名。</li>
+                        <li><strong>黄杨木雕</strong>：产于浙江温州，以材质优良、雕工精细著称。黄杨木雕的代表作品有人物、动物等小型雕刻，以圆雕闻名。</li>
+                        <li><strong>潮州木雕</strong>：产于广东潮州，以材质多样、雕工精细著称。潮州木雕的代表作品有建筑装饰、家居等，以通雕闻名。</li>
+                        <li><strong>徽州木雕</strong>：产于安徽徽州，以材质优良、雕工精细著称。徽州木雕的代表作品有人物、动物等，以圆雕闻名。</li>
+                    </ul>
+                    
+                    <h3>木雕流程</h3>
+                    <ul>
+                        <li><strong>选料</strong>：选择合适的木材，如黄杨木、楠木、樟木等。木材的质地、纹理、颜色等都会影响木雕的效果。</li>
+                        <li><strong>设计</strong>：根据木雕的用途和要求，设计木雕图案。设计图案时需要考虑木材的纹理、雕刻的难度等因素。</li>
+                        <li><strong>打坯</strong>：用雕刻刀在木材上雕刻出图案的轮廓，这是木雕的基础步骤。</li>
+                        <li><strong>修光</strong>：用雕刻刀对木雕作品进行精细雕刻，使其更加绮丽。</li>
+                        <li><strong>打磨</strong>：用砂纸对木雕作品进行打磨，使其表面光滑。</li>
+                        <li><strong>上漆</strong>：对木雕作品进行上漆，以保护木材和增加美观度。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="craft-detail-section">
+                    <h2>影响</h2>
+                    <p>中国木雕工艺对世界文化和艺术产生了深远的影响：</p>
+                    
+                    <ul>
+                        <li><strong>文化传播</strong>：中国木雕是中华文化的重要载体，通过各种途径传播到世界各地，促进了中外文化的交流。木雕的传入对世界各地的雕刻艺术产生了深远的影响。</li>
+                        <li><strong>艺术影响</strong>：中国木雕的艺术风格对世界工艺产生了深远的影响，许多艺术流派从中国木雕中汲取灵感，创作出具中国风格的艺术作品。木雕的图案和技法也为现代设计提供了丰富的灵感。</li>
+                        <li><strong>经济影响</strong>：木雕是中国传统手工业的重要组成部分，为中国带来了巨大的经济利益。木雕贸易促进了地方经济的发展，形成了专门的木雕生产区域和产业。</li>
+                        <li><strong>社会影响</strong>：木雕在中国传统社会中具有重要的地位，是建筑、家居等的重要装饰形式。木雕的生产和贸易促进了社会分工的发展，形成了专门的木雕生产区域和产业。</li>
+                        <li><strong>文化遗产</strong>：中国木雕是中国非物质文化遗产的重要组成部分，2006年，东阳木雕、黄杨木雕等被列入第一批国家级非物质文化遗产名录。木雕工艺的传承和保护，对于弘扬中华优秀传统文化具有重要意义。</li>
+                    </ul>
+                    
+                    <p>在现代社会，中国木雕工艺仍然具有重要的价值和意义。它不仅是一种传统工艺，更是一种文化传承，需要我们重视和保护。同时，木雕工艺也在不断创新和发展，适应现代社会的需求，为我们的生活增添更多的色彩和魅力。</p>
+                </section>
+
+                <!-- 应用 -->
+                <section class="craft-detail-section">
+                    <h2>应用</h2>
+                    <p>中国木雕工艺在现代社会中的应用非常广泛，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>建筑装饰</strong>：木雕仍然是中国传统建筑的重要装饰元素，如宫殿、庙宇、园林、民居等的门窗、栏杆、天花、藻井、斗拱、雀替等。现代建筑中也经常使用木雕装饰，如酒店、会所、商场、写字楼等的大堂、走廊、电梯间等，以体现传统文化特色。</li>
+                        <li><strong>家居制作</strong>：木雕是高档家居的重要装饰手法，如红木家具、古典家具、明清式家具等。这些木雕家具不仅美观，而且具有实用价值和收藏价值。常见的木雕家居包括桌、椅、柜、床、案、几、屏风等。</li>
+                        <li><strong>艺术收藏</strong>：中国古代木雕制品是重要的工艺品和收藏品，具有很高的艺术价值和历史价值。如唐代的木雕佛像，宋代的木雕人物，明代的木雕家具，清代的木雕装饰等，都是收藏家追逐的珍品。现代木雕工艺家也创作了许多具有现代风格的木雕艺术品，如木雕摆件、木雕挂件、木雕人物作品等。</li>
+                        <li><strong>礼品市场</strong>：木雕制品是特色礼品的重要选择，如木雕摆件、木雕印章、木雕茶具、木雕餐具、木雕酒具、木雕烟具、木雕文具等。这些木雕礼品不仅美观，而且具有文化内涵，是馈赠亲友和表达情感的重要载体。</li>
+                        <li><strong>文创产品</strong>：木雕工艺在文创产品领域也有重要的应用，如木雕书签、木雕明信片、木雕笔记本、木雕首饰、木雕手机壳等。这些文创产品将传统木雕工艺与现代设计相结合，具有很高的艺术价值和实用价值，是传承和创新木雕文化的重要载体。</li>
+                        <li><strong>教育领域</strong>：木雕在教育领域也有重要的应用，如佛像、观音像、弥勒像、罗汉像、法器等。这些木雕教具不仅具有教育意义，而且具有艺术价值。</li>
+                    </ul>
+                </section>
+
+                <!-- 保护 -->
+                <section class="craft-detail-section">
+                    <h2>保护</h2>
+                    <p>中国木雕工艺是中华民族非物质文化遗产的重要组成部分，具有极高的文化价值和艺术价值。</p>
+                    <ul>
+                        <li><strong>国家级非物质文化遗产</strong>：
+                            <ul>
+                                <li>2006年，东阳木雕、黄杨木雕、潮州木雕被列入第一批国家级非物质文化遗产名录。</li>
+                                <li>2008年，徽州木雕（婺源木雕、歙县木雕）、剑川木雕、莆田木雕、曲阜楷木雕刻等被列入第二批国家级非物质文化遗产名录。</li>
+                                <li>2011年，庐州木雕等被列入第三批国家级非物质文化遗产名录。</li>
+                                <li>2014年，藏族木雕、蒙古族木雕等被列入第四批国家级非物质文化遗产名录。</li>
+                            </ul>
+                        </li>
+                        <li><strong>代表性传承人</strong>：中国木雕工艺拥有许多国家级代表性传承人，如陆光正（东阳木雕）、高公博（黄杨木雕）、辜柳希（潮州木雕）、曹篁生（婺源木雕）、段国梁（剑川木雕）、方文桃（莆田木雕）等。这些传承人致力于木雕工艺的传承和创新，为木雕工艺的发展做出了重要贡献。</li>
+                        <li><strong>保护措施</strong>：为了保护和传承中国木雕工艺，中国政府采取了一系列措施，如建立木雕工艺传承基地（如东阳木雕文化生态保护实验区）、举办木雕工艺展览（如中国木雕艺术展）、开展木雕工艺培训（如木雕工艺大师工作室）、建设木雕博物馆（如中国木雕博物馆）等。同时，社会各界也积极参与木雕工艺的保护和传承，形成了良好的社会氛围。</li>
+                        <li><strong>国际影响</strong>：中国木雕工艺在国际上享有很高的声誉，许多国家的艺术家和爱好者都对中国木雕工艺产生了浓厚的兴趣。中国木雕作品也多次在国际展览中展出，如在法国巴黎举办的世界博览会、德国柏林举办的中国文化节等，为中华文化的传播做出了重要贡献。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行书 - 书法艺术</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 行书页面特定样式 */
+        body {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .calligraphy-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .calligraphy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .calligraphy-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .calligraphy-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .calligraphy-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .calligraphy-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .calligraphy-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .calligraphy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .calligraphy-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .calligraphy-section h3 {
+            color: #8B4513;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .calligraphy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .calligraphy-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .calligraphy-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .calligraphy-content li {
+            margin-bottom: 10px;
+        }
+        
+        /* 字帖展示 */
+        .copybook-section {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .copybook-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .copybook-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .copybook-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .copybook-item h4 {
+            color: #c0392b;
+            margin-bottom: 10px;
+        }
+        
+        /* 主要字体导航样式 */
+        .font-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .font-nav h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .font-nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .font-nav-links li {
+            margin: 0 10px;
+        }
+        
+        .font-nav-links a {
+            color: #c0392b;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 2px solid transparent;
+        }
+        
+        .font-nav-links a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(192, 57, 43, 0.3);
+        }
+        
+        .font-nav-links a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .calligraphy-header h1 {
+                font-size: 36px;
+            }
+            
+            .calligraphy-header p {
+                font-size: 18px;
+            }
+            
+            .calligraphy-section h2 {
+                font-size: 28px;
+            }
+            
+            .calligraphy-section h3 {
+                font-size: 20px;
+            }
+            
+            .copybook-section {
+                padding: 20px;
+            }
+            
+            .font-nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .font-nav-links li {
+                margin: 5px 0;
+            }
+            
+            .font-nav-links a {
+                display: block;
+                text-align: center;
+                width: 100%;
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="calligraphy-header">
+        <div class="container">
+            <div class="calligraphy-header-content">
+                <h1>行书艺术</h1>
+                <p>流畅自然的书体，实用性与艺术性的完美结合</p>
+                <a href="calligraphy.html" class="back-home">返回书法艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="calligraphy-main">
+        <div class="container">
+            <div class="calligraphy-content">
+                <!-- 主要字体导航 -->
+                <div class="font-nav">
+                    <h3>主要字体导航</h3>
+                    <ul class="font-nav-links">
+                        <li><a href="calligraphy_seal.html">篆书</a></li>
+                        <li><a href="calligraphy_official.html">隶书</a></li>
+                        <li><a href="calligraphy_regular.html">楷书</a></li>
+                        <li><a href="calligraphy_running.html" class="active">行书</a></li>
+                        <li><a href="calligraphy_cursive.html">草书</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 起源 -->
+                <section class="calligraphy-section">
+                    <h2>行书的起源</h2>
+                    <p>行书是中国书法史上重要的书体之一，它是在楷书的基础上发展演变而来的。行书的起源可以追溯到汉代，成熟于魏晋时期。</p>
+                    <p>行书的名称来源于其书写速度和风格特点（"行"有行走、流动的意思）。行书不像楷书那样严格规整，也不像草书那样放纵恣肆，而是介于二者之间，具有流畅自然、易于识别的特点。</p>
+                    <p>行书的形成与魏晋时期的社会文化背景密切相关。魏晋时期，社会动荡不安，文人士大夫阶层追求个性自由和精神解放，这种文化氛围促进了行书的发展。王羲之、王献之父子是行书的重要代表人物，他们的行书作品对后世产生了深远的影响。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="calligraphy-section">
+                    <h2>行书的发展</h2>
+                    <h3>魏晋时期（公元220年-公元420年）</h3>
+                    <p>魏晋时期是行书的形成和发展时期。这一时期的行书风格多样，出现了许多著名的书法家和作品。魏晋时期的社会动荡不安，文人士大夫阶层追求个性自由和精神解放，这种文化氛围促进了行书的发展。</p>
+                    <ul>
+                        <li><strong>三国时期</strong>：钟繇、胡昭是这一时期的代表书法家，他们的行书风格古朴，结构严谨。钟繇的行书作品如《贺捷表》等，虽然已经失传，但通过后人的摹本，我们仍然可以感受到其古朴典雅的风格。胡昭的行书与钟繇齐名，时人称为"钟胡"。</li>
+                        <li><strong>东晋时期</strong>：王羲之、王献之父子是这一时期的代表书法家，他们的行书风格典雅秀丽，流畅自然。王羲之的《兰亭序》被称为"天下第一行书"，这篇作品写于东晋永和九年（公元353年），是王羲之与友人在兰亭集会时所写的序文，字体风格典雅秀丽，流畅自然，结构疏朗多姿，笔法精妙绝伦，被誉为"天下第一行书"。王献之的行书作品如《中秋帖》、《鸭头丸帖》等，风格豪放洒脱，流畅自然，笔法精妙，与王羲之的行书风格既有联系又有区别，被称为"小王"。</li>
+                    </ul>
+                    <p>魏晋时期的行书以王氏父子为代表，他们的行书作品被视为行书的典范，对后世行书的发展产生了深远的影响。</p>
+                    
+                    <h3>唐代（公元618年-公元907年）</h3>
+                    <p>唐代是行书的发展时期。唐代行书融合了魏晋行书的特点，风格更加多样化。唐代书法家注重法度，强调书法的规范性，同时也注重个性表达，因此唐代行书在继承魏晋行书传统的基础上，出现了许多新的风格特点。</p>
+                    <ul>
+                        <li><strong>初唐</strong>：欧阳询、虞世南、褚遂良是这一时期的代表书法家，他们的行书风格严谨，结构精密。欧阳询的行书作品如《张翰思鲈帖》、《梦奠帖》等，风格险峻严谨，结构精密，笔画刚劲有力。虞世南的行书作品如《汝南公主墓志铭》等，风格典雅秀丽，结构端庄，笔画圆润流畅。褚遂良的行书作品如《枯树赋》等，风格飘逸流畅，结构疏朗，笔画纤细柔美。</li>
+                        <li><strong>中唐</strong>：颜真卿是这一时期的代表书法家，他的行书风格雄浑奔放，结构宽博，代表作品有《祭侄文稿》、《争座位帖》等。《祭侄文稿》是颜真卿为祭奠在安史之乱中牺牲的侄子颜季明而写的文稿，字体风格雄浑奔放，结构宽博，笔画浑厚有力，情感真挚，被称为"天下第二行书"。</li>
+                        <li><strong>晚唐</strong>：柳公权、杜牧是这一时期的代表书法家，他们的行书风格严谨，结构精密。柳公权的行书作品如《蒙诏帖》等，风格严谨，结构精密，笔画刚劲有力。杜牧的行书作品如《张好好诗帖》等，风格清新自然，结构疏朗，笔画流畅自然。</li>
+                    </ul>
+                    
+                    <h3>宋代（公元960年-公元1279年）</h3>
+                    <p>宋代是行书的鼎盛时期。宋代行书注重个性表达，风格更加多样化，出现了许多著名的书法家和作品。宋代的文化氛围宽松，文人士大夫阶层注重文学艺术的修养，这种文化氛围促进了行书的发展。</p>
+                    <ul>
+                        <li><strong>北宋</strong>：苏轼、黄庭坚、米芾、蔡襄是这一时期的代表书法家，他们被称为"宋四家"。苏轼的行书风格豪放洒脱，结构宽博，笔画浑厚有力，代表作如《黄州寒食诗帖》、《前赤壁赋》等。《黄州寒食诗帖》是苏轼在黄州贬所时所写的诗作，字体风格豪放洒脱，结构宽博，笔画浑厚有力，情感真挚，被称为"天下第三行书"。黄庭坚的行书风格开张多变，结构跌宕，笔画长枪大戟，代表作如《松风阁诗帖》、《诸上座帖》等。米芾的行书风格跌宕起伏，结构变化多端，笔画八面出锋，代表作如《蜀素帖》、《苕溪诗帖》等。蔡襄的行书风格典雅秀丽，结构端庄，笔画圆润流畅，代表作如《澄心堂帖》、《扈从帖》等。</li>
+                        <li><strong>南宋</strong>：陆游、范成大、朱熹是这一时期的代表书法家，他们的行书风格清新自然，各具特色。陆游的行书风格豪放洒脱，结构宽博，笔画浑厚有力，代表作如《自书诗卷》等。范成大的行书风格典雅秀丽，结构端庄，笔画圆润流畅，代表作如《西塞渔社图卷跋》等。朱熹的行书风格严谨秀丽，结构端庄，笔画圆润流畅，代表作如《书翰文稿》等。</li>
+                    </ul>
+                    
+                    <h3>元代（公元1271年-公元1368年）</h3>
+                    <p>元代是行书的延续和发展时期。元代行书继承了魏晋和唐代行书的传统，同时也受到了赵孟頫的深刻影响。赵孟頫是元代最著名的书法家，他的行书风格典雅秀丽，结构严谨，笔画圆润流畅，代表作如《洛神赋》、《前后赤壁赋》等。赵孟頫的书法对元代和明代行书的发展产生了深远的影响，被视为元代书法的典范。</p>
+                    <p>除了赵孟頫之外，元代的行书书法家还有鲜于枢、邓文原等，他们的行书风格也受到了赵孟頫的影响，典雅秀丽，结构严谨。鲜于枢的行书作品如《晚秋杂兴诗卷》等，风格豪放洒脱，结构宽博，笔画浑厚有力。邓文原的行书作品如《急就章》等，风格典雅秀丽，结构端庄，笔画圆润流畅。</p>
+                    
+                    <h3>明代（公元1368年-公元1644年）</h3>
+                    <p>明代是行书的繁荣时期。明代行书继承了元代赵孟頫的风格，同时也受到了魏晋和唐代行书的影响，风格更加多样化。明代的文化氛围宽松，文人士大夫阶层注重文学艺术的修养，这种文化氛围促进了行书的发展。</p>
+                    <ul>
+                        <li><strong>明代前期</strong>：宋濂、沈度等是这一时期的代表书法家，他们的行书风格典雅秀丽，结构严谨，受到了赵孟頫的深刻影响。宋濂的行书作品如《跋欧阳询卜商帖》等，风格典雅秀丽，结构端庄，笔画圆润流畅。沈度的行书作品如《敬斋箴》等，风格典雅秀丽，结构端庄，笔画圆润流畅。</li>
+                        <li><strong>明代中期</strong>：文徵明、祝允明等是这一时期的代表书法家，他们的行书风格更加多样化。文徵明的行书风格严谨秀丽，结构端庄，笔画圆润流畅，代表作如《滕王阁序》、《前后赤壁赋》等。祝允明的行书风格豪放自然，结构跌宕，笔画流畅自然，代表作如《前后赤壁赋》、《洛神赋》等。</li>
+                        <li><strong>明代后期</strong>：王铎、董其昌等是这一时期的代表书法家，他们的行书风格更加注重个性表达。王铎的行书风格跌宕起伏，结构变化多端，笔画浑厚有力，代表作如《行书轴》、《草书诗卷》等。董其昌的行书风格疏朗秀逸，结构简约，笔画圆润流畅，代表作如《琵琶行》、《前后赤壁赋》等。</li>
+                    </ul>
+                    
+                    <h3>清代（公元1644年-公元1912年）</h3>
+                    <p>清代是行书的创新时期。清代行书继承了前代行书的传统，同时也受到了金石学研究的影响，风格更加多样化。清代的金石学研究兴盛，大量出土的古代碑刻为书法家提供了学习行书的重要资料，促进了行书的创新和发展。</p>
+                    <ul>
+                        <li><strong>清代前期</strong>：傅山、王铎等是这一时期的代表书法家，他们的行书风格豪放洒脱，结构跌宕。傅山的行书作品如《行书轴》、《草书诗卷》等，风格豪放洒脱，结构跌宕，笔画浑厚有力。王铎的行书作品如《行书轴》、《草书诗卷》等，风格跌宕起伏，结构变化多端，笔画浑厚有力。</li>
+                        <li><strong>清代中期</strong>：刘墉、梁同书等是这一时期的代表书法家，他们的行书风格典雅秀丽，结构端庄。刘墉的行书作品如《行书轴》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。梁同书的行书作品如《行书轴》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。</li>
+                        <li><strong>清代后期</strong>：何绍基、赵之谦等是这一时期的代表书法家，他们的行书风格更加多样化。何绍基的行书融合了颜真卿和北碑的特点，风格浑厚有力，结构宽博，代表作如《行书轴》、《草书诗卷》等。赵之谦的行书则融合了北碑和帖学的特点，风格奇崛开张，结构跌宕，代表作如《行书轴》、《草书诗卷》等。</li>
+                    </ul>
+                    
+                    <h3>近现代行书</h3>
+                    <p>近现代以来，行书在书法艺术中的地位更加突出。许多书法家在继承传统的基础上，不断创新，形成了各具特色的行书风格。如于右任的行书融合了北碑的特点，风格豪放洒脱，结构跌宕；沈尹默的行书则继承了二王的传统，风格典雅秀丽，结构端庄；启功的行书融合了赵孟頫和唐代行书的特点，风格疏朗秀逸，结构简约。</p>
+                    <p>现代行书的发展呈现出多元化的趋势，书法家们不仅继承了传统行书的特点，还融合了其他书体的特点，创造出了许多新的行书风格，使行书这一古老的书体在现代社会中仍然具有强大的生命力。</p>
+                </section>
+
+                <!-- 影响 -->
+                <section class="calligraphy-section">
+                    <h2>行书的影响</h2>
+                    <p>行书作为中国书法史上重要的书体之一，对中国书法艺术的发展产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>成为日常书写的主要字体</strong>：行书流畅自然，易于识别，成为人们日常书写的主要字体，被广泛应用于书信、文章等领域。</li>
+                        <li><strong>影响了其他书体的发展</strong>：行书的笔画和结构对草书、楷书等字体的发展产生了重要影响，促进了它们的创新和演变。</li>
+                        <li><strong>体现了中国传统美学观念</strong>：行书的流畅自然、变化多样的特点，体现了中国传统艺术中的自然、和谐、灵动等观念。</li>
+                        <li><strong>传承了中华文化</strong>：行书作为一种实用的字体，承载着丰富的文化信息，是中华文化传承的重要载体。</li>
+                        <li><strong>对周边国家的影响</strong>：行书对日本、朝鲜半岛、越南等周边国家的文字和书法艺术产生了重要影响。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="calligraphy-section">
+                    <h2>行书的代表人物</h2>
+                    
+                    <h3>王羲之（303年-361年）</h3>
+                    <p>东晋著名书法家，擅长行书、楷书、草书。王羲之的行书风格典雅秀丽，流畅自然，代表作品有《兰亭序》、《快雪时晴帖》等。他被后人称为"书圣"，《兰亭序》被称为"天下第一行书"。</p>
+                    
+                    <h3>王献之（344年-386年）</h3>
+                    <p>东晋著名书法家，王羲之的第七子，擅长行书、草书。王献之的行书风格豪放洒脱，流畅自然，代表作品有《中秋帖》、《鸭头丸帖》等。他被后人称为"小圣"。</p>
+                    
+                    <h3>颜真卿（709年-785年）</h3>
+                    <p>唐代著名书法家，擅长行书、楷书。颜真卿的行书风格雄浑奔放，结构宽博，代表作品有《祭侄文稿》、《争座位帖》等。《祭侄文稿》被称为"天下第二行书"。</p>
+                    
+                    <h3>苏轼（1037年-1101年）</h3>
+                    <p>宋代著名文学家、书法家，擅长行书、楷书。苏轼的行书风格豪放洒脱，结构宽博，代表作品有《黄州寒食诗帖》、《前赤壁赋》等。《黄州寒食诗帖》被称为"天下第三行书"。</p>
+                    
+                    <h3>黄庭坚（1045年-1105年）</h3>
+                    <p>宋代著名文学家、书法家，擅长行书、草书。黄庭坚的行书风格开张多变，结构跌宕，代表作品有《松风阁诗帖》、《诸上座帖》等。</p>
+                    
+                    <h3>米芾（1051年-1107年）</h3>
+                    <p>宋代著名书画家，擅长行书、草书。米芾的行书风格跌宕起伏，结构变化多端，代表作品有《蜀素帖》、《苕溪诗帖》等。</p>
+                    
+                    <h3>赵孟頫（1254年-1322年）</h3>
+                    <p>元代著名书画家，擅长行书、楷书。赵孟頫的行书风格典雅秀丽，结构严谨，代表作品有《洛神赋》、《胆巴碑》等。</p>
+                </section>
+
+                <!-- 字帖 -->
+                <section class="calligraphy-section">
+                    <div class="copybook-section">
+                        <h3>行书经典字帖</h3>
+                        <div class="copybook-list">
+                            <div class="copybook-item">
+                                <h4>《兰亭序》</h4>
+                                <p>东晋王羲之所书，行书的代表作品，被称为"天下第一行书"，风格典雅秀丽，流畅自然，结构疏朗多姿。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《祭侄文稿》</h4>
+                                <p>唐代颜真卿所书，行书的代表作品，被称为"天下第二行书"，风格雄浑奔放，结构宽博，情感真挚。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《黄州寒食诗帖》</h4>
+                                <p>宋代苏轼所书，行书的代表作品，被称为"天下第三行书"，风格豪放洒脱，结构宽博，情感真挚。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《蜀素帖》</h4>
+                                <p>宋代米芾所书，行书的代表作品，风格跌宕起伏，结构变化多端，笔法精妙。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《中秋帖》</h4>
+                                <p>东晋王献之所书，行书的代表作品，风格豪放洒脱，流畅自然，笔法精妙。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《洛神赋》</h4>
+                                <p>元代赵孟頫所书，行书的代表作品，风格典雅秀丽，结构严谨，笔法精妙。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.calligraphy-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

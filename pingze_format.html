@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平仄的格式 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 平仄格式页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .format-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .format-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .format-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .format-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .format-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .format-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .format-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .format-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .format-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .format-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .format-section h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .format-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .format-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .format-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .format-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .format-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 格式表格 */
+        .format-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(249, 249, 249, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .format-table th,
+        .format-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .format-table th {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .format-table tr:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .format-header h1 {
+                font-size: 36px;
+            }
+            
+            .format-header p {
+                font-size: 18px;
+            }
+            
+            .format-section h2 {
+                font-size: 28px;
+            }
+            
+            .format-section h3 {
+                font-size: 24px;
+            }
+            
+            .format-section h4 {
+                font-size: 20px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="format-header">
+        <div class="container">
+            <div class="format-header-content">
+                <h1>平仄的格式</h1>
+                <p>中国古典诗歌的声调规范格式</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="pingze_detail.html" class="back-link">返回平仄详解</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="format-main">
+        <div class="container">
+            <div class="format-content">
+                <!-- 近体诗平仄格式 -->
+                <section class="format-section">
+                    <h2>近体诗平仄格式</h2>
+                    <p>近体诗（律诗和绝句）是中国古典诗歌中最严格的体裁之一，其平仄格式有固定的规范：</p>
+                    
+                    <h3>五言绝句平仄格式</h3>
+                    
+                    <h4>仄起首句不入韵</h4>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>句式</th>
+                                <th>示例</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平仄</td>
+                                <td>床前明月光</td>
+                                <td>第一句，仄起不入韵</td>
+                            </tr>
+                            <tr>
+                                <td>平平仄仄平</td>
+                                <td>疑是地上霜</td>
+                                <td>第二句，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>平平平仄仄</td>
+                                <td>举头望明月</td>
+                                <td>第三句，平起不入韵</td>
+                            </tr>
+                            <tr>
+                                <td>仄仄仄平平</td>
+                                <td>低头思故乡</td>
+                                <td>第四句，仄起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>平起首句入韵</h4>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>句式</th>
+                                <th>示例</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>平平仄仄平</td>
+                                <td>春眠不觉晓</td>
+                                <td>第一句，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平仄</td>
+                                <td>处处闻啼鸟</td>
+                                <td>第二句，仄起不入韵</td>
+                            </tr>
+                            <tr>
+                                <td>仄平平仄平</td>
+                                <td>夜来风雨声</td>
+                                <td>第三句，仄起不入韵（拗救）</td>
+                            </tr>
+                            <tr>
+                                <td>平仄平平仄</td>
+                                <td>花落知多少</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>七言绝句平仄格式</h3>
+                    
+                    <h4>平起首句入韵</h4>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>句式</th>
+                                <th>示例</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>平平仄仄仄平平</td>
+                                <td>朝辞白帝彩云间</td>
+                                <td>第一句，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>平仄平平仄仄平</td>
+                                <td>千里江陵一日还</td>
+                                <td>第二句，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平平仄仄</td>
+                                <td>两岸猿声啼不住</td>
+                                <td>第三句，仄起不入韵</td>
+                            </tr>
+                            <tr>
+                                <td>平平仄仄仄平平</td>
+                                <td>轻舟已过万重山</td>
+                                <td>第四句，平起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>仄起首句不入韵</h4>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>句式</th>
+                                <th>示例</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平平仄仄</td>
+                                <td>两个黄鹂鸣翠柳</td>
+                                <td>第一句，仄起不入韵</td>
+                            </tr>
+                            <tr>
+                                <td>平平仄仄仄平平</td>
+                                <td>一行白鹭上青天</td>
+                                <td>第二句，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>平平仄仄平平仄</td>
+                                <td>窗含西岭千秋雪</td>
+                                <td>第三句，平起不入韵</td>
+                            </tr>
+                            <tr>
+                                <td>仄仄平平仄仄平</td>
+                                <td>门泊东吴万里船</td>
+                                <td>第四句，仄起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 五言律诗平仄格式 -->
+                <section class="format-section">
+                    <h2>五言律诗平仄格式</h2>
+                    
+                    <h3>仄起首句不入韵</h3>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>联</th>
+                                <th>上句</th>
+                                <th>下句</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>首联</td>
+                                <td>仄仄平平仄</td>
+                                <td>平平仄仄平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颔联</td>
+                                <td>平平平仄仄</td>
+                                <td>仄仄仄平平</td>
+                                <td>平起不入韵，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颈联</td>
+                                <td>仄仄平平仄</td>
+                                <td>平平仄仄平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>尾联</td>
+                                <td>平平平仄仄</td>
+                                <td>仄仄仄平平</td>
+                                <td>平起不入韵，仄起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>平起首句入韵</h3>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>联</th>
+                                <th>上句</th>
+                                <th>下句</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>首联</td>
+                                <td>平平仄仄平</td>
+                                <td>仄仄仄平平</td>
+                                <td>平起入韵，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颔联</td>
+                                <td>仄仄平平仄</td>
+                                <td>平平仄仄平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颈联</td>
+                                <td>平平平仄仄</td>
+                                <td>仄仄仄平平</td>
+                                <td>平起不入韵，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>尾联</td>
+                                <td>仄仄平平仄</td>
+                                <td>平平仄仄平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 七言律诗平仄格式 -->
+                <section class="format-section">
+                    <h2>七言律诗平仄格式</h2>
+                    
+                    <h3>平起首句入韵</h3>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>联</th>
+                                <th>上句</th>
+                                <th>下句</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>首联</td>
+                                <td>平平仄仄仄平平</td>
+                                <td>仄仄平平仄仄平</td>
+                                <td>平起入韵，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颔联</td>
+                                <td>仄仄平平平仄仄</td>
+                                <td>平平仄仄仄平平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颈联</td>
+                                <td>平平仄仄平平仄</td>
+                                <td>仄仄平平仄仄平</td>
+                                <td>平起不入韵，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>尾联</td>
+                                <td>仄仄平平平仄仄</td>
+                                <td>平平仄仄仄平平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>仄起首句不入韵</h3>
+                    <div class="format-table">
+                        <table>
+                            <tr>
+                                <th>联</th>
+                                <th>上句</th>
+                                <th>下句</th>
+                                <th>说明</th>
+                            </tr>
+                            <tr>
+                                <td>首联</td>
+                                <td>仄仄平平平仄仄</td>
+                                <td>平平仄仄仄平平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颔联</td>
+                                <td>平平仄仄平平仄</td>
+                                <td>仄仄平平仄仄平</td>
+                                <td>平起不入韵，仄起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>颈联</td>
+                                <td>仄仄平平平仄仄</td>
+                                <td>平平仄仄仄平平</td>
+                                <td>仄起不入韵，平起入韵</td>
+                            </tr>
+                            <tr>
+                                <td>尾联</td>
+                                <td>平平仄仄平平仄</td>
+                                <td>仄仄平平仄仄平</td>
+                                <td>平起不入韵，仄起入韵</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 词的平仄格式 -->
+                <section class="format-section">
+                    <h2>词的平仄格式</h2>
+                    <p>词的平仄格式比近体诗更加严格，不同的词牌有不同的平仄要求：</p>
+                    
+                    <h3>常见词牌平仄格式</h3>
+                    
+                    <h4>《如梦令》</h4>
+                    <p>（仄）仄（仄）平平仄，（仄）仄（仄）平平仄。<br>
+                    （仄）仄仄平平，（仄）仄（仄）平平仄。<br>
+                    平仄，平仄（叠句），（仄）仄（仄）平平仄。</p>
+                    
+                    <h4>《浣溪沙》</h4>
+                    <p>（仄）仄平平（仄）仄平，（平）平（仄）仄仄平平，（平）平（仄）仄仄平平。<br>
+                    （仄）仄（平）平平仄仄，（平）平（仄）仄仄平平，（平）平（仄）仄仄平平。</p>
+                    
+                    <h4>《菩萨蛮》</h4>
+                    <p>（平）平（仄）仄平平仄，（平）平（仄）仄平平仄。<br>
+                    （仄）仄仄平平，（仄）平平仄平。<br>
+                    （平）平平仄仄，（仄）仄平平仄。<br>
+                    （仄）仄仄平平，（仄）平平仄平。</p>
+                </section>
+
+                <!-- 曲的平仄格式 -->
+                <section class="format-section">
+                    <h2>曲的平仄格式</h2>
+                    <p>曲的平仄格式比词更加宽松，更加口语化：</p>
+                    
+                    <h3>常见曲牌平仄格式</h3>
+                    
+                    <h4>《天净沙》</h4>
+                    <p>（平）平（仄）仄平平，<br>
+                    （平）平（仄）仄平平，<br>
+                    （仄）仄平平仄仄。<br>
+                    （平）平（仄）仄，<br>
+                    （平）平（仄）仄平平。</p>
+                    
+                    <h4>《山坡羊》</h4>
+                    <p>（平）平（平）仄，（平）平（平）仄，<br>
+                    （平）平（仄）仄平平仄。<br>
+                    仄平平，仄平平，<br>
+                    （平）平（仄）仄平平仄，<br>
+                    （仄）仄（平）平平仄仄。<br>
+                    平，也仄仄；<br>
+                    平，也仄仄。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.format-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

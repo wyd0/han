@@ -1,0 +1,582 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纳西族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 纳西族页面特定样式 */
+        .naxi-header {
+            background-image: url('images/naxi-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .naxi-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .naxi-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .naxi-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .naxi-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .naxi-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .naxi-section {
+            margin-bottom: 60px;
+        }
+        
+        .naxi-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .naxi-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .naxi-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .naxi-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .naxi-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .naxi-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .naxi-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+            background-color: rgba(241, 241, 241, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 节日庆典样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .naxi-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .naxi-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .naxi-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .naxi-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .naxi-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .food-culture {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .food-culture.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-celebration {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .festival-celebration.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .naxi-header h1 {
+                font-size: 36px;
+            }
+            
+            .naxi-header p {
+                font-size: 18px;
+            }
+            
+            .naxi-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面顶部 -->
+    <section class="naxi-header">
+        <div class="container">
+            <div class="naxi-header-content">
+                <h1>纳西族文化</h1>
+                <p>东巴文化的传承者与丽江古城的守护者</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="naxi-main">
+        <div class="container">
+            <div class="naxi-content">
+                <!-- 纳西族文化概况 -->
+                <section class="naxi-section">
+                    <h2>纳西族文化概况</h2>
+                    <p>纳西族是中国的一个少数民族，主要分布在云南省丽江市、迪庆藏族自治州、大理白族自治州等地，少数分布在四川省盐源县、木里藏族自治县以及西藏自治区昌都市。纳西族自称"纳"、"纳西"、"摩梭"等，汉译为"纳西族"。</p>
+                    <p>纳西族有自己的语言——纳西语，属于汉藏语系藏缅语族彝语支。纳西族还有自己的文字——东巴文，东巴文是一种古老的象形文字，被称为"活着的象形文字"，是纳西族东巴文化的重要组成部分。</p>
+                    <p>纳西族文化具有悠久的历史和丰富的内涵，包括语言文字、宗教信仰、文学艺术、建筑风格等多个方面。纳西族人民热情好客、勤劳善良，在长期的历史发展过程中，创造了灿烂的民族文化，尤其是东巴文化，被称为"人类文明的活化石"。</p>
+                </section>
+                
+                <!-- 历史与起源 -->
+                <section class="naxi-section">
+                    <h2>历史与起源</h2>
+                    <p>关于纳西族的起源，学术界有多种说法，主要有以下几种：</p>
+                    <ul>
+                        <li><strong>氐羌说：</strong>认为纳西族是古代氐羌的后裔。据史料记载，古代氐羌主要分布在中国西北地区，后来由于战争等原因，逐渐南迁，经过甘肃、青海、四川等地，最终到达云南西部定居，并与当地的少数民族融合，形成了纳西族。</li>
+                        <li><strong>土著说：</strong>认为纳西族是丽江地区的土著民族。据考古发现，丽江地区早在新石器时代就有人类居住，这些原始居民可能就是纳西族的祖先。</li>
+                        <li><strong>多元融合说：</strong>认为纳西族是由多个民族融合而成的。在历史上，丽江地区先后有藏族、彝族、白族、汉族等多个民族居住，这些民族相互交流、融合，逐渐形成了纳西族。</li>
+                    </ul>
+                    <p>无论纳西族的起源如何，有一点是确定的，那就是纳西族是一个具有悠久历史的民族，其文化传承已有数千年的历史。在长期的历史发展过程中，纳西族人民与其他民族相互交流、融合，共同创造了绚丽的中华文化。</p>
+                </section>
+                
+                <!-- 文化方面 -->
+                <section class="naxi-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <a href="naxi-dongba.html" class="culture-item">
+                            <h5>东巴文化</h5>
+                            <p>东巴文化是纳西族的传统文化，包括东巴文、东巴经、东巴教、东巴艺术等多个方面。东巴文是一种古老的象形文字，共有1300多个单字，主要用于书写东巴经和东巴仪式。东巴经是纳西族的宗教经典，内容包括创世神话、历史传说、宗教仪式、医学知识等。东巴教是纳西族的原始宗教，信仰多神，包括自然神、祖先神、英雄神等。</p>
+                        </a>
+                        <a href="naxi-religion.html" class="culture-item">
+                            <h5>宗教信仰</h5>
+                            <p>纳西族的宗教信仰主要包括东巴教、藏传佛教、道教等。东巴教是纳西族的传统宗教，对纳西族的文化、风俗习惯、生活方式等产生了深远的影响。藏传佛教在纳西族地区也有广泛的影响，尤其是在丽江的永宁、中甸等地区，藏传佛教与东巴教相互融合，形成了独特的宗教文化。</p>
+                        </a>
+                        <a href="naxi-festival.html" class="culture-item">
+                            <h5>传统节日</h5>
+                            <p>纳西族的传统节日主要有三朵节、火把节、骡马会等。三朵节是纳西族最重要的传统节日，是为了纪念纳西族的保护神三朵而设立的。三朵节期间，纳西族人民会举行丰富多彩的庆祝活动，如祭祀三朵、歌舞表演、赛马、射箭等。</p>
+                        </a>
+                        <a href="naxi-music.html" class="culture-item">
+                            <h5>音乐舞蹈</h5>
+                            <p>纳西族的音乐舞蹈具有独特的民族风格。纳西族的民间音乐主要有纳西古乐、白沙细乐、民间歌谣等。纳西古乐是纳西族的传统音乐，被称为"音乐文化活化石"，主要包括道教音乐、佛教音乐等。纳西族的民间舞蹈主要有东巴舞、勒巴舞、热美蹉等，动作优美、节奏明快，充满了民族特色。</p>
+                        </a>
+                    </div>
+                </section>
+                
+                <!-- 服饰文化 -->
+                <section class="naxi-section">
+                    <h2>服饰文化</h2>
+                    <p>纳西族的传统服饰具有鲜明的民族特色，以黑、白、蓝为主要颜色，材质多为自制的土布或购买的棉布。纳西族服饰的款式和装饰因性别、年龄、地区等因素而有所不同。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/纳西族女装.jpg" alt="纳西族女装">
+                            <p>纳西族女装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/纳西族男装.jpg" alt="纳西族男装">
+                            <p>纳西族男装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/纳西族头饰.jpg" alt="纳西族头饰">
+                            <p>纳西族头饰</p>
+                        </div>
+                    </div>
+                    <h3>女装特点</h3>
+                    <p>纳西族妇女的传统服饰主要包括上衣、长裤、围裙、羊皮披肩等。上衣多为大襟宽袖短衫，颜色以黑色为主，领口、袖口、下摆等部位多绣有美丽的花纹图案。长裤多为长裤，裤脚宽大。围裙是纳西族妇女服饰的重要组成部分，颜色以蓝色或红色为主，上面绣有精美的花纹。羊皮披肩是纳西族妇女特有的服饰，由一块长方形的羊皮制成，上面绣有七个圆盘，象征着纳西族妇女勤劳能干、温柔贤惠的美德。</p>
+                    <h3>男装特点</h3>
+                    <p>纳西族男子的传统服饰相对简单，主要包括上衣、长裤、套裤等。上衣多为对襟短衫或长衫，颜色以黑色或蓝色为主。长裤多为长裤，裤脚较窄。套裤多为蓝色或红色的棉裤，上面绣有简单的花纹。</p>
+                    <h3>服饰的文化内涵</h3>
+                    <p>纳西族服饰不仅是一种实用的生活用品，更是纳西族文化的重要载体。纳西族服饰的颜色、图案、款式等都蕴含着丰富的文化内涵，反映了纳西族人民的审美观、宗教信仰、生活方式等。例如，纳西族妇女的七星羊皮，象征着纳西族妇女勤劳能干、温柔贤惠的美德；服饰上绣的花纹图案，象征着吉祥和平安。</p>
+                </section>
+                
+                <!-- 饮食文化 -->
+                <section class="naxi-section">
+                    <h2>饮食文化</h2>
+                    <div class="food-culture">
+                        <h3>饮食习俗</h3>
+                        <p>纳西族人民的饮食以大米、玉米、小麦为主食，辅以荞麦、燕麦等杂粮。纳西族人民喜欢吃酸、辣、甜的食物，其中酸梅汤、丽江粑粑、鸡豆凉粉等是纳西族饮食中的重要组成部分。</p>
+                        <h3>特色美食</h3>
+                        <ul>
+                            <li><strong>酸梅汤：</strong>是纳西族最著名的特色美食之一。以青梅、红糖为主要原料，加入各种调料配制而成。酸梅汤酸甜可口，具有开胃消食、增进食欲的功效。</li>
+                            <li><strong>丽江粑粑：</strong>是纳西族的传统名点，以面粉、猪油、鸡蛋、糖等为主要原料，经发酵、烘焙等工序制作而成。丽江粑粑外酥内软、香甜可口，是纳西族人民喜爱的食品之一。</li>
+                            <li><strong>鸡豆凉粉：</strong>是纳西族的传统名吃，以鸡豆、水、醋、辣椒等为主要原料，经浸泡、磨浆、煮熟、冷却等工序制作而成。鸡豆凉粉口感细腻、酸辣可口，是纳西族人民喜爱的消暑食品。</li>
+                            <li><strong>纳西烤肉：</strong>是纳西族的传统名菜，以猪肉、牛肉、羊肉等为主要原料，经腌制、烘焙等工序制作而成。纳西烤肉香气扑鼻、肉质鲜嫩，是纳西族人民招待客人的必备美食。</li>
+                        </ul>
+                        <h3>饮食礼仪</h3>
+                        <p>纳西族人民非常注重饮食礼仪，在饮食过程中有许多禁忌和讲究。例如，在吃饭时，长辈要先入席，晚辈要后入中；长辈动筷后，晚辈才能动筷；长辈说话后，晚辈才能说话；吃饭时不能说话、不能敲碗；饭后要向长辈表示感谢等。此外，纳西族人民在招待客人时，会准备丰盛的饭菜，让客人坐在上席，体现了纳西族人民热情好客、尊老爱幼的传统美德。</p>
+                    </div>
+                </section>
+                
+                <!-- 节日庆典 -->
+                <section class="naxi-section">
+                    <h2>节日庆典</h2>
+                    <div class="festival-celebration">
+                        <h3>三朵节</h3>
+                        <p>三朵节是纳西族最重要的传统节日，是为了纪念纳西族的保护神三朵而设立的。三朵节的日期为每年的农历二月初八，为期三天。</p>
+                        <p>三朵节期间，纳西族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀三朵：</strong>三朵节的第一天，纳西族人民会前往北岳庙或东巴庙祭祀三朵，祈求三朵神保佑纳西族人民平安幸福、五谷丰登。</li>
+                            <li><strong>歌舞表演：</strong>三朵节期间，纳西族人民会聚集在一起，唱歌跳舞，欢度节日。他们唱的歌曲主要有纳西古乐、白沙细乐、民间歌谣等，跳的舞蹈主要有东巴舞、勒巴舞、热美蹉等。</li>
+                            <li><strong>赛马射箭：</strong>三朵节期间，纳西族人民会举行赛马、射箭等传统体育活动，展示纳西族人民的勇敢和力量。</li>
+                            <li><strong>物资交流：</strong>三朵节期间，纳西族人民会举行物资交流活动，交换各种生产资料和生活用品，促进经济发展。</li>
+                        </ul>
+                        
+                        <h3>火把节</h3>
+                        <p>火把节是纳西族的传统节日，日期为每年的农历六月二十四日。火把节是为了纪念纳西族的英雄神，同时也是为了祈求丰收和平安。</p>
+                        <p>火把节期间，纳西族人民会举行点燃火把、歌舞表演、赛马射箭等活动。点燃火把是火把节的重要仪式之一，纳西族人民会用松明、竹子等制作火把，在晚上点燃火把，围绕着村庄或田野行走，祈求丰收和平安。</p>
+                        
+                        <h3>骡马会</h3>
+                        <p>骡马会是纳西族的传统节日，日期为每年的农历七月二十五日。骡马会是纳西族人民的物资交流大会，主要交易各种生产工具和生活用品。</p>
+                        <p>骡马会期间，纳西族人民会从四面八方聚集到丽江古城，出售和购买各种生产工具和生活用品，如骡马、犁、耙、锅、碗等。此外，骡马会期间还会举行各种文化活动，如歌舞表演、戏剧演出等，热闹非凡。</p>
+                    </div>
+                </section>
+                
+                <!-- 文学与艺术 -->
+                <section class="naxi-section">
+                    <h2>文学与艺术</h2>
+                    <h3>民间文学</h3>
+                    <p>纳西族的民间文学非常丰富，包括神话传说、民间故事、歌谣谚语等多种类型。这些民间文学作品反映了纳西族人民的历史、文化、生活和思想情感，是纳西族文化的重要组成部分。</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>纳西族的神话传说主要包括创世神话、人类起源神话、洪水神话等。例如，《创世纪》是纳西族最著名的创世神话，讲述了纳西族的祖先从混沌中诞生，创造天地万物的故事。</li>
+                        <li><strong>民间故事：</strong>纳西族的民间故事情节生动、语言朴实，包括爱情故事、生活故事、动物故事等。这些故事充满了民族特色和生活气息。</li>
+                        <li><strong>歌谣谚语：</strong>纳西族的歌谣数量众多，内容丰富。歌谣包括劳动歌、情歌、叙事歌、仪式歌等多种类型，歌词优美、旋律动人。谚语则是纳西族人民在长期的生产生活实践中总结出来的经验和智慧，语言简练、寓意深刻。</li>
+                    </ul>
+                    
+                    <h3>传统艺术</h3>
+                    <p>纳西族的传统艺术形式多样，包括音乐、舞蹈、绘画、雕刻、刺绣等。</p>
+                    <ul>
+                        <li><strong>音乐：</strong>纳西族的传统音乐主要包括纳西古乐、白沙细乐、民间歌谣等。纳西古乐是纳西族的传统音乐，被称为"音乐文化活化石"，主要包括道教音乐、佛教音乐等。白沙细乐是纳西族的古典音乐，起源于元代，主要包括器乐演奏、声乐演唱等。</li>
+                        <li><strong>舞蹈：</strong>纳西族的传统舞蹈主要包括东巴舞、勒巴舞、热美蹉等。东巴舞是纳西族的宗教舞蹈，主要用于东巴仪式；勒巴舞是纳西族的民间舞蹈，主要用于庆祝节日和丰收；热美蹉是纳西族的集体舞蹈，动作简单、节奏明快，适合大众参与。</li>
+                        <li><strong>绘画：</strong>纳西族的传统绘画主要包括东巴画、壁画等。东巴画是纳西族的宗教绘画，主要用于装饰东巴经和东巴仪式场所，内容包括神灵、鬼怪、动物、植物等。壁画主要用于装饰寺庙和民居，内容包括宗教故事、历史传说、生活场景等。</li>
+                        <li><strong>雕刻：</strong>纳西族的传统雕刻主要包括木雕、石雕等。这些雕刻作品造型优美、工艺精湛，主要用于装饰寺庙、民居和家具。</li>
+                        <li><strong>刺绣：</strong>纳西族的传统刺绣主要用于装饰服饰、背包、钱包等物品。刺绣图案多为花卉、动物和几何图形，色彩鲜艳、线条流畅，具有很高的审美价值。</li>
+                    </ul>
+                </section>
+                
+                <!-- 对中华文化的影响 -->
+                <section class="naxi-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>纳西族作为中华民族大家庭的一员，其文化对中华文化的发展和繁荣做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>东巴文化：</strong>纳西族的东巴文化是中华文化的重要组成部分，尤其是东巴文，作为一种古老的象形文字，对研究中国古代文字的演变和发展具有重要意义。东巴经中保存了大量的古代文化信息，如创世神话、历史传说、宗教仪式、医学知识等，为研究中国古代文化提供了珍贵的资料。</li>
+                        <li><strong>音乐舞蹈：</strong>纳西族的音乐舞蹈具有独特的民族风格，如纳西古乐、白沙细乐、东巴舞等，这些艺术形式丰富了中华文化的艺术宝库，促进了中华文化的多样性和繁荣。</li>
+                        <li><strong>建筑风格：</strong>纳西族的建筑风格具有独特的民族特色，如丽江古城的土木结构建筑、四合五天井等，这些建筑风格丰富了中华文化的建筑宝库，促进了中华文化的多样性和繁荣。丽江古城已被列入世界文化遗产名录，成为中华文化的重要代表之一。</li>
+                        <li><strong>民族团结：</strong>纳西族人民与其他民族在长期的历史发展过程中，相互交流、融合，形成了团结互助、和谐共处的良好关系。这种民族间的团结精神，是中华文化的重要组成部分，也是中华民族凝聚力的重要来源。</li>
+                    </ul>
+                    <p>总之，纳西族文化是中华文化的重要组成部分，其独特的东巴文化、音乐舞蹈、建筑风格等，丰富了中华文化的内涵，促进了中华文化的多样性和繁荣。我们应该尊重和保护纳西族文化，促进纳西族文化的传承和发展，共同推动中华文化的繁荣和进步。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

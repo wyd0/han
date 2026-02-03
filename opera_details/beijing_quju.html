@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京曲剧 - 汉韵风华</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* 剧种详情页面特定样式 */
+        body {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .opera-detail-header {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .opera-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .opera-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opera-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .opera-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .opera-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .opera-detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .opera-detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .opera-detail-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-detail-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 40px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .opera-detail-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .opera-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .opera-detail-content li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .opera-detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .opera-detail-content blockquote {
+            border-left: 4px solid #c0392b;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .opera-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .opera-detail-header p {
+                font-size: 18px;
+            }
+            
+            .opera-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .opera-detail-section h3 {
+                font-size: 22px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../culture.html">传统文化</a></li>
+                    <li><a href="../clothing.html">中国服饰</a></li>
+                    <li><a href="../difference.html">文化区别</a></li>
+                    <li><a href="../index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="opera-detail-header">
+        <div class="container">
+            <div class="opera-detail-header-content">
+                <h1>北京曲剧</h1>
+                <p>北京地方戏曲剧种</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="../opera_regional.html" class="back-link">返回戏曲地域分类</a>
+                    <a href="../opera_detail.html" class="back-link">返回戏曲艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="opera-detail-main">
+        <div class="container">
+            <div class="opera-detail-content">
+                <!-- 剧种概述 -->
+                <section class="opera-detail-section">
+                    <h2>剧种概述</h2>
+                    <p>北京曲剧，是北京地区特有的地方戏曲剧种，形成于20世纪50年代。它以北京方言为基础，吸收了单弦、大鼓等说唱艺术元素，结合了京剧、昆曲等传统戏曲的表演形式，形成了独特的艺术风格。北京曲剧的唱腔优美动听，表演细腻传神，深受北京观众的喜爱。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="opera-detail-section">
+                    <h2>起源与发展</h2>
+                    <h3>起源</h3>
+                    <p>北京曲剧的起源可以追溯到20世纪40年代末，当时一些单弦、大鼓等说唱艺人开始尝试将说唱艺术与戏曲表演相结合。1952年，北京市曲艺团正式成立，开始对这种新的艺术形式进行探索和研究。1953年，他们创作了第一部北京曲剧《柳树井》，标志着北京曲剧的正式诞生。</p>
+                    
+                    <h3>发展</h3>
+                    <p>北京曲剧的发展经历了几个重要阶段：</p>
+                    <ul>
+                        <li><strong>形成期（1952-1966）</strong>：北京市曲艺团成立后，创作了《柳树井》、《罗汉钱》、《杨乃武与小白菜》等一批优秀剧目，奠定了北京曲剧的艺术基础。</li>
+                        <li><strong>停滞期（1966-1976）</strong>：文化大革命期间，北京曲剧的发展受到严重影响，几乎停止了创作和演出。</li>
+                        <li><strong>恢复期（1976-1990）</strong>：文化大革命结束后，北京曲剧开始恢复创作和演出，创作了《箭杆河边》、《泪血樱花》等剧目。</li>
+                        <li><strong>创新期（1990至今）</strong>：北京曲剧进入了创新发展的阶段，创作了《烟壶》、《龙须沟》、《茶馆》等一批具有时代特色的剧目，同时也对传统剧目进行了整理和改编。</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="opera-detail-section">
+                    <h2>艺术特点</h2>
+                    <h3>唱腔</h3>
+                    <p>北京曲剧的唱腔以单弦、大鼓等说唱艺术为基础，结合了北京方言的语音特点，形成了独特的唱腔风格。北京曲剧的唱腔旋律优美，节奏明快，富有北京地方特色。</p>
+                    
+                    <h3>表演</h3>
+                    <p>北京曲剧的表演吸收了京剧、昆曲等传统戏曲的表演形式，同时也借鉴了话剧、歌剧等现代戏剧的表演方法，形成了细腻传神、贴近生活的表演风格。北京曲剧的表演注重人物性格的刻画，强调真实感和生活气息。</p>
+                    
+                    <h3>舞台美术</h3>
+                    <p>北京曲剧的舞台美术简洁明快，注重营造生活氛围。北京曲剧的服装和道具都比较贴近生活，反映了北京的地方特色和时代特点。</p>
+                </section>
+
+                <!-- 行当 -->
+                <section class="opera-detail-section">
+                    <h2>行当</h2>
+                    <p>北京曲剧的角色行当比较简单，主要分为生、旦、净、丑四个行当，但不像京剧那样严格区分。北京曲剧的演员通常需要扮演多种角色，注重表演的真实性和生活气息。</p>
+                    
+                    <h3>生行</h3>
+                    <p>生行扮演男性角色，包括老生、小生、武生等。</p>
+                    
+                    <h3>旦行</h3>
+                    <p>旦行扮演女性角色，包括青衣、花旦、老旦等。</p>
+                    
+                    <h3>净行</h3>
+                    <p>净行扮演性格刚烈、粗犷的男性角色。</p>
+                    
+                    <h3>丑行</h3>
+                    <p>丑行扮演滑稽、幽默的角色。</p>
+                </section>
+
+                <!-- 代表剧目 -->
+                <section class="opera-detail-section">
+                    <h2>代表剧目</h2>
+                    <p>北京曲剧的代表剧目包括：</p>
+                    <ul>
+                        <li><strong>传统剧目</strong>：《柳树井》、《罗汉钱》、《杨乃武与小白菜》、《啼笑因缘》等。</li>
+                        <li><strong>现代剧目</strong>：《箭杆河边》、《泪血樱花》、《烟壶》、《龙须沟》、《茶馆》等。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典戏词 -->
+                <section class="opera-detail-section">
+                    <h2>经典戏词</h2>
+                    
+                    <h3>《柳树井》</h3>
+                    <blockquote>
+                        <p>柳树井，柳树井，千年的古井万年的情。井水清，井水明，照见了人间的善恶情。</p>
+                        <footer>—— 唱段</footer>
+                    </blockquote>
+                    
+                    <h3>《烟壶》</h3>
+                    <blockquote>
+                        <p>小小烟壶藏乾坤，妙手丹青绘古今。人间百态壶中现，是非善恶自分明。</p>
+                        <footer>—— 唱段</footer>
+                    </blockquote>
+                    
+                    <h3>《龙须沟》</h3>
+                    <blockquote>
+                        <p>龙须沟，臭水沟，晴天臭气熏人走，雨天积水没膝头。如今政府来整治，沟变清流人变愁。</p>
+                        <footer>—— 唱段</footer>
+                    </blockquote>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../culture.html">传统文化</a></li>
+                        <li><a href="../clothing.html">中国服饰</a></li>
+                        <li><a href="../difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.opera-detail-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江西诗派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/江西诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        .genre-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/江西诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.1));
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease;
+        }
+        
+        .genre-header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+        
+        .genre-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            margin: 50px auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+        }
+        
+        .genre-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .genre-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .genre-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #8B4513;
+            border-radius: 2px;
+        }
+        
+        .genre-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            border-left: 4px solid #8B4513;
+            padding-left: 15px;
+        }
+        
+        .genre-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .genre-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .genre-section ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .genre-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        
+        .poem-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .poem-example h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: left;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 派别导航栏样式 */
+        .genre-nav {
+            background-color: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(206, 212, 218, 0.3);
+        }
+        
+        .genre-nav h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .genre-nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .genre-nav-menu li {
+            flex: 0 0 auto;
+        }
+        
+        .genre-nav-menu a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+        
+        .genre-nav-menu a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            border-color: #c0392b;
+        }
+        
+        .genre-nav-menu a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .genre-header {
+                padding: 80px 0;
+            }
+            
+            .genre-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .genre-header p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .genre-content {
+                padding: 30px 20px;
+                margin: 30px 20px;
+            }
+            
+            .genre-section h2 {
+                font-size: 2rem;
+            }
+            
+            .genre-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .genre-section p,
+            .genre-section ul li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 20px;
+            }
+            
+            .poem-example h4 {
+                font-size: 1.1rem;
+            }
+            
+            .back-link {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .genre-nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .genre-nav-menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: #A0522D;
+            transform: scale(1.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>江西诗派</h1>
+                <p>点铁成金，夺胎换骨的诗歌流派</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                    <a href="poetry_categories.html" class="back-link">诗歌分类</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="genre-main">
+        <div class="container">
+            <div class="genre-content">
+                <!-- 派别导航栏 -->
+                <div class="genre-nav">
+                    <h3>诗歌派别导航</h3>
+                    <ul class="genre-nav-menu">
+                        <li><a href="genre_landscape_detail.html">山水田园诗派</a></li>
+                        <li><a href="genre_frontier_detail.html">边塞诗派</a></li>
+                        <li><a href="genre_romantic_detail.html">浪漫主义诗派</a></li>
+                        <li><a href="genre_realistic_detail.html">现实主义诗派</a></li>
+                        <li><a href="genre_new_yuefu_detail.html">新乐府诗派</a></li>
+                        <li><a href="genre_jiangxi_detail.html" class="active">江西诗派</a></li>
+                        <li><a href="genre_gongan_detail.html">公安派</a></li>
+                        <li><a href="genre_tongcheng_detail.html">桐城派</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 流派概述 -->
+                <section class="genre-section">
+                    <h2>流派概述</h2>
+                    <p>江西诗派是宋代影响最大的诗歌流派，以黄庭坚为创始人，因吕本中作《江西诗社宗派图》而得名。江西诗派主张"点铁成金"、"夺胎换骨"的诗歌创作方法，注重诗歌的艺术技巧和形式美，对后世诗歌产生了深远的影响。</p>
+                </section>
+
+                <!-- 历史发展 -->
+                <section class="genre-section">
+                    <h3>历史发展</h3>
+                    <p>江西诗派的发展是一个具有鲜明艺术特色的历史过程，经历了以下几个重要阶段：</p>
+                    <ul>
+                        <li><strong>萌芽阶段：北宋前期</strong>
+                            <p>江西诗派的萌芽可以追溯到北宋前期，当时文坛上流行的是西昆体诗歌，这种诗歌风格华丽，注重用典，但内容空洞。欧阳修、梅尧臣等诗人对西昆体进行了批判，提倡诗歌要反映现实，关注民生，为江西诗派的形成奠定了基础。</p>
+                        </li>
+                        <li><strong>形成阶段：北宋末年</strong>
+                            <p>江西诗派的形成始于北宋末年，由黄庭坚创立。黄庭坚是苏轼的学生，他在苏轼的基础上，进一步发展了诗歌的艺术技巧，提出了"点铁成金"、"夺胎换骨"的诗歌创作方法。这些方法强调对前人诗歌的借鉴和改造，通过对前人诗句的点化和改造，创造出新的诗歌意境和形象。</p>
+                            <p>黄庭坚的诗歌理论和创作实践得到了许多诗人的响应，形成了一个以黄庭坚为中心的诗歌流派。南宋初年，吕本中作《江西诗社宗派图》，以黄庭坚为宗主，列出了陈师道、潘大临、谢逸、洪刍、饶节、僧祖可、徐俯、洪朋、林敏修、洪炎、汪革、李錞、韩驹、李彭、晁冲之、江端本、杨符、谢薖、夏倪、林敏功、潘大观、何觊、王直方、僧善权、高荷等二十五人，江西诗派正式形成。</p>
+                        </li>
+                        <li><strong>发展阶段：南宋时期</strong>
+                            <p>江西诗派在南宋时期继续发展，出现了"一祖三宗"的说法，即把杜甫视为江西诗派的"一祖"，把黄庭坚、陈师道、陈与义视为"三宗"。这一说法强调了江西诗派对杜甫诗歌传统的继承，同时也确立了黄庭坚、陈师道、陈与义在江西诗派中的重要地位。</p>
+                            <p>陈与义是江西诗派在南宋时期的重要代表诗人，他的诗歌在继承黄庭坚、陈师道诗歌传统的基础上，又有新的发展，风格更加豪放洒脱，代表作有《登岳阳楼》、《襄邑道中》等。</p>
+                        </li>
+                        <li><strong>延续阶段：宋代以后</strong>
+                            <p>江西诗派的影响一直延续到宋代以后，成为中国诗歌史上一个重要的流派。元代的方回、明代的前后七子、清代的宋诗派等都受到了江西诗派的影响。方回在《瀛奎律髓》中进一步阐发了"一祖三宗"的说法，强调了江西诗派对杜甫诗歌传统的继承。前后七子主张"文必秦汉，诗必盛唐"，但他们的诗歌创作也受到了江西诗派的影响。清代的宋诗派则直接继承了江西诗派的诗歌传统，主张诗歌要学习宋诗，特别是江西诗派的诗歌。</p>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="genre-section">
+                    <h3>艺术特点</h3>
+                    <ul>
+                        <li><strong>点铁成金</strong>：江西诗派主张"点铁成金"，即通过对前人诗句的借鉴和改造，创造出新的诗歌意境和形象。</li>
+                        <li><strong>夺胎换骨</strong>：江西诗派主张"夺胎换骨"，即通过对前人诗意的理解和改造，创造出新的诗歌内容和形式。</li>
+                        <li><strong>注重艺术技巧</strong>：江西诗派注重诗歌的艺术技巧，讲究用典、对仗、韵律等，追求诗歌的形式美。</li>
+                        <li><strong>语言精练</strong>：江西诗派的诗歌语言精练，用词准确，表现力强。</li>
+                        <li><strong>风格奇崛</strong>：江西诗派的诗歌风格奇崛，意境深远，富有哲理性。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="genre-section">
+                    <h3>代表人物</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin: 40px 0;">
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/黄庭坚.jpg" alt="黄庭坚" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>黄庭坚</h4>
+                            <p>黄庭坚（1045年-1105年），字鲁直，号山谷道人，晚号涪翁，北宋著名诗人、书法家，江西诗派的创始人。他提出了"点铁成金"、"夺胎换骨"的诗歌创作方法，代表作有《登快阁》、《寄黄几复》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/陈师道.jpg" alt="陈师道" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>陈师道</h4>
+                            <p>陈师道（1053年-1102年），字履常，一字无己，号后山居士，北宋著名诗人，江西诗派的重要成员。他的诗风格朴拙，语言精练，注重意境的创造，代表作有《除夜对酒赠少章》、《春怀示邻里》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/陈与义.jpg" alt="陈与义" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>陈与义</h4>
+                            <p>陈与义（1090年-1139年），字去非，号简斋，南宋著名诗人，江西诗派的"三宗"之一。他的诗风格豪放，意境深远，代表作有《登岳阳楼》、《襄邑道中》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+                                <img src="images/吕本中.jpg" alt="吕本中" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>吕本中</h4>
+                            <p>吕本中（1084年-1145年），字居仁，号紫微，南宋著名诗人、评论家，江西诗派的重要成员。他作《江西诗社宗派图》，正式确立了江西诗派的名称和成员。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 经典作品 -->
+                <section class="genre-section">
+                    <h3>经典作品</h3>
+                    
+                    <div class="poem-example">
+                        <h4>《登快阁》（黄庭坚）</h4>
+                        <p>痴儿了却公家事，快阁东西倚晚晴。落木千山天远大，澄江一道月分明。朱弦已为佳人绝，青眼聊因美酒横。万里归船弄长笛，此心吾与白鸥盟。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《寄黄几复》（黄庭坚）</h4>
+                        <p>我居北海君南海，寄雁传书谢不能。桃李春风一杯酒，江湖夜雨十年灯。持家但有四立壁，治病不蕲三折肱。想见读书头已白，隔溪猿哭瘴溪藤。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《登岳阳楼》（陈与义）</h4>
+                        <p>洞庭之东江水西，帘旌不动夕阳迟。登临吴蜀横分地，徙倚湖山欲暮时。万里来游还望远，三年多难更凭危。白头吊古风霜里，老木沧波无限悲。</p>
+                    </div>
+                </section>
+
+                <!-- 流派影响 -->
+                <section class="genre-section">
+                    <h3>流派影响</h3>
+                    <p>江西诗派对中国后世诗歌和文化产生了深远的影响，具体表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>对后世诗人的影响</strong>
+                            <p>江西诗派的艺术风格和创作方法对后世诗人产生了重要影响。南宋的杨万里、范成大等诗人虽然在诗歌风格上与江西诗派有所不同，但他们的诗歌创作也受到了江西诗派的影响，注重诗歌的艺术技巧和形式美。元代的方回、明代的前后七子、清代的查慎行、厉鹗等诗人都受到了江西诗派的影响，他们的诗歌创作继承了江西诗派的艺术传统，注重诗歌的艺术技巧和形式美。</p>
+                        </li>
+                        <li><strong>对诗歌理论的影响</strong>
+                            <p>江西诗派的"点铁成金"、"夺胎换骨"的诗歌创作方法，对后世的诗歌理论产生了深远的影响，成为中国文学史上的重要理论遗产。这一方法强调对前人诗歌的借鉴和改造，通过对前人诗句的点化和改造，创造出新的诗歌意境和形象，为后世许多诗人所继承和发展。例如，清代的王士祯、袁枚等诗人就对江西诗派的诗歌理论进行了继承和发展，提出了自己的诗歌主张。</p>
+                        </li>
+                        <li><strong>对中国文化的影响</strong>
+                            <p>江西诗派的诗歌注重艺术技巧和形式美，丰富了中国诗歌的艺术表现力，成为中国文化的重要组成部分。江西诗派的许多经典作品，如黄庭坚的《登快阁》、《寄黄几复》等，至今仍被广泛传诵，成为中国文化的瑰宝。江西诗派所强调的诗歌艺术技巧和形式美，也成为中国诗歌的重要艺术传统，影响了后世许多诗人的诗歌创作。</p>
+                        </li>
+                        <li><strong>对世界文学的影响</strong>
+                            <p>江西诗派的作品被翻译成多种文字，在世界范围内广泛传播，为世界文学的发展做出了重要贡献。黄庭坚的诗歌被翻译成英语、法语、德语等多种语言，受到了世界各国读者的喜爱。江西诗派的艺术风格和创作方法也对世界文学产生了影响，如英国诗人艾略特、美国诗人庞德等都对中国的江西诗派表示了赞赏。</p>
+                        </li>
+                        <li><strong>对诗歌教育的影响</strong>
+                            <p>江西诗派的诗歌理论和创作实践对中国的诗歌教育产生了重要影响。江西诗派强调诗歌的艺术技巧和形式美，注重对前人诗歌的借鉴和学习，这种教育方法被后世许多诗歌教育者所继承和发展。例如，清代的科举考试中，诗歌创作是一个重要的内容，而江西诗派的诗歌理论和创作方法则成为科举考试中诗歌创作的重要指导。</p>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.innerHTML = '↑';
+            document.body.appendChild(backToTopBtn);
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

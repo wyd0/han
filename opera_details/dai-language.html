@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傣族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傣族语言文字页面特定样式 */
+        .dai-language-header {
+            background-image: url('images/傣族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .dai-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .dai-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dai-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .dai-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-dai {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-dai:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dai-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .dai-language-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .dai-language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dai-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-language-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .dai-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .dai-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .dai-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .dai-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点卡片 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 傣文示例 */
+        .dai-script-examples {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .example-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .example-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .example-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dai-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .dai-language-header p {
+                font-size: 18px;
+            }
+            
+            .dai-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .dai-language-section h3 {
+                font-size: 24px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="dai-language-header">
+        <div class="container">
+            <div class="dai-language-header-content">
+                <h1>傣族语言文字</h1>
+                <p>传承千年的水之语</p>
+                <a href="dai.html" class="back-dai">返回傣族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="dai-language-main">
+        <div class="container">
+            <div class="dai-language-content">
+                <!-- 语言概述 -->
+                <section class="dai-language-section">
+                    <h2>语言概述</h2>
+                    <p>傣族有自己的语言和文字，这是傣族文化的重要组成部分。傣语属于汉藏语系壮侗语族傣语支，是一种声调语言，有着丰富的词汇和语法结构。傣文是一种拼音文字，历史悠久，记录了傣族的历史、文化和宗教经典。</p>
+                    <p>傣语在不同地区有不同的方言，主要分为西双版纳方言、德宏方言和金平方言。这些方言在语音、词汇和语法上有一定的差异，但彼此之间可以相互理解。傣语与同语族的其他语言如壮语、布依语等有密切的关系。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="dai-language-section">
+                    <h2>语言特点</h2>
+                    
+                    <div class="language-features">
+                        <div class="feature-card">
+                            <h5>语音特点</h5>
+                            <p>傣语有5-6个声调，不同方言的声调数量和调值有所不同。傣语的声母和韵母系统比较丰富，有较多的复辅音和复元音。傣语的音节结构一般为声母+韵母+声调，音节界限清晰。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h5>词汇特点</h5>
+                            <p>傣语的词汇丰富，包括固有词、借词和派生词。固有词是傣语的核心词汇，借词主要来自汉语、梵语、巴利语等。傣语的词汇具有多音节化的趋势，通过合成和派生等方式构成新词。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h5>语法特点</h5>
+                            <p>傣语的语法以语序和虚词为主要表达手段，基本语序为SVO（主语-谓语-宾语）。傣语的名词有性别、数的范畴，动词有时态、体、态等语法范畴。傣语的修饰语一般位于中心语之后。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 傣文系统 -->
+                <section class="dai-language-section">
+                    <h2>傣文系统</h2>
+                    
+                    <h3>历史发展</h3>
+                    <p>傣文是一种历史悠久的文字，其起源可以追溯到古代印度的婆罗米文。在历史的发展过程中，傣文吸收了其他文字的优点，形成了自己独特的风格。根据不同的地区和历史时期，傣文可以分为几种不同的系统。</p>
+                    
+                    <h3>主要傣文系统</h3>
+                    <ul>
+                        <li><strong>西双版纳傣文：</strong>又称"傣仂文"，主要流行于西双版纳傣族自治州和普洱市的部分地区。西双版纳傣文有41个字母，其中辅音字母33个，元音字母8个。</li>
+                        <li><strong>德宏傣文：</strong>又称"傣那文"，主要流行于德宏傣族景颇族自治州和保山市的部分地区。德宏傣文有19个字母，其中辅音字母14个，元音字母5个。</li>
+                        <li><strong>金平傣文：</strong>又称"傣端文"，主要流行于红河哈尼族彝族自治州金平苗族瑶族傣族自治县。金平傣文有32个字母，其中辅音字母24个，元音字母8个。</li>
+                        <li><strong>新平傣文：</strong>又称"傣雅文"，主要流行于玉溪市新平彝族傣族自治县。新平傣文有30个字母，其中辅音字母22个，元音字母8个。</li>
+                    </ul>
+                </section>
+
+                <!-- 傣文示例 -->
+                <section class="dai-language-section">
+                    <h2>傣文示例</h2>
+                    
+                    <div class="dai-script-examples">
+                        <div class="example-item">
+                            <h5>西双版纳傣文</h5>
+                            <p><strong>傣文：</strong>ສວນສະບາຍ</p>
+                            <p><strong>发音：</strong>suan sabai</p>
+                            <p><strong>意思：</strong>你好</p>
+                        </div>
+                        <div class="example-item">
+                            <h5>德宏傣文</h5>
+                            <p><strong>傣文：</strong>ᥔᥦᥒᥰ ᥔᥣᥳ</p>
+                            <p><strong>发音：</strong>sai song</p>
+                            <p><strong>意思：</strong>谢谢</p>
+                        </div>
+                        <div class="example-item">
+                            <h5>常用语示例</h5>
+                            <p><strong>傣文：</strong>ຂ້ອຍຮັກເຈົ້າ</p>
+                            <p><strong>发音：</strong>khoy rak chao</p>
+                            <p><strong>意思：</strong>我爱你</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言使用现状 -->
+                <section class="dai-language-section">
+                    <h2>语言使用现状</h2>
+                    
+                    <h3>现代使用情况</h3>
+                    <p>在现代社会，傣语仍然是傣族人民日常生活中的主要语言，特别是在农村地区和传统社区。傣文在宗教活动、文化传承和教育中仍然发挥着重要作用。许多傣族的宗教经典、历史文献和文学作品都是用傣文记录的。</p>
+                    <p>随着社会的发展和现代化进程的推进，傣语和傣文面临着一些挑战。在城市地区，越来越多的傣族年轻人开始使用汉语作为主要交流语言，傣文的使用范围也有所缩小。为了保护和传承傣语傣文，政府和社会各界采取了一系列措施，如在学校开设傣语课程、出版傣文书籍和报纸、建立傣文网站等。</p>
+                    
+                    <h3>保护与传承</h3>
+                    <p>傣语傣文是傣族文化的重要载体，保护和传承傣语傣文对于弘扬傣族文化、维护文化多样性具有重要意义。目前，傣语傣文的保护和传承工作主要包括以下几个方面：</p>
+                    <ul>
+                        <li>在傣族地区的学校开设傣语课程，培养学生的傣语能力</li>
+                        <li>编纂傣语词典、语法书等工具书，规范傣语的使用</li>
+                        <li>出版傣文书籍、报纸和杂志，扩大傣文的使用范围</li>
+                        <li>利用现代媒体和技术，如广播、电视、互联网等，传播傣语傣文</li>
+                        <li>开展傣语傣文的研究和学术交流，提高傣语傣文的学术地位</li>
+                        <li>加强对傣族传统口头文学的记录和整理，利用傣文保存这些文化遗产</li>
+                    </ul>
+                </section>
+
+                <!-- 语言与文化的关系 -->
+                <section class="dai-language-section">
+                    <h2>语言与文化的关系</h2>
+                    
+                    <h3>语言是文化的载体</h3>
+                    <p>傣语傣文是傣族文化的重要载体，反映了傣族的历史、社会、宗教、艺术等各个方面。傣族的许多文化元素，如民间故事、诗歌、谚语、宗教经典等，都是通过傣语傣文传承下来的。傣语中的许多词汇和表达方式，都体现了傣族人民的生活方式、价值观念和审美情趣。</p>
+                    <p>例如，傣语中有许多与水相关的词汇和表达方式，反映了傣族人民对水的崇拜和依赖。傣语中的许多宗教词汇来自梵语和巴利语，反映了佛教对傣族文化的影响。傣语中的许多农业词汇，反映了傣族人民的农业生产经验和知识。</p>
+                    
+                    <h3>文化对语言的影响</h3>
+                    <p>傣族的文化传统也对傣语的发展产生了深远的影响。例如，傣族的宗教信仰、节日庆典、礼仪习俗等，都为傣语增添了丰富的词汇和表达方式。傣族的文学艺术，如诗歌、故事、谚语等，也丰富了傣语的表达能力和表现力。</p>
+                    <p>傣族的历史发展和社会变迁，也影响了傣语的演变。例如，傣族与汉族等其他民族的交流，为傣语带来了许多借词。傣族社会的现代化进程，也促使傣语不断吸收新词汇，以适应现代社会的需要。</p>
+                </section>
+
+                <!-- 未来发展展望 -->
+                <section class="dai-language-section">
+                    <h2>未来发展展望</h2>
+                    <p>在全球化和现代化的背景下，傣语傣文面临着机遇和挑战。一方面，现代科技和媒体为傣语傣文的传播和发展提供了新的手段和平台；另一方面，强势语言的影响和文化同质化的趋势，也对傣语傣文的生存和发展构成了威胁。</p>
+                    <p>为了确保傣语傣文的可持续发展，我们需要采取以下措施：</p>
+                    <ul>
+                        <li>加强傣语傣文的教育和推广，提高傣族人民的语言文字意识</li>
+                        <li>利用现代科技和媒体，创新傣语傣文的传播方式和手段</li>
+                        <li>加强傣语傣文的规范化和标准化建设，提高其适应现代社会的能力</li>
+                        <li>促进傣语傣文与其他语言文字的交流和互鉴，丰富其内涵和表现力</li>
+                        <li>加强对傣语傣文的研究和保护，为其发展提供学术支持</li>
+                    </ul>
+                    <p>相信在政府、社会各界和傣族人民的共同努力下，傣语傣文一定能够在现代社会中继续发挥重要作用，为傣族文化的传承和发展做出贡献，为中华文化的多样性增添光彩。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面特定的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.dai-language-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

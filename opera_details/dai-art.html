@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傣族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傣族文学艺术页面特定样式 */
+        .dai-art-header {
+            background-image: url('images/傣族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .dai-art-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .dai-art-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dai-art-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .dai-art-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-dai {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-dai:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dai-art-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .dai-art-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .dai-art-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dai-art-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-art-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-art-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dai-art-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .dai-art-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .dai-art-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .dai-art-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .dai-art-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术特点卡片 */
+        .art-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 艺术形式详情 */
+        .art-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .art-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .art-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .art-card h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 文学作品示例 */
+        .literature-examples {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .example-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .example-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .example-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dai-art-header h1 {
+                font-size: 36px;
+            }
+            
+            .dai-art-header p {
+                font-size: 18px;
+            }
+            
+            .dai-art-section h2 {
+                font-size: 28px;
+            }
+            
+            .dai-art-section h3 {
+                font-size: 24px;
+            }
+            
+            .art-features,
+            .art-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="dai-art-header">
+        <div class="container">
+            <div class="dai-art-header-content">
+                <h1>傣族文学艺术</h1>
+                <p>孔雀般绚丽的文化瑰宝</p>
+                <a href="dai.html" class="back-dai">返回傣族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="dai-art-main">
+        <div class="container">
+            <div class="dai-art-content">
+                <!-- 文学艺术概述 -->
+                <section class="dai-art-section">
+                    <h2>文学艺术概述</h2>
+                    <p>傣族是一个有着悠久历史和灿烂文化的民族，其文学艺术丰富多彩，独具特色。傣族的文学艺术是其文化的重要组成部分，反映了傣族的历史、社会、宗教信仰和价值观念，是傣族人民智慧的结晶。</p>
+                    <p>傣族的文学艺术形式多样，包括民间文学、音乐、舞蹈、绘画、雕刻、织锦等。这些艺术形式相互融合，相互影响，共同构成了傣族独特的文化景观。傣族的文学艺术不仅在国内享有盛誉，在国际上也受到了广泛的关注和赞赏。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="dai-art-section">
+                    <h2>民间文学</h2>
+                    
+                    <h3>民间故事</h3>
+                    <p>傣族的民间故事丰富多彩，题材广泛，包括神话传说、爱情故事、生活故事、动物故事等。这些故事反映了傣族人民的生活和思想，表达了他们对美好生活的向往和对邪恶势力的憎恨。</p>
+                    
+                    <div class="literature-examples">
+                        <div class="example-item">
+                            <h5>《召树屯》</h5>
+                            <p>《召树屯》是傣族最著名的民间故事之一，讲述了傣族王子召树屯与孔雀公主喃穆诺娜的爱情故事。故事情节曲折动人，充满了浪漫主义色彩，表达了傣族人民对真挚爱情的向往和追求。</p>
+                        </div>
+                        <div class="example-item">
+                            <h5>《千瓣莲花》</h5>
+                            <p>《千瓣莲花》是傣族的另一个著名民间故事，讲述了一个善良的青年与千瓣莲花变成的姑娘之间的爱情故事。故事通过曲折的情节，表达了傣族人民对善良、勇敢和忠贞爱情的赞美。</p>
+                        </div>
+                        <div class="example-item">
+                            <h5>《金鹿》</h5>
+                            <p>《金鹿》是傣族的一个动物故事，讲述了一只金鹿与猎人之间的故事。故事通过金鹿的善良和猎人的贪婪对比，表达了傣族人民对善良、宽容的赞美和对贪婪、邪恶的谴责。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>诗歌</h3>
+                    <p>傣族的诗歌历史悠久，形式多样，包括古歌谣、叙事诗、抒情诗等。傣族的诗歌语言优美，韵律和谐，富有表现力。</p>
+                    <p>古歌谣是傣族最古老的诗歌形式，通常是简短的四句或八句，内容多与劳动、爱情、生活有关。叙事诗是傣族诗歌的重要形式，通常篇幅较长，内容多为英雄故事、爱情故事等。抒情诗则主要表达个人的情感和感受，内容多为对自然、爱情、生活的赞美。</p>
+                    
+                    <h3>谚语和谜语</h3>
+                    <p>傣族的谚语和谜语是其民间文学的重要组成部分，反映了傣族人民的生活经验和智慧。</p>
+                    <p>傣族的谚语简洁明了，富有哲理，通常以通俗易懂的语言表达深刻的道理。例如："水涨船高，柴多火旺"、"只要功夫深，铁杵磨成针"等。傣族的谜语生动有趣，富有想象力，通常以自然现象、动物、植物等为谜底，通过形象的描述引导人们猜测。</p>
+                </section>
+
+                <!-- 音乐与舞蹈 -->
+                <section class="dai-art-section">
+                    <h2>音乐与舞蹈</h2>
+                    
+                    <h3>传统音乐</h3>
+                    <p>傣族的传统音乐丰富多彩，形式多样，包括民间歌曲、器乐演奏等。傣族的音乐风格独特，旋律优美，节奏明快，富有热带风情。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>民间歌曲</h5>
+                            <p>傣族的民间歌曲题材广泛，包括劳动歌、爱情歌、生活歌、仪式歌等。劳动歌是傣族人民在劳动过程中创作的歌曲，节奏明快，富有节奏感，能够激发劳动热情。爱情歌是傣族人民表达爱情的歌曲，旋律优美，情感真挚。生活歌是傣族人民反映日常生活的歌曲，内容丰富多彩，形式多样。仪式歌是傣族人民在宗教仪式、节日庆典等场合演唱的歌曲，庄重肃穆，富有宗教色彩。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>传统乐器</h5>
+                            <p>傣族的传统乐器种类繁多，包括打击乐器、弦乐器、管乐器等。打击乐器主要有象脚鼓、铓锣、镲等；弦乐器主要有牛腿琴、葫芦丝等；管乐器主要有竹笛、洞箫等。其中，象脚鼓和葫芦丝是傣族最具代表性的乐器。象脚鼓是傣族的传统打击乐器，形状像象脚，声音洪亮，节奏明快，是傣族音乐的重要组成部分。葫芦丝是傣族的传统吹奏乐器，音色优美，表现力丰富，是傣族音乐的代表性乐器之一。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>传统舞蹈</h3>
+                    <p>傣族的传统舞蹈丰富多彩，形式多样，包括孔雀舞、象脚鼓舞、刀舞、拳舞等。傣族的舞蹈风格独特，动作优美，节奏明快，富有热带风情。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>孔雀舞</h5>
+                            <p>孔雀舞是傣族最著名的传统舞蹈，以其优美的舞姿和精湛的技艺闻名中外。孔雀舞模仿孔雀的各种动作，如开屏、理羽、饮水、飞翔等，动作优美，姿态万千。孔雀舞通常在节日庆典、宗教仪式等场合表演，是傣族文化的重要象征。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>象脚鼓舞</h5>
+                            <p>象脚鼓舞是傣族的传统舞蹈之一，以象脚鼓为主要伴奏乐器。象脚鼓舞的动作粗犷有力，节奏明快，富有阳刚之气。象脚鼓舞通常在节日庆典、丰收庆祝等场合表演，是傣族人民表达喜悦之情的重要方式。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>刀舞</h5>
+                            <p>刀舞是傣族的传统舞蹈之一，以刀为主要道具。刀舞的动作矫健有力，节奏明快，富有战斗气息。刀舞通常在节日庆典、宗教仪式等场合表演，是傣族人民展示勇敢和力量的重要方式。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>拳舞</h5>
+                            <p>拳舞是傣族的传统舞蹈之一，以拳术为主要动作元素。拳舞的动作刚柔相济，节奏明快，富有健身价值。拳舞通常在节日庆典、宗教仪式等场合表演，是傣族人民展示武术技能和健身意识的重要方式。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 绘画与雕刻 -->
+                <section class="dai-art-section">
+                    <h2>绘画与雕刻</h2>
+                    
+                    <h3>传统绘画</h3>
+                    <p>傣族的传统绘画历史悠久，形式多样，包括壁画、帛画、纸画等。傣族的绘画风格独特，色彩鲜艳，线条流畅，富有装饰性。</p>
+                    <p>壁画是傣族传统绘画的重要形式，主要绘制在佛寺、佛塔等宗教建筑的墙壁上。壁画的内容多与佛教有关，包括佛陀的本生故事、佛教传说、佛教教义等。壁画的色彩鲜艳，线条流畅，人物形象生动，是傣族绘画艺术的重要代表。</p>
+                    <p>帛画和纸画是傣族传统绘画的另一种形式，主要绘制在布帛和纸上。帛画和纸画的内容丰富多样，包括人物、动物、植物、风景等。帛画和纸画的色彩鲜艳，线条流畅，富有装饰性，是傣族人民日常生活中的重要装饰品。</p>
+                    
+                    <h3>传统雕刻</h3>
+                    <p>傣族的传统雕刻历史悠久，形式多样，包括木雕、竹雕、石雕、银雕等。傣族的雕刻风格独特，工艺精湛，富有装饰性。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>木雕</h5>
+                            <p>木雕是傣族传统雕刻的重要形式，主要用于佛寺、佛塔等宗教建筑的装饰，以及制作家具、工艺品等。傣族的木雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。木雕的风格独特，线条流畅，富有装饰性，是傣族雕刻艺术的重要代表。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>竹雕</h5>
+                            <p>竹雕是傣族传统雕刻的另一种形式，主要用于制作竹器、工艺品等。傣族的竹雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。竹雕的风格独特，线条流畅，富有装饰性，是傣族人民日常生活中的重要装饰品。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>石雕</h5>
+                            <p>石雕是傣族传统雕刻的另一种形式，主要用于佛寺、佛塔等宗教建筑的装饰，以及制作佛像、神像等。傣族的石雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。石雕的风格独特，线条流畅，富有装饰性，是傣族雕刻艺术的重要代表。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>银雕</h5>
+                            <p>银雕是傣族传统雕刻的另一种形式，主要用于制作银饰、工艺品等。傣族的银雕工艺精湛，题材广泛，包括人物、动物、植物、几何图案等。银雕的风格独特，线条流畅，富有装饰性，是傣族人民日常生活中的重要装饰品。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 织锦与手工艺 -->
+                <section class="dai-art-section">
+                    <h2>织锦与手工艺</h2>
+                    
+                    <h3>傣锦</h3>
+                    <p>傣锦是傣族传统的纺织工艺品，以其精美的图案和精湛的工艺闻名中外。傣锦的历史悠久，起源于汉代，经过千百年的发展，形成了独特的风格和工艺。</p>
+                    <p>傣锦的原料主要是棉线和丝线，图案丰富多彩，包括几何图案、花卉、动物、人物等。傣锦的工艺精湛，采用手工织机编织，需要经过设计图案、染色、经线、纬线、编织等多个工序。傣锦的色彩鲜艳，图案精美，质地柔软，是傣族人民日常生活中的重要装饰品，也是傣族文化的重要象征。</p>
+                    
+                    <h3>其他手工艺</h3>
+                    <p>傣族的手工艺种类繁多，除了织锦之外，还包括竹编、草编、陶艺等。</p>
+                    
+                    <div class="art-details">
+                        <div class="art-card">
+                            <h5>竹编</h5>
+                            <p>竹编是傣族传统的手工艺之一，主要用于制作竹篮、竹席、竹凳、竹桌等日常生活用品。傣族的竹编工艺精湛，图案精美，质地坚固，是傣族人民日常生活中的重要用品。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>草编</h5>
+                            <p>草编是傣族传统的手工艺之一，主要用于制作草帽、草席、草袋等日常生活用品。傣族的草编工艺精湛，图案精美，质地轻便，是傣族人民日常生活中的重要用品。</p>
+                        </div>
+                        <div class="art-card">
+                            <h5>陶艺</h5>
+                            <p>陶艺是傣族传统的手工艺之一，主要用于制作陶器、瓷器等日常生活用品。傣族的陶艺工艺精湛，造型美观，质地坚固，是傣族人民日常生活中的重要用品。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的现代发展 -->
+                <section class="dai-art-section">
+                    <h2>文学艺术的现代发展</h2>
+                    
+                    <h3>传统与现代的融合</h3>
+                    <p>在现代社会，傣族的文学艺术面临着新的挑战和机遇。随着社会的发展和现代化进程的推进，傣族的文学艺术也在不断演变和发展，呈现出传统与现代相结合的特点。</p>
+                    <p>一方面，傣族的传统文学艺术得到了保护和传承，如孔雀舞、象脚鼓舞、傣锦等传统艺术形式仍然在傣族社会中发挥着重要作用，并且被列入了国家非物质文化遗产名录。另一方面，傣族的文学艺术也在不断吸收现代元素，创新表现形式，如现代傣族音乐、现代傣族舞蹈、现代傣族文学等，这些新的艺术形式既保留了传统的元素，又融入了现代的元素，更加符合现代社会的审美需求。</p>
+                    
+                    <h3>保护与传承</h3>
+                    <p>傣族的文学艺术是其文化遗产的重要组成部分，保护和传承傣族的文学艺术对于弘扬傣族文化、维护文化多样性具有重要意义。目前，傣族文学艺术的保护和传承工作主要包括以下几个方面：</p>
+                    <ul>
+                        <li>加强对傣族传统文学艺术的调查和研究，整理和保存相关资料</li>
+                        <li>通过教育、媒体等方式宣传傣族的传统文学艺术，提高人们的认识和重视程度</li>
+                        <li>在学校开设傣族传统文学艺术课程，培养年轻一代的兴趣和爱好</li>
+                        <li>举办傣族传统文学艺术展览、表演等活动，增强人们的文化认同</li>
+                        <li>加强对傣族传统文学艺术传承人的培养和扶持，确保传统技艺的传承</li>
+                        <li>利用现代科技和媒体，创新傣族文学艺术的传播方式和手段</li>
+                    </ul>
+                    
+                    <h3>未来发展展望</h3>
+                    <p>在全球化和现代化的背景下，傣族的文学艺术面临着机遇和挑战。一方面，现代科技和媒体为傣族文学艺术的传播和发展提供了新的手段和平台；另一方面，强势文化的影响和文化同质化的趋势，也对傣族文学艺术的生存和发展构成了威胁。</p>
+                    <p>为了确保傣族文学艺术的可持续发展，我们需要采取以下措施：</p>
+                    <ul>
+                        <li>加强对傣族传统文学艺术的保护和传承，使其适应现代社会的需要</li>
+                        <li>促进傣族传统文学艺术与现代文化的交流和融合，丰富其内涵和表现力</li>
+                        <li>利用现代科技和媒体，创新傣族文学艺术的传播方式和手段</li>
+                        <li>加强对傣族文学艺术的研究和教育，提高其学术地位和社会认知</li>
+                        <li>鼓励傣族文学艺术的创新和发展，培养新的艺术形式和风格</li>
+                    </ul>
+                    <p>相信在政府、社会各界和傣族人民的共同努力下，傣族的文学艺术一定能够在现代社会中继续发挥重要作用，为傣族文化的传承和发展做出贡献，为中华文化的多样性增添光彩。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面特定的动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.dai-art-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

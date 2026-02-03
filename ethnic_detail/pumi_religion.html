@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普米族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 普米族宗教信仰页面特定样式 */
+        .pumi-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pumi-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .pumi-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pumi-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pumi-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .pumi-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .pumi-section {
+            margin-bottom: 80px;
+        }
+        
+        .pumi-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pumi-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pumi-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .pumi-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .pumi-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .pumi-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .pumi-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教仪式样式 */
+        .religion-rituals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .ritual-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .ritual-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .ritual-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .ritual-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .pumi-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .pumi-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .pumi-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .pumi-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .pumi-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .ritual-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .ritual-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .ritual-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .ritual-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .ritual-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .ritual-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .pumi-header h1 {
+                font-size: 36px;
+            }
+            
+            .pumi-header p {
+                font-size: 18px;
+            }
+            
+            .pumi-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-rituals {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="pumi-header">
+        <div class="container">
+            <div class="pumi-header-content">
+                <h1>普米族宗教信仰</h1>
+                <p>万物有灵的信仰体系，神秘的韩规仪式</p>
+                <a href="pumi.html" class="back-difference">返回普米族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="pumi-main">
+        <div class="container">
+            <div class="pumi-content">
+                <!-- 宗教信仰介绍 -->
+                <section class="pumi-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>普米族的宗教信仰是其文化的重要组成部分，主要体现为多神教信仰，相信万物有灵，崇尚自然神灵。这种信仰体系深深影响着普米族人民的日常生活、生产活动和社会习俗。</p>
+                    <p>普米族的宗教信仰体系主要包括以下几个方面：</p>
+                </section>
+
+                <!-- 多神教信仰 -->
+                <section class="pumi-section">
+                    <h3>多神教信仰</h3>
+                    <p>普米族是一个崇尚自然的民族，他们相信万物有灵，认为自然界中的一切事物都有神灵主宰。这种信仰体系被称为"万物有灵论"，是普米族宗教信仰的核心。</p>
+                    <p>普米族信仰的主要神灵包括：</p>
+                    <ul>
+                        <li><strong>天神：</strong>普米族信仰的最高神灵，主宰着天空和人间的一切。</li>
+                        <li><strong>地神：</strong>主宰着大地、农作物和家畜，是普米族农业生产的保护神。</li>
+                        <li><strong>山神：</strong>主宰着山林和狩猎，是普米族狩猎活动的保护神。</li>
+                        <li><strong>水神：</strong>主宰着水源和渔业，是普米族渔业活动的保护神。</li>
+                        <li><strong>祖先神：</strong>普米族相信祖先的灵魂会保佑后代，因此对祖先的祭祀非常重视。</li>
+                    </ul>
+                </section>
+
+                <!-- 韩规（巫师） -->
+                <section class="pumi-section">
+                    <h3>韩规（巫师）</h3>
+                    <p>韩规是普米族宗教活动的主持人，也是普米族文化的传承人。他们在普米族社会中具有很高的地位，被认为是人与神灵之间的中介。</p>
+                    <p>韩规的主要职责包括：</p>
+                    <ul>
+                        <li><strong>祭祀活动：</strong>主持各种祭祀仪式，如祖先祭祀、神灵祭祀等。</li>
+                        <li><strong>驱邪治病：</strong>通过宗教仪式驱除恶灵，为患者治病。</li>
+                        <li><strong>占卜预测：</strong>通过占卜预测吉凶祸福，为人们提供指导。</li>
+                        <li><strong>文化传承：</strong>传承普米族的历史、文化和传统知识。</li>
+                    </ul>
+                    <p>韩规的传承通常是世袭的，从小跟随长辈学习宗教仪式、经文和法术。他们掌握着普米族的传统知识和文化，是普米族文化的重要守护者。</p>
+                </section>
+
+                <!-- 宗教仪式 -->
+                <section class="pumi-section">
+                    <h3>主要宗教仪式</h3>
+                    <div class="religion-rituals">
+                        <div class="ritual-item">
+                            <h4>祭山神</h4>
+                            <p>普米族每年都会举行祭山神仪式，通常在农历正月初一或十五举行。仪式由韩规主持，人们会准备祭品，如酒、肉、青稞等，向山神祈求平安和丰收。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>祭龙神</h4>
+                            <p>祭龙神仪式通常在农历二月初二举行，主要是为了祈求风调雨顺、五谷丰登。人们会在河边或水潭边举行仪式，向龙神献上祭品。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>祭祖仪式</h4>
+                            <p>祭祖仪式是普米族最重要的宗教仪式之一，通常在每年的大过年（农历十二月）举行。人们会准备丰盛的祭品，向祖先祈求保佑家族平安、幸福。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>驱邪仪式</h4>
+                            <p>当家中有人生病或遇到不幸时，普米族会请韩规举行驱邪仪式，驱除恶灵，保佑家人平安健康。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 与藏传佛教的关系 -->
+                <section class="pumi-section">
+                    <h3>与藏传佛教的关系</h3>
+                    <p>普米族的宗教信仰虽然以多神教为主，但也受到了藏传佛教的影响。这种影响主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>寺庙建筑：</strong>在一些普米族聚居区，人们修建了藏传佛教寺庙，如喇嘛寺等。</li>
+                        <li><strong>宗教节日：</strong>普米族也会庆祝一些藏传佛教的节日，如藏历新年等。</li>
+                        <li><strong>宗教仪式：</strong>在一些宗教仪式中，普米族会融合藏传佛教的元素。</li>
+                        <li><strong>信仰对象：</strong>一些普米族群众也会信仰藏传佛教的佛、菩萨等。</li>
+                    </ul>
+                    <p>尽管受到藏传佛教的影响，普米族的传统宗教信仰仍然是其宗教生活的主体，多神教信仰和韩规仪式在普米族社会中仍然占据着重要地位。</p>
+                </section>
+
+                <!-- 宗教信仰的现代意义 -->
+                <section class="pumi-section">
+                    <h3>宗教信仰的现代意义</h3>
+                    <p>在现代社会，普米族的宗教信仰仍然发挥着重要的作用：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>宗教信仰是普米族文化的重要载体，通过宗教仪式和活动，普米族的传统文化得以传承和弘扬。</li>
+                        <li><strong>社会凝聚：</strong>宗教仪式是普米族社区的重要活动，通过这些活动，社区成员之间的联系得以加强，社会凝聚力得以提高。</li>
+                        <li><strong>心理慰藉：</strong>宗教信仰为普米族人民提供了心理慰藉，帮助他们面对生活中的困难和挑战。</li>
+                        <li><strong>生态保护：</strong>普米族对自然神灵的信仰，使得他们对自然环境充满敬畏，这种敬畏之心有助于保护生态环境。</li>
+                    </ul>
+                    <p>普米族的宗教信仰是其传统文化的瑰宝，它不仅是普米族人民精神生活的重要组成部分，也是中华民族多元文化的重要财富。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

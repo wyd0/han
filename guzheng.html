@@ -1,0 +1,341 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古筝 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 古筝页面特定样式 */
+        body {
+            background-image: url('images/古筝.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .instrument-header {
+            background-image: url('images/古筝.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .instrument-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .instrument-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .instrument-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .instrument-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .instrument-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .instrument-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .instrument-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .instrument-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .instrument-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .instrument-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .instrument-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .instrument-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .instrument-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .instrument-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .instrument-header h1 {
+                font-size: 36px;
+            }
+            
+            .instrument-header p {
+                font-size: 18px;
+            }
+            
+            .instrument-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="instrument-header">
+        <div class="container">
+            <div class="instrument-header-content">
+                <h1>古筝</h1>
+                <p>中国传统拨弦乐器的瑰宝</p>
+                <a href="music.html" class="back-link">返回传统音乐</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="instrument-main">
+        <div class="container">
+            <div class="instrument-content">
+                <!-- 乐器导航栏 -->
+                <section class="instrument-nav" style="margin-bottom: 50px; padding: 20px; background-color: rgba(249, 249, 249, 0.95); border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #c0392b; font-size: 24px; margin-bottom: 20px; font-family: 'SimSun', serif; text-align: center;">传统乐器导航</h3>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                        <a href="guqin.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">古琴</a>
+                        <a href="guzheng.html" style="display: inline-block; padding: 10px 20px; background-color: #c0392b; color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">古筝</a>
+                        <a href="erhu.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">二胡</a>
+                        <a href="pipa.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">琵琶</a>
+                        <a href="dizi.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">笛子</a>
+                        <a href="suona.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">唢呐</a>
+                    </div>
+                </section>
+                
+                <!-- 介绍 -->
+                <section class="instrument-section">
+                    <h2>古筝介绍</h2>
+                    <p>古筝，又称秦筝、汉筝，是中国传统拨弦乐器之一，有着悠久的历史和丰富的文化内涵。古筝音色清脆悦耳，表现力强，是中国传统音乐中常用的乐器之一。</p>
+                </section>
+
+                <!-- 起源 -->
+                <section class="instrument-section">
+                    <h3>起源</h3>
+                    <p>古筝的起源可以追溯到中国古代的战国时期。据《史记》记载，古筝是由秦国的蒙恬发明的，因此又被称为"秦筝"。另一种说法是，古筝起源于中国古代的瑟，是瑟的简化形式。</p>
+                    <p>考古发现表明，早在战国时期，中国就已经有了类似古筝的乐器。1978年，在湖北随县曾侯乙墓出土的战国时期的乐器中，就有与古筝类似的乐器。这些考古发现为研究古筝的起源和发展提供了重要的实物资料。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="instrument-section">
+                    <h3>发展</h3>
+                    <p>古筝的发展经历了漫长的发展过程：</p>
+                    <ul>
+                        <li><strong>先秦时期</strong>：古筝开始形成基本形制，成为宫廷和民间的重要乐器，出现了许多著名的筝曲和筝师。</li>
+                        <li><strong>秦汉时期</strong>：古筝得到进一步发展，成为"相和歌"的重要伴奏乐器，出现了专门的筝学和筝论。</li>
+                        <li><strong>魏晋南北朝时期</strong>：古筝艺术得到进一步发展，出现了许多著名的筝家，如阮咸等。</li>
+                        <li><strong>唐宋时期</strong>：古筝艺术达到鼎盛时期，成为"燕乐"的重要组成部分，出现了许多著名的筝曲和筝师。</li>
+                        <li><strong>元明清时期</strong>：古筝艺术继续发展，成为宫廷音乐和民间音乐的重要伴奏乐器，出现了许多地方筝派。</li>
+                        <li><strong>近现代</strong>：古筝艺术得到了前所未有的发展，出现了许多新的演奏技巧和曲目，如"快速指序"等，同时古筝也开始走向世界。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="instrument-section">
+                    <h3>影响</h3>
+                    <p>古筝在中国传统文化中具有重要的影响：</p>
+                    <ul>
+                        <li><strong>音乐文化</strong>：古筝是中国传统音乐的重要组成部分，其独特的音色和表现力为中国传统音乐增添了丰富的色彩。</li>
+                        <li><strong>民间艺术</strong>：古筝在民间音乐中占有重要地位，是许多民间音乐形式的重要伴奏乐器，如江南丝竹、广东音乐等。</li>
+                        <li><strong>国际影响</strong>：古筝艺术不仅在中国影响深远，也受到了国际社会的关注和欣赏，成为中华文化的重要使者。</li>
+                        <li><strong>教育传承</strong>：古筝是中国音乐教育的重要内容之一，许多学校和艺术团体都设有古筝专业，培养了大量的古筝人才。</li>
+                        <li><strong>文化交流</strong>：古筝作为一种传统乐器，是中国与世界各国进行文化交流的重要媒介，为促进中外文化交流做出了重要贡献。</li>
+                    </ul>
+                </section>
+
+                <!-- 演奏方法和技巧 -->
+                <section class="instrument-section">
+                    <h3>演奏方法和技巧</h3>
+                    <p>古筝的演奏方法和技巧非常丰富，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>基本姿势</strong>：演奏时，古筝横置于琴桌或膝上，左手按弦，右手拨弦。</li>
+                        <li><strong>右手技巧</strong>：主要包括"勾"、"托"、"抹"、"挑"、"劈"、"剔"等技法，通过不同的指法组合，产生不同的音乐效果。</li>
+                        <li><strong>左手技巧</strong>：主要包括"按音"、"滑音"、"揉音"、"颤音"、"点弦"等技法，通过左手在琴弦上的移动和按压，产生不同的音高和音色。</li>
+                        <li><strong>快速指序</strong>：现代古筝演奏中常用的一种技巧，通过快速交替使用不同的指法，演奏快速的旋律。</li>
+                        <li><strong>音色控制</strong>：通过不同的拨弦方法和力度，控制古筝的音色，如"明亮"、"深沉"、"圆润"等。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="instrument-section">
+                    <h3>代表人物</h3>
+                    <p>中国历史上有许多著名的古筝演奏家和作曲家：</p>
+                    <ul>
+                        <li><strong>蒙恬</strong>：相传是古筝的发明者，秦朝名将。</li>
+                        <li><strong>阮咸</strong>：魏晋时期著名音乐家，擅长演奏古筝和琵琶。</li>
+                        <li><strong>唐玄宗</strong>：唐代著名音乐家，擅长演奏古筝和创作音乐。</li>
+                        <li><strong>曹正</strong>：现代著名古筝演奏家，是山东筝派的代表人物。</li>
+                        <li><strong>赵玉斋</strong>：现代著名古筝演奏家、教育家，为古筝艺术的传承和发展做出了重要贡献。</li>
+                        <li><strong>王中山</strong>：现代著名古筝演奏家、作曲家，发明了"快速指序"演奏技巧。</li>
+                        <li><strong>袁莎</strong>：现代著名古筝演奏家，以其优美的音色和精湛的技巧闻名。</li>
+                    </ul>
+                </section>
+
+                <!-- 琴谱与曲目 -->
+                <section class="instrument-section">
+                    <h3>琴谱与曲目</h3>
+                    <p>古筝的琴谱采用简谱或五线谱记谱法。以下是一些著名的古筝曲目：</p>
+                    <ul>
+                        <li><strong>《高山流水》</strong>：中国传统名曲，表现了对大自然的赞美和对知音的渴望。</li>
+                        <li><strong>《渔舟唱晚》</strong>：现代名曲，表现了夕阳西下、渔舟归来的景象，音乐优美动人。</li>
+                        <li><strong>《汉宫秋月》</strong>：传统名曲，表现了汉代宫廷的生活场景，音乐深沉典雅。</li>
+                        <li><strong>《战台风》</strong>：现代名曲，表现了码头工人与台风搏斗的情景，音乐气势磅礴。</li>
+                        <li><strong>《浏阳河》</strong>：根据湖南民间音乐改编，表现了浏阳河的风光和人民的幸福生活，音乐欢快活泼，充满时代气息。</li>
+                        <li><strong>《春江花月夜》</strong>：根据传统名曲改编，表现了春天的夜晚、江水的波光和月亮的倒影，音乐优美典雅。</li>
+                        <li><strong>《秦桑曲》</strong>：根据陕西民间音乐改编，表现了一位女子对远方情人的思念之情，音乐深情动人。</li>
+                    </ul>
+                    <p>这些经典曲目不仅是古筝艺术的瑰宝，也是中国传统文化的重要组成部分，至今仍被广泛演奏和传承。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

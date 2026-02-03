@@ -1,0 +1,538 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山水田园诗派 - 诗歌派别详细介绍</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('images/山水田园诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        .genre-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/山水田园诗派.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.1));
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease;
+        }
+        
+        .genre-header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+        
+        .genre-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            margin: 50px auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+        }
+        
+        /* 派别导航栏样式 */
+        .genre-nav {
+            background-color: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(206, 212, 218, 0.3);
+        }
+        
+        .genre-nav h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .genre-nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .genre-nav-menu li {
+            flex: 0 0 auto;
+        }
+        
+        .genre-nav-menu a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            color: #495057;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+        
+        .genre-nav-menu a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            border-color: #c0392b;
+        }
+        
+        .genre-nav-menu a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .genre-nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .genre-nav-menu a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        .genre-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .genre-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .genre-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #8B4513;
+            border-radius: 2px;
+        }
+        
+        .genre-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            border-left: 4px solid #8B4513;
+            padding-left: 15px;
+        }
+        
+        .genre-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .genre-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .genre-section ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .genre-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        
+        .poem-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .poem-example h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: left;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .genre-header {
+                padding: 80px 0;
+            }
+            
+            .genre-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .genre-header p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .genre-content {
+                padding: 30px 20px;
+                margin: 30px 20px;
+            }
+            
+            .genre-section h2 {
+                font-size: 2rem;
+            }
+            
+            .genre-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .genre-section p,
+            .genre-section ul li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 20px;
+            }
+            
+            .poem-example h4 {
+                font-size: 1.1rem;
+            }
+            
+            .back-link {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: #A0522D;
+            transform: scale(1.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>山水田园诗派</h1>
+                <p>以描绘自然景色和田园生活为主的诗歌流派</p>
+                <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="genre-content">
+                <!-- 派别导航栏 -->
+                <div class="genre-nav">
+                    <h3>诗歌派别导航</h3>
+                    <ul class="genre-nav-menu">
+                        <li><a href="genre_landscape_detail.html" class="active">山水田园诗派</a></li>
+                        <li><a href="genre_frontier_detail.html">边塞诗派</a></li>
+                        <li><a href="genre_romantic_detail.html">浪漫主义诗派</a></li>
+                        <li><a href="genre_realistic_detail.html">现实主义诗派</a></li>
+                        <li><a href="genre_new_yuefu_detail.html">新乐府诗派</a></li>
+                        <li><a href="genre_jiangxi_detail.html">江西诗派</a></li>
+                        <li><a href="genre_gongan_detail.html">公安派</a></li>
+                        <li><a href="genre_tongcheng_detail.html">桐城派</a></li>
+                    </ul>
+                </div>
+                
+                <section class="genre-section">
+                    <h2>山水田园诗派详细介绍</h2>
+                    
+                    <h3>概述</h3>
+                    <p>山水田园诗派是中国古代诗歌的重要流派之一，以描绘自然景色和田园生活为主，风格清新自然，意境深远。该流派起源于魏晋南北朝时期，在唐代达到鼎盛，对后世诗歌产生了深远的影响。</p>
+                    
+                    <h3>历史发展</h3>
+                    <p>山水田园诗派的发展是一个漫长而丰富的历史过程，经历了以下几个重要阶段：</p>
+                    <ul>
+                        <li><strong>起源阶段（魏晋南北朝）</strong>：魏晋南北朝时期，社会动荡不安，玄学兴起，文人开始关注自然，寻求精神寄托。陶渊明是这一时期的代表诗人，他辞官归隐，躬耕田园，创作了大量描绘田园生活的诗歌。他的田园诗语言质朴自然，意境深远，表达了对官场的厌恶和对田园生活的热爱，如《归园田居》五首、《饮酒》二十首等。陶渊明的诗歌为山水田园诗派奠定了基础，被后世尊为"田园诗之祖"。</li>
+                        <li><strong>发展阶段（南朝）</strong>：南朝时期，随着经济的发展和社会的相对稳定，文人对自然的关注更加深入，山水诗开始独立成派。谢灵运是山水诗的开创者，他出身名门，遍历名山大川，创作了大量描绘自然景色的诗歌。他的诗语言精工富丽，描写细致入微，如《登池上楼》、《石壁精舍还湖中作》等。谢朓的山水诗则更加清新自然，意境深远，如《晚登三山还望京邑》中的"余霞散成绮，澄江静如练"成为千古名句。</li>
+                        <li><strong>鼎盛阶段（唐代）</strong>：唐代是山水田园诗派的鼎盛时期，政治开明，经济繁荣，文化发达，为山水田园诗的发展提供了良好的社会环境。王维、孟浩然是这一时期的杰出代表，他们的诗歌融合了陶渊明的田园诗和谢灵运的山水诗，形成了独特的艺术风格。王维的诗"诗中有画，画中有诗"，意境深远，如《山居秋暝》、《鸟鸣涧》等；孟浩然的诗则更加质朴自然，如《春晓》、《过故人庄》等。此外，唐代还有储光羲、常建、祖咏等山水田园诗人，他们的作品共同构成了唐代山水田园诗的繁荣景象。</li>
+                        <li><strong>延续阶段（宋代及以后）</strong>：宋代及以后，山水田园诗继续发展，出现了许多优秀的山水田园诗人。宋代的杨万里、范成大、陆游等诗人在继承唐代传统的基础上，又有自己的创新。杨万里的诗风格清新活泼，被称为"诚斋体"，如《小池》、《晓出净慈寺送林子方》等；范成大的《四时田园杂兴》六十首则全面描绘了农村的生活景象；陆游的山水诗则充满了爱国情怀。元代的马致远、明代的高启、清代的袁枚等诗人也都创作了许多优秀的山水田园诗，使这一流派的传统得以延续。</li>
+                    </ul>
+                    
+                    <h3>艺术特点</h3>
+                    <ul>
+                        <li><strong>描绘自然景色</strong>：山水田园诗以描绘自然景色和田园生活为主，通过对山水、田园、村落等自然景观的描写，表达诗人对自然的热爱和对田园生活的向往。</li>
+                        <li><strong>风格清新自然</strong>：山水田园诗的风格清新自然，语言质朴，意境深远，给人以宁静、平和的美感。</li>
+                        <li><strong>融合禅意</strong>：许多山水田园诗融合了禅意，表达了诗人对人生的思考和对宁静生活的追求。王维的诗尤其如此，被称为"诗中有画，画中有诗"。</li>
+                        <li><strong>对比手法</strong>：山水田园诗常常通过对比城市生活的喧嚣和田园生活的宁静，表达诗人对田园生活的向往和对官场的厌恶。</li>
+                    </ul>
+                    
+                    <h3>代表人物</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 30px 0;">
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/王维.jpg" alt="王维" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>王维</h4>
+                            <p>王维（701年-761年），字摩诘，号摩诘居士，唐代著名诗人、画家。他的山水田园诗意境深远，语言清新自然，被称为"诗佛"。代表作有《山居秋暝》、《鸟鸣涧》、《鹿柴》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/孟浩然.jpg" alt="孟浩然" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>孟浩然</h4>
+                            <p>孟浩然（689年-740年），字浩然，号孟山人，唐代著名诗人。他的山水田园诗风格清新自然，语言质朴，意境深远。代表作有《春晓》、《过故人庄》、《望洞庭湖赠张丞相》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/陶渊明.jpg" alt="陶渊明" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>陶渊明</h4>
+                            <p>陶渊明（352年-427年），字元亮，号五柳先生，东晋著名诗人。他是田园诗的开创者，其诗以描绘田园生活为主，语言质朴自然，意境深远。代表作有《归园田居》、《饮酒》、《桃花源记》等。</p>
+                        </div>
+                        
+                        <div class="representative-card">
+                            <div class="representative-image" style="height: 300px; background-color: #f0f0f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                                <img src="images/谢灵运.jpg" alt="谢灵运" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <h4>谢灵运</h4>
+                            <p>谢灵运（385年-433年），字灵运，东晋至刘宋时期著名诗人。他是山水诗的开创者，其诗以描绘自然景色为主，语言精工富丽。代表作有《登池上楼》、《石壁精舍还湖中作》等。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>代表作品</h3>
+                    <div class="poem-example">
+                        <h4>《山居秋暝》（王维）</h4>
+                        <p>空山新雨后，天气晚来秋。明月松间照，清泉石上流。竹喧归浣女，莲动下渔舟。随意春芳歇，王孙自可留。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《春晓》（孟浩然）</h4>
+                        <p>春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《归园田居·其一》（陶渊明）</h4>
+                        <p>少无适俗韵，性本爱丘山。误落尘网中，一去三十年。羁鸟恋旧林，池鱼思故渊。开荒南野际，守拙归园田。方宅十余亩，草屋八九间。榆柳荫后檐，桃李罗堂前。暧暧远人村，依依墟里烟。狗吠深巷中，鸡鸣桑树颠。户庭无尘杂，虚室有余闲。久在樊笼里，复得返自然。</p>
+                    </div>
+                    
+                    <div class="poem-example">
+                        <h4>《登池上楼》（谢灵运）</h4>
+                        <p>潜虬媚幽姿，飞鸿响远音。薄霄愧云浮，栖川怍渊沉。进德智所拙，退耕力不任。徇禄反穷海，卧疴对空林。衾枕昧节候，褰开暂窥临。倾耳聆波澜，举目眺岖嵚。初景革绪风，新阳改故阴。池塘生春草，园柳变鸣禽。祁祁伤豳歌，萋萋感楚吟。索居易永久，离群难处心。持操岂独古，无闷征在今。</p>
+                    </div>
+                    
+                    <h3>影响与地位</h3>
+                    <p>山水田园诗派对中国古代诗歌和文化产生了深远的影响，具体表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>对诗歌发展的影响</strong>：山水田园诗派丰富了中国古代诗歌的题材和风格，为后世诗歌的发展提供了重要的借鉴。它拓展了诗歌的表现领域，将自然景色和田园生活纳入诗歌的描写范围，使诗歌更加贴近自然和生活。山水田园诗的艺术手法，如情景交融、意境创造等，也为后世诗歌所继承和发展。</li>
+                        <li><strong>对文人心态的影响</strong>：山水田园诗表达了文人对自然的热爱和对宁静生活的追求，成为文人逃避官场黑暗、追求心灵自由的精神寄托。在封建社会，许多文人在仕途失意或对现实不满时，都会转向山水田园，寻求精神慰藉。这种心态影响了后世无数文人，成为中国文人的一种传统心理。</li>
+                        <li><strong>对文化传统的影响</strong>：山水田园诗所表达的"天人合一"思想，成为中国传统文化的重要组成部分，影响了中国人的审美观念和生活方式。它强调人与自然的和谐统一，主张人要顺应自然，与自然融为一体。这种思想不仅影响了文学艺术，也影响了中国人的哲学观念、生活态度和价值取向。</li>
+                        <li><strong>对后世文学的影响</strong>：山水田园诗的艺术手法和意境创造，对后世的诗歌、散文、绘画等艺术形式都产生了深远的影响。唐代以后，许多诗人都创作了山水田园诗，如宋代的杨万里、范成大，明代的高启，清代的袁枚等。山水田园诗的意境也被引入散文和绘画中，如唐代的散文家柳宗元、宋代的画家米芾等都受到了山水田园诗的影响。</li>
+                        <li><strong>对世界文学的影响</strong>：山水田园诗的艺术成就和思想内涵也对世界文学产生了影响。自唐代以来，山水田园诗就被翻译成多种文字，在世界范围内广泛传播。王维、陶渊明等诗人的作品受到了世界各国读者的喜爱，成为世界文学宝库中的重要组成部分。</li>
+                        <li><strong>对现代生活的影响</strong>：山水田园诗所表达的对自然的热爱和对宁静生活的追求，在现代社会仍然具有重要的意义。在快节奏、高压力的现代生活中，山水田园诗为人们提供了一种精神寄托，让人们重新审视人与自然的关系，追求内心的宁静与和谐。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.innerHTML = '↑';
+            document.body.appendChild(backToTopBtn);
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

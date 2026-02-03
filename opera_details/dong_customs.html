@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侗族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 动画关键帧定义 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 侗族风俗习惯页面特定样式 */
+        .customs-header {
+            background-image: url('images/侗族妇女服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-dong {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-dong:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .customs-section {
+            margin-bottom: 80px;
+        }
+        
+        .customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯特点样式 */
+        .customs-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .custom-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .custom-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .custom-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 风俗习惯详情样式 */
+        .customs-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .custom-detail-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .custom-detail-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .custom-detail-item p {
+            margin: 0;
+            text-align: justify;
+            font-size: 15px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .customs-header p {
+                font-size: 18px;
+            }
+            
+            .customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-features,
+            .customs-details {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .customs-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .customs-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .customs-header-content .back-dong {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .customs-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="customs-header">
+        <div class="container">
+            <div class="customs-header-content">
+                <h1>侗族风俗习惯</h1>
+                <p>探索侗族独特的风俗习惯与文化传统</p>
+                <a href="dong.html" class="back-dong">返回侗族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="customs-main">
+        <div class="container">
+            <div class="customs-content">
+                <!-- 风俗习惯概览 -->
+                <section class="customs-section">
+                    <h2>风俗习惯概览</h2>
+                    <p>侗族是一个有着悠久历史和丰富文化的民族，其风俗习惯是侗族文化的重要组成部分，反映了侗族人民的生产生活、宗教信仰、价值观念和审美情趣。侗族风俗习惯独特多样，包括日常礼仪、婚姻习俗、节日庆典、饮食习俗、服饰习俗等多个方面，具有鲜明的民族特色和文化价值。</p>
+                    <p>侗族风俗习惯的形成与侗族的历史变迁、自然环境、社会生活密切相关。在长期的历史发展过程中，侗族风俗习惯与周边民族的风俗习惯相互影响、相互借鉴，形成了自己独特的风俗习惯体系。</p>
+                </section>
+
+                <!-- 日常礼仪 -->
+                <section class="customs-section">
+                    <h2>日常礼仪</h2>
+                    <p>侗族人民非常注重日常礼仪，有着丰富的礼仪规范和礼仪习惯，体现了侗族人民的文明素养和道德观念。</p>
+                    
+                    <div class="customs-details">
+                        <div class="custom-detail-item">
+                            <h4>待客礼仪</h4>
+                            <p>侗族人民热情好客，有"有客必请，有请必到"的传统。客人到来时，主人会主动打招呼，让座、敬茶、递烟。如果是贵客，主人还会杀鸡宰鸭，准备丰盛的饭菜款待客人。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>尊老爱幼</h4>
+                            <p>侗族人民尊老爱幼，注重长幼有序。在家庭中，长辈享有很高的地位，晚辈要尊重长辈，听从长辈的教导。在社会交往中，年轻人要主动向老年人问好，让路，让座。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>邻里互助</h4>
+                            <p>侗族人民注重邻里互助，团结友爱。在生产生活中，邻里之间会互相帮助，如插秧、收割、建房等。如果邻居遇到困难，大家会主动伸出援手，共同度过难关。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>礼仪禁忌</h4>
+                            <p>侗族人民有一些礼仪禁忌，如不能在老人面前说脏话、不能在长辈面前跷二郎腿、不能用脚踩门槛等。这些禁忌体现了侗族人民的文明礼仪和道德观念。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="customs-section">
+                    <h2>婚姻习俗</h2>
+                    <p>侗族的婚姻习俗独特多样，有着悠久的历史和丰富的文化内涵，反映了侗族人民的婚姻观念和价值观念。</p>
+                    
+                    <h3>传统婚姻习俗</h3>
+                    <ul>
+                        <li><strong>恋爱自由：</strong>侗族青年男女恋爱自由，有多种社交活动可以结识异性，如"行歌坐月"、"赶坳"等。</li>
+                        <li><strong>父母之命：</strong>虽然恋爱自由，但婚姻大事还是需要父母的同意，通常由父母做主，媒人说合。</li>
+                        <li><strong>婚礼程序：</strong>侗族婚礼程序复杂多样，包括提亲、定亲、迎亲、婚礼等多个环节，每个环节都有独特的仪式和习俗。</li>
+                        <li><strong>嫁妆彩礼：</strong>侗族婚礼中有嫁妆和彩礼的习俗，嫁妆通常由女方准备，包括衣物、首饰、家具等；彩礼通常由男方准备，包括现金、衣物、首饰等。</li>
+                    </ul>
+                    
+                    <h3>特色婚姻习俗</h3>
+                    <div class="customs-details">
+                        <div class="custom-detail-item">
+                            <h4>行歌坐月</h4>
+                            <p>行歌坐月是侗族青年男女恋爱的重要方式，通常在夜晚进行。青年男女聚集在鼓楼、火塘边，通过唱歌、对歌的方式表达爱意，寻找自己的意中人。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>赶坳</h4>
+                            <p>赶坳是侗族青年男女社交的重要活动，通常在特定的时间和地点举行。青年男女通过赶坳结识异性，唱歌、对歌，寻找自己的意中人。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>拦门酒</h4>
+                            <p>拦门酒是侗族婚礼中的重要习俗，当新郎迎娶新娘时，新娘的亲友会在门口设置障碍，要求新郎喝酒、唱歌，通过考验后才能进入新娘家。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>哭嫁</h4>
+                            <p>哭嫁是侗族婚礼中的重要习俗，新娘在出嫁前会哭嫁，表达对父母、亲友的不舍之情，同时也表达对未来生活的期待和担忧。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日庆典 -->
+                <section class="customs-section">
+                    <h2>节日庆典</h2>
+                    <p>侗族有许多传统节日，这些节日承载着丰富的文化内涵，是侗族文化的重要组成部分。</p>
+                    
+                    <div class="customs-details">
+                        <div class="custom-detail-item">
+                            <h4>侗年</h4>
+                            <p>侗年是侗族的传统新年，通常在农历十一月初一或十一举行。侗年期间，侗族人民会举行祭祀祖先、吃年夜饭、守岁、拜年等活动，是侗族最重要的传统节日之一。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>花炮节</h4>
+                            <p>花炮节是侗族的重要传统节日，通常在农历正月初三至十五举行。花炮节期间，侗族人民会举行祭祀、歌舞、斗牛、抢花炮等活动，是侗族最热闹的传统节日之一。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>吃新节</h4>
+                            <p>吃新节是侗族的传统节日，通常在农历六月初六举行。吃新节期间，侗族人民会祭祀祖先，品尝新粮，庆祝丰收，是侗族重要的传统节日之一。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>斗牛节</h4>
+                            <p>斗牛节是侗族的传统节日，通常在农历二月初二举行。斗牛节期间，侗族人民会举行斗牛比赛、放烟火、歌舞等活动，是侗族重要的传统节日之一。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>春节</h4>
+                            <p>春节是侗族的重要传统节日，与汉族一样，侗族人民会在春节期间贴春联、吃年夜饭、守岁、拜年等，同时也会举行一些具有民族特色的活动，如唱歌、跳舞、斗牛等。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>三月三</h4>
+                            <p>三月三是侗族的传统节日，通常在农历三月初三举行。三月三期间，侗族人民会举行祭祀、歌舞、对歌等活动，是侗族重要的传统节日之一。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="customs-section">
+                    <h2>饮食习俗</h2>
+                    <p>侗族的饮食习俗独特多样，反映了侗族人民的生活方式和文化传统。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>以米饭为主食：</strong>侗族人民以米饭为主食，喜欢吃糯米，如糯米饭、糯米粑等。</li>
+                        <li><strong>喜欢酸辣口味：</strong>侗族人民喜欢吃酸辣食物，如酸鱼、酸肉、酸菜等，这与侗族居住地区的气候潮湿有关。</li>
+                        <li><strong>擅长腌制食品：</strong>侗族人民擅长制作腌制食品，如酸鱼、酸肉、酸菜等，这些腌制食品可以保存很长时间，是侗族人民的重要食品。</li>
+                        <li><strong>重视油茶：</strong>侗族人民喜欢喝油茶，油茶是侗族人民的重要饮料，通常由茶叶、花生、芝麻、糯米等制成。</li>
+                        <li><strong>喜欢饮酒：</strong>侗族人民喜欢饮酒，尤其是自酿的米酒，是侗族人民社交、娱乐的重要饮料。</li>
+                    </ul>
+                    
+                    <h3>特色食品</h3>
+                    <div class="customs-details">
+                        <div class="custom-detail-item">
+                            <h4>酸鱼</h4>
+                            <p>酸鱼是侗族的传统特色食品，将鱼洗净后，用盐、辣椒等调料腌制，然后放入坛中发酵而成。酸鱼味道酸辣可口，是侗族人民的重要食品。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>酸肉</h4>
+                            <p>酸肉是侗族的传统特色食品，将猪肉洗净后，用盐、辣椒等调料腌制，然后放入坛中发酵而成。酸肉味道酸辣可口，是侗族人民的重要食品。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>糯米饭</h4>
+                            <p>糯米饭是侗族的传统特色食品，将糯米蒸熟后，加入各种调料制成。糯米饭味道香甜可口，是侗族人民的重要食品，尤其是在节日庆典、婚礼等场合。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>油茶</h4>
+                            <p>油茶是侗族的传统特色饮料，将茶叶、花生、芝麻、糯米等放入锅中炒制，然后加入开水煮制而成。油茶味道香浓可口，是侗族人民的重要饮料。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服饰习俗 -->
+                <section class="customs-section">
+                    <h2>服饰习俗</h2>
+                    <p>侗族的服饰习俗独特多样，反映了侗族人民的审美观念和文化传统。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>侗族服饰色彩鲜艳，喜欢使用红、蓝、绿、紫等鲜艳的颜色，体现了侗族人民开朗活泼的性格。</li>
+                        <li><strong>图案丰富：</strong>侗族服饰图案丰富，喜欢使用花鸟、动物、几何图形等图案，寓意吉祥如意。</li>
+                        <li><strong>款式多样：</strong>侗族服饰款式多样，不同地区、不同年龄段的服饰款式有所不同，体现了侗族文化的多样性。</li>
+                        <li><strong>银饰丰富：</strong>侗族妇女喜欢佩戴银饰，如银项圈、银耳环、银手镯、银戒指等，这些银饰工艺精湛，造型优美。</li>
+                        <li><strong>传统工艺：</strong>侗族服饰制作工艺精湛，如刺绣、织锦等，这些传统工艺历史悠久，是侗族文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>服饰差异</h3>
+                    <div class="customs-details">
+                        <div class="custom-detail-item">
+                            <h4>地区差异</h4>
+                            <p>侗族服饰在不同地区有不同的特点，如南侗地区的服饰色彩鲜艳，图案丰富，银饰较多；北侗地区的服饰色彩相对淡雅，图案相对简单，银饰较少。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>性别差异</h4>
+                            <p>侗族服饰在性别上有明显的差异，如妇女的服饰色彩鲜艳，图案丰富，银饰较多；男子的服饰色彩相对淡雅，图案相对简单，没有银饰。</p>
+                        </div>
+                        <div class="custom-detail-item">
+                            <h4>年龄差异</h4>
+                            <p>侗族服饰在年龄上有明显的差异，如年轻人的服饰色彩鲜艳，图案丰富；老年人的服饰色彩相对淡雅，图案相对简单。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 风俗习惯的特点 -->
+                <section class="customs-section">
+                    <h2>风俗习惯的特点</h2>
+                    <div class="customs-features">
+                        <div class="custom-item">
+                            <h4>民族性</h4>
+                            <p>侗族风俗习惯具有鲜明的民族特色，反映了侗族人民的生产生活、宗教信仰、价值观念和审美情趣，是侗族文化的重要组成部分。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>地域性</h4>
+                            <p>侗族风俗习惯具有明显的地域特色，不同地区的侗族风俗习惯有所不同，这与侗族居住地区的自然环境、社会生活密切相关。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>传承性</h4>
+                            <p>侗族风俗习惯具有很强的传承性，在长期的历史发展过程中，侗族风俗习惯被一代又一代地传承下来，成为侗族文化的重要组成部分。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>融合性</h4>
+                            <p>侗族风俗习惯具有一定的融合性，在长期的历史发展过程中，侗族风俗习惯与周边民族的风俗习惯相互影响、相互借鉴，形成了自己独特的风俗习惯体系。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>实用性</h4>
+                            <p>侗族风俗习惯具有很强的实用性，与侗族人民的生产生活密切相关，如饮食习俗、服饰习俗等，都是为了适应侗族人民的生产生活需要而形成的。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 风俗习惯的价值 -->
+                <section class="customs-section">
+                    <h2>风俗习惯的价值</h2>
+                    <p>侗族风俗习惯是侗族文化的重要组成部分，具有重要的历史价值、文化价值、社会价值和艺术价值。</p>
+                    
+                    <h3>历史价值</h3>
+                    <p>侗族风俗习惯记录了侗族的历史变迁和社会发展，是研究侗族历史的重要资料。通过侗族的风俗习惯，我们可以了解侗族的起源、迁徙、发展等历史过程。</p>
+                    
+                    <h3>文化价值</h3>
+                    <p>侗族风俗习惯是侗族文化的重要载体，承载着侗族的传统文化、价值观念、思维方式等。通过侗族的风俗习惯，我们可以了解侗族的文化内涵和文化特色，感受侗族文化的魅力。</p>
+                    
+                    <h3>社会价值</h3>
+                    <p>侗族风俗习惯是侗族社会的重要组成部分，对于增强侗族人民的文化认同感和民族凝聚力，促进民族团结和社会和谐，具有重要的意义。同时，侗族风俗习惯也为我们了解和认识侗族社会提供了重要的窗口。</p>
+                    
+                    <h3>艺术价值</h3>
+                    <p>侗族风俗习惯具有独特的艺术价值，如侗族的服饰、银饰、建筑等，都具有很高的艺术价值，是中华民族艺术的重要组成部分。</p>
+                </section>
+
+                <!-- 风俗习惯的保护与传承 -->
+                <section class="customs-section">
+                    <h2>风俗习惯的保护与传承</h2>
+                    <p>随着社会的发展和现代化进程的加快，侗族风俗习惯面临着前所未有的挑战，如传统风俗习惯的淡化、年轻一代对传统风俗习惯的兴趣减退等。为了保护和传承侗族风俗习惯，我们需要采取一系列措施。</p>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>法律保护：</strong>制定和完善相关法律法规，加强对侗族风俗习惯的法律保护。将侗族的传统节日、婚姻习俗、饮食习俗等列入国家非物质文化遗产名录，通过法律手段保障其生存和发展。</li>
+                        <li><strong>教育保护：</strong>在侗族聚居地区的学校中，加强侗族风俗习惯教育，开设侗族风俗习惯课程，培养年轻一代的风俗习惯意识和文化认同感。</li>
+                        <li><strong>媒体保护：</strong>利用广播、电视、报纸、杂志、网络等媒体，推广侗族风俗习惯，增加侗族风俗习惯的曝光率。制作侗族风俗习惯节目、出版侗族风俗习惯读物，为侗族风俗习惯的传播提供更多的平台。</li>
+                        <li><strong>文化活动：</strong>举办各种侗族风俗习惯活动，如侗年、花炮节、斗牛节等，丰富侗族风俗习惯的表现形式，增强侗族人民的风俗习惯意识和文化认同感。</li>
+                    </ul>
+                    
+                    <h3>传承发展</h3>
+                    <ul>
+                        <li><strong>人才培养：</strong>加强侗族风俗习惯人才的培养，建立健全人才培养体系，从学校教育到社会培训，都应该注重侗族风俗习惯人才的培养，为侗族风俗习惯的传承和发展提供人才支持。</li>
+                        <li><strong>学术研究：</strong>加强对侗族风俗习惯的学术研究，深入挖掘侗族风俗习惯的历史、特点和价值。通过学术研究，为侗族风俗习惯的保护和传承提供理论支持和科学依据。</li>
+                        <li><strong>创新发展：</strong>在保护传统的基础上，对侗族风俗习惯进行创新发展，适应现代社会的需要。例如，将侗族的传统节日与现代元素相结合，创造新的节日形式；将侗族的传统饮食与现代饮食元素相结合，创造新的饮食形式等。</li>
+                        <li><strong>国际交流：</strong>加强与国际社会的交流与合作，推广侗族风俗习惯，提高侗族风俗习惯的国际知名度和影响力。通过国际交流，为侗族风俗习惯的保护和传承创造更加有利的国际环境。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为风俗习惯相关的部分添加动画效果
+            const customsSections = document.querySelectorAll('.customs-section');
+            
+            // 页面加载时为所有部分添加可见类
+            setTimeout(() => {
+                customsSections.forEach(section => {
+                    section.classList.add('visible');
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

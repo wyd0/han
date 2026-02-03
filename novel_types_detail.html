@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说种类详细叙述 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 小说种类详细页面样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .novel-types-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .novel-types-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .novel-types-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .novel-types-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .novel-types-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .novel-types-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .novel-types-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .novel-types-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .novel-types-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .novel-types-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .novel-types-section h4 {
+            color: #555;
+            font-size: 22px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .novel-types-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .novel-types-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .novel-types-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .novel-types-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .novel-types-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .novel-types-header h1 {
+                font-size: 36px;
+            }
+            
+            .novel-types-header p {
+                font-size: 18px;
+            }
+            
+            .novel-types-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="novel-types-header">
+        <div class="container">
+            <div class="novel-types-header-content">
+                <h1>小说种类详细叙述</h1>
+                <p>中国古代小说的分类与特点</p>
+                <a href="novel_detail.html" class="back-link">返回小说艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速导航栏 -->
+    <div style="position: sticky; top: 0; background-color: #c0392b; color: white; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; gap: 30px; padding: 15px 0; flex-wrap: wrap;">
+                <a href="#overview" style="color: white; text-decoration: none; font-size: 16px; font-family: 'SimSun', serif; font-weight: bold; transition: all 0.3s ease; padding: 5px 10px; border-radius: 5px;">概述</a>
+                <a href="#development-based" style="color: white; text-decoration: none; font-size: 16px; font-family: 'SimSun', serif; font-weight: bold; transition: all 0.3s ease; padding: 5px 10px; border-radius: 5px;">按发展阶段分类</a>
+                <a href="#content-based" style="color: white; text-decoration: none; font-size: 16px; font-family: 'SimSun', serif; font-weight: bold; transition: all 0.3s ease; padding: 5px 10px; border-radius: 5px;">按内容分类</a>
+                <a href="#form-based" style="color: white; text-decoration: none; font-size: 16px; font-family: 'SimSun', serif; font-weight: bold; transition: all 0.3s ease; padding: 5px 10px; border-radius: 5px;">按形式分类</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="novel-types-main">
+        <div class="container">
+            <div class="novel-types-content">
+                <!-- 小说种类概述 -->
+                <section class="novel-types-section" id="overview">
+                    <h2>小说种类概述</h2>
+                    <p>中国小说历史悠久，内容丰富，风格多样。经过数千年的发展演变，中国小说形成了种类繁多、特色鲜明的庞大体系。小说的分类是理解和欣赏中国古代小说的重要途径，不同的分类标准可以揭示小说的不同侧面和特点。</p>
+                    <p>中国小说的分类标准多种多样，常见的分类方式包括按发展阶段分类、按内容分类、按形式分类等。这些分类方式相互补充，共同构成了对中国古代小说的全面认识。</p>
+                </section>
+
+                <!-- 按照发展阶段分类 -->
+                <section class="novel-types-section" id="development-based">
+                    <h3>按照发展阶段分类</h3>
+                    
+                    <h4>笔记小说</h4>
+                    <p>笔记小说是中国古代小说的早期形式，起源于先秦时期，兴盛于魏晋南北朝时期。这类小说篇幅短小，内容繁杂，形式灵活，多记录历史人物的言行、神鬼怪异之事、民间传说等。</p>
+                    <p>笔记小说的特点：</p>
+                    <ul>
+                        <li>篇幅短小，一般只有几百字甚至几十字</li>
+                        <li>内容繁杂，涉及历史、地理、民俗、神怪等多个领域</li>
+                        <li>形式灵活，不讲究情节的完整性和人物的塑造</li>
+                        <li>语言简洁明快，多采用文言</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《西京杂记》</strong>：记载西汉时期的历史逸闻和民间传说，如王昭君的故事、卓文君与司马相如的爱情故事等。</li>
+                        <li><strong>《世说新语》</strong>：记载魏晋时期士人的言行举止和逸闻趣事，语言简洁明快，人物形象鲜明。</li>
+                        <li><strong>《搜神记》</strong>：记载神鬼怪异之事，是魏晋南北朝时期志怪小说的代表作。</li>
+                        <li><strong>《幽明录》</strong>：记载神鬼怪异之事，内容丰富，情节生动。</li>
+                    </ul>
+
+                    <h4>传奇小说</h4>
+                    <p>传奇小说兴起于唐代，是中国古代小说发展的成熟阶段。这类小说篇幅较长，情节复杂，人物形象鲜明，语言华丽典雅，多以爱情、神怪、侠义为题材。</p>
+                    <p>传奇小说的特点：</p>
+                    <ul>
+                        <li>篇幅较长，一般有数千字</li>
+                        <li>情节复杂，有完整的故事情节</li>
+                        <li>人物形象鲜明，注重人物性格的塑造</li>
+                        <li>语言华丽典雅，多采用文言</li>
+                        <li>题材广泛，以爱情、神怪、侠义为主</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《柳毅传》</strong>：讲述柳毅为龙女传书的故事，情节离奇，人物形象鲜明。</li>
+                        <li><strong>《莺莺传》</strong>：讲述张生和崔莺莺的爱情故事，是唐代传奇中的经典之作。</li>
+                        <li><strong>《李娃传》</strong>：讲述郑元和与李娃的爱情故事，情节曲折，感人至深。</li>
+                        <li><strong>《虬髯客传》</strong>：讲述虬髯客、李靖和红拂女的故事，是唐代侠义传奇的代表作。</li>
+                    </ul>
+
+                    <h4>话本小说</h4>
+                    <p>话本小说兴起于宋代，是民间艺人说书的底本。这类小说语言通俗易懂，情节生动有趣，内容贴近平民生活，多以历史故事、民间传说、爱情故事为题材。</p>
+                    <p>话本小说的特点：</p>
+                    <ul>
+                        <li>语言通俗易懂，多采用白话</li>
+                        <li>情节生动有趣，注重悬念和巧合</li>
+                        <li>内容贴近平民生活，反映市民阶层的思想和愿望</li>
+                        <li>形式固定，一般有头有尾，结构完整</li>
+                        <li>开头有"入话"，中间有"正话"，结尾有"篇尾诗"</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《三国志平话》</strong>：讲述三国时期的历史故事，是《三国演义》的前身。</li>
+                        <li><strong>《大唐三藏取经诗话》</strong>：讲述唐僧取经的故事，是《西游记》的前身。</li>
+                        <li><strong>《碾玉观音》</strong>：讲述崔宁和秀秀的爱情故事，情节曲折，感人至深。</li>
+                        <li><strong>《错斩崔宁》</strong>：讲述崔宁被错斩的故事，揭露了封建社会的黑暗。</li>
+                    </ul>
+
+                    <h4>章回小说</h4>
+                    <p>章回小说兴起于元末明初，是中国古代小说的成熟形式。这类小说篇幅宏大，情节复杂，人物形象鲜明，内容丰富多样，多以历史、英雄、神怪、世情为题材。</p>
+                    <p>章回小说的特点：</p>
+                    <ul>
+                        <li>篇幅宏大，一般有数十回甚至上百回</li>
+                        <li>情节复杂，有完整的故事情节和庞大的人物体系</li>
+                        <li>人物形象鲜明，注重人物性格的塑造和发展</li>
+                        <li>语言典雅流畅，多采用半文半白的语言</li>
+                        <li>形式固定，每回有标题，开头有"话说"，结尾有"欲知后事如何，且听下回分解"</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《三国演义》</strong>：中国第一部章回体历史小说，讲述三国时期的历史故事。</li>
+                        <li><strong>《水浒传》</strong>：中国第一部章回体英雄小说，讲述梁山好汉的故事。</li>
+                        <li><strong>《西游记》</strong>：中国第一部章回体神怪小说，讲述唐僧取经的故事。</li>
+                        <li><strong>《红楼梦》</strong>：中国古代最伟大的小说，讲述贾宝玉、林黛玉、薛宝钗的爱情悲剧和贾、史、王、薛四大家族的兴衰史。</li>
+                    </ul>
+                </section>
+
+                <!-- 按照内容分类 -->
+                <section class="novel-types-section" id="content-based">
+                    <h3>按照内容分类</h3>
+                    
+                    <h4>历史小说</h4>
+                    <p>历史小说以历史事件和历史人物为题材，是中国古代小说的重要类型之一。这类小说通常以真实的历史为背景，通过艺术加工，塑造历史人物形象，展现历史事件的发展过程。</p>
+                    <p>历史小说的特点：</p>
+                    <ul>
+                        <li>以真实的历史为背景</li>
+                        <li>塑造历史人物形象，如诸葛亮、关羽、曹操等</li>
+                        <li>展现历史事件的发展过程，如赤壁之战、官渡之战等</li>
+                        <li>注重历史的真实性和艺术性的结合</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《三国演义》</strong>：以三国时期的历史为背景，塑造了诸葛亮、关羽、曹操等众多鲜明的历史人物形象。</li>
+                        <li><strong>《东周列国志》</strong>：以春秋战国时期的历史为背景，讲述了从周幽王烽火戏诸侯到秦统一六国的历史故事。</li>
+                        <li><strong>《隋唐演义》</strong>：以隋唐时期的历史为背景，讲述了从隋文帝杨坚建立隋朝到唐玄宗李隆基统治时期的历史故事。</li>
+                    </ul>
+
+                    <h4>英雄小说</h4>
+                    <p>英雄小说以英雄人物的事迹为题材，是中国古代小说的重要类型之一。这类小说通常塑造勇武过人、义薄云天的英雄人物形象，展现他们的英雄事迹和精神风貌。</p>
+                    <p>英雄小说的特点：</p>
+                    <ul>
+                        <li>塑造勇武过人、义薄云天的英雄人物形象</li>
+                        <li>展现英雄人物的英雄事迹和精神风貌</li>
+                        <li>情节紧张刺激，充满打斗和冒险</li>
+                        <li>语言通俗易懂，富有感染力</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《水浒传》</strong>：塑造了108位梁山好汉的英雄形象，展现了他们反抗压迫、替天行道的英雄事迹。</li>
+                        <li><strong>《说唐》</strong>：塑造了李元霸、秦琼、尉迟恭等英雄人物形象，展现了他们的英雄事迹。</li>
+                        <li><strong>《杨家将》</strong>：塑造了杨业、杨延昭、穆桂英等英雄人物形象，展现了他们保家卫国的英雄事迹。</li>
+                    </ul>
+
+                    <h4>神怪小说</h4>
+                    <p>神怪小说以神鬼怪异之事为题材，是中国古代小说的重要类型之一。这类小说通常充满奇幻色彩，塑造神、鬼、妖、仙等形象，展现他们的故事和传说。</p>
+                    <p>神怪小说的特点：</p>
+                    <ul>
+                        <li>充满奇幻色彩，塑造神、鬼、妖、仙等形象</li>
+                        <li>情节离奇，想象丰富</li>
+                        <li>语言生动形象，富有想象力</li>
+                        <li>往往蕴含深刻的哲理和道德教育意义</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《西游记》</strong>：塑造了孙悟空、猪八戒、沙僧等神怪形象，讲述了他们保护唐僧取经的故事。</li>
+                        <li><strong>《封神演义》</strong>：以商周之际的历史为背景，讲述了姜子牙封神的故事，塑造了众多神怪形象。</li>
+                        <li><strong>《聊斋志异》</strong>：讲述神鬼狐妖的故事，情节离奇，寓意深刻。</li>
+                    </ul>
+
+                    <h4>世情小说</h4>
+                    <p>世情小说以社会生活和人情世故为题材，是中国古代小说的重要类型之一。这类小说通常反映社会现实，描写家庭生活、婚姻爱情、社会风俗等内容。</p>
+                    <p>世情小说的特点：</p>
+                    <ul>
+                        <li>反映社会现实，描写家庭生活、婚姻爱情、社会风俗等内容</li>
+                        <li>塑造普通人的形象，展现他们的生活和情感</li>
+                        <li>情节细腻，注重细节描写</li>
+                        <li>语言通俗易懂，贴近生活</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《红楼梦》</strong>：以贾宝玉、林黛玉、薛宝钗的爱情悲剧为线索，描写了贾、史、王、薛四大家族的兴衰史，反映了封建社会的黑暗和腐朽。</li>
+                        <li><strong>《金瓶梅》</strong>：以西门庆的家庭生活为中心，描写了明代社会的黑暗和腐朽。</li>
+                        <li><strong>《醒世姻缘传》</strong>：以狄希陈和薛素姐的婚姻生活为中心，描写了明代社会的家庭关系和社会风俗。</li>
+                    </ul>
+
+                    <h4>公案小说</h4>
+                    <p>公案小说以司法案件为题材，是中国古代小说的重要类型之一。这类小说通常讲述清官断案的故事，塑造公正廉洁、聪明睿智的清官形象。</p>
+                    <p>公案小说的特点：</p>
+                    <ul>
+                        <li>讲述清官断案的故事</li>
+                        <li>塑造公正廉洁、聪明睿智的清官形象</li>
+                        <li>情节曲折，充满悬念</li>
+                        <li>语言通俗易懂，富有感染力</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《包公案》</strong>：讲述包拯断案的故事，塑造了包拯公正廉洁、聪明睿智的清官形象。</li>
+                        <li><strong>《施公案》</strong>：讲述施世纶断案的故事，塑造了施世纶公正廉洁、聪明睿智的清官形象。</li>
+                        <li><strong>《彭公案》</strong>：讲述彭鹏断案的故事，塑造了彭鹏公正廉洁、聪明睿智的清官形象。</li>
+                    </ul>
+
+                    <h4>侠义小说</h4>
+                    <p>侠义小说以侠客义士的事迹为题材，是中国古代小说的重要类型之一。这类小说通常塑造武艺高强、见义勇为的侠客义士形象，展现他们的侠义精神和英雄事迹。</p>
+                    <p>侠义小说的特点：</p>
+                    <ul>
+                        <li>塑造武艺高强、见义勇为的侠客义士形象</li>
+                        <li>展现侠客义士的侠义精神和英雄事迹</li>
+                        <li>情节紧张刺激，充满打斗和冒险</li>
+                        <li>语言通俗易懂，富有感染力</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《三侠五义》</strong>：塑造了展昭、白玉堂等侠客义士形象，讲述了他们协助包拯断案的故事。</li>
+                        <li><strong>《七侠五义》</strong>：是《三侠五义》的续书，讲述了更多侠客义士的故事。</li>
+                        <li><strong>《儿女英雄传》</strong>：塑造了十三妹等侠客义士形象，讲述了他们的侠义事迹。</li>
+                    </ul>
+                </section>
+
+                <!-- 按照形式分类 -->
+                <section class="novel-types-section" id="form-based">
+                    <h3>按照形式分类</h3>
+                    
+                    <h4>文言小说</h4>
+                    <p>文言小说是以文言为语言形式的小说，是中国古代小说的主要形式之一。这类小说语言典雅，注重文辞的修饰和意境的营造。</p>
+                    <p>文言小说的特点：</p>
+                    <ul>
+                        <li>以文言为语言形式</li>
+                        <li>语言典雅，注重文辞的修饰和意境的营造</li>
+                        <li>多为笔记小说和传奇小说</li>
+                        <li>读者群体主要是文人雅士</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《世说新语》</strong>：语言简洁明快，人物形象鲜明。</li>
+                        <li><strong>《柳毅传》</strong>：语言华丽典雅，情节曲折动人。</li>
+                        <li><strong>《聊斋志异》</strong>：语言优美典雅，情节离奇，寓意深刻。</li>
+                    </ul>
+
+                    <h4>白话小说</h4>
+                    <p>白话小说是以白话为语言形式的小说，是中国古代小说的重要形式之一。这类小说语言通俗易懂，贴近生活，深受广大读者的喜爱。</p>
+                    <p>白话小说的特点：</p>
+                    <ul>
+                        <li>以白话为语言形式</li>
+                        <li>语言通俗易懂，贴近生活</li>
+                        <li>多为话本小说和章回小说</li>
+                        <li>读者群体广泛，包括平民百姓</li>
+                    </ul>
+                    <p>代表作品：</p>
+                    <ul>
+                        <li><strong>《水浒传》</strong>：语言通俗易懂，人物形象鲜明，情节生动有趣。</li>
+                        <li><strong>《西游记》</strong>：语言生动形象，情节离奇，想象丰富。</li>
+                        <li><strong>《红楼梦》</strong>：语言优美典雅，情节复杂，人物形象鲜明。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

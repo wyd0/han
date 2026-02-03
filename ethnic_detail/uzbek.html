@@ -1,0 +1,572 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乌孜别克族- 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 乌孜别克族页面特定样式 */
+        .uzbek-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .uzbek-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .uzbek-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .uzbek-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .uzbek-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .uzbek-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .uzbek-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .uzbek-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uzbek-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .uzbek-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .uzbek-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .uzbek-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .uzbek-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .uzbek-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .uzbek-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .uzbek-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 介绍部分 */
+        .uzbek-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .uzbek-intro p {
+            margin-bottom: 20px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .uzbek-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .uzbek-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .uzbek-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .uzbek-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .uzbek-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .uzbek-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .uzbek-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uzbek-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .uzbek-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .uzbek-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .uzbek-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .uzbek-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .uzbek-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .uzbek-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uzbek-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .uzbek-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .uzbek-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .uzbek-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .uzbek-header h1 {
+                font-size: 36px;
+            }
+            
+            .uzbek-header p {
+                font-size: 18px;
+            }
+            
+            .uzbek-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="uzbek-header">
+        <div class="container">
+            <div class="uzbek-header-content">
+                <h1>乌孜别克族文化</h1>
+                <p>歌舞欢腾四弦琴，热情的玫瑰花开时节</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="uzbek-main">
+        <div class="container">
+            <div class="uzbek-content">
+                <!-- 文化介绍 -->
+                <section class="uzbek-section">
+                    <h2>乌孜别克族文化概览</h2>
+                    <div class="uzbek-intro">
+                        <p>乌孜别克族是中国的一个古老民族，主要分布在新疆维吾尔自治区的伊宁、塔城、喀什、莎车等地。乌孜别克族有着悠久的历史和独特的文化，是丝绸之路上的重要民族之一。</p>
+                        <p>乌孜别克族文化以其多元的宗教信仰、丰富的语言文字、独特的风俗习惯和美丽的艺术形式而闻名，是中华文化多元一体格局中的重要组成部分。</p>
+                    </div>
+                </section>
+                
+                <!-- 历史沿革 -->
+                <section class="uzbek-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>远古时期</h5>
+                            <p>乌孜别克族先民是中亚地区的古老居民，早在公元前就已经在阿姆河和锡尔河流域繁衍生息。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>秦汉时期</h5>
+                            <p>乌孜别克族先民建立了康居等政权，与中国内地有着密切的经济文化交流。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>宋元明时期</h5>
+                            <p>乌孜别克族先民开始大规模迁徙到中国新疆地区，与当地民族融合，形成了今天的乌孜别克族。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近代时期</h5>
+                            <p>乌孜别克族积极参与中国的革命和建设，为国家的统一和民族的团结做出了重要贡献。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>现代时期</h5>
+                            <p>新中国成立后，乌孜别克族地区实行了民族区域自治政策，经济社会得到了快速发展，文化传统得到了保护和传承。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="uzbek-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <a href="uzbek_language.html" class="culture-item" style="text-decoration: none; color: inherit;">
+                            <h5>语言文字</h5>
+                            <p>乌孜别克族有自己的语言，属于阿尔泰语系突厥语族，使用以阿拉伯字母为基础的乌孜别克文。同时，乌孜别克族也普遍使用维吾尔文和汉文。</p>
+                        </a>
+                        <a href="uzbek_religion.html" class="culture-item" style="text-decoration: none; color: inherit;">
+                            <h5>宗教信仰</h5>
+                            <p>乌孜别克族主要信仰伊斯兰教，属于逊尼派。他们严格遵守伊斯兰教的教义和教规，宗教活动在日常生活中占有重要地位。</p>
+                        </a>
+                        <a href="uzbek_customs.html" class="culture-item" style="text-decoration: none; color: inherit;">
+                            <h5>风俗习惯</h5>
+                            <p>乌孜别克族有着独特的风俗习惯，如住房建筑多为平顶长方形，婚姻制度实行一夫一妻制，丧葬仪式按照伊斯兰教规进行等。</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 服装特点 -->
+                <section class="uzbek-section">
+                    <h2>服装特点</h2>
+                    <p>乌孜别克族传统服装以其精致的工艺、鲜艳的色彩和独特的款式而闻名。男子一般穿长袍、长裤，外罩长袷袢，头戴小帽。女子则穿连衣裙，外穿袷袢，戴花帽或头巾，佩戴耳环、项链、手镯等饰品。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/乌孜别克族女子传统服装.jpg" alt="乌孜别克族女子传统服装">
+                            <p>乌孜别克族女子传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/乌孜别克族男子传统服装.jpg" alt="乌孜别克族男子传统服装">
+                            <p>乌孜别克族男子传统服装</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="uzbek-section">
+                    <h2>饮食文化</h2>
+                    <p>乌孜别克族的饮食文化以其丰富的种类和独特的风味而闻名。主要食物包括馕、抓饭、包子、烤肉等，同时也喜欢喝奶茶、马奶酒等饮品。</p>
+                    <p>乌孜别克族的传统食品制作工艺精细，口味独特，受到人们的喜爱。其中，抓饭和包子是乌孜别克族最具代表性的传统美食。</p>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="uzbek-section">
+                    <h2>传统节日</h2>
+                    <p>乌孜别克族的传统节日主要有肉孜节、古尔邦节、圣纪节等。这些节日都与伊斯兰教有关，是乌孜别克族人民辞旧迎新、祈求平安的重要时刻。</p>
+                    <p>在节日期间，乌孜别克族人民会穿上盛装，举行各种庆祝活动，如歌舞表演、体育竞赛、物资交流等，展现了乌孜别克族人民的热情好客和丰富多彩的文化生活。</p>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="uzbek-section">
+                    <h2>文学艺术</h2>
+                    <p>乌孜别克族有着丰富的民间文学和艺术传统。民间文学包括神话传说、故事、诗歌等，其中最著名的是《福乐智慧》和《突厥语大词典》等经典著作。</p>
+                    <p>乌孜别克族的传统艺术包括音乐、舞蹈、绘画、雕刻等。音乐以其独特的旋律和节奏而闻名，舞蹈则以其优美的动作和流畅的线条而受到人们的喜爱。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="uzbek-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>乌孜别克族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。乌孜别克族的语言、宗教、风俗习惯、艺术形式等都为中华文化增添了丰富的内容。</p>
+                    <p>同时，乌孜别克族文化也受到了中华文化的深刻影响，在长期的历史发展过程中，与汉族和其他少数民族文化相互交流、相互借鉴，形成了独特的文化特色。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

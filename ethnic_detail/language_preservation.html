@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语言文字保护与发展 - 语言文字</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 语言文字保护与发展页面特定样式 */
+        .preservation-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .preservation-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .preservation-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .preservation-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .preservation-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-language {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-language:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .preservation-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .preservation-section {
+            margin-bottom: 80px;
+        }
+        
+        .preservation-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .preservation-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .preservation-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .preservation-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .preservation-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .preservation-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .preservation-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 保护措施卡片 */
+        .measure-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .measure-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .measure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .measure-card h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .measure-card .desc {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .measure-card .items {
+            margin-bottom: 20px;
+        }
+        
+        .measure-card .items h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .preservation-header h1 {
+                font-size: 36px;
+            }
+            
+            .preservation-header p {
+                font-size: 18px;
+            }
+            
+            .preservation-section h2 {
+                font-size: 28px;
+            }
+            
+            .preservation-section h3 {
+                font-size: 24px;
+            }
+            
+            .measure-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .preservation-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .preservation-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="preservation-header">
+        <div class="container">
+            <div class="preservation-header-content">
+                <h1>语言文字保护与发展</h1>
+                <p>汉族语言文字的传承、保护与未来发展</p>
+                <a href="language.html" class="back-language">返回语言文字</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="preservation-main">
+        <div class="container">
+            <div class="preservation-content">
+                <!-- 介绍部分 -->
+                <section class="preservation-section">
+                    <h2>语言文字保护与发展概述</h2>
+                    <p>语言文字是人类文明的重要组成部分，是民族文化的重要载体。汉族的语言文字（汉语和汉字）是世界上最古老、最成功、最具影响力的语言文字之一，对中国文化的传承和发展、对周边国家和地区的文化影响、对世界语言文字的贡献、对人类文明进步的推动作用，都充分体现了其重要价值和地位。</p>
+                    <p>然而，在现代社会，随着全球化、信息化的发展，语言文字面临着诸多挑战，如方言的消失、汉字的滥用、语言文字的标准化和规范化问题等。因此，加强语言文字的保护与发展，对于传承和弘扬中华优秀传统文化、促进民族团结和国家统一、推动人类文明进步，具有重要意义。</p>
+                </section>
+
+                <!-- 保护的重要性 -->
+                <section class="preservation-section">
+                    <h2>语言文字保护的重要性</h2>
+                    <h3>文化传承的需要</h3>
+                    <ul>
+                        <li><strong>文化载体：</strong>语言文字是文化的重要载体，承载着民族的历史、文化和传统</li>
+                        <li><strong>文化认同：</strong>语言文字是民族文化认同的重要标志，是民族凝聚力的重要来源</li>
+                        <li><strong>文化多样性：</strong>语言文字的多样性是文化多样性的重要组成部分，丰富了人类文明</li>
+                    </ul>
+                    
+                    <h3>社会发展的需要</h3>
+                    <ul>
+                        <li><strong>民族团结：</strong>语言文字的统一和规范有助于促进民族团结和国家统一</li>
+                        <li><strong>社会交流：</strong>语言文字的标准化和规范化有助于提高社会交流效率</li>
+                        <li><strong>经济发展：</strong>语言文字的发展有助于促进经济的发展，尤其是在信息时代</li>
+                    </ul>
+                    
+                    <h3>人类文明进步的需要</h3>
+                    <ul>
+                        <li><strong>知识传播：</strong>语言文字是知识传播的重要工具，促进了人类知识的积累和传播</li>
+                        <li><strong>科技发展：</strong>语言文字的发展有助于促进科技的发展，尤其是在信息时代</li>
+                        <li><strong>文明交流：</strong>语言文字是文明交流的重要桥梁，促进了不同文明之间的交流与融合</li>
+                    </ul>
+                </section>
+
+                <!-- 现状与挑战 -->
+                <section class="preservation-section">
+                    <h2>现状与挑战</h2>
+                    <h3>现状</h3>
+                    <ul>
+                        <li><strong>普通话的推广：</strong>普通话的推广取得了显著成效，成为全国通用的语言</li>
+                        <li><strong>汉字的标准化：</strong>汉字的标准化和规范化工作不断推进，建立了完善的标准体系</li>
+                        <li><strong>语言文字的信息化：</strong>语言文字的信息化处理取得了重大突破，适应了信息时代的需要</li>
+                        <li><strong>国际传播：</strong>汉语的国际传播取得了显著成效，全球掀起了"汉语热"</li>
+                    </ul>
+                    
+                    <h3>挑战</h3>
+                    <ul>
+                        <li><strong>方言的消失：</strong>随着普通话的推广和人口流动的加剧，许多方言面临着消失的危险</li>
+                        <li><strong>汉字的滥用：</strong>在信息化时代，汉字的滥用现象严重，如错别字、生造字等</li>
+                        <li><strong>语言文字的标准化和规范化：</strong>在信息化时代，语言文字的标准化和规范化面临着新的挑战</li>
+                        <li><strong>国际竞争：</strong>在全球化时代，英语等西方语言的强势地位对汉语的国际传播构成挑战</li>
+                        <li><strong>科技发展的挑战：</strong>科技的发展对语言文字的发展提出了新的要求，如人工智能对语言文字处理的需求</li>
+                    </ul>
+                </section>
+
+                <!-- 保护措施 -->
+                <section class="preservation-section">
+                    <h2>语言文字保护措施</h2>
+                    <div class="measure-cards">
+                        <!-- 立法保护 -->
+                        <div class="measure-card">
+                            <h4>立法保护</h4>
+                            <div class="desc">通过立法手段，为语言文字的保护提供法律保障。</div>
+                            <div class="items">
+                                <h5>主要法律法规：</h5>
+                                <ul>
+                                    <li>《中华人民共和国国家通用语言文字法》（2000年）</li>
+                                    <li>《通用规范汉字表》（2013年）</li>
+                                    <li>《汉语拼音方案》（1958年）</li>
+                                    <li>《标点符号用法》（2011年）</li>
+                                    <li>《出版物上数字用法》（2011年）</li>
+                                </ul>
+                            </div>
+                            <div class="items">
+                                <h5>法律保障：</h5>
+                                <ul>
+                                    <li>明确国家通用语言文字的地位和使用范围</li>
+                                    <li>规范语言文字的使用</li>
+                                    <li>保护方言和少数民族语言文字</li>
+                                    <li>促进语言文字的规范化、标准化</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 教育传承 -->
+                        <div class="measure-card">
+                            <h4>教育传承</h4>
+                            <div class="desc">通过教育手段，传承和弘扬语言文字。</div>
+                            <div class="items">
+                                <h5>基础教育：</h5>
+                                <ul>
+                                    <li>在中小学教育中加强语言文字教育</li>
+                                    <li>推广普通话，提高普通话水平</li>
+                                    <li>加强汉字书写教育，提高汉字书写能力</li>
+                                    <li>加强经典诵读，传承中华优秀传统文化</li>
+                                </ul>
+                            </div>
+                            <div class="items">
+                                <h5>高等教育：</h5>
+                                <ul>
+                                    <li>在高等教育中设置语言文字相关专业</li>
+                                    <li>加强语言文字研究，培养专业人才</li>
+                                    <li>开展语言文字国际教育，推广汉语和中国文化</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 媒体传播 -->
+                        <div class="measure-card">
+                            <h4>媒体传播</h4>
+                            <div class="desc">通过媒体手段，传播和推广语言文字。</div>
+                            <div class="items">
+                                <h5>传统媒体：</h5>
+                                <ul>
+                                    <li>在报纸、杂志、广播、电视等媒体中规范使用语言文字</li>
+                                    <li>开设语言文字相关栏目，普及语言文字知识</li>
+                                    <li>制作语言文字相关节目，提高公众的语言文字意识</li>
+                                </ul>
+                            </div>
+                            <div class="items">
+                                <h5>新媒体：</h5>
+                                <ul>
+                                    <li>在互联网、移动互联网等新媒体中规范使用语言文字</li>
+                                    <li>利用新媒体平台，推广语言文字知识</li>
+                                    <li>开发语言文字相关应用程序，方便公众学习和使用语言文字</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 学术研究 -->
+                        <div class="measure-card">
+                            <h4>学术研究</h4>
+                            <div class="desc">通过学术研究，推动语言文字的发展。</div>
+                            <div class="items">
+                                <h5>基础研究：</h5>
+                                <ul>
+                                    <li>开展语言文字的历史、现状和发展趋势研究</li>
+                                    <li>开展方言和少数民族语言文字研究</li>
+                                    <li>开展语言文字与文化关系研究</li>
+                                </ul>
+                            </div>
+                            <div class="items">
+                                <h5>应用研究：</h5>
+                                <ul>
+                                    <li>开展语言文字信息化处理研究</li>
+                                    <li>开展语言文字教育教学研究</li>
+                                    <li>开展语言文字国际传播研究</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 文化活动 -->
+                        <div class="measure-card">
+                            <h4>文化活动</h4>
+                            <div class="desc">通过文化活动，弘扬语言文字。</div>
+                            <div class="items">
+                                <h5>传统活动：</h5>
+                                <ul>
+                                    <li>举办书法展览、比赛等活动，弘扬汉字书法艺术</li>
+                                    <li>举办诗词朗诵、比赛等活动，弘扬中华优秀传统文化</li>
+                                    <li>举办方言文化活动，保护和传承方言</li>
+                                </ul>
+                            </div>
+                            <div class="items">
+                                <h5>现代活动：</h5>
+                                <ul>
+                                    <li>举办语言文字信息化创意大赛等活动，推动语言文字的创新发展</li>
+                                    <li>举办国际语言文字文化节等活动，促进语言文字的国际交流</li>
+                                    <li>利用互联网平台，开展线上语言文字文化活动</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 国际合作 -->
+                        <div class="measure-card">
+                            <h4>国际合作</h4>
+                            <div class="desc">通过国际合作，推动语言文字的国际传播。</div>
+                            <div class="items">
+                                <h5>孔子学院：</h5>
+                                <ul>
+                                    <li>在全球范围内建立孔子学院和孔子课堂，推广汉语和中国文化</li>
+                                    <li>开展汉语教师培训，提高汉语教学水平</li>
+                                    <li>开发汉语教材，适应不同国家和地区的需求</li>
+                                </ul>
+                            </div>
+                            <div class="items">
+                                <h5>国际交流：</h5>
+                                <ul>
+                                    <li>开展语言文字国际学术交流，推动语言文字的研究和发展</li>
+                                    <li>参与国际语言文字标准的制定，提高汉语的国际地位</li>
+                                    <li>举办国际语言文字文化活动，促进不同语言文字之间的交流与融合</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 发展策略 -->
+                <section class="preservation-section">
+                    <h2>语言文字发展策略</h2>
+                    <h3>标准化和规范化</h3>
+                    <ul>
+                        <li><strong>完善标准体系：</strong>建立和完善语言文字的标准体系，包括汉字标准、拼音标准、标点符号标准等</li>
+                        <li><strong>加强规范管理：</strong>加强对语言文字使用的规范管理，如出版物、媒体、网络等领域的语言文字规范</li>
+                        <li><strong>推广标准规范：</strong>通过教育、媒体、培训等手段，推广语言文字的标准规范</li>
+                    </ul>
+                    
+                    <h3>信息化和数字化</h3>
+                    <ul>
+                        <li><strong>技术创新：</strong>加强语言文字信息化处理技术的创新，如汉字识别、语音识别、机器翻译等</li>
+                        <li><strong>平台建设：</strong>建设语言文字信息化平台，如语料库、知识库、教学资源库等</li>
+                        <li><strong>应用推广：</strong>推广语言文字信息化应用，如汉字输入法、语音助手、语言学习软件等</li>
+                    </ul>
+                    
+                    <h3>国际化和全球化</h3>
+                    <ul>
+                        <li><strong>国际推广：</strong>加强汉语的国际推广，提高汉语的国际地位</li>
+                        <li><strong>文化交流：</strong>通过语言文字促进中外文化交流，增强中国文化的国际影响力</li>
+                        <li><strong>合作共赢：</strong>与国际组织和其他国家开展语言文字合作，实现共赢发展</li>
+                    </ul>
+                    
+                    <h3>创新和发展</h3>
+                    <ul>
+                        <li><strong>理论创新：</strong>加强语言文字理论研究，推动语言文字理论的创新</li>
+                        <li><strong>实践创新：</strong>在语言文字的使用、教育、传播等方面进行实践创新</li>
+                        <li><strong>制度创新：</strong>创新语言文字管理体制和机制，适应时代发展的需要</li>
+                    </ul>
+                </section>
+
+                <!-- 未来发展 -->
+                <section class="preservation-section">
+                    <h2>语言文字未来发展</h2>
+                    <h3>信息化时代的语言文字</h3>
+                    <ul>
+                        <li><strong>智能化：</strong>语言文字处理将更加智能化，如人工智能对语言文字的理解和生成</li>
+                        <li><strong>多模态：</strong>语言文字将与图像、音频、视频等多种模态结合，形成更加丰富的表达方式</li>
+                        <li><strong>个性化：</strong>语言文字服务将更加个性化，根据用户的需求提供定制化的服务</li>
+                    </ul>
+                    
+                    <h3>全球化时代的语言文字</h3>
+                    <ul>
+                        <li><strong>国际地位提升：</strong>随着中国综合国力的增强，汉语的国际地位将不断提升</li>
+                        <li><strong>跨文化交流：</strong>语言文字将在跨文化交流中发挥更加重要的作用</li>
+                        <li><strong>多元共存：</strong>在全球化时代，语言文字的多样性将得到尊重和保护，形成多元共存的局面</li>
+                    </ul>
+                    
+                    <h3>新时代的语言文字</h3>
+                    <ul>
+                        <li><strong>传承与创新：</strong>在传承优秀传统的基础上，不断创新语言文字的使用和发展</li>
+                        <li><strong>融合与发展：</strong>语言文字将与科技、文化等领域深度融合，推动自身的发展</li>
+                        <li><strong>责任与使命：</strong>语言文字工作者将承担起更大的责任和使命，推动语言文字的发展</li>
+                    </ul>
+                </section>
+
+                <!-- 结语 -->
+                <section class="preservation-section">
+                    <h2>结语</h2>
+                    <p>语言文字是人类文明的重要组成部分，是民族文化的重要载体。汉族的语言文字（汉语和汉字）是世界上最古老、最成功、最具影响力的语言文字之一，对中国文化的传承和发展、对周边国家和地区的文化影响、对世界语言文字的贡献、对人类文明进步的推动作用，都充分体现了其重要价值和地位。</p>
+                    <p>在现代社会，随着全球化、信息化的发展，语言文字面临着诸多挑战，如方言的消失、汉字的滥用、语言文字的标准化和规范化问题等。因此，加强语言文字的保护与发展，对于传承和弘扬中华优秀传统文化、促进民族团结和国家统一、推动人类文明进步，具有重要意义。</p>
+                    <p>我们应该采取多种措施，如立法保护、教育传承、媒体传播、学术研究、文化活动、国际合作等，加强语言文字的保护与发展。同时，我们也应该制定科学的发展策略，如标准化和规范化、信息化和数字化、国际化和全球化、创新和发展等，推动语言文字的可持续发展。</p>
+                    <p>语言文字的保护与发展是一项长期而艰巨的任务，需要政府、社会、个人的共同努力。我们相信，在大家的共同努力下，汉族的语言文字将继续发挥重要作用，为中华民族的伟大复兴、为人类文明的繁荣和发展做出更大的贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.preservation-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阴阳五行学说 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 医学理论导航样式 */
+        .medicine-nav {
+            background-color: rgba(192, 57, 43, 0.05);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .medicine-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .medicine-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .medicine-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            font-size: 16px;
+            border: 1px solid #c0392b;
+        }
+        
+        .medicine-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+        }
+        
+        .medicine-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+            
+            .medicine-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .medicine-nav a {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>阴阳五行学说</h1>
+                <p>中国传统医学的核心理论之一</p>
+                <a href="medicine.html" class="back-home">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 医学理论导航 -->
+                <nav class="medicine-nav">
+                    <ul>
+                        <li><a href="medicine_yinyang.html" class="active">阴阳五行学说</a></li>
+                        <li><a href="medicine_meridian.html">经络学说</a></li>
+                        <li><a href="medicine_zangfu.html">脏腑学说</a></li>
+                        <li><a href="medicine_qixue.html">气血津液学说</a></li>
+                        <li><a href="medicine_diagnosis.html">辨证施治</a></li>
+                        <li><a href="medicine_prevention.html">预防为主</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 理论概述 -->
+                <section class="medicine-section">
+                    <h2>理论概述</h2>
+                    <p>阴阳五行学说是中国传统医学的核心理论之一，它认为宇宙万物都是由阴阳两种基本元素构成的，同时五行（金、木、水、火、土）是构成宇宙万物的基本物质。阴阳五行学说贯穿于中医的诊断、治疗和预防等各个方面，是中医理论体系的重要组成部分。</p>
+                    <p>阴阳学说认为，阴阳是对立统一的关系，它们相互依存、相互转化、相互制约。在人体中，阴阳的平衡是健康的基础，阴阳失调则会导致疾病的发生。五行学说认为，五行之间存在着相生相克的关系，这种关系是宇宙万物运行的基本规律，也是人体内部脏腑功能协调的基础。</p>
+                </section>
+
+                <!-- 起源 -->
+                <section class="medicine-section">
+                    <h2>起源</h2>
+                    <p>阴阳五行学说的起源可以追溯到中国古代的哲学思想。阴阳观念最早出现在《周易》中，《周易》认为"一阴一阳之谓道"，阴阳是宇宙万物的基本规律。五行观念最早出现在《尚书·洪范》中，《洪范》提出了五行的概念，并阐述了五行的特性。</p>
+                    <p>在春秋战国时期，阴阳五行学说得到了重要的发展。阴阳家的代表人物邹衍将阴阳学说与五行学说结合起来，形成了阴阳五行学说的基本框架。这一学说后来被中医学家吸收和发展，成为中医理论体系的重要组成部分。</p>
+                    <p>《黄帝内经》的问世标志着阴阳五行学说的正式确立。《黄帝内经》系统地阐述了阴阳五行学说的基本理论，将其应用于中医的诊断、治疗和预防等各个方面，为阴阳五行学说的发展奠定了坚实的基础。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="medicine-section">
+                    <h2>发展</h2>
+                    <p>阴阳五行学说在中医中的发展经历了漫长而复杂的历史过程，各个时期都有其独特的贡献和特点：</p>
+                    
+                    <h3>先秦时期（萌芽与奠基）</h3>
+                    <p>先秦时期是阴阳五行学说的萌芽和奠基阶段。早在新石器时代，人们就已经开始对自然现象进行观察，形成了初步的阴阳观念。到了春秋战国时期，阴阳五行学说得到了初步的发展。</p>
+                    <p>《黄帝内经》的问世标志着阴阳五行学说的正式确立。《黄帝内经》系统地阐述了阴阳五行学说的基本理论，包括阴阳的对立统一、五行的相生相克等，为阴阳五行学说的发展奠定了坚实的基础。</p>
+                    <p>《黄帝内经·素问》中详细论述了阴阳五行学说的基本内容，将阴阳作为纲领，将五行作为基础，构建了中医理论体系的基本框架。</p>
+                    
+                    <h3>秦汉时期（应用与发展）</h3>
+                    <p>秦汉时期是阴阳五行学说的应用和发展阶段。张仲景的《伤寒杂病论》进一步发展了阴阳五行学说，将其应用于临床实践。他建立了六经辨证体系，以阴阳为纲领，将外感热病分为太阳、阳明、少阳、太阴、少阴、厥阴六个阶段，每个阶段都有其特定的证候和治疗方法。</p>
+                    <p>《难经》也对阴阳五行学说进行了重要的发展，提出了"五行生克"的理论，进一步丰富了阴阳五行学说的内容。此外，《难经》还对阴阳五行的生理功能和病理变化进行了详细的描述。</p>
+                    
+                    <h3>魏晋南北朝时期（整理与总结）</h3>
+                    <p>魏晋南北朝时期是阴阳五行学说的整理和总结阶段。王叔和的《脉经》对阴阳五行学说进行了重要的发展，提出了"脉以候气"的思想，强调通过脉诊观察阴阳的变化。</p>
+                    <p>皇甫谧的《针灸甲乙经》也对阴阳五行学说进行了重要的发展，提出了"针灸调阴阳"的思想，强调通过针灸调节阴阳的平衡。此外，魏晋南北朝时期还出现了许多阴阳五行学说的著作，如《小品方》和《刘涓子鬼遗方》等，进一步丰富了阴阳五行学说的内容。</p>
+                    
+                    <h3>隋唐时期（丰富与完善）</h3>
+                    <p>隋唐时期是阴阳五行学说的丰富和完善阶段。孙思邈的《千金方》进一步丰富和发展了阴阳五行学说，提出了"阴阳调和"的理论，强调阴阳调和是健康的基础。</p>
+                    <p>王焘的《外台秘要》也记录了大量有关阴阳五行学说的内容，对阴阳五行学说的发展起到了重要的推动作用。此外，隋唐时期还出现了许多阴阳五行学说的著作，如《诸病源候论》和《备急千金要方》等，进一步完善了阴阳五行学说的内容。</p>
+                    
+                    <h3>宋元明时期（创新与流派形成）</h3>
+                    <p>宋元明时期是阴阳五行学说的创新和流派形成阶段。刘完素创立了"寒凉派"，强调火热在阴阳五行中的重要作用，认为火热炽盛是导致阴阳失调的根本原因。</p>
+                    <p>张从正创立了"攻邪派"，强调攻邪在调节阴阳中的重要作用，认为"邪气盛则实，精气夺则虚"，提出了"攻邪去病"的治疗方法。</p>
+                    <p>李杲创立了"补土派"，强调脾胃在五行中的重要作用，认为"内伤脾胃，百病由生"，提出了"补中益气"的治疗方法。</p>
+                    <p>朱震亨创立了"滋阴派"，提出了"阳常有余，阴常不足"的理论，强调滋阴降火的治疗方法。</p>
+                    
+                    <h3>近现代时期（传承与发展）</h3>
+                    <p>近现代时期是阴阳五行学说的传承和发展阶段。现代中医学家在继承传统阴阳五行学说的基础上，结合现代科学技术和医学理论，对阴阳五行学说进行了新的研究和发展。</p>
+                    <p>例如，现代中医学家通过生理学、生物化学等现代医学手段，对阴阳五行学说的物质基础进行了深入的研究，为阴阳五行学说的发展注入了新的活力。同时，现代中医学家还将阴阳五行学说与现代医学相结合，为中医的现代化发展作出了重要贡献。</p>
+                </section>
+
+                <!-- 影响 -->
+                <section class="medicine-section">
+                    <h2>影响</h2>
+                    <p>阴阳五行学说对中国传统医学的发展产生了深远的影响。它不仅是中医理论体系的核心组成部分，也是中医诊断和治疗的重要指导思想。阴阳五行学说的影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>理论指导</strong>：阴阳五行学说为中医提供了基本的理论框架，指导着中医的诊断、治疗和预防等各个方面。</li>
+                        <li><strong>临床实践</strong>：阴阳五行学说在中医的临床实践中得到了广泛的应用，如辨证论治、方剂配伍、针灸取穴等。</li>
+                        <li><strong>思维方式</strong>：阴阳五行学说塑造了中医的整体思维方式，强调从整体上认识和治疗疾病。</li>
+                        <li><strong>文化传承</strong>：阴阳五行学说是中国传统文化的重要组成部分，它的传承和发展有助于弘扬中华优秀传统文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="medicine-section">
+                    <h2>代表人物</h2>
+                    <ul>
+                        <li><strong>黄帝</strong>：传说中的中华远古始祖，《黄帝内经》的作者之一，阴阳五行学说的奠基者。</li>
+                        <li><strong>岐伯</strong>：传说中的古代医学家，《黄帝内经》的作者之一，阴阳五行学说的重要发展者。</li>
+                        <li><strong>邹衍</strong>：战国时期阴阳家的代表人物，将阴阳学说与五行学说结合起来，形成了阴阳五行学说的基本框架。</li>
+                        <li><strong>张仲景</strong>：东汉时期著名医学家，《伤寒杂病论》的作者，将阴阳五行学说应用于临床实践。</li>
+                        <li><strong>孙思邈</strong>：唐代著名医学家，《千金方》的作者，进一步丰富和发展了阴阳五行学说。</li>
+                        <li><strong>刘完素</strong>：金元时期著名医学家，《素问玄机原病式》的作者，强调火热在阴阳五行中的重要作用。</li>
+                        <li><strong>张从正</strong>：金元时期著名医学家，《儒门事亲》的作者，强调攻邪在调节阴阳中的应用。</li>
+                        <li><strong>李杲</strong>：金元时期著名医学家，《脾胃论》的作者，强调脾胃在五行中的重要作用。</li>
+                        <li><strong>朱震亨</strong>：金元时期著名医学家，《格致余论》的作者，提出了"阳常有余，阴常不足"的理论。</li>
+                    </ul>
+                </section>
+
+                <!-- 相关著作 -->
+                <section class="medicine-section">
+                    <h2>相关著作</h2>
+                    <ul>
+                        <li><strong>《黄帝内经》</strong>：中国传统医学的经典著作，系统地阐述了阴阳五行学说的基本理论。</li>
+                        <li><strong>《伤寒杂病论》</strong>：东汉张仲景著，将阴阳五行学说应用于临床实践。</li>
+                        <li><strong>《难经》</strong>：汉代医学经典著作，进一步丰富和发展了阴阳五行学说。</li>
+                        <li><strong>《千金方》</strong>：唐代孙思邈著，记录了大量有关阴阳五行学说的内容。</li>
+                        <li><strong>《素问玄机原病式》</strong>：金元时期刘完素著，强调火热在阴阳五行中的重要作用。</li>
+                        <li><strong>《儒门事亲》</strong>：金元时期张从正著，强调攻邪在调节阴阳中的应用。</li>
+                        <li><strong>《脾胃论》</strong>：金元时期李杲著，强调脾胃在五行中的重要作用。</li>
+                        <li><strong>《格致余论》</strong>：金元时期朱震亨著，提出了"阳常有余，阴常不足"的理论。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典语句 -->
+                <section class="medicine-section">
+                    <h2>经典语句</h2>
+                    <ul>
+                        <li><strong>"阴阳者，天地之道也，万物之纲纪，变化之父母，生杀之本始，神明之府也。"</strong> ——《黄帝内经素问·阴阳应象大论》</li>
+                        <li><strong>"五行者，金、木、水、火、土也，以知生死，以决成败，以定善恶，以应盛衰，以观天变。"</strong> ——《黄帝内经素问·宝命全形论》</li>
+                        <li><strong>"阴胜则阳病，阳胜则阴病；阳胜则热，阴胜则寒。"</strong> ——《黄帝内经素问·阴阳应象大论》</li>
+                        <li><strong>"五行相生相克，生生不息，克克不止。"</strong> ——《黄帝内经素问·五运行大论》</li>
+                        <li><strong>"阴阳调和，百病不生。"</strong> ——《千金方》</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

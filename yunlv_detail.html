@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韵律详解 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 韵律页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .yunlv-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .yunlv-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yunlv-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yunlv-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .yunlv-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yunlv-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yunlv-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .yunlv-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yunlv-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yunlv-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yunlv-section h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yunlv-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yunlv-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yunlv-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yunlv-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yunlv-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 示例表格 */
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(249, 249, 249, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .example-table th,
+        .example-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .example-table th {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-table tr:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 韵律示例 */
+        .yunlv-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .yunlv-example h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yunlv-example p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .yunlv-example .example-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+        
+        .yunlv-example .example-line:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        .yunlv-example .rhyme-word {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yunlv-header h1 {
+                font-size: 36px;
+            }
+            
+            .yunlv-header p {
+                font-size: 18px;
+            }
+            
+            .yunlv-section h2 {
+                font-size: 28px;
+            }
+            
+            .yunlv-section h3 {
+                font-size: 24px;
+            }
+            
+            .yunlv-section h4 {
+                font-size: 20px;
+            }
+            
+            .yunlv-example .example-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yunlv-header">
+        <div class="container">
+            <div class="yunlv-header-content">
+                <h1>韵律详解</h1>
+                <p>中国古典诗歌的音韵艺术</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速导航栏 -->
+    <div style="background-color: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; overflow-x: auto; padding: 15px 0;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#overview" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        韵律概述
+                    </a>
+                    <a href="#history" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        历史演变
+                    </a>
+                    <a href="#concepts" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        基本概念
+                    </a>
+                    <a href="#rules" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        运用规则
+                    </a>
+                    <a href="#effects" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        艺术效果
+                    </a>
+                    <a href="#skills" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        韵律技巧
+                    </a>
+                    <a href="#examples" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        韵律示例
+                    </a>
+                    <a href="#modern" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        现代意义
+                    </a>
+                    <a href="#appreciation" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        韵律欣赏
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            a[href="#overview"]:hover,
+            a[href="#history"]:hover,
+            a[href="#concepts"]:hover,
+            a[href="#rules"]:hover,
+            a[href="#effects"]:hover,
+            a[href="#skills"]:hover,
+            a[href="#examples"]:hover,
+            a[href="#modern"]:hover,
+            a[href="#appreciation"]:hover {
+                background-color: #c0392b;
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            }
+        </style>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="yunlv-main">
+        <div class="container">
+            <div class="yunlv-content">
+                <!-- 快速导航 -->
+                <div style="background-color: rgba(249, 249, 249, 0.95); padding: 20px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #c0392b; font-size: 22px; margin-bottom: 15px; font-family: 'SimSun', serif; text-align: center;">快速导航</h3>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="pingze_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">平仄详解</a>
+                        <a href="duizhang_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">对仗详解</a>
+                        <a href="yunlv_detail.html" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">韵律详解</a>
+                    </div>
+                    <style>
+                        a[href="pingze_detail.html"]:hover,
+                        a[href="duizhang_detail.html"]:hover {
+                            background-color: #c0392b;
+                            color: #fff;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                        }
+                        a[href="yunlv_detail.html"] {
+                            font-weight: bold;
+                        }
+                    </style>
+                </div>
+                
+                <!-- 韵律概述 -->
+                <section id="overview" class="yunlv-section">
+                    <h2>韵律概述</h2>
+                    <p>韵律是中国古典诗歌中一个重要的艺术要素，指的是诗歌的押韵、节奏和声调等方面的和谐统一。韵律是诗歌形式美的重要体现，也是诗歌区别于其他文学形式的重要特征。</p>
+                    <p>中国古典诗歌非常注重韵律的运用，通过押韵、平仄、对仗等手法，创造出和谐的节奏和优美的音响效果，增强诗歌的艺术感染力。韵律不仅是一种语言技巧，也是一种文化传统，体现了中国传统文化中"和谐"、"平衡"的美学观念。</p>
+                </section>
+
+                <!-- 韵律的历史演变 -->
+                <section id="history" class="yunlv-section">
+                    <h3>韵律的历史演变</h3>
+                    <p>韵律的运用在中国诗歌的发展过程中经历了一个逐渐形成和完善的过程，从最初的简单押韵到后来的严格规范，再到多样化的灵活运用，体现了中国诗歌艺术的不断发展和成熟：</p>
+                    
+                    <h4>先秦时期：韵律的萌芽与初步发展</h4>
+                    <p>先秦时期是中国诗歌的起源和萌芽阶段，韵律的运用虽然简单，但已经显示出独特的艺术魅力。这一时期的诗歌主要包括《诗经》和楚辞两大类，它们在韵律运用上各有特点：</p>
+                    
+                    <h5>《诗经》时期</h5>
+                    <p>《诗经》是中国第一部诗歌总集，收录了从西周初年到春秋中叶（公元前11世纪至公元前6世纪）的诗歌305篇。《诗经》中的诗歌在韵律运用上已经相当成熟，主要特点包括：</p>
+                    <ul>
+                        <li><strong>押韵方式</strong>：主要采用隔句押韵的方式，即偶数句押韵，奇数句不押韵。这种押韵方式成为后世诗歌押韵的基本模式。</li>
+                        <li><strong>韵脚位置</strong>：韵脚通常位于句子的末尾，位置比较固定。</li>
+                        <li><strong>韵部系统</strong>：《诗经》的韵部系统比较复杂，根据现代学者的研究，《诗经》中的诗歌大致可以分为30个左右的韵部。</li>
+                        <li><strong>押韵灵活性</strong>：虽然押韵位置比较固定，但在具体运用上仍有一定的灵活性，有时会出现换韵的情况。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>《诗经·关雎》</h5>
+                        <div class="example-line">
+                            <span>关关雎鸠，在河之洲。</span>
+                            <span>韵脚：鸠、洲（幽部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>窈窕淑女，君子好逑。</span>
+                            <span>韵脚：女、逑（幽部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>参差荇菜，左右流之。</span>
+                            <span>韵脚：菜、流（幽部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>窈窕淑女，寤寐求之。</span>
+                            <span>韵脚：女、求（幽部）</span>
+                        </div>
+                    </div>
+                    
+                    <h5>楚辞时期</h5>
+                    <p>楚辞是战国时期楚国诗人屈原开创的一种诗歌形式，其在韵律运用上与《诗经》有很大不同：</p>
+                    <ul>
+                        <li><strong>句式特点</strong>：楚辞的句式长短不一，以"兮"字为特色，韵律更加自由灵活。</li>
+                        <li><strong>押韵方式</strong>：楚辞的押韵方式更加多样化，有时句句押韵，有时隔句押韵，有时换韵频繁。</li>
+                        <li><strong>情感表达</strong>：楚辞的韵律更加强调情感的表达，通过押韵的变化来体现情感的起伏。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>屈原《离骚》</h5>
+                        <div class="example-line">
+                            <span>帝高阳之苗裔兮，朕皇考曰伯庸。</span>
+                            <span>韵脚：裔、庸（东部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>摄提贞于孟陬兮，惟庚寅吾以降。</span>
+                            <span>韵脚：陬、降（东部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>汉魏时期：韵律的丰富与发展</h4>
+                    <p>汉魏时期，随着社会的发展和文化的繁荣，诗歌的韵律运用也更加丰富多样。这一时期的诗歌主要包括汉乐府民歌和文人五言诗两大类：</p>
+                    
+                    <h5>汉乐府民歌</h5>
+                    <p>汉乐府是汉代官方设立的音乐机构，负责采集民间歌谣和文人创作。汉乐府民歌在韵律运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>押韵方式多样化</strong>：汉乐府民歌的押韵方式更加灵活多样，有时句句押韵，有时隔句押韵，有时换韵频繁，体现了民间歌谣的自然质朴之美。</li>
+                        <li><strong>口语化特征</strong>：汉乐府民歌的语言更加口语化，韵律更加贴近生活，富有生活气息。</li>
+                        <li><strong>叙事性增强</strong>：汉乐府民歌多为叙事诗，韵律的运用服务于叙事的需要，通过韵律的变化来推动故事情节的发展。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>《孔雀东南飞》</h5>
+                        <div class="example-line">
+                            <span>孔雀东南飞，五里一徘徊。</span>
+                            <span>韵脚：飞、徊（微部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>十三能织素，十四学裁衣。</span>
+                            <span>韵脚：素、衣（微部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>十五弹箜篌，十六诵诗书。</span>
+                            <span>韵脚：篌、书（鱼部）</span>
+                        </div>
+                    </div>
+                    
+                    <h5>文人五言诗</h5>
+                    <p>东汉时期，文人五言诗逐渐成熟，其在韵律运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>平仄搭配意识</strong>：文人五言诗开始注重平仄的搭配，虽然还没有形成严格的规则，但已经有意识地追求声调的和谐。</li>
+                        <li><strong>对仗的萌芽</strong>：文人五言诗中开始出现对仗的萌芽，虽然还比较简单，但为后世律诗的对仗奠定了基础。</li>
+                        <li><strong>韵律与情感的结合</strong>：文人五言诗更加注重韵律与情感的结合，通过韵律的变化来表达不同的情感。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>《古诗十九首·行行重行行》</h5>
+                        <div class="example-line">
+                            <span>行行重行行，与君生别离。</span>
+                            <span>韵脚：行、离（支部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>相去万余里，各在天一涯。</span>
+                            <span>韵脚：里、涯（支部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>道路阻且长，会面安可知？</span>
+                            <span>韵脚：长、知（阳部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>南北朝时期：韵律的规范化与理论化</h4>
+                    <p>南北朝时期，随着音韵学的发展和文学自觉意识的增强，诗歌的韵律运用进入了一个规范化和理论化的阶段。这一时期的主要特点包括：</p>
+                    
+                    <h5>四声八病说的提出</h5>
+                    <p>南齐永明年间，沈约、周颙等音韵学家根据汉语的声调特点，提出了"四声八病"说：</p>
+                    <ul>
+                        <li><strong>四声</strong>：指平、上、去、入四声，这是中国音韵学史上的重要发现，为后世诗歌的平仄运用奠定了基础。</li>
+                        <li><strong>八病</strong>：指诗歌创作中应该避免的八种声病，包括平头、上尾、蜂腰、鹤膝、大韵、小韵、旁纽、正纽。这些声病的提出，标志着诗歌韵律的运用开始走向严格和规范。</li>
+                    </ul>
+                    
+                    <h5>永明体的出现</h5>
+                    <p>以沈约、谢朓等为代表的诗人，根据"四声八病"说创作的诗歌被称为"永明体"。永明体在韵律运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>严格的平仄搭配</strong>：永明体诗歌开始严格讲究平仄的搭配，追求声调的和谐。</li>
+                        <li><strong>工整的对仗</strong>：永明体诗歌中的对仗更加工整，为后世律诗的对仗奠定了基础。</li>
+                        <li><strong>规范的押韵</strong>：永明体诗歌的押韵更加规范，韵脚的位置更加固定。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>谢朓《晚登三山还望京邑》</h5>
+                        <div class="example-line">
+                            <span>灞涘望长安，河阳视京县。</span>
+                            <span>韵脚：安、县（元部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>白日丽飞甍，参差皆可见。</span>
+                            <span>韵脚：甍、见（元部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>余霞散成绮，澄江静如练。</span>
+                            <span>韵脚：绮、练（元部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>喧鸟覆春洲，杂英满芳甸。</span>
+                            <span>韵脚：洲、甸（元部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>唐代：韵律的鼎盛与成熟</h4>
+                    <p>唐代是中国诗歌的鼎盛时期，也是韵律运用的成熟时期。这一时期，近体诗（律诗和绝句）正式形成，韵律的运用达到了严格而完美的境界：</p>
+                    
+                    <h5>近体诗的形成</h5>
+                    <p>近体诗是唐代形成的一种诗歌形式，包括律诗和绝句。近体诗在韵律运用上具有严格的规则：</p>
+                    <ul>
+                        <li><strong>押韵规则</strong>：近体诗要求偶数句押韵，首句可押可不押；一韵到底，中途不能换韵；押韵的字必须属于同一韵部；押韵的字必须是平声。</li>
+                        <li><strong>平仄规则</strong>：近体诗要求严格的平仄搭配，包括平仄交替、平仄对立、平仄粘对等规则。</li>
+                        <li><strong>对仗规则</strong>：近体诗要求律诗的颔联和颈联必须使用对仗，对仗要求词性、结构、意义等方面的对应。</li>
+                    </ul>
+                    
+                    <h5>唐代诗人的韵律运用</h5>
+                    <p>唐代诗人在韵律运用上达到了炉火纯青的境界，他们不仅严格遵守韵律规则，还能在规则的约束下创造出丰富多彩的诗歌作品：</p>
+                    <ul>
+                        <li><strong>李白</strong>：李白的诗歌虽然以豪放飘逸著称，但在韵律运用上仍然非常讲究，他的近体诗作品韵律和谐，对仗工整。</li>
+                        <li><strong>杜甫</strong>：杜甫是唐代最擅长韵律运用的诗人之一，他的律诗作品在韵律运用上达到了完美的境界，被后人称为"诗圣"。</li>
+                        <li><strong>王维</strong>：王维的诗歌以清新自然著称，他的近体诗作品韵律和谐，意境深远，被后人称为"诗中有画，画中有诗"。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>杜甫《登高》</h5>
+                        <div class="example-line">
+                            <span>风急天高猿啸哀，渚清沙白鸟飞回。</span>
+                            <span>韵脚：哀、回（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>无边落木萧萧下，不尽长江滚滚来。</span>
+                            <span>韵脚：下、来（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>万里悲秋常作客，百年多病独登台。</span>
+                            <span>韵脚：客、台（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>艰难苦恨繁霜鬓，潦倒新停浊酒杯。</span>
+                            <span>韵脚：鬓、杯（灰部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>宋元明清时期：韵律的多样化与创新</h4>
+                    <p>宋元明清时期，随着社会的发展和文学的演变，诗歌的韵律运用也呈现出多样化和创新的特点。这一时期的主要诗歌形式包括词、曲和传统诗歌：</p>
+                    
+                    <h5>词的韵律</h5>
+                    <p>词是宋代最流行的诗歌形式，其在韵律运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>词牌的规定</strong>：词有固定的词牌，每个词牌都有固定的韵律规则，包括押韵位置、押韵方式、平仄要求等。</li>
+                        <li><strong>灵活的押韵</strong>：词的押韵比近体诗更加灵活，可以换韵，可以押平声韵，也可以押仄声韵。</li>
+                        <li><strong>丰富的句式</strong>：词的句式长短不一，韵律更加富有变化，能够更好地表达复杂的情感。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>苏轼《水调歌头·明月几时有》</h5>
+                        <div class="example-line">
+                            <span>明月几时有？把酒问青天。</span>
+                            <span>韵脚：有、天（先部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>不知天上宫阙，今夕是何年。</span>
+                            <span>韵脚：阙、年（先部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>我欲乘风归去，又恐琼楼玉宇，高处不胜寒。</span>
+                            <span>韵脚：去、宇、寒（寒部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>起舞弄清影，何似在人间。</span>
+                            <span>韵脚：影、间（山部）</span>
+                        </div>
+                    </div>
+                    
+                    <h5>曲的韵律</h5>
+                    <p>曲是元代最流行的诗歌形式，其在韵律运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>更加口语化</strong>：曲的语言更加口语化，韵律更加贴近生活，富有民间气息。</li>
+                        <li><strong>更加灵活的押韵</strong>：曲的押韵比词更加灵活，几乎句句可以押韵，可以换韵，可以使用方言押韵。</li>
+                        <li><strong>更加自由的句式</strong>：曲的句式更加自由，可以添加衬字，韵律更加富有变化。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>马致远《天净沙·秋思》</h5>
+                        <div class="example-line">
+                            <span>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。</span>
+                            <span>韵脚：鸦、家、马（麻部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>夕阳西下，断肠人在天涯。</span>
+                            <span>韵脚：下、涯（麻部）</span>
+                        </div>
+                    </div>
+                    
+                    <h5>传统诗歌的延续</h5>
+                    <p>宋元明清时期，传统的近体诗仍然是诗歌创作的重要形式，其韵律运用基本继承了唐代的规则，但也有一些新的变化：</p>
+                    <ul>
+                        <li><strong>韵部的变化</strong>：随着汉语语音的变化，韵部系统也发生了变化，如宋代的《广韵》、元代的《中原音韵》、清代的《佩文诗韵》等。</li>
+                        <li><strong>风格的变化</strong>：不同时代的诗歌风格不同，韵律运用也有所不同，如宋代诗歌注重理趣，元代诗歌注重自然，明代诗歌注重复古，清代诗歌注重创新。</li>
+                    </ul>
+                </section>
+
+                <!-- 韵律的基本概念 -->
+                <section id="concepts" class="yunlv-section">
+                    <h3>韵律的基本概念</h3>
+                    
+                    <h4>押韵</h4>
+                    <p>押韵是指诗歌中某些句子末尾使用相同或相近的韵部的字，以形成和谐的音响效果。押韵是韵律的核心要素，也是诗歌最基本的形式特征。</p>
+                    
+                    <h4>韵部</h4>
+                    <p>韵部是指汉字按照韵母划分的类别。不同时代有不同的韵部标准，如《切韵》、《广韵》、《平水韵》等。例如，《平水韵》将汉字分为106个韵部。</p>
+                    
+                    <h4>韵脚</h4>
+                    <p>韵脚是指诗歌中押韵的字，通常位于句子的末尾。例如，李白《静夜思》中的"光"、"霜"、"乡"就是韵脚。</p>
+                    
+                    <h4>平仄</h4>
+                    <p>平仄是指汉字的声调，平声包括阴平和阳平，仄声包括上声、去声和入声。平仄的搭配是韵律的重要组成部分，通过平仄的交替和对立，形成和谐的节奏。</p>
+                    
+                    <h4>对仗</h4>
+                    <p>对仗是指诗句中词语的对偶，要求上下句在词性、结构、意义等方面相对应。对仗也是韵律的重要组成部分，通过词语的对偶，增强诗歌的形式美和节奏感。</p>
+                </section>
+
+                <!-- 韵律的基本概念详细说明链接 -->
+                <div style="margin-bottom: 40px; text-align: center;">
+                    <a href="yunlv_concepts_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 2px solid #c0392b;">
+                        查看韵律的基本概念详细说明
+                    </a>
+                    <style>
+                        a[href="yunlv_concepts_detail.html"]:hover {
+                            background-color: #c0392b;
+                            color: #fff;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                        }
+                    </style>
+                </div>
+
+                <!-- 韵律的运用规则 -->
+                <section id="rules" class="yunlv-section">
+                    <h3>韵律的运用规则</h3>
+                    <p>中国古典诗歌，特别是近体诗，对韵律的运用有严格的规则，主要包括以下几个方面：</p>
+                    
+                    <h4>押韵规则</h4>
+                    <p>押韵是中国古典诗歌最基本的韵律规则，不同的诗歌形式有不同的押韵要求：</p>
+                    
+                    <h5>古体诗的押韵</h5>
+                    <p>古体诗的押韵比较自由，主要有以下特点：</p>
+                    <ul>
+                        <li><strong>押韵位置</strong>：可以句句押韵，也可以隔句押韵，还可以换韵。</li>
+                        <li><strong>押韵方式</strong>：可以一韵到底，也可以中途换韵。</li>
+                        <li><strong>韵部要求</strong>：押韵的字可以属于同一韵部，也可以属于相近的韵部。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>李白《将进酒》（古体诗）</h5>
+                        <div class="example-line">
+                            <span>君不见黄河之水天上来，奔流到海不复回。</span>
+                            <span>韵脚：来、回（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>君不见高堂明镜悲白发，朝如青丝暮成雪。</span>
+                            <span>韵脚：发、雪（月部）</span>
+                        </div>
+                    </div>
+                    
+                    <h5>近体诗的押韵</h5>
+                    <p>近体诗的押韵比较严格，主要有以下特点：</p>
+                    <ul>
+                        <li><strong>押韵位置</strong>：偶数句必须押韵，首句可押可不押。</li>
+                        <li><strong>押韵方式</strong>：一韵到底，中途不能换韵。</li>
+                        <li><strong>韵部要求</strong>：押韵的字必须属于同一韵部，不能使用相近的韵部。</li>
+                        <li><strong>平仄要求</strong>：押韵的字必须是平声，不能使用仄声。</li>
+                    </ul>
+                    <div class="yunlv-example">
+                        <h5>杜甫《春望》（近体诗）</h5>
+                        <div class="example-line">
+                            <span>国破山河在，城春草木深。</span>
+                            <span>韵脚：深（侵部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>感时花溅泪，恨别鸟惊心。</span>
+                            <span>韵脚：心（侵部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>烽火连三月，家书抵万金。</span>
+                            <span>韵脚：金（侵部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>白头搔更短，浑欲不胜簪。</span>
+                            <span>韵脚：簪（侵部）</span>
+                        </div>
+                    </div>
+                    
+                    <h5>词的押韵</h5>
+                    <p>词的押韵比近体诗更加灵活，不同的词牌有不同的押韵要求：</p>
+                    <ul>
+                        <li><strong>押韵位置</strong>：根据词牌的要求，押韵的位置可以是固定的，也可以是灵活的。</li>
+                        <li><strong>押韵方式</strong>：可以一韵到底，也可以换韵。</li>
+                        <li><strong>韵部要求</strong>：押韵的字可以属于同一韵部，也可以属于相近的韵部。</li>
+                        <li><strong>平仄要求</strong>：押韵的字可以是平声，也可以是仄声，根据词牌的要求而定。</li>
+                    </ul>
+                    
+                    <h5>曲的押韵</h5>
+                    <p>曲的押韵比词更加宽松，更加口语化：</p>
+                    <ul>
+                        <li><strong>押韵位置</strong>：押韵的位置更加灵活，几乎句句可以押韵。</li>
+                        <li><strong>押韵方式</strong>：可以一韵到底，也可以换韵。</li>
+                        <li><strong>韵部要求</strong>：押韵的字可以属于同一韵部，也可以属于相近的韵部，甚至可以使用方言押韵。</li>
+                        <li><strong>平仄要求</strong>：押韵的字可以是平声，也可以是仄声，根据曲牌的要求而定。</li>
+                    </ul>
+                </section>
+
+                <!-- 韵律的规则详细说明链接 -->
+                <div style="margin-bottom: 40px; text-align: center;">
+                    <a href="yunlv_rules_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 2px solid #c0392b;">
+                        查看韵律的规则详细说明
+                    </a>
+                    <style>
+                        a[href="yunlv_rules_detail.html"]:hover {
+                            background-color: #c0392b;
+                            color: #fff;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                        }
+                    </style>
+                </div>
+                
+                <!-- 韵律的艺术效果 -->
+                <section id="effects" class="yunlv-section">
+                    <h3>韵律的艺术效果</h3>
+                    <p>韵律的运用在中国古典诗歌中具有重要的艺术效果：</p>
+                    
+                    <h4>和谐的音响效果</h4>
+                    <p>韵律的运用可以使诗歌产生和谐的音响效果，通过押韵、平仄、对仗等手法，创造出优美的节奏和韵律，增强诗歌的音乐美。</p>
+                    
+                    <h4>情感的表达</h4>
+                    <p>韵律的运用可以增强诗歌的情感表达，不同的韵律形式可以表达不同的情感。例如，平声韵通常表达平和、舒缓的情感，仄声韵通常表达激昂、悲壮的情感。</p>
+                    
+                    <h4>结构的严谨</h4>
+                    <p>韵律的运用可以使诗歌的结构更加严谨，通过押韵、平仄、对仗等手法，将诗歌的各个部分有机地联系在一起，形成一个统一的整体。</p>
+                    
+                    <h4>记忆的方便</h4>
+                    <p>韵律的运用可以使诗歌更加容易记忆，通过押韵、平仄、对仗等手法，创造出和谐的节奏和韵律，使诗歌朗朗上口，便于传诵。</p>
+                    
+                    <h4>意境的营造</h4>
+                    <p>韵律的运用可以帮助营造诗歌的意境，通过和谐的节奏和韵律，创造出一种特定的氛围和情调，增强诗歌的艺术感染力。</p>
+                </section>
+
+                <!-- 韵律的技巧 -->
+                <section id="skills" class="yunlv-section">
+                    <h3>韵律的技巧</h3>
+                    <p>要写好韵律，需要掌握一定的技巧：</p>
+                    
+                    <h4>押韵的选择</h4>
+                    <p>押韵的选择要根据诗歌的内容和情感来确定。不同的韵部有不同的音响效果，可以表达不同的情感。例如，开口度大的韵部（如江部、阳部）通常表达开阔、宏大的情感，开口度小的韵部（如侵部、缉部）通常表达细腻、深沉的情感。</p>
+                    
+                    <h4>平仄的搭配</h4>
+                    <p>平仄的搭配要注意交替和对立，以形成和谐的节奏。一般来说，诗句中平仄声字要交替使用，避免单调；一联中的上下句平仄要相对，形成对比；律诗中相邻两联的平仄要相粘，保持连贯。</p>
+                    
+                    <h4>对仗的运用</h4>
+                    <p>对仗的运用要注意词性、结构、意义等方面的对应，以形成和谐的对偶。对仗不仅是一种语言技巧，也是一种思维方式，体现了中国传统文化中"阴阳对立"、"和谐统一"的哲学思想。</p>
+                    
+                    <h4>节奏的把握</h4>
+                    <p>节奏的把握要注意诗句的长短和停顿，以形成和谐的韵律。不同的诗歌形式有不同的节奏要求，例如，古体诗的节奏比较自由，近体诗的节奏比较整齐，词的节奏比较灵活。</p>
+                    
+                    <h4>创新的运用</h4>
+                    <p>韵律的运用虽然有一定的规则，但也需要创新。好的诗歌应该既符合韵律规则，又富有创意，能够给人以新鲜感和美感。</p>
+                </section>
+
+                <!-- 韵律示例 -->
+                <section id="examples" class="yunlv-section">
+                    <h3>韵律示例</h3>
+                    <p>以下是一些古典诗歌中的韵律示例，帮助我们更好地理解韵律的运用：</p>
+                    
+                    <h4>近体诗韵律示例</h4>
+                    <div class="yunlv-example">
+                        <h5>王维《山居秋暝》</h5>
+                        <div class="example-line">
+                            <span>空山新雨后，天气晚来秋。</span>
+                            <span>韵脚：后、秋（尤部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>明月松间照，清泉石上流。</span>
+                            <span>韵脚：照、流（尤部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>竹喧归浣女，莲动下渔舟。</span>
+                            <span>韵脚：女、舟（尤部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>随意春芳歇，王孙自可留。</span>
+                            <span>韵脚：歇、留（尤部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>古体诗韵律示例</h4>
+                    <div class="yunlv-example">
+                        <h5>李白《蜀道难》</h5>
+                        <div class="example-line">
+                            <span>噫吁嚱，危乎高哉！蜀道之难，难于上青天！</span>
+                            <span>韵脚：哉、天（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>蚕丛及鱼凫，开国何茫然！</span>
+                            <span>韵脚：凫、然（元部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>尔来四万八千岁，不与秦塞通人烟。</span>
+                            <span>韵脚：岁、烟（元部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>词韵律示例</h4>
+                    <div class="yunlv-example">
+                        <h5>李清照《声声慢·寻寻觅觅》</h5>
+                        <div class="example-line">
+                            <span>寻寻觅觅，冷冷清清，凄凄惨惨戚戚。</span>
+                            <span>韵脚：觅、觅、清、清、戚、戚（质部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>乍暖还寒时候，最难将息。</span>
+                            <span>韵脚：候、息（职部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>三杯两盏淡酒，怎敌它、晚来风急！</span>
+                            <span>韵脚：酒、急（质部）</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 韵律的现代意义 -->
+                <section id="modern" class="yunlv-section">
+                    <h3>韵律的现代意义</h3>
+                    <p>虽然现代汉语与古代汉语有很大的差异，现代诗歌也不再严格要求韵律，但韵律的概念和运用仍然具有重要的现代意义：</p>
+                    
+                    <h4>对古典诗歌的理解</h4>
+                    <p>了解韵律的概念和运用规则，有助于我们更好地理解和欣赏古典诗歌的艺术魅力。</p>
+                    
+                    <h4>对现代诗歌的启示</h4>
+                    <p>韵律的运用原则对现代诗歌的创作也有一定的启示，它提醒我们在创作诗歌时要注意语言的节奏和韵律，增强诗歌的音乐美。</p>
+                    
+                    <h4>对语言教学的意义</h4>
+                    <p>韵律的概念和运用规则是汉语语音学的重要内容，对汉语教学，特别是对外汉语教学具有重要的意义。</p>
+                    
+                    <h4>对文化传承的意义</h4>
+                    <p>韵律是中国古典诗歌的重要特征，也是中国传统文化的重要组成部分。了解和传承韵律的知识，有助于我们更好地传承和弘扬中国传统文化。</p>
+                    
+                    <h4>对艺术创作的启示</h4>
+                    <p>韵律的运用原则对其他艺术形式的创作也有一定的启示，如音乐、舞蹈、书法等，它们都注重节奏和韵律的和谐。</p>
+                </section>
+
+                <!-- 韵律的欣赏 -->
+                <section id="appreciation" class="yunlv-section">
+                    <h3>韵律的欣赏</h3>
+                    <p>欣赏诗歌的韵律，需要注意以下几个方面：</p>
+                    
+                    <h4>音响效果</h4>
+                    <p>欣赏诗歌的韵律，首先要注意它的音响效果。通过押韵、平仄、对仗等手法，诗歌可以产生和谐的音响效果，给人以美的享受。</p>
+                    
+                    <h4>节奏韵律</h4>
+                    <p>欣赏诗歌的韵律，要注意它的节奏韵律。诗歌的节奏韵律是通过诗句的长短、平仄的搭配、押韵的位置等因素来体现的，不同的诗歌形式有不同的节奏韵律。</p>
+                    
+                    <h4>情感表达</h4>
+                    <p>欣赏诗歌的韵律，要注意它的情感表达。不同的韵律形式可以表达不同的情感，如平声韵通常表达平和、舒缓的情感，仄声韵通常表达激昂、悲壮的情感。</p>
+                    
+                    <h4>意境营造</h4>
+                    <p>欣赏诗歌的韵律，要注意它的意境营造。通过和谐的节奏和韵律，诗歌可以创造出一种特定的氛围和情调，增强诗歌的艺术感染力。</p>
+                    
+                    <h4>文化内涵</h4>
+                    <p>欣赏诗歌的韵律，要注意它的文化内涵。韵律是中国古典诗歌的重要特征，也是中国传统文化的重要组成部分，体现了中国传统文化中"和谐"、"平衡"的美学观念。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.yunlv-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

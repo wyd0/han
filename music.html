@@ -1,0 +1,337 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传统音乐 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统音乐页面特定样式 */
+        body {
+            background-image: url('images/传统音乐.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .music-header {
+            background-image: url('images/传统音乐.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .music-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .music-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .music-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .music-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .music-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .music-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .music-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .music-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .music-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .music-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .music-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .music-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .music-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .music-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 传统乐器网格 */
+        .music-instruments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .instrument-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .instrument-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .instrument-item h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .music-header h1 {
+                font-size: 36px;
+            }
+            
+            .music-header p {
+                font-size: 18px;
+            }
+            
+            .music-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="music-header">
+        <div class="container">
+            <div class="music-header-content">
+                <h1>传统音乐</h1>
+                <p>中国汉族传统音乐的艺术魅力</p>
+                <a href="index.html" class="back-home">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="music-main">
+        <div class="container">
+            <div class="music-content">
+                <!-- 综述部分 -->
+                <section class="music-section">
+                    <h2>传统音乐概述</h2>
+                    <p>中国汉族传统音乐是中华传统文化的重要组成部分，是中华民族在长期的历史发展过程中创造的音乐文化。它包括民间音乐、宫廷音乐、宗教音乐等多种形式，具有独特的艺术风格和文化内涵。</p>
+                    <p>传统音乐的发展与中国的历史、文化、社会生活密切相关，每个时代都有其独特的音乐风格和特点。从先秦时期的雅乐，到汉魏时期的乐府民歌，再到隋唐时期的燕乐、词曲，宋元明清时期的戏曲音乐，汉族传统音乐不断创新和发展，形成了独具特色的音乐体系。</p>
+                </section>
+
+                <!-- 传统乐器 -->
+                <section class="music-section">
+                    <h2>传统乐器</h2>
+                    <div class="music-instruments">
+                        <div class="instrument-item">
+                            <h4><a href="guqin.html" style="color: #c0392b; text-decoration: none;">古琴</a></h4>
+                            <p>中国最古老的拨弦乐器之一，被尊为"琴棋书画"四艺之首，音色古朴典雅，意境深远。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4><a href="guzheng.html" style="color: #c0392b; text-decoration: none;">古筝</a></h4>
+                            <p>拨弦乐器，音色清脆悦耳，表现力强，是中国传统音乐中常用的乐器之一。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4><a href="erhu.html" style="color: #c0392b; text-decoration: none;">二胡</a></h4>
+                            <p>拉弦乐器，音色悠扬动人，善于表现细腻的情感，是中国传统音乐中的主要乐器之一。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4><a href="pipa.html" style="color: #c0392b; text-decoration: none;">琵琶</a></h4>
+                            <p>拨弦乐器，音色清脆明亮，表现力强，既能独奏，也能合奏。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4><a href="dizi.html" style="color: #c0392b; text-decoration: none;">笛子</a></h4>
+                            <p>吹管乐器，音色清脆明亮，是中国传统音乐中常用的旋律乐器。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4><a href="suona.html" style="color: #c0392b; text-decoration: none;">唢呐</a></h4>
+                            <p>吹管乐器，音色高亢明亮，常用于民间婚丧嫁娶等场合。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统音乐的特点 -->
+                <section class="music-section">
+                    <h2>传统音乐的特点</h2>
+                    <ul>
+                        <li><strong>注重意境</strong>：传统音乐强调意境的营造，通过音乐表达情感和思想，追求"弦外之音"、"韵外之致"的艺术境界。</li>
+                        <li><strong>以线性旋律为主</strong>：传统音乐以线性旋律为主，注重旋律的流畅性和表现力，而不是和声的复杂性。</li>
+                        <li><strong>与文学密切结合</strong>：传统音乐与文学紧密结合，如诗词与音乐的结合，形成了独特的艺术形式。</li>
+                        <li><strong>具有丰富的表现力</strong>：传统音乐通过不同的乐器、演奏技巧和音乐形式，表达各种情感和思想。</li>
+                        <li><strong>承载了中华民族的价值观</strong>：传统音乐承载了中华民族的价值观，如和谐、中庸、包容等。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统音乐的影响 -->
+                <section class="music-section">
+                    <h2>传统音乐的影响</h2>
+                    <p>传统音乐对汉族人民的生活和社会发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>丰富文化生活</strong>：传统音乐为人们提供了丰富多彩的文化活动，丰富了人们的精神生活。</li>
+                        <li><strong>传承文化遗产</strong>：传统音乐是中华传统文化的重要载体，通过传统音乐，传承和弘扬了中华优秀传统文化。</li>
+                        <li><strong>促进文化交流</strong>：传统音乐是中华民族与其他民族文化交流的重要纽带，通过传统音乐，向世界展示了中华文化的魅力。</li>
+                        <li><strong>培养审美情感</strong>：传统音乐具有独特的艺术魅力，通过欣赏传统音乐，陶冶了人们的审美情操和艺术修养。</li>
+                        <li><strong>增强民族凝聚力</strong>：传统音乐是中华民族的共同文化记忆，通过传统音乐，增强了民族凝聚力和认同感。</li>
+                    </ul>
+                    <p>在现代社会，传统音乐仍然具有重要的价值和意义。我们应该继承和弘扬这些优秀的传统音乐，让它们在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

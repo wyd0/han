@@ -1,0 +1,732 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 汉族文化页面特定样式 */
+        .han-header {
+            background-image: url('images/深衣.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .han-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .han-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .han-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .han-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .han-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .han-section {
+            margin-bottom: 80px;
+        }
+        
+        .han-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .han-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .han-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .han-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .han-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .han-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .han-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .han-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 汉族文化特点网格 */
+        .han-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .han-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .han-section.visible .han-feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .han-section.visible .han-feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .han-section.visible .han-feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .han-section.visible .han-feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .han-section.visible .han-feature-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .han-section.visible .han-feature-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .han-section.visible .han-feature-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .han-feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .han-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 汉服展示 */
+        .hanfu-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .hanfu-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .han-section.visible .hanfu-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .han-section.visible .hanfu-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .han-section.visible .hanfu-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .han-section.visible .hanfu-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .han-section.visible .hanfu-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .hanfu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .hanfu-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .hanfu-item h6 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .hanfu-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .han-header h1 {
+                font-size: 36px;
+            }
+            
+            .han-header p {
+                font-size: 18px;
+            }
+            
+            .han-section h2 {
+                font-size: 28px;
+            }
+            
+            .han-features-grid,
+            .hanfu-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top center;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top center;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .han-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .han-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .han-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .han-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .han-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .han-feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .han-feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hanfu-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .hanfu-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .han-feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .han-feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .han-feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .han-feature-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .han-feature-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .han-feature-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+        
+        .hanfu-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .hanfu-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .hanfu-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .hanfu-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="han-header">
+        <div class="container">
+            <div class="han-header-content">
+                <h1>汉族文化</h1>
+                <p>中华文化的主体民族，源远流长的文明传承</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="han-main">
+        <div class="container">
+            <div class="han-content">
+                <!-- 介绍部分 -->
+                <section class="han-section">
+                    <h2>汉族文化介绍</h2>
+                    <p>汉族是中国的主体民族，也是世界上人口最多的民族，约占中国总人口的91.51%。汉族文化源远流长，博大精深，是中华文化的核心组成部分，对周边国家和地区产生了深远的影响。</p>
+                    <p>汉族文化的形成和发展是一个长期的历史过程，它融合了古代华夏族以及后来的各个民族的文化元素，形成了独特的文化体系。汉族文化以儒家思想为核心，同时融合了道家、佛教等多种思想流派，形成了多元化的文化格局。</p>
+                </section>
+
+                <!-- 文化特点 -->
+                <section class="han-section">
+                    <h2>汉族文化特点</h2>
+                    <div class="han-features-grid">
+                        <div class="han-feature-item">
+                            <h5><a href="language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>汉语是世界上使用人口最多的语言，汉字是世界上最古老的文字之一，已有数千年的历史。汉字是表意文字，具有独特的美学价值和文化内涵，是汉族文化的重要载体。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5><a href="philosophy.html" style="color: #c0392b; text-decoration: none;">哲学思想</a></h5>
+                            <p>汉族哲学思想以儒家思想为核心，倡导仁爱、正义、诚信等价值观。同时，道家的自然无为、佛教的慈悲为怀等思想也对汉族文化产生了深远的影响。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5><a href="festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>汉族有许多传统节日，如春节、清明节、端午节、中秋节等。这些节日承载着丰富的文化内涵，是汉族文化的重要组成部分。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5><a href="art.html" style="color: #c0392b; text-decoration: none;">艺术形式</a></h5>
+                            <p>汉族的艺术形式丰富多彩，包括书法、绘画、戏曲、音乐、舞蹈等。这些艺术形式展现了汉族人民的智慧和创造力，具有独特的艺术魅力。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5><a href="food.html" style="color: #c0392b; text-decoration: none;">饮食文化</a></h5>
+                            <p>汉族饮食文化博大精深，形成了川菜、粤菜、鲁菜、苏菜、闽菜、浙菜、湘菜、徽菜等八大菜系。汉族的饮食讲究色、香、味、形俱佳，注重饮食礼仪和文化内涵。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5><a href="clothing_culture.html" style="color: #c0392b; text-decoration: none;">服饰文化</a></h5>
+                            <p>汉服是汉族的传统服饰，具有交领右衽、宽袍大袖、系带隐扣等特点。汉服的演变反映了中国社会的变迁和文化的发展，是汉族文化的重要象征。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 汉族起源 -->
+                <section class="han-section">
+                    <h2>汉族起源</h2>
+                    <p>汉族的起源可以追溯到古代的华夏族，其形成是一个漫长的历史过程，涉及多个少数民族的融合与发展。</p>
+                    
+                    <h3>华夏族的形成</h3>
+                    <p>华夏族是汉族的前身，其形成与发展主要经历了以下几个阶段：</p>
+                    <ul>
+                        <li><strong>原始部落时期：</strong>在黄河流域，居住着许多原始部落，其中最著名的是炎黄部落和蚩尤部落。</li>
+                        <li><strong>炎黄融合：</strong>炎黄部落和蚩尤部落在涿鹿之战后实现融合，形成了华夏族的核心。</li>
+                        <li><strong>与其他部落的融合：</strong>炎黄部落与其他部落的融合，逐渐扩大了华夏族的范围。</li>
+                        <li><strong>春秋战国时期：</strong>华夏族进一步发展，形成了以中原地区为中心的部落联盟。</li>
+                    </ul>
+                    
+                    <h3>汉族名称的由来</h3>
+                    <p>汉族名称的由来与汉朝有关：</p>
+                    <ul>
+                        <li><strong>汉朝的建立：</strong>公元前206年，刘邦建立了汉朝，这是中国历史上一个伟大的统一王朝。</li>
+                        <li><strong>汉人的称呼：</strong>汉朝时期，中原地区的居民被称为"汉人"，这一称呼逐渐成为了华夏族的代称。</li>
+                        <li><strong>汉族的形成：</strong>汉朝灭亡后，"汉人"这一称呼继续使用，并逐渐演变为"汉族"，成为了中国主体民族的正式名称。</li>
+                    </ul>
+                    
+                    <h3>汉族的文化渊源</h3>
+                    <p>汉族文化源远流长，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>仰韶文化：</strong>黄河中下游地区的新石器时代文化，以彩陶为主要特征，是汉族文化的重要源头之一。</li>
+                        <li><strong>龙山文化：</strong>黄河中下游地区的青铜器时代文化，以黑陶为主要特征，标志着华夏族进入了文明时代。</li>
+                        <li><strong>商周文化：</strong>商、周、春秋时期是华夏族形成和发展的重要时期，奠定了汉族文化的基础。</li>
+                        <li><strong>儒家文化：</strong>先秦时期，孔子创立了儒家思想，成为了汉族文化的核心。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉族历史发展 -->
+                <section class="han-section">
+                    <h2>汉族历史发展</h2>
+                    <p>汉族的发展经历了多个重要阶段，每个阶段都对汉族文化的形成和发展产生了深远的影响。</p>
+                    
+                    <h3>先秦时期（公元前21世纪 - 公元前221年）</h3>
+                    <p>先秦时期是华夏族形成和发展的重要时期，也是汉族文化基础奠定的时期。</p>
+                    <ul>
+                        <li><strong>夏朝：</strong>中国历史上第一个世袭制王朝，标志着华夏族进入了文明时代。</li>
+                        <li><strong>商朝：</strong>中国历史上第一个有文字记载的王朝，甲骨文的出现标志着华夏族进入了文字时代。</li>
+                        <li><strong>周朝：</strong>中国历史上最长的王朝，分为西周和东周两个时期。东周时期又分为春秋和战国两个阶段。</li>
+                        <li><strong>春秋时期：</strong>诸侯争霸，百家争鸣，儒家、道家、法家等思想流派纷纷出现。</li>
+                        <li><strong>战国时期：</strong>七雄争霸，各国进行了一系列的变法运动，为统一的多民族国家的形成奠定了基础。</li>
+                    </ul>
+                    
+                    <h3>秦汉时期（公元前221年 - 公元220年）</h3>
+                    <p>秦汉时期是汉族正式形成的时期，也是汉族文化发展的重要时期。</p>
+                    <ul>
+                        <li><strong>秦朝：</strong>秦始皇统一中国，建立了中国历史上第一个统一的中央集权国家，统一了文字、货币、度量衡等。</li>
+                        <li><strong>汉朝：</strong>刘邦建立了汉朝，分为西汉和东汉两个时期。汉朝是中国历史上一个伟大的统一王朝，对汉族的形成和发展产生了深远的影响。</li>
+                        <li><strong>丝绸之路的开辟：</strong>汉武帝时期，张骞出使西域，开辟了丝绸之路，促进了汉族与西方各民族的文化交流。</li>
+                        <li><strong>儒家思想成为正统：</strong>汉武帝时期，董仲舒提出了"罢黜百家，独尊儒术"的建议，儒家思想成为了汉朝的正统思想。</li>
+                    </ul>
+                    
+                    <h3>魏晋南北朝时期（公元220年 - 公元589年）</h3>
+                    <p>魏晋南北朝时期是民族大融合时期，汉族吸收了许多少数民族的文化元素，丰富了自身文化。</p>
+                    <ul>
+                        <li><strong>三国鼎立：</strong>东汉灭亡后，中国进入了三国鼎立时期，魏、蜀、吴三国相互对峙。</li>
+                        <li><strong>西晋的短暂统一：</strong>280年，西晋统一了全国，但统一局面只维持了短暂的时间。</li>
+                        <li><strong>五胡乱华：</strong>西晋灭亡后，北方地区进入了五胡十六国时期，多个少数民族政权先后建立。</li>
+                        <li><strong>南北朝时期：</strong>中国分为南朝和北朝两个部分，南朝包括宋、齐、梁、陈四个朝代，北朝包括北魏、东魏、西魏、北齐、北周五个朝代。</li>
+                        <li><strong>民族大融合：</strong>这一时期，汉族与许多少数民族之间的融合进一步加深，形成了新的汉族文化。</li>
+                    </ul>
+                    
+                    <h3>隋唐时期（公元581年 - 公元907年）</h3>
+                    <p>隋唐时期是汉族文化发展的鼎盛时期，对外交流频繁，影响远及周边国家和地区。</p>
+                    <ul>
+                        <li><strong>隋朝的统一：</strong>581年，杨坚建立了隋朝，589年统一了全国，结束了长期的分裂局面。</li>
+                        <li><strong>唐朝的繁荣：</strong>618年，李渊建立了唐朝，这是中国历史上一个繁荣富强的统一王朝，被称为"贞观之治"和"开元盛世"。</li>
+                        <li><strong>对外交流：</strong>唐朝时期，对外交流频繁，与日本、朝鲜、印度等国家和地区都有密切的文化交流。</li>
+                        <li><strong>文化繁荣：</strong>唐朝时期，诗歌、书法、绘画等艺术形式都达到了鼎盛时期，出现了李白、杜甫、白居易等著名诗人。</li>
+                    </ul>
+                    
+                    <h3>宋元明清时期（公元960年 - 公元1912年）</h3>
+                    <p>宋元明清时期是汉族文化继续发展的时期，同时也受到了许多少数民族文化的影响。</p>
+                    <ul>
+                        <li><strong>宋朝：</strong>960年，赵匡胤建立了宋朝，分为北宋和南宋两个时期。宋朝时期，经济、文化、科技等都有了很大的发展。</li>
+                        <li><strong>元朝：</strong>1271年，忽必烈建立了元朝，这是中国历史上第一个由少数民族建立的统一王朝。</li>
+                        <li><strong>明朝：</strong>1368年，朱元璋建立了明朝，这是中国历史上最后一个由汉族建立的统一王朝。</li>
+                        <li><strong>清朝：</strong>1644年，清朝入关，建立了中国历史上最后一个封建王朝。</li>
+                        <li><strong>文化发展：</strong>这一时期，汉族文化继续发展，出现了宋明理学等新的思想流派，同时也受到了许多少数民族文化的影响。</li>
+                    </ul>
+                    
+                    <h3>近现代时期（公元1912年 - 至今）</h3>
+                    <p>近现代时期是汉族文化转型和发展的重要时期。</p>
+                    <ul>
+                        <li><strong>中华民国的建立：</strong>1912年，中华民国成立，结束了封建帝制，建立了共和制度。</li>
+                        <li><strong>新文化运动：</strong>1915年，新文化运动兴起，提倡民主、科学、白话文等，对汉族文化产生了深远的影响。</li>
+                        <li><strong>中华人民共和国的成立：</strong>1949年，中华人民共和国成立，汉族与其他55个少数民族共同组成了中华民族大家庭。</li>
+                        <li><strong>改革开放：</strong>1978年，中国实行改革开放政策，汉族文化在现代化进程中不断创新和发展。</li>
+                        <li><strong>文化复兴：</strong>近年来，随着中国综合国力的增强，汉族文化的影响力不断扩大，出现了汉服复兴、传统文化热等现象。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉族传统服饰 -->
+                <section class="han-section">
+                    <h2>汉族传统服饰 - 汉服</h2>
+                    <p>汉服是汉族的传统服饰，具有悠久的历史和丰富的文化内涵。汉服的基本特征包括交领右衽、宽袍大袖、系带隐扣等，体现了中华传统文化的博大精深。</p>
+                    
+                    <h3>汉服的基本款式</h3>
+                    <div class="hanfu-showcase">
+                        <div class="hanfu-item">
+                            <img src="images/深衣.jpg" alt="汉服 - 深衣">
+                            <h6>深衣</h6>
+                            <p>深衣是汉服的基本款式之一，上下相连，体现天人合一，是古代士大夫的礼服。</p>
+                        </div>
+                        <div class="hanfu-item">
+                            <img src="images/高腰襦裙.jpg" alt="汉服 - 襦裙">
+                            <h6>襦裙</h6>
+                            <p>襦裙是上襦下裙的款式，适合女子穿着，款式多样，色彩丰富。</p>
+                        </div>
+                        <div class="hanfu-item">
+                            <img src="images/直裰.jpg" alt="汉服 - 直裰">
+                            <h6>直裰</h6>
+                            <p>直裰是古代男子的常服，款式简洁大方，适合日常穿着。</p>
+                        </div>
+                        <div class="hanfu-item">
+                            <img src="images/道袍.jpg" alt="汉服 - 道袍">
+                            <h6>道袍</h6>
+                            <p>道袍是明代士大夫的便服，样式宽松舒适，体现了文人的洒脱气质。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>汉服的文化内涵</h3>
+                    <p>汉服不仅仅是一种服装，更是汉族文化的重要载体，蕴含着丰富的文化内涵：</p>
+                    <ul>
+                        <li><strong>天人合一：</strong>汉服的设计理念体现了天人合一的思想，如深衣的下摆象征地载，袖口象征天道圆融。</li>
+                        <li><strong>等级制度：</strong>汉服的穿着有严格的等级制度，不同的场合和身份穿着不同的服装，体现了中国传统的等级文化。</li>
+                        <li><strong>美学观念：</strong>汉服的设计注重含蓄、典雅、和谐的美学观念，体现了汉族人民的审美情趣。</li>
+                        <li><strong>民族认同：</strong>汉服是汉族的重要象征，穿着汉服可以增强民族认同感和自豪感。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉族传统节日 -->
+                <section class="han-section">
+                    <h2>汉族传统节日</h2>
+                    <p>汉族有许多传统节日，这些节日承载着丰富的文化内涵，是汉族文化的重要组成部分。</p>
+                    
+                    <h3>主要传统节日</h3>
+                    <ul>
+                        <li><strong>春节：</strong>农历正月初一，是汉族最重要的传统节日，象征着辞旧迎新，合家团圆。</li>
+                        <li><strong>清明节：</strong>公历4月4日或5日，是祭祀祖先、缅怀先人的节日，也是踏青的好时节。</li>
+                        <li><strong>端午节：</strong>农历五月初五，纪念屈原，有吃粽子、赛龙舟等传统习俗。</li>
+                        <li><strong>中秋节：</strong>农历八月十五，象征着团圆，有赏月、吃月饼等传统习俗。</li>
+                        <li><strong>重阳节：</strong>农历九月初九，有登高、插茱萸、饮菊花酒等传统习俗，也是敬老节。</li>
+                        <li><strong>冬至：</strong>公历12月21日或22日，有吃饺子、进补等传统习俗，是二十四节气之一。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉族文学艺术 -->
+                <section class="han-section">
+                    <h2>汉族文学艺术</h2>
+                    <p>汉族文学艺术源远流长，成就辉煌，对世界文化产生了深远的影响。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>诗歌：</strong>汉族诗歌有悠久的历史，从《诗经》《楚辞》到唐诗宋词，形成了独特的诗歌传统。</li>
+                        <li><strong>散文：</strong>汉族散文包括先秦散文、秦汉文、唐宋八大家散文等，风格多样，成就斐然。</li>
+                        <li><strong>小说：</strong>明清时期是汉族小说的鼎盛时期，出现了《三国演义》《水浒传》《西游记》《红楼梦》等经典作品。</li>
+                        <li><strong>戏曲：</strong>汉族戏曲包括京剧、昆曲、越剧、豫剧等多种剧种，是世界三大古老戏剧文化之一。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>书法：</strong>汉族书法是世界上独一无二的艺术形式，包括篆书、隶书、楷书、行书、草书等多种书体。</li>
+                        <li><strong>绘画：</strong>汉族绘画包括山水画、花鸟画、人物画等多种形式，倡导意境和神韵。</li>
+                        <li><strong>音乐：</strong>汉族传统音乐包括宫廷音乐、民间音乐、文人音乐等，乐器有古琴、古筝、二胡、笛子等。</li>
+                        <li><strong>舞蹈：</strong>汉族传统舞蹈包括宫廷舞蹈、民间舞蹈等，如霓裳羽衣舞、龙舞、狮舞等。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉族哲学思想 -->
+                <section class="han-section">
+                    <h2>汉族哲学思想</h2>
+                    <p>汉族哲学思想是汉族文化的核心，对中国社会和文化产生了深远的影响。</p>
+                    
+                    <h3>主要哲学流派</h3>
+                    <div class="han-features-grid">
+                        <div class="han-feature-item">
+                            <h5>儒家思想</h5>
+                            <p>儒家思想由孔子创立，倡导仁爱、正义、诚信等价值观，是汉族文化的核心。儒家思想注重伦理道德和社会秩序，对中国社会产生了深远的影响。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5>道家思想</h5>
+                            <p>道家思想由老子创立，强调自然无为、天人合一等理念。道家思想注重个体自由和内心修养，对中国文学、艺术、医学等产生了重要影响。</p>
+                        </div>
+                        <div class="han-feature-item">
+                            <h5>佛教思想</h5>
+                            <p>佛教自汉代传入中国，与儒家、道家思想融合，形成了中国特色的佛教文化。佛教强调慈悲为怀、因果报应等理念，对中国哲学、文学、艺术等产生了深远的影响。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>核心价值观</h3>
+                    <ul>
+                        <li><strong>天人合一：</strong>强调人与自然的和谐统一，是汉族哲学的核心命题之一。</li>
+                        <li><strong>中庸之道：</strong>强调适度、平衡，避免极端，是儒家思想的重要理念。</li>
+                        <li><strong>以人为本：</strong>强调人的价值和尊严，注重人的道德修养和社会责任意识。</li>
+                        <li><strong>和谐共生：</strong>强调人与人、人与社会、人与自然的和谐相处。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉族文化的影响 -->
+                <section class="han-section">
+                    <h2>汉族文化的影响</h2>
+                    <p>汉族文化不仅对中国社会产生了深远的影响，也对周边国家和地区乃至世界文化产生了重要影响。</p>
+                    
+                    <h3>对中国的影响</h3>
+                    <p>汉族文化是中华文化的核心组成部分，它塑造了中国的社会结构、价值观、思维方式和行为准则，对中国的政治、经济、文化、社会等各个方面产生了深远的影响。</p>
+                    
+                    <h3>对世界的影响</h3>
+                    <ul>
+                        <li><strong>东亚文化圈：</strong>汉族文化对日本、朝鲜、越南等东亚国家产生了深远的影响，形成了以汉字、儒家思想、佛教为核心的东亚文化圈。</li>
+                        <li><strong>科技发明：</strong>汉族人民发明了造纸术、印刷术、火药、指南针等四大发明，对世界文明的发展做出了巨大贡献。</li>
+                        <li><strong>哲学思想：</strong>儒家思想、道家思想等汉族哲学思想对世界哲学产生了重要影响，受到了西方学者的高度重视。</li>
+                        <li><strong>文学艺术：</strong>汉族的文学、艺术、音乐、舞蹈等对世界文化产生了重要影响，如中国的书法、绘画、戏曲等在世界范围内受到了广泛欣赏。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

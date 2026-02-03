@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗族饮食文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 苗族饮食文化页面特定样式 */
+        .miao-header {
+            background-image: url('images/miao-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .miao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .miao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .miao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .miao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .miao-section {
+            margin-bottom: 80px;
+        }
+        
+        .miao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .miao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .miao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .miao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .miao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .miao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .miao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .miao-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .miao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .miao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .miao-header h1 {
+                font-size: 36px;
+            }
+            
+            .miao-header p {
+                font-size: 18px;
+            }
+            
+            .miao-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="miao-header">
+        <div class="container">
+            <div class="miao-header-content">
+                <h1>苗族饮食文化</h1>
+                <p>苗族独特的饮食习俗与美食文化</p>
+                <a href="miao.html" class="back-link">返回苗族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="miao-main">
+        <div class="container">
+            <div class="miao-content">
+                <!-- 饮食文化概况 -->
+                <section class="miao-section">
+                    <h2>饮食文化概况</h2>
+                    <p>苗族是一个有着悠久历史和丰富文化的民族，其饮食文化独特多样，反映了苗族人民的生活方式、价值观念和审美情趣。苗族的饮食文化以酸辣为主，注重原汁原味，具有独特的民族特色。苗族的传统食物包括五色饭、酸汤鱼、苗家腊肉、酸汤等，这些食物不仅味道鲜美，而且营养丰富，是苗族文化的重要组成部分。</p>
+                </section>
+
+                <!-- 饮食特点 -->
+                <section class="miao-section">
+                    <h2>饮食特点</h2>
+                    <ul>
+                        <li><strong>酸辣为主：</strong>苗族的饮食以酸辣为主，这与苗族居住的地理环境有关。苗族主要分布在贵州、云南、湖南等西南山区，气候湿润，多阴雨天气，吃酸辣食物有助于驱寒除湿，保持身体健康。</li>
+                        <li><strong>注重原汁原味：</strong>苗族的饮食注重原汁原味，烹饪方法简单，通常采用煮、蒸、烤、煎等方法，很少使用复杂的调料，保持了食物的天然味道。</li>
+                        <li><strong>喜欢糯食：</strong>苗族喜欢糯食，糯米是苗族最喜欢的粮食之一，常用于制作五色饭、糯米粑、糯米酒等食品。糯米不仅味道香甜，而且营养丰富，是苗族人民的重要食物。</li>
+                        <li><strong>善用野生食材：</strong>苗族居住的山区有丰富的野生食材，如野果、野菜、野菌、野生动物等，苗族人民善于利用这些野生食材，制作出各种美味的食物。</li>
+                        <li><strong>热情好客：</strong>苗族人民热情好客，喜欢聚众用餐，尤其是在节日或婚礼等场合，会摆上长桌宴，大家一起吃饭、喝酒、唱歌，非常热闹。</li>
+                    </ul>
+                </section>
+
+                <!-- 主要食物 -->
+                <section class="miao-section">
+                    <h2>主要食物</h2>
+                    
+                    <h3>主食</h3>
+                    <ul>
+                        <li><strong>大米：</strong>大米是苗族的主要主食之一，通常煮成米饭或粥食用。</li>
+                        <li><strong>玉米：</strong>玉米是苗族的主要主食之一，通常磨成玉米面，制作成玉米饭、玉米粥、玉米粑等食用。</li>
+                        <li><strong>小米：</strong>小米是苗族的主要主食之一，通常煮成小米饭或小米粥食用。</li>
+                        <li><strong>糯米：</strong>糯米是苗族最喜欢的粮食之一，常用于制作五色饭、糯米粑、糯米酒等食品。五色饭是苗族的传统食品，用糯米和各种植物的汁液煮成，有红、黄、蓝、白、黑五种颜色，象征着五谷丰登、吉祥如意。</li>
+                    </ul>
+                    
+                    <h3>副食</h3>
+                    <ul>
+                        <li><strong>蔬菜：</strong>苗族的蔬菜种类繁多，包括青菜、白菜、萝卜、茄子、辣椒等，通常煮、炒、腌等方法食用。苗族人民喜欢吃酸菜，酸菜是用青菜、萝卜等蔬菜腌制而成，味道酸辣可口，有助于消化。</li>
+                        <li><strong>肉类：</strong>苗族的肉类主要包括猪肉、牛肉、羊肉、鸡肉、鸭肉等，通常煮、烤、煎等方法食用。苗家腊肉是苗族的传统名菜，用猪肉腌制、熏制而成，味道鲜美，肥而不腻。</li>
+                        <li><strong>豆类：</strong>苗族的豆类主要包括黄豆、绿豆、红豆等，通常煮成豆饭、豆粥，或磨成豆浆、豆腐食用。</li>
+                        <li><strong>野生食材：</strong>苗族居住的山区有丰富的野生食材，如野果、野菜、野菌、野生动物等，苗族人民善于利用这些野生食材，制作出各种美味的食物。例如，苗族人民会采摘野果如杨梅、猕猴桃等食用，采摘野菜如蕨菜、竹笋等食用，采摘野菌如香菇、木耳等食用，狩猎野生动物如野猪、野兔等食用。</li>
+                    </ul>
+                    
+                    <h3>饮料</h3>
+                    <ul>
+                        <li><strong>油茶：</strong>油茶是苗族的传统饮料，以茶叶、油、盐等为原料，经过熬制而成，风味独特，营养丰富。油茶是苗族人民日常生活中不可或缺的饮料，也是苗族人民待客的重要饮品。</li>
+                        <li><strong>酒：</strong>苗族的酒文化深厚，喜欢饮酒，尤其是糯米酒。糯米酒是苗族的传统酒类，用糯米发酵而成，度数较低，口感香甜，营养丰富。苗族人民在节日、婚礼、葬礼等场合都会饮酒，以表达喜悦或悲伤之情。</li>
+                        <li><strong>茶：</strong>苗族人民喜欢喝茶，尤其是绿茶。苗族居住的山区有丰富的茶叶资源，苗族人民会采摘新鲜的茶叶，经过加工后制成绿茶，味道清香，有助于提神醒脑。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统名菜 -->
+                <section class="miao-section">
+                    <h2>传统名菜</h2>
+                    
+                    <h3>酸汤鱼</h3>
+                    <p>酸汤鱼是苗族的传统名菜，以鲜鱼、酸汤、辣椒等为原料，经过煮制而成，味道酸辣可口，营养丰富。</p>
+                    <ul>
+                        <li><strong>制作方法：</strong>将鲜鱼宰杀、洗净、切块，放入锅中，加入酸汤、辣椒、姜、蒜等调料，煮至鱼熟即可。</li>
+                        <li><strong>特点：</strong>酸汤鱼的酸汤是用青菜、辣椒等蔬菜发酵而成，味道酸辣可口，能够去除鱼的腥味，增加鱼的鲜味。</li>
+                        <li><strong>文化意义：</strong>酸汤鱼是苗族人民的传统名菜，也是苗族人民待客的重要菜品，象征着苗族人民的热情好客。</li>
+                    </ul>
+                    
+                    <h3>苗家腊肉</h3>
+                    <p>苗家腊肉是苗族的传统名菜，以猪肉为原料，经过腌制、熏制而成，味道鲜美，肥而不腻。</p>
+                    <ul>
+                        <li><strong>制作方法：</strong>将猪肉切成块，用盐、花椒、辣椒等调料腌制一段时间，然后挂在火炕上熏制，直到猪肉变成金黄色即可。</li>
+                        <li><strong>特点：</strong>苗家腊肉的味道鲜美，肥而不腻，是苗族人民的传统美食，也是苗族人民待客的重要菜品。</li>
+                        <li><strong>文化意义：</strong>苗家腊肉是苗族人民的传统名菜，象征着苗族人民的勤劳和智慧。</li>
+                    </ul>
+                    
+                    <h3>五色饭</h3>
+                    <p>五色饭是苗族的传统名菜，以糯米为原料，用各种植物的汁液染色，经过蒸制而成，有红、黄、蓝、白、黑五种颜色，象征着五谷丰登、吉祥如意。</p>
+                    <ul>
+                        <li><strong>制作方法：</strong>将糯米分成五份，分别用红草、黄姜、板蓝根、白米、黑米等植物的汁液染色，然后混合在一起，蒸制而成。</li>
+                        <li><strong>特点：</strong>五色饭的颜色鲜艳，味道香甜，是苗族人民的传统美食，也是苗族人民节日或婚礼等场合的重要食品。</li>
+                        <li><strong>文化意义：</strong>五色饭象征着五谷丰登、吉祥如意，是苗族人民对美好生活的向往和追求。</li>
+                    </ul>
+                    
+                    <h3>苗家酸汤</h3>
+                    <p>苗家酸汤是苗族的传统名菜，以青菜、辣椒等蔬菜为原料，经过发酵而成，味道酸辣可口，有助于消化。</p>
+                    <ul>
+                        <li><strong>制作方法：</strong>将青菜、辣椒等蔬菜洗净、切碎，放入坛中，加入盐、酒等调料，密封发酵一段时间即可。</li>
+                        <li><strong>特点：</strong>苗家酸汤的味道酸辣可口，有助于消化，是苗族人民日常生活中不可或缺的食品。</li>
+                        <li><strong>文化意义：</strong>苗家酸汤是苗族人民的传统名菜，象征着苗族人民的勤劳和智慧。</li>
+                    </ul>
+                    
+                    <h3>苗家油茶</h3>
+                    <p>苗家油茶是苗族的传统名菜，以茶叶、油、盐等为原料，经过熬制而成，风味独特，营养丰富。</p>
+                    <ul>
+                        <li><strong>制作方法：</strong>将茶叶洗净、切碎，放入锅中，加入油、盐等调料，熬制一段时间，然后加入水，煮至茶叶熟透即可。</li>
+                        <li><strong>特点：</strong>苗家油茶的味道清香，营养丰富，是苗族人民日常生活中不可或缺的饮料，也是苗族人民待客的重要饮品。</li>
+                        <li><strong>文化意义：</strong>苗家油茶是苗族人民的传统名菜，象征着苗族人民的热情好客。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="miao-section">
+                    <h2>饮食习俗</h2>
+                    
+                    <h3>日常饮食习俗</h3>
+                    <ul>
+                        <li><strong>一日三餐：</strong>苗族人民通常一日三餐，早餐以粥、油茶、糯米粑等为主，午餐以米饭、炒菜等为主，晚餐以米饭、汤菜等为主。</li>
+                        <li><strong>喜欢酸辣：</strong>苗族人民喜欢酸辣食物，几乎每道菜都要放辣椒，酸汤是苗族人民日常生活中不可或缺的调味品。</li>
+                        <li><strong>善用野生食材：</strong>苗族人民善于利用野生食材，如野果、野菜、野菌、野生动物等，制作出各种美味的食物。</li>
+                        <li><strong>饮食卫生：</strong>苗族人民注重饮食卫生，使用竹制或木制餐具，保持餐具的清洁。</li>
+                    </ul>
+                    
+                    <h3>节日饮食习俗</h3>
+                    <ul>
+                        <li><strong>苗年：</strong>苗年是苗族最重要的传统节日，苗族人民会制作五色饭、糯米粑、酸汤鱼等传统食品，祭祀祖先，走亲访友，共度欢乐时光。</li>
+                        <li><strong>四月八：</strong>四月八是苗族的传统节日，苗族人民会制作五色饭、糯米粑等传统食品，祭祀祖先蚩尤，跳芦笙舞，对歌，共度欢乐时光。</li>
+                        <li><strong>龙舟节：</strong>龙舟节是苗族的传统节日，苗族人民会制作粽子、酸汤鱼等传统食品，举行龙舟竞渡，共度欢乐时光。</li>
+                        <li><strong>花山节：</strong>花山节是苗族的传统节日，苗族人民会制作糯米粑、酒等传统食品，跳芦笙舞，对歌，抛绣球，共度欢乐时光。</li>
+                    </ul>
+                    
+                    <h3>婚丧嫁娶饮食习俗</h3>
+                    <ul>
+                        <li><strong>婚礼：</strong>苗族的婚礼隆重热闹，会摆上长桌宴，宴请亲朋好友。婚礼上的食物包括酸汤鱼、苗家腊肉、五色饭、糯米粑、酒等传统食品。</li>
+                        <li><strong>葬礼：</strong>苗族的葬礼庄重肃穆，会摆上长桌宴，宴请亲朋好友。葬礼上的食物包括酸汤鱼、苗家腊肉、米饭、酒等传统食品。</li>
+                        <li><strong> birth：</strong>苗族妇女生产后，家人会制作糯米酒、鸡汤、鸡蛋等营养丰富的食物，帮助妇女恢复身体。</li>
+                        <li><strong>乔迁：</strong>苗族人民乔迁新居时，会摆上长桌宴，宴请亲朋好友，庆祝乔迁之喜。乔迁宴上的食物包括酸汤鱼、苗家腊肉、五色饭、糯米粑、酒等传统食品。</li>
+                    </ul>
+                    
+                    <h3>待客饮食习俗</h3>
+                    <ul>
+                        <li><strong>热情好客：</strong>苗族人民热情好客，客人来访时，会热情款待，奉上油茶、酒、食物等。</li>
+                        <li><strong>长桌宴：</strong>苗族人民喜欢用长桌宴待客，将桌子拼接成一条长桌，大家围坐在一起吃饭、喝酒、唱歌，非常热闹。</li>
+                        <li><strong>敬酒：</strong>苗族人民喜欢敬酒，尤其是糯米酒，度数较低，口感香甜。敬酒时，苗族人民会唱敬酒歌，表达对客人的欢迎和祝福。</li>
+                        <li><strong>送礼物：</strong>客人离开时，苗族人民会赠送一些礼物，如糯米粑、酒、肉等，表达对客人的感谢和祝福。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化的传承与发展 -->
+                <section class="miao-section">
+                    <h2>饮食文化的传承与发展</h2>
+                    <p>苗族的饮食文化是苗族文化的重要组成部分，是苗族人民智慧的结晶。为了保护和传承苗族的饮食文化，苗族人民采取了一系列措施。</p>
+                    
+                    <h3>传承方式</h3>
+                    <ul>
+                        <li><strong>口头传承：</strong>苗族的饮食文化主要通过口头传承的方式传承，如长辈给晚辈讲述饮食的制作方法和意义，教导晚辈遵守饮食习俗。</li>
+                        <li><strong>实践传承：</strong>苗族的饮食文化主要通过实践传承的方式传承，如在日常生活中，晚辈通过参与饮食的制作和食用，学习和掌握饮食习俗。</li>
+                        <li><strong>家族传承：</strong>苗族的一些饮食制作技艺，如酸汤的制作、腊肉的熏制等，主要通过家族传承的方式传承，如母亲教女儿、祖母教孙女等。</li>
+                    </ul>
+                    
+                    <h3>发展现状</h3>
+                    <ul>
+                        <li><strong>保护措施：</strong>新中国成立后，党和政府重视少数民族文化的保护和发展，采取了一系列措施，如收集整理民间饮食资料、培养饮食文化传承人等。</li>
+                        <li><strong>创新发展：</strong>在保护传统饮食文化的基础上，苗族人民也在不断创新和发展饮食文化，如将传统的饮食与现代元素相结合，创造出具有现代风格的饮食。</li>
+                        <li><strong>对外交流：</strong>随着改革开放的深入，苗族的饮食文化也开始走向世界，如苗族的酸汤鱼、苗家腊肉等传统名菜在国际上受到了欢迎，苗族的饮食文化也得到了更广泛的传播。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化与文化的关系 -->
+                <section class="miao-section">
+                    <h2>饮食文化与文化的关系</h2>
+                    <p>苗族的饮食文化与苗族的文化密切相关，它不仅是苗族文化的重要组成部分，也是苗族文化传承的重要载体。</p>
+                    
+                    <h3>饮食文化与历史</h3>
+                    <p>苗族的饮食文化反映了苗族的历史，如苗族的迁徙历史、战争历史、生产生活历史等。例如，苗族的酸汤鱼、苗家腊肉等传统名菜反映了苗族的生产生活历史，苗族的五色饭等传统食品反映了苗族的宗教信仰历史。</p>
+                    
+                    <h3>饮食文化与宗教</h3>
+                    <p>苗族的饮食文化与苗族的宗教信仰密切相关，如苗族的祭祀饮食、节日饮食等，都反映了苗族的宗教信仰。例如，苗族在祭祀祖先时，会摆上五色饭、酒等传统食品，祈求祖先的保佑。</p>
+                    
+                    <h3>饮食文化与艺术</h3>
+                    <p>苗族的饮食文化与苗族的艺术密切相关，如苗族的饮食器皿、饮食礼仪等，都反映了苗族的艺术成就。例如，苗族的饮食器皿如竹碗、木碗等，制作精美，具有浓厚的民族特色。</p>
+                    
+                    <h3>饮食文化与社会</h3>
+                    <p>苗族的饮食文化与苗族的社会密切相关，如苗族的饮食礼仪、饮食习俗等，都反映了苗族的社会结构和价值观念。例如，苗族的长桌宴反映了苗族人民的团结互助精神，苗族的待客礼仪反映了苗族人民的热情好客性格。</p>
+                </section>
+
+                <!-- 饮食文化的现状与保护 -->
+                <section class="miao-section">
+                    <h2>饮食文化的现状与保护</h2>
+                    <p>随着社会的发展和现代化进程的加快，苗族的饮食文化也面临着一些挑战和机遇。</p>
+                    
+                    <h3>现状</h3>
+                    <ul>
+                        <li><strong>传统饮食文化的延续：</strong>在苗族聚居的农村地区，传统饮食文化仍然得到保留和传承，如酸汤鱼、苗家腊肉、五色饭等传统食品仍然是苗族人民的主要食物。</li>
+                        <li><strong>现代饮食的影响：</strong>在苗族聚居的城镇地区，现代饮食的影响逐渐扩大，如快餐、西餐等现代饮食逐渐进入苗族人民的生活，传统饮食的地位受到了一定的挑战。</li>
+                        <li><strong>饮食文化的融合：</strong>传统饮食文化与现代饮食文化相互融合，形成了新的饮食文化形式，如苗族风味的快餐、苗族风味的西餐等。</li>
+                        <li><strong>饮食文化的传承挑战：</strong>随着社会的发展和现代化进程的加快，苗族的传统饮食文化也面临着一些传承挑战，如年轻人对传统饮食的兴趣减少，传统饮食制作技艺的传承出现断层等。</li>
+                    </ul>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>收集整理民间饮食资料：</strong>收集整理苗族的民间饮食资料，建立数据库和档案，为研究和传承苗族饮食文化提供资料。</li>
+                        <li><strong>培养饮食文化传承人：</strong>通过学校教育、师徒传承等方式，培养苗族饮食文化的传承人，确保苗族饮食文化的后继有人。</li>
+                        <li><strong>发展饮食文化产业：</strong>将苗族的饮食文化与文化产业相结合，如发展苗族特色餐饮产业、苗族饮食文化旅游产业等，促进苗族饮食文化的传承和发展。</li>
+                        <li><strong>加强对外交流：</strong>加强苗族饮食文化的对外交流，如举办苗族饮食文化节、参加国际饮食文化展览等，提高苗族饮食文化的知名度和影响力。</li>
+                        <li><strong>保护传统食材：</strong>保护苗族传统饮食的食材，如糯米、野生蔬菜、野生动物等，确保苗族传统饮食的原汁原味。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

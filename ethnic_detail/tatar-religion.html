@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔塔尔族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔塔尔族宗教信仰页面特定样式 */
+        .religion-header {
+            background-image: url('images/塔塔尔族男子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .religion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .religion-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .religion-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .religion-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-tatar {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-tatar:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .religion-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .religion-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .religion-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .religion-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .religion-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .religion-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .religion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .religion-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .religion-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教活动 */
+        .religion-activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .activity-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .religion-section.visible .activity-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .religion-section.visible .activity-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .religion-section.visible .activity-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .religion-section.visible .activity-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .activity-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .activity-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 宗教节日 */
+        .religion-festivals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .religion-section.visible .festival-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .religion-section.visible .festival-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .religion-section.visible .festival-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .religion-section.visible .festival-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .festival-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .religion-header h1 {
+                font-size: 36px;
+            }
+            
+            .religion-header p {
+                font-size: 18px;
+            }
+            
+            .religion-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-activities,
+            .religion-festivals {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="religion-header">
+        <div class="container">
+            <div class="religion-header-content">
+                <h1>塔塔尔族宗教信仰</h1>
+                <p>深厚的伊斯兰教文化传统</p>
+                <a href="tatar.html" class="back-tatar">返回塔塔尔族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="religion-main">
+        <div class="container">
+            <div class="religion-content">
+                <!-- 宗教概述 -->
+                <section class="religion-section">
+                    <h2>宗教概述</h2>
+                    <p>塔塔尔族主要信仰伊斯兰教，属于逊尼派。伊斯兰教是塔塔尔族文化的重要组成部分，对塔塔尔族的历史、文化、风俗习惯等方面都产生了深远的影响。</p>
+                    <p>伊斯兰教传入塔塔尔族地区的历史可以追溯到公元10世纪左右，随着阿拉伯帝国的扩张和伊斯兰文化的传播，伊斯兰教逐渐成为塔塔尔族的主要宗教信仰。在长期的历史发展过程中，伊斯兰教与塔塔尔族的传统文化相互融合，形成了具有塔塔尔族特色的伊斯兰文化。</p>
+                </section>
+
+                <!-- 宗教教义 -->
+                <section class="religion-section">
+                    <h2>宗教教义</h2>
+                    <p>塔塔尔族信仰的伊斯兰教逊尼派教义主要包括以下内容：</p>
+                    <ul>
+                        <li><strong>信仰唯一的真主安拉：</strong>相信安拉是宇宙万物的创造者和主宰，是唯一的、全能的、全知的、至仁至慈的真主。</li>
+                        <li><strong>信仰使者：</strong>相信穆罕默德是安拉的最后一位使者，是人类的先知和导师。</li>
+                        <li><strong>信仰经典：</strong>相信《古兰经》是安拉启示给穆罕默德的神圣经典，是伊斯兰教的最高教义和行为准则。</li>
+                        <li><strong>信仰天使：</strong>相信天使是安拉创造的精灵，负责传达安拉的旨意和记录人类的善恶行为。</li>
+                        <li><strong>信仰后世：</strong>相信人死后会进入后世，根据生前的善恶行为受到审判，善者进入天堂，恶者进入地狱。</li>
+                        <li><strong>信仰前定：</strong>相信一切事物都是安拉预先注定的，但人类仍然有自由意志，可以选择自己的行为。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教活动 -->
+                <section class="religion-section">
+                    <h2>宗教活动</h2>
+                    <p>塔塔尔族的宗教活动丰富多彩，主要包括以下几种：</p>
+                    <div class="religion-activities">
+                        <div class="activity-item">
+                            <h5>日常礼拜</h5>
+                            <p>塔塔尔族穆斯林每天进行五次礼拜，分别在黎明、中午、下午、黄昏和夜晚进行。礼拜前要进行净身，礼拜时面向麦加方向，按照规定的仪式进行祈祷。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h5>主麻日聚礼</h5>
+                            <p>每周五是伊斯兰教的主麻日，塔塔尔族穆斯林会到清真寺参加聚礼，聆听阿訇讲解《古兰经》和教义，进行集体祈祷。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h5>宗教节日活动</h5>
+                            <p>在伊斯兰教的重要节日，如开斋节、古尔邦节、圣纪节等，塔塔尔族会举行隆重的宗教活动，包括会礼、祈祷、施舍等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教节日 -->
+                <section class="religion-section">
+                    <h2>宗教节日</h2>
+                    <p>塔塔尔族的主要宗教节日包括：</p>
+                    <div class="religion-festivals">
+                        <div class="festival-item">
+                            <h5>开斋节</h5>
+                            <p>开斋节是伊斯兰教的重要节日之一，在伊斯兰教历的10月1日举行。在节日前，塔塔尔族穆斯林会进行一个月的斋戒，白天不进食、不饮水。开斋节当天，人们会早早起床，沐浴更衣，到清真寺参加会礼，然后走亲访友，互道祝福，共享美食。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h5>古尔邦节</h5>
+                            <p>古尔邦节又称宰牲节，在伊斯兰教历的12月10日举行。节日当天，塔塔尔族穆斯林会到清真寺参加会礼，然后宰牲（牛、羊、骆驼等），将肉分为三份，一份自己食用，一份馈赠亲友，一份施舍给穷人。古尔邦节是塔塔尔族最隆重的节日之一，人们会穿上盛装，举行各种庆祝活动。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h5>圣纪节</h5>
+                            <p>圣纪节是纪念伊斯兰教先知穆罕默德诞辰和逝世的节日，在伊斯兰教历的3月12日举行。塔塔尔族穆斯林会在这一天到清真寺参加集体祈祷，聆听阿訇讲述穆罕默德的生平事迹和教诲，举行诵经、赞圣等活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教对生活的影响 -->
+                <section class="religion-section">
+                    <h2>宗教对生活的影响</h2>
+                    <p>伊斯兰教对塔塔尔族的日常生活产生了深远的影响，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>饮食习惯：</strong>塔塔尔族穆斯林遵循伊斯兰教的饮食规定，禁食猪肉、血液、自死物等，只食用符合教法的清真食品。</li>
+                        <li><strong>服饰习惯：</strong>塔塔尔族的传统服饰体现了伊斯兰教的文化特色，如女子戴头巾，男子戴小帽等。</li>
+                        <li><strong>婚姻习俗：</strong>塔塔尔族的婚姻制度遵循伊斯兰教的规定，实行一夫一妻制，婚礼仪式中包含宗教内容。</li>
+                        <li><strong>丧葬习俗：</strong>塔塔尔族的葬礼严格按照伊斯兰教规进行，实行土葬，葬礼简单庄重，体现了伊斯兰教对生死的看法。</li>
+                        <li><strong>道德观念：</strong>伊斯兰教的教义对塔塔尔族的道德观念产生了重要影响，强调诚实、善良、互助、宽容等美德。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教与文化的关系 -->
+                <section class="religion-section">
+                    <h2>宗教与文化的关系</h2>
+                    <p>伊斯兰教与塔塔尔族文化之间存在着密切的关系，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>宗教是文化的重要组成部分：</strong>伊斯兰教是塔塔尔族文化的核心内容之一，影响了塔塔尔族文化的各个方面。</li>
+                        <li><strong>文化是宗教的载体：</strong>塔塔尔族的语言、文学、艺术、风俗习惯等文化形式都承载着伊斯兰教的教义和精神。</li>
+                        <li><strong>宗教与文化相互融合：</strong>在长期的历史发展过程中，伊斯兰教与塔塔尔族的传统文化相互融合，形成了具有塔塔尔族特色的伊斯兰文化。</li>
+                        <li><strong>宗教文化的传承：</strong>塔塔尔族通过家庭教育、宗教教育、社会教育等方式，传承和弘扬伊斯兰文化，保持了文化的连续性和稳定性。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

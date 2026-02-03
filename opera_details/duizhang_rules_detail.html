@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对仗规则详解 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 对仗规则详解页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'SimSun', serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            line-height: 1.8;
+        }
+        
+        /* 导航栏样式 */
+        .navigation {
+            background-color: rgba(192, 57, 43, 0.9);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .navigation li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .navigation a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .navigation a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            color: #c0392b;
+            font-size: 42px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 20px 0;
+            background: linear-gradient(to right, transparent, rgba(192, 57, 43, 0.1), transparent);
+        }
+        
+        h1::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, #c0392b, #e74c3c, #c0392b);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin: 40px 0 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid rgba(192, 57, 43, 0.2);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #c0392b;
+        }
+        
+        h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            padding-left: 20px;
+            border-left: 4px solid #c0392b;
+            background-color: rgba(192, 57, 43, 0.05);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 35px;
+        }
+        
+        li {
+            margin-bottom: 18px;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .example-box {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #c0392b;
+        }
+        
+        .example-box h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .example-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            border: 2px solid #c0392b;
+            font-weight: bold;
+        }
+        
+        .back-button:hover {
+            background-color: transparent;
+            color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(192, 57, 43, 0.3);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .content {
+                padding: 25px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+            
+            h2 {
+                font-size: 26px;
+                margin: 30px 0 20px;
+            }
+            
+            h3 {
+                font-size: 22px;
+                margin: 25px 0 15px;
+            }
+            
+            h4 {
+                font-size: 18px;
+            }
+            
+            p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+            
+            .example-line {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px;
+            }
+            
+            .back-button {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+            
+            /* 响应式导航栏 */
+            .navigation ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .navigation a {
+                display: block;
+                text-align: center;
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>对仗规则详解</h1>
+            
+            <!-- 导航栏 -->
+            <div class="navigation">
+                <ul>
+                    <li><a href="#lvshi-rules">律诗中的对仗</a></li>
+                    <li><a href="#jueju-rules">绝句中的对仗</a></li>
+                    <li><a href="#ci-rules">词中的对仗</a></li>
+                    <li><a href="#qu-rules">曲中的对仗</a></li>
+                    <li><a href="#history">对仗的历史发展</a></li>
+                    <li><a href="#modern">现代诗歌中的对仗</a></li>
+                    <li><a href="#summary">规则总结</a></li>
+                    <li><a href="duizhang_detail.html">返回主页</a></li>
+                </ul>
+            </div>
+            
+            <!-- 律诗中的对仗规则 -->
+            <div id="lvshi-rules" class="section">
+                <h2>律诗中的对仗规则</h2>
+                <p>律诗是中国古典诗歌中对仗运用最严格的形式，其对仗规则经过长期发展和完善，形成了一套完整的体系。律诗对仗不仅是一种语言技巧，更是一种艺术追求，体现了中国古典诗歌的严谨之美。</p>
+                
+                <h3>对仗的位置</h3>
+                <p>律诗要求在颔联（第三、四句）和颈联（第五、六句）必须使用对仗，首联（第一、二句）和尾联（第七、八句）可以使用对仗也可以不使用。这种固定的对仗位置是律诗的重要特征之一。</p>
+                <ul>
+                    <li><strong>首联</strong>：可对可不对，通常根据诗歌内容和诗人风格决定。例如，杜甫的《登高》首联"风急天高猿啸哀，渚清沙白鸟飞回"使用了对仗，而李白的《渡荆门送别》首联"渡远荆门外，来从楚国游"则未使用对仗。</li>
+                    <li><strong>颔联</strong>：必须对仗，是律诗的重要特征之一。颔联是律诗的第一个对仗联，通常用于展开主题，奠定诗歌的基调。</li>
+                    <li><strong>颈联</strong>：必须对仗，与颔联共同构成律诗的核心部分。颈联是律诗的第二个对仗联，通常用于深化主题，表达诗人的情感和思想。</li>
+                    <li><strong>尾联</strong>：可对可不对，通常用于总结全诗或抒发情感。例如，杜甫的《春望》尾联"白头搔更短，浑欲不胜簪"未使用对仗，而李商隐的《锦瑟》尾联"此情可待成追忆，只是当时已惘然"则使用了对仗。</li>
+                </ul>
+                
+                <h3>对仗的要求</h3>
+                <p>律诗中的对仗要求非常严格，主要包括以下几个方面：</p>
+                <ul>
+                    <li><strong>词性相对</strong>：名词对名词，动词对动词，形容词对形容词，副词对副词，数量词对数量词，方位词对方位词等。在工对中，还要求名词中的小类也要对应，如天文对天文（日对月）、地理对地理（山对水）、动物对动物（鸟对鱼）、植物对植物（花对草）等。</li>
+                    <li><strong>结构相对</strong>：主谓结构对主谓结构，动宾结构对动宾结构，偏正结构对偏正结构，并列结构对并列结构等。例如，"风急"（主谓）对"天高"（主谓），"感时"（动宾）对"恨别"（动宾），"无边落木"（偏正）对"不尽长江"（偏正）。</li>
+                    <li><strong>平仄相对</strong>：上下句中对应的词语平仄要相对，形成和谐的节奏。在律诗中，平仄相对是严格要求的，尤其是在工对中，平仄相对是必须遵守的规则。例如，"两个黄鹂鸣翠柳"（仄仄平平平仄仄）对"一行白鹭上青天"（平平仄仄仄平平）。</li>
+                    <li><strong>意义相关</strong>：上下句的意义要相关，或相反，或相似，或相承。意义相关是对仗的内容要求，体现了诗歌的内容美。例如，"感时花溅泪"对"恨别鸟惊心"，上下句意义相似，都表达了诗人的悲伤情感。</li>
+                </ul>
+                
+                <h3>律诗对仗的特殊形式</h3>
+                <p>除了基本的对仗形式外，律诗中还存在一些特殊的对仗形式：</p>
+                <ul>
+                    <li><strong>当句对</strong>：一句诗中内部词语的对仗，如杜甫《登高》中的"风急天高猿啸哀"，其中"风急"对"天高"。</li>
+                    <li><strong>扇面对</strong>：四句诗中，第一句与第三句对仗，第二句与第四句对仗，如白居易《夜闻筝中弹潇湘送神曲感旧》中的"缥缈巫山女，归来七八年。殷勤湘水曲，留在十三弦"。</li>
+                    <li><strong>错综对</strong>：上下句中词语的位置交错，形成对仗，如李群玉《杜丞相筵中赠美人》中的"裙拖六幅湘江水，髻挽巫山一段云"，其中"六幅"对"一段"，"湘江"对"巫山"。</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>律诗对仗示例</h4>
+                    <p><strong>杜甫《春望》</strong></p>
+                    <div class="example-line">
+                        <span>国破山河在，</span>
+                        <span>城春草木深。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>感时花溅泪，</span>
+                        <span>恨别鸟惊心。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>烽火连三月，</span>
+                        <span>家书抵万金。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>白头搔更短，</span>
+                        <span>浑欲不胜簪。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗颔联"感时花溅泪，恨别鸟惊心"和颈联"烽火连三月，家书抵万金"使用了对仗。颔联中，"感时"对"恨别"（动宾结构），"花溅泪"对"鸟惊心"（主谓结构）；颈联中，"烽火"对"家书"（名词），"连三月"对"抵万金"（动宾结构），对仗工整，意义相关，是律诗对仗的典范。</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>律诗对仗示例</h4>
+                    <p><strong>王维《山居秋暝》</strong></p>
+                    <div class="example-line">
+                        <span>空山新雨后，</span>
+                        <span>天气晚来秋。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>明月松间照，</span>
+                        <span>清泉石上流。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>竹喧归浣女，</span>
+                        <span>莲动下渔舟。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>随意春芳歇，</span>
+                        <span>王孙自可留。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗颔联"明月松间照，清泉石上流"和颈联"竹喧归浣女，莲动下渔舟"使用了对仗。颔联中，"明月"对"清泉"（名词），"松间照"对"石上流"（偏正结构）；颈联中，"竹喧"对"莲动"（主谓结构），"归浣女"对"下渔舟"（动宾结构），对仗工整，意境深远，体现了王维诗歌"诗中有画，画中有诗"的特点。</p>
+                </div>
+            </div>
+            
+            <!-- 绝句中的对仗规则 -->
+            <div id="jueju-rules" class="section">
+                <h2>绝句中的对仗规则</h2>
+                <p>绝句是一种短小精悍的诗歌形式，通常由四句组成，分为五言绝句和七言绝句。与律诗相比，绝句对对仗的要求比较宽松，更加注重诗歌的意境和情感表达，体现了中国古典诗歌的灵活之美。</p>
+                
+                <h3>对仗的灵活性</h3>
+                <p>绝句可以根据诗歌内容和诗人风格自由选择是否使用对仗，没有严格的位置要求。这种灵活性使得绝句在形式上更加自由，能够更好地适应不同的诗歌内容和情感表达。</p>
+                <ul>
+                    <li><strong>无对仗</strong>：整首诗不使用对仗，如李白的《静夜思》。这种形式更加自由，适合表达直白、自然的情感。</li>
+                    <li><strong>首联对仗</strong>：只在第一、二句使用对仗，如王维的《鸟鸣涧》。这种形式通常用于开篇点题，通过对仗来营造诗歌的氛围。</li>
+                    <li><strong>尾联对仗</strong>：只在第三、四句使用对仗，如李商隐的《登乐游原》。这种形式通常用于结尾升华，通过对仗来强化诗歌的主题和情感。</li>
+                    <li><strong>全对仗</strong>：整首诗都使用对仗，如杜甫的《绝句四首》（其三）。这种形式虽然严格，但能够使诗歌在形式上更加整齐、和谐。</li>
+                </ul>
+                
+                <h3>绝句对仗的特点</h3>
+                <p>与律诗相比，绝句中的对仗具有以下特点：</p>
+                <ul>
+                    <li><strong>形式自由</strong>：绝句中的对仗不受固定位置的限制，可以根据诗歌内容和情感表达的需要自由安排。</li>
+                    <li><strong>要求宽松</strong>：绝句中的对仗要求比律诗宽松，不要求严格的平仄对应和词性对应，更加注重诗歌的意境和情感表达。</li>
+                    <li><strong>意境为重</strong>：绝句更加注重诗歌的意境和情感表达，对仗只是一种辅助手段，而不是目的。</li>
+                    <li><strong>短小精悍</strong>：绝句篇幅短小，因此对仗的运用更加简洁、凝练，注重表达的精准性。</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>绝句对仗示例</h4>
+                    <p><strong>王维《鸟鸣涧》（首联对仗）</strong></p>
+                    <div class="example-line">
+                        <span>人闲桂花落，</span>
+                        <span>夜静春山空。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>月出惊山鸟，</span>
+                        <span>时鸣春涧中。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗首联"人闲桂花落，夜静春山空"使用了对仗，"人闲"对"夜静"（主谓结构），"桂花落"对"春山空"（主谓结构），对仗工整，意境深远，描绘了一幅宁静的春山夜景图。</p>
+                    
+                    <p><strong>李白《静夜思》（无对仗）</strong></p>
+                    <p>床前明月光，疑是地上霜。举头望明月，低头思故乡。</p>
+                    <p><strong>分析</strong>：此诗未使用对仗，语言直白、自然，通过简洁的描写表达了诗人的思乡之情，是绝句无对仗形式的典范。</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>绝句对仗示例</h4>
+                    <p><strong>李商隐《登乐游原》（尾联对仗）</strong></p>
+                    <div class="example-line">
+                        <span>向晚意不适，</span>
+                        <span>驱车登古原。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>夕阳无限好，</span>
+                        <span>只是近黄昏。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗尾联"夕阳无限好，只是近黄昏"使用了对仗，"夕阳"对"只是"（名词对副词，宽对），"无限好"对"近黄昏"（偏正结构），对仗虽然宽松，但意义相关，通过对比表达了诗人对美好时光短暂的感慨。</p>
+                    
+                    <p><strong>杜甫《绝句四首》（其三）（全对仗）</strong></p>
+                    <div class="example-line">
+                        <span>两个黄鹂鸣翠柳，</span>
+                        <span>一行白鹭上青天。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>窗含西岭千秋雪，</span>
+                        <span>门泊东吴万里船。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗整首使用了对仗，首联"两个黄鹂鸣翠柳，一行白鹭上青天"和颔联"窗含西岭千秋雪，门泊东吴万里船"都对仗工整，通过对春天景色的描写，表达了诗人的喜悦之情，是绝句全对仗形式的典范。</p>
+                </div>
+            </div>
+            
+            <!-- 词中的对仗规则 -->
+            <div id="ci-rules" class="section">
+                <h2>词中的对仗规则</h2>
+                <p>词是一种形式更加灵活的诗歌形式，又称长短句，其对仗规则与律诗相比有很大的不同。词的对仗规则既保留了律诗对仗的基本要素，又根据词的特点进行了创新和发展，形成了独特的对仗体系。</p>
+                
+                <h3>词牌的对仗规定</h3>
+                <p>每个词牌都有固定的对仗规定，词人在填词时必须严格遵守。不同词牌的对仗位置和要求各不相同，这是词与律诗的重要区别之一。</p>
+                <ul>
+                    <li><strong>《西江月》</strong>：上下阕的开头两句通常要求对仗，如辛弃疾的《西江月·夜行黄沙道中》中的"明月别枝惊鹊，清风半夜鸣蝉"和"七八个星天外，两三点雨山前"。</li>
+                    <li><strong>《沁园春》</strong>：上阕的第三、四句和第五、六句通常要求对仗，如毛泽东的《沁园春·雪》中的"千里冰封，万里雪飘"和"望长城内外，惟余莽莽"。</li>
+                    <li><strong>《菩萨蛮》</strong>：上下阕的第二、三句通常要求对仗，如李白的《菩萨蛮·平林漠漠烟如织》中的"寒山一带伤心碧，暝色入高楼"。</li>
+                    <li><strong>《满江红》</strong>：上下阕的中间部分通常要求对仗，如岳飞的《满江红·写怀》中的"三十功名尘与土，八千里路云和月"。</li>
+                    <li><strong>《水调歌头》</strong>：上下阕的开头部分通常要求对仗，如苏轼的《水调歌头·明月几时有》中的"明月几时有，把酒问青天"和"我欲乘风归去，又恐琼楼玉宇"。</li>
+                </ul>
+                
+                <h3>对仗的形式</h3>
+                <p>词中的对仗形式更加灵活多样，主要包括以下几种：</p>
+                <ul>
+                    <li><strong>四字对</strong>：如《沁园春》中的四字句对仗，如"千里冰封，万里雪飘"。</li>
+                    <li><strong>五字对</strong>：如《菩萨蛮》中的五字句对仗，如"平林漠漠烟如织，寒山一带伤心碧"。</li>
+                    <li><strong>六字对</strong>：如《西江月》中的六字句对仗，如"明月别枝惊鹊，清风半夜鸣蝉"。</li>
+                    <li><strong>七字对</strong>：如《满江红》中的七字句对仗，如"三十功名尘与土，八千里路云和月"。</li>
+                    <li><strong>八字对</strong>：如《水龙吟》中的八字句对仗，如"落日楼头，断鸿声里"。</li>
+                    <li><strong>长句对</strong>：如《雨霖铃》中的长句对仗，如"今宵酒醒何处？杨柳岸，晓风残月"。</li>
+                </ul>
+                
+                <h3>对仗的要求</h3>
+                <p>词中的对仗要求比律诗宽松，主要特点如下：</p>
+                <ul>
+                    <li><strong>平仄相对</strong>：要求不如律诗严格，允许一定的变化，尤其是在长句对仗中。</li>
+                    <li><strong>词性相对</strong>：基本要求词性相对，但不要求严格的小类对应，允许宽对。</li>
+                    <li><strong>结构相对</strong>：基本要求结构相对，但允许一定的变化，尤其是在长句对仗中。</li>
+                    <li><strong>字数灵活</strong>：词中的对仗不要求上下句字数完全相同，允许一定的差异，尤其是在长句对仗中。</li>
+                    <li><strong>位置自由</strong>：词中的对仗位置比律诗更加自由，不同词牌有不同的对仗位置规定。</li>
+                </ul>
+                
+                <h3>词对仗的特殊形式</h3>
+                <p>词中还存在一些特殊的对仗形式：</p>
+                <ul>
+                    <li><strong>扇面对</strong>：又称隔句对，即第一句与第三句对仗，第二句与第四句对仗，如《沁园春》中的"望长城内外，惟余莽莽；大河上下，顿失滔滔"。</li>
+                    <li><strong>当句对</strong>：一句诗中内部词语的对仗，如苏轼《水调歌头》中的"人有悲欢离合，月有阴晴圆缺"。</li>
+                    <li><strong>错综对</strong>：上下句中词语的位置交错，形成对仗，如辛弃疾《西江月》中的"七八个星天外，两三点雨山前"。</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>词的对仗示例</h4>
+                    <p><strong>苏轼《水调歌头·明月几时有》</strong></p>
+                    <div class="example-line">
+                        <span>人有悲欢离合，</span>
+                        <span>月有阴晴圆缺。</span>
+                    </div>
+                    <p><strong>分析</strong>：此句使用了当句对，"悲欢"对"离合"，"阴晴"对"圆缺"，同时上下句也形成对仗，"人"对"月"，"有"对"有"，"悲欢离合"对"阴晴圆缺"，对仗工整，意义相关，表达了人生的无常和自然的变化。</p>
+                    
+                    <p><strong>辛弃疾《西江月·夜行黄沙道中》</strong></p>
+                    <div class="example-line">
+                        <span>明月别枝惊鹊，</span>
+                        <span>清风半夜鸣蝉。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>七八个星天外，</span>
+                        <span>两三点雨山前。</span>
+                    </div>
+                    <p><strong>分析</strong>：此词上下阕的开头两句都使用了对仗，"明月"对"清风"，"别枝"对"半夜"，"惊鹊"对"鸣蝉"；"七八个"对"两三点"，"星"对"雨"，"天外"对"山前"，对仗工整，描绘了夏夜乡村的宁静美景。</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>词的对仗示例</h4>
+                    <p><strong>岳飞《满江红·写怀》</strong></p>
+                    <div class="example-line">
+                        <span>三十功名尘与土，</span>
+                        <span>八千里路云和月。</span>
+                    </div>
+                    <p><strong>分析</strong>：此句使用了对仗，"三十"对"八千"，"功名"对"里路"，"尘与土"对"云和月"，对仗工整，表达了诗人对功名的淡泊和对国家的忠诚。</p>
+                    
+                    <p><strong>毛泽东《沁园春·雪》</strong></p>
+                    <div class="example-line">
+                        <span>千里冰封，</span>
+                        <span>万里雪飘。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>望长城内外，惟余莽莽；</span>
+                        <span>大河上下，顿失滔滔。</span>
+                    </div>
+                    <p><strong>分析</strong>：此词使用了扇面对，"长城内外"对"大河上下"，"惟余莽莽"对"顿失滔滔"，对仗工整，描绘了北国雪景的壮丽。</p>
+                </div>
+            </div>
+            
+            <!-- 曲中的对仗规则 -->
+            <div id="qu-rules" class="section">
+                <h2>曲中的对仗规则</h2>
+                <p>曲是一种更加口语化、通俗易懂的诗歌形式，又称散曲，其对仗规则比词更加灵活自由，体现了民间文学的活泼生动之美。曲的对仗规则在保留传统对仗要素的基础上，增加了更多的变化和破格，使对仗的运用更加灵活多样。</p>
+                
+                <h3>对仗的灵活性</h3>
+                <p>曲中的对仗规则比词更加灵活，允许更多的变化和破格，主要特点如下：</p>
+                <ul>
+                    <li><strong>位置自由</strong>：曲中的对仗位置比词更加自由，没有固定的对仗位置要求，词人可以根据内容和情感表达的需要自由安排。</li>
+                    <li><strong>形式多样</strong>：曲中的对仗形式比词更加多样，包括两句对、三句对、四句对、五句对甚至更多句的对仗。</li>
+                    <li><strong>要求宽松</strong>：曲中的对仗要求比词更加宽松，允许更多的宽对和破格，甚至可以突破传统对仗的规则。</li>
+                    <li><strong>口语化</strong>：曲中的对仗更加口语化，使用更多的民间语言和俚语，使对仗更加生动活泼。</li>
+                </ul>
+                
+                <h3>衬字的使用</h3>
+                <p>曲中可以添加衬字，这些衬字不参与对仗，使对仗的运用更加灵活。衬字的使用是曲与词的重要区别之一，它使曲的语言更加口语化、生动活泼。</p>
+                <ul>
+                    <li><strong>衬字的特点</strong>：衬字通常是虚词或语气词，不影响句子的基本结构和意义。</li>
+                    <li><strong>衬字的作用</strong>：衬字可以调整句子的节奏，增强语言的表现力，使曲更加口语化、生动活泼。</li>
+                    <li><strong>衬字与对仗</strong>：衬字不参与对仗，对仗只考虑句子的基本结构和核心词语。</li>
+                </ul>
+                
+                <h3>对仗的形式</h3>
+                <p>曲中的对仗形式多样，主要包括以下几种：</p>
+                <ul>
+                    <li><strong>两句对</strong>：相邻两句的对仗，如《天净沙》中的对仗。</li>
+                    <li><strong>三句对</strong>：连续三句的对仗，如《山坡羊》中的对仗。</li>
+                    <li><strong>四句对</strong>：连续四句的对仗，如《水仙子》中的对仗。</li>
+                    <li><strong>五句对</strong>：连续五句的对仗，如《朝天子》中的对仗。</li>
+                    <li><strong>扇面对</strong>：又称隔句对，即第一句与第三句对仗，第二句与第四句对仗，如《沁园春》中的对仗。</li>
+                    <li><strong>当句对</strong>：一句诗中内部词语的对仗，如《水仙子》中的对仗。</li>
+                </ul>
+                
+                <h3>曲对仗的特殊要求</h3>
+                <p>曲中的对仗虽然灵活，但也有一些特殊要求：</p>
+                <ul>
+                    <li><strong>平仄相对</strong>：曲中的平仄要求比词更加宽松，但仍要求基本的平仄相对。</li>
+                    <li><strong>词性相对</strong>：曲中的词性要求比词更加宽松，允许更多的宽对。</li>
+                    <li><strong>结构相对</strong>：曲中的结构要求比词更加宽松，允许更多的变化。</li>
+                    <li><strong>意义相关</strong>：曲中的对仗仍要求上下句意义相关，这是对仗的基本要求。</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>曲的对仗示例</h4>
+                    <p><strong>马致远《天净沙·秋思》</strong></p>
+                    <div class="example-line">
+                        <span>枯藤老树昏鸦，</span>
+                        <span>小桥流水人家，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>古道西风瘦马。</span>
+                        <span></span>
+                    </div>
+                    <p><strong>分析</strong>：此曲使用了三句对，"枯藤老树昏鸦"、"小桥流水人家"、"古道西风瘦马"三句形成对仗，每句都由三个名词组成，描绘了秋天的凄凉景色，是曲中对仗的典范。</p>
+                    
+                    <p><strong>张养浩《山坡羊·潼关怀古》</strong></p>
+                    <div class="example-line">
+                        <span>峰峦如聚，</span>
+                        <span>波涛如怒，</span>
+                    </div>
+                    <p><strong>分析</strong>：此曲使用了两句对，"峰峦如聚"对"波涛如怒"，"峰峦"对"波涛"，"如聚"对"如怒"，对仗工整，描绘了潼关的雄伟地势。</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>曲的对仗示例</h4>
+                    <p><strong>关汉卿《不伏老》</strong></p>
+                    <div class="example-line">
+                        <span>我是个蒸不烂、煮不熟、捶不匾、炒不爆、响珰珰一粒铜豌豆，</span>
+                        <span>恁子弟每谁教你钻入他锄不断、斫不下、解不开、顿不脱、慢腾腾千层锦套头？</span>
+                    </div>
+                    <p><strong>分析</strong>：此曲使用了长句对，上下句都由多个并列的动词短语组成，对仗工整，表达了作者的坚韧不拔和乐观精神。</p>
+                    
+                    <p><strong>白朴《天净沙·秋》</strong></p>
+                    <div class="example-line">
+                        <span>孤村落日残霞，</span>
+                        <span>轻烟老树寒鸦，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>一点飞鸿影下。</span>
+                        <span></span>
+                    </div>
+                    <p><strong>分析</strong>：此曲使用了三句对，"孤村落日残霞"、"轻烟老树寒鸦"、"一点飞鸿影下"三句形成对仗，描绘了秋天的美丽景色。</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>曲的对仗示例</h4>
+                    <p><strong>睢景臣《哨遍·高祖还乡》</strong></p>
+                    <div class="example-line">
+                        <span>一面旗白胡阑套住个迎霜兔，</span>
+                        <span>一面旗红曲连打着个毕月乌，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>一面旗鸡学舞，</span>
+                        <span>一面旗狗生双翅，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>一面旗蛇缠葫芦。</span>
+                        <span></span>
+                    </div>
+                    <p><strong>分析</strong>：此曲使用了五句对，每句都描述了一面旗帜的图案，对仗工整，语言口语化，生动活泼，体现了曲的独特魅力。</p>
+                </div>
+            </div>
+            
+            <!-- 对仗的历史发展 -->
+            <div id="history" class="section">
+                <h2>对仗的历史发展</h2>
+                <p>对仗作为中国古典诗歌的重要修辞手法，经历了漫长的历史发展过程，从萌芽到成熟，从简单到复杂，形成了一套完整的体系。了解对仗的历史发展，有助于我们更好地理解和欣赏中国古典诗歌。</p>
+                
+                <h3>对仗的萌芽时期（先秦至汉代）</h3>
+                <p>对仗的萌芽可以追溯到先秦时期的《诗经》和《楚辞》，这一时期的对仗还处于初级阶段，形式简单，没有固定的规则。</p>
+                <ul>
+                    <li><strong>《诗经》中的对仗</strong>：《诗经》中已经出现了一些对仗的雏形，如《关雎》中的"关关雎鸠，在河之洲"，但这些对仗形式简单，没有严格的规则。</li>
+                    <li><strong>《楚辞》中的对仗</strong>：《楚辞》中也出现了一些对仗的形式，如屈原《离骚》中的"朝搴阰之木兰兮，夕揽洲之宿莽"，但这些对仗同样没有严格的规则。</li>
+                    <li><strong>汉代的对仗</strong>：汉代的赋和乐府诗中对仗的使用更加频繁，如司马相如《子虚赋》中的"左苍梧，右西极"，但对仗的规则仍然不固定。</li>
+                </ul>
+                
+                <h3>对仗的发展时期（魏晋南北朝）</h3>
+                <p>魏晋南北朝时期，对仗得到了进一步的发展，逐渐形成了一些固定的规则和形式。</p>
+                <ul>
+                    <li><strong>魏晋时期的对仗</strong>：魏晋时期，文人开始有意识地使用对仗，如曹植《洛神赋》中的"翩若惊鸿，婉若游龙"，对仗的形式更加工整。</li>
+                    <li><strong>南朝时期的对仗</strong>：南朝时期，对仗的规则更加严格，出现了"四声八病"的理论，如沈约的诗歌理论，对仗的使用更加普遍。</li>
+                    <li><strong>北朝时期的对仗</strong>：北朝时期，对仗的使用也很普遍，如庾信的诗歌中的对仗形式更加工整。</li>
+                </ul>
+                
+                <h3>对仗的成熟时期（唐代）</h3>
+                <p>唐代是对仗的成熟时期，律诗的出现和完善标志着对仗规则的成熟和定型。</p>
+                <ul>
+                    <li><strong>初唐的对仗</strong>：初唐时期，律诗逐渐形成，对仗的规则更加严格，如王勃《滕王阁序》中的"落霞与孤鹜齐飞，秋水共长天一色"，对仗工整，意境深远。</li>
+                    <li><strong>盛唐的对仗</strong>：盛唐时期，对仗的使用达到了顶峰，如李白、杜甫等诗人的诗歌中的对仗形式多样，技巧纯熟。</li>
+                    <li><strong>中晚唐的对仗</strong>：中晚唐时期，对仗的使用更加灵活，出现了一些新的对仗形式，如李商隐诗歌中的对仗更加精巧。</li>
+                </ul>
+                
+                <h3>对仗的演变时期（宋元明清）</h3>
+                <p>宋元明清时期，对仗继续演变，在词和曲中得到了新的发展。</p>
+                <ul>
+                    <li><strong>宋代的对仗</strong>：宋代，词的兴起为对仗的使用提供了新的空间，词中的对仗更加灵活多样，如苏轼、辛弃疾等词人的词中的对仗形式更加自由。</li>
+                    <li><strong>元代的对仗</strong>：元代，曲的兴起为对仗的使用提供了新的形式，曲中的对仗更加口语化、活泼生动，如马致远、关汉卿等曲作家的曲中的对仗形式更加自由。</li>
+                    <li><strong>明清的对仗</strong>：明清时期，对仗的使用更加普及，在诗歌、词、曲等各种文学形式中都有广泛的应用，对仗的规则也更加完善。</li>
+                </ul>
+            </div>
+            
+            <!-- 对仗在现代诗歌中的应用 -->
+            <div id="modern" class="section">
+                <h2>对仗在现代诗歌中的应用</h2>
+                <p>对仗作为中国古典诗歌的重要修辞手法，并没有随着古典诗歌的衰落而消失，而是在现代诗歌中得到了新的应用和发展。现代诗人在继承传统对仗技巧的基础上，结合现代诗歌的特点，创造了新的对仗形式，为现代诗歌增添了独特的魅力。</p>
+                
+                <h3>现代诗歌中对仗的特点</h3>
+                <p>与古典诗歌相比，现代诗歌中的对仗具有以下特点：</p>
+                <ul>
+                    <li><strong>形式自由</strong>：现代诗歌中的对仗形式更加自由，没有固定的规则和位置要求，诗人可以根据内容和情感表达的需要自由安排。</li>
+                    <li><strong>语言现代</strong>：现代诗歌中的对仗使用现代语言，更加贴近生活，更加口语化，符合现代读者的阅读习惯。</li>
+                    <li><strong>内容新颖</strong>：现代诗歌中的对仗内容更加新颖，反映现代生活和现代思想，具有时代特色。</li>
+                    <li><strong>技巧创新</strong>：现代诗人在继承传统对仗技巧的基础上，创造了新的对仗形式和技巧，如跨行对仗、跨段对仗等。</li>
+                </ul>
+                
+                <h3>现代诗歌中对仗的应用形式</h3>
+                <p>现代诗歌中对仗的应用形式多样，主要包括以下几种：</p>
+                <ul>
+                    <li><strong>传统对仗的继承</strong>：现代诗人继承了古典诗歌中的传统对仗形式，如两句对、扇面对等，用于表达现代情感和思想。</li>
+                    <li><strong>自由对仗的创新</strong>：现代诗人创造了自由对仗的形式，突破了传统对仗的规则限制，更加灵活多样。</li>
+                    <li><strong>跨行对仗</strong>：现代诗歌中，对仗可以跨行使用，如一句诗的末尾与下一句诗的开头形成对仗。</li>
+                    <li><strong>跨段对仗</strong>：现代诗歌中，对仗可以跨段使用，如一段诗的末尾与下一段诗的开头形成对仗。</li>
+                    <li><strong>内在对仗</strong>：现代诗歌中，对仗不仅仅体现在形式上，还体现在内在的节奏和情感上，形成一种内在的对仗。</li>
+                </ul>
+                
+                <h3>现代诗歌中对仗的艺术价值</h3>
+                <p>现代诗歌中对仗的使用具有重要的艺术价值：</p>
+                <ul>
+                    <li><strong>增强诗歌的节奏感</strong>：对仗可以增强现代诗歌的节奏感，使诗歌更加富有韵律美。</li>
+                    <li><strong>突出诗歌的主题</strong>：对仗可以突出现代诗歌的主题，使诗歌的内容更加集中、鲜明。</li>
+                    <li><strong>增强诗歌的表现力</strong>：对仗可以增强现代诗歌的表现力，使诗歌的情感更加真挚、强烈。</li>
+                    <li><strong>连接传统与现代</strong>：对仗作为传统诗歌的重要修辞手法，在现代诗歌中的应用可以连接传统与现代，使现代诗歌更加具有民族特色。</li>
+                </ul>
+                
+                <div class="example-box">
+                    <h4>现代诗歌中的对仗示例</h4>
+                    <p><strong>郭沫若《炉中煤》</strong></p>
+                    <div class="example-line">
+                        <span>啊，我年青的女郎！</span>
+                        <span>我不辜负你的殷勤，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>你也不要辜负了我的思量。</span>
+                        <span>我为我心爱的人儿，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>燃到了这般模样！</span>
+                        <span></span>
+                    </div>
+                    <p><strong>分析</strong>：此诗使用了自由对仗的形式，"我不辜负你的殷勤"对"你也不要辜负了我的思量"，对仗工整，表达了诗人对祖国的热爱之情。</p>
+                    
+                    <p><strong>闻一多《死水》</strong></p>
+                    <div class="example-line">
+                        <span>这是一沟绝望的死水，</span>
+                        <span>清风吹不起半点漪沦。</span>
+                    </div>
+                    <div class="example-line">
+                        <span>不如多扔些破铜烂铁，</span>
+                        <span>爽性泼你的剩菜残羹。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗使用了传统对仗的形式，"这是一沟绝望的死水"对"清风吹不起半点漪沦"，"不如多扔些破铜烂铁"对"爽性泼你的剩菜残羹"，对仗工整，表达了诗人对黑暗现实的不满和批判。</p>
+                </div>
+                
+                <div class="example-box">
+                    <h4>现代诗歌中的对仗示例</h4>
+                    <p><strong>徐志摩《再别康桥》</strong></p>
+                    <div class="example-line">
+                        <span>轻轻的我走了，</span>
+                        <span>正如我轻轻的来；</span>
+                    </div>
+                    <div class="example-line">
+                        <span>我轻轻的招手，</span>
+                        <span>作别西天的云彩。</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗使用了传统对仗的形式，"轻轻的我走了"对"正如我轻轻的来"，对仗工整，表达了诗人对康桥的不舍之情。</p>
+                    
+                    <p><strong>艾青《我爱这土地》</strong></p>
+                    <div class="example-line">
+                        <span>假如我是一只鸟，</span>
+                        <span>我也应该用嘶哑的喉咙歌唱：</span>
+                    </div>
+                    <div class="example-line">
+                        <span>这被暴风雨所打击着的土地，</span>
+                        <span>这永远汹涌着我们的悲愤的河流，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>这无止息地吹刮着的激怒的风，</span>
+                        <span>和那来自林间的无比温柔的黎明……</span>
+                    </div>
+                    <p><strong>分析</strong>：此诗使用了内在对仗的形式，通过排比和对仗的结合，表达了诗人对祖国的热爱之情。</p>
+                </div>
+            </div>
+            
+            <!-- 对仗规则的总结 -->
+            <div id="summary" class="section">
+                <h2>对仗规则的总结</h2>
+                <p>中国古典诗歌中的对仗规则，从严格到宽松依次为：律诗 > 词 > 曲。不同诗歌形式的对仗规则反映了中国古典诗歌的多样性和丰富性。</p>
+                
+                <h3>对仗规则的核心要素</h3>
+                <ul>
+                    <li><strong>词性相对</strong>：是对仗的基本要求，体现了诗歌的形式美。</li>
+                    <li><strong>结构相对</strong>：是对仗的重要特征，体现了诗歌的结构美。</li>
+                    <li><strong>平仄相对</strong>：是对仗的韵律要求，体现了诗歌的音乐美。</li>
+                    <li><strong>意义相关</strong>：是对仗的内容要求，体现了诗歌的内容美。</li>
+                </ul>
+                
+                <h3>对仗规则的运用技巧</h3>
+                <ul>
+                    <li><strong>根据诗歌形式选择合适的对仗规则</strong>：律诗严格，词灵活，曲更加自由。</li>
+                    <li><strong>根据诗歌内容选择合适的对仗形式</strong>：抒情诗可以使用更加灵活的对仗，叙事诗可以使用更加严格的对仗。</li>
+                    <li><strong>根据诗人风格选择合适的对仗风格</strong>：豪放派诗人可以使用更加自由的对仗，婉约派诗人可以使用更加严格的对仗。</li>
+                </ul>
+                
+                <h3>对仗的艺术价值</h3>
+                <ul>
+                    <li><strong>形式美</strong>：对仗使诗歌的形式更加整齐、和谐，体现了中国古典诗歌的形式美。</li>
+                    <li><strong>音乐美</strong>：对仗的平仄相对使诗歌的节奏更加和谐，体现了中国古典诗歌的音乐美。</li>
+                    <li><strong>内容美</strong>：对仗的意义相关使诗歌的内容更加丰富、深刻，体现了中国古典诗歌的内容美。</li>
+                    <li><strong>文化美</strong>：对仗是中国古典诗歌的独特修辞手法，体现了中国传统文化的独特魅力。</li>
+                </ul>
+            </div>
+            
+            <a href="duizhang_detail.html" class="back-button">返回对仗详解</a>
+        </div>
+    </div>
+    
+    <script>
+        // 平滑滚动效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 平滑滚动到锚点
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 导航栏高亮显示当前位置
+            function highlightNavigation() {
+                const sections = [
+                    { id: 'lvshi-rules', link: 'a[href="#lvshi-rules"]' },
+                    { id: 'jueju-rules', link: 'a[href="#jueju-rules"]' },
+                    { id: 'ci-rules', link: 'a[href="#ci-rules"]' },
+                    { id: 'qu-rules', link: 'a[href="#qu-rules"]' },
+                    { id: 'history', link: 'a[href="#history"]' },
+                    { id: 'modern', link: 'a[href="#modern"]' },
+                    { id: 'summary', link: 'a[href="#summary"]' }
+                ];
+                
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const element = document.getElementById(section.id);
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        if (rect.top <= 150 && rect.bottom >= 150) {
+                            currentSection = section.link;
+                        }
+                    }
+                });
+                
+                // 移除所有高亮
+                document.querySelectorAll('.navigation a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // 添加当前高亮
+                if (currentSection) {
+                    const currentLink = document.querySelector(currentSection);
+                    if (currentLink) {
+                        currentLink.classList.add('active');
+                    }
+                }
+            }
+            
+            // 初始检查
+            highlightNavigation();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', highlightNavigation);
+        });
+    </script>
+</body>
+</html>

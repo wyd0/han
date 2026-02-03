@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯尔克孜族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 语言文字页面特定样式 */
+        .language-header {
+            background-image: url('images/柯尔克孜族饰品.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .language-section {
+            margin-bottom: 60px;
+        }
+        
+        .language-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 返回按钮样式 */
+        .back-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            margin-top: 20px;
+        }
+        
+        .back-button:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(169, 50, 38, 0.3);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .language-header h1 {
+                font-size: 36px;
+            }
+            
+            .language-header p {
+                font-size: 18px;
+            }
+            
+            .language-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .language-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .language-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .language-header-content .back-button {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .language-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="language-header">
+        <div class="container">
+            <div class="language-header-content">
+                <h1>柯尔克孜族语言文字</h1>
+                <p>民族文化的重要载体与传承工具</p>
+                <a href="kirgiz.html" class="back-button">返回柯尔克孜族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="language-main">
+        <div class="container">
+            <div class="language-content">
+                <!-- 语言文字概述 -->
+                <section class="language-section">
+                    <h2>语言文字概述</h2>
+                    <p>柯尔克孜族拥有自己独特的语言文字，它们是柯尔克孜族文化的重要载体，也是中华民族语言文字宝库的重要组成部分。柯尔克孜语属于阿尔泰语系突厥语族东匈语支，具有鲜明的民族特色和丰富的表现力。柯尔克孜文是一种以阿拉伯字母为基础的拼音文字，创制于20世纪初，主要用于记载柯尔克孜族的历史、文化、宗教等内容。</p>
+                </section>
+                
+                <!-- 柯尔克孜语 -->
+                <section class="language-section">
+                    <h3>柯尔克孜语</h3>
+                    <p>柯尔克孜语是柯尔克孜族的母语，也是中国少数民族语言之一。它属于阿尔泰语系突厥语族东匈语支，与哈萨克语、吉尔吉斯语等语言有密切的亲属关系。</p>
+                    <p>柯尔克孜语的特点：</p>
+                    <ul>
+                        <li><strong>语音特点：</strong>柯尔克孜语有8个元音和22个辅音，元音分为前元音、后元音和圆唇元音，辅音包括塞音、擦音、塞擦音、鼻音、边音和颤音等。柯尔克孜语的重音通常落在词的最后一个音节上。</li>
+                        <li><strong>词汇特点：</strong>柯尔克孜语的词汇丰富多样，包括固有词、借词和派生词等。固有词是柯尔克孜语的核心词汇，反映了柯尔克孜族的历史、文化和生活方式。借词主要来自汉语、俄语、阿拉伯语、波斯语等语言，丰富了柯尔克孜语的词汇系统。</li>
+                        <li><strong>语法特点：</strong>柯尔克孜语是一种粘着语，通过在词根和词干后添加各种词缀来表示语法意义。名词有格、数、领属等语法范畴，动词有 tense、aspect、mood、voice 等语法范畴。柯尔克孜语的句子结构通常是主-宾-谓结构。</li>
+                        <li><strong>方言特点：</strong>柯尔克孜语分为南、北两个方言区。南部方言主要分布在新疆维吾尔自治区的克孜勒苏柯尔克孜自治州等地，北部方言主要分布在黑龙江省富裕县等地。两个方言区的差异主要体现在语音和词汇方面，但基本可以互通。</li>
+                    </ul>
+                </section>
+                
+                <!-- 柯尔克孜文 -->
+                <section class="language-section">
+                    <h3>柯尔克孜文</h3>
+                    <p>柯尔克孜文是柯尔克孜族的文字，是一种以阿拉伯字母为基础的拼音文字。它的创制和发展经历了漫长的历史过程。</p>
+                    <p>柯尔克孜文的发展历程：</p>
+                    <ul>
+                        <li><strong>古代文字：</strong>柯尔克孜族在历史上曾经使用过多种文字，如古代突厥文、回鹘文、察合台文等。这些文字主要用于记载柯尔克孜族的历史、宗教和文学作品。</li>
+                        <li><strong>现代柯尔克孜文的创制：</strong>20世纪初，在苏联的帮助下，柯尔克孜族创制了以阿拉伯字母为基础的现代柯尔克孜文。1939年，又改用拉丁字母拼写。1941年，再次改用以西里尔字母为基础的柯尔克孜文。</li>
+                        <li><strong>中国柯尔克孜文的发展：</strong>在中国，柯尔克孜族一直使用以阿拉伯字母为基础的柯尔克孜文。1954年，中国政府对柯尔克孜文进行了改革，规范了字母表和拼写规则，使其更加适应现代社会的需要。</li>
+                        <li><strong>柯尔克孜文的现状：</strong>目前，中国的柯尔克孜族主要使用以阿拉伯字母为基础的柯尔克孜文，同时也学习和使用汉文。柯尔克孜文被广泛应用于教育、出版、媒体等领域，是柯尔克孜族文化传承的重要工具。</li>
+                    </ul>
+                </section>
+                
+                <!-- 语言文字的文化意义 -->
+                <section class="language-section">
+                    <h3>语言文字的文化意义</h3>
+                    <p>柯尔克孜族的语言文字不仅是交际工具，更是其文化传承的重要载体，具有深刻的文化意义：</p>
+                    <ul>
+                        <li><strong>文化认同：</strong>柯尔克孜语是柯尔克孜族的民族标识之一，是柯尔克孜族人民表达民族情感、增强民族凝聚力的重要工具。通过使用柯尔克孜语，柯尔克孜族人民保持了强烈的民族认同。</li>
+                        <li><strong>文化传承：</strong>柯尔克孜文是记载柯尔克孜族文化的重要工具，许多柯尔克孜族的历史文献、文学作品、宗教经典等都是用柯尔克孜文写成的。通过柯尔克孜文，柯尔克孜族的优秀文化得以传承和发扬。</li>
+                        <li><strong>文学艺术：</strong>柯尔克孜语具有丰富的表现力和独特的艺术魅力，为柯尔克孜族的文学艺术创作提供了广阔的空间。柯尔克孜族的民间故事、诗歌、谚语等口头文学作品，以及现代文学作品，都是用柯尔克孜语创作的，展现了柯尔克孜族的文学艺术成就。</li>
+                        <li><strong>社会发展：</strong>柯尔克孜族的语言文字在柯尔克孜族的社会发展中发挥着重要作用。它们是柯尔克孜族教育、科技、文化、卫生等事业发展的基础，为柯尔克孜族的现代化建设提供了有力的支持。</li>
+                    </ul>
+                </section>
+                
+                <!-- 语言文字的保护与发展 -->
+                <section class="language-section">
+                    <h3>语言文字的保护与发展</h3>
+                    <p>为了保护和发展柯尔克孜族的语言文字，中国政府和柯尔克孜族人民采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>法律保障：</strong>中国的《宪法》和《民族区域自治法》都明确规定，各民族都有使用和发展自己的语言文字的自由。这为柯尔克孜族语言文字的保护和发展提供了法律保障。</li>
+                        <li><strong>教育推广：</strong>在柯尔克孜族聚居地区，各级学校普遍开设柯尔克孜语课程，使用柯尔克孜文教材，培养了一批批掌握柯尔克孜语和柯尔克孜文的人才。同时，也推广汉语文教育，提高柯尔克孜族人民的双语能力。</li>
+                        <li><strong>出版传媒：</strong>中国有专门的柯尔克孜文出版社和杂志社，出版了大量的柯尔克孜文书籍、报刊和杂志，涵盖了文学、历史、文化、科技等多个领域。同时，也有柯尔克孜语广播和电视节目，丰富了柯尔克孜族人民的精神文化生活。</li>
+                        <li><strong>学术研究：</strong>许多学者致力于柯尔克孜族语言文字的研究，出版了一系列研究著作和字典、词典等工具书，为柯尔克孜族语言文字的规范和发展做出了重要贡献。</li>
+                        <li><strong>文化活动：</strong>柯尔克孜族人民经常举办各种以语言文字为主题的文化活动，如诗歌朗诵、演讲比赛、书法展览等，激发了柯尔克孜族人民学习和使用本民族语言文字的热情。</li>
+                    </ul>
+                </section>
+                
+                <!-- 语言文字的现代适应 -->
+                <section class="language-section">
+                    <h3>语言文字的现代适应</h3>
+                    <p>在现代社会的发展进程中，柯尔克孜族的语言文字也在不断适应新的形势和需求：</p>
+                    <ul>
+                        <li><strong>双语教育：</strong>柯尔克孜族人民普遍接受双语教育，既学习本民族的语言文字，也学习汉语文，提高了自身的文化素质和就业能力，适应了现代社会的发展需求。</li>
+                        <li><strong>信息技术应用：</strong>随着信息技术的发展，柯尔克孜文已经实现了电脑输入和排版，柯尔克孜语的语音识别和机器翻译等技术也在不断研发和应用，为柯尔克孜族语言文字的现代化提供了技术支持。</li>
+                        <li><strong>文化创新：</strong>柯尔克孜族的语言文字在现代文化创新中发挥着重要作用，许多柯尔克孜族的作家、艺术家使用柯尔克孜语创作了反映现代生活的文学艺术作品，展现了柯尔克孜族的现代文化风貌。</li>
+                        <li><strong>国际交流：</strong>柯尔克孜族的语言文字是中国与吉尔吉斯斯坦等国家进行文化交流的重要桥梁。通过语言文字的交流，增进了中国柯尔克孜族与吉尔吉斯斯坦柯尔克孜族之间的了解和友谊，促进了国际文化交流与合作。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // 确保页面加载时内容可见
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.language-section');
+            console.log('找到的语言文字页面section数量:', sections.length);
+            sections.forEach(section => {
+                section.classList.add('visible');
+                console.log('为section添加visible类:', section.className);
+            });
+        });
+        
+        // 页面加载完成后再次确保
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.language-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>

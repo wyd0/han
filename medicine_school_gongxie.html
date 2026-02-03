@@ -1,0 +1,462 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>攻邪派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 医学流派导航样式 */
+        .school-nav {
+            background-color: rgba(192, 57, 43, 0.05);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .school-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .school-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            font-size: 16px;
+            border: 1px solid #c0392b;
+        }
+        
+        .school-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+        }
+        
+        .school-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+            
+            .school-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .school-nav a {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>攻邪派</h1>
+                <p>以张从正为代表的医学流派</p>
+                <a href="medicine.html" class="back-home">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 医学流派导航 -->
+                <nav class="school-nav">
+                    <ul>
+                        <li><a href="medicine_school_butu.html">补土派</a></li>
+                        <li><a href="medicine_school_gongxie.html" class="active">攻邪派</a></li>
+                        <li><a href="medicine_school_huoshen.html">火神派</a></li>
+                        <li><a href="medicine_school_jingfang.html">经方派</a></li>
+                        <li><a href="medicine_school_shanghan.html">伤寒学派</a></li>
+                        <li><a href="medicine_school_shifang.html">时方派</a></li>
+                        <li><a href="medicine_school_wenbing.html">温病学派</a></li>
+                        <li><a href="medicine_school_ziyin.html">滋阴派</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 流派概述 -->
+                <section class="medicine-section">
+                    <h2>攻邪派概述</h2>
+                    <p>攻邪派是中国传统医学中的一个重要流派，以金元医家张从正为代表。该流派强调驱除外来的治疗方法，认为邪气是导致疾病的根本原因。攻邪派的理论对后世医学产生了深远的影响，成为中医治疗学中的重要组成部分。</p>
+                </section>
+
+                <!-- 创始人 -->
+                <section class="medicine-section">
+                    <h3>创始人</h3>
+                    <p>张从正（约1156年-1228年），字子和，号戴人，金代睢州考城（今河南省兰考）人。他是金元四大家之一，被尊为"攻邪派"的创始人。</p>
+                    <p>张从正自幼学医，博览医书，精通经典著作。他曾在金代宫廷中担任太医，后辞官行医，周游各地。他在长期的临床实践中，总结出了以"汗、吐、下"三法为主的攻邪治疗体系，为中医学的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="medicine-section">
+                    <h3>起源与发展</h3>
+                    <h4>金元时期：攻邪派的创立</h4>
+                    <p>攻邪派的起源可以追溯到金元时期，由著名医家张从正（约1156-1228年）创立。张从正，字子和，号戴人，金代睢州考城（今河南省兰考）人，金元四大家之一。</p>
+                    <p>张从正的学术思想形成有以下几个背景：</p>
+                    <ul>
+                        <li>当时社会动荡，战乱频繁，疾病流行，人们多因外邪入侵、内伤情志等因素导致疾病的发生</li>
+                        <li>他研读医书，精通《黄帝内经》、《伤寒杂病论》等经典著作</li>
+                        <li>他曾在金代宫廷中担任太医，后辞官行医，积累了丰富的临床经验</li>
+                        <li>他受刘完素学术思想的影响，强调邪气在疾病发生中的重要作用</li>
+                    </ul>
+                    <p>张从正在《儒门事亲》中提出了"病由邪生，攻邪已病"的著名论断，认为：</p>
+                    <ul>
+                        <li>疾病的发生是由于邪气侵入人体，正气受到邪气的干扰和损伤所致</li>
+                        <li>治疗疾病的关键在于驱邪外出，恢复正气的正常功能</li>
+                        <li>"邪去则正安"，通过驱邪可以减少正气的损耗，促进正气的恢复</li>
+                    </ul>
+                    <p>张从正创立了以"汗、吐、下"三法为主的攻邪治疗体系：</p>
+                    <ul>
+                        <li><strong>汗法</strong>：用于治疗表证，通过发汗使邪气从肌肤排出，包括针灸、熏蒸、洗渍等方法</li>
+                        <li><strong>吐法</strong>：用于治疗上焦病证，通过催吐使邪气从口鼻排出，包括引涎、漉涎等方法</li>
+                        <li><strong>下法</strong>：用于治疗下焦病证，通过泻下使邪气从二便排出，包括通泄、逐水等方法</li>
+                    </ul>
+                    <p>张从正的著作主要有《儒门事亲》、《张子和心法》、《治病百法》等，这些著作系统地阐述了攻邪派的理论和方法，为攻邪派的发展奠定了基础。</p>
+                    
+                    <h4>金元时期：攻邪派的传承</h4>
+                    <p>金元时期是攻邪派传承的重要时期。许多医学家在继承张从正理论的基础上，结合自己的临床实践，进一步发展了攻邪派的理论和方法。</p>
+                    <ul>
+                        <li><strong>麻九畴（约1183-1232年）</strong>：张从正的弟子，著有《痘疹全书》，继承了张从正的攻邪理论，并将其应用于痘疹病的治疗。</li>
+                        <li><strong>常德（约1180-1250年）</strong>：张从正的弟子，著有《伤寒心镜》，继承了张从正的攻邪理论，并将其应用于临床实践。</li>
+                        <li><strong>罗知悌（约1250-1330年）</strong>：元代医家，著有《医经》，继承了张从正的攻邪理论，并对其进行了补充和发展。</li>
+                    </ul>
+                    
+                    <h4>明代：攻邪派的进一步发展</h4>
+                    <p>明代是攻邪派进一步发展的时期。许多医学家在继承张从正理论的基础上，结合自己的临床实践，对攻邪派的理论和方法进行了创新和发展。</p>
+                    <ul>
+                        <li><strong>张介宾（1563-1640年）</strong>：著有《景岳全书》，虽然他强调温补，但也继承了张从正的攻邪理论，提出了"攻邪当适时，扶正当及时"的观点。</li>
+                        <li><strong>李中梓（1588-1655年）</strong>：著有《医宗必读》，继承了张从正的攻邪理论，并将其与温补学说相结合，提出了"攻邪不可伤正，扶正不可恋邪"的治疗原则。</li>
+                        <li><strong>吴有性（1582-1652年）</strong>：著有《温疫论》，继承了张从正的攻邪理论，并将其应用于温疫病的治疗，提出了"疠气致病"的观点，强调驱邪的重要性。</li>
+                        <li><strong>喻昌（1549-1613年）</strong>：著有《寓意草》，继承了张从正的攻邪理论，并将其应用于临床实践，对各种疾病的治疗做出了重要贡献。</li>
+                    </ul>
+                    
+                    <h4>清代：攻邪派的融合与创新</h4>
+                    <p>清代是攻邪派融合与创新的时期。许多医学家在继承张从正理论的基础上，结合自己的临床实践，对攻邪派的理论和方法进行了融合和创新。</p>
+                    <ul>
+                        <li><strong>叶天士（1667-1746年）</strong>：著有《温热论》，在温病学中融合了攻邪派的理论，提出了"随证驱邪"的治疗方法，强调在治疗温病时要及时驱邪。</li>
+                        <li><strong>吴鞠通（1758-1836年）</strong>：著有《温病条辨》，继承了叶天士的学术思想，进一步发展了攻邪理论，提出了"逐邪务尽"的观点。</li>
+                        <li><strong>王清任（1768-1831年）</strong>：著有《医林改错》，继承了张从正的攻邪理论，并将其与活血化瘀疗法相结合，提出了"瘀血致病"的观点。</li>
+                        <li><strong>陈修园（1753-1823年）</strong>：著有《医学三字经》、《时方妙用》等著作，对张从正的攻邪理论进行了通俗的解释和推广，使攻邪派的理论更加普及。</li>
+                    </ul>
+                    
+                    <h4>现代：攻邪派的传承与应用</h4>
+                    <p>现代，攻邪派的传承与应用进入了一个新的阶段。许多医学家在继承传统攻邪派理论的基础上，结合现代医学知识和临床实践，对攻邪派的理论和方法进行了深入的研究和应用。</p>
+                    <ul>
+                        <li><strong>刘渡舟（1917-2001年）</strong>：现代著名中医学家，继承了张从正的攻邪理论，并将其应用于温病的治疗，提出了"随证变法"的治疗方法。</li>
+                        <li><strong>方药中（1918-1995年）</strong>：现代著名中医学家，在临床实践中灵活应用攻邪派的理论和方法，取得了显著的疗效。</li>
+                        <li><strong>任继学（1926-2010年）</strong>：现代著名中医学家，继承了张从正的攻邪理论，并将其应用于急危重症的治疗，提出了"顿挫病势"的治疗原则。</li>
+                    </ul>
+                    <p>近年来，随着中医药现代化的推进，攻邪派的理论和方法也在不断地创新和发展。通过现代科学手段的研究，人们对攻邪疗法的作用机制有了更深入的认识。</p>
+                    <p>现代研究表明，攻邪疗法具有以下作用：</p>
+                    <ul>
+                        <li>促进体内毒素的排出</li>
+                        <li>调节免疫功能</li>
+                        <li>改善血液循环</li>
+                        <li>促进新陈代谢</li>
+                        <li>缓解炎症反应</li>
+                    </ul>
+                    <p>攻邪派作为中国传统医学的重要流派，将继续为人类的健康事业做出重要的贡献。</p>
+                </section>
+
+                <!-- 核心理论 -->
+                <section class="medicine-section">
+                    <h3>核心理论</h3>
+                    <ul>
+                        <li><strong>病由邪生，攻邪已病</strong>：张从正认为，疾病的发生是由于邪气侵入人体所致。邪气是导致疾病的根本原因，因此治疗疾病的关键在于驱邪外出。</li>
+                        <li><strong>邪去则正安</strong>：张从正认为，正气是人体的防御能力，邪气是导致疾病的因素。当邪气侵入人体时，正气会受到损伤。通过驱邪外出，可以减轻正气的负担，恢复正气的正常功能。</li>
+                        <li><strong>汗、吐、下三法</strong>：张从正认为，驱邪外出的方法主要有三种：汗法、吐法和下法。汗法用于治疗表证，通过发汗使邪气从肌肤排出；吐法用于治疗上焦病证，通过催吐使邪气从口鼻排出；下法用于治疗下焦病证，通过泻下使邪气从二便排出。</li>
+                        <li><strong>辨证施治</strong>：攻邪派强调辨证施治，根据患者的具体情况，选择合适的驱邪方法。张从正认为，不同的邪气有不同的性质和部位，因此治疗方法也应该因证而异。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="medicine-section">
+                    <h3>影响</h3>
+                    <p>攻邪派的理论对后世医学产生了深远的影响，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>丰富了中医治疗学</strong>：攻邪派的"汗、吐、下"三法，丰富了中医的治疗方法，为中医治疗外感疾病、急危重症等提供了有效的方法，为中医治疗学的发展做出了重要贡献。</li>
+                        <li><strong>推动了中医临床实践</strong>：攻邪派的驱邪疗法，为中医治疗外感疾病、急危重症等提供了有效的方法，并被广泛应用于临床实践。</li>
+                        <li><strong>影响了后世医学流派</strong>：攻邪派的理论对后世的温病学派、瘀血学派等都产生了一定的影响，成为这些学派理论的重要组成部分。</li>
+                        <li><strong>促进了中医理论的发展</strong>：攻邪派的"病由邪生，攻邪已病"的理论，丰富了中医的病因病机学说，为中医理论的发展做出了重要贡献。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表著作 -->
+                <section class="medicine-section">
+                    <h3>代表著作</h3>
+                    <ul>
+                        <li><strong>《儒门事亲》</strong>：张从正的代表作，共十五卷。书中系统地阐述了攻邪派的理论和方法，包括汗、吐、下三法的应用，以及各种疾病的诊断和治疗。该书对后世医学产生了深远的影响。</li>
+                        <li><strong>《张子和心法》</strong>：张从正的另一部重要著作，主要论述了中医的基本理论和治疗方法，强调攻邪疗法的重要性。</li>
+                        <li><strong>《治病百法》</strong>：张从正的著作之一，记录了大量治疗各种疾病的方剂，强调攻邪疗法的应用。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典语句 -->
+                <section class="medicine-section">
+                    <h3>经典语句</h3>
+                    <blockquote>
+                        <p>"病由邪生，攻邪已病。"</p>
+                        <footer>—— 张从正《儒门事亲》</footer>
+                    </blockquote>
+                    <blockquote>
+                        <p>"邪去则正安，邪未去则正不安。"</p>
+                        <footer>—— 张从正《儒门事亲》</footer>
+                    </blockquote>
+                    <blockquote>
+                        <p>"汗、吐、下三法，能治百病。"</p>
+                        <footer>—— 张从正《儒门事亲》</footer>
+                    </blockquote>
+                    <blockquote>
+                        <p>"夫病之一物，非人身素有之也。或自外而入，或由内而生，皆邪气也。邪气加诸身，速攻之可也，速去之可也，揽而留之何也？"</p>
+                        <footer>—— 张从正《儒门事亲》</footer>
+                    </blockquote>
+                    <blockquote>
+                        <p>"养生当论食补，治病当论药攻。"</p>
+                        <footer>—— 张从正《儒门事亲》</footer>
+                    </blockquote>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

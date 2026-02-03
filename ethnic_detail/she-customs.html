@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畲族传统习俗 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统习俗页面特定样式 */
+        .customs-header {
+            background-image: url('images/畲族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-she {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-she:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .customs-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 习俗特点样式 */
+        .customs-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 习俗详情样式 */
+        .customs-details {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .customs-details h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        .customs-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .customs-item {
+            flex: 1;
+            min-width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .customs-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .customs-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .customs-header p {
+                font-size: 18px;
+            }
+            
+            .customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .customs-list {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="customs-header">
+        <div class="container">
+            <div class="customs-header-content">
+                <h1>畲族传统习俗</h1>
+                <p>传承千年的生活智慧，独具特色的民族风情</p>
+                <a href="she.html" class="back-she">返回畲族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="customs-main">
+        <div class="container">
+            <div class="customs-content">
+                <!-- 习俗概述 -->
+                <section class="customs-section">
+                    <h2>习俗概述</h2>
+                    <p>畲族有着丰富的传统习俗，这些习俗是畲族人民在长期的生产生活中形成的，反映了畲族的历史文化、价值观念和生活方式。畲族的传统习俗涵盖了生活的各个方面，如婚礼、葬礼、节日、礼仪等，具有鲜明的民族特色。</p>
+                    <p>畲族人民热情好客，崇尚礼仪，重视家庭和社区的团结。他们热爱大自然，有着朴素的环保意识。这些传统习俗不仅是畲族文化的重要组成部分，也是中华民族文化宝库的重要财富。</p>
+                </section>
+
+                <!-- 生活习俗 -->
+                <section class="customs-section">
+                    <h2>生活习俗</h2>
+                    <p>畲族的生活习俗丰富多彩，与他们的生产生活密切相关。这些习俗体现了畲族人民的智慧和创造力，是畲族文化的重要体现。</p>
+                    <h3>居住习俗</h3>
+                    <p>畲族人民传统上居住在山区，房屋多为土木结构，通常是两层或三层的楼房。房屋的布局和装饰具有鲜明的民族特色，如大门上的雕刻、窗户上的花纹等。畲族人民喜欢在房屋周围种植树木和花卉，营造出优美的生活环境。</p>
+                    <h3>饮食习俗</h3>
+                    <p>畲族的饮食习俗独特，以米饭为主食，喜欢吃甜、酸、辣等口味的食物。他们擅长制作各种农产品和糕点，如糯米酒、糍粑、年糕等。畲族人民热情好客，客人来访时，会拿出最好的食物招待，如糯米酒、糍粑、年糕等。</p>
+                    <h3>服饰习俗</h3>
+                    <p>畲族的服饰具有鲜明的民族特色，以蓝色、黑色、青色为主色调，设计简洁大方，穿着美观。畲族男子通常穿着蓝色或黑色的对襟短衫，下着蓝色或黑色的长裤，用蓝色或黑色的头巾包头。畲族女子的服饰更加华丽多彩，通常穿着蓝色或黑色的上衣，下着蓝色或黑色的百褶裙，用蓝色或黑色的头巾包大包头。</p>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="customs-section">
+                    <h2>婚姻习俗</h2>
+                    <p>畲族的婚姻习俗独特，具有浓厚的民族特色。畲族实行一夫一妻制，婚姻自由，男女青年可以通过对歌等方式自由恋爱。</p>
+                    <div class="customs-details">
+                        <h4>婚姻仪式</h4>
+                        <div class="customs-list">
+                            <div class="customs-item">
+                                <h5>订婚</h5>
+                                <p>畲族的订婚仪式通常在女方家举行，男方会带上聘礼，如猪肉、酒、米等，女方会设宴招待男方亲友。订婚仪式上，男女双方会交换信物，如戒指、手镯等。</p>
+                            </div>
+                            <div class="customs-item">
+                                <h5>婚礼</h5>
+                                <p>畲族的婚礼仪式非常隆重，通常持续两三天。婚礼当天，男方会组织迎亲队伍，前往女方家迎亲。女方会举行哭嫁仪式，表达对父母的不舍之情。迎亲队伍回到男方家后，会举行拜堂仪式，然后设宴招待亲友。</p>
+                            </div>
+                            <div class="customs-item">
+                                <h5>婚后习俗</h5>
+                                <p>畲族的婚后习俗也很独特，如婚后第三天，新娘会回门，即回到娘家看望父母。婚后一个月，新娘会带着新郎再次回门，住上一段时间。这些习俗体现了畲族人民对家庭的重视和对长辈的尊重。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="customs-section">
+                    <h2>丧葬习俗</h2>
+                    <p>畲族的丧葬习俗庄重肃穆，体现了畲族人民对死者的尊重和对生命的敬畏。畲族实行土葬，丧葬仪式通常包括以下几个步骤：</p>
+                    <ul>
+                        <li><strong>报丧：</strong>当有人去世后，家人会立即向亲友报丧，通知他们前来吊唁。</li>
+                        <li><strong>停灵：</strong>死者的遗体通常会在家中停放三天，期间亲友会前来吊唁，家人会守灵。</li>
+                        <li><strong>出殡：</strong>出殡仪式通常在第三天举行，亲友会抬着棺材前往墓地，沿途撒纸钱，燃放鞭炮。</li>
+                        <li><strong>安葬：</strong>棺材下葬后，家人会在墓前焚烧纸钱、香烛，举行祭祀仪式。</li>
+                        <li><strong>守孝：</strong>死者的家人会守孝一段时间，期间穿着孝服，不参加娱乐活动。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="customs-section">
+                    <h2>节日习俗</h2>
+                    <p>畲族的节日习俗丰富多彩，每个节日都有独特的庆祝方式和文化内涵。畲族的主要节日包括：</p>
+                    <div class="customs-details">
+                        <h4>主要节日</h4>
+                        <div class="customs-list">
+                            <div class="customs-item">
+                                <h5>三月三</h5>
+                                <p>三月三是畲族最重要的传统节日，通常在农历三月初三举行。在节日期间，畲族人民会穿上盛装，举行对歌、跳舞、祭祀等庆祝活动，祈求来年风调雨顺，五谷丰登。</p>
+                            </div>
+                            <div class="customs-item">
+                                <h5>四月八</h5>
+                                <p>四月八是畲族祭祀祖先盘瓠的节日，通常在农历四月初八举行。在节日期间，畲族人民会举行隆重的祭祀活动，供奉盘瓠，祈求祖先保佑后代平安幸福。</p>
+                            </div>
+                            <div class="customs-item">
+                                <h5>六月六</h5>
+                                <p>六月六是畲族的晒衣节，通常在农历六月初六举行。在节日期间，畲族人民会把家里的衣服、被褥等拿出来晾晒，祈求消灾避祸，平安吉祥。</p>
+                            </div>
+                            <div class="customs-item">
+                                <h5>春节</h5>
+                                <p>春节是畲族的重要节日，通常在农历正月初一举行。在节日期间，畲族人民会打扫房屋，贴春联，放鞭炮，吃团圆饭，拜年等，庆祝新年的到来。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 礼仪习俗 -->
+                <section class="customs-section">
+                    <h2>礼仪习俗</h2>
+                    <p>畲族是一个崇尚礼仪的民族，有着丰富的礼仪习俗。这些礼仪习俗体现了畲族人民的道德观念和价值取向，是畲族文化的重要组成部分。</p>
+                    <div class="customs-features">
+                        <div class="feature-item">
+                            <h4>待客礼仪</h4>
+                            <p>畲族人民热情好客，客人来访时，会拿出最好的食物招待，如糯米酒、糍粑、年糕等。他们会主动与客人交流，了解客人的需求，让客人感受到家的温暖。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>尊老爱幼</h4>
+                            <p>畲族人民非常尊重长辈，注重对晚辈的教育。在家庭中，长辈享有崇高的地位，晚辈要听从长辈的教导。同时，畲族人民也非常爱护晚辈，关心他们的成长和教育。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>邻里互助</h4>
+                            <p>畲族人民重视邻里关系，邻里之间互相帮助，和睦相处。当邻居遇到困难时，会主动伸出援手，给予帮助和支持。这种邻里互助的精神，营造了和谐的社区氛围。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>环保意识</h4>
+                            <p>畲族人民热爱大自然，有着朴素的环保意识。他们注重保护生态环境，不乱砍滥伐，不乱扔垃圾，保持着与自然的和谐相处。这种环保意识，体现了畲族人民的智慧和责任感。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 习俗的文化意义 -->
+                <section class="customs-section">
+                    <h2>习俗的文化意义</h2>
+                    <p>畲族的传统习俗是畲族文化的重要组成部分，具有深厚的文化意义。这些习俗不仅反映了畲族人民的生活方式和价值观念，也是畲族文化传承和发展的重要载体。</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>传统习俗是畲族文化传承的重要载体，通过这些习俗，畲族的历史文化、价值观念和生活方式得到了有效的传承和弘扬。</li>
+                        <li><strong>社会凝聚：</strong>传统习俗是畲族社会凝聚的重要纽带，通过共同的习俗活动，畲族人民增强了民族认同感和凝聚力。</li>
+                        <li><strong>道德规范：</strong>传统习俗为畲族人民提供了道德规范和行为准则，引导他们向善、尊老爱幼、团结互助等。</li>
+                        <li><strong>文化交流：</strong>传统习俗是畲族与其他民族文化交流的重要桥梁，通过习俗的交流和融合，促进了各民族之间的理解和友谊。</li>
+                        <li><strong>文化多样性：</strong>传统习俗是中华民族文化多样性的重要体现，丰富了中华民族的文化宝库。</li>
+                    </ul>
+                    <p>总之，畲族的传统习俗是畲族文化的瑰宝，是中华民族文化多样性的重要体现。我们应该珍惜和保护这些传统习俗，让它们在现代社会中继续发挥其独特的作用，为畲族文化的传承和发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.customs-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

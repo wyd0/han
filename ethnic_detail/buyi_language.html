@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布依族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布依族语言文字页面特定样式 */
+        .buyi-language-header {
+            background-image: url('images/布依族女性服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .buyi-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .buyi-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .buyi-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .buyi-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .buyi-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .buyi-language-section {
+            margin-bottom: 80px;
+        }
+        
+        .buyi-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-language-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .buyi-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .buyi-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .buyi-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .buyi-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .buyi-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .buyi-language-header p {
+                font-size: 18px;
+            }
+            
+            .buyi-language-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="buyi-language-header">
+        <div class="container">
+            <div class="buyi-language-header-content">
+                <h1>布依族语言文字</h1>
+                <p>布依族独特的语言系统与文字发展</p>
+                <a href="buyi.html" class="back-link">返回布依族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="buyi-language-main">
+        <div class="container">
+            <div class="buyi-language-content">
+                <!-- 语言概述 -->
+                <section class="buyi-language-section">
+                    <h2>语言概述</h2>
+                    <p>布依语是布依族的民族语言，属于汉藏语系壮侗语族壮傣语支，与壮语、傣语、侗语等语言有着密切的亲缘关系。布依语是布依族人民交流思想、传承文化的重要工具，也是中华民族语言宝库中的重要组成部分。</p>
+                    <p>布依语主要分布在贵州、云南、四川等省份的布依族聚居区，其中贵州省是布依语使用最广泛的地区。根据语言特点，布依语可以分为黔南、黔中、黔西三个方言区，不同方言区之间存在一定的差异，但基本可以相互理解。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="buyi-language-section">
+                    <h3>语言特点</h3>
+                    
+                    <h4>语音特点</h4>
+                    <ul>
+                        <li><strong>声母：</strong>布依语有28个声母，包括双唇音、唇齿音、舌尖音、舌面音、舌根音等。</li>
+                        <li><strong>韵母：</strong>布依语有87个韵母，包括单元音、复元音、带鼻音韵母等。</li>
+                        <li><strong>声调：</strong>布依语有6个声调，分别是高平调、中平调、低平调、高降调、中降调、低降调。</li>
+                        <li><strong>音节结构：</strong>布依语的音节结构比较简单，一般由声母、韵母和声调组成。</li>
+                    </ul>
+                    
+                    <h4>词汇特点</h4>
+                    <ul>
+                        <li><strong>基本词汇：</strong>布依语有丰富的基本词汇，包括自然界、人类社会、日常生活等各个方面的词汇。</li>
+                        <li><strong>借词：</strong>布依语吸收了大量汉语借词，特别是在科技、政治、文化等领域的词汇。</li>
+                        <li><strong>构词方式：</strong>布依语的构词方式主要有合成法、派生法、重叠法等。</li>
+                    </ul>
+                    
+                    <h4>语法特点</h4>
+                    <ul>
+                        <li><strong>语序：</strong>布依语的基本语序是主语-谓语-宾语，与汉语相同。</li>
+                        <li><strong>虚词：</strong>布依语使用虚词来表示语法关系，如助词、介词、连词等。</li>
+                        <li><strong>词类：</strong>布依语的词类包括名词、动词、形容词、数词、量词、代词、副词、介词、连词、助词、叹词等。</li>
+                        <li><strong>量词：</strong>布依语的量词非常丰富，不同的事物有不同的量词。</li>
+                    </ul>
+                </section>
+
+                <!-- 文字发展 -->
+                <section class="buyi-language-section">
+                    <h3>文字发展</h3>
+                    
+                    <h4>历史上的文字使用</h4>
+                    <p>布依族历史上没有本民族文字，长期使用汉字。在历史文献中，布依族人民用汉字记录了大量的民间文学作品、历史传说和宗教经典等。这些用汉字记录的布依族文化遗产，是布依族文化的重要组成部分。</p>
+                    
+                    <h4>现代布依文的创制</h4>
+                    <p>1956年，在中国政府的帮助下，布依族创制了以拉丁字母为基础的布依文。现代布依文的创制，为布依族文化的传承和发展提供了重要的工具。</p>
+                    <ul>
+                        <li><strong>创制过程：</strong>1955年，中国科学院少数民族语言研究所对布依语进行了全面的调查研究，确定了布依语的语音系统和语法特点。1956年，根据调查结果，创制了以拉丁字母为基础的布依文。</li>
+                        <li><strong>字母表：</strong>现代布依文使用26个拉丁字母，其中部分字母加有符号，以表示布依语的特殊音素。</li>
+                        <li><strong>拼写规则：</strong>现代布依文采用分词连写的拼写规则，每个词作为一个拼写单位。</li>
+                    </ul>
+                    
+                    <h4>布依文的推广和使用</h4>
+                    <p>现代布依文创制后，在中国政府的大力推广下，得到了广泛的使用。布依文被用于编写教材、出版书籍、报纸杂志、广播影视等各个领域，为布依族文化的传承和发展做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>教育领域：</strong>在布依族聚居区的学校中，布依文被作为一门课程进行教学，学生可以学习布依文的读写。</li>
+                        <li><strong>出版领域：</strong>用布依文出版了大量的书籍、报纸杂志，包括文学作品、历史资料、科技知识等。</li>
+                        <li><strong>媒体领域：</strong>在布依族聚居区的广播电台和电视台中，有布依语节目，使用布依文进行播音和字幕。</li>
+                        <li><strong>文化传承：</strong>用布依文记录和整理了大量的布依族民间文学作品、历史传说和宗教经典等，为布依族文化的传承和发展提供了重要的资料。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言保护与发展 -->
+                <section class="buyi-language-section">
+                    <h3>语言保护与发展</h3>
+                    
+                    <h4>语言保护的意义</h4>
+                    <p>布依语是布依族文化的重要载体，是布依族人民的精神财富，也是中华民族语言宝库中的重要组成部分。保护布依语，对于传承布依族文化、维护中华民族语言多样性、促进民族团结和社会和谐具有重要意义。</p>
+                    
+                    <h4>语言保护的措施</h4>
+                    <ul>
+                        <li><strong>法律保护：</strong>中国政府通过制定法律法规，保障少数民族语言的使用和发展。例如，《中华人民共和国民族区域自治法》规定，民族自治地方的自治机关保障本地方各民族都有使用和发展自己的语言文字的自由。</li>
+                        <li><strong>教育保障：</strong>在布依族聚居区的学校中，实行双语教学，既教授汉语，也教授布依语，保障布依语的传承和发展。</li>
+                        <li><strong>媒体传播：</strong>在布依族聚居区的广播电台、电视台和报纸杂志中，开设布依语节目和栏目，扩大布依语的使用范围。</li>
+                        <li><strong>文化活动：</strong>举办各种布依语文化活动，如布依语演讲比赛、布依语歌曲比赛、布依语戏剧表演等，增强布依族人民对布依语的认同感和自豪感。</li>
+                        <li><strong>学术研究：</strong>组织专家学者对布依语进行深入研究，记录和整理布依语的语音、词汇、语法等方面的资料，为布依语的保护和发展提供科学依据。</li>
+                    </ul>
+                    
+                    <h4>语言发展的前景</h4>
+                    <p>随着社会的发展和进步，布依语面临着前所未有的机遇和挑战。一方面，现代科技的发展为布依语的传播和发展提供了新的手段和平台；另一方面，全球化和现代化的进程也对布依语的传承和发展提出了新的挑战。</p>
+                    <p>在这种情况下，我们应该采取积极有效的措施，保护和发展布依语。我们要加强布依语的教育和推广，提高布依族人民的布依语水平；我们要利用现代科技手段，扩大布依语的传播范围；我们要加强布依语的学术研究，为布依语的保护和发展提供科学依据；我们要增强布依族人民对布依语的认同感和自豪感，让布依语在新时代焕发出新的活力。</p>
+                </section>
+
+                <!-- 语言与文化的关系 -->
+                <section class="buyi-language-section">
+                    <h3>语言与文化的关系</h3>
+                    <p>布依语与布依族文化有着密切的关系。布依语是布依族文化的重要载体，布依族文化是布依语的丰富内涵。布依语的发展反映了布依族文化的发展，布依族文化的传承和发展也离不开布依语的传承和发展。</p>
+                    
+                    <h4>布依语是布依族文化的载体</h4>
+                    <ul>
+                        <li><strong>民间文学：</strong>布依族的神话传说、民间故事、诗歌谚语等民间文学作品，都是用布依语创作和传承的。</li>
+                        <li><strong>宗教信仰：</strong>布依族的宗教仪式、祭祀活动等，都是用布依语进行的。</li>
+                        <li><strong>风俗习惯：</strong>布依族的风俗习惯、礼仪礼节等，都是通过布依语传承和发展的。</li>
+                        <li><strong>历史记忆：</strong>布依族的历史事件、人物传说等，都是通过布依语口口相传的。</li>
+                    </ul>
+                    
+                    <h4>布依族文化是布依语的内涵</h4>
+                    <ul>
+                        <li><strong>词汇：</strong>布依语的词汇反映了布依族的自然环境、社会生活、文化传统等。</li>
+                        <li><strong>语法：</strong>布依语的语法结构反映了布依族的思维方式和认知特点。</li>
+                        <li><strong>修辞：</strong>布依语的修辞手段反映了布依族的审美观念和艺术特色。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

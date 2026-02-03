@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怒族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 通用样式 */
+        .nu-detail-header {
+            background-image: url('images/怒族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nu-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .nu-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nu-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-nu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-nu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .nu-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .nu-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .nu-detail-section {
+            margin-bottom: 60px;
+        }
+        
+        .nu-detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-section p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .nu-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .nu-detail-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .nu-detail-section li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教信仰特点 */
+        .religion-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .religion-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .religion-feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .religion-feature-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .religion-feature-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 祭祀活动 */
+        .sacrifice-activities {
+            margin: 30px 0;
+        }
+        
+        .sacrifice-activity-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        
+        .sacrifice-activity-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .sacrifice-activity-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nu-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .nu-detail-header p {
+                font-size: 18px;
+            }
+            
+            .nu-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="nu-detail-header">
+        <div class="container">
+            <div class="nu-detail-header-content">
+                <h1>怒族宗教信仰</h1>
+                <p>多元的信仰体系与精神世界</p>
+                <a href="nu.html" class="back-nu">返回怒族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="nu-detail-main">
+        <div class="container">
+            <div class="nu-detail-content">
+                <!-- 信仰概述 -->
+                <section class="nu-detail-section">
+                    <h2>信仰概述</h2>
+                    <p>怒族是一个具有多元宗教信仰的民族，其信仰体系融合了原始宗教、藏传佛教和基督教等多种元素。这种多元性反映了怒族在历史发展过程中与周边民族的文化交流和融合。</p>
+                    <p>怒族的宗教信仰与其生产生活密切相关，是怒族文化的重要组成部分。通过宗教信仰，怒族人民表达了对自然、祖先和神灵的敬畏，以及对美好生活的向往和追求。</p>
+                </section>
+
+                <!-- 原始宗教 -->
+                <section class="nu-detail-section">
+                    <h2>原始宗教</h2>
+                    <p>原始宗教是怒族最古老、最基础的信仰形式，主要包括自然崇拜、祖先崇拜和神灵崇拜等内容：</p>
+                    
+                    <div class="religion-features">
+                        <div class="religion-feature-item">
+                            <h4>自然崇拜</h4>
+                            <p>怒族人民崇拜自然万物，认为天地、山川、河流、树木、石头等都有神灵。他们相信这些自然神灵能够影响人类的生产生活，因此会定期进行祭祀活动。</p>
+                        </div>
+                        <div class="religion-feature-item">
+                            <h4>祖先崇拜</h4>
+                            <p>祖先崇拜在怒族的宗教信仰中占有重要地位。怒族人民相信祖先的灵魂仍然存在，并能够保佑子孙后代。他们会在重要节日和家庭活动中祭祀祖先，表达对祖先的敬意和感恩之情。</p>
+                        </div>
+                        <div class="religion-feature-item">
+                            <h4>神灵崇拜</h4>
+                            <p>怒族人民信仰众多神灵，如太阳神、月亮神、山神、水神、火神等。这些神灵各司其职，掌管着自然界的各种现象和人类的各种活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 藏传佛教 -->
+                <section class="nu-detail-section">
+                    <h2>藏传佛教</h2>
+                    <p>藏传佛教是怒族宗教信仰的重要组成部分，主要影响怒族的北部地区。藏传佛教传入怒族地区的历史可以追溯到明清时期，随着藏族文化的影响不断加深，藏传佛教逐渐被部分怒族人民所接受。</p>
+                    <p>藏传佛教在怒族地区的传播，对怒族的宗教信仰、文化艺术、风俗习惯等方面产生了深远的影响。许多怒族人民既信仰原始宗教，又信仰藏传佛教，形成了独特的宗教信仰融合现象。</p>
+                </section>
+
+                <!-- 基督教 -->
+                <section class="nu-detail-section">
+                    <h2>基督教</h2>
+                    <p>基督教传入怒族地区的历史相对较晚，主要是在近代时期由西方传教士传入。基督教在怒族地区的传播，为怒族的宗教信仰增添了新的元素。</p>
+                    <p>部分怒族人民接受了基督教的信仰，他们参加基督教的礼拜活动，遵循基督教的教义和教规。同时，这些怒族人民也保留了一些传统的宗教信仰和风俗习惯，形成了基督教与传统信仰并存的局面。</p>
+                </section>
+
+                <!-- 祭祀活动 -->
+                <section class="nu-detail-section">
+                    <h2>祭祀活动</h2>
+                    <p>怒族的祭祀活动丰富多彩，是怒族宗教信仰的重要表现形式。这些祭祀活动与怒族的生产生活、节日庆典等密切相关：</p>
+                    
+                    <div class="sacrifice-activities">
+                        <div class="sacrifice-activity-item">
+                            <h4>祭山神</h4>
+                            <p>祭山神是怒族最重要的祭祀活动之一，通常在每年的春耕和秋收时节举行。人们会携带祭品到山上，由巫师主持祭祀仪式，祈求山神保佑风调雨顺、五谷丰登。</p>
+                        </div>
+                        <div class="sacrifice-activity-item">
+                            <h4>祭谷神</h4>
+                            <p>祭谷神是怒族在农业生产中举行的重要祭祀活动。人们会在稻田或玉米地边举行祭祀仪式，祈求谷神保佑农作物茁壮成长，获得丰收。</p>
+                        </div>
+                        <div class="sacrifice-activity-item">
+                            <h4>祭祖先</h4>
+                            <p>祭祖先是怒族在重要节日和家庭活动中举行的祭祀活动。人们会在家中设置祖先牌位，摆放祭品，举行祭祀仪式，表达对祖先的敬意和感恩之情。</p>
+                        </div>
+                        <div class="sacrifice-activity-item">
+                            <h4>祭天神</h4>
+                            <p>祭天神是怒族在遇到重大事件或自然灾害时举行的祭祀活动。人们会在空旷的地方举行祭祀仪式，祈求天神保佑平安，消除灾难。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教与文化 -->
+                <section class="nu-detail-section">
+                    <h2>宗教与文化</h2>
+                    <p>怒族的宗教信仰与怒族的文化艺术、风俗习惯等方面密切相关，对怒族文化的发展产生了深远的影响：</p>
+                    <ul>
+                        <li>怒族的口头文学，如神话传说、故事、诗歌等，许多都与宗教信仰有关，反映了怒族人民对自然、祖先和神灵的认识和理解。</li>
+                        <li>怒族的传统音乐、舞蹈等艺术形式，也与宗教信仰有着密切的联系。许多音乐和舞蹈都是在宗教仪式和祭祀活动中产生和发展起来的。</li>
+                        <li>怒族的风俗习惯，如婚姻、丧葬、节日等，也受到宗教信仰的影响。许多风俗习惯都带有宗教色彩，是宗教信仰的具体体现。</li>
+                    </ul>
+                    <p>怒族的宗教信仰是怒族文化的重要组成部分，对于研究怒族的历史、文化和社会具有重要的价值。同时，宗教信仰也为怒族人民提供了精神寄托和心灵慰藉，是怒族人民生活中不可或缺的一部分。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

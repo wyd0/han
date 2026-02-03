@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对仗详解 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 对仗页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .duizhang-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .duizhang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .duizhang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .duizhang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .duizhang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .duizhang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .duizhang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .duizhang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .duizhang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .duizhang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .duizhang-section h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .duizhang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .duizhang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .duizhang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .duizhang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .duizhang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 示例表格 */
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(249, 249, 249, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .example-table th,
+        .example-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .example-table th {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-table tr:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 对仗示例 */
+        .duizhang-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .duizhang-example h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .duizhang-example p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .duizhang-example .example-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+        
+        .duizhang-example .example-line:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .duizhang-header h1 {
+                font-size: 36px;
+            }
+            
+            .duizhang-header p {
+                font-size: 18px;
+            }
+            
+            .duizhang-section h2 {
+                font-size: 28px;
+            }
+            
+            .duizhang-section h3 {
+                font-size: 24px;
+            }
+            
+            .duizhang-section h4 {
+                font-size: 20px;
+            }
+            
+            .duizhang-example .example-line {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="duizhang-header">
+        <div class="container">
+            <div class="duizhang-header-content">
+                <h1>对仗详解</h1>
+                <p>中国古典诗歌的对偶艺术</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速导航栏 -->
+    <div style="background-color: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; overflow-x: auto; padding: 15px 0;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#overview" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        对仗概述
+                    </a>
+                    <a href="#history" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        历史演变
+                    </a>
+                    <a href="#concepts" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        基本概念
+                    </a>
+                    <a href="#rules" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        运用规则
+                    </a>
+                    <a href="#effects" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        艺术效果
+                    </a>
+                    <a href="#skills" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        对仗技巧
+                    </a>
+                    <a href="#examples" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        对仗示例
+                    </a>
+                    <a href="#modern" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        现代意义
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            a[href="#overview"]:hover,
+            a[href="#history"]:hover,
+            a[href="#concepts"]:hover,
+            a[href="#rules"]:hover,
+            a[href="#effects"]:hover,
+            a[href="#skills"]:hover,
+            a[href="#examples"]:hover,
+            a[href="#modern"]:hover {
+                background-color: #c0392b;
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            }
+        </style>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="duizhang-main">
+        <div class="container">
+            <div class="duizhang-content">
+                <!-- 快速导航 -->
+                <div style="background-color: rgba(249, 249, 249, 0.95); padding: 20px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #c0392b; font-size: 22px; margin-bottom: 15px; font-family: 'SimSun', serif; text-align: center;">快速导航</h3>
+                    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="pingze_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">平仄详解</a>
+                        <a href="duizhang_detail.html" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">对仗详解</a>
+                        <a href="yunlv_detail.html" style="display: inline-block; background-color: rgba(192, 57, 43, 0.1); color: #c0392b; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 1px solid #c0392b;">韵律详解</a>
+                    </div>
+                    <style>
+                        a[href="pingze_detail.html"]:hover,
+                        a[href="yunlv_detail.html"]:hover {
+                            background-color: #c0392b;
+                            color: #fff;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                        }
+                        a[href="duizhang_detail.html"] {
+                            font-weight: bold;
+                        }
+                    </style>
+                </div>
+                
+                <!-- 对仗概述 -->
+                <section id="overview" class="duizhang-section">
+                    <h2>对仗概述</h2>
+                    <p>对仗是中国古典诗歌中一个重要的艺术手法，指的是诗句中词语的对偶，要求上下句在词性、结构、意义等方面相对应。对仗是中国古典诗歌，特别是律诗的重要特征，也是诗歌形式美的重要体现。</p>
+                    <p>对仗的运用可以使诗歌在形式上更加整齐、和谐，在内容上更加丰富、深刻，增强诗歌的艺术感染力。对仗不仅是一种语言技巧，也是一种思维方式，体现了中国传统文化中"阴阳对立"、"和谐统一"的哲学思想。</p>
+                </section>
+
+                <!-- 对仗的历史演变 -->
+                <section id="history" class="duizhang-section">
+                    <h3>对仗的历史演变</h3>
+                    <p>对仗的运用在中国诗歌的发展过程中经历了一个逐渐形成、完善和多样化的过程，从最初的简单随意到后来的严格规范，再到灵活创新，体现了中国诗歌艺术的不断发展和成熟：</p>
+                    
+                    <h4>先秦时期：对仗的萌芽与简单运用</h4>
+                    <p>先秦时期是中国诗歌的起源和萌芽阶段，对仗的运用还比较简单和随意，但已经显示出独特的艺术魅力：</p>
+                    
+                    <h5>《诗经》时期</h5>
+                    <p>《诗经》是中国第一部诗歌总集，收录了从西周初年到春秋中叶的诗歌305篇。《诗经》中的诗歌在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>简单的句式对偶</strong>：《诗经》中的对仗主要表现为简单的句式对偶，如四字句对四字句，句式整齐但内容上的对应还不够严格。</li>
+                        <li><strong>重章叠句中的对仗</strong>：《诗经》中大量使用重章叠句的形式，通过重复的句式和内容来形成对仗，这种对仗形式简单但富有节奏感。</li>
+                        <li><strong>自然质朴的风格</strong>：《诗经》中的对仗自然质朴，不刻意追求严格的词性和结构对应，体现了民间歌谣的自然之美。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>《诗经·关雎》</h5>
+                        <div class="example-line">
+                            <span>关关雎鸠，在河之洲。</span>
+                            <span>窈窕淑女，君子好逑。</span>
+                        </div>
+                        <p><strong>分析</strong>：这两句诗在句式上形成了对偶，"关关雎鸠"对"窈窕淑女"，"在河之洲"对"君子好逑"，虽然词性和结构的对应还不够严格，但已经显示出对仗的萌芽。</p>
+                    </div>
+                    
+                    <h5>楚辞时期</h5>
+                    <p>楚辞是战国时期楚国诗人屈原开创的一种诗歌形式，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>自由灵活的句式</strong>：楚辞的句式长短不一，以"兮"字为特色，对仗的运用更加自由灵活，不受严格句式的束缚。</li>
+                        <li><strong>情感化的对仗表达</strong>：楚辞的对仗更加注重情感的表达，通过对仗来增强情感的感染力和表现力。</li>
+                        <li><strong>神话传说的融入</strong>：楚辞中大量融入神话传说元素，对仗的内容更加丰富多样，富有浪漫主义色彩。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>屈原《离骚》</h5>
+                        <div class="example-line">
+                            <span>朝搴阰之木兰兮，夕揽洲之宿莽。</span>
+                        </div>
+                        <p><strong>分析</strong>：这两句诗在句式和内容上形成了对仗，"朝搴阰之木兰兮"对"夕揽洲之宿莽"，时间上的"朝"对"夕"，动作上的"搴"对"揽"，内容上的"木兰"对"宿莽"，对仗工整而富有情感。</p>
+                    </div>
+                    
+                    <h4>汉魏时期：对仗的发展与自觉运用</h4>
+                    <p>汉魏时期，随着汉语语法的发展和诗歌形式的演变，对仗的运用逐渐增多，成为诗人自觉的艺术追求：</p>
+                    
+                    <h5>汉乐府民歌</h5>
+                    <p>汉乐府民歌是汉代官方采集的民间歌谣，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>口语化的对仗</strong>：汉乐府民歌的语言更加口语化，对仗的运用更加贴近生活，富有民间气息。</li>
+                        <li><strong>叙事性的对仗</strong>：汉乐府民歌多为叙事诗，对仗的运用服务于叙事的需要，通过对仗来推动故事情节的发展。</li>
+                        <li><strong>多样化的对仗形式</strong>：汉乐府民歌的对仗形式更加多样化，有句式对仗、词语对仗、句中对仗等多种形式。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>《孔雀东南飞》</h5>
+                        <div class="example-line">
+                            <span>十三能织素，十四学裁衣。</span>
+                            <span>十五弹箜篌，十六诵诗书。</span>
+                        </div>
+                        <p><strong>分析</strong>：这四句诗在句式和内容上形成了对仗，"十三能织素"对"十四学裁衣"，"十五弹箜篌"对"十六诵诗书"，通过年龄的递进和技能的列举，形成了工整的对仗，同时推动了故事情节的发展。</p>
+                    </div>
+                    
+                    <h5>文人五言诗</h5>
+                    <p>东汉时期，文人五言诗逐渐兴起并成熟，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>自觉的对仗追求</strong>：文人五言诗的作者开始自觉地追求对仗的运用，将对仗作为一种重要的艺术手法。</li>
+                        <li><strong>五言句式的对仗优势</strong>：五言句式的出现为对仗的运用提供了更好的条件，诗人可以在五言句式中安排更加丰富多样的对仗。</li>
+                        <li><strong>内容与形式的结合</strong>：文人五言诗的对仗更加注重内容与形式的结合，通过对仗来增强诗歌的表现力和感染力。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>《古诗十九首·迢迢牵牛星》</h5>
+                        <div class="example-line">
+                            <span>迢迢牵牛星，皎皎河汉女。</span>
+                            <span>纤纤擢素手，札札弄机杼。</span>
+                        </div>
+                        <p><strong>分析</strong>：这四句诗在句式和内容上形成了工整的对仗，"迢迢牵牛星"对"皎皎河汉女"，"纤纤擢素手"对"札札弄机杼"，通过叠字的运用和内容的对应，增强了诗歌的表现力和感染力。</p>
+                    </div>
+                    
+                    <h5>汉赋中的对仗</h5>
+                    <p>汉赋是汉代最流行的文学形式，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>铺陈排比中的对仗</strong>：汉赋以铺陈排比为主要特点，对仗的运用贯穿其中，通过大量的对仗来增强赋的气势和感染力。</li>
+                        <li><strong>严格的词性对应</strong>：汉赋中的对仗开始注重严格的词性对应，如名词对名词，动词对动词，形容词对形容词等。</li>
+                        <li><strong>华丽的辞藻</strong>：汉赋中的对仗往往使用华丽的辞藻，追求形式的美和语言的华丽。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>贾谊《过秦论》</h5>
+                        <div class="example-line">
+                            <span>振长策而御宇内，吞二周而亡诸侯。</span>
+                        </div>
+                        <p><strong>分析</strong>：这两句诗在句式和内容上形成了工整的对仗，"振长策而御宇内"对"吞二周而亡诸侯"，动词、名词、介词结构都形成了对应，增强了赋的气势和感染力。</p>
+                    </div>
+                    
+                    <h4>南北朝时期：对仗的规范化与理论化</h4>
+                    <p>南北朝时期，随着文学自觉意识的增强和音韵学的发展，对仗的运用进入了规范化和理论化的阶段：</p>
+                    
+                    <h5>骈体文的兴起</h5>
+                    <p>骈体文是南北朝时期最流行的文学形式，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>严格的四六句式</strong>：骈体文以四六句式为主，对仗工整，句式整齐。</li>
+                        <li><strong>严格的词性和结构对应</strong>：骈体文的对仗要求严格的词性和结构对应，如名词对名词，动词对动词，主谓结构对主谓结构，动宾结构对动宾结构等。</li>
+                        <li><strong>华丽的辞藻和用典</strong>：骈体文的对仗往往使用华丽的辞藻和丰富的典故，追求形式的美和语言的华丽。</li>
+                    </ul>
+                    
+                    <h5>永明体诗歌</h5>
+                    <p>以沈约、谢朓等为代表的诗人创作的永明体诗歌，在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>严格的平仄对仗</strong>：永明体诗歌开始严格讲究平仄的对仗，要求上下句的平仄相对，形成和谐的节奏。</li>
+                        <li><strong>工整的词性和结构对应</strong>：永明体诗歌的对仗要求工整的词性和结构对应，为唐代律诗的对仗奠定了基础。</li>
+                        <li><strong>清新自然的风格</strong>：永明体诗歌的对仗清新自然，不刻意追求华丽的辞藻，体现了文人诗歌的高雅之美。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>谢灵运《登池上楼》</h5>
+                        <div class="example-line">
+                            <span>池塘生春草，园柳变鸣禽。</span>
+                        </div>
+                        <p><strong>分析</strong>：这两句诗在句式、词性和内容上形成了工整的对仗，"池塘"对"园柳"（名词），"生"对"变"（动词），"春草"对"鸣禽"（名词），对仗工整而清新自然。</p>
+                    </div>
+                    
+                    <h4>唐代：对仗的成熟与鼎盛</h4>
+                    <p>唐代是中国诗歌的鼎盛时期，也是对仗运用的成熟时期。在这一时期，律诗正式形成，对仗成为律诗的重要特征：</p>
+                    
+                    <h5>律诗的对仗规则</h5>
+                    <p>律诗是唐代形成的一种诗歌形式，包括五律和七律。律诗在对仗运用上具有严格的规则：</p>
+                    <ul>
+                        <li><strong>对仗的位置</strong>：律诗要求颔联（第三、四句）和颈联（第五、六句）必须使用对仗，首联和尾联可以使用对仗也可以不使用。</li>
+                        <li><strong>严格的词性和结构对应</strong>：律诗的对仗要求严格的词性和结构对应，如名词对名词，动词对动词，形容词对形容词，主谓结构对主谓结构，动宾结构对动宾结构等。</li>
+                        <li><strong>平仄的对仗</strong>：律诗的对仗要求上下句的平仄相对，形成和谐的节奏。</li>
+                        <li><strong>意义的对应</strong>：律诗的对仗要求上下句的意义相关，或相反，或相似，或相承。</li>
+                    </ul>
+                    
+                    <h5>唐代诗人的对仗运用</h5>
+                    <p>唐代诗人在对仗运用上达到了炉火纯青的境界，他们不仅严格遵守对仗规则，还能在规则的约束下创造出丰富多彩的对仗形式：</p>
+                    <ul>
+                        <li><strong>杜甫</strong>：杜甫是唐代最擅长对仗运用的诗人之一，他的律诗对仗工整而富有变化，内容深刻，形式完美，被后人称为"诗圣"。</li>
+                        <li><strong>王维</strong>：王维的诗歌对仗清新自然，意境深远，体现了对仗与意境的完美结合，被后人称为"诗中有画，画中有诗"。</li>
+                        <li><strong>李白</strong>：李白的诗歌虽然以豪放飘逸著称，但在对仗运用上仍然非常讲究，他的律诗对仗工整，符合规则。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>杜甫《登高》</h5>
+                        <div class="example-line">
+                            <span>无边落木萧萧下，</span>
+                            <span>不尽长江滚滚来。</span>
+                        </div>
+                        <p><strong>分析</strong>：这两句诗在句式、词性、结构、平仄和意义上都形成了完美的对仗，"无边落木"对"不尽长江"（偏正结构），"萧萧下"对"滚滚来"（偏正结构），平仄相对，意义相承，是唐代律诗对仗的典范。</p>
+                    </div>
+                    
+                    <h4>宋元明清时期：对仗的多样化与创新</h4>
+                    <p>宋元明清时期，虽然诗歌形式有所变化，如词、曲的兴起，但对仗的运用仍然是诗歌创作的重要手法，同时也出现了一些新的变化和创新：</p>
+                    
+                    <h5>词的对仗</h5>
+                    <p>词是宋代最流行的诗歌形式，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>词牌的对仗规定</strong>：每个词牌都有固定的对仗规定，词人在填词时必须严格遵守。</li>
+                        <li><strong>灵活的对仗形式</strong>：词的对仗形式更加灵活，有四字对、五字对、六字对、七字对等多种形式，不受律诗对仗位置的限制。</li>
+                        <li><strong>疏密有致的安排</strong>：词的对仗安排疏密有致，根据词牌的要求和内容的需要灵活运用。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>苏轼《水调歌头》</h5>
+                        <div class="example-line">
+                            <span>人有悲欢离合，</span>
+                            <span>月有阴晴圆缺。</span>
+                        </div>
+                        <p><strong>分析</strong>：这两句词在句式、词性、结构和意义上形成了工整的对仗，"人"对"月"（名词），"有"对"有"（动词），"悲欢离合"对"阴晴圆缺"（并列结构），对仗工整而富有哲理。</p>
+                    </div>
+                    
+                    <h5>曲的对仗</h5>
+                    <p>曲是元代最流行的诗歌形式，其在对仗运用上具有以下特点：</p>
+                    <ul>
+                        <li><strong>更加口语化的对仗</strong>：曲的语言更加口语化，对仗的运用更加贴近生活，富有民间气息。</li>
+                        <li><strong>更加灵活的对仗规则</strong>：曲的对仗规则比词更加灵活，允许更多的变化和破格，体现了民间文学的自由之美。</li>
+                        <li><strong>衬字的使用</strong>：曲中可以添加衬字，这些衬字不参与对仗，使对仗的运用更加灵活。</li>
+                    </ul>
+                    <div class="duizhang-example">
+                        <h5>马致远《天净沙·秋思》</h5>
+                        <div class="example-line">
+                            <span>枯藤老树昏鸦，</span>
+                            <span>小桥流水人家，</span>
+                            <span>古道西风瘦马。</span>
+                        </div>
+                        <p><strong>分析</strong>：这三句曲在句式和内容上形成了对仗，"枯藤老树昏鸦"对"小桥流水人家"对"古道西风瘦马"，通过名词的排列形成了工整的对仗，描绘了一幅凄凉的秋景图。</p>
+                    </div>
+                    
+                    <h5>传统诗歌的对仗延续</h5>
+                    <p>宋元明清时期，传统的律诗仍然是诗歌创作的重要形式，其对仗运用基本继承了唐代的规则，但也有一些新的变化：</p>
+                    <ul>
+                        <li><strong>风格的变化</strong>：不同时代的诗歌风格不同，对仗的运用也有所不同，如宋代诗歌注重理趣，元代诗歌注重自然，明代诗歌注重复古，清代诗歌注重创新。</li>
+                        <li><strong>个人风格的差异</strong>：不同诗人的个人风格不同，对仗的运用也有所差异，如苏轼的诗歌对仗运用比较自由，黄庭坚的诗歌对仗运用比较严格。</li>
+                        <li><strong>对仗技巧的创新</strong>：后世诗人在对仗运用上不断创新，出现了一些新的对仗形式，如当句对、扇面对、错综对等。</li>
+                    </ul>
+                </section>
+
+                <!-- 对仗的基本概念 -->
+                <section id="concepts" class="duizhang-section">
+                    <h3>对仗的基本概念</h3>
+                    
+                    <h4>对仗的定义</h4>
+                    <p>对仗是指诗句中词语的对偶，要求上下句在词性、结构、意义等方面相对应。对仗的基本要求是：</p>
+                    <ul>
+                        <li><strong>词性相对</strong>：上下句中对应的词语词性要相同，如名词对名词，动词对动词，形容词对形容词等。</li>
+                        <li><strong>结构相对</strong>：上下句的语法结构要相同，如主谓结构对主谓结构，动宾结构对动宾结构等。</li>
+                        <li><strong>意义相对</strong>：上下句的意义要相关，或相反，或相似，或相承。</li>
+                        <li><strong>平仄相对</strong>：上下句中对应的词语平仄要相对，以形成和谐的节奏。</li>
+                    </ul>
+                    
+                    <h4>对仗的种类</h4>
+                    <p>根据不同的标准，对仗可以分为不同的种类：</p>
+                    
+                    <h5>按照对仗的严格程度分类</h5>
+                    <ul>
+                        <li><strong>工对</strong>：严格的对仗，要求词性、结构、意义、平仄等方面完全对应。</li>
+                        <li><strong>宽对</strong>：宽松的对仗，只要求词性和意义相对应，不要求严格的平仄对应。</li>
+                        <li><strong>借对</strong>：利用词语的多义性或谐音进行对仗。</li>
+                        <li><strong>流水对</strong>：上下句意义连贯，形成一个整体，如流水般顺畅。</li>
+                    </ul>
+                    
+                    <h5>按照对仗的内容分类</h5>
+                    <ul>
+                        <li><strong>正对</strong>：上下句意义相似或相同，互相补充。</li>
+                        <li><strong>反对</strong>：上下句意义相反或相对，互相映衬。</li>
+                        <li><strong>串对</strong>：上下句意义相承，连贯而下。</li>
+                    </ul>
+                    
+                    <h5>按照对仗的位置分类</h5>
+                    <ul>
+                        <li><strong>句中对</strong>：一句诗中内部词语的对仗。</li>
+                        <li><strong>邻句对</strong>：相邻两句诗的对仗。</li>
+                        <li><strong>隔句对</strong>：相隔两句诗的对仗。</li>
+                        <li><strong>长对</strong>：多句诗的对仗。</li>
+                    </ul>
+                </section>
+
+                <!-- 对仗类型详解链接 -->
+                <div style="background-color: rgba(249, 249, 249, 0.95); padding: 20px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); text-align: center;">
+                    <a href="duizhang_types_detail.html" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 2px solid #c0392b;">
+                        对账的基本概念详解
+                    </a>
+                    <style>
+                        a[href="duizhang_types_detail.html"]:hover {
+                            background-color: transparent;
+                            color: #c0392b;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                        }
+                    </style>
+                </div>
+                
+                <!-- 对仗的运用规则 -->
+                <section id="rules" class="duizhang-section">
+                    <h3>对仗的运用规则</h3>
+                    <p>中国古典诗歌，特别是律诗，对对仗的运用有严格的规则，主要包括以下几个方面：</p>
+                    
+                    <h4>律诗中的对仗</h4>
+                    <p>律诗是对仗运用最严格的诗歌形式，要求在颔联（第三、四句）和颈联（第五、六句）使用对仗。例如：</p>
+                    <div class="duizhang-example">
+                        <h5>杜甫《春望》</h5>
+                        <div class="example-line">
+                            <span>国破山河在，</span>
+                            <span>城春草木深。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>感时花溅泪，</span>
+                            <span>恨别鸟惊心。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>烽火连三月，</span>
+                            <span>家书抵万金。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>白头搔更短，</span>
+                            <span>浑欲不胜簪。</span>
+                        </div>
+                        <p><strong>说明</strong>：颔联"感时花溅泪，恨别鸟惊心"和颈联"烽火连三月，家书抵万金"使用了对仗。</p>
+                    </div>
+                    
+                    <h4>绝句中的对仗</h4>
+                    <p>绝句对对仗的要求比较宽松，可以使用对仗，也可以不使用对仗。例如：</p>
+                    <div class="duizhang-example">
+                        <h5>李白《静夜思》（无对仗）</h5>
+                        <p>床前明月光，疑是地上霜。举头望明月，低头思故乡。</p>
+                        
+                        <h5>王维《鸟鸣涧》（有对仗）</h5>
+                        <div class="example-line">
+                            <span>人闲桂花落，</span>
+                            <span>夜静春山空。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>月出惊山鸟，</span>
+                            <span>时鸣春涧中。</span>
+                        </div>
+                    </div>
+                    
+                    <h4>词中的对仗</h4>
+                    <p>词对对仗的要求比较灵活，不同的词牌对对仗的要求不同。有些词牌的某些位置要求使用对仗，有些则不要求。例如：</p>
+                    <div class="duizhang-example">
+                        <h5>苏轼《念奴娇·赤壁怀古》</h5>
+                        <div class="example-line">
+                            <span>大江东去，</span>
+                            <span>浪淘尽，</span>
+                        </div>
+                        <div class="example-line">
+                            <span>千古风流人物。</span>
+                            <span></span>
+                        </div>
+                        <div class="example-line">
+                            <span>故垒西边，</span>
+                            <span>人道是，</span>
+                        </div>
+                        <div class="example-line">
+                            <span>三国周郎赤壁。</span>
+                            <span></span>
+                        </div>
+                    </div>
+                    
+                    <h4>曲中的对仗</h4>
+                    <p>曲对对仗的要求比词更加宽松，更加口语化。曲中的对仗可以根据需要灵活使用，没有严格的规定。例如：</p>
+                    <div class="duizhang-example">
+                        <h5>马致远《天净沙·秋思》</h5>
+                        <div class="example-line">
+                            <span>枯藤老树昏鸦，</span>
+                            <span>小桥流水人家，</span>
+                        </div>
+                        <div class="example-line">
+                            <span>古道西风瘦马。</span>
+                            <span>夕阳西下，</span>
+                        </div>
+                        <div class="example-line">
+                            <span>断肠人在天涯。</span>
+                            <span></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 对仗的艺术效果 -->
+                <section id="effects" class="duizhang-section">
+                    <p style="text-align: center; margin-bottom: 30px;">
+                        <a href="duizhang_rules_detail.html" target="_self" style="display: inline-block; background-color: #c0392b; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-size: 16px; transition: all 0.3s ease; font-family: 'SimSun', serif; border: 2px solid #c0392b;">
+                            查看详细对账规则
+                        </a>
+                        <style>
+                            a[href="duizhang_rules_detail.html"]:hover {
+                                background-color: transparent;
+                                color: #c0392b;
+                                transform: translateY(-2px);
+                                box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+                            }
+                        </style>
+                    </p>
+                    <h3>对仗的艺术效果</h3>
+                    <p>对仗的运用在中国古典诗歌中具有重要的艺术效果：</p>
+                    
+                    <h4>形式的美感</h4>
+                    <p>对仗可以使诗歌在形式上更加整齐、和谐，增强诗歌的视觉美感。上下句字数相等，结构相同，词性相对，平仄相谐，形成一种对称的美。</p>
+                    
+                    <h4>内容的丰富</h4>
+                    <p>对仗可以使诗歌在内容上更加丰富、深刻。上下句互相补充、映衬，从不同的角度表达同一主题，使诗歌的内容更加全面、立体。</p>
+                    
+                    <h4>节奏的和谐</h4>
+                    <p>对仗可以使诗歌在节奏上更加和谐、流畅。上下句平仄相对，形成一种抑扬顿挫的节奏，增强诗歌的音乐美。</p>
+                    
+                    <h4>情感的表达</h4>
+                    <p>对仗可以使诗歌在情感上更加真挚、强烈。上下句互相呼应，互相烘托，使诗歌的情感更加饱满、深沉。</p>
+                    
+                    <h4>意境的营造</h4>
+                    <p>对仗可以使诗歌在意境上更加深远、优美。上下句通过对偶的手法，创造出一种和谐、统一的意境，增强诗歌的艺术感染力。</p>
+                </section>
+
+                <!-- 对仗的技巧 -->
+                <section id="skills" class="duizhang-section">
+                    <h3>对仗的技巧</h3>
+                    <p>要写好对仗，需要掌握一定的技巧：</p>
+                    
+                    <h4>词性的选择</h4>
+                    <p>对仗要求上下句词性相对，因此需要选择合适的词语。一般来说，名词、动词、形容词、副词等都可以用来对仗，但需要注意它们的语法功能和意义。</p>
+                    
+                    <h4>结构的安排</h4>
+                    <p>对仗要求上下句结构相同，因此需要注意句子的语法结构。一般来说，主谓结构、动宾结构、偏正结构等都可以用来对仗，但需要注意它们的层次和关系。</p>
+                    
+                    <h4>意义的关联</h4>
+                    <p>对仗要求上下句意义相关，因此需要注意词语的意义联系。上下句可以是相似、相反、相承等关系，但需要注意它们的逻辑关系和表达效果。</p>
+                    
+                    <h4>平仄的搭配</h4>
+                    <p>对仗要求上下句平仄相对，因此需要注意词语的平仄。一般来说，上下句中对应的词语平仄要相反，以形成和谐的节奏。</p>
+                    
+                    <h4>创新的运用</h4>
+                    <p>对仗虽然有一定的规则，但也需要创新。好的对仗应该既符合规则，又富有创意，能够给人以新鲜感和美感。</p>
+                </section>
+
+                <!-- 对仗示例 -->
+                <section id="examples" class="duizhang-section">
+                    <h3>对仗示例</h3>
+                    <p>以下是一些古典诗歌中的对仗示例，帮助我们更好地理解对仗的运用：</p>
+                    
+                    <h4>工对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>杜甫《绝句》</h5>
+                        <div class="example-line">
+                            <span>两个黄鹂鸣翠柳，</span>
+                            <span>一行白鹭上青天。</span>
+                        </div>
+                        <p><strong>分析</strong>："两个"对"一行"（数量词），"黄鹂"对"白鹭"（名词），"鸣"对"上"（动词），"翠柳"对"青天"（名词），词性、结构、意义、平仄都完全对应，是典型的工对。</p>
+                    </div>
+                    
+                    <h4>宽对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>李白《望庐山瀑布》</h5>
+                        <div class="example-line">
+                            <span>飞流直下三千尺，</span>
+                            <span>疑是银河落九天。</span>
+                        </div>
+                        <p><strong>分析</strong>："飞流"对"银河"（名词），"直下"对"落"（动词），"三千尺"对"九天"（数量词），词性基本对应，意义相关，但结构和平仄不完全对应，是宽对。</p>
+                    </div>
+                    
+                    <h4>借对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>杜甫《曲江二首》</h5>
+                        <div class="example-line">
+                            <span>酒债寻常行处有，</span>
+                            <span>人生七十古来稀。</span>
+                        </div>
+                        <p><strong>分析</strong>："寻常"对"七十"，"寻常"本是形容词，这里借作数量词，与"七十"相对，是借对。</p>
+                    </div>
+                    
+                    <h4>流水对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>王维《山居秋暝》</h5>
+                        <div class="example-line">
+                            <span>随意春芳歇，</span>
+                            <span>王孙自可留。</span>
+                        </div>
+                        <p><strong>分析</strong>：上下句意义连贯，形成一个整体，如流水般顺畅，是流水对。</p>
+                    </div>
+                    
+                    <h4>正对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>白居易《赋得古原草送别》</h5>
+                        <div class="example-line">
+                            <span>野火烧不尽，</span>
+                            <span>春风吹又生。</span>
+                        </div>
+                        <p><strong>分析</strong>：上下句意义相似，互相补充，是正对。</p>
+                    </div>
+                    
+                    <h4>反对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>杜甫《登高》</h5>
+                        <div class="example-line">
+                            <span>万里悲秋常作客，</span>
+                            <span>百年多病独登台。</span>
+                        </div>
+                        <p><strong>分析</strong>：上下句意义相反，互相映衬，是反对。</p>
+                    </div>
+                    
+                    <h4>串对示例</h4>
+                    <div class="duizhang-example">
+                        <h5>王之涣《登鹳雀楼》</h5>
+                        <div class="example-line">
+                            <span>欲穷千里目，</span>
+                            <span>更上一层楼。</span>
+                        </div>
+                        <p><strong>分析</strong>：上下句意义相承，连贯而下，是串对。</p>
+                    </div>
+                </section>
+
+                <!-- 对仗的现代意义 -->
+                <section id="modern" class="duizhang-section">
+                    <h3>对仗的现代意义</h3>
+                    <p>虽然现代汉语与古代汉语有很大的差异，现代诗歌也不再严格要求对仗，但对仗的概念和运用仍然具有重要的现代意义：</p>
+                    
+                    <h4>对古典诗歌的理解</h4>
+                    <p>了解对仗的概念和运用规则，有助于我们更好地理解和欣赏古典诗歌的艺术魅力。</p>
+                    
+                    <h4>对现代诗歌的启示</h4>
+                    <p>对仗的运用原则对现代诗歌的创作也有一定的启示，它提醒我们在创作诗歌时要注意语言的形式美和节奏感。</p>
+                    
+                    <h4>对写作的帮助</h4>
+                    <p>对仗的技巧对一般的写作也有帮助，它可以使文章的语言更加整齐、和谐，增强文章的表现力。</p>
+                    
+                    <h4>对思维的训练</h4>
+                    <p>对仗的运用需要一定的思维能力，它可以训练我们的逻辑思维和创造性思维。</p>
+                    
+                    <h4>对文化传承的意义</h4>
+                    <p>对仗是中国古典诗歌的重要特征，也是中国传统文化的重要组成部分。了解和传承对仗的知识，有助于我们更好地传承和弘扬中国传统文化。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.duizhang-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

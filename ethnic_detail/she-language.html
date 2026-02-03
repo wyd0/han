@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畲族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 语言文字页面特定样式 */
+        .language-header {
+            background-image: url('images/畲族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-she {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-she:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .language-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 方言分布样式 */
+        .dialect-map {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .dialect-map h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        .dialect-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .dialect-item {
+            flex: 1;
+            min-width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .dialect-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .dialect-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .language-header h1 {
+                font-size: 36px;
+            }
+            
+            .language-header p {
+                font-size: 18px;
+            }
+            
+            .language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .dialect-list {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="language-header">
+        <div class="container">
+            <div class="language-header-content">
+                <h1>畲族语言文字</h1>
+                <p>传承千年的民族语言，记录历史的文化符号</p>
+                <a href="she.html" class="back-she">返回畲族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="language-main">
+        <div class="container">
+            <div class="language-content">
+                <!-- 语言概述 -->
+                <section class="language-section">
+                    <h2>语言概述</h2>
+                    <p>畲族有自己的语言，但没有统一的文字。畲语属于汉藏语系苗瑶语族苗语支，是畲族人民在长期的生产生活中形成的独特语言系统。</p>
+                    <p>畲语是畲族文化的重要组成部分，承载着畲族人民的历史记忆、文化传统和民族精神。虽然畲族没有本民族的文字，但他们通过汉字记录本民族的历史文化，如《高皇歌》等重要文献。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="language-section">
+                    <h2>语言特点</h2>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>畲语的语音系统丰富，有多个声调，发音清晰响亮。声母和韵母的组合多样，形成了独特的语音美感。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>畲语词汇丰富，特别是与农业生产、日常生活相关的词汇非常详细。同时，畲语也吸收了一些汉语词汇，反映了畲汉文化的交流融合。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>畲语的语法结构独特，语序与汉语有所不同，通常是主语-谓语-宾语的结构，但在某些情况下也会有变化。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>表达方式</h4>
+                            <p>畲语的表达方式生动形象，常用比喻、夸张等修辞手法，富有民族特色和生活气息。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 方言分布 -->
+                <section class="language-section">
+                    <h2>方言分布</h2>
+                    <p>畲语分为三个主要方言区，分别是福建方言区、浙江方言区和江西方言区。每个方言区都有其独特的特点，但彼此之间可以相互理解。</p>
+                    <div class="dialect-map">
+                        <h4>畲语方言分布</h4>
+                        <div class="dialect-list">
+                            <div class="dialect-item">
+                                <h5>福建方言区</h5>
+                                <p>主要分布在福建省的宁德、福州、三明等地，是畲语的主要方言区。</p>
+                            </div>
+                            <div class="dialect-item">
+                                <h5>浙江方言区</h5>
+                                <p>主要分布在浙江省的丽水、温州、金华等地，与福建方言有一定差异。</p>
+                            </div>
+                            <div class="dialect-item">
+                                <h5>江西方言区</h5>
+                                <p>主要分布在江西省的上饶、鹰潭等地，受当地汉语方言影响较大。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="language-section">
+                    <h2>文字使用</h2>
+                    <p>虽然畲族没有本民族的文字，但他们通过汉字记录本民族的历史文化，形成了独特的书面表达形式。</p>
+                    <h3>汉字记录本民族文化</h3>
+                    <p>畲族人民用汉字记录了大量的民间文学作品，如《高皇歌》《盘歌》《祖先歌》等。这些作品不仅是畲族文化的重要遗产，也是中华民族文学宝库的重要组成部分。</p>
+                    <h3>语言传承</h3>
+                    <p>在现代社会，随着畲族与汉族的交流日益密切，越来越多的畲族青年开始使用汉语，畲语的使用范围逐渐缩小。为了保护和传承畲语，政府和社会各界采取了一系列措施，如建立畲语学校、编写畲语教材、录制畲语广播节目等。</p>
+                    <h3>语言保护</h3>
+                    <p>畲语是畲族文化的重要载体，保护畲语对于传承畲族文化、维护民族多样性具有重要意义。我们应该尊重和保护畲族的语言权利，鼓励畲族人民在日常生活中使用畲语，同时加强畲语的研究和教育工作，确保畲语能够得到更好的传承和发展。</p>
+                </section>
+
+                <!-- 语言的文化意义 -->
+                <section class="language-section">
+                    <h2>语言的文化意义</h2>
+                    <p>畲语不仅是畲族人民的交流工具，也是畲族文化的重要组成部分，具有深厚的文化意义。</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>畲语承载着畲族的历史记忆、文化传统和民族精神，是畲族文化传承的重要载体。</li>
+                        <li><strong>民族认同：</strong>畲语是畲族人民的重要身份标识，使用畲语有助于增强畲族人民的民族认同感和凝聚力。</li>
+                        <li><strong>文化多样性：</strong>畲语是中华民族语言大家庭的重要成员，丰富了中华民族的语言多样性。</li>
+                        <li><strong>学术价值：</strong>畲语对于研究汉藏语系的演变、畲族的历史文化等具有重要的学术价值。</li>
+                    </ul>
+                    <p>总之，畲族语言文字是畲族文化的瑰宝，是中华民族文化多样性的重要体现。我们应该珍惜和保护这一宝贵的文化遗产，让畲语在现代社会中继续发挥其独特的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.language-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

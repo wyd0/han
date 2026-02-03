@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杂言诗 - 诗歌体裁详细说明</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="poetry_styles.css">
+    <style>
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        /* 页面头部样式 */
+        .poetry-detail-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .poetry-detail-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .poetry-detail-header p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* 主要内容样式 */
+        .poetry-detail-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .poetry-detail-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 15px;
+        }
+        
+        .genre-detail {
+            margin-bottom: 40px;
+        }
+        
+        .genre-detail h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #8B4513;
+        }
+        
+        .genre-detail p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .genre-detail ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .genre-detail li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* 诗歌示例样式 */
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+        }
+        
+        .poem-example h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* 返回链接样式 */
+        .back-link-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-2px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .poetry-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .poetry-detail-content {
+                padding: 20px;
+            }
+            
+            .poetry-detail-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .genre-detail h3 {
+                font-size: 1.3rem;
+            }
+            
+            .genre-detail p,
+            .genre-detail li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 15px;
+            }
+            
+            .back-link {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 诗歌导航栏 -->
+    <nav class="poetry-nav">
+        <div class="container">
+            <ul class="poetry-nav-links">
+                <li><a href="poetry_gu_ti.html">古体诗</a></li>
+                <li><a href="poetry_jin_ti.html">近体诗</a></li>
+                <li><a href="poetry_ci.html">词</a></li>
+                <li><a href="poetry_qu.html">曲</a></li>
+                <li><a href="poetry_lyric.html">抒情诗</a></li>
+                <li><a href="poetry_narrative.html">叙事诗</a></li>
+                <li><a href="poetry_landscape.html">山水田园诗</a></li>
+                <li><a href="poetry_frontier.html">边塞诗</a></li>
+                <li><a href="poetry_epic.html">咏史诗</a></li>
+                <li><a href="poetry_object.html">咏物诗</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <section class="poetry-detail-header">
+        <div class="container">
+            <div class="poetry-detail-header-content">
+                <h1>杂言诗</h1>
+                <p>古体诗中最自由的体裁之一</p>
+                <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="poetry-detail-main">
+        <div class="container">
+            <div class="poetry-detail-content">
+                <!-- 杂言诗详细说明 -->
+                <section class="poetry-detail-section">
+                    <h2>杂言诗</h2>
+                    <div class="genre-detail">
+                        <h3>概述</h3>
+                        <p>杂言诗是中国古代诗歌的重要体裁之一，句式长短不一，没有固定的句式要求。它是古体诗中最自由的形式，适合表达复杂的情感和多变的内容。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>历史发展</h3>
+                        <p>杂言诗是中国古代诗歌的重要体裁之一，其起源可以追溯到原始社会的劳动歌谣。在文字产生之前，先民们通过口头传唱的方式记录劳动生活和表达情感，这些歌谣句式长短不一，就是杂言诗的雏形。</p>
+                        <p>夏商时期，杂言诗开始形成初步的形式。到了西周时期，《诗经》中已经有一些杂言句式的诗歌，如《豳风·七月》中的部分章节，虽然主要是四言诗，但也穿插了一些杂言句式。</p>
+                        <p>战国时期，杂言诗得到了重要的发展。屈原创造了楚辞体（又称骚体），句式长短不一，常用"兮"字作为语助词，富有浓郁的楚地特色。楚辞的出现，标志着杂言诗进入了一个新的阶段。屈原的《离骚》、《九歌》等作品，成为中国文学史上的经典之作。</p>
+                        <p>汉代是杂言诗的重要发展时期。西汉时期，乐府民歌的兴起，为杂言诗注入了新的活力。乐府民歌题材广泛，内容丰富，语言质朴，感情真挚，大量采用杂言句式。《有所思》、《上邪》、《孔雀东南飞》等作品，成为汉代乐府民歌的代表之作。东汉时期，文人开始模仿乐府民歌创作杂言诗，如张衡的《四愁诗》等，标志着杂言诗开始进入文人创作领域。</p>
+                        <p>魏晋南北朝时期，杂言诗继续发展。建安时期，曹操、曹丕、曹植父子的杂言诗作品，风格刚健有力，被称为"建安风骨"。曹植的《白马篇》、《赠白马王彪》等作品，标志着杂言诗的艺术水平达到了新的高度。魏晋时期，阮籍的《咏怀诗》八十二首，开创了杂言诗的新境界，通过隐晦的手法表达对现实的不满和对人生的思考。东晋时期，陶渊明的杂言诗作品，如《读山海经》等，以自然质朴的语言，表达了对田园生活的热爱和对官场的厌恶。南北朝时期，鲍照的杂言乐府诗，风格刚健豪放，对后世产生了深远的影响。</p>
+                        <p>唐代是杂言诗的鼎盛时期，许多著名的诗人都创作了杂言诗。李白的杂言诗，如《蜀道难》、《将进酒》、《梦游天姥吟留别》等，风格豪放飘逸，想象丰富，成为中国文学史上的经典之作；杜甫的杂言诗，如《茅屋为秋风所破歌》、《兵车行》等，反映社会现实，被称为"诗史"；白居易的杂言诗，如《长恨歌》、《琵琶行》等，篇幅宏大，情节完整，成为叙事诗的典范。唐代杂言诗的题材更加广泛，风格更加多样，艺术水平达到了登峰造极的地步。</p>
+                        <p>宋代以后，杂言诗逐渐衰落，但仍有一些著名诗人创作了优秀的杂言诗作品。苏轼的《念奴娇·赤壁怀古》（虽然是词，但形式上接近杂言诗）、陆游的《长歌行》等，都是宋代杂言诗的代表之作。元代以后，杂言诗的创作更加稀少，但仍有一些诗人坚持创作杂言诗，如明代的高启、清代的龚自珍等。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>艺术特点</h3>
+                        <ul>
+                            <li><strong>句式自由</strong>：杂言诗的句式长短不一，没有固定的句式要求，可以根据内容的需要自由变化。</li>
+                            <li><strong>表现力丰富</strong>：由于句式自由，杂言诗可以表达复杂的情感和多变的内容，表现力更加丰富。</li>
+                            <li><strong>节奏多变</strong>：杂言诗的节奏随着句式的变化而变化，韵律更加灵活。</li>
+                            <li><strong>语言生动</strong>：杂言诗的语言往往更加生动活泼，富有感染力。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>代表作品</h3>
+                        <div class="poem-example">
+                            <h4>《离骚》（屈原）</h4>
+                            <p>帝高阳之苗裔兮，朕皇考曰伯庸。</p>
+                            <p>摄提贞于孟陬兮，惟庚寅吾以降。</p>
+                            <p>皇览揆余初度兮，肇锡余以嘉名：</p>
+                            <p>名余曰正则兮，字余曰灵均。</p>
+                            <p>纷吾既有此内美兮，又重之以修能。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《蜀道难》（李白）</h4>
+                            <p>噫吁嚱，危乎高哉！蜀道之难，难于上青天！</p>
+                            <p>蚕丛及鱼凫，开国何茫然！</p>
+                            <p>尔来四万八千岁，不与秦塞通人烟。</p>
+                            <p>西当太白有鸟道，可以横绝峨眉巅。</p>
+                            <p>地崩山摧壮士死，然后天梯石栈相钩连。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《将进酒》（李白）</h4>
+                            <p>君不见黄河之水天上来，奔流到海不复回。</p>
+                            <p>君不见高堂明镜悲白发，朝如青丝暮成雪。</p>
+                            <p>人生得意须尽欢，莫使金樽空对月。</p>
+                            <p>天生我材必有用，千金散尽还复来。</p>
+                            <p>烹羊宰牛且为乐，会须一饮三百杯。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《有所思》（汉乐府）</h4>
+                            <p>有所思，乃在大海南。何用问遗君？双珠玳瑁簪，用玉绍缭之。</p>
+                            <p>闻君有他心，拉杂摧烧之。摧烧之，当风扬其灰。</p>
+                            <p>从今以往，勿复相思！相思与君绝！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>与其他体裁的关系</h3>
+                        <p>杂言诗是古体诗的一种重要形式，与四言诗、五言诗、七言诗等相比，它更加自由灵活。杂言诗的发展对后世的词、曲等体裁也产生了深远的影响，词、曲的句式长短不一的特点就来源于杂言诗。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>影响与地位</h3>
+                        <p>杂言诗在中国文学史上占有极其重要的地位，它是中国古代诗歌的重要体裁之一，对后世诗歌的发展产生了深远的影响。</p>
+                        <p><strong>对诗歌形式的影响</strong>：杂言诗的句式自由、灵活多变的特点，为后世诗歌的发展提供了新的可能性。它打破了四言诗、五言诗、七言诗等固定句式的限制，为诗人提供了更广阔的创作空间。杂言诗的发展，推动了中国古代诗歌从严格的句式要求到自由灵活的方向发展。</p>
+                        <p><strong>对文学创作的影响</strong>：杂言诗的发展，推动了中国古代文学创作的繁荣。从楚辞的浪漫主义精神到汉代乐府民歌的民间风格，从古体诗的自由奔放到唐代杂言诗的鼎盛，杂言诗的题材不断扩大，风格不断丰富，艺术水平不断提高，成为中国古代文学的重要组成部分。杂言诗的自由形式，为诗人提供了更广阔的创作空间，使他们能够更加自由地表达情感和思想。</p>
+                        <p><strong>对艺术表达的影响</strong>：杂言诗的句式长短不一，节奏多变，富有音乐性，适合表达复杂的情感和多变的内容。它可以根据情感的需要自由调整句式和节奏，增强诗歌的表现力和感染力。许多著名的杂言诗作品，如屈原的《离骚》、李白的《蜀道难》等，都以其独特的艺术魅力成为中国文学史上的经典之作。</p>
+                        <p><strong>对后世体裁的影响</strong>：杂言诗的发展对后世的词、曲等体裁产生了深远的影响。词、曲的句式长短不一的特点，就来源于杂言诗。宋代的词、元代的曲，在形式上都继承了杂言诗的自由灵活特点，同时又加入了新的元素，成为中国古代文学的重要组成部分。</p>
+                        <p><strong>对后世诗人的影响</strong>：杂言诗的优秀作品，对后世诗人产生了深远的影响。屈原的浪漫主义精神，李白的豪放飘逸，杜甫的现实主义精神，都成为后世诗人学习和模仿的典范。许多著名诗人，如苏轼、陆游、辛弃疾等，都在杂言诗的创作上取得了很高的成就。</p>
+                        <p><strong>在文学史上的地位</strong>：杂言诗是中国古代诗歌的重要体裁之一，它与四言诗、五言诗、七言诗等一起，共同构成了中国古代诗歌的辉煌成就。杂言诗的发展，标志着中国古代诗歌从原始歌谣进入了成熟的文学创作阶段，为中国文学的发展奠定了基础。</p>
+                        <p>杂言诗在中国文学史上的地位不可动摇，它是中国古代诗歌的重要组成部分，也是中华民族文化遗产中的瑰宝。它的发展历程，反映了中国古代文学从民间到文人，从自由到格律的演变过程，是中国文学发展的重要见证。杂言诗的优秀作品，不仅是中国文学的经典之作，也是世界文学宝库中的重要财富。</p>
+                    </div>
+                </section>
+                
+                <!-- 返回链接 -->
+                <div class="back-link-container">
+                    <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="poetry_script.js"></script>
+</body>
+</html>

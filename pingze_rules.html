@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平仄全部规则 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 平仄规则页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .rules-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .rules-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .rules-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .rules-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .rules-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .rules-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .rules-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .rules-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .rules-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .rules-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .rules-section h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .rules-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .rules-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .rules-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .rules-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .rules-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 规则表格 */
+        .rules-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(249, 249, 249, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rules-table th,
+        .rules-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .rules-table th {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .rules-table tr:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .rules-header h1 {
+                font-size: 36px;
+            }
+            
+            .rules-header p {
+                font-size: 18px;
+            }
+            
+            .rules-section h2 {
+                font-size: 28px;
+            }
+            
+            .rules-section h3 {
+                font-size: 24px;
+            }
+            
+            .rules-section h4 {
+                font-size: 20px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="rules-header">
+        <div class="container">
+            <div class="rules-header-content">
+                <h1>平仄全部规则</h1>
+                <p>中国古典诗歌的声调规范</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="pingze_detail.html" class="back-link">返回平仄详解</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="rules-main">
+        <div class="container">
+            <div class="rules-content">
+                <!-- 近体诗平仄规则 -->
+                <section class="rules-section">
+                    <h2>近体诗平仄规则</h2>
+                    <p>近体诗（律诗和绝句）是中国古典诗歌中最严格的体裁之一，其平仄运用有一套完整的规则体系：</p>
+                    
+                    <h3>五言律诗平仄规则</h3>
+                    
+                    <h4>基本句式</h4>
+                    <ul>
+                        <li>仄仄平平仄</li>
+                        <li>平平仄仄平</li>
+                        <li>平平平仄仄</li>
+                        <li>仄仄仄平平</li>
+                    </ul>
+                    
+                    <h4>组合规则</h4>
+                    <div class="rules-table">
+                        <table>
+                            <tr>
+                                <th>格式</th>
+                                <th>第一联</th>
+                                <th>第二联</th>
+                                <th>第三联</th>
+                                <th>第四联</th>
+                            </tr>
+                            <tr>
+                                <td>平起首句不入韵</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                            </tr>
+                            <tr>
+                                <td>平起首句入韵</td>
+                                <td>平平仄仄平<br>仄仄仄平平</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                            </tr>
+                            <tr>
+                                <td>仄起首句不入韵</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                            </tr>
+                            <tr>
+                                <td>仄起首句入韵</td>
+                                <td>仄仄仄平平<br>平平仄仄平</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                                <td>仄仄平平仄<br>平平仄仄平</td>
+                                <td>平平平仄仄<br>仄仄仄平平</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>七言律诗平仄规则</h3>
+                    
+                    <h4>基本句式</h4>
+                    <ul>
+                        <li>平平仄仄平平仄</li>
+                        <li>仄仄平平仄仄平</li>
+                        <li>仄仄平平平仄仄</li>
+                        <li>平平仄仄仄平平</li>
+                    </ul>
+                    
+                    <h4>组合规则</h4>
+                    <div class="rules-table">
+                        <table>
+                            <tr>
+                                <th>格式</th>
+                                <th>第一联</th>
+                                <th>第二联</th>
+                                <th>第三联</th>
+                                <th>第四联</th>
+                            </tr>
+                            <tr>
+                                <td>平起首句不入韵</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                            </tr>
+                            <tr>
+                                <td>平起首句入韵</td>
+                                <td>平平仄仄仄平平<br>仄仄平平仄仄平</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                            </tr>
+                            <tr>
+                                <td>仄起首句不入韵</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                            </tr>
+                            <tr>
+                                <td>仄起首句入韵</td>
+                                <td>仄仄平平仄仄平<br>平平仄仄仄平平</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                                <td>仄仄平平平仄仄<br>平平仄仄仄平平</td>
+                                <td>平平仄仄平平仄<br>仄仄平平仄仄平</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 平仄变格规则 -->
+                <section class="rules-section">
+                    <h2>平仄变格规则</h2>
+                    <p>虽然近体诗平仄规则严格，但在实际创作中，为了内容表达的需要，也允许一些变格：</p>
+                    
+                    <h3>一三五不论，二四六分明</h3>
+                    <p>这是近体诗平仄的基本原则之一，指的是：</p>
+                    <ul>
+                        <li>在五言诗句中，第一、第三字的平仄可以灵活处理，第二、第四字的平仄必须严格遵守规则</li>
+                        <li>在七言诗句中，第一、第三、第五字的平仄可以灵活处理，第二、第四、第六字的平仄必须严格遵守规则</li>
+                    </ul>
+                    
+                    <h3>孤平拗救</h3>
+                    <p>孤平是指在 "平平仄仄平" 句式中，第一字用了仄声，导致全句只有一个平声字。这种情况需要通过拗救来解决：</p>
+                    <ul>
+                        <li>本句自救：将第三字改为平声，变成 "仄平平仄平"</li>
+                    </ul>
+                    
+                    <h3>拗句与拗救</h3>
+                    <div class="rules-table">
+                        <table>
+                            <tr>
+                                <th>句式</th>
+                                <th>正常格式</th>
+                                <th>拗句</th>
+                                <th>拗救</th>
+                            </tr>
+                            <tr>
+                                <td>五言</td>
+                                <td>平平平仄仄</td>
+                                <td>平平仄平仄</td>
+                                <td>本句自救</td>
+                            </tr>
+                            <tr>
+                                <td>七言</td>
+                                <td>仄仄平平平仄仄</td>
+                                <td>仄仄平平仄平仄</td>
+                                <td>本句自救</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 词的平仄规则 -->
+                <section class="rules-section">
+                    <h2>词的平仄规则</h2>
+                    <p>词是宋代最流行的诗歌形式，其平仄规则比近体诗更加复杂：</p>
+                    
+                    <h3>词牌与平仄</h3>
+                    <p>每个词牌都有固定的平仄格式，填词时必须严格遵守。以下是一些常见词牌的平仄要求：</p>
+                    
+                    <h4>《沁园春》平仄格式</h4>
+                    <p>（仄）仄平平，（仄）仄平平，仄仄仄平（韵）。<br>
+                    仄平平仄仄（增韵），（仄）平（仄）仄；（平）平（仄）仄，（仄）仄平平（韵）。<br>
+                    （仄）仄平平，（平）平（仄）仄，（仄）仄平平（仄）仄平（韵）。<br>
+                    平（平）仄，仄（平）平（仄）仄，（仄）仄平平（韵）。<br>
+                    （平）平（仄）仄平平（韵），<br>
+                    仄（仄）仄平平（仄）仄平（韵）。<br>
+                    仄（平）平（仄）仄，（平）平仄仄；（平）平仄仄，（仄）仄平平（韵）。<br>
+                    （仄）仄平平，（平）平（仄）仄，（仄）仄平平（仄）仄平（韵）。<br>
+                    平（平）仄，仄（平）平（仄）仄，（仄）仄平平（韵）。</p>
+                    
+                    <h4>《水调歌头》平仄格式</h4>
+                    <p>（仄）仄仄平仄，（仄）仄仄平平（韵）。<br>
+                    （平）平（仄）仄平仄，（仄）仄仄平平（韵）。<br>
+                    （仄）仄平平平仄，（仄）仄平平平仄，（仄）仄仄平平（韵）。<br>
+                    （仄）仄仄平仄，（仄）仄仄平平（韵）。<br>
+                    （平）（平）（仄），（平）（仄）仄，仄平平（韵）。<br>
+                    （平）平（仄）仄，（平）仄（平）仄仄平平（韵）。<br>
+                    （仄）仄平平平仄，（仄）仄平平平仄，（仄）仄仄平平（韵）。<br>
+                    （仄）仄（平）平仄，（仄）仄仄平平（韵）。</p>
+                </section>
+
+                <!-- 曲的平仄规则 -->
+                <section class="rules-section">
+                    <h2>曲的平仄规则</h2>
+                    <p>曲是元代最流行的诗歌形式，其平仄规则比词更加宽松：</p>
+                    
+                    <h3>基本特点</h3>
+                    <ul>
+                        <li>更加口语化，平仄搭配更加灵活</li>
+                        <li>允许使用衬字，衬字的平仄自由</li>
+                        <li>仄声可以细分上、去、入三声，表现力更强</li>
+                    </ul>
+                    
+                    <h3>常见曲牌平仄格式</h3>
+                    <h4>《天净沙》平仄格式</h4>
+                    <p>（平）平（仄）仄平平，<br>
+                    （平）平（仄）仄平平，<br>
+                    （仄）仄平平仄仄。<br>
+                    （平）平（仄）仄，<br>
+                    （平）平（仄）仄平平。</p>
+                </section>
+
+                <!-- 古体诗平仄规则 -->
+                <section class="rules-section">
+                    <h2>古体诗平仄规则</h2>
+                    <p>古体诗是近体诗之前的诗歌形式，其平仄规则相对宽松：</p>
+                    
+                    <h3>基本特点</h3>
+                    <ul>
+                        <li>没有固定的平仄格式，平仄搭配自由</li>
+                        <li>不要求平仄交替、对立和粘对</li>
+                        <li>以自然流畅为主，注重情感表达</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.rules-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

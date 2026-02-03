@@ -1,0 +1,466 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维吾尔族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 维吾尔族页面特定样式 */
+        .uyghur-header {
+            background-image: url('images/uyghur-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .uyghur-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .uyghur-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .uyghur-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .uyghur-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .uyghur-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .uyghur-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .uyghur-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uyghur-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .uyghur-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .uyghur-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .uyghur-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .uyghur-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .uyghur-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .uyghur-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .uyghur-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .uyghur-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uyghur-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .uyghur-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .uyghur-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .uyghur-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .uyghur-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .uyghur-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .uyghur-header h1 {
+                font-size: 36px;
+            }
+            
+            .uyghur-header p {
+                font-size: 18px;
+            }
+            
+            .uyghur-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="uyghur-header">
+        <div class="container">
+            <div class="uyghur-header-content">
+                <h1>维吾尔族文化</h1>
+                <p>独具特色的维吾尔族风情与歌舞文化瑰宝</p>
+                <a href="difference.html" class="back-link">返回民族入口</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="uyghur-main">
+        <div class="container">
+            <div class="uyghur-content">
+                <!-- 维吾尔族介绍 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族介绍</h2>
+                    <p>维吾尔族是中国西北地区的主要少数民族之一，主要分布在新疆维吾尔自治区，人口约117万（2020年）。维吾尔族有着悠久的历史和独特的文化，是丝绸之路上的重要民族之一。</p>
+                    <p>维吾尔族的语言属于阿尔泰语系突厥语族，使用以阿拉伯字母为基础的维吾尔文。维吾尔族信仰伊斯兰教，其文化深受伊斯兰文化和中原文化的影响，形成了独特的民族特色。</p>
+                </section>
+
+                <!-- 维吾尔族的起源 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的起源</h2>
+                    <p>维吾尔族的历史可以追溯到古代的回纥人，回纥是中国北方的游牧民族，曾建立过强大的回纥汗国。公元840年，回纥汗国崩溃，部分回纥人西迁到新疆地区，与当地的突厥语族少数民族融合，逐渐形成了维吾尔族。</p>
+                    <p>在历史上，维吾尔族先后受到喀喇汗王朝、西辽、蒙古帝国、清朝等政权的统治，但其民族特征始终得以保持和发展。在长期的历史发展过程中，维吾尔族创造了独特的文化，对中国西北地区的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 维吾尔族的历史发展 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的历史发展</h2>
+                    <h3>古代时期</h3>
+                    <p>维吾尔族的先民回纥人最初生活在蒙古高原，公元744年建立了回纥汗国，成为唐朝的重要盟友。回纥汗国时期，回纥人与唐朝保持着密切的政治、经济和文化联系，促进了双方的交流与发展。</p>
+                    <h3>西迁与融合</h3>
+                    <p>公元840年，回纥汗国被黠戛斯摧毁，部分回纥人西迁到新疆地区，与当地的突厥、葛逻禄等突厥语族少数民族融合，逐渐形成了维吾尔族的主体。西迁后的维吾尔人在新疆建立了喀喇汗王朝，推动了伊斯兰文化在新疆的传播。</p>
+                    <h3>近现代时期</h3>
+                    <p>19世纪中叶以后，新疆成为列强争夺的焦点，维吾尔族人民进行了多次反侵略斗争。1949年新疆和平解放后，维吾尔族人民在中国共产党的领导下，进入了新的历史发展时期。1955年新疆维吾尔自治区成立，维吾尔族人民充分享有民族自治权利，经济社会发展取得了巨大成就。</p>
+                </section>
+
+                <!-- 维吾尔族的文化特点 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的文化特点</h2>
+                    <div class="culture-aspects">
+                        <a href="uyghur_language.html" class="culture-item" style="text-decoration: none; color: inherit; display: block;">
+                            <h4>语言文字</h4>
+                            <p>维吾尔语属于阿尔泰语系突厥语族，使用以阿拉伯字母为基础的维吾尔文。维吾尔文在历史上经历了多次改革，目前使用的是1982年修改的新维吾尔文。</p>
+                        </a>
+                        <a href="uyghur_religion_detail.html" class="culture-item" style="text-decoration: none; color: inherit; display: block;">
+                            <h4>宗教信仰</h4>
+                            <p>维吾尔族主要信仰伊斯兰教逊尼派，宗教对维吾尔族的文化、生活和风俗习惯产生了深远影响。清真寺是维吾尔族社会的重要组成部分。</p>
+                        </a>
+                        <a href="uyghur_literature_detail.html" class="culture-item" style="text-decoration: none; color: inherit; display: block;">
+                            <h4>文学艺术</h4>
+                            <p>维吾尔族有着丰富的口头文学和书面文学，著名的《福乐智慧》是维吾尔族古典文学的代表作。维吾尔族的音乐舞蹈如十二木卡姆、麦西热甫等闻名中外。</p>
+                        </a>
+                        <a href="uyghur_custom.html" class="culture-item" style="text-decoration: none; color: inherit; display: block;">
+                            <h4>风俗习惯</h4>
+                            <p>维吾尔族有着独特的风俗习惯，如热情好客、尊老爱幼、喜欢鲜艳的颜色等。传统节日有肉孜节、古尔邦节等。</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 维吾尔族的服饰 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的服饰</h2>
+                    <p>维吾尔族的服饰色彩鲜艳，款式多样，具有独特的民族特色。传统上以棉、毛、丝为主要原料，注重美观性和实用性的结合。</p>
+                    <h3>男子服饰</h3>
+                    <p>维吾尔族男子传统上穿长袍（袷袢），腰系腰带，戴小花帽（朵帕）。袷袢是一种无领、无扣的长袍，腰部系腰带，便于骑乘和活动。小花帽是维吾尔族男子的重要装饰，图案精美，色彩鲜艳。</p>
+                    <h3>女子服饰</h3>
+                    <p>维吾尔族女子的服饰更为华丽，传统上穿连衣裙，外罩坎肩，戴头巾或花帽。连衣裙多为色彩鲜艳的丝绸面料，绣有精美的图案。年轻女孩喜欢穿短裙，而成年妇女则偏向于穿着较为庄重的服饰。</p>
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li>色彩鲜艳，喜欢红、绿、蓝等明亮颜色</li>
+                        <li>注重花纹和图案装饰，图案多为花卉、几何图形等</li>
+                        <li>服饰款式宽松，适应新疆的气候条件</li>
+                        <li>饰品丰富多样，体现不同年龄和地区的特色</li>
+                    </ul>
+                </section>
+
+                <!-- 维吾尔族的传统节日 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的传统节日</h2>
+                    <h3>肉孜节</h3>
+                    <p>肉孜节是维吾尔族最重要的传统节日之一，也称为"开斋节"。每年伊斯兰教历10月1日举行，为期3-5天。节日期间，维吾尔族人民会举行会礼、聚餐、走亲访友等活动，表达对真主的感恩和对生活的热爱。</p>
+                    <h3>古尔邦节</h3>
+                    <p>古尔邦节即宰牲节，是伊斯兰教的重要节日，每年伊斯兰教历12月10日举行。节日期间，维吾尔族人民会穿上盛装，走亲访友，举行各种庆祝活动。宰牲节象征着对牺牲的纪念，人们可以恢复正常的饮食。</p>
+                    <h3>诺鲁孜节</h3>
+                    <p>诺鲁孜节是维吾尔族的传统春节，每年春分时节举行。这个节日起源于古代的祆教文化，象征着春天的到来和新的一年的开始。节日期间，人们会举行各种传统活动，如篝火晚会、跳萨玛舞等。</p>
+                </section>
+
+                <!-- 维吾尔族的文学与艺术 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的文学与艺术</h2>
+                    <h3>文学成就</h3>
+                    <p>维吾尔族有着悠久的文学传统，包括口头文学和书面文学。口头文学如神话、传说、故事、诗歌等，流传广泛。书面文学以《福乐智慧》和《突厥语大词典》为代表，是研究古代突厥语族少数民族历史文化的重要文献。</p>
+                    <h3>音乐舞蹈</h3>
+                    <p>维吾尔族是一个能歌善舞的民族，其音乐舞蹈具有独特的风格。十二木卡姆是维吾尔族古典音乐的代表，被誉为"东方音乐的瑰宝"。麦西热甫是维吾尔族的传统歌舞集会，人们在节日或喜庆场合举行麦西热甫，唱歌跳舞，共度欢乐时光。</p>
+                    <h3>艺术工艺</h3>
+                    <p>维吾尔族的艺术工艺以刺绣、地毯编织、绘画等闻名。维吾尔族地毯图案精美，色彩鲜艳，是中国传统手工艺品中的珍品。维吾尔族的建筑艺术也具有独特风格，如喀什的艾提尕尔清真寺，是中国最大的清真寺之一。</p>
+                </section>
+
+                <!-- 维吾尔族的饮食文化 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的饮食文化</h2>
+                    <p>维吾尔族的饮食文化深受伊斯兰文化的影响，同时融合了中原饮食文化的特点，形成了独特的少数民族饮食风格。</p>
+                    <h3>主要食物</h3>
+                    <ul>
+                        <li><strong>馕：</strong>维吾尔族的传统主食，以面粉发酵而成，种类多样，是维吾尔族饮食中不可或缺的部分。</li>
+                        <li><strong>手抓饭：</strong>以大米、羊肉、胡萝卜、洋葱等为原料，是维吾尔族的传统美食，香气四溢，营养丰富。</li>
+                        <li><strong>烤羊肉串：</strong>维吾尔族的特色小吃，肉质鲜嫩，味道鲜美，闻名全国。</li>
+                        <li><strong>拉条子：</strong>手工拉制的面条，配以各种蔬菜，是维吾尔族的常见主食。</li>
+                        <li><strong>奶制品：</strong>如酸奶、奶疙瘩等，是维吾尔族喜欢的传统食品。</li>
+                    </ul>
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li>以面食和肉食为主，蔬菜为辅</li>
+                        <li>喜欢辛辣和酸甜口味</li>
+                        <li>注重食物的新鲜和卫生</li>
+                        <li>热情好客，喜欢聚餐</li>
+                    </ul>
+                </section>
+
+                <!-- 维吾尔族的社会结构与生活方式 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的社会结构与生活方式</h2>
+                    <h3>家庭结构</h3>
+                    <p>维吾尔族传统上以大家庭为主，注重家庭伦理和亲情。家庭中父亲是一家之主，负责家庭的经济和决策，母亲则负责家务和子女教育。</p>
+                    <h3>婚姻习俗</h3>
+                    <p>维吾尔族的婚姻遵循伊斯兰教法，实行一夫一妻制。传统婚姻一般经过提亲、订婚、结婚等程序，婚礼隆重热烈，充满民族特色。</p>
+                    <h3>居住特点</h3>
+                    <p>维吾尔族传统民居多为土木结构的平房，适应新疆的干旱气候。房屋内部布局合理，设有客厅、卧室、厨房等，注重通风和采光。</p>
+                    <h3>生活方式</h3>
+                    <p>在历史上，维吾尔族以农业和商业为主，是丝绸之路上的重要商人。随着现代化的发展，维吾尔族的生活方式发生了很大变化，但传统的民族文化仍然得以保持和传承。</p>
+                </section>
+
+                <!-- 维吾尔族的现代发展 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族的现代发展</h2>
+                    <p>新中国成立以来，特别是改革开放后，维吾尔族地区的经济社会发展取得了巨大成就。新疆维吾尔自治区的建立为维吾尔族人民提供了更好的发展条件，各项事业蓬勃发展。</p>
+                    <h3>经济发展</h3>
+                    <p>维吾尔族地区的经济以农业、畜牧业和工业为主，近年来旅游业也得到了快速发展。新疆的棉花、葡萄等农产品闻名全国，石油、天然气等资源的开发为地区经济发展提供了强大动力。</p>
+                    <h3>教育事业</h3>
+                    <p>维吾尔族的教育事业得到了巨大发展，普及了九年义务教育，建立了从小学到大学的完整教育体系。越来越多的维吾尔族青年接受高等教育，成为各行各业的专业人才。</p>
+                    <h3>文化传承</h3>
+                    <p>政府重视维吾尔族文化的保护和传承，建立了多个文化保护区和博物馆，十二木卡姆等传统艺术得到了有效的保护和发展。维吾尔族的传统节日和习俗也得到了传承和弘扬。</p>
+                </section>
+
+                <!-- 维吾尔族对中华文化的贡献 -->
+                <section class="uyghur-section">
+                    <h2>维吾尔族对中华文化的贡献</h2>
+                    <p>维吾尔族作为中国多民族大家庭的一员，在历史上对中华文化的发展做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>丝绸之路的维护：</strong>维吾尔族先民在丝绸之路上扮演了重要角色，促进了东西方文化的交流与融合。</li>
+                        <li><strong>文化交流的使者：</strong>维吾尔族将伊斯兰文化传入中国，同时将中原文化传播到西方，丰富了中华文化的内涵。</li>
+                        <li><strong>艺术贡献：</strong>维吾尔族的音乐、舞蹈、艺术等艺术形式，丰富了中华艺术的宝库。</li>
+                        <li><strong>经济发展：</strong>维吾尔族在农业、畜牧业和商业方面的经验，对中国西北地区的经济发展做出了贡献。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

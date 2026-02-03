@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿昌族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 阿昌族语言文字页面特定样式 */
+        .achang-header {
+            background-image: url('images/阿昌族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .achang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .achang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .achang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .achang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-achang {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-achang:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .achang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .achang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .achang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .achang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .achang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .achang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .achang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .achang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .achang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .achang-section.visible .feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section.visible .feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .achang-section.visible .feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .achang-section.visible .feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .achang-section.visible .feature-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .feature-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .achang-header h1 {
+                font-size: 36px;
+            }
+            
+            .achang-header p {
+                font-size: 18px;
+            }
+            
+            .achang-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="achang-header">
+        <div class="container">
+            <div class="achang-header-content">
+                <h1>阿昌族语言文字</h1>
+                <p>民族智慧的结晶与文化传承的载体</p>
+                <a href="achang.html" class="back-achang">返回阿昌族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="achang-main">
+        <div class="container">
+            <div class="achang-content">
+                <!-- 语言文字概述 -->
+                <section class="achang-section">
+                    <h2>语言文字概述</h2>
+                    <p>阿昌族是一个有着悠久历史和丰富文化的少数民族，拥有自己独特的语言体系。阿昌语是汉藏语系藏缅语族阿昌语支的重要组成部分，反映了阿昌族人民的思维方式、生活习惯和文化传统。虽然阿昌族没有本民族的文字，但在历史发展过程中，阿昌族人民通过借用汉文和傣文，创造了丰富多彩的口头文学和文化遗产。</p>
+                </section>
+
+                <!-- 语言系属与分布 -->
+                <section class="achang-section">
+                    <h2>语言系属与分布</h2>
+                    <p>阿昌语属于汉藏语系藏缅语族阿昌语支，是阿昌族人民的主要交际工具。根据语言特点和地理分布，阿昌语可以分为三个方言区：</p>
+                    <ul>
+                        <li><strong>陇川方言：</strong>主要分布在云南省德宏傣族景颇族自治州陇川县的户撒、腊撒等地，是阿昌语的主要方言。</li>
+                        <li><strong>梁河方言：</strong>主要分布在云南省德宏傣族景颇族自治州梁河县的遮岛、大厂等地，与陇川方言有一定的差异。</li>
+                        <li><strong>潞西方言：</strong>主要分布在云南省德宏傣族景颇族自治州潞西市的三台山等地，与陇川方言和梁河方言都有一定的差异。</li>
+                    </ul>
+                    <p>此外，由于长期与汉族、傣族等民族杂居，阿昌族人民普遍兼通汉语和傣语，尤其是在年轻一代中，汉语的使用更加广泛。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="achang-section">
+                    <h2>语言特点</h2>
+                    <p>阿昌语具有鲜明的民族特色和语言特点，主要表现在以下几个方面：</p>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h5>语音特点</h5>
+                            <p>阿昌语的语音系统比较复杂，有21个声母、8个韵母和4个声调。阿昌语的声母包括双唇音、唇齿音、舌尖音、舌面音和舌根音等，韵母包括单元音和复元音。阿昌语的声调分为高平调、中平调、低降调和高升调，不同的声调可以区别不同的词义。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>词汇特点</h5>
+                            <p>阿昌语的词汇丰富多样，包括名词、动词、形容词、副词、代词、数词、量词等。阿昌语的词汇主要来源于本民族的传统词汇，同时也吸收了大量的汉语借词和傣语借词。阿昌语的构词方式主要有复合构词和派生构词两种，其中复合构词是最主要的构词方式。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>语法特点</h5>
+                            <p>阿昌语的语法特点主要表现在词序和虚词的使用上。阿昌语的基本词序是主语-谓语-宾语，与汉语相同。阿昌语的虚词包括助词、连词、介词等，这些虚词在句子中起到连接、修饰、补充等作用。此外，阿昌语还有丰富的形态变化，如动词的时态、体貌等。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>语言表达</h5>
+                            <p>阿昌语的语言表达生动形象，富有表现力。阿昌族人民在日常生活中，经常使用比喻、拟人、夸张等修辞手法，使语言更加生动有趣。此外，阿昌语中还有大量的谚语、歇后语、谜语等，这些语言形式不仅是阿昌族人民智慧的结晶，也是阿昌族文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用情况 -->
+                <section class="achang-section">
+                    <h2>文字使用情况</h2>
+                    <p>阿昌族没有本民族的文字，历史上主要使用汉文和傣文。在长期的历史发展过程中，阿昌族人民通过借用汉文和傣文，记录了丰富的历史文化资料，传承了本民族的文化遗产。</p>
+                    <ul>
+                        <li><strong>汉文的使用：</strong>汉文是阿昌族人民使用最广泛的文字之一。自明清以来，随着汉族文化的传入，阿昌族人民开始学习和使用汉文。现在，阿昌族人民普遍使用汉文，汉文已经成为阿昌族人民学习、工作和生活的重要工具。</li>
+                        <li><strong>傣文的使用：</strong>傣文是阿昌族人民使用的另一种重要文字。由于阿昌族与傣族长期杂居，阿昌族人民受到傣族文化的影响，开始学习和使用傣文。在历史上，阿昌族的一些宗教经典、历史传说等都是用傣文记录的。</li>
+                        <li><strong>现代文字使用：</strong>随着社会的发展和教育的普及，阿昌族人民的文化素质不断提高，汉文的使用范围越来越广泛。现在，阿昌族的学校教育主要使用汉文，阿昌族的青少年普遍掌握了汉文读写能力。</li>
+                    </ul>
+                </section>
+
+                <!-- 口头文学 -->
+                <section class="achang-section">
+                    <h2>口头文学</h2>
+                    <p>由于没有本民族的文字，阿昌族的文学主要以口头文学的形式传承下来。阿昌族的口头文学丰富多彩，包括神话、传说、故事、民歌、谚语等，这些口头文学作品是阿昌族文化的重要组成部分。</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>阿昌族的神话传说主要讲述了天地万物的起源、人类的诞生、民族的起源等内容，如《遮帕麻与遮米麻》是阿昌族最著名的创世神话，讲述了阿昌族的祖先遮帕麻和遮米麻创造天地、人类的故事。</li>
+                        <li><strong>民间故事：</strong>阿昌族的民间故事内容丰富，包括爱情故事、生活故事、动物故事等。这些故事反映了阿昌族人民的生活状况、思想感情和道德观念，如《聪明的阿昌姑娘》、《勇敢的阿昌小伙》等。</li>
+                        <li><strong>民歌民谣：</strong>阿昌族的民歌民谣是阿昌族人民表达情感、传递信息的重要方式。阿昌族的民歌民谣种类繁多，包括劳动歌、情歌、叙事歌、祭祀歌等。这些民歌民谣旋律优美，歌词生动，反映了阿昌族人民的生活和情感。</li>
+                        <li><strong>谚语谜语：</strong>阿昌族的谚语谜语是阿昌族人民智慧的结晶，反映了阿昌族人民的生活经验和思想智慧。阿昌族的谚语简洁明了，富有哲理，如“只要功夫深，铁杵磨成针”、“团结就是力量”等。阿昌族的谜语构思巧妙，富有趣味性，是阿昌族人民喜爱的娱乐形式之一。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言保护与发展 -->
+                <section class="achang-section">
+                    <h2>语言保护与发展</h2>
+                    <p>随着社会的发展和现代化进程的加快，阿昌语面临着前所未有的挑战。为了保护和发展阿昌语，阿昌族人民和有关部门采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>语言调查与研究：</strong>近年来，有关部门组织专家学者对阿昌语进行了全面的调查和研究，记录了阿昌语的语音、词汇、语法等方面的资料，为阿昌语的保护和发展提供了科学依据。</li>
+                        <li><strong>语言教育与传承：</strong>在阿昌族聚居区的学校中，开设了阿昌语课程，教授阿昌语的基本词汇和语法，培养学生的阿昌语能力。此外，阿昌族的民间艺人也通过口传心授的方式，传承阿昌语和阿昌族的口头文学。</li>
+                        <li><strong>文化活动与宣传：</strong>通过举办阿昌族文化节、阿昌语演讲比赛、阿昌族民歌大赛等活动，促进阿昌语的使用和传播。此外，利用现代媒体如广播、电视、网络等，宣传和推广阿昌语，提高阿昌语的社会影响力。</li>
+                        <li><strong>语言政策与法规：</strong>国家制定了一系列语言政策和法规，保护少数民族的语言权利，为阿昌语的保护和发展提供了法律保障。例如，《中华人民共和国民族区域自治法》规定，各民族都有使用和发展自己的语言文字的自由。</li>
+                    </ul>
+                    <p>通过这些措施，阿昌语的保护和发展取得了一定的成效。现在，越来越多的阿昌族人民认识到保护和发展阿昌语的重要性，积极参与到阿昌语的保护和发展中来。相信在阿昌族人民的共同努力下，阿昌语一定能够得到更好的保护和发展，继续为阿昌族文化的传承和弘扬做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

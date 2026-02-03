@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经方派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+            
+            .school-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .school-nav a {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>经方派</h1>
+                <p>中国传统医学的重要流派之一</p>
+                <a href="medicine.html" class="back-home">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 医学流派导航 -->
+                <nav class="school-nav">
+                    <ul>
+                        <li><a href="medicine_school_butu.html">补土派</a></li>
+                        <li><a href="medicine_school_gongxie.html">攻邪派</a></li>
+                        <li><a href="medicine_school_huoshen.html">火神派</a></li>
+                        <li><a href="medicine_school_jingfang.html" class="active">经方派</a></li>
+                        <li><a href="medicine_school_shanghan.html">伤寒学派</a></li>
+                        <li><a href="medicine_school_shifang.html">时方派</a></li>
+                        <li><a href="medicine_school_wenbing.html">温病学派</a></li>
+                        <li><a href="medicine_school_ziyin.html">滋阴派</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 创始人 -->
+                <section class="medicine-section">
+                    <h2>创始人</h2>
+                    <p>经方派的创始人可以追溯到东汉时期的张仲景，他撰写的《伤寒杂病论》是经方派的奠基之作。经方派在历史上的代表人物包括清代的陈修园、徐大椿、尤怡等医学家。</p>
+                    <p>陈修园（1753-1823年），名念祖，字修园，福建长乐人。他一生致力于经方的研究和推广，编写了《伤寒论浅注》、《金匮要略浅注》等著作，对经方派的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 起源 -->
+                <section class="medicine-section">
+                    <h2>起源</h2>
+                    <p>经方派的起源可以追溯到东汉时期，当时张仲景撰写了《伤寒杂病论》一书，系统地总结了外感热病和内伤杂病的诊疗规律，并记录了大量有效的方剂，这些方剂被后人称为"经方"。</p>
+                    <p>经方派的正式形成是在明清时期，当时许多医学家对《伤寒杂病论》进行了深入的研究和阐发，强调使用经方治疗疾病，形成了独特的学术流派。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="medicine-section">
+                    <h2>发展</h2>
+                    <h3>东汉时期：经方的起源</h3>
+                    <p>东汉时期是经方起源的时期。张仲景（公元150-219年）撰写了《伤寒杂病论》一书，系统地论述了外感热病和内伤杂病的诊疗规律，并收录了大量有效的方剂，这些方剂被后人称为"经方"。</p>
+                    <p>张仲景的经方具有以下特点：</p>
+                    <ul>
+                        <li>配伍严谨，君臣佐使分明</li>
+                        <li>药量精确，疗效显著</li>
+                        <li>适应症明确，针对性强</li>
+                        <li>药味较少而精，疗效确切</li>
+                    </ul>
+                    
+                    <h3>魏晋南北朝时期：经方的整理与传承</h3>
+                    <p>魏晋南北朝时期是经方整理与传承的重要时期。由于战乱频繁，《伤寒杂病论》原书一度散失。西晋医学家王叔和（公元201-280年）对《伤寒杂病论》进行了系统整理，将其分为《伤寒论》和《金匮要略》两部分，使这部医学经典得以保存和流传。</p>
+                    <p>南北朝时期，梁代医学家陶弘景（公元456-536年）在《本草经集注》中记录了大量经方，并对经方的配伍和应用进行了详细的说明，进一步推动了经方的应用。</p>
+                    
+                    <h3>隋唐时期：经方的推广与应用</h3>
+                    <p>隋唐时期，经方的应用得到了广泛的推广。唐代医学家孙思邈（公元581-682年）在其著作《千金要方》和《千金翼方》中记录了大量经方，并结合自己的临床经验进行了补充和发挥。他提出的"方证对应"思想，对经方的应用产生了深远的影响。</p>
+                    <p>唐代另一位医学家王焘（公元670-755年）在其著作《外台秘要》中也收录了大量经方，并对经方的来源和应用进行了详细的说明，进一步推动了经方的应用。</p>
+                    
+                    <h3>宋金元时期：经方的研究与发挥</h3>
+                    <p>宋金元时期，经方的研究进入了一个新的阶段。北宋医学家成无己（公元1063-1156年）著有《注解伤寒论》，这是第一部系统注解《伤寒论》的著作，他用《黄帝内经》的理论来解释经方的配伍和应用，为经方的理论发展做出了重要贡献。</p>
+                    <p>元代医学家张元素（公元1130-1230年）著有《医学启源》，提出了"药物归经"理论，对经方的配伍和应用有新的认识。元代医学家李东垣（公元1180-1251年）著有《脾胃论》，强调脾胃在疾病治疗中的重要性，对经方的应用进行了创新。</p>
+                    
+                    <h3>明清时期：经方派的形成与鼎盛</h3>
+                    <p>明清时期是经方派形成和发展的鼎盛时期，出现了许多著名的经方医家，他们对《伤寒杂病论》进行了深入的研究和阐发，强调使用经方治疗疾病，形成了独特的学术流派。</p>
+                    <ul>
+                        <li><strong>陈修园（1753-1823年）</strong>：著有《伤寒论浅注》、《金匮要略浅注》等著作，以通俗易解的语言注释《伤寒杂病论》，强调经方的重要性，对经方派的发展做出了重要贡献。</li>
+                        <li><strong>徐大椿（1693-1771年）</strong>：著有《伤寒类方》、《医学源流论》等著作，主张以方类证，强调经方的临床应用。</li>
+                        <li><strong>尤怡（1650-1749年）</strong>：著有《伤寒贯珠集》、《金匮要略心典》等著作，对经方的配伍和应用进行了详细的分析，强调辨证论治。</li>
+                        <li><strong>柯琴（1662-1735年）</strong>：著有《伤寒来苏集》，主张以方类证，强调经方的原始配伍和药量，对经方的应用有深入的研究。</li>
+                        <li><strong>黄元御（1705-1758年）</strong>：著有《伤寒悬解》、《金匮悬解》等著作，对经方的理论和应用有独特的见解。</li>
+                    </ul>
+                    
+                    <h3>近代：经方的传承与创新</h3>
+                    <p>近代，经方的传承与创新进入了一个新的阶段。许多医学家致力于经方的研究和推广，取得了显著的成果。</p>
+                    <ul>
+                        <li><strong>曹颖甫（1883-1938年）</strong>：近代著名经方医家，著有《伤寒发微》、《金匮发微》等著作，强调方证对应，对经方的应用有深入的研究。</li>
+                        <li><strong>胡希恕（1898-1984年）</strong>：近代著名经方医家，主张以方类证，强调经方的临床应用，对经方的理论和应用有系统的研究。</li>
+                        <li><strong>刘渡舟（1917-2001年）</strong>：现代著名经方医家，著有《伤寒论专题讲座》、《金匮要略专题讲座》等著作，对经方的理论和应用有系统的研究。</li>
+                        <li><strong>黄煌（1954- ）</strong>：现代著名经方医家，继承曹颖甫的学术思想，著有《经方传真》、《伤寒杂病论讲义》等著作，强调方证对应，推动了经方的现代研究。</li>
+                    </ul>
+                    <p>近年来，随着中医现代化的推进，经方的研究也进入了一个新的阶段。通过现代科学技术的研究，人们对经方的作用机制、配伍规律、药量关系等有了更深入的认识，经方的应用范围也在不断扩大。</p>
+                    <p>同时，经方的国际化也取得了显著的成果。许多经方已经被翻译成多种语言，在世界范围内得到了广泛的应用。例如，小柴胡汤、麻黄汤、桂枝汤等经方已经成为世界范围内治疗疾病的重要方剂。</p>
+                    <p>经方作为中国传统医学的重要组成部分，将继续为人类的健康事业做出重要的贡献。</p>
+                </section>
+
+                <!-- 理论 -->
+                <section class="medicine-section">
+                    <h2>理论</h2>
+                    <p>经方派的核心理论是强调使用《伤寒杂病论》等经典著作中的方剂治疗疾病，注重方剂的原始配伍和药量，认为经方是治疗疾病的有效方法。经方派的理论特点包括：</p>
+                    <ul>
+                        <li><strong>重视经典</strong>：经方派强调研读《伤寒杂病论》等经典著作，认为经典著作是医学的基础。</li>
+                        <li><strong>使用经方</strong>：经方派强调使用经方治疗疾病，认为经方是经过实践验证的有效方剂。</li>
+                        <li><strong>注重药量</strong>：经方派强调药物的原始药量，认为药量是方剂疗效的关键。</li>
+                        <li><strong>辨证论治</strong>：经方派强调辨证论治，根据患者的具体情况选择合适的经方。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="medicine-section">
+                    <h2>影响</h2>
+                    <p>经方派对中国传统医学的发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>方剂学</strong>：经方派的经方是中医方剂学的重要组成部分，许多经方至今仍被广泛应用于临床。</li>
+                        <li><strong>临床实践</strong>：经方派的理论和方法被广泛应用于临床实践，成为中医治疗疾病的重要方法之一。</li>
+                        <li><strong>医学教育</strong>：《伤寒杂病论》是中医教育的重要教材，是培养中医人才的重要内容。</li>
+                        <li><strong>学术流派</strong>：经方派的发展推动了其他医学流派的形成和发展，丰富了中医的学术体系。</li>
+                    </ul>
+                </section>
+
+                <!-- 著作 -->
+                <section class="medicine-section">
+                    <h2>著作</h2>
+                    <ul>
+                        <li><strong>《伤寒杂病论》</strong>：东汉张仲景著，经方派的奠基之作，系统地论述了外感热病和内伤杂病的诊疗规律。</li>
+                        <li><strong>《伤寒论》</strong>：西晋王叔和整理，《伤寒杂病论》的伤寒部分，专门论述外感热病的诊疗规律。</li>
+                        <li><strong>《金匮要略》</strong>：西晋王叔和整理，《伤寒杂病论》的杂病部分，专门论述内伤杂病的诊疗规律。</li>
+                        <li><strong>《伤寒论浅注》</strong>：清代陈修园著，对《伤寒论》进行了详细的注释和阐发。</li>
+                        <li><strong>《金匮要略浅注》</strong>：清代陈修园著，对《金匮要略》进行了详细的注释和阐发。</li>
+                        <li><strong>《伤寒类方》</strong>：清代徐大椿著，主张以方类证，强调经方的临床应用。</li>
+                    </ul>
+                </section>
+
+                <!-- 语录 -->
+                <section class="medicine-section">
+                    <h2>语录</h2>
+                    <ul>
+                        <li><strong>"经方者，经验之方也，非圣人不能制，非异人不能用。"</strong> —— 《伤寒论浅注》</li>
+                        <li><strong>"经方之妙，在于配伍，在于药量，在于辨证。"</strong> —— 《伤寒来苏集》</li>
+                        <li><strong>"仲景之书，万世之法也，不可改易。"</strong> —— 《金匮要略浅注》</li>
+                        <li><strong>"经方者，中医之精华也，学中医者不可不知。"</strong> —— 《中医方剂学》</li>
+                        <li><strong>"用经方者，当守法度，明理，活法。"</strong> —— 《伤寒论集注》</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

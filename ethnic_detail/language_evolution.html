@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉字演变 - 语言文字</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 汉字演变页面特定样式 */
+        .evolution-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .evolution-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .evolution-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .evolution-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .evolution-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-language {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-language:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .evolution-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .evolution-section {
+            margin-bottom: 80px;
+        }
+        
+        .evolution-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .evolution-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .evolution-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .evolution-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .evolution-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .evolution-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .evolution-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 演变时间线 */
+        .evolution-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .evolution-timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #c0392b;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #c0392b;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f9f9f9;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f9f9f9 transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background-color: #f9f9f9;
+            position: relative;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .timeline-content .period {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 15px;
+        }
+        
+
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .evolution-header h1 {
+                font-size: 36px;
+            }
+            
+            .evolution-header p {
+                font-size: 18px;
+            }
+            
+            .evolution-section h2 {
+                font-size: 28px;
+            }
+            
+            .evolution-section h3 {
+                font-size: 24px;
+            }
+            
+            .evolution-timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid #f9f9f9;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #f9f9f9 transparent transparent;
+            }
+            
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .evolution-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .evolution-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="evolution-header">
+        <div class="container">
+            <div class="evolution-header-content">
+                <h1>汉字演变</h1>
+                <p>从甲骨文到现代汉字的历史变迁</p>
+                <a href="language.html" class="back-language">返回语言文字</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="evolution-main">
+        <div class="container">
+            <div class="evolution-content">
+                <!-- 介绍部分 -->
+                <section class="evolution-section">
+                    <h2>汉字演变概述</h2>
+                    <p>汉字是世界上最古老的文字之一，已有三千多年的历史。汉字的演变是一个漫长而复杂的过程，从最初的甲骨文、金文，到篆书、隶书、楷书，再到行书、草书，每一种字体都有其独特的历史背景和艺术特征。</p>
+                    <p>汉字的演变过程反映了中国社会的发展和文化的进步，是中国传统文化的重要组成部分。通过研究汉字的演变，我们可以了解中国古代的历史、文化和社会生活，感受汉字的独特魅力和深厚底蕴。</p>
+                </section>
+
+                <!-- 演变时间线 -->
+                <section class="evolution-section">
+                    <h2>汉字演变时间线</h2>
+                    <div class="evolution-timeline">
+                        <!-- 甲骨文 -->
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>甲骨文</h4>
+                                <div class="period">约公元前1600年-公元前1046年（商朝）</div>
+                                <p>甲骨文是中国已发现的最早成熟文字系统，主要刻在龟甲和兽骨上，用于占卜和记录。甲骨文具有以下特点：</p>
+                                <ul>
+                                    <li>象形性强，字形与实物形状相似</li>
+                                    <li>笔画纤细，多为直线和折线</li>
+                                    <li>结构不定型，同一字有多种写法</li>
+                                    <li>内容主要涉及祭祀、战争、狩猎等</li>
+                                </ul>
+                                <p>甲骨文的发现对于研究商朝历史和汉字起源具有重要意义。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 金文 -->
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>金文</h4>
+                                <div class="period">约公元前1046年-公元前256年（周朝）</div>
+                                <p>金文是铸刻在青铜器上的文字，也称为钟鼎文。金文具有以下特点：</p>
+                                <ul>
+                                    <li>笔画粗壮，线条圆润</li>
+                                    <li>字形结构趋于规范</li>
+                                    <li>内容主要涉及祭祀、赏赐、征伐等</li>
+                                    <li>字体风格庄重典雅</li>
+                                </ul>
+                                <p>金文是研究周朝历史和文化的重要资料。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 篆书 -->
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>篆书</h4>
+                                <div class="period">约公元前221年-公元前207年（秦朝）</div>
+                                <p>篆书是秦朝统一六国后推行的标准文字，分为大篆和小篆。篆书具有以下特点：</p>
+                                <ul>
+                                    <li>笔画均匀，线条婉转流畅</li>
+                                    <li>字形结构整齐规范</li>
+                                    <li>奠定了汉字的基本结构</li>
+                                    <li>字体风格古朴典雅</li>
+                                </ul>
+                                <p>篆书的推行对于促进中国的统一和文化交流起到了重要作用。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 隶书 -->
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>隶书</h4>
+                                <div class="period">约公元前202年-公元220年（汉朝）</div>
+                                <p>隶书是汉朝时期流行的文字，是汉字从古文字向今文字演变的转折点。隶书具有以下特点：</p>
+                                <ul>
+                                    <li>笔画简化，便于书写</li>
+                                    <li>出现了波磔，蚕头燕尾</li>
+                                    <li>字形结构扁平，左右开张</li>
+                                    <li>奠定了现代汉字的基础</li>
+                                </ul>
+                                <p>隶书的出现标志着汉字进入了今文字阶段。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 楷书 -->
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>楷书</h4>
+                                <div class="period">约公元220年-公元589年（魏晋南北朝）</div>
+                                <p>楷书是魏晋南北朝时期形成的文字，是现代汉字的标准字体。楷书具有以下特点：</p>
+                                <ul>
+                                    <li>笔画工整，结构严谨</li>
+                                    <li>字形方正，便于识别</li>
+                                    <li>字体风格端庄秀丽</li>
+                                    <li>成为官方和文人的通用字体</li>
+                                </ul>
+                                <p>楷书的形成标志着汉字的发展进入了成熟阶段。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 行书与草书 -->
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>行书与草书</h4>
+                                <div class="period">魏晋时期至今</div>
+                                <p>行书和草书是魏晋时期发展起来的字体，具有以下特点：</p>
+                                <ul>
+                                    <li><strong>行书：</strong>介于楷书和草书之间，笔画流畅自然，书写速度快</li>
+                                    <li><strong>草书：</strong>笔画简化，结构连绵，书写速度更快</li>
+                                    <li>行书成为日常书写的主要字体</li>
+                                    <li>草书成为书法艺术的重要表现形式</li>
+                                </ul>
+                                <p>行书和草书的出现丰富了汉字的书写形式。</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 现代汉字 -->
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>现代汉字</h4>
+                                <div class="period">20世纪至今</div>
+                                <p>现代汉字是在传统汉字的基础上发展而来的，具有以下特点：</p>
+                                <ul>
+                                    <li>推行简化字，减少笔画，便于书写</li>
+                                    <li>制定统一的字形标准</li>
+                                    <li>推广汉语拼音，辅助汉字学习</li>
+                                    <li>实现汉字的信息化处理</li>
+                                </ul>
+                                <p>现代汉字的发展适应了现代社会的需要，促进了汉字的普及和应用。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 演变特点 -->
+                <section class="evolution-section">
+                    <h2>汉字演变的特点</h2>
+                    <h3>由繁到简</h3>
+                    <p>汉字的演变总体上呈现出由繁到简的趋势：</p>
+                    <ul>
+                        <li>笔画逐渐简化，减少了书写难度</li>
+                        <li>字形结构逐渐规范，提高了识别效率</li>
+                        <li>异体字逐渐减少，标准化程度提高</li>
+                        <li>书写速度逐渐加快，适应了社会发展的需要</li>
+                    </ul>
+                    
+                    <h3>由象形到表意</h3>
+                    <p>汉字的演变经历了从象形到表意的转变：</p>
+                    <ul>
+                        <li>早期汉字（甲骨文、金文）象形性强，直接模拟实物形状</li>
+                        <li>后来的汉字（篆书、隶书、楷书）逐渐抽象化，通过符号来表达意义</li>
+                        <li>形声字的比例逐渐增加，提高了汉字的表音功能</li>
+                        <li>汉字的表意功能得到加强，能够表达更加抽象的概念</li>
+                    </ul>
+                    
+                    <h3>由不定型到定型</h3>
+                    <p>汉字的演变经历了从不定型到定型的过程：</p>
+                    <ul>
+                        <li>早期汉字（甲骨文、金文）同一字有多种写法，结构不定型</li>
+                        <li>秦朝推行篆书，统一了汉字的字形</li>
+                        <li>汉朝隶书的出现，进一步规范了汉字的结构</li>
+                        <li>魏晋南北朝时期楷书的形成，标志着汉字的定型</li>
+                    </ul>
+                    
+                    <h3>由表形到表义</h3>
+                    <p>汉字的演变经历了从表形到表义的发展：</p>
+                    <ul>
+                        <li>早期汉字主要通过形状来表示事物</li>
+                        <li>后来的汉字通过组合和抽象来表达更加复杂的意义</li>
+                        <li>汉字的构字方式更加多样化，如会意、形声等</li>
+                        <li>汉字的意义更加丰富，能够表达更加抽象的概念</li>
+                    </ul>
+                </section>
+
+
+
+                <!-- 演变原因 -->
+                <section class="evolution-section">
+                    <h2>汉字演变的原因</h2>
+                    <h3>社会发展的需要</h3>
+                    <p>随着社会的发展，人们的交流日益频繁，对文字的需求也不断增加。汉字需要更加简便、规范、高效，以适应社会发展的需要。</p>
+                    
+                    <h3>书写工具的改进</h3>
+                    <p>书写工具的改进对汉字的演变产生了重要影响：</p>
+                    <ul>
+                        <li>甲骨文使用刀刻，笔画纤细</li>
+                        <li>金文使用范铸，笔画粗壮</li>
+                        <li>篆书、隶书使用毛笔，笔画更加灵活</li>
+                        <li>现代使用钢笔、圆珠笔等，书写更加便捷</li>
+                    </ul>
+                    
+                    <h3>文化交流的影响</h3>
+                    <p>文化交流对汉字的演变产生了积极影响：</p>
+                    <ul>
+                        <li>不同地区、不同民族之间的文化交流促进了汉字的传播和发展</li>
+                        <li>外来文化的影响丰富了汉字的词汇和表达方式</li>
+                        <li>文化交流推动了汉字的规范化和标准化</li>
+                    </ul>
+                    
+                    <h3>统治阶级的推动</h3>
+                    <p>统治阶级的政策对汉字的演变起到了重要的推动作用：</p>
+                    <ul>
+                        <li>秦朝推行篆书，统一了汉字</li>
+                        <li>汉朝推广隶书，促进了汉字的简化</li>
+                        <li>现代政府推行简化字，提高了汉字的普及率</li>
+                    </ul>
+                </section>
+
+                <!-- 演变意义 -->
+                <section class="evolution-section">
+                    <h2>汉字演变的意义</h2>
+                    <h3>文化传承</h3>
+                    <p>汉字的演变是中国文化传承的重要组成部分：</p>
+                    <ul>
+                        <li>汉字记录了中国几千年的历史和文化</li>
+                        <li>汉字是中国传统文化的重要载体</li>
+                        <li>通过汉字，我们可以了解中国古代的历史、文化和社会生活</li>
+                    </ul>
+                    
+                    <h3>社会发展</h3>
+                    <p>汉字的演变促进了社会的发展：</p>
+                    <ul>
+                        <li>汉字的简化提高了书写效率，促进了信息的传播</li>
+                        <li>汉字的规范化提高了交流效率，促进了社会的和谐发展</li>
+                        <li>汉字的信息化处理适应了现代社会的需要</li>
+                    </ul>
+                    
+                    <h3>艺术价值</h3>
+                    <p>汉字的演变具有重要的艺术价值：</p>
+                    <ul>
+                        <li>不同时期的汉字具有不同的艺术风格</li>
+                        <li>汉字的演变过程是中国书法艺术发展的历史</li>
+                        <li>汉字的形态美是中国传统美学的重要组成部分</li>
+                    </ul>
+                    
+                    <h3>国际影响</h3>
+                    <p>汉字的演变对周边国家和地区产生了深远的影响：</p>
+                    <ul>
+                        <li>汉字传入日本、朝鲜半岛、越南等国家，对这些国家的文字和文化产生了重要影响</li>
+                        <li>汉字是东亚文化圈的重要组成部分</li>
+                        <li>随着中国综合国力的增强，汉字的国际影响力不断扩大</li>
+                    </ul>
+                </section>
+
+                <!-- 现代汉字的发展 -->
+                <section class="evolution-section">
+                    <h2>现代汉字的发展</h2>
+                    <h3>简化字运动</h3>
+                    <p>20世纪50年代，中国政府推行了汉字简化运动，主要内容包括：</p>
+                    <ul>
+                        <li>1956年公布《汉字简化方案》，简化了2236个汉字</li>
+                        <li>1964年公布《简化字总表》，收录了2236个简化字</li>
+                        <li>简化字的推行提高了汉字的书写效率和普及率</li>
+                    </ul>
+                    
+                    <h3>汉语拼音方案</h3>
+                    <p>1958年，中国政府公布了《汉语拼音方案》，主要内容包括：</p>
+                    <ul>
+                        <li>使用拉丁字母为汉字标注读音</li>
+                        <li>为汉字的学习和推广提供了便利</li>
+                        <li>为汉字的信息化处理奠定了基础</li>
+                    </ul>
+                    
+                    <h3>汉字信息化</h3>
+                    <p>随着计算机和互联网的普及，汉字的信息化处理取得了重大突破：</p>
+                    <ul>
+                        <li>汉字编码方案的制定，如GB2312、GBK、GB18030等</li>
+                        <li>汉字输入法的发明，如拼音输入法、五笔输入法等</li>
+                        <li>汉字在计算机和互联网上的广泛应用</li>
+                    </ul>
+                    
+                    <h3>汉字国际化</h3>
+                    <p>随着中国综合国力的增强，汉字的国际化进程不断加快：</p>
+                    <ul>
+                        <li>汉字成为联合国官方语言之一</li>
+                        <li>全球掀起了"汉语热"，越来越多的外国人学习汉语和汉字</li>
+                        <li>汉字在国际交往中的作用越来越重要</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.evolution-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

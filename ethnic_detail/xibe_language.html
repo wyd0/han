@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锡伯族语言文字- 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 锡伯族语言文字页面特定样式 */
+        .xibe-header {
+            background-image: url('images/锡伯族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .xibe-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .xibe-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .xibe-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .xibe-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .xibe-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .xibe-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .xibe-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .xibe-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .xibe-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .xibe-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .xibe-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .xibe-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .xibe-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .xibe-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 文字示例样式 */
+        .script-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .script-example h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .script-example p {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="xibe-header">
+        <div class="container">
+            <div class="xibe-header-content">
+                <h1>锡伯族语言文字</h1>
+                <p>承载民族文化的重要载体</p>
+                <a href="xibe.html" class="back-difference">返回锡伯族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="xibe-main">
+        <div class="container">
+            <div class="xibe-content">
+                <!-- 语言文字概述 -->
+                <section class="xibe-section">
+                    <h2>语言文字概述</h2>
+                    <p>锡伯族有自己的语言和文字，它们是锡伯族文化的重要组成部分，也是锡伯族人民传承历史、交流思想、表达情感的重要工具。锡伯族语言和文字的发展历程，反映了锡伯族与其他民族的文化交流与融合，也体现了锡伯族人民的智慧和创造力。</p>
+                    <p>锡伯族语言属于阿尔泰语系满-通古斯语族满语支，与满语、赫哲语等语言有着密切的亲属关系。锡伯族文字则是在满文的基础上发展而来的，是一种拼音文字，具有独特的书写规则和风格。</p>
+                </section>
+
+                <!-- 锡伯族语言 -->
+                <section class="xibe-section">
+                    <h3>锡伯族语言</h3>
+                    <p>锡伯族语言是锡伯族人民在长期的生产生活中形成和发展起来的，它不仅是锡伯族文化的重要载体，也是中华民族语言宝库中的重要组成部分。</p>
+                    
+                    <h4>语言系属</h4>
+                    <p>锡伯族语言属于阿尔泰语系满-通古斯语族满语支，与满语、赫哲语、鄂温克语等语言有着密切的亲属关系。在语音、词汇、语法等方面，锡伯族语言与满语尤为接近，这主要是因为锡伯族在历史上与满族有着密切的联系。</p>
+                    
+                    <h4>语言特点</h4>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>锡伯族语言的语音系统比较丰富，包括元音和辅音。元音有单元音和复合元音，辅音则包括塞音、擦音、塞擦音、鼻音、边音等。锡伯族语言的重音通常落在词的最后一个音节上。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>锡伯族语言的词汇丰富多样，包括名词、动词、形容词、副词、代词、数词、量词等。词汇的构成方式主要有词根派生法、复合构词法等。同时，锡伯族语言中也吸收了大量汉语、维吾尔语、哈萨克语等其他民族语言的借词。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>锡伯族语言的语法属于粘着语类型，主要通过在词根或词干后添加各种附加成分来表示语法意义。句子的基本语序为"主语-宾语-谓语"，修饰语通常位于被修饰语之前。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>语言使用现状</h4>
+                    <p>随着社会的发展和民族间的交流日益频繁，锡伯族语言的使用情况也发生了一些变化。在新疆察布查尔锡伯自治县等锡伯族聚居区，锡伯族语言仍然是当地锡伯族人民日常生活和交流的主要语言。而在东北地区等锡伯族散居区，由于与汉族等其他民族的长期杂居，许多锡伯族人民已经转而使用汉语。</p>
+                    <p>为了保护和传承锡伯族语言，中国政府和锡伯族各界人士采取了一系列措施，如在锡伯族聚居区设立锡伯语学校、出版锡伯语书籍和报刊、制作锡伯语广播和电视节目等，这些措施对于锡伯族语言的保护和传承起到了重要的作用。</p>
+                </section>
+
+                <!-- 锡伯族文字 -->
+                <section class="xibe-section">
+                    <h3>锡伯族文字</h3>
+                    <p>锡伯族文字是锡伯族人民在长期的历史发展过程中创造和使用的文字，它是锡伯族文化传承的重要载体，对于研究锡伯族的历史、文化、社会等方面具有重要的价值。</p>
+                    
+                    <h4>文字的起源与发展</h4>
+                    <p>锡伯族文字是在满文的基础上发展而来的。满文是满族人民在16世纪末17世纪初，在蒙古文的基础上创制的一种拼音文字。清朝时期，锡伯族被编入八旗，受到满族文化的深刻影响，逐渐接受并使用满文。</p>
+                    <p>19世纪末20世纪初，锡伯族知识分子在满文的基础上，对其进行了一些改革和创新，使它更加适合锡伯族语言的特点，从而形成了锡伯族文字。锡伯族文字与满文在字母形式、书写规则等方面基本相同，但在一些具体的语音表示上有所差异。</p>
+                    
+                    <h4>文字的特点</h4>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>字母系统</h4>
+                            <p>锡伯族文字采用拼音字母系统，共有131个字母，其中包括6个元音字母和125个辅音字母。这些字母可以组合成不同的音节，用于表示锡伯族语言的各种语音。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>书写规则</h4>
+                            <p>锡伯族文字的书写规则与满文基本相同，采用从上到下、从左到右的竖写方式。书写时，字母之间要紧密相连，形成一个整体。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>标点符号</h4>
+                            <p>锡伯族文字使用的标点符号与汉文基本相同，包括逗号、句号、问号、感叹号等，用于表示句子的停顿、语气等。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>文字示例</h4>
+                    <div class="script-example">
+                        <h4>锡伯文书写示例</h4>
+                        <p>锡伯族：ᠰᡞᠪᠰᡞ</p>
+                        <p>你好：ᠰᡞᠨᡝᠨ</p>
+                        <p>谢谢：ᠰᡞᠨᡝᠨ ᠪᠠᡳ᠌ᠨ</p>
+                        <p>我爱锡伯族：ᠪᠣᠣ ᠰᡞᠪᠰᡞᠨᡝᠨ ᠨᡳᠶᠠᠮᠠᠨ</p>
+                    </div>
+                    
+                    <h4>文字的使用与传承</h4>
+                    <p>锡伯族文字是锡伯族文化传承的重要工具，在锡伯族的历史、文学、宗教等方面都发挥着重要的作用。锡伯族人民用锡伯文记录了大量的历史文献、民间故事、诗歌、谚语等，这些文献对于研究锡伯族的历史和文化具有重要的价值。</p>
+                    <p>为了保护和传承锡伯族文字，中国政府和锡伯族各界人士采取了一系列措施，如在锡伯族聚居区的学校中开设锡伯文课程、出版锡伯文书籍和报刊、建立锡伯文网站等。同时，一些锡伯族知识分子也致力于锡伯文的研究和推广，为锡伯族文字的传承和发展做出了重要的贡献。</p>
+                </section>
+
+                <!-- 语言文字的文化意义 -->
+                <section class="xibe-section">
+                    <h3>语言文字的文化意义</h3>
+                    <p>锡伯族语言文字是锡伯族文化的重要组成部分，具有多方面的文化意义：</p>
+                    <ul>
+                        <li><strong>文化传承的载体：</strong>锡伯族语言文字是锡伯族文化传承的重要载体，通过语言文字，锡伯族的历史、文化、传统等得以记录和传承。</li>
+                        <li><strong>民族认同的标志：</strong>锡伯族语言文字是锡伯族民族认同的重要标志，是锡伯族人民区别于其他民族的重要特征之一。</li>
+                        <li><strong>文化交流的桥梁：</strong>锡伯族语言文字是锡伯族与其他民族进行文化交流的桥梁，通过语言文字的翻译和传播，锡伯族文化与其他民族文化得以相互交流和融合。</li>
+                        <li><strong>文学艺术的基础：</strong>锡伯族语言文字是锡伯族文学艺术发展的基础，锡伯族的诗歌、故事、谚语等文学形式都依赖于语言文字的表达。</li>
+                    </ul>
+                    <p>锡伯族语言文字的保护和传承，不仅对于锡伯族自身的发展具有重要意义，也对于丰富中华民族的语言文化宝库、促进各民族之间的文化交流与融合具有重要的价值。</p>
+                </section>
+
+                <!-- 语言文字的保护与发展 -->
+                <section class="xibe-section">
+                    <h3>语言文字的保护与发展</h3>
+                    <p>在当今全球化和现代化的背景下，锡伯族语言文字面临着一些挑战，如使用范围缩小、年轻一代对语言文字的掌握程度下降等。为了保护和发展锡伯族语言文字，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>加强教育传承：</strong>在锡伯族聚居区的学校中，加强锡伯语和锡伯文的教育，培养年轻一代对锡伯族语言文字的兴趣和掌握能力。</li>
+                        <li><strong>促进社会使用：</strong>在锡伯族聚居区的日常生活、公务活动、媒体传播等领域，积极推广锡伯族语言文字的使用，营造良好的语言文字使用环境。</li>
+                        <li><strong>加强学术研究：</strong>组织专家学者对锡伯族语言文字进行深入的学术研究，探讨其特点、规律和发展趋势，为语言文字的保护和发展提供理论支持。</li>
+                        <li><strong>利用现代技术：</strong>利用现代信息技术，如互联网、手机应用等，开发锡伯族语言文字的学习和使用工具，扩大语言文字的传播范围。</li>
+                        <li><strong>加强文化活动：</strong>通过举办锡伯族语言文字相关的文化活动，如演讲比赛、作文比赛、书法展览等，提高锡伯族人民对语言文字的重视和热爱。</li>
+                    </ul>
+                    <p>锡伯族语言文字是锡伯族人民的宝贵财富，也是中华民族多元文化的重要组成部分。通过全社会的共同努力，相信锡伯族语言文字一定能够得到更好的保护和发展，继续在锡伯族文化传承中发挥重要的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.xibe-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

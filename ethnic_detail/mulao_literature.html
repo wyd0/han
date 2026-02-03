@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仫佬族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 仫佬族文学艺术页面特定样式 */
+        .mulao-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mulao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mulao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mulao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-mulao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-mulao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mulao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mulao-section {
+            margin-bottom: 80px;
+        }
+        
+        .mulao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mulao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mulao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mulao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mulao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术样式 */
+        .literature-art {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .art-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .art-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 民歌示例样式 */
+        .folk-song-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .folk-song-example h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .song-lyrics {
+            font-style: italic;
+            line-height: 2;
+            color: #666;
+        }
+        
+        /* 动画类 */
+        .mulao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .mulao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .art-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .art-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .art-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .art-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .art-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .art-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .mulao-header h1 {
+                font-size: 36px;
+            }
+            
+            .mulao-header p {
+                font-size: 18px;
+            }
+            
+            .mulao-section h2 {
+                font-size: 28px;
+            }
+            
+            .literature-art {
+                grid-template-columns: 1fr;
+            }
+            
+            .folk-song-example {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="mulao-header">
+        <div class="container">
+            <div class="mulao-header-content">
+                <h1>仫佬族文学艺术</h1>
+                <p>丰富多彩的民间文学，独具特色的艺术形式</p>
+                <a href="mulao.html" class="back-mulao">返回仫佬族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mulao-main">
+        <div class="container">
+            <div class="mulao-content">
+                <!-- 文学艺术概述 -->
+                <section class="mulao-section">
+                    <h2>文学艺术概述</h2>
+                    <p>仫佬族的文学艺术是丰富多彩的，包括民间文学、音乐、舞蹈、戏剧等多种形式。这些文学艺术形式是仫佬族人民在长期的生产生活中创造和积累的，反映了仫佬族的历史、文化、社会生活和精神世界，是仫佬族文化的重要组成部分。</p>
+                    <p>仫佬族的文学艺术具有独特的民族特色和地方风格，它不仅是仫佬族人民智慧的结晶，也是中华文化百花园中的一朵奇葩。通过研究和了解仫佬族的文学艺术，我们可以更好地认识和理解仫佬族的历史和文化。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="mulao-section">
+                    <h3>民间文学</h3>
+                    <div class="literature-art">
+                        <div class="art-item">
+                            <h4>神话传说</h4>
+                            <p>仫佬族的神话传说内容丰富，主要包括创世神话、人类起源神话、自然神话等。这些神话传说反映了仫佬族人民对自然界的认识、对人类起源的思考、对美好生活的向往，是仫佬族民间文学的重要组成部分。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>民间故事</h4>
+                            <p>仫佬族的民间故事题材广泛，包括生活故事、爱情故事、动物故事、寓言故事等。这些民间故事生动有趣，语言朴实，情节曲折，反映了仫佬族人民的生活面貌、思想感情和道德观念，具有浓郁的民族特色和地方风格。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>民歌</h4>
+                            <p>民歌是仫佬族民间文学的重要组成部分，也是仫佬族人民最喜爱的文学形式之一。仫佬族的民歌内容丰富，形式多样，分为叙事歌、情歌、劳动歌、仪式歌等多种类型。民歌的语言简洁明快，旋律优美动听，是仫佬族人民表达情感、交流思想的重要工具。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>谚语谜语</h4>
+                            <p>仫佬族的谚语和谜语是仫佬族人民智慧的结晶。谚语是仫佬族人民在长期的生产生活中总结出来的经验之谈，语言简洁，寓意深刻，具有教育意义。谜语则是仫佬族人民创造的一种有趣的语言游戏，通过比喻、暗示等手法，描述事物的特征，让人们猜测，具有娱乐性和知识性。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 民歌示例 -->
+                <section class="mulao-section">
+                    <h3>民歌示例</h3>
+                    <div class="folk-song-example">
+                        <h4>情歌示例</h4>
+                        <div class="song-lyrics">
+                            <p>哥在山上打柴烧，妹在山下割青草。<br>
+                            抬头望见妹的影，斧头砍在手指梢。<br>
+                            妹在山下割青草，哥在山上打柴烧。<br>
+                            抬头望见哥的影，镰刀割在裤脚腰。</p>
+                        </div>
+                        <h4>劳动歌示例</h4>
+                        <div class="song-lyrics">
+                            <p>太阳出来红彤彤，仫佬人民下田垌。<br>
+                            左手拿着秧苗把，右手插秧快如风。<br>
+                            插得秧苗齐整整，秋后稻谷满仓囤。<br>
+                            仫佬人民多勤劳，幸福生活万年长。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐艺术 -->
+                <section class="mulao-section">
+                    <h3>音乐艺术</h3>
+                    <p>仫佬族的音乐艺术具有独特的民族特色，主要包括民歌和器乐演奏等形式。</p>
+                    <div class="literature-art">
+                        <div class="art-item">
+                            <h4>民歌</h4>
+                            <p>仫佬族的民歌是仫佬族音乐的主体，内容丰富，形式多样。根据内容和功能的不同，仫佬族的民歌可以分为叙事歌、情歌、劳动歌、仪式歌等多种类型。民歌的旋律优美动听，节奏明快，具有浓郁的民族特色和地方风格。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>器乐演奏</h4>
+                            <p>仫佬族的器乐演奏也是仫佬族音乐的重要组成部分。仫佬族的传统乐器主要有二胡、笛子、铜鼓、锣、鼓等。这些乐器在仫佬族的传统节日、婚礼、葬礼等场合中被广泛使用，为仫佬族的文化生活增添了丰富的色彩。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 舞蹈艺术 -->
+                <section class="mulao-section">
+                    <h3>舞蹈艺术</h3>
+                    <p>仫佬族的舞蹈艺术具有独特的民族特色，主要包括祭祀舞蹈、民间舞蹈等形式。</p>
+                    <div class="literature-art">
+                        <div class="art-item">
+                            <h4>依饭舞</h4>
+                            <p>依饭舞是仫佬族的传统祭祀舞蹈，主要在依饭节期间表演。依饭舞的动作优美，节奏明快，内容丰富，主要包括请神、献祭、娱神等环节。通过依饭舞，仫佬族人民表达了对神灵的敬仰和对美好生活的向往。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>狮子舞</h4>
+                            <p>狮子舞是仫佬族的传统民间舞蹈，主要在春节等传统节日期间表演。狮子舞的动作矫健有力，节奏明快，表演形式多样，深受仫佬族人民的喜爱。通过狮子舞，仫佬族人民表达了对新年的祝福和对美好生活的向往。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>龙舞</h4>
+                            <p>龙舞是仫佬族的传统民间舞蹈，主要在春节、元宵节等传统节日期间表演。龙舞的动作矫健有力，气势磅礴，表演形式多样，深受仫佬族人民的喜爱。通过龙舞，仫佬族人民表达了对新年的祝福和对风调雨顺、五谷丰登的祈求。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 戏剧艺术 -->
+                <section class="mulao-section">
+                    <h3>戏剧艺术</h3>
+                    <p>仫佬族的戏剧艺术主要有师公戏等形式。师公戏是仫佬族的传统戏剧，它起源于仫佬族的宗教仪式，后来逐渐发展成为一种独立的戏剧形式。</p>
+                    <div class="literature-art">
+                        <div class="art-item">
+                            <h4>师公戏</h4>
+                            <p>师公戏是仫佬族的传统戏剧，主要由师公（宗教职业者）表演。师公戏的内容主要包括宗教故事、历史故事、民间传说等，表演形式多样，包括唱、念、做、打等。师公戏的语言朴实，音乐优美，具有浓郁的民族特色和地方风格，深受仫佬族人民的喜爱。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>现代戏剧</h4>
+                            <p>随着社会的发展和文化的交流，仫佬族的戏剧艺术也在不断发展和创新。现代仫佬族戏剧在保留传统特色的基础上，吸收了其他民族戏剧的精华，内容更加丰富，形式更加多样，成为仫佬族文化生活的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的文化意义 -->
+                <section class="mulao-section">
+                    <h3>文学艺术的文化意义</h3>
+                    <p>仫佬族的文学艺术具有重要的文化意义，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化传承</strong>：仫佬族的文学艺术是仫佬族文化的重要载体，通过文学艺术，仫佬族的历史、文化、传统等得到了传承和弘扬。</li>
+                        <li><strong>社会功能</strong>：仫佬族的文学艺术具有多种社会功能，如教育功能、娱乐功能、凝聚功能等。通过文学艺术，仫佬族人民传递了道德观念、价值观念，丰富了文化生活，增强了民族凝聚力。</li>
+                        <li><strong>艺术价值</strong>：仫佬族的文学艺术具有独特的艺术价值，它不仅是仫佬族人民智慧的结晶，也是中华文化百花园中的一朵奇葩，为中华文化的繁荣和发展做出了贡献。</li>
+                        <li><strong>研究价值</strong>：仫佬族的文学艺术是研究仫佬族历史、文化、社会生活的重要资料，通过研究仫佬族的文学艺术，我们可以更好地认识和理解仫佬族的历史和文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的保护与传承 -->
+                <section class="mulao-section">
+                    <h3>文学艺术的保护与传承</h3>
+                    <p>仫佬族的文学艺术是仫佬族文化的瑰宝，保护和传承仫佬族的文学艺术对于保护和传承仫佬族文化具有重要意义。为了保护和传承仫佬族的文学艺术，我们可以采取以下措施：</p>
+                    <ul>
+                        <li><strong>记录和整理</strong>：组织专家学者对仫佬族的文学艺术进行调查、研究和整理，记录和保存相关的资料，如民歌、民间故事、戏剧剧本等。</li>
+                        <li><strong>培养传承人</strong>：通过各种方式培养仫佬族文学艺术的传承人，如举办培训班、拜师学艺等，确保仫佬族的文学艺术能够后继有人。</li>
+                        <li><strong>开展活动</strong>：定期开展仫佬族文学艺术活动，如民歌比赛、戏剧表演、民间故事讲述等，丰富仫佬族人民的文化生活，促进仫佬族文学艺术的传承和发展。</li>
+                        <li><strong>教育传承</strong>：将仫佬族的文学艺术纳入学校教育体系，让年轻一代了解和认识本民族的文学艺术，增强民族自豪感和认同感。</li>
+                        <li><strong>创新发展</strong>：在保留传统特色的基础上，对仫佬族的文学艺术进行创新和发展，使其适应现代社会的需求，焕发新的生机和活力。</li>
+                    </ul>
+                    <p>总之，仫佬族的文学艺术是仫佬族文化的重要组成部分，对于研究和了解仫佬族的历史、文化、社会等方面具有重要意义。我们应该重视和保护仫佬族的文学艺术，让它在现代社会中继续发扬光大，为仫佬族文化的繁荣和发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

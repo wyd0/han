@@ -1,0 +1,329 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布朗族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布朗族宗教信仰页面特定样式 */
+        .blang-header {
+            background-image: url('images/布朗族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .blang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .blang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .blang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .blang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-blang {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-blang:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .blang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .blang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .blang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .blang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .blang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .blang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .blang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .blang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .blang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .blang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教活动样式 */
+        .religion-activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .activity-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .activity-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .activity-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .blang-header h1 {
+                font-size: 36px;
+            }
+            
+            .blang-header p {
+                font-size: 18px;
+            }
+            
+            .blang-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-activities {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="blang-header">
+        <div class="container">
+            <div class="blang-header-content">
+                <h1>布朗族宗教信仰</h1>
+                <p>南传佛教与原始宗教的融合</p>
+                <a href="blang.html" class="back-blang">返回布朗族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="blang-main">
+        <div class="container">
+            <div class="blang-content">
+                <!-- 宗教信仰概述 -->
+                <section class="blang-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>布朗族是一个有着悠久宗教传统的民族，其宗教信仰呈现出多元融合的特点。布朗族人民主要信仰南传佛教（上座部佛教），同时也保留了许多原始宗教的信仰和仪式。这种多元宗教信仰体系，反映了布朗族文化的包容性和丰富性。</p>
+                    <p>南传佛教在布朗族社会中占有重要地位，对布朗族的文化、艺术、节日等方面产生了深远影响。同时，原始宗教的信仰和仪式，如祖先崇拜、自然崇拜等，也在布朗族的日常生活中发挥着重要作用。</p>
+                </section>
+
+                <!-- 南传佛教 -->
+                <section class="blang-section">
+                    <h3>南传佛教</h3>
+                    <p>南传佛教是布朗族最主要的宗教信仰，大约在公元14世纪左右传入布朗族地区。布朗族的南传佛教信仰，主要受到傣族南传佛教的影响。</p>
+                    <p>布朗族村寨一般都有佛寺，是布朗族人民进行宗教活动的重要场所。佛寺不仅是宗教活动的中心，也是布朗族文化教育的重要场所，许多布朗族的历史、文化、艺术等知识，都是通过佛寺传承下来的。</p>
+                    <p>布朗族的南传佛教僧侣称为"佛爷"，在布朗族社会中享有很高的地位。佛爷负责主持宗教仪式、传教、教育等工作，是布朗族精神生活的指导者。</p>
+                </section>
+
+                <!-- 原始宗教 -->
+                <section class="blang-section">
+                    <h3>原始宗教</h3>
+                    <p>布朗族在信仰南传佛教的同时，也保留了许多原始宗教的信仰和仪式。原始宗教是布朗族最古老的宗教形式，反映了布朗族人民对自然、祖先的崇拜和敬畏。</p>
+                    <p>布朗族的原始宗教信仰主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>祖先崇拜：</strong>布朗族人民相信祖先的灵魂会保佑后代，因此非常重视对祖先的祭祀。每年的重要节日，布朗族人民都会举行隆重的祭祖仪式，祈求祖先的保佑。</li>
+                        <li><strong>自然崇拜：</strong>布朗族人民对自然现象充满敬畏，相信自然界的各种事物都有神灵主宰。他们崇拜山神、水神、树神等自然神灵，认为这些神灵会影响人们的生产和生活。</li>
+                        <li><strong>图腾崇拜：</strong>部分布朗族支系还保留着图腾崇拜的痕迹，如崇拜龙、蛇等动物，认为这些动物是自己的祖先或保护神。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教活动 -->
+                <section class="blang-section">
+                    <h3>主要宗教活动</h3>
+                    <div class="religion-activities">
+                        <div class="activity-item">
+                            <h4>祭祀祖先</h4>
+                            <p>布朗族人民非常重视对祖先的祭祀，认为祖先的灵魂会保佑后代。祭祀祖先的仪式通常在每年的重要节日举行，如春节、清明节等。在仪式中，人们会准备丰盛的祭品，如米饭、肉类、水果等，向祖先祈求平安和丰收。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h4>念经做斋</h4>
+                            <p>念经做斋是布朗族南传佛教的重要宗教活动。布朗族人民会定期邀请佛爷到家中或佛寺中念经做斋，祈求神灵的保佑，消灾解难。念经做斋的仪式通常持续数天，期间人们会禁食肉类，虔诚祈祷。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h4>佛教节日</h4>
+                            <p>布朗族的佛教节日主要有开门节、关门节、泼水节等。这些节日是布朗族人民欢庆的重要时刻，也是传承佛教文化的重要载体。在这些节日里，人们会举行各种庆祝活动，如拜佛、念经、跳舞等。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h4>自然神灵祭祀</h4>
+                            <p>布朗族人民会定期祭祀自然神灵，如山神、水神、树神等，祈求风调雨顺、五谷丰登。祭祀自然神灵的仪式通常在重要的生产季节举行，如播种、收获等时期。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教对布朗族社会的影响 -->
+                <section class="blang-section">
+                    <h3>宗教对布朗族社会的影响</h3>
+                    <p>宗教信仰对布朗族社会的各个方面都产生了深远的影响，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化艺术：</strong>布朗族的宗教信仰对其文化艺术产生了深远影响。布朗族的建筑、绘画、音乐、舞蹈等艺术形式，都融入了宗教元素，具有浓郁的宗教色彩。</li>
+                        <li><strong>社会规范：</strong>布朗族的宗教教义和仪式，对布朗族的社会规范和道德准则产生了重要影响。宗教教义中的善恶观念、因果报应等思想，成为布朗族人民行为的重要准则。</li>
+                        <li><strong>节日习俗：</strong>布朗族的许多节日和习俗，都与宗教信仰密切相关。如开门节、关门节、泼水节等节日，都是由宗教信仰演变而来的。</li>
+                        <li><strong>心理安慰：</strong>宗教信仰为布朗族人民提供了心理安慰和精神寄托，帮助他们面对生活中的困难和挑战。在遇到挫折或灾难时，布朗族人民会通过宗教仪式寻求心灵的慰藉。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

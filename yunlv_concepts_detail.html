@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韵律基本概念详细说明 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 韵律基本概念页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .concepts-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .concepts-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .concepts-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .concepts-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .concepts-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .concepts-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .concepts-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .concepts-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .concepts-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .concepts-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .concepts-section h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .concepts-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .concepts-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .concepts-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .concepts-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .concepts-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 概念示例 */
+        .concepts-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .concepts-example h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .concepts-example p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .concepts-example .example-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+        }
+        
+        .concepts-example .example-line:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        .concepts-example .key-term {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        
+        /* 表格样式 */
+        .concepts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(249, 249, 249, 0.95);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .concepts-table th,
+        .concepts-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .concepts-table th {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .concepts-table tr:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .concepts-header h1 {
+                font-size: 36px;
+            }
+            
+            .concepts-header p {
+                font-size: 18px;
+            }
+            
+            .concepts-section h2 {
+                font-size: 28px;
+            }
+            
+            .concepts-section h3 {
+                font-size: 24px;
+            }
+            
+            .concepts-section h4 {
+                font-size: 20px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="concepts-header">
+        <div class="container">
+            <div class="concepts-header-content">
+                <h1>韵律基本概念详细说明</h1>
+                <p>中国古典诗歌的音韵要素解析</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="yunlv_detail.html" class="back-link">返回韵律详解</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速导航栏 -->
+    <div style="background-color: rgba(255, 255, 255, 0.95); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+        <div class="container">
+            <div style="display: flex; justify-content: center; overflow-x: auto; padding: 15px 0;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#rhyme" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        押韵
+                    </a>
+                    <a href="#rhyme-category" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        韵部
+                    </a>
+                    <a href="#rhyme-foot" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        韵脚
+                    </a>
+                    <a href="#pingze" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        平仄
+                    </a>
+                    <a href="#duizhang" style="display: inline-block; padding: 8px 16px; text-decoration: none; color: #c0392b; font-size: 16px; font-family: 'SimSun', serif; border-radius: 20px; transition: all 0.3s ease; white-space: nowrap;">
+                        对仗
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            a[href="#rhyme"]:hover,
+            a[href="#rhyme-category"]:hover,
+            a[href="#rhyme-foot"]:hover,
+            a[href="#pingze"]:hover,
+            a[href="#duizhang"]:hover {
+                background-color: #c0392b;
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+            }
+        </style>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="concepts-main">
+        <div class="container">
+            <div class="concepts-content">
+                <!-- 押韵 -->
+                <section id="rhyme" class="concepts-section">
+                    <h2>押韵</h2>
+                    <p>押韵是中国古典诗歌中最基本、最核心的韵律要素，指的是诗歌中某些句子末尾使用相同或相近的韵部的字，以形成和谐的音响效果。押韵是诗歌形式美的重要体现，也是诗歌区别于其他文学形式的重要特征。从《诗经》到现代诗歌，押韵一直是诗歌创作中不可或缺的元素。</p>
+                    
+                    <h3>押韵的作用</h3>
+                    <ul>
+                        <li><strong>增强音乐美</strong>：押韵可以使诗歌产生和谐的音响效果，创造出优美的节奏和韵律，增强诗歌的音乐性。当读者朗读或背诵押韵的诗歌时，会感受到一种自然的节奏感和韵律美，这也是诗歌能够被广泛传诵的重要原因之一。</li>
+                        <li><strong>突出主题</strong>：押韵可以强调诗歌的主题和情感，使诗歌的核心内容更加突出。通过在关键位置使用押韵的字，诗人可以引导读者的注意力，突出诗歌的中心思想和情感表达。</li>
+                        <li><strong>便于记忆</strong>：押韵可以使诗歌更加容易记忆，朗朗上口，便于传诵。押韵的诗歌具有较强的节奏感和重复性，这些特点有助于记忆，使诗歌能够在没有文字记录的情况下通过口耳相传的方式保存下来。</li>
+                        <li><strong>结构统一</strong>：押韵可以将诗歌的各个部分有机地联系在一起，形成一个统一的整体。通过押韵，诗歌的各个句子和段落之间建立了一种内在的联系，使整首诗歌成为一个结构严谨、和谐统一的艺术作品。</li>
+                        <li><strong>情感表达</strong>：押韵还可以帮助诗人表达情感。不同的韵部有不同的音响效果，诗人可以根据自己的情感表达需要选择合适的韵部，使诗歌的情感表达更加准确和强烈。</li>
+                    </ul>
+                    
+                    <h3>押韵的类型</h3>
+                    
+                    <h4>句尾押韵</h4>
+                    <p>句尾押韵是最常见的押韵方式，指的是在句子末尾使用押韵的字。这种押韵方式在各种诗歌形式中都很常见，是最基本的押韵形式：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《静夜思》</h5>
+                        <div class="example-line">
+                            <span>床前明月光，</span>
+                            <span>韵脚：光（唐韵·阳部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>疑是地上霜。</span>
+                            <span>韵脚：霜（唐韵·阳部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>举头望明月，</span>
+                            <span>韵脚：月（唐韵·月部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>低头思故乡。</span>
+                            <span>韵脚：乡（唐韵·阳部）</span>
+                        </div>
+                        <p>分析：本诗中，第一句"光"、第二句"霜"、第四句"乡"均为"阳"韵，第三句"月"为"月"韵，采用了隔句押韵的方式。这种押韵方式使诗歌朗朗上口，易于记忆，是近体诗中常见的押韵形式。</p>
+                    </div>
+                    
+                    <h4>句中押韵</h4>
+                    <p>句中押韵是指在句子中间使用押韵的字，这种押韵方式在楚辞和古体诗中比较常见，能够产生独特的音响效果：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>屈原《离骚》</h5>
+                        <div class="example-line">
+                            <span>帝高阳之苗裔兮，朕皇考曰伯庸。</span>
+                            <span>韵脚：裔（质韵）、庸（东部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>摄提贞于孟陬兮，惟庚寅吾以降。</span>
+                            <span>韵脚：陬（幽部）、降（东部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>皇览揆余初度兮，肇锡余以嘉名。</span>
+                            <span>韵脚：度（铎韵）、名（耕部）</span>
+                        </div>
+                        <p>分析：《离骚》的押韵方式比较特殊，句尾的"兮"字不参与押韵，实际押韵位置在"兮"字之前的词语。这种押韵方式使诗歌具有独特的节奏感和音乐美，是楚辞的重要特征之一。</p>
+                    </div>
+                    
+                    <h4>交韵</h4>
+                    <p>交韵是指两行交替押韵，即第一行和第三行押韵，第二行和第四行押韵，这种押韵方式在古体诗中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>《诗经·蒹葭》</h5>
+                        <div class="example-line">
+                            <span>蒹葭苍苍，白露为霜。</span>
+                            <span>韵脚：苍（阳部）、霜（阳部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>所谓伊人，在水一方。</span>
+                            <span>韵脚：人（真部）、方（阳部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>溯洄从之，道阻且长。</span>
+                            <span>韵脚：之（之部）、长（阳部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>溯游从之，宛在水中央。</span>
+                            <span>韵脚：之（之部）、央（阳部）</span>
+                        </div>
+                        <p>分析：《蒹葭》采用了交韵的方式，每四句为一个单元，第一、三句押"之"韵，第二、四句押"阳"韵。这种押韵方式使诗歌具有独特的节奏感和音乐美。</p>
+                    </div>
+                    
+                    <h3>押韵的密度</h3>
+                    
+                    <h4>句句押韵</h4>
+                    <p>句句押韵是指诗歌中每一句都押韵，这种押韵方式能够产生强烈的节奏感和音乐美，适合表达欢快、激昂的情感：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>《诗经·关雎》</h5>
+                        <div class="example-line">
+                            <span>关关雎鸠，在河之洲。</span>
+                            <span>韵脚：鸠（幽部）、洲（幽部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>窈窕淑女，君子好逑。</span>
+                            <span>韵脚：女（鱼部）、逑（幽部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>参差荇菜，左右流之。</span>
+                            <span>韵脚：菜（之部）、流（幽部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>窈窕淑女，寤寐求之。</span>
+                            <span>韵脚：女（鱼部）、求（幽部）</span>
+                        </div>
+                        <p>分析：《关雎》采用了句句押韵的方式，每一句都使用了押韵的字。这种押韵方式使诗歌具有强烈的节奏感和音乐美，是《诗经》中常见的押韵形式。</p>
+                    </div>
+                    
+                    <h4>隔句押韵</h4>
+                    <p>隔句押韵是指诗歌中偶数句押韵，奇数句不押韵，这种押韵方式是近体诗的标准押韵方式，能够产生平稳、和谐的节奏感：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《春望》</h5>
+                        <div class="example-line">
+                            <span>国破山河在，城春草木深。</span>
+                            <span>韵脚：深（侵部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>感时花溅泪，恨别鸟惊心。</span>
+                            <span>韵脚：心（侵部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>烽火连三月，家书抵万金。</span>
+                            <span>韵脚：金（侵部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>白头搔更短，浑欲不胜簪。</span>
+                            <span>韵脚：簪（侵部）</span>
+                        </div>
+                        <p>分析：《春望》采用了隔句押韵的方式，第二、四、六、八句押韵，第一、三、五、七句不押韵。这种押韵方式使诗歌具有平稳、和谐的节奏感，是近体诗中最常见的押韵形式。</p>
+                    </div>
+                    
+                    <h4>换韵</h4>
+                    <p>换韵是指在诗歌中根据内容和情感的变化更换韵部，这种押韵方式在古体诗和词中比较常见，能够适应内容和情感的变化：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《将进酒》</h5>
+                        <div class="example-line">
+                            <span>君不见黄河之水天上来，奔流到海不复回。</span>
+                            <span>韵脚：来（灰部）、回（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>君不见高堂明镜悲白发，朝如青丝暮成雪。</span>
+                            <span>韵脚：发（月部）、雪（月部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>人生得意须尽欢，莫使金樽空对月。</span>
+                            <span>韵脚：欢（元部）、月（月部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>天生我材必有用，千金散尽还复来。</span>
+                            <span>韵脚：用（用韵）、来（灰部）</span>
+                        </div>
+                        <p>分析：《将进酒》采用了频繁换韵的方式，根据内容和情感的变化不断更换韵部。这种押韵方式使诗歌能够适应内容和情感的变化，增强诗歌的表现力和感染力。</p>
+                    </div>
+                </section>
+
+                <!-- 韵部 -->
+                <section id="rhyme-category" class="concepts-section">
+                    <h2>韵部</h2>
+                    <p>韵部是指汉字按照韵母划分的类别，是押韵的基础。不同时代有不同的韵部标准，反映了不同时期汉语语音的特点。韵部的划分对于诗歌创作和欣赏具有重要意义，它不仅是诗歌押韵的依据，也是研究汉语语音演变的重要资料。</p>
+                    
+                    <h3>韵部的演变</h3>
+                    
+                    <h4>《诗经》韵部</h4>
+                    <p>《诗经》是中国第一部诗歌总集，收录了西周至春秋时期的诗歌。其韵部系统反映了上古汉语的语音特点，根据现代学者的研究（如王力先生的《诗经韵读》），《诗经》中的诗歌大致可以分为30个左右的韵部，包括东部、阳部、鱼部、支部、脂部、微部等。这些韵部的划分主要基于诗歌的实际用韵情况，是研究上古汉语语音系统的重要依据。</p>
+                    
+                    <div class="concepts-example">
+                        <h5>《诗经》韵部示例</h5>
+                        <div class="example-line">
+                            <span>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</span>
+                            <span>韵部：鸠（幽部）、洲（幽部）、女（鱼部）、逑（幽部）</span>
+                        </div>
+                    </div>
+                    
+                    <h4>《切韵》韵部</h4>
+                    <p>《切韵》是隋代陆法言编著的韵书，成书于公元601年。它是中国音韵学史上的重要著作，也是中古汉语语音系统的代表。《切韵》将汉字分为193个韵部，包括平声54韵、上声51韵、去声56韵、入声32韵。这些韵部的划分非常精细，反映了南北朝时期汉语语音的复杂特点，是后世韵书的基础。</p>
+                    
+                    <h4>《广韵》韵部</h4>
+                    <p>《广韵》是宋代陈彭年、丘雍等编著的韵书，成书于公元1008年。它是《切韵》的增订本，对《切韵》进行了扩充和修订。《广韵》将汉字分为206个韵部，包括平声57韵、上声55韵、去声60韵、入声34韵。《广韵》是中国古代最完整的韵书之一，保存了大量中古汉语的语音资料，对于研究汉语语音演变和诗歌用韵具有重要价值。</p>
+                    
+                    <h4>《平水韵》韵部</h4>
+                    <p>《平水韵》是金代王文郁编著的《平水新刊韵略》（1227年）和元代刘渊编著的《壬子新刊礼部韵略》（1252年）的统称。由于王文郁和刘渊都祖籍平水（今山西临汾），因此后人将他们的韵书称为《平水韵》。《平水韵》对《广韵》的206韵进行了合并，最终形成106个韵部，包括平声30韵（上平15韵、下平15韵）、上声29韵、去声30韵、入声17韵。《平水韵》是后世最常用的韵书，也是近体诗的标准用韵依据，对中国古典诗歌的发展产生了深远的影响。</p>
+                    
+                    <div class="concepts-table">
+                        <table>
+                            <tr>
+                                <th>韵书</th>
+                                <th>时代</th>
+                                <th>韵部数量</th>
+                                <th>特点</th>
+                            </tr>
+                            <tr>
+                                <td>《诗经》韵部</td>
+                                <td>西周至春秋</td>
+                                <td>约30个</td>
+                                <td>反映上古汉语语音系统，基于诗歌实际用韵</td>
+                            </tr>
+                            <tr>
+                                <td>《切韵》</td>
+                                <td>隋代</td>
+                                <td>193个</td>
+                                <td>反映中古汉语语音系统，精细复杂</td>
+                            </tr>
+                            <tr>
+                                <td>《广韵》</td>
+                                <td>宋代</td>
+                                <td>206个</td>
+                                <td>《切韵》的增订本，更加详细完整</td>
+                            </tr>
+                            <tr>
+                                <td>《平水韵》</td>
+                                <td>金代至清代</td>
+                                <td>106个</td>
+                                <td>近体诗的标准用韵依据，影响深远</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>平水韵韵部详解</h3>
+                    
+                    <h4>上平声（15韵）</h4>
+                    <ul>
+                        <li><strong>一东</strong>：东、冬、钟、中、终、风、枫、峰、丰、功、公、空、穹、穷、通、同、桐、铜、童、瞳、忠、衷、冲、充、葱、匆、聪、琮、棕、松、嵩、洪、红、虹、鸿、工、攻、贡、觥、肱、宫、弓、躬、恭、龚、蚣等。此韵部字多为开口度较大的字，音响亮开阔，适合表达宏大、豪放的情感。</li>
+                        <li><strong>二冬</strong>：冬、农、宗、钟、龙、胸、容、蓉、溶、庸、慵、封、峰、锋、蜂、烽、逢、缝、冯、朋、棚、鹏、蓬、篷、蒙、朦、檬、萌、盟、瞢、懵、胧、笼、聋、窿、重、崇、宠、戎、绒、茸、融、熔、嵘、熊、雄、穹等。此韵部与一东韵相近，但字的开口度略小，音响效果较为柔和。</li>
+                        <li><strong>三江</strong>：江、缸、窗、邦、降、双、泷、庞、逄、撞、幢、桩、桩、淙、嵸、摐、洚、扛、矼、釭、哤、尨、尨、逄、庞、庬、茫、杗、釭等。此韵部字较少，开口度大，音响亮有力，适合表达雄壮、豪迈的情感。</li>
+                        <li><strong>四支</strong>：支、枝、肢、知、之、芝、脂、师、诗、时、期、欺、旗、棋、奇、骑、其、齐、祈、祇、耆、脐、黎、犁、梨、泥、倪、猊、霓、麋、眉、嵋、湄、楣、媒、煤、莓、梅、每、美、昧、寐、秘、泌、密、蜜等。此韵部字较多，是常用韵部之一，音响效果较为平和。</li>
+                        <li><strong>五微</strong>：微、薇、晖、辉、徽、挥、韦、围、违、巍、归、圭、闺、龟、瑰、傀、鬼、贵、桂、跪、隗、伟、伪、苇、炜、玮、卫、渭、蔚、慰、魏、巍、委、萎、唯、惟、维、为、位、畏、胃、谓、尉等。此韵部字开口度较小，音响效果较为细腻，适合表达细腻、深沉的情感。</li>
+                        <li><strong>六鱼</strong>：鱼、渔、余、予、妤、盂、于、予、臾、谀、腴、愉、瑜、榆、虞、愚、隅、嵎、嵛、娄、楼、偻、蝼、髅、卢、庐、炉、芦、菰、孤、辜、姑、沽、菇、鸪、酤、轱、葫、瑚、糊、蝴、醐、湖、葫、护、互、户、沪、扈、怙、祜、岵、瓠等。此韵部字多为唇音和舌面音，音响效果较为圆润柔和。</li>
+                    </ul>
+                    
+                    <h4>下平声（15韵）</h4>
+                    <ul>
+                        <li><strong>一先</strong>：先、天、千、年、烟、川、前、贤、弦、悬、泉、全、诠、拳、权、椽、传、船、沿、延、言、研、颜、盐、檐、炎、阎、严、咽、湮、燕、宴、晏、验、艳、焰、厌、砚、雁、谚等。此韵部字较多，是常用韵部之一，音响效果较为明亮，适合表达清新、明快的情感。</li>
+                        <li><strong>二萧</strong>：萧、箫、霄、消、销、超、朝、潮、嚣、骄、娇、浇、焦、蕉、椒、礁、憔、樵、谯、瞧、晓、小、筱、孝、校、效、啸、笑、肖、霄、硝、绡、逍、遥、瑶、摇、谣、姚、窑、繇、徭、遥、杳、舀、窈、曜、耀等。此韵部字多为开口度较大的字，音响亮清脆，适合表达欢快、明亮的情感。</li>
+                        <li><strong>三肴</strong>：肴、爻、包、苞、胞、抛、袍、庖、炮、哮、教、交、郊、胶、蛟、鲛、跤、佼、绞、皎、搅、矫、剿、徼、叫、轿、峤、乔、侨、桥、荞、翘、樵、谯、憔、悄、峭、诮、俏、窍、切、窃、怯、挈等。此韵部字较少，开口度大，音响亮有力，适合表达雄壮、豪迈的情感。</li>
+                        <li><strong>四豪</strong>：豪、毫、号、高、膏、羔、糕、篙、皋、遭、曹、槽、漕、嘈、操、草、早、枣、澡、蚤、躁、噪、造、皂、灶、滔、韬、掏、涛、绦、萄、桃、陶、逃、淘、叨、倒、岛、捣、蹈、到、悼、盗、道、稻、皓、浩、昊、镐、灏等。此韵部字较多，开口度大，音响亮开阔，适合表达宏大、豪放的情感。</li>
+                        <li><strong>五歌</strong>：歌、戈、波、坡、颇、婆、摩、磨、罗、萝、螺、骡、裸、瘰、蠃、赢、嬴、瀛、营、萦、盈、楹、莹、萤、荧、蝇、应、英、婴、缨、璎、鹦、莺、樱、璎、撄、嘤、罂、樱等。此韵部字多为开口度较大的字，音响亮舒缓，适合表达平和、舒缓的情感。</li>
+                    </ul>
+                    
+                    <h4>入声韵（17韵）</h4>
+                    <ul>
+                        <li><strong>一屋</strong>：屋、木、目、沐、牧、睦、穆、陆、录、鹿、禄、碌、绿、菉、鹿、漉、麓、戮、六、戮、蹴、蹙、簇、蔟、促、龊、椓、涿、啄、琢、濯、卓、焯、倬、缴、擢、濯、镯、勺、芍、杓、约、灼、酌、斫、浊、镯、浞等。此韵部字多为入声字，声调短促，音响效果较为急促有力，适合表达紧张、激越的情感。</li>
+                        <li><strong>二沃</strong>：沃、握、渥、龌、腭、谔、鄂、萼、遏、恶、锷、鹗、颚、噩、愕、谔、鹗、腭、鳄、噩等。此韵部字较少，入声字特点明显，音响效果较为沉重有力。</li>
+                    </ul>
+                </section>
+
+                <!-- 韵脚 -->
+                <section id="rhyme-foot" class="concepts-section">
+                    <h2>韵脚</h2>
+                    <p>韵脚是指诗歌中押韵的字，通常位于句子的末尾，是诗歌韵律的具体体现，也是押韵的核心要素。韵脚的选择和运用直接影响诗歌的音乐美和情感表达，是诗歌创作中需要精心考虑的重要因素。</p>
+                    
+                    <h3>韵脚的作用</h3>
+                    <ul>
+                        <li><strong>形成韵律节奏</strong>：韵脚是诗歌节奏的重要组成部分，通过押韵的字在句子末尾的重复出现，形成有规律的韵律节奏，使诗歌具有音乐美。</li>
+                        <li><strong>增强诗歌的连贯性</strong>：韵脚可以将诗歌的各个部分有机地联系在一起，形成一个统一的整体，增强诗歌的连贯性和整体性。</li>
+                        <li><strong>突出诗歌的主题</strong>：韵脚可以强调诗歌的主题和情感，使诗歌的核心内容更加突出，增强诗歌的表现力和感染力。</li>
+                        <li><strong>便于记忆和传诵</strong>：押韵的诗歌具有较强的节奏感和重复性，这些特点有助于记忆，使诗歌能够被广泛传诵。</li>
+                        <li><strong>营造诗歌的氛围</strong>：不同的韵脚有不同的音响效果，可以营造不同的诗歌氛围，如欢快、悲伤、雄壮、细腻等。</li>
+                    </ul>
+                    
+                    <h3>韵脚的位置</h3>
+                    
+                    <h4>句尾韵脚</h4>
+                    <p>句尾韵脚是最常见的韵脚位置，指的是在句子末尾使用押韵的字。这种韵脚位置在各种诗歌形式中都很常见，是最基本的韵脚形式：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>王维《山居秋暝》</h5>
+                        <div class="example-line">
+                            <span>空山新雨后，天气晚来秋。</span>
+                            <span>韵脚：秋（尤韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>明月松间照，清泉石上流。</span>
+                            <span>韵脚：流（尤韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>竹喧归浣女，莲动下渔舟。</span>
+                            <span>韵脚：舟（尤韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>随意春芳歇，王孙自可留。</span>
+                            <span>韵脚：留（尤韵）</span>
+                        </div>
+                        <p>分析：本诗采用了句尾韵脚的方式，每联的对句末尾都使用了尤韵的字，使诗歌具有和谐的韵律节奏，增强了诗歌的音乐美。</p>
+                    </div>
+                    
+                    <h4>句中韵脚</h4>
+                    <p>句中韵脚是指在句子中间使用押韵的字，这种韵脚位置在楚辞和古体诗中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>屈原《九歌·湘夫人》</h5>
+                        <div class="example-line">
+                            <span>帝子降兮北渚，目眇眇兮愁予。</span>
+                            <span>韵脚：渚（鱼韵）、予（鱼韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>袅袅兮秋风，洞庭波兮木叶下。</span>
+                            <span>韵脚：风（东韵）、下（鱼韵）</span>
+                        </div>
+                        <p>分析：《九歌·湘夫人》的韵脚位置比较特殊，句尾的"兮"字不参与押韵，实际押韵位置在"兮"字之前的词语。这种韵脚位置使诗歌具有独特的节奏感和音乐美，是楚辞的重要特征之一。</p>
+                    </div>
+                    
+                    <h4>复合韵脚</h4>
+                    <p>复合韵脚是指在一句诗中使用多个韵脚，这种韵脚位置在古体诗和民歌中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>《诗经·关雎》</h5>
+                        <div class="example-line">
+                            <span>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</span>
+                            <span>韵脚：鸠（幽部）、洲（幽部）、女（鱼部）、逑（幽部）</span>
+                        </div>
+                        <p>分析：《关雎》在一句诗中使用了多个韵脚，使诗歌具有强烈的节奏感和音乐美，是《诗经》中常见的韵脚使用方式。</p>
+                    </div>
+                    
+                    <h3>韵脚的选择技巧</h3>
+                    <p>韵脚的选择要根据诗歌的内容和情感来确定，不同的韵脚有不同的音响效果，可以表达不同的情感。以下是一些韵脚选择的技巧：</p>
+                    
+                    <h4>根据情感选择韵脚</h4>
+                    <p>不同的情感需要不同的韵脚来表达，以下是一些常见的情感与韵脚的对应关系：</p>
+                    
+                    <div class="concepts-table">
+                        <table>
+                            <tr>
+                                <th>情感类型</th>
+                                <th>适合的韵部</th>
+                                <th>音响效果</th>
+                                <th>示例</th>
+                            </tr>
+                            <tr>
+                                <td>宏大、豪放、开朗</td>
+                                <td>开口度大的韵部（如江、阳、豪）</td>
+                                <td>响亮、开阔</td>
+                                <td>李白《望庐山瀑布》（阳韵）</td>
+                            </tr>
+                            <tr>
+                                <td>细腻、深沉、忧伤</td>
+                                <td>开口度小的韵部（如侵、缉、质）</td>
+                                <td>细腻、深沉</td>
+                                <td>李清照《声声慢》（质韵）</td>
+                            </tr>
+                            <tr>
+                                <td>庄重、肃穆、悠远</td>
+                                <td>鼻音韵部（如东、冬、蒸）</td>
+                                <td>浑厚、庄重</td>
+                                <td>杜甫《登岳阳楼》（东韵）</td>
+                            </tr>
+                            <tr>
+                                <td>柔和、婉约、细腻</td>
+                                <td>唇音韵部（如鱼、虞、尤）</td>
+                                <td>圆润、柔和</td>
+                                <td>柳永《雨霖铃》（虞韵）</td>
+                            </tr>
+                            <tr>
+                                <td>欢快、明亮、活泼</td>
+                                <td>开口度大、发音清脆的韵部（如萧、肴、豪）</td>
+                                <td>清脆、明快</td>
+                                <td>杨万里《小池》（萧韵）</td>
+                            </tr>
+                            <tr>
+                                <td>紧张、激越、悲愤</td>
+                                <td>入声韵部（如屋、沃、觉）</td>
+                                <td>急促、有力</td>
+                                <td>岳飞《满江红》（觉韵）</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>根据内容选择韵脚</h4>
+                    <p>诗歌的内容也会影响韵脚的选择，以下是一些常见的内容与韵脚的对应关系：</p>
+                    <ul>
+                        <li><strong>自然景物</strong>：可以选择开口度大、音响亮的韵部，如江、阳、豪等，以表现自然景物的壮丽和开阔。</li>
+                        <li><strong>个人情感</strong>：可以选择开口度小、音响细腻的韵部，如侵、缉、质等，以表现个人情感的细腻和深沉。</li>
+                        <li><strong>历史题材</strong>：可以选择鼻音韵部，如东、冬、蒸等，以表现历史题材的庄重和悠远。</li>
+                        <li><strong>爱情题材</strong>：可以选择唇音韵部，如鱼、虞、尤等，以表现爱情题材的柔和和婉约。</li>
+                    </ul>
+                    
+                    <h4>韵脚的变化技巧</h4>
+                    <p>韵脚的变化可以使诗歌更加生动有趣，以下是一些常见的韵脚变化技巧：</p>
+                    
+                    <h5>换韵</h5>
+                    <p>换韵是指在诗歌中根据内容和情感的变化更换韵部，这种技巧在古体诗和词中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《将进酒》</h5>
+                        <div class="example-line">
+                            <span>君不见黄河之水天上来，奔流到海不复回。</span>
+                            <span>韵脚：来（灰部）、回（灰部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>君不见高堂明镜悲白发，朝如青丝暮成雪。</span>
+                            <span>韵脚：发（月部）、雪（月部）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>人生得意须尽欢，莫使金樽空对月。</span>
+                            <span>韵脚：欢（元部）、月（月部）</span>
+                        </div>
+                        <p>分析：《将进酒》根据内容和情感的变化不断更换韵部，使诗歌能够适应内容和情感的变化，增强诗歌的表现力和感染力。</p>
+                    </div>
+                    
+                    <h5>转韵</h5>
+                    <p>转韵是指在诗歌中从一个韵部逐渐过渡到另一个韵部，这种技巧在词中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>苏轼《水调歌头·明月几时有》</h5>
+                        <div class="example-line">
+                            <span>明月几时有？把酒问青天。不知天上宫阙，今夕是何年。</span>
+                            <span>韵脚：有（有韵）、天（先韵）、阙（月韵）、年（先韵）</span>
+                        </div>
+                        <p>分析：《水调歌头·明月几时有》在开头部分使用了多个韵部，从有韵逐渐过渡到先韵，使诗歌具有流畅的韵律节奏，增强了诗歌的音乐美。</p>
+                    </div>
+                    
+                    <h5>重韵</h5>
+                    <p>重韵是指在诗歌中重复使用同一个韵脚字，这种技巧在民歌和童谣中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>《江南》（汉乐府）</h5>
+                        <div class="example-line">
+                            <span>江南可采莲，莲叶何田田。鱼戏莲叶间。鱼戏莲叶东，鱼戏莲叶西，鱼戏莲叶南，鱼戏莲叶北。</span>
+                            <span>韵脚：莲（先韵）、田（先韵）、间（山韵）、东（东韵）、西（齐韵）、南（覃韵）、北（职韵）</span>
+                        </div>
+                        <p>分析：《江南》虽然没有严格的押韵，但通过重复使用"莲叶"等词语，形成了一种特殊的韵律节奏，使诗歌具有强烈的节奏感和音乐美。</p>
+                    </div>
+                    
+                    <h3>韵脚的运用示例</h3>
+                    <p>以下是一些著名诗歌中韵脚的运用示例，通过分析这些示例，我们可以更好地理解韵脚的运用技巧：</p>
+                    
+                    <h4>近体诗韵脚运用</h4>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《春望》</h5>
+                        <div class="example-line">
+                            <span>国破山河在，城春草木深。</span>
+                            <span>韵脚：深（侵韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>感时花溅泪，恨别鸟惊心。</span>
+                            <span>韵脚：心（侵韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>烽火连三月，家书抵万金。</span>
+                            <span>韵脚：金（侵韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>白头搔更短，浑欲不胜簪。</span>
+                            <span>韵脚：簪（侵韵）</span>
+                        </div>
+                        <p>分析：《春望》采用了隔句押韵的方式，第二、四、六、八句都使用了侵韵的字，使诗歌具有和谐的韵律节奏。侵韵是开口度较小的韵部，音响效果较为细腻深沉，适合表达忧伤、深沉的情感，与诗歌的主题非常契合。</p>
+                    </div>
+                    
+                    <h4>古体诗韵脚运用</h4>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《蜀道难》</h5>
+                        <div class="example-line">
+                            <span>噫吁嚱，危乎高哉！蜀道之难，难于上青天！</span>
+                            <span>韵脚：哉（咍韵）、天（先韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>蚕丛及鱼凫，开国何茫然！尔来四万八千岁，不与秦塞通人烟。</span>
+                            <span>韵脚：凫（虞韵）、然（元韵）、岁（祭韵）、烟（先韵）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>西当太白有鸟道，可以横绝峨眉巅。</span>
+                            <span>韵脚：道（皓韵）、巅（先韵）</span>
+                        </div>
+                        <p>分析：《蜀道难》采用了频繁换韵的方式，根据内容和情感的变化不断更换韵部，使诗歌能够适应内容和情感的变化，增强诗歌的表现力和感染力。这种韵脚运用方式是古体诗的常见特点。</p>
+                    </div>
+                </section>
+
+                <!-- 平仄 -->
+                <section id="pingze" class="concepts-section">
+                    <h2>平仄</h2>
+                    <p>平仄是指汉字的声调，是中国古典诗歌韵律的重要组成部分。平仄的搭配是诗歌节奏的基础，通过平仄的交替和对立，形成和谐的节奏和韵律。平仄规则是近体诗的核心规则之一，对诗歌的形式美和音乐美有着重要的影响。</p>
+                    
+                    <h3>平仄的历史演变</h3>
+                    
+                    <h4>上古汉语声调</h4>
+                    <p>上古汉语（商周时期）的声调系统尚未完全确定，根据现代学者的研究，上古汉语可能有平、上、去三声，或者平、入两声。这一时期的诗歌（如《诗经》）虽然有一定的韵律规则，但平仄的运用还不够系统和严格。</p>
+                    
+                    <h4>中古汉语声调</h4>
+                    <p>中古汉语（南北朝至唐宋时期）的声调系统已经相当成熟，形成了平、上、去、入四声的体系。这一时期的韵书（如《切韵》、《广韵》）对四声有详细的记载，平仄规则也逐渐系统化和严格化。近体诗的平仄规则就是在这一时期形成的。</p>
+                    
+                    <h4>近代汉语声调</h4>
+                    <p>近代汉语（元明清时期）的声调系统发生了较大的变化，主要是入声的消失。入声字在北方方言中逐渐派入阴平、阳平、上声、去声四声中，形成了现代普通话的声调系统。这一时期的诗歌（如元曲）虽然仍遵循一定的平仄规则，但对入声的要求已经不如中古时期严格。</p>
+                    
+                    <h4>现代汉语声调</h4>
+                    <p>现代汉语普通话有阴平、阳平、上声、去声四声，其中阴平、阳平为平，上声、去声为仄。古代汉语中的入声在现代汉语普通话中已经消失，分别派入阴平、阳平、上声、去声四声中。</p>
+                    
+                    <div class="concepts-table">
+                        <table>
+                            <tr>
+                                <th>时期</th>
+                                <th>声调系统</th>
+                                <th>平仄划分</th>
+                                <th>特点</th>
+                            </tr>
+                            <tr>
+                                <td>上古汉语</td>
+                                <td>平、上、去（或平、入）</td>
+                                <td>平为平，其他为仄</td>
+                                <td>系统尚未完全确定，运用不够严格</td>
+                            </tr>
+                            <tr>
+                                <td>中古汉语</td>
+                                <td>平、上、去、入</td>
+                                <td>平为平，上、去、入为仄</td>
+                                <td>系统成熟，运用严格，形成近体诗规则</td>
+                            </tr>
+                            <tr>
+                                <td>近代汉语</td>
+                                <td>阴平、阳平、上声、去声（入声消失）</td>
+                                <td>阴平、阳平为平，上声、去声为仄</td>
+                                <td>入声消失，规则有所放宽</td>
+                            </tr>
+                            <tr>
+                                <td>现代汉语</td>
+                                <td>阴平、阳平、上声、去声</td>
+                                <td>阴平、阳平为平，上声、去声为仄</td>
+                                <td>与近代汉语相同，适合现代诗歌创作</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>平仄的分类与特点</h3>
+                    
+                    <h4>古代汉语平仄</h4>
+                    <p>古代汉语有平、上、去、入四声，其中平声为平，上、去、入三声为仄：</p>
+                    <ul>
+                        <li><strong>平声</strong>：声调平缓，没有明显的升降变化，发音时间较长，音响效果较为平和、舒缓。</li>
+                        <li><strong>上声</strong>：声调向上扬起，发音时间中等，音响效果较为轻快、活泼。</li>
+                        <li><strong>去声</strong>：声调向下沉落，发音时间中等，音响效果较为沉重、有力。</li>
+                        <li><strong>入声</strong>：声调短促，一发即收，发音时间较短，音响效果较为急促、有力。</li>
+                    </ul>
+                    
+                    <h4>现代汉语平仄</h4>
+                    <p>现代汉语普通话有阴平、阳平、上声、去声四声，其中阴平、阳平为平，上声、去声为仄：</p>
+                    <ul>
+                        <li><strong>阴平（第一声）</strong>：如"妈、麻、马、骂"中的"妈"，声调高平，发音时间较长，音响效果较为平和、稳定。</li>
+                        <li><strong>阳平（第二声）</strong>：如"妈、麻、马、骂"中的"麻"，声调高升，发音时间较长，音响效果较为轻快、明亮。</li>
+                        <li><strong>上声（第三声）</strong>：如"妈、麻、马、骂"中的"马"，声调先降后升，发音时间较长，音响效果较为曲折、婉转。</li>
+                        <li><strong>去声（第四声）</strong>：如"妈、麻、马、骂"中的"骂"，声调高降，发音时间较短，音响效果较为干脆、有力。</li>
+                    </ul>
+                    
+                    <h3>平仄的运用规则</h3>
+                    
+                    <h4>平仄交替</h4>
+                    <p>平仄交替是指在诗句中平仄声字交替使用，以形成和谐的节奏。这是诗歌平仄运用的最基本规则：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>五言绝句基本句式</h5>
+                        <div class="example-line">
+                            <span>仄仄平平仄</span>
+                            <span>平仄交替：仄-仄-平-平-仄</span>
+                        </div>
+                        <div class="example-line">
+                            <span>平平仄仄平</span>
+                            <span>平仄交替：平-平-仄-仄-平</span>
+                        </div>
+                        <div class="example-line">
+                            <span>平平平仄仄</span>
+                            <span>平仄交替：平-平-平-仄-仄</span>
+                        </div>
+                        <div class="example-line">
+                            <span>仄仄仄平平</span>
+                            <span>平仄交替：仄-仄-仄-平-平</span>
+                        </div>
+                        <p>分析：五言绝句的基本句式都遵循平仄交替的规则，通过平仄声字的交替使用，形成和谐的节奏和韵律。</p>
+                    </div>
+                    
+                    <div class="concepts-example">
+                        <h5>七言律诗基本句式</h5>
+                        <div class="example-line">
+                            <span>平平仄仄平平仄</span>
+                            <span>平仄交替：平-平-仄-仄-平-平-仄</span>
+                        </div>
+                        <div class="example-line">
+                            <span>仄仄平平仄仄平</span>
+                            <span>平仄交替：仄-仄-平-平-仄-仄-平</span>
+                        </div>
+                        <div class="example-line">
+                            <span>仄仄平平平仄仄</span>
+                            <span>平仄交替：仄-仄-平-平-平-仄-仄</span>
+                        </div>
+                        <div class="example-line">
+                            <span>平平仄仄仄平平</span>
+                            <span>平仄交替：平-平-仄-仄-仄-平-平</span>
+                        </div>
+                        <p>分析：七言律诗的基本句式也遵循平仄交替的规则，只是在五言句式的基础上增加了两个字，保持了平仄交替的节奏。</p>
+                    </div>
+                    
+                    <h4>平仄对立</h4>
+                    <p>平仄对立是指在一联中的上下句平仄声字相对立，以形成对比和平衡。这是近体诗平仄运用的重要规则：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《春望》</h5>
+                        <div class="example-line">
+                            <span>国破山河在（仄仄平平仄），城春草木深（平平仄仄平）。</span>
+                            <span>平仄对立：仄-仄-平-平-仄 vs 平-平-仄-仄-平</span>
+                        </div>
+                        <div class="example-line">
+                            <span>感时花溅泪（平平平仄仄），恨别鸟惊心（仄仄仄平平）。</span>
+                            <span>平仄对立：平-平-平-仄-仄 vs 仄-仄-仄-平-平</span>
+                        </div>
+                        <p>分析：《春望》的每一联都遵循平仄对立的规则，上下句的平仄声字相对立，形成对比和平衡，增强了诗歌的节奏感和音乐美。</p>
+                    </div>
+                    
+                    <h4>平仄粘对</h4>
+                    <p>平仄粘对是指在律诗中，上联的对句与下联的出句平仄声字相粘（即相同），以保持诗歌的连贯性。这是近体诗平仄运用的另一个重要规则：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《登高》</h5>
+                        <div class="example-line">
+                            <span>风急天高猿啸哀（平平仄仄平平仄），渚清沙白鸟飞回（仄仄平平仄仄平）。</span>
+                            <span>第一联：出句 vs 对句（对立）</span>
+                        </div>
+                        <div class="example-line">
+                            <span>无边落木萧萧下（仄仄平平平仄仄），不尽长江滚滚来（平平仄仄仄平平）。</span>
+                            <span>第二联：出句 vs 对句（对立）</span>
+                        </div>
+                        <p>分析：《登高》的第一联对句"渚清沙白鸟飞回（仄仄平平仄仄平）"与第二联出句"无边落木萧萧下（仄仄平平平仄仄）"前四字平仄相同（仄-仄-平-平），这就是平仄粘对。通过平仄粘对，诗歌的上下联之间保持了连贯性，使整首诗歌成为一个统一的整体。</p>
+                    </div>
+                    
+                    <h3>不同诗歌形式的平仄规则</h3>
+                    
+                    <h4>五言绝句平仄规则</h4>
+                    <p>五言绝句是近体诗中最简短的形式，有四种基本句式，通过不同的组合形成各种平仄格式：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>五言绝句仄起仄收式</h5>
+                        <div class="example-line">
+                            <span>仄仄平平仄，平平仄仄平。平平平仄仄，仄仄仄平平。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>示例：王维《鸟鸣涧》</span>
+                        </div>
+                        <div class="example-line">
+                            <span>人闲桂花落（仄仄平平仄），夜静春山空（平平仄仄平）。月出惊山鸟（平平平仄仄），时鸣春涧中（仄仄仄平平）。</span>
+                        </div>
+                    </div>
+                    
+                    <div class="concepts-example">
+                        <h5>五言绝句平起平收式</h5>
+                        <div class="example-line">
+                            <span>平平仄仄平，仄仄仄平平。仄仄平平仄，平平仄仄平。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>示例：李白《静夜思》</span>
+                        </div>
+                        <div class="example-line">
+                            <span>床前明月光（平平仄仄平），疑是地上霜（仄仄仄平平）。举头望明月（仄仄平平仄），低头思故乡（平平仄仄平）。</span>
+                        </div>
+                    </div>
+                    
+                    <h4>七言律诗平仄规则</h4>
+                    <p>七言律诗是近体诗中最复杂的形式，有四种基本句式，通过不同的组合形成各种平仄格式：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>七言律诗平起仄收式</h5>
+                        <div class="example-line">
+                            <span>平平仄仄平平仄，仄仄平平仄仄平。仄仄平平平仄仄，平平仄仄仄平平。平平仄仄平平仄，仄仄平平仄仄平。仄仄平平平仄仄，平平仄仄仄平平。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>示例：杜甫《登高》</span>
+                        </div>
+                        <div class="example-line">
+                            <span>风急天高猿啸哀（平平仄仄平平仄），渚清沙白鸟飞回（仄仄平平仄仄平）。无边落木萧萧下（仄仄平平平仄仄），不尽长江滚滚来（平平仄仄仄平平）。万里悲秋常作客（平平仄仄平平仄），百年多病独登台（仄仄平平仄仄平）。艰难苦恨繁霜鬓（仄仄平平平仄仄），潦倒新停浊酒杯（平平仄仄仄平平）。</span>
+                        </div>
+                    </div>
+                    
+                    <h4>词的平仄规则</h4>
+                    <p>词的平仄规则比近体诗更加灵活，不同的词牌有不同的平仄要求。一般来说，词的平仄规则更加严格，不仅要求平仄交替，还要求某些位置必须使用平声或仄声：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>词牌《沁园春》平仄格式</h5>
+                        <div class="example-line">
+                            <span>中仄平平，仄仄平平，仄仄仄平（韵）。仄平平仄仄，平平仄仄；平平仄仄，仄仄平平（韵）。仄仄平平，平平仄仄，仄仄平平仄仄平（韵）。平平仄，仄平平仄仄，仄仄平平（韵）。</span>
+                        </div>
+                        <div class="example-line">
+                            <span>示例：毛泽东《沁园春·雪》</span>
+                        </div>
+                        <div class="example-line">
+                            <span>北国风光，千里冰封，万里雪飘。望长城内外，惟余莽莽；大河上下，顿失滔滔。山舞银蛇，原驰蜡象，欲与天公试比高。须晴日，看红装素裹，分外妖娆。</span>
+                        </div>
+                    </div>
+                    
+                    <h3>平仄的运用技巧</h3>
+                    
+                    <h4>拗救</h4>
+                    <p>拗救是指在诗歌中，当某个位置的平仄声字不符合规则时，通过调整其他位置的平仄声字来补救，使诗歌仍然符合平仄规则。拗救是近体诗平仄运用的重要技巧，能够增强诗歌的灵活性和表现力：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《春望》</h5>
+                        <div class="example-line">
+                            <span>国破山河在（仄仄平平仄），城春草木深（平平仄仄平）。</span>
+                        </div>
+                        <p>分析：此联符合平仄规则，没有拗救。</p>
+                    </div>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《静夜思》</h5>
+                        <div class="example-line">
+                            <span>床前明月光（平平仄仄平），疑是地上霜（仄仄仄平平）。</span>
+                        </div>
+                        <p>分析：此联符合平仄规则，没有拗救。</p>
+                    </div>
+                    
+                    <h4>平仄与情感表达</h4>
+                    <p>平仄的运用与情感表达密切相关，不同的平仄组合可以表达不同的情感：</p>
+                    <ul>
+                        <li><strong>平声字多的诗句</strong>：音响效果较为平和、舒缓，适合表达平静、温和的情感。</li>
+                        <li><strong>仄声字多的诗句</strong>：音响效果较为急促、有力，适合表达紧张、激越的情感。</li>
+                        <li><strong>平仄交替频繁的诗句</strong>：音响效果较为活泼、明快，适合表达欢快、轻松的情感。</li>
+                        <li><strong>平仄对立明显的诗句</strong>：音响效果较为强烈、有力，适合表达强烈、激昂的情感。</li>
+                    </ul>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《望庐山瀑布》</h5>
+                        <div class="example-line">
+                            <span>日照香炉生紫烟，遥看瀑布挂前川。飞流直下三千尺，疑是银河落九天。</span>
+                        </div>
+                        <p>分析：此诗平仄交替频繁，平声字较多，音响效果较为活泼、明快，适合表达欢快、轻松的情感，与诗歌描绘的壮丽景色非常契合。</p>
+                    </div>
+                    
+                    <div class="concepts-example">
+                        <h5>岳飞《满江红》</h5>
+                        <div class="example-line">
+                            <span>怒发冲冠，凭栏处、潇潇雨歇。抬望眼，仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。莫等闲、白了少年头，空悲切。</span>
+                        </div>
+                        <p>分析：此词仄声字较多，平仄对立明显，音响效果较为强烈、有力，适合表达强烈、激昂的情感，与诗歌表达的爱国情怀非常契合。</p>
+                    </div>
+                </section>
+
+                <!-- 对仗 -->
+                <section id="duizhang" class="concepts-section">
+                    <h2>对仗</h2>
+                    <p>对仗是指诗句中词语的对偶，要求上下句在词性、结构、意义等方面相对应。对仗是中国古典诗歌韵律的重要组成部分，通过词语的对偶，增强诗歌的形式美和节奏感。对仗不仅是诗歌的形式要求，也是诗歌内容表达的重要手段，能够使诗歌的意境更加深远，情感更加丰富。</p>
+                    
+                    <h3>对仗的历史演变</h3>
+                    
+                    <h4>对仗的起源</h4>
+                    <p>对仗的起源可以追溯到《诗经》时期，《诗经》中已经有了一些对偶句，如"关关雎鸠，在河之洲"、"蒹葭苍苍，白露为霜"等。这些对偶句虽然还不够严格，但已经具备了对仗的基本特征，是对仗的雏形。</p>
+                    
+                    <h4>对仗的发展</h4>
+                    <p>对仗在楚辞中得到了进一步的发展，楚辞中的对偶句更加丰富和复杂，如"帝子降兮北渚，目眇眇兮愁予"、"袅袅兮秋风，洞庭波兮木叶下"等。这些对偶句不仅在词性和结构上相对应，在意义上也更加相关，增强了诗歌的表现力和感染力。</p>
+                    
+                    <h4>对仗的成熟</h4>
+                    <p>对仗在汉魏六朝时期逐渐成熟，特别是在骈文中，对仗的运用达到了极致。骈文是一种以四字句和六字句为主，讲究对仗工整的文体，如庾信的《哀江南赋》、鲍照的《芜城赋》等。这些骈文作品中的对仗不仅要求词性、结构相对应，还要求声调和谐，是对仗发展的重要阶段。</p>
+                    
+                    <h4>对仗的规范化</h4>
+                    <p>对仗在唐代达到了规范化的程度，近体诗的对仗规则已经非常严格。唐代诗人如杜甫、王维、李白等都非常善于运用对仗，他们的诗歌作品中的对仗不仅工整，而且富有变化，是对仗运用的典范。</p>
+                    
+                    <div class="concepts-table">
+                        <table>
+                            <tr>
+                                <th>时期</th>
+                                <th>对仗特点</th>
+                                <th>代表作品</th>
+                                <th>发展阶段</th>
+                            </tr>
+                            <tr>
+                                <td>《诗经》时期</td>
+                                <td>初步对偶，不够严格</td>
+                                <td>《诗经·关雎》、《诗经·蒹葭》</td>
+                                <td>起源阶段</td>
+                            </tr>
+                            <tr>
+                                <td>楚辞时期</td>
+                                <td>对偶更加丰富和复杂</td>
+                                <td>屈原《九歌》、《离骚》</td>
+                            </tr>
+                            <tr>
+                                <td>汉魏六朝时期</td>
+                                <td>对仗成熟，骈文兴盛</td>
+                                <td>庾信《哀江南赋》、鲍照《芜城赋》</td>
+                                <td>发展阶段</td>
+                            </tr>
+                            <tr>
+                                <td>唐代</td>
+                                <td>对仗规范化，规则严格</td>
+                                <td>杜甫《登高》、王维《山居秋暝》</td>
+                                <td>成熟阶段</td>
+                            </tr>
+                            <tr>
+                                <td>宋元明清时期</td>
+                                <td>对仗运用更加灵活多样</td>
+                                <td>苏轼《水调歌头》、李清照《声声慢》</td>
+                                <td>完善阶段</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h3>对仗的基本要求</h3>
+                    
+                    <h4>词性相对</h4>
+                    <p>对仗要求上下句中对应的词语词性相同，如名词对名词、动词对动词、形容词对形容词等。这是对仗的最基本要求，也是对仗的核心要素：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>王维《山居秋暝》</h5>
+                        <div class="example-line">
+                            <span>明月松间照，清泉石上流。</span>
+                            <span>对仗分析：明月（名词）对清泉（名词），松间（名词+方位词）对石上（名词+方位词），照（动词）对流（动词）</span>
+                        </div>
+                        <p>分析：此联在词性上严格相对，名词对名词，动词对动词，方位词对方位词，是工对的典范。</p>
+                    </div>
+                    
+                    <h4>结构相对</h4>
+                    <p>对仗要求上下句的结构相同，如主谓结构对主谓结构、动宾结构对动宾结构等。结构相对是对仗的重要要求，能够使上下句在形式上更加和谐：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《绝句》</h5>
+                        <div class="example-line">
+                            <span>两个黄鹂鸣翠柳，一行白鹭上青天。</span>
+                            <span>对仗分析：两个黄鹂（数量词+名词）对一行白鹭（数量词+名词），鸣翠柳（动宾结构）对上青天（动宾结构）</span>
+                        </div>
+                        <p>分析：此联在结构上严格相对，数量词+名词对数量词+名词，动宾结构对动宾结构，是工对的典范。</p>
+                    </div>
+                    
+                    <h4>意义相对</h4>
+                    <p>对仗要求上下句的意义相对或相关，如正对、反对、流水对等。意义相对是对仗的重要要求，能够使上下句在内容上更加丰富：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>正对示例 - 李白《望庐山瀑布》</h5>
+                        <div class="example-line">
+                            <span>飞流直下三千尺，疑是银河落九天。</span>
+                            <span>对仗分析：上下句意义相关，都描写瀑布的壮观景象</span>
+                        </div>
+                        <p>分析：此联是正对，上下句意义相关，都描写瀑布的壮观景象，通过夸张的手法，将瀑布的雄伟气势表现得淋漓尽致。</p>
+                    </div>
+                    
+                    <div class="concepts-example">
+                        <h5>反对示例 - 杜甫《自京赴奉先县咏怀五百字》</h5>
+                        <div class="example-line">
+                            <span>朱门酒肉臭，路有冻死骨。</span>
+                            <span>对仗分析：上下句意义相反，对比鲜明</span>
+                        </div>
+                        <p>分析：此联是反对，上下句意义相反，通过对比朱门的豪华和穷人的悲惨，深刻揭露了社会的不平等，增强了诗歌的批判性和感染力。</p>
+                    </div>
+                    
+                    <div class="concepts-example">
+                        <h5>流水对示例 - 王之涣《登鹳雀楼》</h5>
+                        <div class="example-line">
+                            <span>欲穷千里目，更上一层楼。</span>
+                            <span>对仗分析：上下句意义连贯，有因果关系</span>
+                        </div>
+                        <p>分析：此联是流水对，上下句意义连贯，有因果关系，通过"欲穷千里目"引出"更上一层楼"，表达了积极向上的人生态度，富有哲理意味。</p>
+                    </div>
+                    
+                    <h3>对仗的类型</h3>
+                    
+                    <h4>工对</h4>
+                    <p>工对是指严格按照对仗要求的对偶，词性、结构、意义等方面都相对应，是最严格的对仗形式：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《绝句》</h5>
+                        <div class="example-line">
+                            <span>两个黄鹂鸣翠柳，一行白鹭上青天。</span>
+                            <span>工对分析：两个（数量词）对一行（数量词），黄鹂（名词）对白鹭（名词），鸣（动词）对上（动词），翠柳（名词）对青天（名词）</span>
+                        </div>
+                        <p>分析：此联是工对的典范，不仅词性和结构严格相对，在颜色（黄对白、翠对青）和数量（两个对一行）上也相对应，对仗非常工整。</p>
+                    </div>
+                    
+                    <h4>宽对</h4>
+                    <p>宽对是指不严格按照对仗要求的对偶，只要词性、结构基本相对即可，是比较宽松的对仗形式：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《渡荆门送别》</h5>
+                        <div class="example-line">
+                            <span>山随平野尽，江入大荒流。</span>
+                            <span>宽对分析：山（名词）对江（名词），随（动词）对入（动词），平野（名词）对大荒（名词），尽（动词）对流（动词）</span>
+                        </div>
+                        <p>分析：此联是宽对，词性和结构基本相对，但在具体的词语选择上不够严格，如"平野"和"大荒"虽然都是名词，但意义上的对应不够紧密。</p>
+                    </div>
+                    
+                    <h4>借对</h4>
+                    <p>借对是指利用词语的多义性或谐音，临时借用其他意义或读音来形成对仗：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《曲江二首》</h5>
+                        <div class="example-line">
+                            <span>酒债寻常行处有，人生七十古来稀。</span>
+                            <span>借对分析：寻常（形容词）对七十（数词），这里借用"寻常"的古代长度单位意义（八尺为寻，倍寻为常），与"七十"形成数量词对</span>
+                        </div>
+                        <p>分析：此联是借对的典范，"寻常"本是形容词，意为平常、普通，但在这里借用了它的古代长度单位意义，与"七十"形成数量词对，非常巧妙。</p>
+                    </div>
+                    
+                    <h4>当句对</h4>
+                    <p>当句对是指在一句诗中使用对偶，即一句诗中的前后两部分在词性、结构、意义等方面相对应：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《登高》</h5>
+                        <div class="example-line">
+                            <span>风急天高猿啸哀，渚清沙白鸟飞回。</span>
+                            <span>当句对分析：风急（主谓结构）对天高（主谓结构），渚清（主谓结构）对沙白（主谓结构）</span>
+                        </div>
+                        <p>分析：此联不仅上下句对仗，每句诗的内部也对仗，如"风急"对"天高"，"渚清"对"沙白"，是当句对的典范。</p>
+                    </div>
+                    
+                    <h4>隔句对</h4>
+                    <p>隔句对是指在诗歌中，第一句与第三句对仗，第二句与第四句对仗，这种对仗方式在古体诗中比较常见：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>《诗经·蒹葭》</h5>
+                        <div class="example-line">
+                            <span>蒹葭苍苍，白露为霜。所谓伊人，在水一方。</span>
+                            <span>隔句对分析：蒹葭苍苍（主谓结构）对所谓伊人（主谓结构），白露为霜（主谓结构）对在水一方（动宾结构）</span>
+                        </div>
+                        <p>分析：此联是隔句对的典范，第一句与第三句对仗，第二句与第四句对仗，使诗歌具有独特的节奏感和音乐美。</p>
+                    </div>
+                    
+                    <h3>对仗的运用技巧</h3>
+                    
+                    <h4>对仗与意境</h4>
+                    <p>对仗的运用要与诗歌的意境相契合，通过对仗的形式美来增强诗歌的意境美：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>王维《山居秋暝》</h5>
+                        <div class="example-line">
+                            <span>明月松间照，清泉石上流。竹喧归浣女，莲动下渔舟。</span>
+                        </div>
+                        <p>分析：此联通过"明月"对"清泉"、"松间"对"石上"、"照"对"流"的对仗，描绘了一幅清新、宁静的山间秋夜图，增强了诗歌的意境美。</p>
+                    </div>
+                    
+                    <h4>对仗与情感</h4>
+                    <p>对仗的运用要与诗歌的情感相契合，通过对仗的形式美来增强诗歌的情感表达：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《春望》</h5>
+                        <div class="example-line">
+                            <span>感时花溅泪，恨别鸟惊心。</span>
+                        </div>
+                        <p>分析：此联通过"感时"对"恨别"、"花溅泪"对"鸟惊心"的对仗，表达了诗人对国家命运的担忧和对亲人的思念之情，增强了诗歌的情感表达。</p>
+                    </div>
+                    
+                    <h4>对仗的变化</h4>
+                    <p>对仗的运用要富有变化，避免单调和呆板，通过不同类型的对仗交替使用，增强诗歌的表现力和感染力：</p>
+                    
+                    <div class="concepts-example">
+                        <h5>杜甫《登高》</h5>
+                        <div class="example-line">
+                            <span>风急天高猿啸哀，渚清沙白鸟飞回。无边落木萧萧下，不尽长江滚滚来。万里悲秋常作客，百年多病独登台。艰难苦恨繁霜鬓，潦倒新停浊酒杯。</span>
+                        </div>
+                        <p>分析：此诗的对仗非常富有变化，既有工对（如"风急天高"对"渚清沙白"），也有宽对（如"无边落木"对"不尽长江"）；既有当句对（如"风急"对"天高"），也有上下句对（如"无边落木萧萧下"对"不尽长江滚滚来"）。这种富有变化的对仗运用，使诗歌具有强烈的节奏感和音乐美，增强了诗歌的表现力和感染力。</p>
+                    </div>
+                    
+                    <h3>对仗的评价标准</h3>
+                    
+                    <h4>工稳</h4>
+                    <p>工稳是指对仗的词性、结构、意义等方面都相对应，是对仗的基本要求。工稳的对仗能够使诗歌的形式更加和谐，增强诗歌的形式美。</p>
+                    
+                    <h4>自然</h4>
+                    <p>自然是指对仗的运用要自然流畅，不生硬，不牵强附会。自然的对仗能够使诗歌的内容更加连贯，增强诗歌的内容美。</p>
+                    
+                    <h4>新颖</h4>
+                    <p>新颖是指对仗的运用要富有创意，不落俗套。新颖的对仗能够使诗歌的意境更加深远，增强诗歌的意境美。</p>
+                    
+                    <h4>意境</h4>
+                    <p>意境是指对仗的运用要与诗歌的意境相契合，通过对仗的形式美来增强诗歌的意境美。有意境的对仗能够使诗歌的情感更加丰富，增强诗歌的情感表达。</p>
+                    
+                    <div class="concepts-example">
+                        <h5>李白《望庐山瀑布》</h5>
+                        <div class="example-line">
+                            <span>飞流直下三千尺，疑是银河落九天。</span>
+                        </div>
+                        <p>分析：此联对仗工稳、自然、新颖，通过"飞流直下"对"疑是银河"、"三千尺"对"落九天"的对仗，描绘了瀑布的壮观景象，意境深远，是对仗运用的典范。</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.concepts-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

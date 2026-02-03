@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伤寒学派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 医学流派导航样式 */
+        .school-nav {
+            background-color: rgba(192, 57, 43, 0.05);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .school-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .school-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            font-size: 16px;
+            border: 1px solid #c0392b;
+        }
+        
+        .school-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+        }
+        
+        .school-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+            
+            .school-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .school-nav a {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>伤寒学派</h1>
+                <p>中国传统医学的重要流派之一</p>
+                <a href="medicine.html" class="back-home">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 医学流派导航 -->
+                <nav class="school-nav">
+                    <ul>
+                        <li><a href="medicine_school_butu.html">补土派</a></li>
+                        <li><a href="medicine_school_gongxie.html">攻邪派</a></li>
+                        <li><a href="medicine_school_huoshen.html">火神派</a></li>
+                        <li><a href="medicine_school_jingfang.html">经方派</a></li>
+                        <li><a href="medicine_school_shanghan.html" class="active">伤寒学派</a></li>
+                        <li><a href="medicine_school_shifang.html">时方派</a></li>
+                        <li><a href="medicine_school_wenbing.html">温病学派</a></li>
+                        <li><a href="medicine_school_ziyin.html">滋阴派</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 创始人 -->
+                <section class="medicine-section">
+                    <h2>创始人</h2>
+                    <p>伤寒学派的创始人是东汉时期著名医学家张仲景（约公元150-219年）。张仲景，名机，字仲景，南阳郡涅阳县（今河南省邓州市）人，被后人尊称为“医圣”。</p>
+                    <p>张仲景生活在东汉末年，当时社会动荡，疫病流行，他目睹了许多人因伤寒而死亡的情景，于是发奋研究医学，广泛收集民间验方，结合自己的临床实践，撰写了《伤寒杂病论》一书，奠定了伤寒学派的理论基础。</p>
+                </section>
+
+                <!-- 渊源 -->
+                <section class="medicine-section">
+                    <h2>渊源</h2>
+                    <p>伤寒学派的渊源可以追溯到东汉末年，当时疫病流行，张仲景根据自己的临床经验，撰写了《伤寒杂病论》一书，系统地阐述了外感热病的诊疗规律。《伤寒杂病论》是中国医学史上第一部理、法、方、药完备的医学著作，标志着伤寒学派的正式建立。</p>
+                    <p>《伤寒杂病论》原书共十六卷，包括伤寒和杂病两部分。其中伤寒部分主要论述外感热病的诊疗规律，杂病部分主要论述内伤杂病的诊疗规律。由于战乱等原因，原书曾一度散失，后经晋代医学家王叔和整理，分为《伤寒论》和《金匮要略》两书，分别论述伤寒和杂病。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="medicine-section">
+                    <h2>发展</h2>
+                    <h3>魏晋南北朝时期：整理与传承</h3>
+                    <p>魏晋南北朝时期是伤寒学派发展的重要阶段。由于战乱频繁，《伤寒杂病论》原书曾一度散失。晋代医学家王叔和（公元201-280年）对《伤寒杂病论》进行了系统整理，将其分为《伤寒论》和《金匮要略》两书，使这部医学经典得以保存和流传。王叔和的整理工作为伤寒学派的发展奠定了基础。</p>
+                    
+                    <h3>隋唐时期：推广与融合</h3>
+                    <p>隋唐时期，伤寒学派的理论和方法得到了广泛的传播和应用。唐代医学家孙思邈（公元581-682年）在其著作《千金要方》和《千金翼方》中记载了大量伤寒学派的内容，并结合自己的临床经验进行了补充和发挥。他提出的“辨证施治”思想，对伤寒学派的发展产生了深远的影响。</p>
+                    <p>唐代另一位医学家王焘（公元670-755年）在其著作《外台秘要》中也收辑了大量伤寒学派的资料和治疗方法，进一步推广了伤寒学派的理论和方法。</p>
+                    
+                    <h3>宋代：阐发与创新</h3>
+                    <p>宋代是伤寒学派发展的鼎盛时期，出现了许多著名的伤寒学家，他们对《伤寒论》进行了详细的阐发和创新，形成了不同的学术观点。</p>
+                    <ul>
+                        <li><strong>朱肱（公元1042-1109年）</strong>：著有《伤寒类证活人书》，提出了“六经辨证”，认为伤寒是由病毒引起的，并将伤寒分为广义和狭义两种。</li>
+                        <li><strong>许叔微（公元1050-1125年）</strong>：著有《伤寒百证歌》，倡导脉证合参，提出了“六经经络辨证”，认为六经辨证是基于经络学说的。</li>
+                        <li><strong>成无己（公元1063-1156年）</strong>：著有《注解伤寒论》，这是第一部系统注解《伤寒论》的著作，他用《黄帝内经》的理论来解释《伤寒论》，为伤寒学派的理论发展做出了重要贡献。</li>
+                        <li><strong>郭雍（公元1080-1154年）</strong>：著有《伤寒补亡论》《伤寒发微论》等，强调辨证论治，注重临床实践。</li>
+                    </ul>
+                    
+                    <h3>金元时期：创新与发展</h3>
+                    <p>金元时期，伤寒学派的发展进入了创新阶段。医学家们在继承张仲景理论的基础上，结合自己的临床经验，提出了许多新的见解和观点。</p>
+                    <ul>
+                        <li><strong>刘完素（公元1120-1200年）</strong>：虽然是河间学派的代表人物，但他对《伤寒论》也有深入的研究，著有《伤寒直格》，提出了“六气皆从火化”的观点，对伤寒的病因病理有新的认识。</li>
+                        <li><strong>李杲（公元1156-1228年）</strong>：补土学派的代表人物，著有《伤寒会要》，倡导脾胃在伤寒发病和治疗中的重要性，对伤寒的治疗有独特的见解。</li>
+                        <li><strong>张从正（公元1180-1251年）</strong>：攻邪学派的代表人物，著有《伤寒心要》，倡导祛邪在伤寒发病和治疗中的重要性。</li>
+                    </ul>
+                    
+                    <h3>明清时期：深入研究与学派形成</h3>
+                    <p>明清时期，伤寒学派的发展达到了鼎盛时期，出现了许多著名的伤寒学家，他们对《伤寒论》进行了深入的研究，提出了许多新的见解和观点，并形成了不同的学术流派。</p>
+                    <ul>
+                        <li><strong>方有执（公元1523-1593年）</strong>：著有《伤寒论条辨》，提出了“错简重订”说，认为《伤寒论》原书在流传过程中出现了错简，需要重新修订。</li>
+                        <li><strong>喻嘉言（公元1585-1664年）</strong>：著有《尚论张仲景伤寒论》，支持方有执的“错简重订”说，并提出了“三纲鼎立”说，认为伤寒病应以太阳病为纲，风寒营卫为目。</li>
+                        <li><strong>张璐（公元1662-1735年）</strong>：著有《伤寒缵论》，反对“错简重订”说，主张以方类证，提出了“六经为百病立法”的观点。</li>
+                        <li><strong>柯琴（公元1650-1749年）</strong>：著有《伤寒来苏集》，主张以法类证，对《伤寒论》的内容进行了系统的整理和归纳。</li>
+                        <li><strong>张志聪（公元1616-1674年）</strong>：著有《伤寒论集注》，主张以经解经，用《黄帝内经》的理论来解释《伤寒论》。</li>
+                        <li><strong>尤怡（公元1753-1823年）</strong>：著有《伤寒贯珠集》，以通俗易懂的语言注解《伤寒论》，使更多的人能够理解和应用《伤寒论》。</li>
+                    </ul>
+                    
+                    <h3>现代：传承与创新</h3>
+                    <p>现代，伤寒学派的理论和方法仍然被广泛应用于临床实践，成为中医治疗外感热病的重要方法之一。同时，伤寒学派的理论和方法也得到了科学的验证和发展，为现代医学的发展提供了重要的参考。</p>
+                    <p>现代伤寒学家如郭霭春、刘渡舟、陈亦人等，在继承传统伤寒理论的基础上，结合现代医学知识和临床实践，对《伤寒论》进行了深入的研究和发挥，提出了许多新的见解和观点，为伤寒学派的发展注入了新的活力。</p>
+                    <p>近年来，随着中医药现代化的推进，伤寒学派的理论和方法也在不断地创新和发展。通过现代科学技术的研究，人们对《伤寒论》的认识更加深入，对伤寒学派的理论和方法的应用也更加广泛。伤寒学派作为中国传统医学的重要流派，将继续为人类的健康事业做出重要的贡献。</p>
+                </section>
+
+                <!-- 理论 -->
+                <section class="medicine-section">
+                    <h2>理论</h2>
+                    <p>伤寒学派的核心理论是六经辨证，它将外感热病的发展过程分为太阳、阳明、少阳、太阴、少阴、厥阴六个阶段，每个阶段都有其特定的症状和体征，以及相应的治疗方法。</p>
+                    <p>六经辨证的基本内容包括：</p>
+                    <ul>
+                        <li><strong>太阳病</strong>：外感热病的初期阶段，主要表现为恶寒、发热、头痛、脉浮等症状，治疗以解表为主。</li>
+                        <li><strong>阳明病</strong>：外感热病的极期阶段，主要表现为高热、大汗、口渴、脉洪大等症状，治疗以清热为主。</li>
+                        <li><strong>少阳病</strong>：外感热病的中期阶段，主要表现为寒热往来、胸胁苦满、口苦咽干、脉弦等症状，治疗以和解为主。</li>
+                        <li><strong>太阴病</strong>：外感热病的后期阶段，主要表现为腹满、腹痛、下利、脉弱等症状，治疗以温中为主。</li>
+                        <li><strong>少阴病</strong>：外感热病的危重阶段，主要表现为恶寒、肢冷、脉微等症状，治疗以回阳为主。</li>
+                        <li><strong>厥阴病</strong>：外感热病的终末期阶段，主要表现为寒热错杂、厥逆、脉微欲绝等症状，治疗以调和寒热为主。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="medicine-section">
+                    <h2>影响</h2>
+                    <p>伤寒学派对中国传统医学的发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>理论体系</strong>：伤寒学派建立了六经辨证体系，为中医治疗外感热病提供了理论基础。</li>
+                        <li><strong>临床实践</strong>：伤寒学派的理论和方法被广泛应用于临床实践，成为中医治疗外感热病的重要方法之一。</li>
+                        <li><strong>方剂学</strong>：伤寒学派的经方是中医方剂学的重要组成部分，许多经方至今仍被广泛应用于临床。</li>
+                        <li><strong>医学教育</strong>：《伤寒论》是中医教育的重要教材，是培养中医人才的重要内容。</li>
+                        <li><strong>学术流派</strong>：伤寒学派的发展推动了其他医学流派的形成和发展，如温病学派、河间学派等。</li>
+                    </ul>
+                </section>
+
+                <!-- 著作 -->
+                <section class="medicine-section">
+                    <h2>著作</h2>
+                    <ul>
+                        <li><strong>《伤寒杂病论》</strong>：东汉张仲景著，伤寒学派的奠基之作，系统地阐述了外感热病的诊疗规律。</li>
+                        <li><strong>《伤寒论》</strong>：晋代王叔和整理，《伤寒杂病论》的伤寒部分，专门论述外感热病的诊疗规律。</li>
+                        <li><strong>《金匮要略》</strong>：晋代王叔和整理，《伤寒杂病论》的杂病部分，专门论述内伤杂病的诊疗规律。</li>
+                        <li><strong>《注解伤寒论》</strong>：金代成无己著，对《伤寒论》进行了详细的阐发和创新。</li>
+                        <li><strong>《伤寒来苏集》</strong>：清代柯琴著，对《伤寒论》进行了深入的研究和发挥。</li>
+                        <li><strong>《伤寒贯珠集》</strong>：清代尤怡著，对《伤寒论》的内容进行了系统的整理和归纳。</li>
+                    </ul>
+                </section>
+
+                <!-- 语录 -->
+                <section class="medicine-section">
+                    <h2>语录</h2>
+                    <ul>
+                        <li><strong>“伤寒一日，太阳受之，脉若静者，为不传；颇欲吐，若躁烦，脉数急者，为传也。”</strong> ——《伤寒论·辨太阳病脉证并治》</li>
+                        <li><strong>“太阳病，发热，汗出，恶风，脉缓者，名为中风。”</strong> ——《伤寒论·辨太阳病脉证并治》</li>
+                        <li><strong>“太阳病，或已发热，或未发热，必恶寒，体痛，呕逆，脉阴阳俱紧者，名为伤寒。”</strong> ——《伤寒论·辨太阳病脉证并治》</li>
+                        <li><strong>“阳明病，外证云何？答曰：身热，汗自出，不恶寒，反恶热也。”</strong> ——《伤寒论·辨阳明病脉证并治》</li>
+                        <li><strong>“少阳之为病，口苦，咽干，目眩也。”</strong> ——《伤寒论·辨少阳病脉证并治》</li>
+                        <li><strong>“太阴之为病，腹满而吐，食不下，自利益甚，时腹自痛。若下之，必胸下结硬。”</strong> ——《伤寒论·辨太阴病脉证并治》</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与医学</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

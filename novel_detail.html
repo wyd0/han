@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 小说页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .novel-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .novel-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .novel-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .novel-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .novel-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .novel-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .novel-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .novel-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .novel-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .novel-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .novel-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .novel-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .novel-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .novel-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .novel-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 代表人物 */
+        .representative {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .representative h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典语录 */
+        .quotes {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quotes h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .quote-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-left: 4px solid #c0392b;
+            border-radius: 5px;
+        }
+        
+        .quote-item p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .quote-item .author {
+            text-align: right;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .novel-header h1 {
+                font-size: 36px;
+            }
+            
+            .novel-header p {
+                font-size: 18px;
+            }
+            
+            .novel-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 小说种类链接样式 */
+        .novel-types-link {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid #c0392b;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+        }
+        
+        .novel-types-link:hover {
+            background-color: transparent;
+            color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(192, 57, 43, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="novel-header">
+        <div class="container">
+            <div class="novel-header-content">
+                <h1>小说艺术</h1>
+                <p>中国古代小说的传奇魅力</p>
+                <a href="literature.html" class="back-link">返回文学艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="novel-main">
+        <div class="container">
+            <div class="novel-content">
+                <!-- 小说概述 -->
+                <section class="novel-section">
+                    <h2>小说概述</h2>
+                    <p>小说是中国文学中最受欢迎的文学形式之一，它以生动的故事情节、鲜明的人物形象和丰富的社会内容，赢得了广大读者的喜爱。中国小说历史悠久，内容丰富，风格多样，是中国文学的重要组成部分。</p>
+                    <p>中国小说的发展经历了从萌芽到成熟的漫长过程。从先秦时期的神话寓言，到汉代的笔记小说，再到唐代的传奇小说，宋代的话本小说，元明清时期的章回小说，中国小说不断发展演变，最终形成了具有独特民族风格的文学形式。</p>
+                </section>
+
+                <!-- 小说的起源 -->
+                <section class="novel-section">
+                    <h3>起源</h3>
+                    <p>中国小说的起源可以追溯到先秦时期。早在先秦时期，就已经出现了小说的萌芽，主要表现为神话寓言和历史传说。这些神话寓言和历史传说虽然还不是成熟的小说，但它们为后来小说的发展奠定了基础。</p>
+                    <p>《山海经》是中国最早的神话地理著作，其中记载了许多神话故事，如夸父逐日、精卫填海、大禹治水等，这些故事已经具有了小说的某些特征。《左传》、《国语》、《战国策》等历史著作中也记载了许多生动的历史故事，这些故事注重人物形象的塑造和故事情节的叙述，对后来小说的发展产生了重要影响。</p>
+                    <p>到了汉代，随着社会的发展和文学的进步，小说逐渐从神话寓言和历史传说中分离出来，成为一种独立的文学形式。汉代的小说主要包括笔记小说和杂史小说，如《燕丹子》、《西京杂记》等。这些小说虽然篇幅短小，情节简单，但已经具备了小说的基本要素。</p>
+                </section>
+
+                <!-- 小说的发展 -->
+                <section class="novel-section">
+                    <h3>发展</h3>
+                    <p>中国小说的发展经历了漫长的历史过程，每个时期都有其独特的风格和特点：</p>
+                    
+                    <h4>先秦两汉时期（公元前21世纪-公元220年）</h4>
+                    <p>这一时期是中国小说的萌芽阶段。小说主要表现为神话寓言、历史传说和笔记小说。神话寓言如《山海经》中的故事，历史传说如《左传》中的故事，笔记小说如《燕丹子》、《西京杂记》等。这些小说篇幅短小，情节简单，人物形象不够鲜明，但已经具备了小说的基本要素。</p>
+                    
+                    <h4>魏晋南北朝时期（公元220年-公元589年）</h4>
+                    <p>这一时期是中国小说的形成阶段。小说主要包括志怪小说和志人小说。志怪小说以记载神鬼怪异之事为主，如干宝的《搜神记》、刘义庆的《幽明录》等。志人小说以记载人物的言行举止为主，如刘义庆的《世说新语》、裴启的《语林》等。这些小说篇幅短小，情节简单，但已经开始注重人物形象的塑造和故事情节的叙述。</p>
+                    
+                    <h4>唐代（公元618年-公元907年）</h4>
+                    <p>这一时期是中国小说的成熟阶段。传奇小说的出现标志着中国小说的正式形成。传奇小说篇幅较长，情节复杂，人物形象鲜明，语言华丽典雅，如《柳毅传》、《莺莺传》、《李娃传》等。传奇小说的出现，为后来小说的发展奠定了基础。</p>
+                    
+                    <h4>宋代（公元960年-公元1279年）</h4>
+                    <p>这一时期是中国小说的平民化阶段。话本小说的出现标志着中国小说开始走向平民化。话本小说是艺人说书的底本，语言通俗易懂，情节生动有趣，内容贴近平民生活，如《三国志平话》、《大唐三藏取经诗话》等。话本小说的出现，为后来章回小说的发展奠定了基础。</p>
+                    
+                    <h4>元明清时期（公元1271年-公元1911年）</h4>
+                    <p>这一时期是中国小说的鼎盛阶段。章回小说的出现标志着中国小说的成熟。章回小说篇幅宏大，情节复杂，人物形象鲜明，内容丰富多样，如《三国演义》、《水浒传》、《西游记》、《红楼梦》等。这些小说不仅是中国文学的经典之作，也是世界文学的瑰宝。</p>
+                </section>
+
+                <!-- 小说的种类 -->
+                <section class="novel-section">
+                    <h3>种类</h3>
+                    <p>中国小说的种类繁多，按照不同的分类标准，可以分为不同的类型：</p>
+                    
+                    <h4>按照发展阶段分类</h4>
+                    <ul>
+                        <li><strong>笔记小说</strong>：篇幅短小，内容繁杂，形式灵活，如《西京杂记》、《世说新语》等。</li>
+                        <li><strong>传奇小说</strong>：篇幅较长，情节复杂，人物形象鲜明，语言华丽典雅，如《柳毅传》、《莺莺传》等。</li>
+                        <li><strong>话本小说</strong>：语言通俗易懂，情节生动有趣，内容贴近平民生活，如《三国志平话》、《大唐三藏取经诗话》等。</li>
+                        <li><strong>章回小说</strong>：篇幅宏大，情节复杂，人物形象鲜明，内容丰富多样，如《三国演义》、《水浒传》、《西游记》、《红楼梦》等。</li>
+                    </ul>
+                    
+                    <h4>按照内容分类</h4>
+                    <ul>
+                        <li><strong>历史小说</strong>：以历史事件和历史人物为题材，如《三国演义》、《东周列国志》等。</li>
+                        <li><strong>英雄小说</strong>：以英雄人物的事迹为题材，如《水浒传》、《说唐》等。</li>
+                        <li><strong>神怪小说</strong>：以神鬼怪异之事为题材，如《西游记》、《封神演义》等。</li>
+                        <li><strong>世情小说</strong>：以社会生活和人情世故为题材，如《红楼梦》、《金瓶梅》等。</li>
+                        <li><strong>公案小说</strong>：以司法案件为题材，如《包公案》、《施公案》等。</li>
+                        <li><strong>侠义小说</strong>：以侠客义士的事迹为题材，如《三侠五义》、《七侠五义》等。</li>
+                    </ul>
+                </section>
+
+                <!-- 小说种类详细叙述链接 -->
+                <section class="novel-section" style="text-align: center; margin: 40px 0;">
+                    <a href="novel_types_detail.html" class="novel-types-link">深入了解小说种类</a>
+                </section>
+
+                <!-- 小说的影响 -->
+                <section class="novel-section">
+                    <h3>影响</h3>
+                    <p>中国小说对中国文化和世界文化都产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>对中国文化的影响</strong>：中国小说是中国文化的重要载体，它记录了中国历史的发展和社会的变迁，传递了中国传统的思想观念和价值体系。小说对中国的文学、艺术、戏曲等都产生了重要影响，是中国文化的精神象征。</li>
+                        <li><strong>对世界文化的影响</strong>：中国小说中的许多经典作品被翻译成多种文字，在世界范围内广泛传播，为世界文学的发展做出了重要贡献。特别是四大名著，已经成为世界文学的经典之作，受到了世界各国读者的喜爱。</li>
+                        <li><strong>对现代人的影响</strong>：中国小说中的许多经典作品至今仍被人们广泛阅读和欣赏，它们不仅是文学艺术的瑰宝，也是人们了解中国历史和文化的重要窗口。小说中的许多哲理和智慧，对现代人的生活和思想仍然具有重要的启示意义。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="novel-section">
+                    <h3>代表人物</h3>
+                    
+                    <div class="representative">
+                        <h4>罗贯中（约1330年-约1400年）</h4>
+                        <p>名本，字贯中，号湖海散人，元末明初小说家。他的代表作《三国演义》是中国第一部章回体历史小说，也是中国四大名著之一。《三国演义》以三国时期的历史为背景，塑造了许多鲜明的人物形象，如诸葛亮、关羽、张飞、曹操等，情节生动有趣，语言通俗易懂，深受广大读者的喜爱。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>施耐庵（约1296年-约1370年）</h4>
+                        <p>名耳，字伯阳，号耐庵，元末明初小说家。他的代表作《水浒传》是中国第一部章回体英雄小说，也是中国四大名著之一。《水浒传》以北宋末年宋江起义为背景，塑造了108位梁山好汉的形象，情节生动有趣，语言通俗易懂，深受广大读者的喜爱。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>吴承恩（约1500年-约1582年）</h4>
+                        <p>字汝忠，号射阳山人，明代小说家。他的代表作《西游记》是中国第一部章回体神怪小说，也是中国四大名著之一。《西游记》以唐僧取经的故事为背景，塑造了孙悟空、猪八戒、沙僧等鲜明的人物形象，情节生动有趣，想象丰富奇特，深受广大读者的喜爱。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>曹雪芹（约1715年-约1763年）</h4>
+                        <p>名霑，字梦阮，号雪芹，清代小说家。他的代表作《红楼梦》是中国古代最伟大的小说，也是中国四大名著之一。《红楼梦》以贾宝玉、林黛玉、薛宝钗的爱情悲剧为线索，描写了贾、史、王、薛四大家族的兴衰史，塑造了许多鲜明的人物形象，情节复杂曲折，语言优美典雅，思想深刻，艺术成就极高，被誉为"中国封建社会的百科全书"。</p>
+                    </div>
+                </section>
+
+                <!-- 经典语录 -->
+                <section class="novel-section">
+                    <h3>经典语录</h3>
+                    <div class="quotes">
+                        <div class="quote-item">
+                            <p>"话说天下大势，分久必合，合久必分。"</p>
+                            <p class="author">——罗贯中《三国演义》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"官逼民反，民不得不反。"</p>
+                            <p class="author">——施耐庵《水浒传》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"皇帝轮流做，明年到我家。"</p>
+                            <p class="author">——吴承恩《西游记》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味？"</p>
+                            <p class="author">——曹雪芹《红楼梦》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"鞠躬尽瘁，死而后已。"</p>
+                            <p class="author">——罗贯中《三国演义》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"大闹天宫"</p>
+                            <p class="author">——吴承恩《西游记》</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

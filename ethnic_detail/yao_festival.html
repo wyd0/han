@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑶族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 瑶族传统节日页面特定样式 */
+        .festival-header {
+            background-image: url('images/瑶族刺绣.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .festival-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日详情样式 */
+        .festival-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .festival-section.visible .festival-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-section.visible .festival-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .festival-section.visible .festival-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .festival-section.visible .festival-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .festival-section.visible .festival-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 节日特点样式 */
+        .festival-features {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .festival-features h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .festival-header p {
+                font-size: 18px;
+            }
+            
+            .festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-details {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="festival-header">
+        <div class="container">
+            <div class="festival-header-content">
+                <h1>瑶族传统节日</h1>
+                <p>丰富多彩的瑶族节日文化与习俗</p>
+                <a href="yao.html" class="back-yao">返回瑶族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="festival-main">
+        <div class="container">
+            <div class="festival-content">
+                <!-- 节日概述 -->
+                <section class="festival-section">
+                    <h2>节日概述</h2>
+                    <p>瑶族是一个有着丰富传统节日的民族，瑶族的传统节日不仅是瑶族人民庆祝丰收、祈求平安的重要方式，也是瑶族文化传承的重要载体。瑶族的传统节日主要包括盘王节、达努节、耍歌堂、晒衣节等，每个节日都有其独特的历史渊源、庆祝方式和文化内涵。</p>
+                    <p>瑶族的传统节日大多与瑶族的历史、宗教信仰、生产生活密切相关，反映了瑶族人民的思想观念、价值取向和审美情趣。通过庆祝这些传统节日，瑶族人民不仅表达了对美好生活的向往和追求，也增强了民族凝聚力和认同感。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="festival-section">
+                    <h2>主要传统节日</h2>
+                    <p>瑶族的传统节日丰富多彩，其中最具代表性的节日包括：</p>
+                    <div class="festival-details">
+                        <div class="festival-item">
+                            <h4>盘王节</h4>
+                            <p>盘王节是瑶族最重要的传统节日，也是瑶族最盛大的节日。盘王节的时间是每年的农历十月十六日，是为了纪念瑶族的始祖盘王。</p>
+                            <p>盘王节的庆祝活动通常持续3-7天，主要包括祭祀盘王、跳长鼓舞、唱盘王歌、耍歌堂、品尝美食等环节。盘王节是瑶族人民欢乐的节日，也是瑶族文化传承的重要载体。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>达努节</h4>
+                            <p>达努节是瑶族的传统节日，又称祖娘节、瑶年，是为了纪念瑶族的始母密洛陀。达努节的时间是每年的农历五月二十九日。</p>
+                            <p>达努节的庆祝活动通常持续1-3天，主要包括祭祀密洛陀、跳铜鼓舞、唱瑶歌、体育比赛、品尝美食等环节。达努节是瑶族人民庆祝丰收、祈求平安的重要节日。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>耍歌堂</h4>
+                            <p>耍歌堂是瑶族的传统节日，主要流行于广东连南、连山等瑶族地区。耍歌堂的时间是每年的农历十月十六日，与盘王节同一天。</p>
+                            <p>耍歌堂的庆祝活动通常持续3-5天，主要包括祭祀祖先、跳长鼓舞、唱瑶歌、对歌、耍狮子、舞龙灯等环节。耍歌堂是瑶族人民社交、娱乐的重要场所，也是瑶族文化传承的重要载体。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>晒衣节</h4>
+                            <p>晒衣节是瑶族的传统节日，主要流行于广西龙胜等瑶族地区。晒衣节的时间是每年的农历六月初六。</p>
+                            <p>晒衣节的主要活动是晾晒衣物、棉被等，瑶族人民认为在这一天晾晒衣物可以驱邪避灾、保佑平安。此外，还会举行祭祀仪式、唱瑶歌、跳瑶舞等活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 盘王节详细介绍 -->
+                <section class="festival-section">
+                    <h2>盘王节详细介绍</h2>
+                    <p>盘王节是瑶族最重要的传统节日，也是瑶族文化的重要组成部分。盘王节的历史可以追溯到远古时期，与瑶族的起源和发展密切相关。</p>
+                    <h3>历史渊源</h3>
+                    <p>关于盘王节的起源，瑶族民间有许多传说，其中最流行的是盘王拯救瑶族人民的传说：</p>
+                    <p>相传在远古时期，瑶族人民的始祖盘王带领瑶族人民迁徙到南方山区。在迁徙过程中，盘王为了保护瑶族人民，与一只凶猛的羚羊搏斗，最终杀死了羚羊，但自己也不幸牺牲。瑶族人民为了纪念盘王，每年都要举行盛大的祭祀仪式，这就是盘王节的由来。</p>
+                    <h3>庆祝方式</h3>
+                    <p>盘王节的庆祝活动丰富多彩，主要包括以下环节：</p>
+                    <ul>
+                        <li><strong>祭祀盘王：</strong>瑶族人民在盘王庙或家中供奉盘王神像，点燃香烛，摆上祭品，由道公主持祭祀仪式，祈求盘王保佑瑶族人民平安幸福。</li>
+                        <li><strong>跳长鼓舞：</strong>长鼓舞是瑶族的传统舞蹈，也是盘王节的重要表演形式。舞者手持长鼓，边敲边跳，动作优美，节奏明快。</li>
+                        <li><strong>唱盘王歌：</strong>盘王歌是瑶族的传统史诗，记载了瑶族的历史、文化和盘王的传说故事。在盘王节上，瑶族人民会集体演唱盘王歌，表达对盘王的敬仰和怀念之情。</li>
+                        <li><strong>耍歌堂：</strong>耍歌堂是盘王节的重要活动之一，瑶族人民会穿上节日盛装，聚集在歌堂里，唱歌、跳舞、对歌，庆祝节日。</li>
+                        <li><strong>品尝美食：</strong>盘王节期间，瑶族人民会准备各种美食，如糯米饭、腊肉、米酒等，邀请亲朋好友一起品尝，分享节日的喜悦。</li>
+                    </ul>
+                    <h3>文化内涵</h3>
+                    <div class="festival-features">
+                        <h4>盘王节的文化内涵</h4>
+                        <ul>
+                            <li><strong>祖先崇拜：</strong>盘王节是瑶族祖先崇拜的重要表现形式，通过祭祀盘王，瑶族人民表达了对祖先的敬仰和怀念之情。</li>
+                            <li><strong>民族认同：</strong>盘王节是瑶族人民共同的节日，通过庆祝盘王节，瑶族人民增强了民族凝聚力和认同感。</li>
+                            <li><strong>文化传承：</strong>盘王节是瑶族文化传承的重要载体，通过盘王歌、长鼓舞等艺术形式，瑶族文化得到了传承和发展。</li>
+                            <li><strong>祈求平安：</strong>盘王节期间，瑶族人民祈求盘王保佑平安、丰收、健康，表达了对美好生活的向往和追求。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 其他传统节日 -->
+                <section class="festival-section">
+                    <h2>其他传统节日</h2>
+                    <p>除了上述主要传统节日外，瑶族还有许多其他传统节日，如春节、元宵节、清明节、端午节、中元节、重阳节等。这些节日大多与汉族等其他民族的节日时间相同，但庆祝方式和文化内涵有所不同，具有鲜明的瑶族特色。</p>
+                    <h3>春节</h3>
+                    <p>春节是瑶族人民最隆重的传统节日之一，时间与汉族春节相同，即农历正月初一。瑶族人民在春节期间会举行一系列庆祝活动，如贴春联、放鞭炮、走亲访友、吃团圆饭等。此外，瑶族还有一些独特的春节习俗，如：</p>
+                    <ul>
+                        <li><strong>祭祀祖先：</strong>瑶族人民在春节期间会祭祀祖先，祈求祖先保佑家庭平安、子孙昌盛。</li>
+                        <li><strong>跳春舞：</strong>瑶族人民在春节期间会跳春舞，祈求风调雨顺、五谷丰登。</li>
+                        <li><strong>唱春歌：</strong>瑶族人民在春节期间会唱春歌，表达对美好生活的向往和追求。</li>
+                        <li><strong>给压岁钱：</strong>瑶族长辈会给晚辈压岁钱，祈求晚辈平安健康、茁壮成长。</li>
+                    </ul>
+                    <h3>元宵节</h3>
+                    <p>元宵节是瑶族人民的传统节日，时间与汉族元宵节相同，即农历正月十五。瑶族人民在元宵节期间会举行一系列庆祝活动，如吃元宵、赏花灯、猜灯谜等。此外，瑶族还有一些独特的元宵节习俗，如：</p>
+                    <ul>
+                        <li><strong>祭祀神灵：</strong>瑶族人民在元宵节期间会祭祀神灵，祈求神灵保佑村寨平安、人畜兴旺。</li>
+                        <li><strong>跳灯舞：</strong>瑶族人民在元宵节期间会跳灯舞，祈求平安、丰收、健康。</li>
+                        <li><strong>放天灯：</strong>瑶族人民在元宵节期间会放天灯，祈求心愿成真。</li>
+                    </ul>
+                    <h3>清明节</h3>
+                    <p>清明节是瑶族人民的传统节日，时间与汉族清明节相同，即公历4月4日或5日。瑶族人民在清明节期间会举行一系列祭祀活动，如扫墓、祭祖、烧纸钱等。此外，瑶族还有一些独特的清明节习俗，如：</p>
+                    <ul>
+                        <li><strong>挂青：</strong>瑶族人民在清明节期间会在祖先的坟墓上挂青（即挂纸钱），表达对祖先的敬仰和怀念之情。</li>
+                        <li><strong>吃清明粑：</strong>瑶族人民在清明节期间会吃清明粑，清明粑是用糯米粉和清明草制作而成的，味道清香可口。</li>
+                        <li><strong>踏青：</strong>瑶族人民在清明节期间会踏青，欣赏春天的美景，感受大自然的生机和活力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的传承与发展 -->
+                <section class="festival-section">
+                    <h2>节日的传承与发展</h2>
+                    <p>随着社会的发展和进步，瑶族的传统节日面临着一些挑战，如年轻一代对传统节日的兴趣降低、传统节日的庆祝方式简化等。为了传承和发展瑶族的传统节日，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>加强对瑶族青少年的传统节日教育，使他们了解瑶族传统节日的历史渊源、文化内涵和庆祝方式。</li>
+                        <li><strong>保护传统习俗：</strong>保护和传承瑶族传统节日的习俗和仪式，确保传统节日的完整性和真实性。</li>
+                        <li><strong>创新庆祝方式：</strong>在保持传统节日核心内容的基础上，创新庆祝方式，适应现代社会的发展。</li>
+                        <li><strong>举办文化活动：</strong>举办各种瑶族传统节日文化活动，如盘王节庆典、长鼓舞比赛、瑶歌大赛等，激发瑶族人民对传统节日的兴趣。</li>
+                        <li><strong>政策支持：</strong>政府应出台相关政策，支持瑶族传统节日的传承和发展，如将盘王节列为国家级非物质文化遗产等。</li>
+                    </ul>
+                    <p>瑶族的传统节日是瑶族文化的重要组成部分，是瑶族人民的精神财富。传承和发展瑶族的传统节日，不仅是对瑶族文化的保护，也是对中华民族文化多样性的保护。我们应该共同努力，让瑶族的传统节日在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.festival-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

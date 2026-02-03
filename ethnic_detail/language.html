@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语言文字 - 汉族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 语言文字页面特定样式 */
+        .language-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-han {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-han:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .language-section {
+            margin-bottom: 80px;
+        }
+        
+        .language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言文字发展时间线 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #c0392b;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #c0392b;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f9f9f9;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f9f9f9 transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        .timeline-content h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        /* 汉字演变展示 */
+        .characters-evolution {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .character-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .character-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .character-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .character-item p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .language-header h1 {
+                font-size: 36px;
+            }
+            
+            .language-header p {
+                font-size: 18px;
+            }
+            
+            .language-section h2 {
+                font-size: 28px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid #f9f9f9;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #f9f9f9 transparent transparent;
+            }
+            
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .characters-evolution {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .language-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="language-header">
+        <div class="container">
+            <div class="language-header-content">
+                <h1>语言文字</h1>
+                <p>汉族文化的重要载体与表达方式</p>
+                <a href="han.html" class="back-han">返回汉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="language-main">
+        <div class="container">
+            <div class="language-content">
+                <!-- 介绍部分 -->
+                <section class="language-section">
+                    <h2>汉语与汉字</h2>
+                    <p>汉语是世界上使用人口最多的语言，约有14亿人使用汉语作为母语。汉字是世界上最古老的文字之一，已有数千年的历史，是汉族文化的重要载体。</p>
+                    <p>汉字是表意文字，具有独特的美学价值和文化内涵。每一个汉字都承载着丰富的文化信息，反映了汉族人民的智慧和创造力。</p>
+                </section>
+
+                <!-- 汉语特点 -->
+                <section class="language-section">
+                    <h2><a href="language_chinese_features.html" style="color: #c0392b; text-decoration: none;">汉语的特点</a></h2>
+                    <ul>
+                        <li><strong>声调语言：</strong>汉语是一种声调语言，声调的变化会改变词语的意义。普通话有四个声调，分别是阴平、阳平、上声和去声。</li>
+                        <li><strong>单音节语素：</strong>汉语的语素大多是单音节的，一个音节通常对应一个汉字，表达一个意义。</li>
+                        <li><strong>语序重要：</strong>汉语的语法关系主要通过语序来表达，而不是通过词形变化。</li>
+                        <li><strong>丰富的词汇：</strong>汉语词汇丰富，有大量的同义词、近义词和成语，表达方式多样。</li>
+                        <li><strong>书面语与口语分离：</strong>在历史上，汉语的书面语（文言文）与口语有较大差异，直到白话文运动后才逐渐统一。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉字特点 -->
+                <section class="language-section">
+                    <h2><a href="language_character_features.html" style="color: #c0392b; text-decoration: none;">汉字的特点</a></h2>
+                    <ul>
+                        <li><strong>表意性：</strong>汉字是表意文字，通过字形来表达意义，具有很强的表意功能。</li>
+                        <li><strong>方块字：</strong>汉字是方块字，每个字都占据一定的空间，结构严谨，布局合理。</li>
+                        <li><strong>形声字为主：</strong>汉字中形声字占大多数，由形旁和声旁组成，形旁表义，声旁表音。</li>
+                        <li><strong>历史悠久：</strong>汉字的历史可以追溯到甲骨文时期，已有三千多年的历史，是世界上唯一一种从古至今连续使用的文字。</li>
+                        <li><strong>文化内涵：</strong>汉字蕴含着丰富的文化内涵，每个字都有其演变历史和文化背景。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉字演变 -->
+                <section class="language-section">
+                    <h2><a href="language_evolution.html" style="color: #c0392b; text-decoration: none;">汉字的演变</a></h2>
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>甲骨文</h4>
+                                <p>约公元前1600年-公元前1046年，商朝时期使用的文字，刻在龟甲和兽骨上，主要用于占卜。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>金文</h4>
+                                <p>约公元前1046年-公元前256年，周朝时期使用的文字，铸刻在青铜器上，也称为钟鼎文。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>篆书</h4>
+                                <p>约公元前221年-公元前207年，秦朝统一六国后推行的标准文字，分为大篆和小篆。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>隶书</h4>
+                                <p>约公元前202年-公元220年，汉朝时期流行的文字，是汉字从古文字向今文字演变的转折点。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>楷书</h4>
+                                <p>约公元220年-公元589年，魏晋南北朝时期形成的文字，是现代汉字的标准字体。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>行书与草书</h4>
+                                <p>魏晋时期发展起来的字体，行书介于楷书和草书之间，草书则更加简化和流畅。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 汉字构造 -->
+                <section class="language-section">
+                    <h2><a href="language_structure.html" style="color: #c0392b; text-decoration: none;">汉字的构造</a></h2>
+                    <p>汉字的构造主要有六种方法，称为"六书"：</p>
+                    <div class="characters-evolution">
+                        <div class="character-item">
+                            <h5>象形</h5>
+                            <p>用图形来表示事物的形状，如日、月、山、水等。</p>
+                        </div>
+                        <div class="character-item">
+                            <h5>指事</h5>
+                            <p>用象征性的符号来表示意义，如上、下、本、末等。</p>
+                        </div>
+                        <div class="character-item">
+                            <h5>会意</h5>
+                            <p>由两个或多个独体字组合而成，表达新的意义，如明、休、从、众等。</p>
+                        </div>
+                        <div class="character-item">
+                            <h5>形声</h5>
+                            <p>由形旁和声旁组成，形旁表义，声旁表音，如江、河、湖、海等。</p>
+                        </div>
+                        <div class="character-item">
+                            <h5>转注</h5>
+                            <p>两个字互为注释，意义相同或相近，如考、老等。</p>
+                        </div>
+                        <div class="character-item">
+                            <h5>假借</h5>
+                            <p>借用已有的字来表示新的意义，如令、长等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 汉语方言 -->
+                <section class="language-section">
+                    <h2><a href="language_dialects.html" style="color: #c0392b; text-decoration: none;">汉语方言</a></h2>
+                    <p>汉语有许多方言，主要分为七大方言区：</p>
+                    <ul>
+                        <li><strong>北方方言：</strong>以北京话为代表，分布在长江以北地区和西南地区，是使用人口最多的方言。</li>
+                        <li><strong>吴方言：</strong>以上海话、苏州话为代表，分布在江苏南部和浙江北部。</li>
+                        <li><strong>湘方言：</strong>以长沙话为代表，分布在湖南省。</li>
+                        <li><strong>赣方言：</strong>以南昌话为代表，分布在江西省。</li>
+                        <li><strong>客家方言：</strong>以梅州话为代表，分布在广东、福建、江西等省的部分地区。</li>
+                        <li><strong>闽方言：</strong>以福州话、厦门话为代表，分布在福建、台湾和广东潮汕地区。</li>
+                        <li><strong>粤方言：</strong>以广州话为代表，分布在广东、广西的部分地区和香港、澳门。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉字的影响 -->
+                <section class="language-section">
+                    <h2><a href="language_influence.html" style="color: #c0392b; text-decoration: none;">汉字的影响</a></h2>
+                    <p>汉字不仅是汉族文化的重要载体，也对周边国家和地区的文化产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>日本：</strong>日本在公元3世纪左右引入汉字，后来在此基础上创造了假名。</li>
+                        <li><strong>朝鲜半岛：</strong>朝鲜半岛在公元前后引入汉字，后来创造了谚文。</li>
+                        <li><strong>越南：</strong>越南在公元2世纪左右引入汉字，后来创造了喃字。</li>
+                        <li><strong>文化交流：</strong>汉字是东亚文化圈的重要组成部分，促进了各国之间的文化交流。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言文字的保护与发展 -->
+                <section class="language-section">
+                    <h2><a href="language_preservation.html" style="color: #c0392b; text-decoration: none;">语言文字的保护与发展</a></h2>
+                    <p>随着社会的发展和科技的进步，汉语和汉字也在不断发展和变化：</p>
+                    <ul>
+                        <li><strong>普通话推广：</strong>1956年，中国开始推广普通话，促进了全国范围内的语言统一。</li>
+                        <li><strong>简化字：</strong>1956年，中国公布了《汉字简化方案》，简化了部分汉字的笔画。</li>
+                        <li><strong>汉语拼音：</strong>1958年，中国公布了《汉语拼音方案》，为汉字标注读音。</li>
+                        <li><strong>信息化：</strong>随着计算机和互联网的普及，汉字的信息化处理取得了重大突破。</li>
+                        <li><strong>国际传播：</strong>近年来，随着中国综合国力的增强，汉语的国际影响力不断扩大，全球掀起了"汉语热"。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.language-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

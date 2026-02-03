@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基诺族传统工艺 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 基诺族传统工艺页面特定样式 */
+        .jino-header {
+            background-image: url('images/基诺族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jino-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jino-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jino-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-jino {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-jino:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jino-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jino-section {
+            margin-bottom: 80px;
+        }
+        
+        .jino-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jino-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jino-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jino-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jino-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 工艺展示样式 */
+        .craft-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .craft-item {
+            flex: 1;
+            min-width: 250px;
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .craft-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jino-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jino-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jino-header-content .back-jino {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jino-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .jino-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jino-header">
+        <div class="container">
+            <div class="jino-header-content">
+                <h1>基诺族传统工艺</h1>
+                <p>深入了解基诺族的传统手工艺技术和艺术特色</p>
+                <a href="jino.html" class="back-jino">返回基诺族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="jino-main">
+        <div class="container">
+            <div class="jino-content">
+                <!-- 工艺概述 -->
+                <section class="jino-section">
+                    <h2>工艺概述</h2>
+                    <p>基诺族的传统工艺历史悠久，种类繁多，主要包括竹编、棉织、绘画、木雕等多种形式。这些传统工艺是基诺族人民在长期的生产生活中积累和发展起来的，反映了他们的智慧和创造力。</p>
+                    <p>基诺族的传统工艺具有浓郁的民族特色和地方风格，不仅实用价值高，而且艺术价值也很高。这些工艺作品不仅是日常生活用品，也是基诺族文化的重要载体，体现了基诺族人民的审美观念和文化内涵。</p>
+                </section>
+
+                <!-- 主要工艺种类 -->
+                <section class="jino-section">
+                    <h3>主要工艺种类</h3>
+                    
+                    <div class="craft-showcase">
+                        <div class="craft-item">
+                            <h4>竹编工艺</h4>
+                            <p>竹编是基诺族最具代表性的传统工艺之一。基诺族生活的地区盛产竹子，为竹编工艺的发展提供了丰富的原材料。基诺族的竹编工艺历史悠久，技艺精湛，主要产品包括竹篮、竹筐、竹席、竹凳等日常生活用品。</p>
+                            <p>基诺族的竹编作品造型美观，编织精细，图案多样，具有浓郁的民族特色。竹编工艺不仅满足了基诺族人民的日常生活需要，也是他们审美情趣的体现。</p>
+                        </div>
+                        
+                        <div class="craft-item">
+                            <h4>棉织工艺</h4>
+                            <p>棉织是基诺族的另一项重要传统工艺。基诺族人民很早就学会了种植棉花和纺纱织布，他们用自织的棉布制作服装、被褥等生活用品。</p>
+                            <p>基诺族的棉织工艺以其精湛的技艺和独特的图案而闻名。他们在棉布上织出各种精美的图案，如几何图形、动植物纹样等，这些图案不仅美观，还具有一定的象征意义，反映了基诺族的文化传统和审美观念。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="craft-showcase">
+                        <div class="craft-item">
+                            <h4>绘画工艺</h4>
+                            <p>基诺族的绘画工艺主要体现在宗教仪式和日常生活用品上。他们在竹筒、木鼓、房屋墙壁等物体上绘制各种图案和符号，这些图案通常与宗教信仰、自然崇拜、图腾崇拜等有关。</p>
+                            <p>基诺族的绘画作品色彩鲜艳，线条粗犷，风格独特，具有浓郁的原始艺术特色。这些绘画作品不仅是基诺族文化的重要组成部分，也是研究基诺族历史和文化的重要资料。</p>
+                        </div>
+                        
+                        <div class="craft-item">
+                            <h4>木雕工艺</h4>
+                            <p>木雕是基诺族的传统工艺之一，主要用于制作宗教用品、生活用具和装饰品。基诺族的木雕作品题材广泛，包括人物、动物、植物等各种形象。</p>
+                            <p>基诺族的木雕工艺技艺精湛，雕刻细腻，造型生动。他们在木材上雕刻出各种精美的图案和花纹，这些作品不仅实用，而且具有很高的艺术价值。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 工艺特点 -->
+                <section class="jino-section">
+                    <h3>工艺特点</h3>
+                    <p>基诺族的传统工艺具有以下特点：</p>
+                    
+                    <ul>
+                        <li><strong>实用性与艺术性结合：</strong>基诺族的传统工艺作品首先是实用的生活用品，同时又具有很高的艺术价值。他们在制作过程中注重美观和实用的统一，使得每一件作品都既是实用品，又是艺术品。</li>
+                        <li><strong>就地取材：</strong>基诺族的传统工艺充分利用当地的自然资源，如竹子、木材、棉花等，这些材料容易获取，成本低廉，适合基诺族的生活环境和经济条件。</li>
+                        <li><strong>民族特色浓郁：</strong>基诺族的传统工艺作品具有浓郁的民族特色，反映了基诺族的文化传统、审美观念和生活方式。许多作品中都融入了基诺族特有的图案、符号和色彩。</li>
+                        <li><strong>手工制作：</strong>基诺族的传统工艺主要依靠手工制作，每一件作品都凝聚了工匠的心血和智慧。手工制作使得每一件作品都具有独特性，没有完全相同的两件作品。</li>
+                        <li><strong>技艺传承：</strong>基诺族的传统工艺技艺主要通过家族传承和师徒传承的方式代代相传。年轻一代通过向长辈学习，掌握各种工艺技能，使得传统工艺得以延续和发展。</li>
+                    </ul>
+                </section>
+
+                <!-- 工艺制作过程 -->
+                <section class="jino-section">
+                    <h3>工艺制作过程</h3>
+                    <p>基诺族传统工艺的制作过程通常包括以下几个步骤：</p>
+                    
+                    <h4>竹编工艺制作过程</h4>
+                    <ul>
+                        <li><strong>材料准备：</strong>选择生长良好、粗细适中的竹子，将其砍伐后截断成合适的长度，然后进行晾晒和处理，使其变得柔软有韧性。</li>
+                        <li><strong>剖篾：</strong>将竹子剖成均匀的竹篾，这是竹编工艺的关键步骤，需要精湛的技艺。竹篾的粗细和均匀程度直接影响到最终作品的质量。</li>
+                        <li><strong>编织：</strong>根据设计好的图案和造型，用竹篾进行编织。编织过程中需要注意经纬线的排列和穿插，确保作品结构牢固，图案美观。</li>
+                        <li><strong>修整和装饰：</strong>编织完成后，对作品进行修整，去除多余的竹篾，然后进行必要的装饰，如上色、刻画等。</li>
+                    </ul>
+                    
+                    <h4>棉织工艺制作过程</h4>
+                    <ul>
+                        <li><strong>棉花种植和采摘：</strong>基诺族人民在自家的田地里种植棉花，待棉花成熟后进行采摘。</li>
+                        <li><strong>纺纱：</strong>将采摘的棉花进行加工，去除杂质，然后用纺车纺成棉纱。</li>
+                        <li><strong>织布：</strong>将棉纱用织布机织成棉布。基诺族的织布机通常是简单的手工织布机，织布过程需要耐心和技巧。</li>
+                        <li><strong>染色和印花：</strong>根据需要，对棉布进行染色和印花，使其更加美观。基诺族通常使用天然植物染料进行染色，如苏木、蓝草等。</li>
+                    </ul>
+                </section>
+
+                <!-- 工艺的文化意义 -->
+                <section class="jino-section">
+                    <h3>工艺的文化意义</h3>
+                    <p>基诺族的传统工艺不仅是一种技术，更是一种文化，具有重要的文化意义：</p>
+                    
+                    <ul>
+                        <li><strong>文化传承：</strong>传统工艺是基诺族文化的重要载体，通过工艺作品，基诺族的历史、信仰、价值观等文化元素得以传承和弘扬。</li>
+                        <li><strong>身份认同：</strong>传统工艺是基诺族民族身份的重要标志，基诺族人民通过制作和使用传统工艺作品，表达对本民族文化的认同和自豪。</li>
+                        <li><strong>社会功能：</strong>传统工艺在基诺族社会中发挥着重要的功能，如宗教仪式中的法器制作、日常生活用品的生产等，这些工艺作品满足了基诺族人民的各种需求。</li>
+                        <li><strong>艺术价值：</strong>基诺族的传统工艺作品具有很高的艺术价值，它们的造型、图案、色彩等都体现了基诺族人民的艺术创造力和审美情趣。</li>
+                        <li><strong>经济价值：</strong>传统工艺也是基诺族人民经济收入的重要来源之一。许多基诺族工匠通过制作和销售传统工艺作品，增加家庭收入，改善生活条件。</li>
+                    </ul>
+                </section>
+
+                <!-- 工艺的保护与发展 -->
+                <section class="jino-section">
+                    <h3>工艺的保护与发展</h3>
+                    <p>随着社会的发展和现代工业的冲击，基诺族的传统工艺面临着传承和发展的挑战。为了保护和发展这一宝贵的文化遗产，政府和社会各界采取了一系列措施：</p>
+                    
+                    <ul>
+                        <li><strong>政策支持：</strong>政府制定了一系列政策，支持传统工艺的保护和发展，如设立传统工艺保护区、提供资金支持等。</li>
+                        <li><strong>技艺传承：</strong>鼓励传统工艺大师收徒传艺，培养新一代的工艺传承人。同时，在学校教育中融入传统工艺知识，提高年轻一代对传统工艺的认识和兴趣。</li>
+                        <li><strong>市场开发：</strong>通过举办传统工艺展览、建立传统工艺产品销售渠道等方式，开拓传统工艺产品的市场，增加传统工艺的经济价值，提高工匠的制作积极性。</li>
+                        <li><strong>创新发展：</strong>在保持传统工艺特色的基础上，鼓励工匠进行创新，开发适应现代市场需求的新产品，使传统工艺在现代社会中焕发出新的生命力。</li>
+                        <li><strong>文化宣传：</strong>通过各种媒体和渠道，宣传基诺族的传统工艺，提高社会各界对传统工艺的认识和重视，营造保护和发展传统工艺的良好氛围。</li>
+                    </ul>
+                    
+                    <p>这些措施对于保护和发展基诺族的传统工艺起到了重要作用，使得这一宝贵的文化遗产在现代社会中依然保持着生命力。</p>
+                </section>
+
+                <!-- 工艺的未来展望 -->
+                <section class="jino-section">
+                    <h3>工艺的未来展望</h3>
+                    <p>基诺族的传统工艺具有悠久的历史和丰富的文化内涵，是中华民族传统工艺宝库中的重要组成部分。在现代社会中，传统工艺的保护和发展面临着新的机遇和挑战。</p>
+                    <p>未来，基诺族的传统工艺可以通过以下方式实现更好的发展：</p>
+                    
+                    <ul>
+                        <li><strong>与现代设计相结合：</strong>将传统工艺与现代设计理念相结合，开发出既具有传统特色又符合现代审美需求的产品，提高传统工艺的市场竞争力。</li>
+                        <li><strong>与旅游产业相结合：</strong>利用基诺族地区的旅游资源，将传统工艺作为旅游产品进行开发，让游客了解和购买传统工艺作品，增加传统工艺的知名度和经济价值。</li>
+                        <li><strong>与教育相结合：</strong>将传统工艺纳入学校教育体系，开设传统工艺课程，培养学生对传统工艺的兴趣和热爱，为传统工艺的传承和发展储备人才。</li>
+                        <li><strong>与科技相结合：</strong>利用现代科技手段，如数字化设计、机器辅助加工等，提高传统工艺的生产效率和产品质量，同时保持传统工艺的特色和魅力。</li>
+                    </ul>
+                    
+                    <p>相信在政府、社会各界和基诺族人民的共同努力下，基诺族的传统工艺一定能够在现代社会中得到更好的保护和发展，焕发出新的生机和活力，为中华民族的文化繁荣做出更大的贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

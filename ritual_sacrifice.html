@@ -1,0 +1,533 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祭祀礼仪 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 祭祀礼仪页面特定样式 */
+        body {
+            background-image: url('images/礼仪制度.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .sacrifice-header {
+            background-image: url('images/礼仪制度.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .sacrifice-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .sacrifice-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .sacrifice-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .sacrifice-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-ritual {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-ritual:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .sacrifice-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .sacrifice-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .sacrifice-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .sacrifice-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .sacrifice-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .sacrifice-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .sacrifice-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .sacrifice-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .sacrifice-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .sacrifice-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 祭祀类型网格 */
+        .sacrifice-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .sacrifice-type {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .sacrifice-type:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sacrifice-type h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 流程步骤 */
+        .process-steps {
+            counter-reset: step;
+            margin: 40px 0;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .process-step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #c0392b;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .process-step h4 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .sacrifice-header h1 {
+                font-size: 36px;
+            }
+            
+            .sacrifice-header p {
+                font-size: 18px;
+            }
+            
+            .sacrifice-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 内部导航栏样式 */
+        .internal-nav {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+        
+        .internal-nav .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .internal-nav .nav-links li {
+            margin: 0 10px;
+        }
+        
+        .internal-nav .nav-links a {
+            text-decoration: none;
+            color: #c0392b;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .internal-nav .nav-links a:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="sacrifice-header">
+        <div class="container">
+            <div class="sacrifice-header-content">
+                <h1>祭祀礼仪</h1>
+                <p>中国汉族传统祭祀文化的深邃内涵</p>
+                <a href="ritual.html" class="back-ritual">返回礼仪分类</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 内部导航栏 -->
+    <section class="internal-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="ritual_sacrifice.html">祭祀礼仪</a></li>
+                <li><a href="ritual_marriage.html">婚姻礼仪</a></li>
+                <li><a href="ritual_funeral.html">丧葬礼仪</a></li>
+                <li><a href="ritual_social.html">社交礼仪</a></li>
+                <li><a href="ritual_court.html">宫廷礼仪</a></li>
+                <li><a href="ritual_festival.html">节日礼仪</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="sacrifice-main">
+        <div class="container">
+            <div class="sacrifice-content">
+                <!-- 祭祀礼仪介绍 -->
+                <section class="sacrifice-section">
+                    <h2>祭祀礼仪介绍</h2>
+                    <p>祭祀礼仪是中国汉民族传统文化中最重要、最隆重的组成部分之一，是中华民族在长期的历史发展过程中形成的对天地、祖先、神灵的崇拜和祭祀仪式。它体现了中华儿女对自然、祖先和神灵的敬畏和感恩之情，是中华传统文化的重要载体。</p>
+                    <p>祭祀礼仪的核心是通过一系列庄重、肃穆的仪式，表达人们对天地、祖先和神灵的敬意和祈求，同时也强化了家族、社会的凝聚力和认同感。在中国古代社会，祭祀礼仪被视为国家大事，与政治、经济、文化等各个方面密切相关。</p>
+                </section>
+
+                <!-- 祭祀礼仪的起源 -->
+                <section class="sacrifice-section">
+                    <h2>祭祀礼仪的起源</h2>
+                    <p>祭祀礼仪的起源可以追溯到原始社会时期。在那个生产力水平低下的时代，人类对自然现象和自身命运缺乏科学的认识，认为天地、万物都有神灵主宰，因此产生了对自然神灵的崇拜和祭祀活动。</p>
+                    <h3>原始社会的祭祀活动</h3>
+                    <p>原始社会的祭祀活动主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>自然崇拜</strong>：原始人类对自然界的各种现象，如日月星辰、风雨雷电、山河湖海等感到神秘和敬畏，认为它们都有神灵主宰，因此产生了对这些自然神灵的崇拜和祭祀。</li>
+                        <li><strong>祖先崇拜</strong>：随着人类社会的发展，人们逐渐认识到祖先对家族的重要贡献，因此产生了对祖先的崇拜和祭祀，希望祖先能够保佑家族的繁荣和平安。</li>
+                        <li><strong>图腾崇拜</strong>：原始人类通常将某种动物或植物视为自己部落的祖先或保护神，顶礼膜拜，对其进行崇拜和祭祀。</li>
+                    </ul>
+                    <p>这些原始的祭祀活动是祭祀礼仪的萌芽，为后来的祭祀礼仪的形成和发展奠定了基础。</p>
+                </section>
+
+                <!-- 祭祀礼仪的发展 -->
+                <section class="sacrifice-section">
+                    <h2>祭祀礼仪的发展</h2>
+                    <p>随着社会的发展和文明的进步，祭祀礼仪也不断演变和完善，经历了从原始社会到封建社会的漫长发展过程。</p>
+                    
+                    <h3>夏商周时期</h3>
+                    <p>夏商周时期是中国古代祭祀礼仪形成的重要时期。在这个时期，祭祀礼仪逐渐规范化、制度化，形成了一套完整的祭祀体系。</p>
+                    <ul>
+                        <li><strong>夏朝</strong>：夏朝已经有了较为固定的祭祀制度，主要包括对天地、祖先和神灵的祭祀。据《史记》记载，夏朝的君主会在每年的春分、秋分等重要节气举行祭祀活动，祈求风调雨顺、五谷丰登。夏朝的祭祀仪式已经有了初步的规范化，如使用特定的祭品、遵循一定的仪式流程等。</li>
+                        <li><strong>商朝</strong>：商朝的祭祀礼仪更加完善，形成了以祖先崇拜为核心的祭祀体系，占卜和祭祀活动密切相关。商朝人非常重视占卜，几乎所有的祭祀活动都要先进行占卜，以确定祭祀的时间、地点和方式。商朝的祭祀种类繁多，包括祭天、祭地、祭祖先、祭神灵等。商朝的祭祀仪式也更加繁琐，如使用人牲、大量的牛羊等祭品，并且有专门的祭司主持祭祀活动。</li>
+                        <li><strong>周朝</strong>：周朝是中国古代祭祀礼仪的鼎盛时期，制定了详细的礼仪制度，即《周礼》。《周礼》对祭祀的种类、仪式、祭品等都有明确的规定，形成了一套完整的祭祀体系。周朝的祭祀分为吉礼、凶礼、军礼、宾礼、嘉礼五大类，其中吉礼就是专门的祭祀礼仪。周朝的祭祀仪式更加规范化和制度化，如规定了不同等级的人使用不同的祭品和仪式，天子、诸侯、大夫、士各有不同的祭祀规格。周朝还设立了专门的祭祀机构和官员，如大宗伯、小宗伯等，负责管理祭祀事务。</li>
+                    </ul>
+                    
+                    <h3>秦汉至明清时期</h3>
+                    <p>秦汉至明清时期，祭祀礼仪在继承周朝礼仪制度的基础上，不断变革和发展，适应了不同时代的社会需求。</p>
+                    <ul>
+                        <li><strong>秦汉时期</strong>：秦汉时期的祭祀礼仪更加规范化、制度化，形成了以皇权为中心的祭祀体系。秦朝统一六国后，秦始皇制定了统一的祭祀制度，将祭天、祭地等重要祭祀活动集中在京城举行，以显示皇权的至高无上。汉朝继承了秦朝的祭祀制度，并进一步发展，如汉武帝时期制定了更加详细的祭祀礼仪，增加了对泰山、黄河等重要自然神的祭祀。汉朝还设立了专门的祭祀官员，如太常、太祝等，负责管理祭祀事务。</li>
+                        <li><strong>魏晋南北朝时期</strong>：魏晋南北朝时期的祭祀礼仪更加隆重和繁琐，同时也更加注重礼仪的象征意义。这个时期，由于社会动荡，人们更加重视祭祀活动，希望通过祭祀获得神灵的保佑。魏晋南北朝时期的祭祀礼仪融合了道教、佛教的元素，如在祭祀仪式中加入了道教的符咒、佛教的诵经等。同时，这个时期的祭祀礼仪也更加注重个人的情感表达，如在祭祀祖先时，更加注重对祖先的追思和缅怀。</li>
+                        <li><strong>唐宋时期</strong>：唐宋时期的祭祀礼仪在继承前代祭祀礼仪的基础上，更加注重礼仪的文化内涵和艺术性。唐朝时期，祭祀礼仪融合了胡族的文化元素，如在祭祀仪式中加入了胡族的音乐、舞蹈等。宋朝时期，祭祀礼仪更加规范化和制度化，制定了更加详细的祭祀礼仪制度，如《政和五礼新仪》等。宋朝的祭祀礼仪也更加注重礼仪的象征意义，如通过祭祀活动表达对天地、祖先的敬畏和感恩之情。</li>
+                        <li><strong>元明清时期</strong>：元明清时期的祭祀礼仪在继承前代祭祀礼仪的基础上，融入了少数民族的祭祀文化，形成了具有时代特色的祭祀体系。元朝时期，祭祀礼仪融合了蒙古族的文化元素，如在祭祀仪式中加入了蒙古族的传统习俗。明朝时期，祭祀礼仪更加规范化和制度化，制定了更加详细的祭祀礼仪制度，如《大明集礼》等。清朝时期，祭祀礼仪融合了满族的文化元素，如在祭祀仪式中加入了满族的传统习俗。同时，清朝的祭祀礼仪也更加注重礼仪的等级性，严格规定了不同等级的人使用不同的祭品和仪式。</li>
+                    </ul>
+                    
+                    <h3>现代时期</h3>
+                    <p>现代时期，祭祀礼仪在继承传统祭祀礼仪的基础上，不断变革和发展，适应了现代社会的需求。现代的祭祀礼仪更加注重环保和简约，如减少使用动物祭品，改用鲜花、水果等环保祭品。同时，现代的祭祀礼仪也更加注重个人的情感表达，如通过祭祀活动表达对祖先的追思和缅怀之情，而不是过分注重仪式的繁琐性。现代的祭祀礼仪还融合了现代元素，如通过网络祭祀、线上追思等方式，让人们可以更加方便地参与祭祀活动。</p>
+                    <p>总之，祭祀礼仪的发展是一个不断演变和完善的过程，每个时代都有其独特的祭祀礼仪和特点。祭祀礼仪的发展反映了中国社会的变迁和文化的传承，是中华传统文化的重要组成部分。
+                </section>
+
+                <!-- 祭祀礼仪的主要类型 -->
+                <section class="sacrifice-section">
+                    <h2>祭祀礼仪的主要类型</h2>
+                    <div class="sacrifice-types">
+                        <div class="sacrifice-type">
+                            <h4>天地祭祀</h4>
+                            <p>天地祭祀是中国古代最重要的祭祀活动之一，包括祭天、祭地、祭日、祭月等。天地祭祀通常由皇帝主持，体现了皇权的神圣性和权威性。</p>
+                        </div>
+                        <div class="sacrifice-type">
+                            <h4>祖先祭祀</h4>
+                            <p>祖先祭祀是中国古代最普遍的祭祀活动之一，包括家祭、族祭、郊祭等。祖先祭祀体现了中华儿女对祖先的敬畏和感恩之情，是家族凝聚力的重要体现。</p>
+                        </div>
+                        <div class="sacrifice-type">
+                            <h4>神灵祭祀</h4>
+                            <p>神灵祭祀是对各种神灵的祭祀，包括自然神灵、人文神灵等。神灵祭祀体现了中华儿女对自然和社会的认识和理解。</p>
+                        </div>
+                        <div class="sacrifice-type">
+                            <h4>宗庙祭祀</h4>
+                            <p>宗庙祭祀是在宗庙里进行的集体祭祀，通常由宗族组织。宗庙祭祀体现了家族的延续性和传承性，是中国古代社会等级制度的重要体现。</p>
+                        </div>
+                        <div class="sacrifice-type">
+                            <h4>社稷祭祀</h4>
+                            <p>社稷祭祀是对土地神和谷神的祭祀，体现了中华民族对农业生产的重视和祈求丰收的愿望。</p>
+                        </div>
+                        <div class="sacrifice-type">
+                            <h4>山川祭祀</h4>
+                            <p>山川祭祀是对山川河流的祭祀，体现了中华民族对自然环境的敬畏和依赖之情。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 祭祀礼仪的流程 -->
+                <section class="sacrifice-section">
+                    <h2>祭祀礼仪的流程</h2>
+                    <p>祭祀礼仪的流程通常包括以下几个步骤，具体仪式因祭祀类型和时代的不同而有所差异：</p>
+                    
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <h4>准备阶段</h4>
+                            <p>在祭祀活动开始前，需要进行一系列的准备工作，包括：</p>
+                            <ul>
+                                <li>确定祭祀的时间、地点和主祭人</li>
+                                <li>准备祭品，如牲畜、食品、酒水等</li>
+                                <li>清洁祭祀场所，布置祭坛</li>
+                                <li>准备祭祀所需的器具和物品</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>迎神阶段</h4>
+                            <p>迎神是祭祀活动的开始，主要包括：</p>
+                            <ul>
+                                <li>主祭人带领参祭人员进入祭祀场所</li>
+                                <li>进行迎神仪式，迎接神灵降临</li>
+                                <li>演奏祭祀音乐，诵读祭文</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>献祭阶段</h4>
+                            <p>献祭是祭祀活动的核心环节，主要包括：</p>
+                            <ul>
+                                <li>摆放祭品，向神灵献礼</li>
+                                <li>主祭人进行三跪九叩等仪式</li>
+                                <li>宣读祭文，表达对神灵的敬意和祈求</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>娱神阶段</h4>
+                            <p>娱神是为了让神灵高兴，主要包括：</p>
+                            <ul>
+                                <li>演奏音乐，表演舞蹈</li>
+                                <li>进行各种娱乐活动，如戏剧、杂技等</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>送神阶段</h4>
+                            <p>送神是祭祀活动的结束，主要包括：</p>
+                            <ul>
+                                <li>主祭人向神灵表达感谢之情</li>
+                                <li>进行送神仪式，恭送神灵返回天庭</li>
+                                <li>焚烧祭文和纸钱等物品</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>分享阶段</h4>
+                            <p>分享是祭祀活动的尾声，主要包括：</p>
+                            <ul>
+                                <li>参祭人员分享祭品，象征着与神灵共享</li>
+                                <li>举行宴会，庆祝祭祀活动的成功</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 祭祀礼仪的影响 -->
+                <section class="sacrifice-section">
+                    <h2>祭祀礼仪的影响</h2>
+                    <p>祭祀礼仪作为中华传统文化的重要组成部分，对中国社会和文化产生了深远的影响，主要表现在以下几个方面：</p>
+                    
+                    <h3>对社会结构的影响</h3>
+                    <ul>
+                        <li><strong>强化家族观念</strong>：祖先祭祀强化了家族观念，促进了家族的团结和凝聚力。</li>
+                        <li><strong>维护社会等级制度</strong>：祭祀礼仪中的等级规定，维护了社会的等级秩序，巩固了统治秩序。</li>
+                        <li><strong>促进社会和谐</strong>：祭祀活动是社区成员的集体活动，促进了社区的和谐和稳定。</li>
+                    </ul>
+                    
+                    <h3>对文化传承的影响</h3>
+                    <ul>
+                        <li><strong>传承传统文化</strong>：祭祀礼仪是中华传统文化的重要载体，通过祭祀活动，传承了许多优秀的传统文化。</li>
+                        <li><strong>丰富文化内涵</strong>：祭祀礼仪中的音乐、舞蹈、文学等元素，丰富了中华文化的内涵。</li>
+                        <li><strong>塑造民族性格</strong>：祭祀礼仪培养了中华民族重亲情、守礼仪、敬祖先的民族性格。</li>
+                    </ul>
+                    
+                    <h3>对现代社会的意义</h3>
+                    <ul>
+                        <li><strong>增强民族凝聚力</strong>：祭祀礼仪作为中华民族的共同文化记忆，有助于增强民族凝聚力和认同感。</li>
+                        <li><strong>促进文化交流</strong>：祭祀礼仪是中国文化的重要组成部分，有助于促进中外文化交流。</li>
+                        <li><strong>传承优秀传统</strong>：祭祀礼仪中的尊老爱幼、团结互助等传统美德，对现代社会仍有深刻的借鉴意义。</li>
+                        <li><strong>保护文化遗产</strong>：祭祀礼仪是中国非物质文化遗产的重要组成部分，保护祭祀礼仪有助于保护和传承中华优秀传统文化。</li>
+                    </ul>
+                    
+                    <p>在现代社会，我们应该理性看待祭祀礼仪，取其精华，去其糟粕，继承和发扬其中的优秀成分，同时根据现代社会的特点和需要，对其进行适当的调整和创新，使其在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

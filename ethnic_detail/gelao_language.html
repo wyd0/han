@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仡佬族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 仡佬族语言文字页面特定样式 */
+        .gelao-header {
+            background-image: url('images/仡佬族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .gelao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .gelao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gelao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .gelao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-gelao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-gelao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .gelao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .gelao-section {
+            margin-bottom: 80px;
+        }
+        
+        .gelao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .gelao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .gelao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .gelao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .gelao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 语言示例样式 */
+        .language-examples {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 25px 0;
+        }
+        
+        .example-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .example-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .example-item h4 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        .example-item .original {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .example-item .translation {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gelao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .gelao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .gelao-header-content .back-gelao {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .gelao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .gelao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="gelao-header">
+        <div class="container">
+            <div class="gelao-header-content">
+                <h1>仡佬族语言文字</h1>
+                <p>传承千年的语言文化遗产</p>
+                <a href="gelao.html" class="back-gelao">返回仡佬族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="gelao-main">
+        <div class="container">
+            <div class="gelao-content">
+                <!-- 语言概述 -->
+                <section class="gelao-section">
+                    <h2>语言概述</h2>
+                    <p>仡佬族有自己的语言，属汉藏语系壮侗语族仡佬语支。仡佬语是仡佬族人民在长期的生产生活中创造和发展起来的，是仡佬族文化的重要组成部分。</p>
+                    <p>仡佬语内部存在一定的方言差异，根据语言特点和地理分布，一般可以分为四个方言区：黔中方言、黔西方言、黔北方言和滇东方言。不同方言之间在语音、词汇和语法上存在一定差异，但基本可以互相理解。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="gelao-section">
+                    <h2>语言特点</h2>
+                    <p>仡佬语具有鲜明的民族特色和地域特点，其语言结构和表达方式与其他民族语言有明显区别。以下是仡佬语的主要特点：</p>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>仡佬语的语音系统比较复杂，包括声母、韵母和声调三个部分。声母包括双唇音、唇齿音、舌尖音、舌面音等多种发音部位的辅音；韵母包括单韵母和复韵母；声调一般有四个或五个，不同方言的声调数量和调值有所不同。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>仡佬语的词汇丰富多样，包括名词、动词、形容词、数词、量词、代词、副词、介词、连词、助词、叹词等多种词类。词汇的构成方式主要有单纯词和合成词两种，合成词又包括复合式、附加式等多种形式。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>仡佬语的语法结构以语序和虚词为主要表达手段，基本语序为“主语-谓语-宾语”。仡佬语的虚词包括介词、连词、助词等，它们在句子中起到连接、修饰、语气表达等作用。此外，仡佬语还存在一些特殊的语法现象，如重叠、变调等。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>表达特点</h4>
+                            <p>仡佬语的表达方式生动形象，富有民族特色。在日常交流中，仡佬族人民常使用比喻、夸张、对偶等修辞手法，使语言更加生动有趣。此外，仡佬语中还保留了许多古老的词汇和表达方式，反映了仡佬族的历史文化和生活习俗。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="gelao-section">
+                    <h2>文字使用</h2>
+                    <p>仡佬族没有本民族的传统文字，历史上主要使用汉字进行记录和交流。汉字的使用对仡佬族文化的传承和发展起到了重要作用，许多仡佬族的历史文献、民间传说、歌谣等都是通过汉字记录下来的。</p>
+                    <p>新中国成立后，为了更好地保护和发展仡佬族语言文化，有关部门曾尝试为仡佬语创制文字。20世纪80年代，根据仡佬族人民的意愿和实际需要，有关专家学者设计了以拉丁字母为基础的仡佬族拼音文字方案，并在部分地区进行了试验推广。</p>
+                    <p>仡佬族拼音文字的创制和推广，为仡佬族语言的标准化、规范化和现代化提供了有力支持，也为仡佬族文化的传承和发展注入了新的活力。</p>
+                </section>
+
+                <!-- 语言现状 -->
+                <section class="gelao-section">
+                    <h2>语言现状</h2>
+                    <p>随着社会的发展和民族交流的加强，仡佬语的使用现状发生了一些变化：</p>
+                    <ul>
+                        <li><strong>使用范围缩小：</strong>由于汉语的广泛使用和现代教育的普及，仡佬语的使用范围逐渐缩小，主要在中老年人和农村地区使用，年轻人和城镇地区使用较少。</li>
+                        <li><strong>语言融合加剧：</strong>仡佬语与汉语的融合不断加剧，许多汉语词汇被借入仡佬语中，仡佬语的表达方式也受到汉语的影响。</li>
+                        <li><strong>语言保护意识增强：</strong>近年来，随着民族文化保护意识的增强，仡佬族人民对本民族语言的保护和传承越来越重视，有关部门也采取了一系列措施来保护仡佬语。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言保护与传承 -->
+                <section class="gelao-section">
+                    <h2>语言保护与传承</h2>
+                    <p>为了保护和传承仡佬族语言文化，仡佬族人民和有关部门采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>语言调查与研究：</strong>组织专家学者对仡佬语进行全面调查和研究，记录和整理仡佬语的语音、词汇、语法等资料，为语言保护提供科学依据。</li>
+                        <li><strong>文字创制与推广：</strong>继续完善和推广仡佬族拼音文字，编写仡佬语教材和词典，为仡佬语的标准化和规范化创造条件。</li>
+                        <li><strong>教育传承：</strong>在仡佬族聚居地区的学校开设仡佬语课程，培养年轻一代对本民族语言的兴趣和认同感，促进仡佬语的代际传承。</li>
+                        <li><strong>文化活动：</strong>通过举办仡佬语演讲比赛、诗歌朗诵会、故事会等文化活动，营造使用仡佬语的良好氛围，激发仡佬族人民对本民族语言的热爱。</li>
+                        <li><strong>媒体传播：</strong>利用广播、电视、网络等现代媒体，开设仡佬语节目和栏目，扩大仡佬语的影响力和传播范围。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言示例 -->
+                <section class="gelao-section">
+                    <h2>语言示例</h2>
+                    <div class="language-examples">
+                        <div class="example-item">
+                            <h4>问候语</h4>
+                            <div class="original">你好！</div>
+                            <div class="translation">（仡佬语）：侬好！</div>
+                        </div>
+                        <div class="example-item">
+                            <h4>日常用语</h4>
+                            <div class="original">吃饭了吗？</div>
+                            <div class="translation">（仡佬语）：阿咪？</div>
+                        </div>
+                        <div class="example-item">
+                            <h4>数字</h4>
+                            <div class="original">一、二、三、四、五</div>
+                            <div class="translation">（仡佬语）：一、二、三、四、五</div>
+                        </div>
+                        <div class="example-item">
+                            <h4>家庭成员</h4>
+                            <div class="original">爸爸、妈妈、哥哥、姐姐</div>
+                            <div class="translation">（仡佬语）：爸爸、妈妈、阿哥、阿姐</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言的文化价值 -->
+                <section class="gelao-section">
+                    <h2>语言的文化价值</h2>
+                    <p>仡佬语作为仡佬族文化的重要载体，具有不可替代的文化价值：</p>
+                    <ul>
+                        <li><strong>历史价值：</strong>仡佬语中保留了许多古老的词汇和表达方式，是研究仡佬族历史和文化的重要资料。</li>
+                        <li><strong>文化价值：</strong>仡佬语是仡佬族文化的重要组成部分，它承载着仡佬族的民间传说、歌谣、谚语等文化遗产。</li>
+                        <li><strong>民族认同价值：</strong>仡佬语是仡佬族民族认同的重要标志，使用仡佬语有助于增强仡佬族人民的民族自豪感和凝聚力。</li>
+                        <li><strong>语言学价值：</strong>仡佬语是汉藏语系壮侗语族的重要语言之一，对研究汉藏语系的历史演变和语言关系具有重要意义。</li>
+                    </ul>
+                    <p>保护和传承仡佬语，不仅是对仡佬族文化的保护，也是对中华文化多样性的贡献。在现代社会中，我们应该更加重视仡佬语的保护和发展，让这一古老的语言在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

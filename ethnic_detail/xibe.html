@@ -1,0 +1,569 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锡伯族- 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 锡伯族文化页面特定样式 */
+        .xibe-header {
+            background-image: url('images/锡伯族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .xibe-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .xibe-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .xibe-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .xibe-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .xibe-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .xibe-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .xibe-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .xibe-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .xibe-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .xibe-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .xibe-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .xibe-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .xibe-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .xibe-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .xibe-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .xibe-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .xibe-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .xibe-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .xibe-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .xibe-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .xibe-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .xibe-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .xibe-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .xibe-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .xibe-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .xibe-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .xibe-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .xibe-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .xibe-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .xibe-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .xibe-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .xibe-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .xibe-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="xibe-header">
+        <div class="container">
+            <div class="xibe-header-content">
+                <h1>锡伯族文化</h1>
+                <p>西迁史诗传唱千年，绮丽的刺绣艺术</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="xibe-main">
+        <div class="container">
+            <div class="xibe-content">
+                <!-- 文化介绍 -->
+                <section class="xibe-section">
+                    <h2>锡伯族文化概览</h2>
+                    <p>锡伯族是中国的一个少数民族，主要分布在新疆维吾尔自治区的察布查尔锡伯自治县以及辽宁省、吉林省、黑龙江省等地。锡伯族有着悠久的历史和丰富的文化，以其西迁史诗而闻名于世。</p>
+                    <p>锡伯族文化具有独特的地域特色和民族风格，包括语言、宗教、建筑、服装、音乐、舞蹈等多个方面。锡伯族人民信仰多神教，同时也受到基督教和喇嘛教的影响。</p>
+                    <p>锡伯族的传统经济以农业为主，同时也从事畜牧业和手工业。锡伯族人民勤劳勇敢，在长期的生产生活中创造了丰富多彩的文化，为中华文化的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="xibe-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>锡伯族的先民在古代时期就已经在中国东北地区活动。据史籍记载，锡伯族的先民被称为"鲜卑"，是中国古代北方的重要民族之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>明清时期，锡伯族主要分布在东北地区。清朝时期，锡伯族被编入八旗，成为清朝的重要军事力量。1764年，乾隆政府从盛京（今沈阳）等地抽调锡伯族官兵及家属4000余人，西迁至新疆伊犁地区，戍守边疆。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代时期</h5>
+                            <p>近现代以来，锡伯族人民积极参与中国的革命和建设，为国家的统一和发展做出了重要贡献。1954年，察布查尔锡伯自治县成立，锡伯族人民实现了民族区域自治。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="xibe-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="xibe_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>锡伯族主要信仰多神教，崇拜自然神灵，如天神、地神、水神等。他们也信仰祖先，认为祖先的灵魂会保佑后代。此外，部分锡伯族群众也信仰基督教和喇嘛教。锡伯族的宗教活动主要由喇嘛主持，包括祭祀、念经、跳神等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="xibe_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>锡伯族有自己的语言，属于阿尔泰语系满-通古斯语族满语支。锡伯族有本民族的文字，称为锡伯文，是在满文的基础上发展而来的。现在，锡伯族人民普遍使用锡伯文和汉文。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="xibe_music.html" style="color: #c0392b; text-decoration: none;">音乐舞蹈</a></h5>
+                            <p>锡伯族的音乐舞蹈具有独特的民族风格。锡伯族的民间诗歌主要包括叙事诗、爱情诗、时政诗等，旋律优美，节奏明快。锡伯族的舞蹈以贝伦舞最具盛名，动作矫健有力，充满生命力。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="xibe_festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>锡伯族的传统节日主要有春节、清明节、西迁节等。西迁节是锡伯族最重要的传统节日，通常在农历四月十八日举行，纪念锡伯族西迁戍边的历史，人们会举行各种庆祝活动，包括祭祀、歌舞、体育比赛等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服装特点 -->
+                <section class="xibe-section">
+                    <h2>服装特点</h2>
+                    <p>锡伯族服装具有鲜明的民族特色，色彩绚丽，图案精美。锡伯族男子一般穿长袍、马褂，戴礼帽。女子则穿旗袍、坎肩，戴花帽，佩戴耳环、项链等饰品。</p>
+                    <p>锡伯族服装的主要特点包括：</p>
+                    <ul>
+                        <li><strong>满族影响：</strong>锡伯族服装受满族服装的影响，与满族服装有许多相似之处。</li>
+                        <li><strong>色彩绚丽：</strong>锡伯族服装以红、蓝、绿为主色调，搭配绚丽的图案，给人以开朗的视觉享受。</li>
+                        <li><strong>工艺精细：</strong>锡伯族服装的制作工艺非常精细，包括刺绣、织锦等多种技艺。这些工艺世代相传，是锡伯族文化的重要组成部分。</li>
+                        <li><strong>实用性强：</strong>锡伯族服装的设计考虑了当地的自然环境和生活方式，具有很强的实用性。例如，长袍便于保暖，坎肩便于活动等。</li>
+                    </ul>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/锡伯族传统服装.jpg" alt="锡伯族传统服装">
+                            <p>锡伯族传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/锡伯族女子服装.jpg" alt="锡伯族女子服装">
+                            <p>锡伯族女子服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/锡伯族男子服装.jpg" alt="锡伯族男子服装">
+                            <p>锡伯族男子服装</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="xibe-section">
+                    <h2>饮食文化</h2>
+                    <p>锡伯族的饮食文化具有明显的地域特色，以面食、米饭为主食，辅以各种蔬菜和肉类。锡伯族人民喜欢食用酸辣食物，擅长制作各种特色美食。</p>
+                    <p>锡伯族的主要传统美食包括：</p>
+                    <ul>
+                        <li><strong>锡伯大饼：</strong>锡伯族的传统面食，以面粉为原料制作而成，味道香脆，是锡伯族人民的主要主食之一。</li>
+                        <li><strong>花花菜：</strong>锡伯族的传统菜肴，以白菜、辣椒等为原料制作而成，味道酸辣可口，是锡伯族人民喜爱的传统蔬菜。</li>
+                        <li><strong>血肠：</strong>锡伯族的传统食品，以猪血、糯米等为原料制作而成，味道独特，营养丰富。</li>
+                        <li><strong>奶茶：</strong>锡伯族的传统饮品，以牛奶、茶叶等为原料熬制而成，味道香浓，营养丰富。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="xibe-section">
+                    <h2>传统节日</h2>
+                    <p>锡伯族有着丰富多彩的传统节日，这些节日不仅是锡伯族人民庆祝丰收、祭祀祖先的重要方式，也是传承和弘扬锡伯族文化的重要载体。</p>
+                    <p>锡伯族的主要传统节日包括：</p>
+                    <ul>
+                        <li><strong>春节：</strong>锡伯族的传统节日，与汉族春节类似，人们会举行各种庆祝活动，包括贴春联、放鞭炮、走亲访友、设宴款待等。</li>
+                        <li><strong>清明节：</strong>锡伯族的传统节日，人们会前往祖先墓地扫墓，祭祀祖先，表达对祖先的敬意和哀思。</li>
+                        <li><strong>西迁节：</strong>锡伯族最重要的传统节日，通常在农历四月十八日举行，纪念锡伯族西迁戍边的历史。人们会举行各种庆祝活动，包括祭祀、歌舞、体育比赛等。</li>
+                        <li><strong>中元节：</strong>锡伯族的传统节日，与汉族中元节相似，人们会祭祖、放河灯等。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="xibe-section">
+                    <h2>文学艺术</h2>
+                    <p>锡伯族有着丰富的民间文学和艺术瑰宝，包括神话传说、民间故事、诗歌、谚语等。这些文学作品反映了锡伯族人民的生活、智慧和理想，是锡伯族文化的重要组成部分。</p>
+                    <p>锡伯族的民间艺术主要包括：</p>
+                    <ul>
+                        <li><strong>刺绣：</strong>锡伯族刺绣是锡伯族传统的手工艺品，图案美丽，色彩绚丽，主要用于装饰服装、帽子、枕头等。</li>
+                        <li><strong>剪纸：</strong>锡伯族剪纸是锡伯族传统的手工艺品，以纸张为原料，剪制各种图案，工艺精湛，造型美观。</li>
+                        <li><strong>音乐：</strong>锡伯族的音乐以民间诗歌为主，旋律优美，节奏明快，反映了锡伯族人民的生活和情感。</li>
+                        <li><strong>舞蹈：</strong>锡伯族的舞蹈以贝伦舞最具盛名，动作矫健有力，充满生命力，是锡伯族人民喜爱的传统舞蹈形式。</li>
+                    </ul>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="xibe-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>锡伯族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。锡伯族文化与汉族文化、满族文化等相互交流、融合，形成了独特的文化景观。</p>
+                    <p>锡伯族文化对中华文化的影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>戍边精神：</strong>锡伯族的西迁戍边精神是中华各民族爱国精神的重要组成部分，激励着一代又一代中华儿女为国家的统一和边防的巩固做出贡献。</li>
+                        <li><strong>文化交流：</strong>锡伯族在西迁过程中，促进了中原地区与新疆地区的文化交流，为中华文化的传承和发展做出了重要贡献。</li>
+                        <li><strong>民族融合：</strong>锡伯族文化与汉族文化、满族文化等相互交流、融合，促进了各民族之间的相互理解和团结，为中华民族的形成和发展做出了重要贡献。</li>
+                        <li><strong>文化多样性：</strong>锡伯族文化的独特性和丰富性，为中华文化的多样性和丰富性做出了重要贡献，推动了中华文化的创新和发展。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

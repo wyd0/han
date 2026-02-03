@@ -1,0 +1,432 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>温病派 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 医学流派导航样式 */
+        .school-nav {
+            background-color: rgba(192, 57, 43, 0.05);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .school-nav li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .school-nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #c0392b;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            font-size: 16px;
+            border: 1px solid #c0392b;
+        }
+        
+        .school-nav a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+        }
+        
+        .school-nav a.active {
+            background-color: #c0392b;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+            
+            .school-nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .school-nav a {
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>温病派</h1>
+                <p>中国传统医学的重要流派之一</p>
+                <a href="medicine.html" class="back-home">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 医学流派导航 -->
+                <nav class="school-nav">
+                    <ul>
+                        <li><a href="medicine_school_butu.html">补土派</a></li>
+                        <li><a href="medicine_school_gongxie.html">攻邪派</a></li>
+                        <li><a href="medicine_school_huoshen.html">火神派</a></li>
+                        <li><a href="medicine_school_jingfang.html">经方派</a></li>
+                        <li><a href="medicine_school_shanghan.html">伤寒学派</a></li>
+                        <li><a href="medicine_school_shifang.html">时方派</a></li>
+                        <li><a href="medicine_school_wenbing.html" class="active">温病学派</a></li>
+                        <li><a href="medicine_school_ziyin.html">滋阴派</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 创始人 -->
+                <section class="medicine-section">
+                    <h2>创始人</h2>
+                    <p>温病派的主要代表人物包括清代的叶天士、吴鞠通、薛生白、王孟英等医学家。其中，叶天士（1667-1746年）是温病学的奠基者，被后人尊为"温病学之祖"。</p>
+                    <p>叶天士，名桂，字天士，号香岩，江苏吴县（今苏州市）人。他出身医学世家，自幼勤奋好学，博览群书，精通医学经典。叶天士一生致力于温病的研究，根据自己的临床实践，创立了卫气营血辨证体系，为温病派的发展奠定了基础。</p>
+                </section>
+
+                <!-- 渊源 -->
+                <section class="medicine-section">
+                    <h2>渊源</h2>
+                    <p>温病派的渊源可以追溯到明清时期，当时温热病流行，而传统的伤寒派理论已经不能完全适应临床需要。叶天士根据自己的临床实践，撰写了《温热论》一书，系统地阐述了温热病的诊疗规律，标志着温病派的正式建立。</p>
+                    <p>《温热论》是中国医学史上第一部专门论述温热病的著作，它创立了卫气营血辨证体系，为温病派的发展奠定了理论基础。后来，吴鞠通、薛生白、王孟英等医学家进一步发展了温病派的理论，形成了完整的温病学体系。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="medicine-section">
+                    <h2>发展</h2>
+                    <h3>明清以前：温病学的萌芽</h3>
+                    <p>温病学的渊源可以追溯到《黄帝内经》和《伤寒杂病论》。《黄帝内经》中已有关于温病的记载，如《素问·热论》中提到："先夏至日为病温，后夏至日为病暑"。《伤寒杂病论》中也有关于温病的论述，如"太阳病，发热而渴，不恶寒者，为温病"。</p>
+                    <p>晋代葛洪（公元284-364年）在《肘后备急方》中记载了许多防治温病的药物和方法。唐代孙思邈（公元581-682年）在《千金要方》中也收辑了大量治疗温病的方剂。</p>
+                    <p>金元时期，刘完素（公元1120-1200年）提出了"六气皆从火化"的观点，强调温热病的重要性，为温病学的发展奠定了理论基础。元代王安道（公元1290-1368年）在《医经溯洄集》中明确提出了"温病不得混称伤寒"的观点，将温病与伤寒区分开来，为温病学的独立发展做出了重要贡献。</p>
+                    
+                    <h3>清代初期：温病学的形成</h3>
+                    <p>清代初期是温病学形成的关键时期。叶天士（1667-1746年）是温病学的奠基者，他根据自己的临床实践，创立了卫气营血辨证体系，撰写了《温热论》一书，系统地阐述了温热病的诊疗规律。《温热论》是中国医学史上第一部专门论述温热病的著作，标志着温病学的正式形成。</p>
+                    <p>叶天士的学术思想主要包括以下几个方面：</p>
+                    <ul>
+                        <li>提出了"温邪上受，首先犯肺，逆传心包"的病因病机理论</li>
+                        <li>创立了卫气营血辨证体系，将温热病的发展过程分为卫分、气分、营分、血分四个阶段</li>
+                        <li>提出了"在卫汗之可也，到气才可清气，入营犹可透热转气，入血就恐耗血动血，直须凉血散血"的治疗原则</li>
+                        <li>强调辨证论治，注重观察和验舌</li>
+                    </ul>
+                    
+                    <h3>清代中期：温病学的鼎盛</h3>
+                    <p>清代中期是温病学发展的鼎盛时期，出现了许多著名的温病学家，他们在叶天士的基础上，进一步完善和发展了温病学的理论。</p>
+                    <ul>
+                        <li><strong>薛生白（1681-1770年）</strong>：著有《湿热病篇》，专门论述湿热病的诊疗规律。他详细阐述了湿热病的病因病机、症状体征、治疗方法和预后转归，为湿热病的诊疗提供了系统的理论指导。</li>
+                        <li><strong>吴鞠通（1758-1836年）</strong>：著有《温病条辨》，创立了三焦辨证体系。他将温热病的发展过程分为上焦、中焦、下焦三个阶段，每个阶段都有其特定的症状和体征，以及相应的治疗方法。《温病条辨》是温病学的重要经典著作，与《温热论》一起构成了温病学的理论核心。</li>
+                        <li><strong>杨栗山（约1723-1795年）</strong>：著有《伤寒温疫条辨》，专门论述疫病的诊疗规律。他提出了疫病的病因是"热毒"，治疗以清热解毒为主，创立了升降散等著名方剂。</li>
+                    </ul>
+                    
+                    <h3>清代后期：温病学的完善</h3>
+                    <p>清代后期，温病学的发展进入了完善阶段。王孟英（1808-1868年）是这一时期的代表人物，他著有《温热经纬》一书，系统地整理了温病学的理论和经验，将《黄帝内经》、《伤寒杂病论》中关于温病的论述与叶天士、薛生白、吴鞠通等温病学家的学术思想融为一体，成为温病学的重要经典著作。</p>
+                    <p>此外，雷丰（1839-1888年）著有《时病论》，专门论述季节性疾病的诊疗规律；余师愚（约1760-1844年）著有《疫疹一得》，专门论述外感温病的诊疗规律；柳宝诒（1842-1901年）著有《温热逢源》，对温病的病因病机有深入的研究。</p>
+                    
+                    <h3>现代：温病学的传承与创新</h3>
+                    <p>现代，温病学的理论和方法仍然被广泛应用于临床实践，成为中医治疗温热病的重要方法之一。同时，温病学的理论和方法也得到了科学的验证和发展，为现代医学的发展提供了重要的参考。</p>
+                    <p>现代温病学家如蒲辅周（1888-1975年）、叶橘泉（1896-1989年）、任继学（1926-2010年）等，在继承传统温病学理论的基础上，结合现代医学知识和临床实践，对温病学进行了深入的研究和发挥，提出了许多新的见解和观点。</p>
+                    <p>近年来，随着中医药现代化的推进，温病学的理论和方法也在不断地创新和发展。通过现代科学技术的研究，人们对温病的病因病机、诊断治疗有了更深入的认识，温病学的应用范围也在不断扩大。例如，在防治流行性感冒、病毒性肺炎、流行性乙型脑炎、艾滋病等现代传染病方面，温病学的理论和方法都发挥了重要的作用。</p>
+                    <p>温病学作为中国传统医学的重要组成部分，将继续为人类的健康事业做出重要的贡献。</p>
+                </section>
+
+                <!-- 理论 -->
+                <section class="medicine-section">
+                    <h2>理论</h2>
+                    <p>温病派的核心理论包括卫气营血辨证和三焦辨证两个方面：</p>
+                    <ul>
+                        <li><strong>卫气营血辨证</strong>：由叶天士创立，将温热病的发展过程分为卫分、气分、营分、血分四个阶段，每个阶段都有其特定的症状和体征，以及相应的治疗方法。</li>
+                        <li><strong>三焦辨证</strong>：由吴鞠通创立，将温热病的发展过程分为上焦、中焦、下焦三个阶段，每个阶段都有其特定的症状和体征，以及相应的治疗方法。</li>
+                    </ul>
+                    <p>卫气营血辨证的基本内容包括：</p>
+                    <ul>
+                        <li><strong>卫分证</strong>：温热病的初期阶段，主要表现为发热、微恶风寒、头痛、咳嗽等症状，治疗以解表为主。</li>
+                        <li><strong>气分证</strong>：温热病的中期阶段，主要表现为高热、大汗、口渴、脉洪大等症状，治疗以清热为主。</li>
+                        <li><strong>营分证</strong>：温热病的后期阶段，主要表现为身热夜甚、心烦不寐、斑疹隐现、舌红绛等症状，治疗以清营为主。</li>
+                        <li><strong>血分证</strong>：温热病的危重阶段，主要表现为高热神昏、斑疹显露、吐血衄血、舌红绛等症状，治疗以凉血为主。</li>
+                    </ul>
+                    <p>三焦辨证的基本内容包括：</p>
+                    <ul>
+                        <li><strong>上焦证</strong>：温热病的初期阶段，主要表现为发热、微恶风寒、咳嗽、口渴等症状，治疗以解表为主。</li>
+                        <li><strong>中焦证</strong>：温热病的中期阶段，主要表现为高热、大汗、口渴、脉洪大等症状，治疗以清热为主。</li>
+                        <li><strong>下焦证</strong>：温热病的后期阶段，主要表现为低热、手足心热、口干咽燥、舌红少苔等症状，治疗以养阴为主。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="medicine-section">
+                    <h2>影响</h2>
+                    <p>温病派对中国传统医学的发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>理论体系</strong>：温病派创立了卫气营血辨证和三焦辨证体系，为中医治疗温热病提供了理论基础。</li>
+                        <li><strong>临床实践</strong>：温病派的理论和方法被广泛应用于临床实践，成为中医治疗温热病的重要方法之一。</li>
+                        <li><strong>方剂学</strong>：温病派的方剂是中医方剂学的重要组成部分，许多方剂至今仍被广泛应用于临床。</li>
+                        <li><strong>医学教育</strong>：《温热论》、《温病条辨》等著作是中医教育的重要教材，是培养中医人才的重要内容。</li>
+                        <li><strong>学术流派</strong>：温病派的发展推动了其他医学流派的形成和发展，完善了中医的学术体系。</li>
+                    </ul>
+                </section>
+
+                <!-- 著作 -->
+                <section class="medicine-section">
+                    <h2>著作</h2>
+                    <ul>
+                        <li><strong>《温热论》</strong>：清代叶天士著，温病派的奠基之作，系统地阐述了温热病的诊疗规律。</li>
+                        <li><strong>《温病条辨》</strong>：清代吴鞠通著，创立了三焦辨证体系，进一步完善和发展了温病派的理论。</li>
+                        <li><strong>《湿热病篇》</strong>：清代薛生白著，专门论述湿热病的诊疗规律。</li>
+                        <li><strong>《温热经纬》</strong>：清代王孟英著，系统地整理了温病派的理论和经验。</li>
+                        <li><strong>《伤寒温疫条辨》</strong>：清代杨栗山著，专门论述疫病的诊疗规律。</li>
+                        <li><strong>《时病论》</strong>：清代雷丰著，专门论述季节性疾病的诊疗规律。</li>
+                    </ul>
+                </section>
+
+                <!-- 语录 -->
+                <section class="medicine-section">
+                    <h2>语录</h2>
+                    <ul>
+                        <li><strong>“温邪上受，首先犯肺，逆传心包。”</strong> ——《温热论》</li>
+                        <li><strong>“在卫汗之可也，到气才可清气，入营犹可透热转气，入血就恐耗血动血，直须凉血散血。”</strong> ——《温热论》</li>
+                        <li><strong>“治上焦如羽，非轻不举；治中焦如衡，非平不安；治下焦如权，非重不沉。”</strong> ——《温病条辨》</li>
+                        <li><strong>“温病最急最险者，莫如斑疹，斑疹者，热入血分也。”</strong> ——《温病条辨》</li>
+                        <li><strong>“湿热证，始恶寒，后但热不寒，汗出，胸痞，舌白，口渴不引饮。”</strong> ——《湿热病篇》</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

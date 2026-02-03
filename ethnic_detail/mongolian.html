@@ -1,0 +1,602 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒙古族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 蒙古族文化页面特定样式 */
+        .mongolian-header {
+            background-image: url('images/蒙古袍.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mongolian-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mongolian-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mongolian-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mongolian-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mongolian-section {
+            margin-bottom: 80px;
+        }
+        
+        .mongolian-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mongolian-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mongolian-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mongolian-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mongolian-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 蒙古族文化特色网格 */
+        .mongolian-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .mongolian-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .mongolian-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mongolian-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 蒙古族服饰展示 */
+        .mongolian-clothing-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .mongolian-clothing-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .mongolian-clothing-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .mongolian-clothing-item h6 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .mongolian-clothing-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .mongolian-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .mongolian-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .mongolian-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .mongolian-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .mongolian-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mongolian-feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .mongolian-feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mongolian-clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .mongolian-clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .mongolian-feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .mongolian-feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .mongolian-feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .mongolian-feature-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .mongolian-feature-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .mongolian-feature-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+        
+        .mongolian-clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .mongolian-clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .mongolian-clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .mongolian-clothing-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .mongolian-main {
+            opacity: 1 !important;
+        }
+        
+        .mongolian-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .mongolian-feature-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .mongolian-clothing-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mongolian-header h1 {
+                font-size: 36px;
+            }
+            
+            .mongolian-header p {
+                font-size: 18px;
+            }
+            
+            .mongolian-section h2 {
+                font-size: 28px;
+            }
+            
+            .mongolian-features-grid,
+            .mongolian-clothing-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="mongolian-header">
+        <div class="container">
+            <div class="mongolian-header-content">
+                <h1>蒙古族文化</h1>
+                <p>草原上的游牧民族，独特的那达慕文化</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mongolian-main">
+        <div class="container">
+            <div class="mongolian-content">
+                <!-- 介绍部分 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族文化介绍</h2>
+                    <p>蒙古族是中国的一个古老民族，主要分布在内蒙古自治区、新疆维吾尔自治区、青海省、甘肃省、黑龙江省、吉林省、辽宁省等地区。蒙古族有着悠久的历史和独特的文化，是草原上的游牧民族，过着逐水草而居的传统生活。</p>
+                    <p>蒙古族文化丰富多彩，包括语言文字、宗教信仰、传统节日、文学艺术、风俗习惯、服饰等方面。蒙古族文化对中国文化的发展产生了深远的影响，是中华文化的重要组成部分。</p>
+                </section>
+
+                <!-- 蒙古族起源与历史 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族起源与历史</h2>
+                    <p>蒙古族的起源可以追溯到古代的东胡、鲜卑、室韦等民族，经过长期的发展和融合，逐渐形成了今天的蒙古族。</p>
+                    
+                    <h3>蒙古族的起源</h3>
+                    <ul>
+                        <li><strong>东胡：</strong>蒙古族的最早先民，居住在东北地区，以狩猎和游牧为生。</li>
+                        <li><strong>鲜卑：</strong>东胡的后裔，分为拓跋鲜卑、宇文鲜卑、慕容鲜卑等部落。</li>
+                        <li><strong>室韦：</strong>鲜卑的后裔，建立了柔然，统治中国北方长达200余年。</li>
+                        <li><strong>蒙古：</strong>室韦的后裔，12世纪末，铁木真统一了蒙古各部，建立了大蒙古国。</li>
+                    </ul>
+                    
+                    <h3>蒙古族的历史发展</h3>
+                    <ul>
+                        <li><strong>大蒙古国时期：</strong>1206年，铁木真统一蒙古各部，建立了大蒙古国，被尊为"成吉思汗"。</li>
+                        <li><strong>元朝时期：</strong>1271年，忽必烈建立了元朝，这是中国历史上第一个由少数民族建立的统一王朝。</li>
+                        <li><strong>明朝时期：</strong>元朝灭亡后，蒙古族分为瓦剌、鞑靼、兀良哈等部，与明朝长期对峙。</li>
+                        <li><strong>清朝时期：</strong>清朝统一中国后，蒙古族与清朝建立了密切的关系，清朝对蒙古族实行了盟旗制度。</li>
+                        <li><strong>近现代时期：</strong>1947年，内蒙古自治区成立，这是中国第一个少数民族自治区。</li>
+                    </ul>
+                </section>
+
+                <!-- 蒙古族文化特色 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族文化特色</h2>
+                    <div class="mongolian-features-grid">
+                        <a href="mongolian_language.html" class="mongolian-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>语言文字</h5>
+                            <p>蒙古语属于阿尔泰语系蒙古语族，蒙古文是13世纪初由成吉思汗命人参照回鹘文创制的，后来经过多次改革，形成了今天的蒙古文。</p>
+                        </a>
+                        <a href="mongolian_religion.html" class="mongolian-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>宗教信仰</h5>
+                            <p>蒙古族最初信仰萨满教，后来逐渐接受了藏传佛教（喇嘛教），形成了以藏传佛教为主，萨满教为辅的宗教信仰体系。</p>
+                        </a>
+                        <a href="mongolian_festival.html" class="mongolian-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>传统节日</h5>
+                            <p>蒙古族的传统节日主要有那达慕大会、马奶节、白节等，其中那达慕大会是蒙古族最重要的传统节日。</p>
+                        </a>
+                        <a href="mongolian_literature.html" class="mongolian-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>文学艺术</h5>
+                            <p>蒙古族在文学、艺术、音乐、舞蹈等方面有着独特的成就，如《蒙古秘史》《江格尔》《格斯尔》等史诗，以及长调、呼麦等传统音乐。</p>
+                        </a>
+                        <a href="mongolian_custom.html" class="mongolian-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>风俗习惯</h5>
+                            <p>蒙古族有着独特的风俗习惯，如献哈达、喝奶茶、住蒙古包、穿蒙古袍、骑马射箭等。</p>
+                        </a>
+                        <a href="mongolian_food.html" class="mongolian-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>饮食文化</h5>
+                            <p>蒙古族的饮食以牛羊肉、奶制品为主，如手抓肉、烤全羊、奶豆腐、奶皮子、奶茶等，这些食物适应游牧生活，能够提供充足的热量。</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 蒙古族服饰 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族服饰</h2>
+                    <p>蒙古族服饰具有独特的风格和特点，适应草原游牧生活的需要，同时也体现了蒙古族的审美观念和文化内涵。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>蒙古袍：</strong>蒙古族的传统服饰，男女老少都穿蒙古袍，袍式宽大，适应骑马和游牧生活。</li>
+                        <li><strong>腰带：</strong>蒙古袍的重要组成部分，用来束腰，同时也可以用来悬挂烟袋、刀等物品。</li>
+                        <li><strong>靴子：</strong>蒙古族的传统靴子，以牛皮为主，适应草原和马背行走。</li>
+                        <li><strong>帽子：</strong>蒙古族的传统帽子，种类繁多，如圆顶帽、尖顶帽、风雪帽等，适应不同的季节和场合。</li>
+                        <li><strong>首饰：</strong>蒙古族的传统首饰，如佛珠、护身符、耳环、戒指等，以金银为主，装饰华丽。</li>
+                    </ul>
+                    
+                    <h3>服饰展示</h3>
+                    <div class="mongolian-clothing-showcase">
+                        <div class="mongolian-clothing-item">
+                            <img src="images/蒙古袍.jpg" alt="蒙古族 - 蒙古袍">
+                            <h6>蒙古袍</h6>
+                            <p>蒙古族的传统服饰，袍式宽大，适应骑马和游牧生活。</p>
+                        </div>
+                        <div class="mongolian-clothing-item">
+                            <img src="images/靴子.jpg" alt="蒙古族 - 靴子">
+                            <h6>靴子</h6>
+                            <p>蒙古族的传统靴子，适应草原和马背行走。</p>
+                        </div>
+                        <div class="mongolian-clothing-item">
+                            <img src="images/帽子.jpg" alt="蒙古族 - 帽子">
+                            <h6>帽子</h6>
+                            <p>蒙古族的传统帽子，种类繁多，适应不同的季节和场合。</p>
+                        </div>
+                        <div class="mongolian-clothing-item">
+                            <img src="images/首饰.jpg" alt="蒙古族 - 首饰">
+                            <h6>首饰</h6>
+                            <p>蒙古族的传统首饰，以金银为主，装饰华丽。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 蒙古族传统节日 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族传统节日</h2>
+                    <p>蒙古族有许多传统节日，这些节日承载着丰富的文化内涵，是蒙古族文化的重要组成部分。</p>
+                    
+                    <h3>那达慕大会</h3>
+                    <p>那达慕大会是蒙古族最重要的传统节日，每年夏秋季节举行，为期5-7天。那达慕大会的主要内容包括赛马、射箭、摔跤等传统体育项目，以及歌舞表演、物资交流等活动。</p>
+                    
+                    <h3>马奶节</h3>
+                    <p>马奶节是蒙古族的传统宗教节日，每年农历四月或八月举行。马奶节是蒙古族的祭神节日，用来祈求天地、山水、祖先等。马奶节的主要内容包括祭神仪式、歌舞表演、物资交流等活动。</p>
+                    
+                    <h3>白节</h3>
+                    <p>白节是蒙古族的传统节日，每年农历正月初一举行。白节的主要内容包括拜年、吃手抓肉、喝奶茶、跳安代舞等活动。</p>
+                </section>
+
+                <!-- 蒙古族文学艺术 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族文学艺术</h2>
+                    <p>蒙古族在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展产生了深远的影响。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>《蒙古秘史》：</strong>蒙古族的重要历史文献，记载了蒙古族的起源、发展和成吉思汗统一蒙古各部的历史。</li>
+                        <li><strong>《江格尔》：</strong>蒙古族的英雄史诗，讲述了洪古尔勇士征战的故事。</li>
+                        <li><strong>《格斯尔》：</strong>蒙古族的英雄史诗，讲述了格斯尔可汗降妖除魔、保护人民的故事。</li>
+                        <li><strong>蒙古族民间故事：</strong>如《成吉思汗的故事》《草原上的小姐妹》等，具有浓郁的民族特色。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>音乐：</strong>蒙古族的传统音乐包括长调、呼麦、马头琴演奏等，具有鲜明的草原特色。</li>
+                        <li><strong>舞蹈：</strong>蒙古族的传统舞蹈包括安代舞、筷子舞、盅碗舞等，动作奔放，节奏明快。</li>
+                        <li><strong>绘画：</strong>蒙古族的传统绘画包括壁画、唐卡、岩画等，题材广泛，风格独特。</li>
+                        <li><strong>雕塑：</strong>蒙古族的传统雕塑包括佛像、人物像、动物像等，造型优美，具有鲜明的民族特色。</li>
+                    </ul>
+                </section>
+
+                <!-- 蒙古族饮食文化 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族饮食文化</h2>
+                    <p>蒙古族的饮食文化具有独特的风格和特点，深受草原游牧生活的影响。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>以牛羊肉为主：</strong>蒙古族以畜牧业为主，牛羊肉是主要的食物来源。</li>
+                        <li><strong>以奶制品为辅：</strong>蒙古族的奶制品包括奶豆腐、奶皮子、奶茶、奶酒等，营养丰富。</li>
+                        <li><strong>喜欢喝奶茶：</strong>奶茶是蒙古族的传统饮料，用砖茶和鲜奶熬制而成，味道香浓。</li>
+                        <li><strong>擅长烤制食物：</strong>蒙古族的烤制食物包括烤全羊、烤羊肉、烤牛肉等，味道鲜美。</li>
+                        <li><strong>喜欢喝酒：</strong>蒙古族喜欢喝马奶酒、奶酒等传统酒类。</li>
+                    </ul>
+                    
+                    <h3>传统食物</h3>
+                    <ul>
+                        <li><strong>手抓肉：</strong>蒙古族的传统名菜，将羊肉煮熟后，用手抓着吃，味道鲜美。</li>
+                        <li><strong>烤全羊：</strong>蒙古族的传统名菜，将整只羊烤制而成，是款待宾客的佳肴。</li>
+                        <li><strong>奶茶：</strong>蒙古族的传统饮料，用砖茶和鲜奶熬制而成，味道香浓。</li>
+                        <li><strong>奶豆腐：</strong>蒙古族的传统奶制品，用鲜奶发酵而成，味道酸甜可口，营养丰富。</li>
+                        <li><strong>奶酒：</strong>蒙古族的传统酒类，用鲜奶发酵而成，味道醇香。</li>
+                    </ul>
+                </section>
+
+                <!-- 蒙古族对中国文化的影响 -->
+                <section class="mongolian-section">
+                    <h2>蒙古族对中国文化的影响</h2>
+                    <p>蒙古族文化对中国文化的发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    
+                    <ul>
+                        <li><strong>政治制度：</strong>元朝时期建立的行省制度，对中国近现代政治制度的发展产生了重要影响。</li>
+                        <li><strong>文化交流：</strong>元朝时期，蒙古族促进了中国与中亚、欧洲等地区的文化交流，丝绸之路重新繁荣起来。</li>
+                        <li><strong>文学艺术：</strong>蒙古族的文学、艺术、音乐、舞蹈等对中国文化的发展产生了重要影响。</li>
+                        <li><strong>饮食文化：</strong>蒙古族的饮食文化，如烤全羊、奶茶等，已经成为中国饮食文化的重要组成部分。</li>
+                        <li><strong>风俗习惯：</strong>蒙古族的一些风俗习惯，如那达慕大会、马奶节等，已经成为中国重要的非物质文化遗产。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

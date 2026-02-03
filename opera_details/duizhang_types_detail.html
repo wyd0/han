@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对账的基本概念详解 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 对仗种类详解页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'SimSun', serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 导航栏样式 */
+        .navigation {
+            background-color: rgba(192, 57, 43, 0.9);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .navigation li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navigation a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .navigation a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .navigation a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #c0392b, #e74c3c, #c0392b);
+        }
+        
+        h1 {
+            color: #c0392b;
+            font-size: 42px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 20px 0;
+            background: linear-gradient(to right, transparent, rgba(192, 57, 43, 0.1), transparent);
+        }
+        
+        h1::after {
+            content: '';
+            display: block;
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, #c0392b, #e74c3c, #c0392b);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin: 40px 0 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid rgba(192, 57, 43, 0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        h2:hover {
+            padding-left: 10px;
+            border-bottom-color: rgba(192, 57, 43, 0.4);
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #c0392b;
+            transition: width 0.3s ease;
+        }
+        
+        h2:hover::after {
+            width: 120px;
+        }
+        
+        h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            padding-left: 20px;
+            border-left: 4px solid #c0392b;
+            background-color: rgba(192, 57, 43, 0.05);
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 0 5px 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        h3:hover {
+            padding-left: 25px;
+            background-color: rgba(192, 57, 43, 0.1);
+            transform: translateX(5px);
+        }
+        
+        h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 35px;
+        }
+        
+        li {
+            margin-bottom: 18px;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .example-box {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #c0392b;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #c0392b, transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .example-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background-color: rgba(249, 249, 249, 0.98);
+        }
+        
+        .example-box:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .example-box h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .example-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(192, 57, 43, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .example-line:hover {
+            background-color: rgba(192, 57, 43, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .example-line:hover::before {
+            left: 100%;
+        }
+        
+        .back-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            border: 2px solid #c0392b;
+            font-weight: bold;
+        }
+        
+        .back-button:hover {
+            background-color: transparent;
+            color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(192, 57, 43, 0.3);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .section:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .content {
+                padding: 25px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+            
+            h2 {
+                font-size: 26px;
+                margin: 30px 0 20px;
+            }
+            
+            h3 {
+                font-size: 22px;
+                margin: 25px 0 15px;
+            }
+            
+            h4 {
+                font-size: 18px;
+            }
+            
+            p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+            
+            .example-line {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px;
+            }
+            
+            .back-button {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 装饰元素 */
+        .decorative-line {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #c0392b, transparent);
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .decorative-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid #c0392b;
+        }
+        
+        .decorative-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #c0392b;
+        }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #c0392b;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+        
+        .back-to-top:hover {
+            background-color: #a93226;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .highlight {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <!-- 导航栏 -->
+            <div class="navigation">
+                <ul>
+                    <li><a href="#basic-requirements">基本要求</a></li>
+                    <li><a href="#strict-types">严格程度分类</a></li>
+                    <li><a href="#content-types">内容分类</a></li>
+                    <li><a href="#position-types">位置分类</a></li>
+                    <li><a href="duizhang_detail.html">返回主页</a></li>
+                </ul>
+            </div>
+            
+            <h1>对账的基本概念详解</h1>
+            
+            <!-- 对仗的基本要求 -->
+            <div id="basic-requirements" class="section">
+                <h2>对仗的基本要求</h2>
+                
+                <h3>词性相对</h3>
+                <p>词性相对是对仗的基本要求之一，指上下句中对应的词语词性要相同。词性相对是工对的重要特征，也是对仗形式美的重要体现。</p>
+                <p>词性相对的具体要求：</p>
+                <ul>
+                    <li>名词对名词：如"黄鹂"对"白鹭"，"青山"对"绿水"等。</li>
+                    <li>动词对动词：如"鸣"对"上"，"飞"对"舞"等。</li>
+                    <li>形容词对形容词：如"翠"对"青"，"高"对"低"等。</li>
+                    <li>副词对副词：如"忽"对"渐"，"常"对"独"等。</li>
+                    <li>数量词对数量词：如"两个"对"一行"，"三尺"对"九天"等。</li>
+                    <li>方位词对方位词：如"东"对"西"，"上"对"下"等。</li>
+                </ul>
+                <p>在工对中，不仅要求词性相对，还要求名词中的小类也要对应，如天文对天文，地理对地理，动物对动物，植物对植物等。</p>
+                <div class="example-box">
+                    <h4>词性相对示例</h4>
+                    <p><strong>杜甫《绝句》</strong></p>
+                    <div class="example-line">
+                        <span>两个黄鹂鸣翠柳，</span>
+                        <span>一行白鹭上青天。</span>
+                    </div>
+                    <p><strong>分析</strong>："两个"对"一行"（数量词），"黄鹂"对"白鹭"（动物名词），"鸣"对"上"（动词），"翠柳"对"青天"（植物对天文，都是自然景物），词性完全对应，是典型的工对。</p>
+                </div>
+                
+                <h3>结构相对</h3>
+                <p>结构相对是对仗的基本要求之一，指上下句的语法结构要相同。结构相对可以使对仗更加整齐、和谐，增强诗歌的形式美。</p>
+                <p>结构相对的具体要求：</p>
+                <ul>
+                    <li>主谓结构对主谓结构：如"风急"对"天高"，"鸟鸣"对"花笑"等。</li>
+                    <li>动宾结构对动宾结构：如"感时"对"恨别"，"观山"对"玩水"等。</li>
+                    <li>偏正结构对偏正结构：如"翠柳"对"青天"，"长河"对"落日"等。</li>
+                    <li>并列结构对并列结构：如"悲欢离合"对"阴晴圆缺"，"花草树木"对"虫鱼鸟兽"等。</li>
+                </ul>
+                <p>结构相对要求上下句的语法结构完全一致，包括句子成分的数量、顺序和关系都要对应。</p>
+                <div class="example-box">
+                    <h4>结构相对示例</h4>
+                    <p><strong>杜甫《春望》</strong></p>
+                    <div class="example-line">
+                        <span>感时花溅泪，</span>
+                        <span>恨别鸟惊心。</span>
+                    </div>
+                    <p><strong>分析</strong>："感时"对"恨别"（动宾结构），"花溅泪"对"鸟惊心"（主谓结构），结构完全对应，是典型的工对。</p>
+                </div>
+                
+                <h3>意义相对</h3>
+                <p>意义相对是对仗的基本要求之一，指上下句的意义要相关，或相反，或相似，或相承。意义相对是对仗内容美的重要体现，也是对仗能够表达深刻思想的重要原因。</p>
+                <p>意义相对的具体类型：</p>
+                <ul>
+                    <li>相似：上下句意义相似，互相补充，如"野火烧不尽"对"春风吹又生"。</li>
+                    <li>相反：上下句意义相反，互相映衬，如"万里悲秋常作客"对"百年多病独登台"。</li>
+                    <li>相承：上下句意义相承，连贯而下，如"欲穷千里目"对"更上一层楼"。</li>
+                    <li>相关：上下句意义相关，共同表达一个主题，如"两个黄鹂鸣翠柳"对"一行白鹭上青天"。</li>
+                </ul>
+                <p>意义相对要求上下句的意义紧密相连，形成一个有机的整体，而不是孤立的两个句子。</p>
+                <div class="example-box">
+                    <h4>意义相对示例</h4>
+                    <p><strong>王之涣《登鹳雀楼》</strong></p>
+                    <div class="example-line">
+                        <span>欲穷千里目，</span>
+                        <span>更上一层楼。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义相承，表达了要想看到更远的景色，就需要登上更高的楼层的意思，是意义相对的典范。</p>
+                </div>
+                
+                <h3>平仄相对</h3>
+                <p>平仄相对是对仗的基本要求之一，指上下句中对应的词语平仄要相对，以形成和谐的节奏。平仄相对是对仗韵律美的重要体现，也是律诗对仗的重要特征。</p>
+                <p>平仄相对的具体要求：</p>
+                <ul>
+                    <li>平对仄：如"黄鹂"（平平）对"白鹭"（仄仄），"鸣翠柳"（平仄仄）对"上青天"（仄平平）等。</li>
+                    <li>仄对平：如"风急"（平仄）对"天高"（平平），"落日"（仄仄）对"长河"（平平）等。</li>
+                </ul>
+                <p>在律诗中，平仄相对是严格要求的，尤其是在工对中，平仄相对是必须遵守的规则。平仄相对可以使诗歌的节奏更加和谐，增强诗歌的音乐美。</p>
+                <div class="example-box">
+                    <h4>平仄相对示例</h4>
+                    <p><strong>杜甫《登高》</strong></p>
+                    <div class="example-line">
+                        <span>无边落木萧萧下，</span>
+                        <span>不尽长江滚滚来。</span>
+                    </div>
+                    <p><strong>分析</strong>："无边落木"（平平仄仄）对"不尽长江"（仄仄平平），"萧萧下"（平平仄）对"滚滚来"（仄仄平），平仄相对，节奏和谐，是平仄相对的典范。</p>
+                </div>
+            </div>
+            
+            <div class="decorative-line"></div>
+            
+            <!-- 按照严格程度分类的对仗 -->
+            <div id="strict-types" class="section">
+                <h2>按照对仗的严格程度分类</h2>
+                
+                <h3>工对</h3>
+                <p>工对是最严格的对仗形式，要求上下句在词性、结构、意义、平仄等方面完全对应。工对是律诗对仗的理想形式，体现了诗歌形式的严谨美，也是中国古典诗歌中对仗的最高境界。工对的运用需要诗人具有深厚的语言功底和艺术修养，能够在严格的规则下创造出优美的诗歌。</p>
+                <p>工对的特点：</p>
+                <ul>
+                    <li><span class="highlight">词性完全对应</span>：名词对名词，动词对动词，形容词对形容词，副词对副词，数量词对数量词，方位词对方位词等。甚至要求名词中的小类也要对应，如天文对天文（如"日"对"月"），地理对地理（如"山"对"水"），动物对动物（如"鸟"对"鱼"），植物对植物（如"花"对"草"）等。</li>
+                    <li><span class="highlight">结构完全对应</span>：主谓结构对主谓结构（如"风急"对"天高"），动宾结构对动宾结构（如"感时"对"恨别"），偏正结构对偏正结构（如"翠柳"对"青天"），并列结构对并列结构（如"悲欢离合"对"阴晴圆缺"）等。</li>
+                    <li><span class="highlight">意义相关</span>：上下句的意义要相关，或相似，或相反，或相承，形成一个有机的整体，而不是孤立的两个句子。</li>
+                    <li><span class="highlight">平仄相对</span>：上下句中对应的词语平仄要相对，以形成和谐的节奏和韵律。例如，"两个黄鹂鸣翠柳"（仄仄平平平仄仄）对"一行白鹭上青天"（平平仄仄仄平平）。</li>
+                </ul>
+                <p>工对在唐代律诗中最为常见，尤其是在杜甫的诗歌中达到了炉火纯青的境界。杜甫的工对不仅形式工整，而且内容深刻，意境深远，是中国古典诗歌的典范。</p>
+                <div class="example-box">
+                    <h4>工对示例</h4>
+                    <p><strong>杜甫《绝句》</strong></p>
+                    <div class="example-line">
+                        <span>两个黄鹂鸣翠柳，</span>
+                        <span>一行白鹭上青天。</span>
+                    </div>
+                    <p><strong>分析</strong>："两个"对"一行"（数量词），"黄鹂"对"白鹭"（动物名词），"鸣"对"上"（动词），"翠柳"对"青天"（植物对天文，都是自然景物），词性、结构、意义、平仄都完全对应，是典型的工对。</p>
+                </div>
+                <div class="example-box">
+                    <h4>工对示例</h4>
+                    <p><strong>杜甫《春望》</strong></p>
+                    <div class="example-line">
+                        <span>感时花溅泪，</span>
+                        <span>恨别鸟惊心。</span>
+                    </div>
+                    <p><strong>分析</strong>："感时"对"恨别"（动宾结构），"花溅泪"对"鸟惊心"（主谓结构），词性、结构、意义、平仄都完全对应，是典型的工对。</p>
+                </div>
+                <p>工对的文学价值：工对是中国古典诗歌形式美的重要体现，它不仅要求诗人具有深厚的语言功底，还要求诗人具有敏锐的观察力和丰富的想象力。工对的运用可以使诗歌更加整齐、和谐，增强诗歌的艺术感染力，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>宽对</h3>
+                <p>宽对是一种比较宽松的对仗形式，只要求上下句在词性和意义上相对应，不要求严格的平仄对应和结构对应。宽对的运用更加灵活，适合表达复杂的思想和情感，是诗歌创作中常用的对仗形式。宽对的出现，使得对仗的运用更加自由，能够更好地适应诗歌表达的需要。</p>
+                <p>宽对的特点：</p>
+                <ul>
+                    <li><span class="highlight">词性基本对应</span>：名词对名词，动词对动词，形容词对形容词等，但不要求严格的小类对应。例如，"飞流"对"银河"（都是名词，但不是同一小类）。</li>
+                    <li><span class="highlight">结构大体对应</span>：上下句的结构大体相似，但不要求完全一致，可以有一定的变化。例如，"直下"对"落"（前者是偏正结构，后者是动词）。</li>
+                    <li><span class="highlight">意义相关</span>：上下句的意义要相关，或相似，或相反，或相承，形成一个有机的整体。</li>
+                    <li><span class="highlight">平仄相对</span>：上下句的平仄可以不完全对应，允许一定的变化，以适应表达的需要。例如，"飞流直下三千尺"（平平仄仄平平仄）对"疑是银河落九天"（平仄平平仄仄平）。</li>
+                </ul>
+                <p>宽对的运用更加灵活自由，能够更好地表达诗人的思想情感，因此在诗歌创作中被广泛使用。尤其是在李白、苏轼等豪放派诗人的作品中，宽对的运用更为常见。这些诗人注重情感的表达，不拘泥于形式的严格要求，因此宽对成为他们常用的对仗形式。</p>
+                <div class="example-box">
+                    <h4>宽对示例</h4>
+                    <p><strong>李白《望庐山瀑布》</strong></p>
+                    <div class="example-line">
+                        <span>飞流直下三千尺，</span>
+                        <span>疑是银河落九天。</span>
+                    </div>
+                    <p><strong>分析</strong>："飞流"对"银河"（名词），"直下"对"落"（动词），"三千尺"对"九天"（数量词），词性基本对应，意义相关，但结构和平仄不完全对应，是宽对。这种宽对形式更加自由，能够更好地表达瀑布的雄伟壮观。</p>
+                </div>
+                <div class="example-box">
+                    <h4>宽对示例</h4>
+                    <p><strong>苏轼《水调歌头》</strong></p>
+                    <div class="example-line">
+                        <span>人有悲欢离合，</span>
+                        <span>月有阴晴圆缺。</span>
+                    </div>
+                    <p><strong>分析</strong>："人"对"月"（名词），"有"对"有"（动词），"悲欢离合"对"阴晴圆缺"（并列结构），词性基本对应，意义相关，但平仄不完全对应，是宽对。这种宽对形式更加自由，能够更好地表达人生的无常和自然的变化。</p>
+                </div>
+                <p>宽对的文学价值：宽对是中国古典诗歌灵活性的重要体现，它允许诗人在表达情感时不受严格形式的束缚，能够更加自由地创作。宽对的运用可以使诗歌更加自然流畅，增强诗歌的艺术感染力，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>借对</h3>
+                <p>借对是一种特殊的对仗形式，利用词语的多义性或谐音来形成对仗。借对的运用可以增加诗歌的趣味性和表现力，是诗人智慧的体现。借对是中国古典诗歌中一种独特的艺术手法，它展示了诗人对语言的巧妙运用和丰富的想象力。</p>
+                <p>借对的类型：</p>
+                <ul>
+                    <li><span class="highlight">借义对</span>：利用词语的多义性，借用词语的另一种意义来形成对仗。例如，"寻常"本是形容词，意为"平常"，但古代八尺为寻，十六尺为常，因此"寻常"也可以作为数量词使用。</li>
+                    <li><span class="highlight">借音对</span>：利用词语的谐音，借用词语的同音或近音来形成对仗。例如，"沧"与"苍"谐音，"晴"与"情"谐音等。</li>
+                </ul>
+                <p>借对的运用需要诗人具有丰富的想象力和语言技巧，能够巧妙地利用词语的多义性或谐音来创造出新颖的对仗形式。借对在唐代诗歌中较为常见，尤其是在杜甫、李商隐等诗人的作品中。这些诗人善于利用词语的多义性或谐音来创造出新颖的对仗形式，增加诗歌的趣味性和表现力。</p>
+                <div class="example-box">
+                    <h4>借对示例（借义对）</h4>
+                    <p><strong>杜甫《曲江二首》</strong></p>
+                    <div class="example-line">
+                        <span>酒债寻常行处有，</span>
+                        <span>人生七十古来稀。</span>
+                    </div>
+                    <p><strong>分析</strong>："寻常"对"七十"，"寻常"本是形容词，意为"平常"，这里借作数量词（古代八尺为寻，十六尺为常），与"七十"相对，是借义对。这种借对形式新颖有趣，增加了诗歌的表现力。</p>
+                </div>
+                <div class="example-box">
+                    <h4>借对示例（借音对）</h4>
+                    <p><strong>李商隐《锦瑟》</strong></p>
+                    <div class="example-line">
+                        <span>沧海月明珠有泪，</span>
+                        <span>蓝田日暖玉生烟。</span>
+                    </div>
+                    <p><strong>分析</strong>："沧"与"苍"谐音，"沧"意为"深"，"苍"意为"青"，这里借"沧"为"苍"，与"蓝"相对，是借音对。这种借对形式新颖有趣，增加了诗歌的表现力。</p>
+                </div>
+                <p>借对的文学价值：借对是中国古典诗歌中一种独特的艺术手法，它展示了诗人对语言的巧妙运用和丰富的想象力。借对的运用可以增加诗歌的趣味性和表现力，使诗歌更加生动、形象，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>流水对</h3>
+                <p>流水对是一种特殊的对仗形式，上下句意义连贯，形成一个整体，如流水般顺畅。流水对的运用可以使诗歌的结构更加紧凑，意义更加连贯，是一种富有表现力的对仗形式。流水对的出现，使得对仗的运用更加自然流畅，能够更好地表达诗歌的思想情感。</p>
+                <p>流水对的特点：</p>
+                <ul>
+                    <li><span class="highlight">意义连贯</span>：上下句的意义紧密相连，形成一个完整的意思，不能分开理解。例如，"欲穷千里目"对"更上一层楼"，上下句意义连贯，表达了一个完整的意思。</li>
+                    <li><span class="highlight">结构紧凑</span>：上下句的结构紧凑，语气连贯，如流水般顺畅。例如，"随意春芳歇"对"王孙自可留"，上下句结构紧凑，语气连贯。</li>
+                    <li><span class="highlight">逻辑严密</span>：上下句之间有一定的逻辑关系，如因果、条件、递进、转折等。例如，"欲穷千里目"对"更上一层楼"，上下句之间是条件关系；"随意春芳歇"对"王孙自可留"，上下句之间是转折关系。</li>
+                    <li><span class="highlight">自然流畅</span>：流水对的运用自然流畅，不显得生硬，符合诗歌的表达需要。例如，"野火烧不尽"对"春风吹又生"，上下句自然流畅，不显得生硬。</li>
+                </ul>
+                <p>流水对在唐代诗歌中较为常见，尤其是在王维、孟浩然等山水田园诗人的作品中。这些诗人注重诗歌的自然流畅，因此流水对成为他们常用的对仗形式。流水对的运用可以使诗歌更加自然流畅，富有表现力，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>流水对示例（转折关系）</h4>
+                    <p><strong>王维《山居秋暝》</strong></p>
+                    <div class="example-line">
+                        <span>随意春芳歇，</span>
+                        <span>王孙自可留。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义连贯，表达了春天的芳华虽然消逝，但秋天的山中仍然值得停留的意思，是流水对。这种对仗形式自然流畅，富有表现力，能够更好地表达诗人对山居生活的喜爱之情。</p>
+                </div>
+                <div class="example-box">
+                    <h4>流水对示例（条件关系）</h4>
+                    <p><strong>王之涣《登鹳雀楼》</strong></p>
+                    <div class="example-line">
+                        <span>欲穷千里目，</span>
+                        <span>更上一层楼。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义连贯，表达了要想看到更远的景色，就需要登上更高的楼层的意思，是流水对。这种对仗形式自然流畅，富有表现力，同时也蕴含了深刻的哲理。</p>
+                </div>
+                <div class="example-box">
+                    <h4>流水对示例（因果关系）</h4>
+                    <p><strong>白居易《赋得古原草送别》</strong></p>
+                    <div class="example-line">
+                        <span>野火烧不尽，</span>
+                        <span>春风吹又生。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义连贯，表达了野草生命力顽强的意思，是流水对。这种对仗形式自然流畅，富有表现力，能够更好地表达野草生命力的顽强。</p>
+                </div>
+                <p>流水对的文学价值：流水对是中国古典诗歌自然流畅美的重要体现，它允许诗人在表达情感时不受严格形式的束缚，能够更加自由地创作。流水对的运用可以使诗歌更加自然流畅，增强诗歌的艺术感染力，是中国古典诗歌的重要特征之一。</p>
+            </div>
+            
+            <div class="decorative-line"></div>
+            
+            <!-- 按照内容分类的对仗 -->
+            <div id="content-types" class="section">
+                <h2>按照对仗的内容分类</h2>
+                
+                <h3>正对</h3>
+                <p>正对是指上下句意义相似或相同，互相补充，从不同的角度表达同一主题。正对的运用可以使诗歌的内容更加丰富，表现力更加增强，是一种常见的对仗形式。正对的出现，使得诗歌的内容更加全面、丰富，能够更好地表达诗歌的思想情感。</p>
+                <p>正对的特点：</p>
+                <ul>
+                    <li><span class="highlight">意义相似</span>：上下句表达的意思相近，互相补充，共同表达一个主题。例如，"野火烧不尽"对"春风吹又生"，上下句都表达了野草生命力顽强的意思。</li>
+                    <li><span class="highlight">角度不同</span>：上下句从不同的角度表达同一主题，使内容更加全面。例如，"野火烧不尽"从野火的角度描写野草的生命力，"春风吹又生"从春风的角度描写野草的生命力。</li>
+                    <li><span class="highlight">内容丰富</span>：通过正对，可以使诗歌的内容更加全面、丰富，增强诗歌的表现力。例如，"两个黄鹂鸣翠柳"对"一行白鹭上青天"，上下句从不同的角度描写春天的景色，使内容更加丰富。</li>
+                    <li><span class="highlight">和谐统一</span>：正对使上下句在意义上和谐统一，形成一个有机的整体。例如，"野火烧不尽"对"春风吹又生"，上下句和谐统一，共同表达了野草生命力顽强的主题。</li>
+                </ul>
+                <p>正对在唐代诗歌中最为常见，尤其是在描写自然景物、抒发情感的诗歌中。例如，杜甫的《绝句》、白居易的《赋得古原草送别》等作品中都有大量的正对。正对的运用可以使诗歌的内容更加丰富，表现力更加增强，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>正对示例（描写自然景物）</h4>
+                    <p><strong>白居易《赋得古原草送别》</strong></p>
+                    <div class="example-line">
+                        <span>野火烧不尽，</span>
+                        <span>春风吹又生。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句都表达了野草生命力顽强的意思，从"野火"和"春风"两个不同的角度进行描写，是正对。这种对仗形式使诗歌的内容更加丰富，表现力更加增强，突出了野草生命力的顽强。</p>
+                </div>
+                <div class="example-box">
+                    <h4>正对示例（描写自然景物）</h4>
+                    <p><strong>杜甫《绝句》</strong></p>
+                    <div class="example-line">
+                        <span>两个黄鹂鸣翠柳，</span>
+                        <span>一行白鹭上青天。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句都描写了春天的景色，从"黄鹂鸣翠柳"和"白鹭上青天"两个不同的角度进行描写，是正对。这种对仗形式使诗歌的内容更加丰富，表现力更加增强，突出了春天的生机盎然。</p>
+                </div>
+                <div class="example-box">
+                    <h4>正对示例（抒发情感）</h4>
+                    <p><strong>杜甫《春望》</strong></p>
+                    <div class="example-line">
+                        <span>感时花溅泪，</span>
+                        <span>恨别鸟惊心。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句都表达了诗人的悲伤情感，从"感时"和"恨别"两个不同的角度进行描写，是正对。这种对仗形式使诗歌的内容更加丰富，表现力更加增强，突出了诗人的悲伤情感。</p>
+                </div>
+                <p>正对的文学价值：正对是中国古典诗歌内容美的重要体现，它允许诗人从不同的角度表达同一主题，使诗歌的内容更加全面、丰富。正对的运用可以增强诗歌的表现力，使诗歌更加生动、形象，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>反对</h3>
+                <p>反对是指上下句意义相反或相对，互相映衬，通过对比来突出主题。反对的运用可以使诗歌的内容更加深刻，表现力更加增强，是一种富有感染力的对仗形式。反对的出现，使得诗歌的内容更加深刻，能够更好地表达诗歌的思想情感。</p>
+                <p>反对的特点：</p>
+                <ul>
+                    <li><span class="highlight">意义相反</span>：上下句表达的意思相反或相对，形成鲜明的对比。例如，"万里悲秋常作客"对"百年多病独登台"，上下句意义相反，形成鲜明的对比。</li>
+                    <li><span class="highlight">对比鲜明</span>：通过上下句的对比，突出主题，增强诗歌的感染力。例如，"万里"与"百年"的对比，"悲秋"与"多病"的对比，"常作客"与"独登台"的对比，突出了诗人的孤独和悲伤。</li>
+                    <li><span class="highlight">内容深刻</span>：通过反对，可以使诗歌的内容更加深刻、有力，发人深省。例如，"万里悲秋常作客"对"百年多病独登台"，通过对比，深刻地表达了诗人的孤独和悲伤。</li>
+                    <li><span class="highlight">情感强烈</span>：反对可以使诗歌的情感更加强烈，富有感染力。例如，"万里悲秋常作客"对"百年多病独登台"，通过对比，强烈地表达了诗人的孤独和悲伤。</li>
+                </ul>
+                <p>反对在唐代诗歌中较为常见，尤其是在抒发人生感慨、社会批判的诗歌中。例如，杜甫的《登高》、李白的《将进酒》等作品中都有大量的反对。反对的运用可以使诗歌的内容更加深刻，表现力更加增强，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>反对示例（抒发人生感慨）</h4>
+                    <p><strong>杜甫《登高》</strong></p>
+                    <div class="example-line">
+                        <span>万里悲秋常作客，</span>
+                        <span>百年多病独登台。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句通过"万里"与"百年"、"悲秋"与"多病"、"常作客"与"独登台"的对比，突出了诗人的孤独和悲伤，是反对。这种对仗形式使诗歌的内容更加深刻，表现力更加增强，强烈地表达了诗人的情感。</p>
+                </div>
+                <div class="example-box">
+                    <h4>反对示例（社会批判）</h4>
+                    <p><strong>杜甫《自京赴奉先县咏怀五百字》</strong></p>
+                    <div class="example-line">
+                        <span>朱门酒肉臭，</span>
+                        <span>路有冻死骨。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句通过"朱门酒肉臭"与"路有冻死骨"的对比，突出了社会的不公，是反对。这种对仗形式使诗歌的内容更加深刻，表现力更加增强，强烈地表达了诗人的社会批判。</p>
+                </div>
+                <div class="example-box">
+                    <h4>反对示例（抒发情感）</h4>
+                    <p><strong>李白《将进酒》</strong></p>
+                    <div class="example-line">
+                        <span>天生我材必有用，</span>
+                        <span>千金散尽还复来。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句通过"天生我材必有用"与"千金散尽还复来"的对比，突出了诗人的自信和豁达，是反对。这种对仗形式使诗歌的内容更加深刻，表现力更加增强，强烈地表达了诗人的情感。</p>
+                </div>
+                <p>反对的文学价值：反对是中国古典诗歌对比美的重要体现，它允许诗人通过对比来突出主题，使诗歌的内容更加深刻。反对的运用可以增强诗歌的感染力，使诗歌更加生动、有力，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>串对</h3>
+                <p>串对是指上下句意义相承，连贯而下，形成一个完整的意思。串对的运用可以使诗歌的结构更加紧凑，意义更加连贯，是一种富有逻辑性的对仗形式。串对的出现，使得对仗的运用更加自然流畅，能够更好地表达诗歌的思想情感。</p>
+                <p>串对的特点：</p>
+                <ul>
+                    <li><span class="highlight">意义相承</span>：上下句的意义连贯，形成一个完整的意思，不能分开理解。例如，"欲穷千里目"对"更上一层楼"，上下句意义连贯，表达了一个完整的意思。</li>
+                    <li><span class="highlight">结构紧凑</span>：上下句的结构紧凑，语气连贯，如流水般顺畅。例如，"欲穷千里目"对"更上一层楼"，上下句结构紧凑，语气连贯。</li>
+                    <li><span class="highlight">逻辑严密</span>：上下句之间有一定的逻辑关系，如因果、条件、递进等。例如，"欲穷千里目"对"更上一层楼"，上下句之间是条件关系；"野火烧不尽"对"春风吹又生"，上下句之间是因果关系。</li>
+                    <li><span class="highlight">自然流畅</span>：串对的运用自然流畅，不显得生硬，符合诗歌的表达需要。例如，"欲穷千里目"对"更上一层楼"，上下句自然流畅，不显得生硬。</li>
+                </ul>
+                <p>串对在唐代诗歌中较为常见，尤其是在表达哲理、抒发情感的诗歌中。例如，王之涣的《登鹳雀楼》、白居易的《赋得古原草送别》等作品中都有大量的串对。串对的运用可以使诗歌更加自然流畅，富有逻辑性，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>串对示例（条件关系）</h4>
+                    <p><strong>王之涣《登鹳雀楼》</strong></p>
+                    <div class="example-line">
+                        <span>欲穷千里目，</span>
+                        <span>更上一层楼。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义相承，表达了要想看到更远的景色，就需要登上更高的楼层的意思，是串对。这种对仗形式自然流畅，富有逻辑性，同时也蕴含了深刻的哲理，是诗歌中的经典名句。</p>
+                </div>
+                <div class="example-box">
+                    <h4>串对示例（因果关系）</h4>
+                    <p><strong>白居易《赋得古原草送别》</strong></p>
+                    <div class="example-line">
+                        <span>野火烧不尽，</span>
+                        <span>春风吹又生。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义相承，表达了野草生命力顽强的意思，是串对。这种对仗形式自然流畅，富有逻辑性，能够更好地表达野草生命力的顽强。</p>
+                </div>
+                <div class="example-box">
+                    <h4>串对示例（递进关系）</h4>
+                    <p><strong>杜甫《望岳》</strong></p>
+                    <div class="example-line">
+                        <span>会当凌绝顶，</span>
+                        <span>一览众山小。</span>
+                    </div>
+                    <p><strong>分析</strong>：上下句意义相承，表达了登上泰山绝顶后俯瞰众山的意思，是串对。这种对仗形式自然流畅，富有逻辑性，能够更好地表达诗人的豪情壮志。</p>
+                </div>
+                <p>串对的文学价值：串对是中国古典诗歌逻辑美的重要体现，它允许诗人通过逻辑关系来表达诗歌的思想情感，使诗歌更加自然流畅。串对的运用可以增强诗歌的逻辑性，使诗歌更加生动、有力，是中国古典诗歌的重要特征之一。</p>
+            </div>
+            
+            <div class="decorative-line"></div>
+            
+            <!-- 按照位置分类的对仗 -->
+            <div id="position-types" class="section">
+                <h2>按照对仗的位置分类</h2>
+                
+                <h3>句中对</h3>
+                <p>句中对是指一句诗中内部词语的对仗，也称为"当句对"。句中对的运用可以使诗句更加整齐、和谐，增强诗句的表现力，是一种独特的对仗形式。句中对的出现，使得对仗的运用更加灵活多样，能够更好地适应诗歌表达的需要。</p>
+                <p>句中对的特点：</p>
+                <ul>
+                    <li><span class="highlight">在一句诗中</span>：对仗出现在一句诗的内部，而不是上下句之间。例如，"风急天高猿啸哀"中，"风急"对"天高"，"猿啸"对"哀"，是句中对。</li>
+                    <li><span class="highlight">词语对应</span>：一句诗中的词语两两相对，形成对仗。例如，"风急天高猿啸哀"中，"风急"对"天高"（主谓结构），"猿啸"对"哀"（这里"哀"是形容词作谓语）。</li>
+                    <li><span class="highlight">结构紧凑</span>：句中对使诗句的结构更加紧凑，节奏更加明快。例如，"风急天高猿啸哀"中，句中对使诗句的结构更加紧凑，节奏更加明快。</li>
+                    <li><span class="highlight">形式独特</span>：句中对是一种比较独特的对仗形式，能够增加诗歌的艺术感染力。例如，"风急天高猿啸哀"中，句中对增加了诗歌的艺术感染力，描绘了一幅凄凉的秋景图。</li>
+                </ul>
+                <p>句中对在唐代诗歌中较为常见，尤其是在杜甫、李商隐等诗人的作品中。例如，杜甫的《登高》、李商隐的《锦瑟》等作品中都有大量的句中对。句中对的运用可以使诗句更加整齐、和谐，增强诗句的表现力，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>句中对示例</h4>
+                    <p><strong>杜甫《登高》</strong></p>
+                    <div class="example-line">
+                        <span>风急天高猿啸哀，</span>
+                    </div>
+                    <p><strong>分析</strong>："风急"对"天高"（主谓结构），"猿啸"对"哀"（这里"哀"是形容词作谓语），是句中对。这种对仗形式使诗句更加整齐、和谐，增强了诗句的表现力，描绘了一幅凄凉的秋景图。</p>
+                </div>
+                <div class="example-box">
+                    <h4>句中对示例</h4>
+                    <p><strong>李商隐《锦瑟》</strong></p>
+                    <div class="example-line">
+                        <span>锦瑟无端五十弦，</span>
+                    </div>
+                    <p><strong>分析</strong>："锦瑟"对"无端"（名词对形容词），"五十"对"弦"（数量词对名词），是句中对。这种对仗形式使诗句更加整齐、和谐，增强了诗句的表现力。</p>
+                </div>
+                <div class="example-box">
+                    <h4>句中对示例</h4>
+                    <p><strong>杜甫《绝句》</strong></p>
+                    <div class="example-line">
+                        <span>两个黄鹂鸣翠柳，</span>
+                    </div>
+                    <p><strong>分析</strong>："两个"对"黄鹂"（数量词对名词），"鸣"对"翠柳"（动词对名词），是句中对。这种对仗形式使诗句更加整齐、和谐，增强了诗句的表现力。</p>
+                </div>
+                <p>句中对的文学价值：句中对是中国古典诗歌形式美的重要体现，它允许诗人在一句诗中运用对仗，使诗句更加整齐、和谐。句中对的运用可以增强诗句的表现力，使诗歌更加生动、形象，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>邻句对</h3>
+                <p>邻句对是指相邻两句诗的对仗，这是最常见的对仗形式，也是律诗对仗的主要形式。邻句对的运用可以使诗歌更加整齐、和谐，增强诗歌的艺术感染力。邻句对是中国古典诗歌中最常见的对仗形式，也是律诗对仗的主要形式。</p>
+                <p>邻句对的特点：</p>
+                <ul>
+                    <li><span class="highlight">相邻两句</span>：对仗出现在相邻的两句诗之间，是最常见的对仗形式。例如，"感时花溅泪"对"恨别鸟惊心"，是相邻两句诗的对仗。</li>
+                    <li><span class="highlight">严格对应</span>：上下句在词性、结构、意义、平仄等方面相对应，形成工整的对仗。例如，"感时"对"恨别"（动宾结构），"花溅泪"对"鸟惊心"（主谓结构）。</li>
+                    <li><span class="highlight">常见形式</span>：邻句对是最常见的对仗形式，也是律诗对仗的主要形式。例如，律诗的颔联（第三、四句）和颈联（第五、六句）必须使用邻句对。</li>
+                    <li><span class="highlight">艺术感染力</span>：邻句对的运用可以使诗歌更加整齐、和谐，增强诗歌的艺术感染力。例如，"感时花溅泪"对"恨别鸟惊心"，这种对仗形式整齐、和谐，增强了诗歌的艺术感染力。</li>
+                </ul>
+                <p>邻句对是律诗对仗的主要形式，要求颔联（第三、四句）和颈联（第五、六句）必须使用对仗。邻句对的运用可以使诗歌更加整齐、和谐，增强诗歌的艺术感染力，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>邻句对示例（律诗颔联）</h4>
+                    <p><strong>杜甫《春望》</strong></p>
+                    <div class="example-line">
+                        <span>感时花溅泪，</span>
+                        <span>恨别鸟惊心。</span>
+                    </div>
+                    <p><strong>分析</strong>：这是相邻两句诗的对仗，"感时"对"恨别"（动宾结构），"花溅泪"对"鸟惊心"（主谓结构），是邻句对。这种对仗形式整齐、和谐，增强了诗歌的艺术感染力，表达了诗人对国家命运的担忧和对亲人的思念之情。</p>
+                </div>
+                <div class="example-box">
+                    <h4>邻句对示例（律诗颈联）</h4>
+                    <p><strong>杜甫《春望》</strong></p>
+                    <div class="example-line">
+                        <span>烽火连三月，</span>
+                        <span>家书抵万金。</span>
+                    </div>
+                    <p><strong>分析</strong>：这是相邻两句诗的对仗，"烽火"对"家书"（名词），"连三月"对"抵万金"（动宾结构），是邻句对。这种对仗形式整齐、和谐，增强了诗歌的艺术感染力，表达了诗人对战争的痛恨和对亲人的思念之情。</p>
+                </div>
+                <div class="example-box">
+                    <h4>邻句对示例（绝句）</h4>
+                    <p><strong>王维《鸟鸣涧》</strong></p>
+                    <div class="example-line">
+                        <span>人闲桂花落，</span>
+                        <span>夜静春山空。</span>
+                    </div>
+                    <p><strong>分析</strong>：这是相邻两句诗的对仗，"人闲"对"夜静"（主谓结构），"桂花落"对"春山空"（主谓结构），是邻句对。这种对仗形式整齐、和谐，增强了诗歌的艺术感染力，表达了诗人对山居生活的喜爱之情。</p>
+                </div>
+                <p>邻句对的文学价值：邻句对是中国古典诗歌形式美的重要体现，它允许诗人在相邻的两句诗中运用对仗，使诗歌更加整齐、和谐。邻句对的运用可以增强诗歌的艺术感染力，使诗歌更加生动、形象，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>隔句对</h3>
+                <p>隔句对是指相隔两句诗的对仗，也称为"扇面对"。隔句对的运用可以使诗歌的结构更加灵活，节奏更加多变，是一种独特的对仗形式。隔句对的出现，使得对仗的运用更加灵活多样，能够更好地适应诗歌表达的需要。</p>
+                <p>隔句对的特点：</p>
+                <ul>
+                    <li><span class="highlight">相隔两句</span>：对仗出现在相隔的两句诗之间，如第一句对第三句，第二句对第四句。例如，"夜泊鹦鹉洲"对"邻船有歌者"，"秋江月澄澈"对"发调堪愁绝"，是隔句对。</li>
+                    <li><span class="highlight">结构灵活</span>：隔句对使诗歌的结构更加灵活，节奏更加多变。例如，"夜泊鹦鹉洲，秋江月澄澈。邻船有歌者，发调堪愁绝"，隔句对使诗歌的结构更加灵活，节奏更加多变。</li>
+                    <li><span class="highlight">形式独特</span>：隔句对是一种比较独特的对仗形式，使用较少。例如，白居易的《夜闻歌者》、杜甫的《绝句》等作品中都有隔句对。</li>
+                    <li><span class="highlight">艺术感染力</span>：隔句对的运用可以增加诗歌的艺术感染力，使诗歌更加富有变化。例如，"夜泊鹦鹉洲"对"邻船有歌者"，"秋江月澄澈"对"发调堪愁绝"，隔句对增加了诗歌的艺术感染力。</li>
+                </ul>
+                <p>隔句对在唐代诗歌中使用较少，但在一些诗人的作品中也有所体现。例如，白居易的《夜闻歌者》、杜甫的《绝句》等作品中都有隔句对。隔句对的运用可以使诗歌的结构更加灵活，节奏更加多变，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>隔句对示例</h4>
+                    <p><strong>白居易《夜闻歌者》</strong></p>
+                    <div class="example-line">
+                        <span>夜泊鹦鹉洲，秋江月澄澈。</span>
+                        <span>邻船有歌者，发调堪愁绝。</span>
+                    </div>
+                    <p><strong>分析</strong>："夜泊鹦鹉洲"对"邻船有歌者"（动宾结构），"秋江月澄澈"对"发调堪愁绝"（主谓结构），是隔句对。这种对仗形式使诗歌的结构更加灵活，节奏更加多变，增加了诗歌的艺术感染力。</p>
+                </div>
+                <div class="example-box">
+                    <h4>隔句对示例</h4>
+                    <p><strong>杜甫《绝句》</strong></p>
+                    <div class="example-line">
+                        <span>两个黄鹂鸣翠柳，一行白鹭上青天。</span>
+                        <span>窗含西岭千秋雪，门泊东吴万里船。</span>
+                    </div>
+                    <p><strong>分析</strong>："两个黄鹂鸣翠柳"对"窗含西岭千秋雪"，"一行白鹭上青天"对"门泊东吴万里船"，是隔句对。这种对仗形式使诗歌的结构更加灵活，节奏更加多变，增加了诗歌的艺术感染力。</p>
+                </div>
+                <p>隔句对的文学价值：隔句对是中国古典诗歌结构美的重要体现，它允许诗人在相隔的两句诗中运用对仗，使诗歌的结构更加灵活。隔句对的运用可以增加诗歌的艺术感染力，使诗歌更加富有变化，是中国古典诗歌的重要特征之一。</p>
+                
+                <h3>长对</h3>
+                <p>长对是指多句诗的对仗，也称为"多句对"。长对的运用可以使诗歌的结构更加宏大，气势更加磅礴，是一种富有表现力的对仗形式。长对的出现，使得对仗的运用更加灵活多样，能够更好地适应诗歌表达的需要。</p>
+                <p>长对的特点：</p>
+                <ul>
+                    <li><span class="highlight">多句对仗</span>：对仗出现在三句或三句以上的诗之间，形成长对。例如，"枯藤老树昏鸦"对"小桥流水人家"对"古道西风瘦马"，是长对。</li>
+                    <li><span class="highlight">结构宏大</span>：长对使诗歌的结构更加宏大，气势更加磅礴。例如，"枯藤老树昏鸦，小桥流水人家，古道西风瘦马"，长对使诗歌的结构更加宏大，气势更加磅礴。</li>
+                    <li><span class="highlight">表现力强</span>：长对可以表达更加复杂的内容，增强诗歌的表现力。例如，"枯藤老树昏鸦，小桥流水人家，古道西风瘦马"，长对表达了复杂的秋景，增强了诗歌的表现力。</li>
+                    <li><span class="highlight">形式独特</span>：长对是一种比较独特的对仗形式，能够增加诗歌的艺术感染力。例如，"枯藤老树昏鸦，小桥流水人家，古道西风瘦马"，长对增加了诗歌的艺术感染力，描绘了一幅凄凉的秋景图。</li>
+                </ul>
+                <p>长对在元曲中较为常见，尤其是在马致远、张可久等散曲作家的作品中。例如，马致远的《天净沙·秋思》、张可久的《天净沙·江上》等作品中都有长对。长对的运用可以使诗歌的结构更加宏大，气势更加磅礴，是中国古典诗歌的重要特征之一。</p>
+                <div class="example-box">
+                    <h4>长对示例（元曲）</h4>
+                    <p><strong>马致远《天净沙·秋思》</strong></p>
+                    <div class="example-line">
+                        <span>枯藤老树昏鸦，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>小桥流水人家，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>古道西风瘦马。</span>
+                    </div>
+                    <p><strong>分析</strong>：这三句曲在句式和内容上形成了对仗，是长对。这种对仗形式使诗歌的结构更加宏大，气势更加磅礴，描绘了一幅凄凉的秋景图，表达了游子的思乡之情。</p>
+                </div>
+                <div class="example-box">
+                    <h4>长对示例（元曲）</h4>
+                    <p><strong>张可久《天净沙·江上》</strong></p>
+                    <div class="example-line">
+                        <span>嗈嗈落雁平沙，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>依依孤鹜残霞，</span>
+                    </div>
+                    <div class="example-line">
+                        <span>隔水疏林几家。</span>
+                    </div>
+                    <p><strong>分析</strong>：这三句曲在句式和内容上形成了对仗，是长对。这种对仗形式使诗歌的结构更加宏大，气势更加磅礴，描绘了一幅江上的秋景图，表达了诗人的思乡之情。</p>
+                </div>
+                <div class="example-box">
+                    <h4>长对示例（汉赋）</h4>
+                    <p><strong>贾谊《过秦论》</strong></p>
+                    <div class="example-line">
+                        <span>振长策而御宇内，吞二周而亡诸侯，履至尊而制六合，执敲扑而鞭笞天下。</span>
+                    </div>
+                    <p><strong>分析</strong>：这四句在句式和内容上形成了对仗，是长对。这种对仗形式使诗歌的结构更加宏大，气势更加磅礴，表达了秦始皇统一六国的气势和威风。</p>
+                </div>
+                <p>长对的文学价值：长对是中国古典诗歌气势美的重要体现，它允许诗人在多句诗中运用对仗，使诗歌的结构更加宏大。长对的运用可以增强诗歌的表现力，使诗歌更加生动、有力，是中国古典诗歌的重要特征之一。</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="duizhang_detail.html" class="back-button">返回对仗详解</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <a href="#" class="back-to-top">↑</a>
+    
+    <script>
+        // 根据URL参数显示相应的内容
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取URL参数
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            
+            // 默认显示所有内容
+            if (!type) {
+                document.getElementById('basic-requirements').style.display = 'block';
+                document.getElementById('strict-types').style.display = 'block';
+                document.getElementById('content-types').style.display = 'block';
+                document.getElementById('position-types').style.display = 'block';
+            } else if (type === 'basic') {
+                document.getElementById('basic-requirements').style.display = 'block';
+                document.getElementById('strict-types').style.display = 'none';
+                document.getElementById('content-types').style.display = 'none';
+                document.getElementById('position-types').style.display = 'none';
+            } else if (type === 'strict') {
+                document.getElementById('basic-requirements').style.display = 'block';
+                document.getElementById('strict-types').style.display = 'block';
+                document.getElementById('content-types').style.display = 'none';
+                document.getElementById('position-types').style.display = 'none';
+            } else if (type === 'content') {
+                document.getElementById('basic-requirements').style.display = 'block';
+                document.getElementById('strict-types').style.display = 'none';
+                document.getElementById('content-types').style.display = 'block';
+                document.getElementById('position-types').style.display = 'none';
+            } else if (type === 'position') {
+                document.getElementById('basic-requirements').style.display = 'block';
+                document.getElementById('strict-types').style.display = 'none';
+                document.getElementById('content-types').style.display = 'none';
+                document.getElementById('position-types').style.display = 'block';
+            }
+            
+            // 返回顶部按钮逻辑
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            // 滚动事件监听
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // 点击事件监听
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // 为所有标题添加动画效果
+            const headers = document.querySelectorAll('h2, h3, h4');
+            headers.forEach(header => {
+                header.style.opacity = '0';
+                header.style.transform = 'translateY(20px)';
+                header.style.transition = 'all 0.5s ease';
+            });
+            
+            // 观察标题元素
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            headers.forEach(header => {
+                observer.observe(header);
+            });
+            
+            // 导航栏逻辑
+            const navLinks = document.querySelectorAll('.navigation a');
+            const sections = document.querySelectorAll('.section');
+            
+            // 平滑滚动
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        if (targetSection) {
+                            window.scrollTo({
+                                top: targetSection.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // 滚动时高亮导航项
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // 根据URL参数设置初始导航状态
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            
+            if (type === 'strict') {
+                document.querySelector('.navigation a[href="#strict-types"]').classList.add('active');
+            } else if (type === 'content') {
+                document.querySelector('.navigation a[href="#content-types"]').classList.add('active');
+            } else if (type === 'position') {
+                document.querySelector('.navigation a[href="#position-types"]').classList.add('active');
+            } else {
+                document.querySelector('.navigation a[href="#basic-requirements"]').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

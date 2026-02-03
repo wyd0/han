@@ -1,0 +1,386 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>先秦时期服饰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 先秦时期页面特定样式 */
+        .dynasty-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .dynasty-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .dynasty-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dynasty-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .dynasty-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dynasty-main {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+            overflow-x: auto;
+        }
+        
+        .dynasty-content {
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            min-width: max-content;
+        }
+        
+        .dynasty-section {
+            flex: 0 0 500px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .dynasty-section:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        .dynasty-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dynasty-section h2 {
+            color: #c0392b;
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #c0392b;
+            display: inline-block;
+        }
+        
+        .dynasty-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 25px 0 15px;
+            font-family: 'SimSun', serif;
+            padding-left: 12px;
+            border-left: 3px solid #c0392b;
+        }
+        
+        .dynasty-section h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 20px 0 12px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dynasty-section-content {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #333;
+        }
+        
+        .dynasty-section-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .dynasty-section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 20px;
+        }
+        
+        .dynasty-section-content li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.8;
+        }
+        
+        .dynasty-section-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 服饰对比部分 */
+        .clothing-comparison {
+            margin: 20px 0;
+        }
+        
+        .comparison-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dynasty-header h1 {
+                font-size: 36px;
+            }
+            
+            .dynasty-header p {
+                font-size: 18px;
+            }
+            
+            .dynasty-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="dynasty-header">
+        <div class="container">
+            <div class="dynasty-header-content">
+                <h1>先秦时期服饰</h1>
+                <p>公元前21世纪-公元前221年</p>
+                <a href="clothing.html" class="back-link">返回服饰首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="dynasty-main">
+        <div class="container">
+            <div class="dynasty-content">
+                <!-- 历史概述 -->
+                <section class="dynasty-section">
+                    <h2>历史概述</h2>
+                    <div class="dynasty-section-content">
+                        <p>先秦时期是中国历史上的早期阶段，包括夏、商、周三个主要朝代。这一时期是汉服的起源和形成时期，奠定了中国传统服饰的基本形制和制度基础。</p>
+                        <h3>发展阶段</h3>
+                        <h4>夏代（约公元前21世纪-公元前16世纪）</h4>
+                        <p>夏代是中国历史上第一个朝代，服饰尚处于原始状态。此时的服饰以麻、丝为主要原料，样式简单，颜色以玄（黑色）和黄为主。上衣已经开始出现上衣下裳的基本形制，为后世汉服奠定了基础。</p>
+                        
+                        <h4>商代（约公元前16世纪-公元前11世纪）</h4>
+                        <p>商代是中国历史上第一个有文字可考的朝代，服饰文化得到了进一步发展。商代服饰开始使用丝绸等高级面料，出现了华丽的刺绣和纹样，如饕餮纹、云雷纹等。商代建立了初步的服饰等级制度，不同身份的人穿着不同的服饰。</p>
+                        
+                        <h4>周代（约公元前11世纪-公元前221年）</h4>
+                        <p>周代是中国历史上服饰制度最完善的朝代之一，建立了严格的冠服制度。周代的服饰制度被称为"冕服制度"，规定了不同等级的人在不同场合的服饰样式、颜色和图案。周代还出现了深衣，这是一种上衣下裳相连的服饰，成为士大夫的常服，也是后世汉服的重要形制。</p>
+                    </div>
+                </section>
+
+                <!-- 服饰特点 -->
+                <section class="dynasty-section">
+                    <h2>服饰特点</h2>
+                    <div class="dynasty-section-content">
+                        <ul>
+                            <li><strong>上衣下裳制度</strong>：上衣和下裳分开，象征天地阴阳，是汉服最基本的形制之一</li>
+                            <li><strong>冕服制度</strong>：建立了严格的等级服饰制度，不同等级的人穿着不同样式和颜色的服饰</li>
+                            <li><strong>章服制度</strong>：用不同的图案和颜色区分等级，如十二章纹是天子冕服的专用图案</li>
+                            <li><strong>深衣出现</strong>：上衣下裳相连的深衣开始流行，成为士大夫的常服</li>
+                            <li><strong>冠帽制度</strong>：冠帽成为身份的象征，"君子无故，玉不去身"</li>
+                            <li><strong>颜色等级</strong>：周代以青、赤、黄、白、黑为正色，不同等级的人使用不同的颜色</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 贵族与平民服饰对比 -->
+                <section class="dynasty-section">
+                    <h2>贵族与平民服饰对比</h2>
+                    <div class="dynasty-section-content">
+                        <div class="clothing-comparison">
+                            <div class="comparison-item">
+                                <h5>贵族服饰</h5>
+                                <h4>材质与工艺</h4>
+                                <ul>
+                                    <li>使用丝绸、皮毛等高级面料</li>
+                                    <li>华丽的刺绣和复杂纹样</li>
+                                    <li>精细的染色工艺</li>
+                                </ul>
+                                <h4>样式与颜色</h4>
+                                <ul>
+                                    <li>冕服：天子诸侯的礼服，有十二章纹和冕冠</li>
+                                    <li>弁服：仅次于冕服的朝服，用于朝会等场合</li>
+                                    <li>深衣：士大夫的常服，样式规整华丽</li>
+                                    <li>使用正色（青、赤、黄、白、黑）</li>
+                                    <li>配饰有各种玉器和佩饰</li>
+                                </ul>
+                                <h4>配饰</h4>
+                                <ul>
+                                    <li>冠帽：身份的象征，不同等级使用不同样式</li>
+                                    <li>冕冠：天子的专用冠帽</li>
+                                    <li>玉佩：佩戴有璜、璧等各种玉器</li>
+                                    <li>剑：贵族的专用配饰</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 代表服饰 -->
+                <section class="dynasty-section">
+                    <h2>代表服饰</h2>
+                    <div class="dynasty-section-content">
+                        <h3>天子服饰</h3>
+                        <p><strong>冕服</strong>：天子的礼服，由冕冠、玄衣、纁裳组成，上面绣有十二章纹，象征天子的权威和尊严。</p>
+                        
+                        <h3>贵族服饰</h3>
+                        <p><strong>弁服</strong>：诸侯的礼服，分为皮弁、爵弁、韦弁等，用于不同场合。</p>
+                        <p><strong>深衣</strong>：士大夫的常服，上衣下裳相连，矩式规范，体现了君子的品格。</p>
+                        <p><strong>玄端</strong>：士人的礼服，黑色，用于祭祀等场合。</p>
+                        
+                        <h3>平民服饰</h3>
+                        <p><strong>短褐</strong>：粗布短衣，是平民和劳动者的主要服饰。</p>
+                        <p><strong>犊鼻裈</strong>：下层劳动者的裤子，类似现代的短裤。</p>
+                        <p><strong>麻衣</strong>：用麻纤维制作的衣物，适合炎热穿着。</p>
+                    </div>
+                </section>
+
+                <!-- 文化内涵 -->
+                <section class="dynasty-section">
+                    <h2>文化内涵</h2>
+                    <div class="dynasty-section-content">
+                        <ul>
+                            <li><strong>等级制度</strong>：先秦时期的服饰制度明确区分了不同等级的人，体现了封建社会的等级秩序。</li>
+                            <li><strong>天人合一</strong>：上衣下裳的形制象征天地阴阳，体现了中国传统文化中的天人合一思想。</li>
+                            <li><strong>道德观念</strong>：冠帽制度体现了君子的道德修养，"君子无故，玉不去身"。</li>
+                            <li><strong>礼制文化</strong>：冕服制度和各种礼仪服饰体现了中国传统文化中的礼制思想。</li>
+                            <li><strong>审美观念</strong>：先秦时期的服饰注重对称、和谐，体现了中国传统的审美观念。</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

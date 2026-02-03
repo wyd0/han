@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传统节日 - 水族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统节日页面特定样式 */
+        .festival-header {
+            background-image: url('images/水族女装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-shui {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-shui:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .festival-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .festival-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 端节样式 */
+        .duan-festival {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 卯节样式 */
+        .mao-festival {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 苏宁喜节样式 */
+        .suningxi-festival {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .festival-header p {
+                font-size: 18px;
+            }
+            
+            .festival-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="festival-header">
+        <div class="container">
+            <div class="festival-header-content">
+                <h1>传统节日</h1>
+                <p>水族的文化庆典</p>
+                <a href="shui.html" class="back-shui">返回水族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="festival-main">
+        <div class="container">
+            <div class="festival-content">
+                <!-- 传统节日概述 -->
+                <section class="festival-section">
+                    <h2>传统节日概述</h2>
+                    <p>水族有许多传统节日，这些节日是水族文化的重要组成部分，反映了水族人民的宗教信仰、生活方式和价值观念。水族的传统节日主要包括端节、卯节、苏宁喜节等，其中端节是水族最隆重的节日，相当于汉族的春节。</p>
+                    <p>水族的传统节日具有鲜明的民族特色，节日期间，水族人民会举行丰富多彩的庆祝活动，如祭祀祖先、赛马、对歌、跳舞、宴饮等，热闹非凡。这些节日不仅是水族人民欢度时光的重要时刻，也是传承和弘扬水族文化的重要载体。</p>
+                </section>
+                
+                <!-- 端节 -->
+                <section class="festival-section">
+                    <h2>端节</h2>
+                    <div class="duan-festival">
+                        <h3>节日时间</h3>
+                        <p>端节是水族最隆重的传统节日，相当于汉族的春节。端节的日期根据水历计算，一般在农历八月至十月之间，持续49天左右。不同地区的水族端节日期有所不同，按照“古老的寨子先过，新建的寨子后过”的原则相继举行。</p>
+                        
+                        <h3>节日起源</h3>
+                        <p>关于端节的起源，水族民间有多种传说。一种说法是，端节是为了纪念水族的祖先跋山涉水、迁徙到贵州南部地区的历史。另一种说法是，端节是为了庆祝丰收，感谢神灵的保佑。还有一种说法是，端节是为了纪念水族的英雄，他们为了保护民族的利益而英勇牺牲。</p>
+                        
+                        <h3>节日活动</h3>
+                        <p>端节期间，水族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀祖先：</strong>端节的第一天，家家户户都会准备丰盛的酒菜，祭祀祖先和神灵，祈求来年风调雨顺、五谷丰登、人畜兴旺。</li>
+                            <li><strong>赛马活动：</strong>赛马是端节期间最重要的活动之一。水族人民会在专门的赛马场上举行赛马比赛，参赛的骑手经过精心挑选和训练，骑手们身着传统服饰，英姿飒爽。赛事吸引了众多观众前来观看，场面非常热闹。</li>
+                            <li><strong>对歌跳舞：</strong>端节期间，水族人民会聚集在一起，对歌跳舞，欢度节日。他们唱的歌主要有叙事歌、情歌、劳动歌等，跳的舞蹈主要有铜鼓舞、芦笙舞、斗角舞等。</li>
+                            <li><strong>走亲访友：</strong>端节期间，水族人民会走亲访友，互相拜年，赠送礼品，增进感情。</li>
+                            <li><strong>宴饮活动：</strong>端节期间，家家户户都会准备丰盛的酒菜，宴请亲朋好友，共享节日的快乐。</li>
+                        </ul>
+                        
+                        <h3>节日意义</h3>
+                        <p>端节是水族最重要的传统节日，具有深刻的文化意义。通过端节，水族人民表达了对祖先的敬仰和怀念，对神灵的感恩和祈求，对美好生活的向往和追求。同时，端节也是水族人民加强联系、增进感情、传承文化的重要方式。</p>
+                    </div>
+                </section>
+                
+                <!-- 卯节 -->
+                <section class="festival-section">
+                    <h2>卯节</h2>
+                    <div class="mao-festival">
+                        <h3>节日时间</h3>
+                        <p>卯节是水族的另一个重要传统节日，主要流行于贵州省三都水族自治县的水族聚居地区。卯节的日期根据水历计算，一般在农历六月至七月之间，具体日期由水族长老根据水书推算确定。</p>
+                        
+                        <h3>节日起源</h3>
+                        <p>关于卯节的起源，水族民间有多种传说。一种说法是，卯节是为了纪念水族的祖先在迁徙过程中与当地民族的友好交往。另一种说法是，卯节是为了庆祝水稻插秧结束，祈求稻谷丰收。还有一种说法是，卯节是为了纪念水族的青年男女自由恋爱的传统。</p>
+                        
+                        <h3>节日活动</h3>
+                        <p>卯节期间，水族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀祖先：</strong>卯节的第一天，家家户户都会准备丰盛的酒菜，祭祀祖先和神灵，祈求来年风调雨顺、五谷丰登、人畜兴旺。</li>
+                            <li><strong>卯坡对歌：</strong>卯坡对歌是卯节期间最具特色的活动。在卯节当天，青年男女会聚集在专门的卯坡上，以歌传情，寻找自己的意中人。对歌的内容主要包括情歌、叙事歌、劳动歌等，歌声优美动听，场面热闹非凡。</li>
+                            <li><strong>跳舞活动：</strong>卯节期间，水族人民会聚集在一起，跳舞欢度节日。他们跳的舞蹈主要有铜鼓舞、芦笙舞、斗角舞等，动作优美、节奏明快，充满了民族特色。</li>
+                            <li><strong>走亲访友：</strong>卯节期间，水族人民会走亲访友，互相拜年，赠送礼品，增进感情。</li>
+                            <li><strong>宴饮活动：</strong>卯节期间，家家户户都会准备丰盛的酒菜，宴请亲朋好友，共享节日的快乐。</li>
+                        </ul>
+                        
+                        <h3>节日意义</h3>
+                        <p>卯节是水族重要的传统节日，具有深刻的文化意义。通过卯节，水族人民表达了对祖先的敬仰和怀念，对神灵的感恩和祈求，对美好生活的向往和追求。同时，卯节也是水族青年男女自由恋爱、寻找伴侣的重要机会，是传承水族婚姻习俗的重要载体。</p>
+                    </div>
+                </section>
+                
+                <!-- 苏宁喜节 -->
+                <section class="festival-section">
+                    <h2>苏宁喜节</h2>
+                    <div class="suningxi-festival">
+                        <h3>节日时间</h3>
+                        <p>苏宁喜节是水族的传统节日，主要流行于贵州省三都水族自治县的水族聚居地区。苏宁喜节的日期为农历十二月丑日，是为了纪念传说中的水族始祖苏宁喜而设立的。</p>
+                        
+                        <h3>节日起源</h3>
+                        <p>关于苏宁喜节的起源，水族民间有一个传说。相传，苏宁喜是水族的始祖，她教会了水族人民种植水稻、纺织衣物、建造房屋等技能，为水族的发展做出了重要贡献。为了纪念苏宁喜的功绩，水族人民设立了苏宁喜节。</p>
+                        
+                        <h3>节日活动</h3>
+                        <p>苏宁喜节期间，水族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀苏宁喜：</strong>苏宁喜节的第一天，家家户户都会准备丰盛的酒菜，祭祀苏宁喜，祈求她保佑水族人民平安幸福。</li>
+                            <li><strong>对歌跳舞：</strong>苏宁喜节期间，水族人民会聚集在一起，对歌跳舞，欢度节日。他们唱的歌主要有叙事歌、情歌、劳动歌等，跳的舞蹈主要有铜鼓舞、芦笙舞、斗角舞等。</li>
+                            <li><strong>走亲访友：</strong>苏宁喜节期间，水族人民会走亲访友，互相拜年，赠送礼品，增进感情。</li>
+                            <li><strong>宴饮活动：</strong>苏宁喜节期间，家家户户都会准备丰盛的酒菜，宴请亲朋好友，共享节日的快乐。</li>
+                        </ul>
+                        
+                        <h3>节日意义</h3>
+                        <p>苏宁喜节是水族重要的传统节日，具有深刻的文化意义。通过苏宁喜节，水族人民表达了对始祖苏宁喜的敬仰和怀念，对美好生活的向往和追求。同时，苏宁喜节也是传承和弘扬水族文化的重要载体，是水族人民加强联系、增进感情的重要机会。</p>
+                    </div>
+                </section>
+                
+                <!-- 传统节日的文化意义 -->
+                <section class="festival-section">
+                    <h2>传统节日的文化意义</h2>
+                    <h3>传承文化传统</h3>
+                    <p>传统节日是水族文化的重要载体，通过传统节日，水族的语言文字、文学艺术、风俗习惯等文化传统得到了传承和发展。例如，端节期间的赛马、对歌、跳舞等活动，展示了水族的传统体育、音乐、舞蹈等文化形式，是传承水族文化的重要方式。</p>
+                    
+                    <h3>凝聚民族精神</h3>
+                    <p>传统节日是水族民族精神的重要组成部分，是水族人民团结奋斗、共同发展的精神纽带。通过共同的传统节日，水族人民形成了共同的价值观念、行为准则和社会规范，增强了民族凝聚力和向心力。</p>
+                    
+                    <h3>调节社会关系</h3>
+                    <p>传统节日是水族社会生活的重要组成部分，是调节社会关系、促进社会和谐的重要方式。通过传统节日，水族人民加强了彼此之间的联系和交流，增进了感情，化解了矛盾，促进了社会的和谐稳定。</p>
+                    
+                    <h3>丰富精神生活</h3>
+                    <p>传统节日是水族人民精神生活的重要组成部分，是水族人民欢度时光、放松身心的重要机会。通过传统节日，水族人民获得了精神上的满足和愉悦，缓解了生活中的压力和困难，增强了面对生活的信心和勇气。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

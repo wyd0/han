@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉祜族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 拉祜族语言文字页面特定样式 */
+        .lahu-language-header {
+            background-image: url('images/lahu-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lahu-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lahu-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lahu-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lahu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lahu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lahu-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lahu-language-section {
+            margin-bottom: 80px;
+        }
+        
+        .lahu-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lahu-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lahu-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lahu-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lahu-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 文字示例样式 */
+        .writing-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .writing-example h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .example-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .example-item .lahu-word {
+            font-size: 20px;
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 5px;
+        }
+        
+        .example-item .chinese-word {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lahu-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .lahu-language-header p {
+                font-size: 18px;
+            }
+            
+            .lahu-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features,
+            .example-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .lahu-language-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .lahu-language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lahu-language-header">
+        <div class="container">
+            <div class="lahu-language-header-content">
+                <h1>拉祜族语言文字</h1>
+                <p>民族智慧的结晶，文化传承的载体</p>
+                <a href="lahu.html" class="back-lahu">返回拉祜族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lahu-language-main">
+        <div class="container">
+            <div class="lahu-language-content">
+                <!-- 语言概况 -->
+                <section class="lahu-language-section">
+                    <h2>拉祜族语言概况</h2>
+                    <p>拉祜族有自己的语言和文字，是拉祜族文化的重要组成部分。拉祜语属于汉藏语系藏缅语族彝语支，是中国西南地区重要的少数民族语言之一。</p>
+                    <p>拉祜语的使用范围主要分布在中国云南省的普洱市、临沧市、西双版纳傣族自治州、红河哈尼族彝族自治州、玉溪市、德宏傣族景颇族自治州等地，以及缅甸、泰国、老挝、越南等国家的拉祜族聚居区。据统计，全球使用拉祜语的人口约有80万左右。</p>
+                </section>
+
+                <!-- 语言方言 -->
+                <section class="lahu-language-section">
+                    <h2>语言方言</h2>
+                    <p>拉祜语分为两个主要的方言区：</p>
+                    
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>拉祜纳方言</h4>
+                            <p>拉祜纳方言是拉祜语的主要方言，主要分布在云南省的普洱市、临沧市、西双版纳傣族自治州等地，以及缅甸、泰国、老挝等国家的部分地区。拉祜纳方言使用人口较多，是拉祜族的共同语。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>拉祜熙方言</h4>
+                            <p>拉祜熙方言主要分布在云南省的红河哈尼族彝族自治州、玉溪市等地，使用人口相对较少。拉祜熙方言与拉祜纳方言在语音、词汇、语法等方面有一定的差异，但相互之间可以通话。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="lahu-language-section">
+                    <h2>语言特点</h2>
+                    
+                    <h3>语音特点</h3>
+                    <ul>
+                        <li>拉祜语有21个辅音音位和10个元音音位。</li>
+                        <li>拉祜语的声调比较丰富，有高平、高降、低降、低升四个声调。</li>
+                        <li>拉祜语的音节结构比较简单，一般由声母、韵母和声调组成。</li>
+                    </ul>
+                    
+                    <h3>词汇特点</h3>
+                    <ul>
+                        <li>拉祜语的词汇以单音节词和双音节词为主，多音节词相对较少。</li>
+                        <li>拉祜语的词汇中有大量的借词，主要来自汉语、傣语、佤语等周边民族语言。</li>
+                        <li>拉祜语的词汇中保留了许多古代氐羌族的词汇，反映了拉祜族的历史渊源。</li>
+                    </ul>
+                    
+                    <h3>语法特点</h3>
+                    <ul>
+                        <li>拉祜语的语法以词序和虚词为主要表达手段，没有严格的形态变化。</li>
+                        <li>拉祜语的基本语序是主语-谓语-宾语（SVO）。</li>
+                        <li>拉祜语的名词有性别、数、格的语法范畴，但主要通过词汇手段表达。</li>
+                        <li>拉祜语的动词有时态、体、态等语法范畴，主要通过虚词和词序表达。</li>
+                    </ul>
+                </section>
+
+                <!-- 文字发展 -->
+                <section class="lahu-language-section">
+                    <h2>文字发展</h2>
+                    <p>拉祜族的文字发展经历了漫长的历史过程，大致可以分为以下几个阶段：</p>
+                    
+                    <h3>早期文字</h3>
+                    <p>拉祜族在历史上曾经使用过一些原始的文字符号，主要用于宗教仪式和记事。这些文字符号比较简单，不成系统，使用范围有限。</p>
+                    
+                    <h3>创制拉祜文</h3>
+                    <p>1957年，中国政府组织语言专家对拉祜语进行了全面的调查和研究，根据拉祜纳方言的语音特点，创制了一套以拉丁字母为基础的拼音文字——拉祜文。拉祜文共有26个字母，其中包括5个元音字母和21个辅音字母。</p>
+                    
+                    <h3>文字推广</h3>
+                    <p>拉祜文创制后，中国政府在拉祜族地区积极推广使用，通过举办扫盲班、出版书籍、报纸、杂志等方式，提高了拉祜族人民的文化水平。拉祜文的推广使用，对于拉祜族文化的传承和发展起到了重要的作用。</p>
+                </section>
+
+                <!-- 文字示例 -->
+                <section class="lahu-language-section">
+                    <h2>文字示例</h2>
+                    <div class="writing-example">
+                        <h4>拉祜语常用词汇</h4>
+                        <div class="example-grid">
+                            <div class="example-item">
+                                <div class="lahu-word">chaw</div>
+                                <div class="chinese-word">人</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">qhaw</div>
+                                <div class="chinese-word">吃</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">naw</div>
+                                <div class="chinese-word">看</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">yaw</div>
+                                <div class="chinese-word">去</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">maw</div>
+                                <div class="chinese-word">来</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">sha</div>
+                                <div class="chinese-word">杀</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">ta</div>
+                                <div class="chinese-word">打</div>
+                            </div>
+                            <div class="example-item">
+                                <div class="lahu-word">la</div>
+                                <div class="chinese-word">拿</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="writing-example">
+                        <h4>拉祜语常用句子</h4>
+                        <ul>
+                            <li><strong>Chaw heu qhaw ca.</strong> - 人们在吃饭。</li>
+                            <li><strong>Ngaw qhaw naw.</strong> - 我在看。</li>
+                            <li><strong>Chi yaw pa taw.</strong> - 我们去那里。</li>
+                            <li><strong>Maw chi qhaw sha.</strong> - 来我们这里。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 语言保护与发展 -->
+                <section class="lahu-language-section">
+                    <h2>语言保护与发展</h2>
+                    <p>拉祜族语言文字是拉祜族文化的重要组成部分，对于拉祜族的身份认同和文化传承具有重要意义。为了保护和发展拉祜族语言文字，中国政府和拉祜族人民采取了一系列措施：</p>
+                    
+                    <ul>
+                        <li><strong>法律保护：</strong>中国宪法和民族区域自治法都明确规定，各民族都有使用和发展自己的语言文字的自由。</li>
+                        <li><strong>教育推广：</strong>在拉祜族地区的学校中，实行双语教学，既教授汉语，也教授拉祜语，提高拉祜族学生的语言能力。</li>
+                        <li><strong>文化传承：</strong>通过收集、整理、出版拉祜族的民间文学、历史资料等，保护和传承拉祜族语言文字。</li>
+                        <li><strong>媒体传播：</strong>创办拉祜语广播、电视节目，出版拉祜文报纸、杂志等，扩大拉祜族语言文字的使用范围。</li>
+                        <li><strong>学术研究：</strong>组织语言专家对拉祜语进行深入研究，不断完善拉祜文的规范和标准。</li>
+                    </ul>
+                    
+                    <p>在现代社会，随着经济全球化和文化交流的不断加强，拉祜族语言文字面临着一些挑战，如使用人口减少、语言融合等。但是，在国家的大力支持和拉祜族人民的共同努力下，拉祜族语言文字一定能够得到更好的保护和发展，为拉祜族文化的传承和繁荣做出更大的贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.lahu-language-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

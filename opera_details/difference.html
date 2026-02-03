@@ -1,0 +1,1224 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化区别 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 文化区别页面特定样式 */
+        .difference-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .difference-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .difference-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .difference-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .difference-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .difference-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .difference-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .difference-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .difference-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .difference-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .difference-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .difference-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .difference-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .difference-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .difference-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .difference-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 介绍部分 */
+        .difference-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .difference-intro p {
+            margin-bottom: 20px;
+        }
+        
+        /* 民族文化部分 */
+        .ethnic-group {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+        
+        .ethnic-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .ethnic-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        .ethnic-text,
+        .ethnic-clothing {
+            flex: 1;
+        }
+        
+        /* 满族文化整体样式 */
+        .manchu-culture {
+            margin-top: 60px;
+        }
+        
+        /* 满族部分样式 */
+        .manchu-section {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .manchu-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .section-content p {
+            margin-bottom: 20px;
+        }
+        
+        .section-content h5 {
+            color: #333;
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .section-content li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .section-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 文化比较部分 */
+        .culture-comparison {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 60px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .comparison-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-item h5 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 0 0 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .difference-header h1 {
+                font-size: 36px;
+            }
+            
+            .difference-header p {
+                font-size: 18px;
+            }
+            
+            .difference-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .culture-comparison {
+                padding: 20px;
+            }
+        }
+        
+        /* 民族文化入口样式 */
+        .ethnicity-main-entrance {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .main-entrance-link {
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .main-entrance-item {
+            background-color: rgba(192, 57, 43, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid #c0392b;
+            transition: all 0.3s ease;
+        }
+        
+        .main-entrance-link:hover .main-entrance-item {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background-color: rgba(192, 57, 43, 0.15);
+        }
+        
+        .main-entrance-item h3 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .main-entrance-item p {
+            color: #555;
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        /* 民族搜索样式 */
+        .ethnicity-search {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .search-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .ethnicity-search input {
+            width: 100%;
+            padding: 15px 45px 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .ethnicity-search input:focus {
+            outline: none;
+            border-color: #c0392b;
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.15);
+        }
+        
+        /* 清除按钮样式 */
+        .clear-search-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-search-btn:hover {
+            color: #c0392b;
+            background-color: rgba(192, 57, 43, 0.1);
+        }
+        
+        /* 搜索建议样式 */
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 250px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .search-suggestion-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            font-family: 'SimSun', serif;
+        }
+        
+        .search-suggestion-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .search-suggestion-item.active {
+            background-color: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+        }
+        
+        /* 搜索历史样式 */
+        .search-history {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 999;
+            padding: 20px;
+            margin-top: 5px;
+        }
+        
+        .search-history h5 {
+            margin: 0 0 15px 0;
+            color: #666;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'SimSun', serif;
+        }
+        
+        .search-history ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        
+        .search-history li {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .search-history li:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .clear-history-btn {
+            background-color: #f5f5f5;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'SimSun', serif;
+        }
+        
+        .clear-history-btn:hover {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        
+        /* 少数民族网格样式 */
+        .ethnicity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .ethnicity-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .ethnicity-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: rgba(192, 57, 43, 0.1);
+            border-color: #c0392b;
+            color: #c0392b;
+        }
+        
+        .ethnicity-item h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="difference-header">
+        <div class="container">
+            <div class="difference-header-content">
+                <h1>文化区别</h1>
+                <p>中华文化与少数民族文化的多元魅力</p>
+                <a href="index.html" class="back-home">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="difference-main">
+        <div class="container">
+            <div class="difference-content">
+                <!-- 介绍部分 -->
+                <section class="difference-section">
+                    <h2>中华文化的多元性</h2>
+                    <div class="difference-intro">
+                        <p>中华文化是中国各民族文化的总称，其中汉民族文化作为主体，与其他55个少数民族文化共同构成了多元一体的中华文化格局。</p>
+                        <p>虽然各少数民族文化之间存在着交流与融合，但它们在历史起源、文化内涵、服饰特点等方面又保持着各自的独特性。</p>
+                        <p>我们尊重和珍视各少数民族的文化与服饰，通过详细的介绍，让人们更加清晰地认识到中华文化的丰富多元性。</p>
+                    </div>
+                </section>
+
+                <!-- 民族文化入口部分 -->
+                <section class="difference-section">
+                    <h2>民族文化入口</h2>
+                    
+                    <!-- 民族搜索框 -->
+                    <div class="ethnicity-search">
+                        <div class="search-container">
+                            <input type="text" id="ethnicity-search-input" placeholder="搜索民族...">
+                            <button type="button" id="clear-search" class="clear-search-btn" style="display: none;">×</button>
+                        </div>
+                        <div id="search-suggestions" class="search-suggestions"></div>
+                        <div id="search-history" class="search-history" style="display: none;">
+                            <h5>搜索历史</h5>
+                            <ul id="history-list"></ul>
+                            <button type="button" id="clear-history" class="clear-history-btn">清空历史</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 汉族主入口 -->
+                    <div class="ethnicity-main-entrance">
+                        <a href="han.html" class="main-entrance-link">
+                            <div class="main-entrance-item">
+                                <h3>汉族</h3>
+                                <p>中华文化的主体民族，人口最多，文化源远流长</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- 其他55个少数民族入口 -->
+                    <div class="ethnicity-grid" id="ethnicity-grid">
+                        <!-- 满族 -->
+                        <a href="manchu.html" class="ethnicity-item">
+                            <h4>满族</h4>
+                        </a>
+                        <!-- 蒙古族 -->
+                        <a href="mongolian.html" class="ethnicity-item">
+                            <h4>蒙古族</h4>
+                        </a>
+                        <!-- 回族 -->
+                        <a href="hui.html" class="ethnicity-item">
+                            <h4>回族</h4>
+                        </a>
+                        <!-- 藏族 -->
+                        <a href="tibetan.html" class="ethnicity-item">
+                            <h4>藏族</h4>
+                        </a>
+                        <!-- 维吾尔族 -->
+                        <a href="uyghur.html" class="ethnicity-item">
+                            <h4>维吾尔族</h4>
+                        </a>
+                        <!-- 苗族 -->
+                        <a href="miao.html" class="ethnicity-item">
+                            <h4>苗族</h4>
+                        </a>
+                        <!-- 彝族 -->
+                        <a href="yi.html" class="ethnicity-item">
+                            <h4>彝族</h4>
+                        </a>
+                        <!-- 壮族 -->
+                        <a href="zhuang.html" class="ethnicity-item">
+                            <h4>壮族</h4>
+                        </a>
+                        <!-- 布依族 -->
+                        <a href="buyi.html" class="ethnicity-item">
+                            <h4>布依族</h4>
+                        </a>
+                        <!-- 朝鲜族 -->
+                        <a href="korean.html" class="ethnicity-item">
+                            <h4>朝鲜族</h4>
+                        </a>
+
+                        <!-- 侗族 -->
+                        <a href="dong.html" class="ethnicity-item">
+                            <h4>侗族</h4>
+                        </a>
+                        <!-- 瑶族 -->
+                        <a href="yao.html" class="ethnicity-item">
+                            <h4>瑶族</h4>
+                        </a>
+                        <!-- 白族 -->
+                        <a href="bai.html" class="ethnicity-item">
+                            <h4>白族</h4>
+                        </a>
+                        <!-- 土家族 -->
+                        <a href="tujia.html" class="ethnicity-item">
+                            <h4>土家族</h4>
+                        </a>
+                        <!-- 哈尼族 -->
+                        <a href="hani.html" class="ethnicity-item">
+                            <h4>哈尼族</h4>
+                        </a>
+                        <!-- 哈萨克族 -->
+                        <a href="kazak.html" class="ethnicity-item">
+                            <h4>哈萨克族</h4>
+                        </a>
+                        <!-- 傣族 -->
+                        <a href="dai.html" class="ethnicity-item">
+                            <h4>傣族</h4>
+                        </a>
+                        <!-- 黎族 -->
+                        <a href="li.html" class="ethnicity-item">
+                            <h4>黎族</h4>
+                        </a>
+                        <!-- 僳僳族 -->
+                        <a href="lisu.html" class="ethnicity-item">
+                            <h4>僳僳族</h4>
+                        </a>
+                        <!-- 佤族 -->
+                        <a href="wa.html" class="ethnicity-item">
+                            <h4>佤族</h4>
+                        </a>
+                        <!-- 畲族 -->
+                        <a href="she.html" class="ethnicity-item">
+                            <h4>畲族</h4>
+                        </a>
+                        <!-- 高山族 -->
+                        <a href="gaoshan.html" class="ethnicity-item">
+                            <h4>高山族</h4>
+                        </a>
+                        <!-- 拉祜族 -->
+                        <a href="lahu.html" class="ethnicity-item">
+                            <h4>拉祜族</h4>
+                        </a>
+                        <!-- 水族 -->
+                        <a href="shui.html" class="ethnicity-item">
+                            <h4>水族</h4>
+                        </a>
+                        <!-- 东乡族 -->
+                        <a href="dongxiang.html" class="ethnicity-item">
+                            <h4>东乡族</h4>
+                        </a>
+                        <!-- 纳西族 -->
+                        <a href="naxi.html" class="ethnicity-item">
+                            <h4>纳西族</h4>
+                        </a>
+                        <!-- 景颇族 -->
+                        <a href="jingpo.html" class="ethnicity-item">
+                            <h4>景颇族</h4>
+                        </a>
+                        <!-- 柯尔克孜族 -->
+                        <a href="kirgiz.html" class="ethnicity-item">
+                            <h4>柯尔克孜族</h4>
+                        </a>
+                        <!-- 土族 -->
+                        <a href="tu.html" class="ethnicity-item">
+                            <h4>土族</h4>
+                        </a>
+                        <!-- 达斡尔族 -->
+                        <a href="daur.html" class="ethnicity-item">
+                            <h4>达斡尔族</h4>
+                        </a>
+                        <!-- 仫佬族 -->
+                        <a href="mulao.html" class="ethnicity-item">
+                            <h4>仫佬族</h4>
+                        </a>
+                        <!-- 羌族 -->
+                        <a href="qiang.html" class="ethnicity-item">
+                            <h4>羌族</h4>
+                        </a>
+                        <!-- 布朗族 -->
+                        <a href="blang.html" class="ethnicity-item">
+                            <h4>布朗族</h4>
+                        </a>
+                        <!-- 撒拉族 -->
+                        <a href="salar.html" class="ethnicity-item">
+                            <h4>撒拉族</h4>
+                        </a>
+                        <!-- 毛南族 -->
+                        <a href="maonan.html" class="ethnicity-item">
+                            <h4>毛南族</h4>
+                        </a>
+                        <!-- 仡佬族 -->
+                        <a href="gelao.html" class="ethnicity-item">
+                            <h4>仡佬族</h4>
+                        </a>
+                        <!-- 锡伯族 -->
+                        <a href="xibe.html" class="ethnicity-item">
+                            <h4>锡伯族</h4>
+                        </a>
+                        <!-- 阿昌族 -->
+                        <a href="achang.html" class="ethnicity-item">
+                            <h4>阿昌族</h4>
+                        </a>
+                        <!-- 普米族 -->
+                        <a href="pumi.html" class="ethnicity-item">
+                            <h4>普米族</h4>
+                        </a>
+                        <!-- 塔吉克族 -->
+                        <a href="tajik.html" class="ethnicity-item">
+                            <h4>塔吉克族</h4>
+                        </a>
+                        <!-- 怒族 -->
+                        <a href="nu.html" class="ethnicity-item">
+                            <h4>怒族</h4>
+                        </a>
+                        <!-- 乌孜别克族 -->
+                        <a href="uzbek.html" class="ethnicity-item">
+                            <h4>乌孜别克族</h4>
+                        </a>
+                        <!-- 俄罗斯族 -->
+                        <a href="russian.html" class="ethnicity-item">
+                            <h4>俄罗斯族</h4>
+                        </a>
+                        <!-- 鄂温克族 -->
+                        <a href="ewenki.html" class="ethnicity-item">
+                            <h4>鄂温克族</h4>
+                        </a>
+                        <!-- 德昂族 -->
+                        <a href="deang.html" class="ethnicity-item">
+                            <h4>德昂族</h4>
+                        </a>
+                        <!-- 保安族 -->
+                        <a href="bonan.html" class="ethnicity-item">
+                            <h4>保安族</h4>
+                        </a>
+                        <!-- 裕固族 -->
+                        <a href="yugur.html" class="ethnicity-item">
+                            <h4>裕固族</h4>
+                        </a>
+                        <!-- 京族 -->
+                        <a href="jing.html" class="ethnicity-item">
+                            <h4>京族</h4>
+                        </a>
+                        <!-- 塔塔尔族 -->
+                        <a href="tatar.html" class="ethnicity-item">
+                            <h4>塔塔尔族</h4>
+                        </a>
+                        <!-- 独龙族 -->
+                        <a href="drung.html" class="ethnicity-item">
+                            <h4>独龙族</h4>
+                        </a>
+                        <!-- 鄂伦春族 -->
+                        <a href="orochun.html" class="ethnicity-item">
+                            <h4>鄂伦春族</h4>
+                        </a>
+                        <!-- 赫哲族 -->
+                        <a href="hezhen.html" class="ethnicity-item">
+                            <h4>赫哲族</h4>
+                        </a>
+                        <!-- 门巴族 -->
+                        <a href="monba.html" class="ethnicity-item">
+                            <h4>门巴族</h4>
+                        </a>
+                        <!-- 珞巴族 -->
+                        <a href="loba.html" class="ethnicity-item">
+                            <h4>珞巴族</h4>
+                        </a>
+                        <!-- 基诺族 -->
+                        <a href="jino.html" class="ethnicity-item">
+                            <h4>基诺族</h4>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 文化多元性的意义 -->
+                <section class="difference-section">
+                    <h2>文化多元性的意义</h2>
+                    <div class="culture-significance">
+                        <h3>文化多元性的价值</h3>
+                        <ul>
+                            <li><strong>丰富人类文化宝库：</strong>不同民族的文化为人类文化宝库增添了丰富的内容，促进了人类文明的发展和进步。</li>
+                            <li><strong>促进文化交流与创新：</strong>文化多元性为不同民族之间的文化交流提供了条件，促进了文化创新和发展。</li>
+                            <li><strong>增强民族凝聚力：</strong>独特的民族文化是民族凝聚力的重要来源，有助于增强民族自豪感和认同感。</li>
+                            <li><strong>促进社会和谐发展：</strong>尊重和保护文化多元性，有助于促进各民族之间的相互理解和尊重，维护社会和谐稳定。</li>
+                            <li><strong>推动经济发展：</strong>民族文化资源可以转化为经济资源，促进旅游、文化产业等的发展，推动经济增长。</li>
+                        </ul>
+                        <h3>保护文化多元性的重要性</h3>
+                        <p>在全球化的背景下，文化多元性面临着严峻的挑战。保护和传承各民族的文化传统，对于维护人类文化的多元性和丰富性具有重要意义。我们应该尊重和欣赏不同民族的文化，促进各民族文化的交流与融合，共同推动人类文明的发展和进步。</p>
+                        <p>汉韵风华致力于传承中华传统文化与服饰，同时也尊重和珍视各少数民族的文化与服饰，通过详细的介绍，让人们更加清晰地认识到中华文化的丰富多元性。</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 民族搜索功能增强版 - 支持建议、记忆和清空
+        function initSearchFunctionality() {
+            const searchInput = document.getElementById('ethnicity-search-input');
+            const clearSearchBtn = document.getElementById('clear-search');
+            const suggestionsContainer = document.getElementById('search-suggestions');
+            const historyContainer = document.getElementById('search-history');
+            const historyList = document.getElementById('history-list');
+            const clearHistoryBtn = document.getElementById('clear-history');
+            
+            // 所有民族名称列表
+            const allEthnicities = [];
+            document.querySelectorAll('.ethnicity-item h4').forEach(h4 => {
+                allEthnicities.push(h4.textContent);
+            });
+            
+            // 搜索历史管理
+            function getSearchHistory() {
+                return JSON.parse(localStorage.getItem('searchHistory')) || [];
+            }
+            
+            function addToSearchHistory(term) {
+                if (!term || term.trim() === '') return;
+                
+                let history = getSearchHistory();
+                // 移除重复项
+                history = history.filter(item => item !== term);
+                // 添加到开头
+                history.unshift(term);
+                // 限制历史记录数量
+                if (history.length > 10) {
+                    history = history.slice(0, 10);
+                }
+                // 保存到localStorage
+                localStorage.setItem('searchHistory', JSON.stringify(history));
+            }
+            
+            function renderSearchHistory() {
+                const history = getSearchHistory();
+                historyList.innerHTML = '';
+                
+                if (history.length === 0) {
+                    historyContainer.style.display = 'none';
+                    return;
+                }
+                
+                history.forEach(term => {
+                    const li = document.createElement('li');
+                    li.textContent = term;
+                    li.addEventListener('click', () => {
+                        searchInput.value = term;
+                        performSearch(term);
+                        hideAllContainers();
+                    });
+                    historyList.appendChild(li);
+                });
+                
+                historyContainer.style.display = 'block';
+            }
+            
+            function clearSearchHistory() {
+                localStorage.removeItem('searchHistory');
+                historyList.innerHTML = '';
+                historyContainer.style.display = 'none';
+            }
+            
+            // 搜索建议功能
+            function showSuggestions(term) {
+                if (!term || term.trim() === '') {
+                    suggestionsContainer.style.display = 'none';
+                    return;
+                }
+                
+                const filteredEthnicities = allEthnicities.filter(ethnicity => 
+                    ethnicity.toLowerCase().includes(term.toLowerCase())
+                );
+                
+                if (filteredEthnicities.length === 0) {
+                    suggestionsContainer.style.display = 'none';
+                    return;
+                }
+                
+                suggestionsContainer.innerHTML = '';
+                filteredEthnicities.forEach(ethnicity => {
+                    const div = document.createElement('div');
+                    div.className = 'search-suggestion-item';
+                    div.textContent = ethnicity;
+                    
+                    div.addEventListener('click', () => {
+                        searchInput.value = ethnicity;
+                        performSearch(ethnicity);
+                        addToSearchHistory(ethnicity);
+                        hideAllContainers();
+                    });
+                    
+                    suggestionsContainer.appendChild(div);
+                });
+                
+                suggestionsContainer.style.display = 'block';
+            }
+            
+            // 执行搜索
+            function performSearch(term) {
+                const searchTerm = term.toLowerCase();
+                const ethnicityItems = document.querySelectorAll('.ethnicity-item');
+                
+                ethnicityItems.forEach(item => {
+                    const ethnicityName = item.querySelector('h4').textContent.toLowerCase();
+                    if (ethnicityName.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+            
+            // 隐藏所有容器
+            function hideAllContainers() {
+                suggestionsContainer.style.display = 'none';
+                historyContainer.style.display = 'none';
+            }
+            
+            // 输入事件监听
+            searchInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                
+                // 显示/隐藏清除按钮
+                if (value) {
+                    clearSearchBtn.style.display = 'block';
+                    showSuggestions(value);
+                    historyContainer.style.display = 'none';
+                } else {
+                    clearSearchBtn.style.display = 'none';
+                    suggestionsContainer.style.display = 'none';
+                    renderSearchHistory();
+                }
+                
+                // 执行搜索
+                performSearch(value);
+            });
+            
+            // 清除按钮点击事件
+            clearSearchBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                clearSearchBtn.style.display = 'none';
+                suggestionsContainer.style.display = 'none';
+                performSearch('');
+                renderSearchHistory();
+                // 触发输入事件
+                const event = new Event('input');
+                searchInput.dispatchEvent(event);
+            });
+            
+            // 清空历史按钮点击事件
+            clearHistoryBtn.addEventListener('click', clearSearchHistory);
+            
+            // 点击其他地方关闭容器
+            document.addEventListener('click', function(event) {
+                if (!searchInput.contains(event.target) && 
+                    !suggestionsContainer.contains(event.target) && 
+                    !historyContainer.contains(event.target)) {
+                    hideAllContainers();
+                }
+            });
+            
+            // 键盘导航支持
+            searchInput.addEventListener('keydown', function(e) {
+                const visibleSuggestions = suggestionsContainer.querySelectorAll('.search-suggestion-item');
+                const activeSuggestion = suggestionsContainer.querySelector('.search-suggestion-item.active');
+                
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (visibleSuggestions.length > 0) {
+                        if (activeSuggestion) {
+                            activeSuggestion.classList.remove('active');
+                            const next = activeSuggestion.nextElementSibling || visibleSuggestions[0];
+                            next.classList.add('active');
+                        } else {
+                            visibleSuggestions[0].classList.add('active');
+                        }
+                    }
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (visibleSuggestions.length > 0) {
+                        if (activeSuggestion) {
+                            activeSuggestion.classList.remove('active');
+                            const prev = activeSuggestion.previousElementSibling || visibleSuggestions[visibleSuggestions.length - 1];
+                            prev.classList.add('active');
+                        } else {
+                            visibleSuggestions[visibleSuggestions.length - 1].classList.add('active');
+                        }
+                    }
+                } else if (e.key === 'Enter' && activeSuggestion) {
+                    e.preventDefault();
+                    activeSuggestion.click();
+                }
+            });
+            
+            // 初始加载时显示搜索历史
+            renderSearchHistory();
+        }
+        
+        // 初始化搜索功能
+        initSearchFunctionality();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

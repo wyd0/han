@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傈僳族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傈僳族语言文字页面特定样式 */
+        .lisu-language-header {
+            background-image: url('images/傈僳族男子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lisu-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lisu-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lisu-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lisu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lisu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lisu-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lisu-language-section {
+            margin-bottom: 80px;
+        }
+        
+        .lisu-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lisu-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lisu-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lisu-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lisu-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .language-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .language-feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .language-feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lisu-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .lisu-language-header p {
+                font-size: 18px;
+            }
+            
+            .lisu-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lisu-language-header">
+        <div class="container">
+            <div class="lisu-language-header-content">
+                <h1>傈僳族语言文字</h1>
+                <p>传承千年的语言瑰宝</p>
+                <a href="lisu.html" class="back-lisu">返回傈僳族</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lisu-language-main">
+        <div class="container">
+            <div class="lisu-language-content">
+                <!-- 语言概述 -->
+                <section class="lisu-language-section">
+                    <h2>语言概述</h2>
+                    <p>傈僳族有自己的语言和文字，是傈僳族文化的重要组成部分。傈僳语属于汉藏语系藏缅语族彝语支，是傈僳族人民日常交流的工具，也是传承民族文化的重要载体。</p>
+                </section>
+
+                <!-- 语言分类 -->
+                <section class="lisu-language-section">
+                    <h2>语言分类</h2>
+                    <p>傈僳语分为三个主要方言区：</p>
+                    
+                    <div class="language-features">
+                        <div class="language-feature-item">
+                            <h4>怒江方言</h4>
+                            <p>主要分布在云南省怒江傈僳族自治州，是傈僳语的主要方言，使用人口最多。怒江方言是傈僳族文学创作和出版的标准语基础。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h4>德宏方言</h4>
+                            <p>主要分布在云南省德宏傣族景颇族自治州，与怒江方言有一定差异，但基本可以互通。德宏方言在语音和词汇上有自己的特点。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h4>禄劝方言</h4>
+                            <p>主要分布在云南省禄劝彝族苗族自治县和武定县等地，与怒江方言和德宏方言的差异较大，部分词汇和语法结构有所不同。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字系统 -->
+                <section class="lisu-language-section">
+                    <h2>文字系统</h2>
+                    
+                    <h3>老傈僳文</h3>
+                    <p>老傈僳文是由西方传教士创制的文字系统，主要有以下几种：</p>
+                    <ul>
+                        <li><strong>富能仁字母：</strong>由英国传教士富能仁（James O. Fraser）于20世纪初创制，使用拉丁字母拼写，主要在基督教地区使用。</li>
+                        <li><strong>王慧仁字母：</strong>由美国传教士王慧仁（H. R. Hays）创制，也是拉丁字母拼写系统。</li>
+                    </ul>
+                    
+                    <h3>新傈僳文</h3>
+                    <p>新傈僳文是中华人民共和国成立后，由国家民族事务委员会组织专家为傈僳族创制的文字系统：</p>
+                    <ul>
+                        <li><strong>创制时间：</strong>1957年创制，1958年正式推行。</li>
+                        <li><strong>特点：</strong>以怒江方言为基础，采用拉丁字母拼写，共有26个字母，其中4个元音字母，22个辅音字母。</li>
+                        <li><strong>推广使用：</strong>新傈僳文在傈僳族地区广泛推广使用，用于出版书籍、报纸、教材等，是傈僳族正式的文字系统。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="lisu-language-section">
+                    <h2>语言特点</h2>
+                    
+                    <div class="language-features">
+                        <div class="language-feature-item">
+                            <h4>语音特点</h4>
+                            <p>傈僳语有丰富的辅音和元音，声调系统复杂，一般有4-6个声调。语音清晰，节奏明快，富有音乐感。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h4>词汇特点</h4>
+                            <p>傈僳语词汇丰富，特别是与自然环境、狩猎、农业相关的词汇非常发达。词汇构成以单音节词为主，也有大量的复合词。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h4>语法特点</h4>
+                            <p>傈僳语属于粘着语，通过在词根上加词缀来表示语法意义。语序一般为SVO（主语-谓语-宾语）结构。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言保护与发展 -->
+                <section class="lisu-language-section">
+                    <h2>语言保护与发展</h2>
+                    <p>傈僳族语言文字的保护和发展是傈僳族文化传承的重要组成部分：</p>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li>在傈僳族地区实行双语教育，确保傈僳族儿童能够学习本民族语言。</li>
+                        <li>出版傈僳文书籍、报纸、杂志，丰富傈僳文读物。</li>
+                        <li>录制傈僳语广播、电视节目，扩大傈僳语的使用范围。</li>
+                        <li>建立傈僳语语言资源库，收集、整理、保存傈僳语资料。</li>
+                    </ul>
+                    
+                    <h3>发展现状</h3>
+                    <p>随着社会的发展和民族交流的增加，傈僳语也在不断发展变化：</p>
+                    <ul>
+                        <li>吸收了大量汉语借词，丰富了傈僳语的词汇。</li>
+                        <li>傈僳文的使用范围不断扩大，在教育、媒体、出版等领域发挥着重要作用。</li>
+                        <li>傈僳语的规范化、标准化工作不断推进，为傈僳语的健康发展提供了保障。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="lisu-language-section">
+                    <h2>语言与文化</h2>
+                    <p>傈僳族语言与傈僳族文化有着密切的关系：</p>
+                    
+                    <h3>语言是文化的载体</h3>
+                    <p>傈僳族的民间故事、神话传说、诗歌谚语、传统知识等都通过傈僳语得以传承和保存。语言是傈僳族文化的重要载体，是傈僳族人民身份认同的重要标志。</p>
+                    
+                    <h3>文化对语言的影响</h3>
+                    <p>傈僳族的文化传统、生活方式、价值观念等也影响着傈僳语的发展。例如，傈僳族的狩猎文化、农业文化、宗教信仰等都在傈僳语中留下了深刻的印记。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

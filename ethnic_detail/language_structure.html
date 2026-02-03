@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉字构造 - 语言文字</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 汉字构造页面特定样式 */
+        .structure-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .structure-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .structure-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .structure-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .structure-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-language {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-language:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .structure-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .structure-section {
+            margin-bottom: 80px;
+        }
+        
+        .structure-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .structure-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .structure-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .structure-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .structure-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .structure-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .structure-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 六书卡片 */
+        .six-books {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .book-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-card h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .book-card .desc {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .book-card .features {
+            margin-bottom: 20px;
+        }
+        
+        .book-card .features h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .book-card .examples {
+            margin-top: 20px;
+        }
+        
+        .book-card .examples h5 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .book-card .examples .example-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .book-card .examples .example-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .book-card .examples .example-list li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -3px;
+        }
+        
+        /* 汉字示例 */
+        .character-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .character-example {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .character-example:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .character-example .char {
+            font-size: 48px;
+            font-family: 'SimSun', serif;
+            margin-bottom: 10px;
+            color: #c0392b;
+        }
+        
+        .character-example .name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .character-example .desc {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .structure-header h1 {
+                font-size: 36px;
+            }
+            
+            .structure-header p {
+                font-size: 18px;
+            }
+            
+            .structure-section h2 {
+                font-size: 28px;
+            }
+            
+            .structure-section h3 {
+                font-size: 24px;
+            }
+            
+            .six-books {
+                grid-template-columns: 1fr;
+            }
+            
+            .character-examples {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .structure-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .structure-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="structure-header">
+        <div class="container">
+            <div class="structure-header-content">
+                <h1>汉字构造</h1>
+                <p>六书理论与汉字的构成方法</p>
+                <a href="language.html" class="back-language">返回语言文字</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="structure-main">
+        <div class="container">
+            <div class="structure-content">
+                <!-- 介绍部分 -->
+                <section class="structure-section">
+                    <h2>汉字构造概述</h2>
+                    <p>汉字是世界上最古老的文字之一，其构造方法丰富多样。古人通过长期的观察和实践，总结出了汉字的六种构造方法，称为"六书"。六书理论是中国传统文字学的重要组成部分，对于理解汉字的起源、演变和发展具有重要意义。</p>
+                    <p>六书包括：象形、指事、会意、形声、转注和假借。这些构造方法反映了汉字从简单到复杂、从具体到抽象的发展过程，也体现了汉族人民的智慧和创造力。</p>
+                </section>
+
+                <!-- 六书详解 -->
+                <section class="structure-section">
+                    <h2>六书详解</h2>
+                    <div class="six-books">
+                        <!-- 象形 -->
+                        <div class="book-card">
+                            <h4>象形</h4>
+                            <div class="desc">用图形来表示事物的形状，是最原始的造字方法。</div>
+                            <div class="features">
+                                <h5>特点：</h5>
+                                <ul>
+                                    <li>直接模拟实物形状</li>
+                                    <li>字形与事物相似</li>
+                                    <li>多为名词</li>
+                                    <li>是其他造字方法的基础</li>
+                                </ul>
+                            </div>
+                            <div class="examples">
+                                <h5>例子：</h5>
+                                <div class="example-list">
+                                    <li>日：像太阳的形状</li>
+                                    <li>月：像月亮的形状</li>
+                                    <li>山：像山峰的形状</li>
+                                    <li>水：像流水的形状</li>
+                                    <li>木：像树木的形状</li>
+                                    <li>火：像火焰的形状</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 指事 -->
+                        <div class="book-card">
+                            <h4>指事</h4>
+                            <div class="desc">用象征性的符号来表示意义，是在象形基础上的抽象。</div>
+                            <div class="features">
+                                <h5>特点：</h5>
+                                <ul>
+                                    <li>用符号表示抽象概念</li>
+                                    <li>通过指示来表达意义</li>
+                                    <li>多为形容词或副词</li>
+                                    <li>结构简单，意义明确</li>
+                                </ul>
+                            </div>
+                            <div class="examples">
+                                <h5>例子：</h5>
+                                <div class="example-list">
+                                    <li>上：在一横线上面加一竖，表示上方</li>
+                                    <li>下：在一横线下面加一竖，表示下方</li>
+                                    <li>本：在木字下面加一横，表示树根</li>
+                                    <li>末：在木字上面加一横，表示树梢</li>
+                                    <li>刃：在刀字上加一点，表示刀刃</li>
+                                    <li>寸：在又字上加一横，表示手腕一寸处</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 会意 -->
+                        <div class="book-card">
+                            <h4>会意</h4>
+                            <div class="desc">由两个或多个独体字组合而成，表达新的意义。</div>
+                            <div class="features">
+                                <h5>特点：</h5>
+                                <ul>
+                                    <li>由多个部件组合而成</li>
+                                    <li>部件意义的组合产生新义</li>
+                                    <li>能够表达复杂的概念</li>
+                                    <li>体现了古人的联想思维</li>
+                                </ul>
+                            </div>
+                            <div class="examples">
+                                <h5>例子：</h5>
+                                <div class="example-list">
+                                    <li>明：日和月组合，表示明亮</li>
+                                    <li>休：人和木组合，表示休息</li>
+                                    <li>从：两个人组合，表示跟随</li>
+                                    <li>众：三个人组合，表示众多</li>
+                                    <li>林：两棵树组合，表示树林</li>
+                                    <li>森：三棵树组合，表示森林</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 形声 -->
+                        <div class="book-card">
+                            <h4>形声</h4>
+                            <div class="desc">由形旁和声旁组成，形旁表义，声旁表音。</div>
+                            <div class="features">
+                                <h5>特点：</h5>
+                                <ul>
+                                    <li>由形旁和声旁两部分组成</li>
+                                    <li>形旁表示字义的类别</li>
+                                    <li>声旁表示字的读音</li>
+                                    <li>是最常用的造字方法</li>
+                                </ul>
+                            </div>
+                            <div class="examples">
+                                <h5>例子：</h5>
+                                <div class="example-list">
+                                    <li>江：形旁是水，声旁是工</li>
+                                    <li>河：形旁是水，声旁是可</li>
+                                    <li>湖：形旁是水，声旁是胡</li>
+                                    <li>海：形旁是水，声旁是每</li>
+                                    <li>花：形旁是艹，声旁是化</li>
+                                    <li>草：形旁是艹，声旁是早</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 转注 -->
+                        <div class="book-card">
+                            <h4>转注</h4>
+                            <div class="desc">两个字互为注释，意义相同或相近，是一种用字方法。</div>
+                            <div class="features">
+                                <h5>特点：</h5>
+                                <ul>
+                                    <li>意义相同或相近</li>
+                                    <li>可以互相解释</li>
+                                    <li>多为同义词</li>
+                                    <li>体现了汉字的系统性</li>
+                                </ul>
+                            </div>
+                            <div class="examples">
+                                <h5>例子：</h5>
+                                <div class="example-list">
+                                    <li>考、老：都表示年老</li>
+                                    <li>颠、顶：都表示头顶</li>
+                                    <li>窍、穴：都表示孔洞</li>
+                                    <li>追、逐：都表示追赶</li>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 假借 -->
+                        <div class="book-card">
+                            <h4>假借</h4>
+                            <div class="desc">借用已有的字来表示新的意义，是一种用字方法。</div>
+                            <div class="features">
+                                <h5>特点：</h5>
+                                <ul>
+                                    <li>借用同音字表示新义</li>
+                                    <li>不创造新字</li>
+                                    <li>扩大了字的使用范围</li>
+                                    <li>体现了汉字的灵活性</li>
+                                </ul>
+                            </div>
+                            <div class="examples">
+                                <h5>例子：</h5>
+                                <div class="example-list">
+                                    <li>令：原义是命令，借作县令</li>
+                                    <li>长：原义是长短，借作长官</li>
+                                    <li>而：原义是胡须，借作连词</li>
+                                    <li>其：原义是簸箕，借作代词</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 六书特点 -->
+                <section class="structure-section">
+                    <h2>六书的特点与价值</h2>
+                    <h3>六书的特点</h3>
+                    <ul>
+                        <li><strong>系统性：</strong>六书理论是一个完整的系统，涵盖了汉字的各种构造方法</li>
+                        <li><strong>层级性：</strong>六书从象形、指事等简单方法发展到形声等复杂方法，体现了汉字的发展层级</li>
+                        <li><strong>实用性：</strong>六书理论能够解释绝大多数汉字的构造，具有很强的实用性</li>
+                        <li><strong>文化性：</strong>六书理论体现了中国古代的哲学思想和思维方式</li>
+                    </ul>
+                    
+                    <h3>六书的价值</h3>
+                    <ul>
+                        <li><strong>理论价值：</strong>六书理论是中国传统文字学的重要组成部分，为汉字研究提供了理论基础</li>
+                        <li><strong>实用价值：</strong>六书理论有助于我们理解汉字的结构和意义，提高汉字学习效率</li>
+                        <li><strong>文化价值：</strong>六书理论反映了中国古代的文化观念和思维方式，是中国传统文化的重要组成部分</li>
+                        <li><strong>历史价值：</strong>六书理论有助于我们了解汉字的起源和发展历史</li>
+                    </ul>
+                </section>
+
+                <!-- 形声字的优势 -->
+                <section class="structure-section">
+                    <h2>形声字的优势</h2>
+                    <p>在六书中，形声字是最常用的造字方法，约占现代汉字的90%以上。形声字具有以下优势：</p>
+                    <ul>
+                        <li><strong>表音表意：</strong>形声字同时具有表音和表意的功能，既可以通过形旁了解字的意义类别，又可以通过声旁推测字的读音</li>
+                        <li><strong>便于记忆：</strong>形声字的结构规律明显，便于学习和记忆</li>
+                        <li><strong>适应性强：</strong>形声字可以通过组合不同的形旁和声旁来创造新字，适应社会发展的需要</li>
+                        <li><strong>系统性好：</strong>形声字的形旁和声旁都有一定的系统性，有助于构建汉字的知识体系</li>
+                    </ul>
+                    <p>形声字的出现和发展，标志着汉字的造字方法已经达到了相当成熟的阶段，也为汉字的长期使用和发展奠定了基础。</p>
+                </section>
+
+                <!-- 汉字构造的文化内涵 -->
+                <section class="structure-section">
+                    <h2>汉字构造的文化内涵</h2>
+                    <h3>哲学思想</h3>
+                    <p>汉字的构造蕴含着丰富的哲学思想：</p>
+                    <ul>
+                        <li><strong>天人合一：</strong>象形字直接模拟自然事物，体现了人与自然的和谐统一</li>
+                        <li><strong>辩证思维：</strong>会意字通过组合不同的部件来表达新的意义，体现了辩证思维</li>
+                        <li><strong>整体观念：</strong>汉字的构造注重整体结构，体现了整体观念</li>
+                        <li><strong>抽象思维：</strong>指事字通过符号来表示抽象概念，体现了抽象思维能力</li>
+                    </ul>
+                    
+                    <h3>伦理道德</h3>
+                    <p>汉字的构造蕴含着丰富的伦理道德观念：</p>
+                    <ul>
+                        <li><strong>孝：</strong>由老和子组成，表示子女对父母的尊敬和赡养</li>
+                        <li><strong>信：</strong>由人和言组成，表示人要言而有信</li>
+                        <li><strong>仁：</strong>由人和二组成，表示人与人之间的关爱</li>
+                        <li><strong>义：</strong>由羊和我组成，表示我对他人的责任和义务</li>
+                    </ul>
+                    
+                    <h3>生活智慧</h3>
+                    <p>汉字的构造蕴含着丰富的生活智慧：</p>
+                    <ul>
+                        <li><strong>家：</strong>由宀和豕组成，表示有房子有猪就是家</li>
+                        <li><strong>福：</strong>由示、一、口、田组成，表示有衣穿、有饭吃、有田种就是福</li>
+                        <li><strong>安：</strong>由宀和女组成，表示家里有女人就是安</li>
+                        <li><strong>和：</strong>由禾和口组成，表示人人有饭吃就是和</li>
+                    </ul>
+                </section>
+
+                <!-- 现代汉字构造 -->
+                <section class="structure-section">
+                    <h2>现代汉字的构造</h2>
+                    <h3>现代汉字的特点</h3>
+                    <ul>
+                        <li><strong>形声字为主：</strong>现代汉字中形声字占绝大多数，约占90%以上</li>
+                        <li><strong>简化字：</strong>现代汉字推行简化字，减少了笔画，提高了书写效率</li>
+                        <li><strong>标准化：</strong>现代汉字制定了统一的字形标准，提高了规范化程度</li>
+                        <li><strong>信息化：</strong>现代汉字实现了信息化处理，适应了现代社会的需要</li>
+                    </ul>
+                    
+                    <h3>现代汉字的构造方法</h3>
+                    <p>现代汉字的构造方法主要包括：</p>
+                    <ul>
+                        <li><strong>传统方法：</strong>继续使用六书的构造方法，尤其是形声和会意</li>
+                        <li><strong>简化方法：</strong>通过简化笔画、合并字形等方法创造简化字</li>
+                        <li><strong>新造字：</strong>为了适应科技发展的需要，创造了一些新字，如"砼"（混凝土）、"硒"（化学元素）等</li>
+                        <li><strong>借用方法：</strong>借用外语词汇的音译或意译，如"咖啡"、"沙发"、"电脑"等</li>
+                    </ul>
+                </section>
+
+                <!-- 学习汉字的方法 -->
+                <section class="structure-section">
+                    <h2>学习汉字的方法</h2>
+                    <h3>利用六书理论学习汉字</h3>
+                    <ul>
+                        <li><strong>分析字形：</strong>通过分析汉字的结构，了解其构造方法和意义</li>
+                        <li><strong>归类学习：</strong>按照形旁或声旁对汉字进行归类，提高学习效率</li>
+                        <li><strong>理解意义：</strong>通过了解汉字的构造方法，深入理解其意义</li>
+                        <li><strong>记忆规律：</strong>掌握汉字的构造规律，提高记忆效果</li>
+                    </ul>
+                    
+                    <h3>学习建议</h3>
+                    <ul>
+                        <li><strong>从基础开始：</strong>先学习常用的象形字和指事字，掌握基本部件</li>
+                        <li><strong>循序渐进：</strong>从简单到复杂，逐步学习会意字和形声字</li>
+                        <li><strong>联系实际：</strong>将汉字与实际生活联系起来，加深理解</li>
+                        <li><strong>多读多写：</strong>通过阅读和书写，巩固汉字的学习</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.structure-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

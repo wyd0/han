@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中药的应用 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 中药应用页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .medicine-detail-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-detail-header h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-detail-main {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-detail-content h2 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-detail-content h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-detail-content h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 20px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-detail-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .medicine-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .medicine-detail-header h1 {
+                font-size: 32px;
+            }
+            
+            .medicine-detail-content h2 {
+                font-size: 24px;
+            }
+            
+            .medicine-detail-content h3 {
+                font-size: 20px;
+            }
+            
+            .medicine-detail-content h4 {
+                font-size: 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="medicine-detail-header">
+        <div class="container">
+            <div class="medicine-detail-header-content">
+                <h1>中药的应用</h1>
+                <a href="medicine.html" class="back-link">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-detail-main">
+        <div class="container">
+            <div class="medicine-detail-content">
+                <h2>中药应用的基本概念</h2>
+                <p>中药应用是指将中药用于预防、治疗、诊断疾病并具有康复与保健作用的过程。中药应用是中药学的重要组成部分，是中医理论与实践相结合的具体体现。</p>
+                
+                <h2>中药的剂型</h2>
+                <p>中药的剂型是指根据临床需要和药物的性质，将原料药加工制成的不同形式的制剂。常见的中药剂型包括：</p>
+                
+                <h3>液体剂型</h3>
+                
+                <h4>汤剂</h4>
+                <p>汤剂是将药材饮片加水煎煮，去渣取汁制成的液体剂型。汤剂是中药最常用的剂型，具有吸收快、作用强、灵活加减等优点。适用于各种急慢性疾病。</p>
+                <ul>
+                    <li><strong>优点</strong>：吸收快、作用强、灵活加减、适应个体差异。</li>
+                    <li><strong>缺点</strong>：煎煮麻烦、不易储存、口感较差。</li>
+                    <li><strong>应用</strong>：各种急慢性疾病，如感冒、发热、咳嗽、腹泻等。</li>
+                </ul>
+                
+                <h4>散剂</h4>
+                <p>散剂是将药材粉碎成细粉，混合均匀制成的粉末状剂型。散剂具有制作简单、便于储存、服用方便等优点。适用于各种慢性疾病。</p>
+                <ul>
+                    <li><strong>优点</strong>：制作简单、便于储存、服用方便、节省药材。</li>
+                    <li><strong>缺点</strong>：吸收较慢、作用较弱。</li>
+                    <li><strong>应用</strong>：各种慢性疾病，如慢性腹泻、慢性咳嗽等。</li>
+                </ul>
+                
+                <h4>丸剂</h4>
+                <p>丸剂是将药材细粉或药材提取物加适宜的粘合剂制成的球形或类球形剂型。丸剂具有作用缓慢、持久、便于储存、服用方便等优点。适用于各种慢性疾病。</p>
+                <ul>
+                    <li><strong>优点</strong>：作用缓慢、持久、便于储存、服用方便。</li>
+                    <li><strong>缺点</strong>：吸收较慢、不易加减。</li>
+                    <li><strong>应用</strong>：各种慢性疾病，如慢性肝炎、慢性肾炎等。</li>
+                </ul>
+                
+                <h4>膏剂</h4>
+                <p>膏剂是将药材加水煎煮，去渣浓缩后，加适量的蜂蜜或糖制成的稠厚半流体剂型。膏剂具有口感好、便于服用、作用持久等优点。适用于各种慢性疾病和虚弱病证。</p>
+                <ul>
+                    <li><strong>优点</strong>：口感好、便于服用、作用持久、营养丰富。</li>
+                    <li><strong>缺点</strong>：制作麻烦、不易储存、含糖量高。</li>
+                    <li><strong>应用</strong>：各种慢性疾病和虚弱病证，如慢性咳嗽、贫血、神经衰弱等。</li>
+                </ul>
+                
+                <h4>丹剂</h4>
+                <p>丹剂是将药材细粉加适宜的粘合剂制成的球形或类球形剂型，或指用汞及某些矿物药经过加热升华制成的化合制剂。丹剂具有作用强、用量小等优点。适用于各种急慢性疾病。</p>
+                <ul>
+                    <li><strong>优点</strong>：作用强、用量小、便于储存。</li>
+                    <li><strong>缺点</strong>：制作复杂、部分丹剂有毒。</li>
+                    <li><strong>应用</strong>：各种急慢性疾病，如心绞痛、中风等。</li>
+                </ul>
+                
+                <h4>酒剂</h4>
+                <p>酒剂是将药材用白酒或黄酒浸泡，去渣取汁制成的液体剂型。酒剂具有活血化瘀、通经活络等优点。适用于风湿痹痛、跌打损伤等病证。</p>
+                <ul>
+                    <li><strong>优点</strong>：活血化瘀、通经活络、便于储存。</li>
+                    <li><strong>缺点</strong>：含酒精、不宜用于孕妇、儿童及酒精过敏者。</li>
+                    <li><strong>应用</strong>：风湿痹痛、跌打损伤、月经不调等。</li>
+                </ul>
+                
+                <h4>露剂</h4>
+                <p>露剂是将药材加水蒸馏，收集蒸馏液制成的液体剂型。露剂具有清香可口、清热解毒等优点。适用于暑热烦渴、咽喉肿痛等病证。</p>
+                <ul>
+                    <li><strong>优点</strong>：清香可口、清热解毒、便于服用。</li>
+                    <li><strong>缺点</strong>：不易储存、作用较弱。</li>
+                    <li><strong>应用</strong>：暑热烦渴、咽喉肿痛、口臭等。</li>
+                </ul>
+                
+                <h4>茶剂</h4>
+                <p>茶剂是将药材粉碎成粗粉，混合均匀，制成的粗末状剂型，或加入适宜的粘合剂制成的块状剂型。茶剂具有制作简单、服用方便、清香可口等优点。适用于各种慢性疾病和保健。</p>
+                <ul>
+                    <li><strong>优点</strong>：制作简单、服用方便、清香可口。</li>
+                    <li><strong>缺点</strong>：作用较弱。</li>
+                    <li><strong>应用</strong>：各种慢性疾病和保健，如高血压、高血脂、肥胖等。</li>
+                </ul>
+                
+                <h3>固体剂型</h3>
+                
+                <h4>锭剂</h4>
+                <p>锭剂是将药材细粉加适宜的粘合剂制成的块状剂型。锭剂具有便于储存、服用方便等优点。适用于各种慢性疾病和局部用药。</p>
+                <ul>
+                    <li><strong>优点</strong>：便于储存、服用方便。</li>
+                    <li><strong>缺点</strong>：吸收较慢。</li>
+                    <li><strong>应用</strong>：各种慢性疾病和局部用药，如口腔溃疡、咽喉肿痛等。</li>
+                </ul>
+                
+                <h4>条剂</h4>
+                <p>条剂是将药材细粉加适宜的粘合剂制成的条状剂型。条剂具有使用方便、局部作用强等优点。适用于外科疮疡、瘘管等病证。</p>
+                <ul>
+                    <li><strong>优点</strong>：使用方便、局部作用强。</li>
+                    <li><strong>缺点</strong>：应用范围有限。</li>
+                    <li><strong>应用</strong>：外科疮疡、瘘管等。</li>
+                </ul>
+                
+                <h4>线剂</h4>
+                <p>线剂是将丝线或棉线浸泡在药液中，晾干后制成的剂型。线剂具有使用方便、局部作用强等优点。适用于外科结扎、止血等。</p>
+                <ul>
+                    <li><strong>优点</strong>：使用方便、局部作用强。</li>
+                    <li><strong>缺点</strong>：应用范围有限。</li>
+                    <li><strong>应用</strong>：外科结扎、止血等。</li>
+                </ul>
+                
+                <h4>栓剂</h4>
+                <p>栓剂是将药材细粉或药材提取物加适宜的基质制成的供腔道给药的固体制剂。栓剂具有避免胃肠道刺激、避免肝脏首过效应等优点。适用于肛肠疾病、妇科疾病等。</p>
+                <ul>
+                    <li><strong>优点</strong>：避免胃肠道刺激、避免肝脏首过效应、使用方便。</li>
+                    <li><strong>缺点</strong>：使用不便、不易储存。</li>
+                    <li><strong>应用</strong>：肛肠疾病、妇科疾病、小儿发热等。</li>
+                </ul>
+                
+                <h3>其他剂型</h3>
+                
+                <h4>注射剂</h4>
+                <p>注射剂是将药材提取物或有效成分加适宜的溶剂制成的供注射用的液体剂型。注射剂具有吸收快、作用强等优点。适用于各种急症、重症。</p>
+                <ul>
+                    <li><strong>优点</strong>：吸收快、作用强、剂量准确。</li>
+                    <li><strong>缺点</strong>：制作复杂、使用不便、有创伤性。</li>
+                    <li><strong>应用</strong>：各种急症、重症，如休克、昏迷、高热等。</li>
+                </ul>
+                
+                <h4>胶囊剂</h4>
+                <p>胶囊剂是将药材细粉或药材提取物装入胶囊中制成的剂型。胶囊剂具有服用方便、掩盖不良气味等优点。适用于各种慢性疾病。</p>
+                <ul>
+                    <li><strong>优点</strong>：服用方便、掩盖不良气味、便于储存。</li>
+                    <li><strong>缺点</strong>：制作复杂、成本较高。</li>
+                    <li><strong>应用</strong>：各种慢性疾病，如慢性肝炎、慢性肾炎等。</li>
+                </ul>
+                
+                <h4>颗粒剂</h4>
+                <p>颗粒剂是将药材提取物加适宜的辅料制成的颗粒状剂型。颗粒剂具有服用方便、口感好、吸收快等优点。适用于各种慢性疾病。</p>
+                <ul>
+                    <li><strong>优点</strong>：服用方便、口感好、吸收快、便于储存。</li>
+                    <li><strong>缺点</strong>：制作复杂、成本较高。</li>
+                    <li><strong>应用</strong>：各种慢性疾病，如慢性咳嗽、慢性腹泻等。</li>
+                </ul>
+                
+                <h2>中药的用法</h2>
+                
+                <h3>给药途径</h3>
+                <ul>
+                    <li><strong>口服给药</strong>：是最常用的给药途径，适用于各种疾病。</li>
+                    <li><strong>皮肤给药</strong>：包括外敷、外洗、熏蒸等，适用于皮肤病、外科疮疡等。</li>
+                    <li><strong>腔道给药</strong>：包括直肠给药、阴道给药等，适用于肛肠疾病、妇科疾病等。</li>
+                    <li><strong>注射给药</strong>：包括肌肉注射、静脉注射、穴位注射等，适用于各种急症、重症。</li>
+                    <li><strong>吸入给药</strong>：包括雾化吸入、鼻吸等，适用于呼吸系统疾病。</li>
+                </ul>
+                
+                <h3>服药时间</h3>
+                <ul>
+                    <li><strong>饭前服</strong>：适用于补益药、驱虫药、泻下药等。</li>
+                    <li><strong>饭后服</strong>：适用于消食药、刺激性药等。</li>
+                    <li><strong>睡前服</strong>：适用于安神药、涩精止遗药等。</li>
+                    <li><strong>定时服</strong>：适用于截疟药等。</li>
+                    <li><strong>不拘时服</strong>：适用于急症、重症等。</li>
+                </ul>
+                
+                <h3>服药方法</h3>
+                <ul>
+                    <li><strong>温服</strong>：大多数中药汤剂需要温服，以减少对胃肠道的刺激。</li>
+                    <li><strong>热服</strong>：解表药、温里药等需要热服，以增强疗效。</li>
+                    <li><strong>冷服</strong>：清热药、止血药等需要冷服，以增强疗效。</li>
+                    <li><strong>顿服</strong>：适用于急症、重症，一次性服完。</li>
+                    <li><strong>频服</strong>：适用于呕吐、咽喉肿痛等，少量多次服用。</li>
+                </ul>
+                
+                <h3>服药剂量</h3>
+                <ul>
+                    <li><strong>成人剂量</strong>：一般为每日一剂，分2-3次服用。</li>
+                    <li><strong>儿童剂量</strong>：根据年龄、体重等因素调整剂量，一般为成人剂量的1/2-1/4。</li>
+                    <li><strong>老人剂量</strong>：根据体质、病情等因素调整剂量，一般为成人剂量的1/2-2/3。</li>
+                    <li><strong>孕妇剂量</strong>：根据病情、孕期等因素调整剂量，避免使用有毒、活血、行气等药物。</li>
+                </ul>
+                
+                <h2>中药的应用原则</h2>
+                <ul>
+                    <li><strong>辨证施治</strong>：根据患者的具体情况进行辨证，然后选择合适的药物和剂型。</li>
+                    <li><strong>因人制宜</strong>：根据患者的年龄、性别、体质、职业等因素调整药物和剂量。</li>
+                    <li><strong>因时制宜</strong>：根据季节、气候等因素调整药物和剂量。</li>
+                    <li><strong>因地制宜</strong>：根据地域、环境等因素调整药物和剂量。</li>
+                    <li><strong>标本兼治</strong>：根据病情的标本缓急，调整药物的配伍和剂量。</li>
+                    <li><strong>合理用药</strong>：避免滥用药物，减少药物的不良反应。</li>
+                </ul>
+                
+                <h2>中药的不良反应</h2>
+                <p>中药的不良反应是指在正常用法用量下，出现的与用药目的无关的有害反应。常见的中药不良反应包括：</p>
+                
+                <h3>副作用</h3>
+                <p>副作用是指药物在治疗剂量下出现的与用药目的无关的作用。例如，大黄在泻下的同时可能会引起腹痛。</p>
+                
+                <h3>毒性反应</h3>
+                <p>毒性反应是指药物在剂量过大或用药时间过长时出现的有害反应。例如，附子、乌头等药物过量使用可能会引起中毒。</p>
+                
+                <h3>过敏反应</h3>
+                <p>过敏反应是指药物引起的变态反应。例如，某些人对青霉素、磺胺类药物过敏。</p>
+                
+                <h3>依赖性</h3>
+                <p>依赖性是指药物长期使用后，患者对药物产生的心理或生理依赖。例如，某些镇静安神药长期使用可能会产生依赖性。</p>
+                
+                <h2>中药的合理应用</h2>
+                <p>为了减少中药的不良反应，提高中药的疗效，我们需要：</p>
+                <ul>
+                    <li><strong>辨证施治</strong>：根据患者的具体情况进行辨证，然后选择合适的药物和剂型。</li>
+                    <li><strong>合理配伍</strong>：根据药物的性能和病情的需要，合理配伍药物，避免使用十八反、十九畏等配伍禁忌的药物。</li>
+                    <li><strong>掌握剂量</strong>：根据病情的轻重和患者的体质，掌握药物的剂量，避免剂量过大或过小。</li>
+                    <li><strong>规范用法</strong>：按照规定的用法用量使用药物，避免滥用药物。</li>
+                    <li><strong>注意禁忌</strong>：注意药物的禁忌证，避免使用禁忌的药物。</li>
+                    <li><strong>观察反应</strong>：密切观察患者的用药反应，及时调整药物的剂量和用法。</li>
+                </ul>
+                
+                <h2>中药的现代应用</h2>
+                <p>随着科学技术的发展，中药的应用范围不断扩大，现代应用包括：</p>
+                
+                <h3>临床治疗</h3>
+                <p>中药在临床治疗中的应用越来越广泛，不仅用于治疗常见病、多发病，还用于治疗疑难杂症。例如，青蒿素用于治疗疟疾，砒霜用于治疗白血病等。</p>
+                
+                <h3>预防保健</h3>
+                <p>中药在预防保健中的应用越来越受到重视，例如，人参、黄芪、枸杞子等药物用于增强免疫力，预防疾病的发生。</p>
+                
+                <h3>食品添加剂</h3>
+                <p>中药在食品添加剂中的应用越来越广泛，例如，桂皮、花椒、八角等药物用于食品调味，红枣、桂圆、莲子等药物用于食品营养强化。</p>
+                
+                <h3>化妆品</h3>
+                <p>中药在化妆品中的应用越来越受到欢迎，例如，人参、当归、白芷等药物用于美容养颜，何首乌、黑芝麻等药物用于乌发护发。</p>
+                
+                <h3>饲料添加剂</h3>
+                <p>中药在饲料添加剂中的应用越来越广泛，例如，大蒜、黄芪、杜仲等药物用于提高动物的免疫力，促进动物的生长发育。</p>
+                
+                <h2>中药应用的发展历史</h2>
+                <p>中药应用的历史悠久，是伴随着中药学的发展而逐渐形成和完善的。早在原始社会时期，人类就开始认识和使用药物，通过尝试和经验积累，逐渐形成了一些应用经验。</p>
+                
+                <h3>先秦时期（约公元前21世纪-公元前221年）</h3>
+                <p>先秦时期，中药应用开始萌芽，出现了一些简单的应用方法。《诗经》中记载了一些药物的应用，如“采采芣苢，薄言采之”，其中“芣苢”即车前草，用于治疗妇科疾病。《山海经》中记载了约120种药物的应用，如“丹粟……食之令人寿”，“沙棠……食之使人不溺”等。</p>
+                
+                <h3>秦汉时期（公元前221年-公元220年）</h3>
+                <p>秦汉时期，中药应用理论逐渐形成，《神农本草经》中记载了365种药物的应用方法。例如，“人参……补五脏，安精神，定魂魄，止惊悸，除邪气，明目，开心益智”，“黄芪……主痈疽久败疮，排脓止痛，大风癞疾，五痔，鼠瘘，补虚，小儿百病”等。《伤寒杂病论》中记载了许多方剂的应用方法，如麻黄汤用于治疗太阳伤寒证，桂枝汤用于治疗太阳中风证等，这些方剂的应用非常精妙，对后世产生了深远的影响。</p>
+                
+                <h3>魏晋南北朝时期（公元220年-公元589年）</h3>
+                <p>魏晋南北朝时期，中药应用理论进一步发展，出现了一些专门的应用著作。《名医别录》中记载了《神农本草经》未载的365种药物的应用方法。《本草经集注》中对药物的应用进行了系统的总结，提出了“疗寒以热药，疗热以寒药”的应用原则。此外，还有《肘后备急方》等著作，记载了许多简便易行的中药应用方法，如用青蒿治疗疟疾，用黄连治疗痢疾等。</p>
+                
+                <h3>唐宋时期（公元581年-公元907年）</h3>
+                <p>唐宋时期，中药应用理论达到了一个新的高度，《新修本草》、《证类本草》等著作中记载了大量的药物应用方法。《千金方》、《外台秘要》等综合性医学著作中记载了许多方剂的应用方法，这些方剂的应用更加精妙和复杂。此外，还有《太平惠民和剂局方》等著作，对应用技术进行了规范和标准化，如四物汤用于治疗血虚证，四君子汤用于治疗气虚证等。</p>
+                
+                <h3>明清时期（公元1368年-公元1912年）</h3>
+                <p>明清时期，中药应用理论更加成熟，《本草纲目》、《本草纲目拾遗》等著作对应用理论进行了系统的总结。《本草纲目》中记载了1892种药物的应用方法，对药物的应用范围、应用方法、应用禁忌等进行了详细的论述。此外，还有一些专门的应用著作，如《温病条辨》、《伤寒温疫条辨》等，对温热病的应用进行了深入的探讨。</p>
+                
+                <h3>现代时期（公元1912年至今）</h3>
+                <p>现代时期，中药应用理论与现代科学相结合，不断创新和发展。中药应用的现代化研究取得了重要成就，如通过现代科学技术，研究中药的应用机制，探讨中药的作用靶点等。例如，青蒿素的研究获得了诺贝尔奖，为中药的应用树立了典范。此外，还制定了一系列的应用规范和质量标准，如《中华人民共和国药典》中的应用方法，对应用技术进行了规范和标准化。同时，还出现了一些新的应用方法和技术，如中药注射剂、中药颗粒剂、中药胶囊剂等，这些新剂型的应用，提高了中药的疗效和便利性。</p>
+                
+                <h2>中药应用的传承与发展</h2>
+                <p>中药应用是中华民族优秀的传统文化遗产，是中药学的重要组成部分。在现代社会，我们需要：</p>
+                <ul>
+                    <li><strong>继承传统应用经验</strong>：认真学习和继承传统的中药应用经验，保持中药应用的特色和优势。</li>
+                    <li><strong>创新应用方法</strong>：结合现代科学技术，创新中药的应用方法，提高中药的疗效。</li>
+                    <li><strong>规范应用标准</strong>：制定统一的中药应用标准和规范，保证中药应用的安全和有效。</li>
+                    <li><strong>推广应用知识</strong>：向社会推广中药应用知识，提高人们对中药应用的认识。</li>
+                    <li><strong>加强应用研究</strong>：加强中药应用的科学研究，探讨中药应用的作用机制。</li>
+                </ul>
+                <p>只有这样，才能使中药应用这一传统技术在新时代焕发出新的活力，为人类的健康服务。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

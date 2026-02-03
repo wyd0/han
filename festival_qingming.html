@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清明节 - 传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 清明节页面特定样式 */
+        body {
+            background-image: url('images/传统节日.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .festival-detail-header {
+            background-image: url('images/festival_qingming.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .festival-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festival-detail-header-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .festival-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .festival-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festival-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festival-detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .festival-detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-detail-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c0392b;
+        }
+        
+        .festival-detail-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-detail-section p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .festival-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festival-detail-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festival-detail-section li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .festival-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .festival-detail-header p {
+                font-size: 18px;
+            }
+            
+            .festival-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-detail-section h3 {
+                font-size: 22px;
+            }
+            
+            .back-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-link {
+                width: 200px;
+                text-align: center;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="festival-detail-header">
+        <div class="container">
+            <div class="festival-detail-header-content">
+                <h1>清明节</h1>
+                <p>公历4月4日或5日</p>
+                <div class="back-links">
+                    <a href="festival.html" class="back-link">返回节日列表</a>
+                    <a href="index.html" class="back-link">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="festival-detail-main">
+        <div class="container">
+            <!-- 搜索栏 -->
+            <div class="search-container" style="margin: 30px 0; text-align: center;">
+                <input type="text" id="festival-search" placeholder="搜索传统节日..." style="padding: 12px 20px; width: 60%; max-width: 500px; border: 2px solid #c0392b; border-radius: 25px; font-size: 16px; outline: none;">
+                <button onclick="searchFestival()" style="padding: 12px 20px; margin-left: 10px; background-color: #c0392b; color: white; border: none; border-radius: 25px; font-size: 16px; cursor: pointer;">搜索</button>
+                <button onclick="clearSearch()" style="padding: 12px 20px; margin-left: 10px; background-color: #95a5a6; color: white; border: none; border-radius: 25px; font-size: 16px; cursor: pointer;">清空</button>
+            </div>
+            <div id="search-history" style="margin: 20px 0; text-align: center; color: #666;"></div>
+            <div id="search-results" style="margin: 30px 0;"></div>
+            
+            <div class="festival-detail-content">
+                <!-- 节日来源 -->
+                <section class="festival-detail-section">
+                    <h2>节日来源</h2>
+                    <p>清明节，又称踏青节、行清节、三月节、祭祖节等，是中国汉族传统节日之一，时间为公历4月4日或5日。清明节的起源可以追溯到上古时期的春祭活动，与中国古代的农业生产和天文历法知识相关。</p>
+                    <p>根据史书记载，清明节的形成与寒食节有关。寒食节是为了纪念春季时期的介子推而设置的节日，时间为冬至后一百零五天。后来，清明节逐渐与寒食节融合，形成了今天的清明节。</p>
+                </section>
+
+                <!-- 发展演变 -->
+                <section class="festival-detail-section">
+                    <h2>发展演变</h2>
+                    <p>清明节的发展经历了漫长的历史过程，从最初的春祭活动逐渐演变为具有丰富文化内涵的传统节日。</p>
+                    <h3>先秦时期</h3>
+                    <p>先秦时期，清明节的前身是春祭活动，人们在春季举行祭祀活动，祈求五谷丰登、人寿年丰。</p>
+                    <h3>汉代</h3>
+                    <p>汉代是清明节的形成时期。汉代的清明节已经成为一个重要的传统节日，人们在这一天要禁火寒食，缅怀介子推。</p>
+                    <h3>魏晋南北朝时期</h3>
+                    <p>魏晋南北朝时期，清明节逐渐与寒食节融合，形成了今天的清明节。此时，清明节的习俗已经基本形成，包括扫墓、踏青、插柳等。</p>
+                    <h3>唐代</h3>
+                    <p>唐代是清明节的鼎盛时期。唐代的清明节庆祝活动非常热闹，扫墓、踏青、插柳等习俗已经成为全社会的共同行为。据史书记载，唐代的清明节是一个法定节日，全国放假三天。</p>
+                    <h3>宋代</h3>
+                    <p>宋代的清明节庆祝活动更加丰富多彩，扫墓、踏青、插柳等习俗已经成为清明节的重要组成部分。此时，清明节已经成为中华民族最重要的传统节日之一。</p>
+                    <h3>明清时期</h3>
+                    <p>明清时期，清明节的习俗进一步完善，扫墓、踏青、插柳等习俗已经成为清明节的固定内容。此时，清明节已经成为中华民族最隆重的传统节日之一。</p>
+                    <h3>现代时期</h3>
+                    <p>现代时期，清明节仍然是中国重要的传统节日，虽然一些传统习俗有所变化，但清明节的核心文化内涵依然保持。如今，清明节已经成为中华民族的文化符号，也是海外华人华侨的重要节日。</p>
+                </section>
+
+                <!-- 节日影响 -->
+                <section class="festival-detail-section">
+                    <h2>节日影响</h2>
+                    <p>清明节作为中国重要的传统节日，对中国社会和文化产生了深远的影响。</p>
+                    <ul>
+                        <li><strong>文化传承</strong>：清明节承载着丰富的文化内涵，是中华传统文化的重要载体，通过清明节的庆祝活动，传承和弘扬了中华优秀传统文化。</li>
+                        <li><strong>民族凝聚力</strong>：清明节是中华民族的共同节日，通过清明节的庆祝活动，增强了民族凝聚力和认同感，促进了民族团结。</li>
+                        <li><strong>家族观念</strong>：清明节强调家族观念，人们会在这一天扫墓祭祖，体现了中华民族重视家族的传统观念，促进了家庭和谐。</li>
+                        <li><strong>环保意识</strong>：清明节的踏青活动，促进了人们对自然的热爱和环保意识的提高。</li>
+                        <li><strong>经济发展</strong>：清明节带动了相关产业的发展，如花卉市场、旅游市场等，促进了经济的繁荣。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="festival-detail-section">
+                    <h2>节日习俗</h2>
+                    <p>清明节的习俗丰富多彩，具有浓郁的民族特色。以下是主要习俗：</p>
+                    <h3>扫墓祭祖</h3>
+                    <ul>
+                        <li><strong>扫墓</strong>：人们前往祖先的墓地，清理墓地，摆放祭品，表达对祖先的思念和敬意。</li>
+                        <li><strong>祭祖</strong>：在家中或祠堂举行祭祖仪式，摆放祭品，焚烧纸钱，表达对祖先的思念和敬意。</li>
+                        <li><strong>植树</strong>：在墓地或周围植树，表达对祖先的思念和敬意，同时也美化环境。</li>
+                    </ul>
+                    <h3>踏青游玩</h3>
+                    <ul>
+                        <li><strong>踏青</strong>：人们在清明节期间外出游玩，欣赏春天的美景，感受大自然的生机。</li>
+                        <li><strong>放风筝</strong>：人们在清明节期间放风筝，寓意着放走晦气，迎来好运。</li>
+                        <li><strong>荡秋千</strong>：人们在清明节期间荡秋千，增加节日的欢乐气氛。</li>
+                        <li><strong>蹴鞠</strong>：人们在清明节期间蹴鞠，增加节日的欢乐气氛。</li>
+                    </ul>
+                    <h3>饮食习俗</h3>
+                    <ul>
+                        <li><strong>吃寒食</strong>：清明节期间，人们吃寒食，缅怀介子推。</li>
+                        <li><strong>吃青团</strong>：江南地区的传统食品，用糯米粉和艾草制成，寓意着春天的到来。</li>
+                        <li><strong>吃清明果</strong>：福建地区的传统食品，用糯米粉和鼠曲草制成，寓意着春天的到来。</li>
+                    </ul>
+                    <h3>其他习俗</h3>
+                    <ul>
+                        <li><strong>插柳</strong>：人们在清明节期间插柳，寓意着驱邪避灾，迎来好运。</li>
+                        <li><strong>戴柳</strong>：人们在清明节期间戴柳，寓意着驱邪避灾，迎来好运。</li>
+                        <li><strong>禁火</strong>：清明节期间，人们要禁火寒食，缅怀介子推。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

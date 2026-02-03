@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二人台 - 中国传统戏曲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STSong', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.8), rgba(240,240,240,0.8));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #CD853F;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CD853F;
+        }
+        
+        h3 {
+            color: #5D4037;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .classic-line {
+            background-color: #f9f3e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #CD853F;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .classic-line p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .classic-line .source {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #CD853F;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>二人台</h1>
+            <p>内蒙古地方传统戏曲，中国国家级非物质文化遗产</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#origin">起源</a></li>
+                <li><a href="#development">发展</a></li>
+                <li><a href="#art-features">艺术特点</a></li>
+                <li><a href="#roles">行当</a></li>
+                <li><a href="#representative-plays">代表剧目</a></li>
+                <li><a href="#classic-lines">经典戏词</a></li>
+            </ul>
+        </nav>
+        
+        <section id="origin" class="section">
+            <h2>起源</h2>
+            <p>二人台，是内蒙古自治区的地方传统戏曲剧种，流行于内蒙古及山西、河北、陕西部分地区。其起源可追溯至清代，由内蒙古民间歌舞与山西、河北等地的民间艺术相结合发展而成。</p>
+            <p>清代中期，山西、河北等地的移民将当地的民间艺术带入内蒙古，与内蒙古的民间歌舞相结合，逐渐形成了具有内蒙古地方特色的戏曲剧种。早期的二人台主要由两人表演，一丑一旦，因此得名“二人台”。</p>
+        </section>
+        
+        <section id="development" class="section">
+            <h2>发展</h2>
+            <p>清代末年，二人台已形成较为完整的艺术体系，出现了专业班社和著名艺人。民国时期，二人台进入繁荣期，班社众多，剧目丰富，表演技艺日趋成熟。</p>
+            <p>新中国成立后，二人台得到了党和政府的重视与扶持。1953年，成立了专业二人台表演团体，对传统剧目进行了整理、改编和创作，同时在音乐、表演、舞台美术等方面进行了改革创新。</p>
+            <p>改革开放以来，二人台进入新的发展时期。通过创作新剧目、培养年轻演员等措施，二人台的艺术水平得到显著提高，成为内蒙古文化的重要代表之一。</p>
+        </section>
+        
+        <section id="art-features" class="section">
+            <h2>艺术特点</h2>
+            <h3>音乐唱腔</h3>
+            <p>二人台的音乐唱腔以内蒙古民间音乐为基础，融合了山西、河北等地的民间音乐元素，形成了独具特色的音乐风格。主要唱腔有“慢板”“二六”“流水”“散板”等，音调优美动听，富有节奏感。演唱时多使用内蒙古方言，语音质朴自然，富有地方特色。</p>
+            
+            <h3>表演艺术</h3>
+            <p>二人台的表演艺术吸收了内蒙古民间歌舞的特点，动作轻盈优美，富有节奏感。表演风格质朴自然，注重情感表达，通过细腻的动作和表情来刻画人物性格。演员的演唱与舞蹈紧密结合，形成了独特的艺术魅力。</p>
+            
+            <h3>舞台美术</h3>
+            <p>二人台的舞台美术简洁明快，注重营造意境。传统剧目多使用虚拟道具和象征性布景，现代剧目则结合实景和灯光效果，增强视觉表现力。服装色彩鲜艳，体现了内蒙古的民俗文化特色。</p>
+        </section>
+        
+        <section id="roles" class="section">
+            <h2>行当</h2>
+            <p>二人台的行当分为丑、旦两大类，每个行当又有细致的分工：</p>
+            <ul>
+                <li><strong>丑行</strong>：包括文丑、武丑等，扮演男性角色。文丑多为幽默风趣的男性，武丑擅长武打。</li>
+                <li><strong>旦行</strong>：包括正旦、花旦、武旦、老旦等，扮演女性角色。正旦多为端庄贤淑的女性，花旦活泼俏丽，武旦擅长武打，老旦扮演老年妇女。</li>
+            </ul>
+        </section>
+        
+        <section id="representative-plays" class="section">
+            <h2>代表剧目</h2>
+            <p>二人台的传统剧目丰富多样，题材广泛，包括民间故事、爱情故事、历史传说等。以下是一些代表性剧目：</p>
+            <ul>
+                <li><strong>《走西口》</strong>：传统剧目，讲述走西口的故事，是二人台的经典剧目之一。</li>
+                <li><strong>《五哥放羊》</strong>：传统剧目，讲述五哥放羊的故事，是二人台的代表作。</li>
+                <li><strong>《打金钱》</strong>：传统剧目，讲述打金钱的故事，是二人台的经典剧目。</li>
+                <li><strong>《草原情》</strong>：现代题材剧目，讲述草原的故事，是二人台的现代代表作。</li>
+                <li><strong>《牧民新歌》</strong>：现代题材剧目，讲述牧民新歌的故事，是二人台的现代代表作。</li>
+                <li><strong>《敖包相会》</strong>：民间故事剧目，讲述敖包相会的故事，是二人台的经典剧目。</li>
+            </ul>
+        </section>
+        
+        <section id="classic-lines" class="section">
+            <h2>经典戏词</h2>
+            <div class="classic-line">
+                <p>哥哥你走西口，妹妹我实在难留。
+                手拉着哥哥的手，送哥送到大门口。</p>
+                <div class="source">——《走西口》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>五哥放羊在草滩，手拿羊鞭把羊赶。
+                羊儿吃草我唱歌，歌声飞过山尖尖。</p>
+                <div class="source">——《五哥放羊》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>敖包相会在夜晚，月光皎洁照草原。
+                阿哥阿妹情意长，草原情歌传千古。</p>
+                <div class="source">——《敖包相会》 佚名</div>
+            </div>
+        </section>
+        
+        <a href="../opera_regional.html" class="back-link">返回剧种列表</a>
+    </div>
+</body>
+</html>

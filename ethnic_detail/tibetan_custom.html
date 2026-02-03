@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藏族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 藏族风俗习惯页面特定样式 */
+        .tibetan-header {
+            background-image: url('images/藏装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .tibetan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tibetan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tibetan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .tibetan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-tibetan {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-tibetan:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tibetan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tibetan-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .tibetan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tibetan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .tibetan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tibetan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tibetan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tibetan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tibetan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯特色网格 */
+        .custom-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tibetan-section.visible .custom-feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tibetan-section.visible .custom-feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tibetan-section.visible .custom-feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tibetan-section.visible .custom-feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tibetan-section.visible .custom-feature-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .custom-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .custom-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tibetan-header h1 {
+                font-size: 36px;
+            }
+            
+            .tibetan-header p {
+                font-size: 18px;
+            }
+            
+            .tibetan-section h2 {
+                font-size: 28px;
+            }
+            
+            .custom-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="tibetan-header">
+        <div class="container">
+            <div class="tibetan-header-content">
+                <h1>藏族风俗习惯</h1>
+                <p>独特的高原生活方式与文化传承</p>
+                <a href="tibetan.html" class="back-tibetan">返回藏族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="tibetan-main">
+        <div class="container">
+            <div class="tibetan-content">
+                <!-- 介绍部分 -->
+                <section class="tibetan-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>藏族风俗习惯是藏族文化的重要组成部分，反映了藏族人民在青藏高原特殊环境下的生活方式和文化传承。这些风俗习惯涵盖了日常生活、社交礼仪、婚姻家庭、宗教信仰等各个方面，形成了独特的文化体系。</p>
+                    <p>藏族风俗习惯的形成与青藏高原的自然环境、历史发展、宗教信仰等因素密切相关，具有浓郁的民族特色和地域特色。了解藏族风俗习惯，对于理解藏族文化的精髓具有重要意义。</p>
+                </section>
+
+                <!-- 礼仪习俗 -->
+                <section class="tibetan-section">
+                    <h2>礼仪习俗</h2>
+                    <p>藏族人民非常重视礼仪，在日常生活和社交活动中有着丰富的礼仪习俗。</p>
+                    
+                    <h3>见面礼仪</h3>
+                    <ul>
+                        <li><strong>献哈达：</strong>献哈达是藏族最常见的礼仪，用于表示敬意和祝福。哈达是一种白色或蓝色的丝巾，长度不等。献哈达时，通常将哈达折叠成双层，双手捧献，接受者也应双手接过。</li>
+                        <li><strong>鞠躬：</strong>见面时，晚辈对长辈、地位低的人对地位高的人要行鞠躬礼，表示尊敬。</li>
+                        <li><strong>握手：</strong>在现代社交场合，藏族人民也会使用握手礼，但在传统场合，仍以献哈达为主。</li>
+                    </ul>
+                    
+                    <h3>待客礼仪</h3>
+                    <ul>
+                        <li><strong>敬茶：</strong>客人来访时，主人会敬上酥油茶，表示欢迎。客人应双手接过，喝毕后将茶碗放回桌上。</li>
+                        <li><strong>敬酒：</strong>在喜庆场合，主人会向客人敬酒，通常是青稞酒。客人应双手接过酒杯，先用无名指蘸酒弹向空中，再喝一口，表示敬意。</li>
+                        <li><strong>让座：</strong>客人来访时，主人会让座给客人，自己坐在下位，表示尊敬。</li>
+                    </ul>
+                    
+                    <h3>社交礼仪</h3>
+                    <ul>
+                        <li><strong>称呼：</strong>藏族人民在称呼他人时，通常会在名字前加上敬称，如"阿爸"、"阿妈"、"卓玛"等。</li>
+                        <li><strong>禁忌：</strong>在社交场合，藏族人民有一些禁忌，如不要摸别人的头、不要在别人背后吐唾沫等。</li>
+                    </ul>
+                </section>
+
+                <!-- 生活习俗 -->
+                <section class="tibetan-section">
+                    <h2>生活习俗</h2>
+                    <p>藏族人民的生活习俗与青藏高原的自然环境密切相关，形成了独特的生活方式。</p>
+                    
+                    <h3>居住习俗</h3>
+                    <ul>
+                        <li><strong>碉房：</strong>藏族的传统民居，多为石木结构，墙体厚实，适应青藏高原的高寒气候。碉房通常有二至三层，底层用于饲养牲畜，上层用于居住。</li>
+                        <li><strong>帐篷：</strong>在牧区，藏族人民通常居住在帐篷中，便于随季节迁徙。帐篷多为黑色牦牛毛制成，保暖性好。</li>
+                        <li><strong>装饰：</strong>藏族民居的内部装饰通常比较简单，但会在墙上挂一些唐卡、佛像等宗教物品，以示虔诚。</li>
+                    </ul>
+                    
+                    <h3>服饰习俗</h3>
+                    <ul>
+                        <li><strong>藏袍：</strong>藏族的传统服饰，男女老少都穿藏袍，袍式宽大，适应青藏高原的高寒气候。藏袍的颜色和装饰因地区和身份而异。</li>
+                        <li><strong>腰带：</strong>藏袍的重要组成部分，用来束腰，同时也可以用来存放物品。腰带通常由毛织品或皮革制成。</li>
+                        <li><strong>靴子：</strong>藏族的传统靴子，以牛皮或羊皮为主，适应青藏高原的地形和气候。靴子的款式和装饰因地区而异。</li>
+                        <li><strong>帽子：</strong>藏族的传统帽子，种类繁多，如毡帽、皮帽、金顶帽等，适应不同的季节和场合。</li>
+                    </ul>
+                    
+                    <h3>出行习俗</h3>
+                    <ul>
+                        <li><strong>骑马：</strong>在牧区，骑马是藏族人民主要的出行方式，也是一种传统的交通工具。</li>
+                        <li><strong>步行：</strong>在山区，步行是藏族人民主要的出行方式，他们练就了一双善于行走的脚。</li>
+                        <li><strong>转山转水：</strong>藏族人民有转山转水的习俗，认为这样可以积累功德，获得神灵的保佑。</li>
+                    </ul>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="tibetan-section">
+                    <h2>婚姻习俗</h2>
+                    <p>藏族的婚姻习俗具有独特的民族特色，反映了藏族人民的婚姻观念和家庭观念。</p>
+                    
+                    <h3>婚姻形式</h3>
+                    <ul>
+                        <li><strong>一夫一妻制：</strong>藏族的主要婚姻形式，与汉族类似。</li>
+                        <li><strong>一妻多夫制：</strong>在一些牧区，仍存在一妻多夫制的现象，通常是兄弟共妻，这种婚姻形式可以保持家庭财产的完整性。</li>
+                        <li><strong>入赘婚：</strong>在一些地区，存在入赘婚的现象，即男子嫁到女方家，成为女方家庭的一员。</li>
+                    </ul>
+                    
+                    <h3>婚姻程序</h3>
+                    <ul>
+                        <li><strong>提亲：</strong>男方家长通过媒人向女方家长提亲，表达结婚的意愿。</li>
+                        <li><strong>定亲：</strong>双方家长同意后，举行定亲仪式，男方会向女方赠送彩礼，如酥油、青稞酒、茶叶等。</li>
+                        <li><strong>婚礼：</strong>婚礼通常在男方家举行，持续数天。婚礼期间，会举行各种仪式，如诵经、跳舞、唱歌等。</li>
+                        <li><strong>回门：</strong>婚礼后，新娘会回娘家小住一段时间，然后再返回婆家。</li>
+                    </ul>
+                    
+                    <h3>婚姻观念</h3>
+                    <ul>
+                        <li><strong>自由恋爱：</strong>在现代社会，藏族青年也开始追求自由恋爱，婚姻观念逐渐现代化。</li>
+                        <li><strong>父母之命：</strong>在传统社会，藏族的婚姻通常由父母包办，子女没有太多的选择权利。</li>
+                        <li><strong>门当户对：</strong>藏族人民在选择配偶时，也会考虑双方的家庭背景、经济状况等因素。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="tibetan-section">
+                    <h2>丧葬习俗</h2>
+                    <p>藏族的丧葬习俗与藏传佛教的信仰密切相关，反映了藏族人民对生死的看法。</p>
+                    
+                    <h3>丧葬形式</h3>
+                    <ul>
+                        <li><strong>天葬：</strong>天葬是藏族最常见的丧葬形式，将死者的尸体运到天葬台，由天葬师肢解后，喂给秃鹫。藏族认为，天葬可以让死者的灵魂升天，获得解脱。</li>
+                        <li><strong>水葬：</strong>水葬主要流行于沿江地区，将死者的尸体投入江中，让鱼吃掉。</li>
+                        <li><strong>土葬：</strong>土葬主要流行于农业地区，将死者的尸体埋入地下。</li>
+                        <li><strong>火葬：</strong>火葬主要用于高僧大德，将死者的尸体火化后，将骨灰保存或撒入江河。</li>
+                    </ul>
+                    
+                    <h3>丧葬仪式</h3>
+                    <ul>
+                        <li><strong>临终关怀：</strong>死者临终时，家人会请喇嘛诵经，为死者超度。</li>
+                        <li><strong>停尸：</strong>死者去世后，家人会将死者的尸体停放在家中，时间长短因地区而异。</li>
+                        <li><strong>出殡：</strong>出殡时，家人会请喇嘛诵经，为死者引路。</li>
+                        <li><strong>祭祀：</strong>死者去世后，家人会定期祭祀，如七七四十九天、周年忌日等。</li>
+                    </ul>
+                    
+                    <h3>生死观念</h3>
+                    <ul>
+                        <li><strong>轮回转世：</strong>藏族人民相信轮回转世，认为死亡只是生命的一个阶段，灵魂会在来世转生。</li>
+                        <li><strong>因果报应：</strong>藏族人民相信因果报应，认为今生的行为会影响来世的命运。</li>
+                        <li><strong>超度亡灵：</strong>藏族人民认为，通过诵经、布施等方式，可以超度亡灵，让死者的灵魂获得解脱。</li>
+                    </ul>
+                </section>
+
+                <!-- 禁忌习俗 -->
+                <section class="tibetan-section">
+                    <h2>禁忌习俗</h2>
+                    <p>藏族人民在日常生活中有着许多禁忌，这些禁忌与宗教信仰、生活经验等因素密切相关。</p>
+                    
+                    <h3>日常禁忌</h3>
+                    <ul>
+                        <li><strong>头部禁忌：</strong>藏族人民认为头部是神圣的，不要随意摸别人的头，特别是小孩的头。</li>
+                        <li><strong>饮食禁忌：</strong>藏族人民不吃马肉、驴肉、狗肉，认为这些动物是不洁的。</li>
+                        <li><strong>行为禁忌：</strong>不要在别人背后吐唾沫，不要在宗教场所大声喧哗，不要随意触摸宗教物品。</li>
+                        <li><strong>语言禁忌：</strong>不要说不吉利的话，不要直呼长辈的名字。</li>
+                    </ul>
+                    
+                    <h3>宗教禁忌</h3>
+                    <ul>
+                        <li><strong>佛像禁忌：</strong>不要随意触摸佛像，不要在佛像前做不恭敬的行为。</li>
+                        <li><strong>经书禁忌：</strong>不要随意翻阅经书，不要将经书放在不洁净的地方。</li>
+                        <li><strong>法器禁忌：</strong>不要随意触摸宗教法器，如转经筒、念珠等。</li>
+                        <li><strong>圣地禁忌：</strong>在宗教圣地，要保持安静，不要做不恭敬的行为。</li>
+                    </ul>
+                    
+                    <h3>节日禁忌</h3>
+                    <ul>
+                        <li><strong>新年禁忌：</strong>在藏历新年期间，不要说不吉利的话，不要扫地，不要吵架。</li>
+                        <li><strong>节日禁忌：</strong>在宗教节日期间，要遵守宗教规定，不要做不恭敬的行为。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的文化意义 -->
+                <section class="tibetan-section">
+                    <h2>风俗习惯的文化意义</h2>
+                    <p>藏族风俗习惯是藏族文化的重要组成部分，具有深远的文化意义。</p>
+                    
+                    <div class="custom-features-grid">
+                        <div class="custom-feature-item">
+                            <h5>文化传承</h5>
+                            <p>藏族风俗习惯是藏族文化的重要载体，通过这些风俗习惯，藏族文化得以传承和发展。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>民族认同</h5>
+                            <p>藏族风俗习惯是藏族民族认同的重要标志，体现了藏族人民的共同文化特征。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>社会和谐</h5>
+                            <p>藏族风俗习惯中的礼仪规范，有助于维护社会秩序，促进社会和谐。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>文化交流</h5>
+                            <p>藏族风俗习惯是藏族与其他民族文化交流的重要桥梁，促进了各民族之间的相互了解和友谊。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>风俗习惯的现代变迁</h3>
+                    <p>随着社会的发展和变迁，藏族风俗习惯也在不断变化。在保持传统特色的同时，藏族风俗习惯也在吸收现代文化元素，不断丰富和发展。</p>
+                    <ul>
+                        <li><strong>现代生活方式的影响：</strong>随着现代生活方式的普及，藏族人民的生活习惯、饮食习惯等也在发生变化。</li>
+                        <li><strong>教育水平的提高：</strong>随着教育水平的提高，藏族人民的思想观念、婚姻观念等也在发生变化。</li>
+                        <li><strong>文化交流的增多：</strong>随着文化交流的增多，藏族风俗习惯也在吸收其他民族的文化元素。</li>
+                    </ul>
+                    
+                    <h3>风俗习惯的保护与传承</h3>
+                    <p>保护和传承藏族风俗习惯，对于维护藏族文化的多样性和完整性具有重要意义。</p>
+                    <ul>
+                        <li><strong>政策支持：</strong>政府应制定相关政策，保护和传承藏族风俗习惯。</li>
+                        <li><strong>教育宣传：</strong>通过教育和宣传，让更多的人了解和认识藏族风俗习惯。</li>
+                        <li><strong>文化活动：</strong>通过举办文化活动，如传统节日庆典、民俗表演等，促进藏族风俗习惯的传承。</li>
+                        <li><strong>民间参与：</strong>鼓励民间组织和个人参与藏族风俗习惯的保护和传承。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理面板 - 查看留言</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        h2 {
+            margin-bottom: 1.5rem;
+            color: #c0392b;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 0.5rem;
+        }
+        
+        .message-stats {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        
+        .message-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        .message-table th,
+        .message-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .message-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
+        .message-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .delete-btn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 10px 20px;
+            background-color: #c0392b;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .back-link:hover {
+            background-color: #a93226;
+        }
+        
+        .message-content {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .message-content:hover {
+            white-space: normal;
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="admin-content">
+            <h2>留言列表</h2>
+            
+            <div class="message-stats">
+                <p>当前共有 <span id="totalMessages">0</span> 条反馈记录</p>
+            </div>
+            
+            <table class="message-table" id="messageTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>邮箱</th>
+                        <th>电话</th>
+                        <th>主题</th>
+                        <th>留言内容</th>
+                        <th>微信号</th>
+                        <th>提交时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="messageBody">
+                    <!-- 留言数据将通过JavaScript动态添加 -->
+                </tbody>
+            </table>
+            
+            <div id="emptyMessage" class="empty-message" style="display: none;">
+                <p>暂无留言记录</p>
+            </div>
+            
+            <a href="index.html" class="back-link">返回首页</a>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMessages();
+        });
+        
+        // 加载留言数据
+        function loadMessages() {
+            // 从localStorage获取留言数据
+            const messages = JSON.parse(localStorage.getItem('feedbackMessages')) || [];
+            
+            // 更新留言总数
+            document.getElementById('totalMessages').textContent = messages.length;
+            
+            const messageBody = document.getElementById('messageBody');
+            const emptyMessage = document.getElementById('emptyMessage');
+            
+            // 清空现有内容
+            messageBody.innerHTML = '';
+            
+            if (messages.length === 0) {
+                // 显示无消息提示
+                emptyMessage.style.display = 'block';
+                document.getElementById('messageTable').style.display = 'none';
+            } else {
+                // 隐藏无消息提示
+                emptyMessage.style.display = 'none';
+                document.getElementById('messageTable').style.display = 'table';
+                
+                // 反转数组，使最新的留言显示在前面
+                messages.reverse().forEach(message => {
+                    const row = document.createElement('tr');
+                    
+                    // 格式化时间
+                    const formattedTime = new Date(message.timestamp).toLocaleString('zh-CN');
+                    
+                    row.innerHTML = `
+                        <td>${message.id}</td>
+                        <td>${message.name}</td>
+                        <td>${message.email}</td>
+                        <td>${message.phone || '-'}</td>
+                        <td>${message.subject}</td>
+                        <td class="message-content">${message.message}</td>
+                        <td>${message.wechat || '-'}</td>
+                        <td>${formattedTime}</td>
+                        <td><button class="action-btn delete-btn" onclick="deleteMessage(${message.id})">删除</button></td>
+                    `;
+                    
+                    messageBody.appendChild(row);
+                });
+            }
+        }
+        
+        // 删除留言
+        function deleteMessage(messageId) {
+            if (confirm('确定要删除这条反馈信息吗？')) {
+                // 从localStorage获取留言数据
+                let messages = JSON.parse(localStorage.getItem('feedbackMessages')) || [];
+                
+                // 过滤掉要删除的信息
+                messages = messages.filter(message => message.id !== messageId);
+                
+                // 保存回localStorage
+                localStorage.setItem('feedbackMessages', JSON.stringify(messages));
+                
+                // 重新加载留言列表
+                loadMessages();
+                
+                alert('留言已成功删除！');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 苗族传统节日页面特定样式 */
+        .miao-header {
+            background-image: url('images/miao-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .miao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .miao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .miao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .miao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .miao-section {
+            margin-bottom: 80px;
+        }
+        
+        .miao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .miao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .miao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .miao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .miao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .miao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .miao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .miao-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .miao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .miao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .miao-header h1 {
+                font-size: 36px;
+            }
+            
+            .miao-header p {
+                font-size: 18px;
+            }
+            
+            .miao-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="miao-header">
+        <div class="container">
+            <div class="miao-header-content">
+                <h1>苗族传统节日</h1>
+                <p>苗族节日的文化内涵与庆祝方式</p>
+                <a href="miao.html" class="back-link">返回苗族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="miao-main">
+        <div class="container">
+            <div class="miao-content">
+                <!-- 传统节日概况 -->
+                <section class="miao-section">
+                    <h2>传统节日概况</h2>
+                    <p>苗族是一个能歌善舞、热情好客的民族，有着丰富多彩的传统节日。苗族的传统节日不仅是苗族人民庆祝丰收、祈求平安的重要方式，也是苗族文化传承的重要载体。苗族的传统节日有苗年、四月八、龙舟节、花山节等，每个节日都有独特的起源、庆祝方式和文化意义。</p>
+                </section>
+
+                <!-- 苗年 -->
+                <section class="miao-section">
+                    <h2>苗年</h2>
+                    <p>苗年是苗族最重要的传统节日，相当于汉族的春节。苗年的时间因地而异，通常在农历十月至十二月之间，具体日期由苗族的巫师（巴代）根据天文历法确定。</p>
+                    
+                    <h3>节日起源</h3>
+                    <p>苗年的起源可以追溯到苗族的原始社会时期，是苗族人民为了庆祝丰收、祈求来年风调雨顺、五谷丰登而举行的节日。苗年也是苗族人民祭祀祖先、感恩神灵的重要时刻。</p>
+                    
+                    <h3>庆祝方式</h3>
+                    <ul>
+                        <li><strong>准备工作：</strong>苗年到来之前，苗族人民会进行充分的准备工作，如打扫房屋、缝制新衣、准备年货等。苗族妇女会制作五色饭、糯米粑等传统食品，苗族男子会准备酒、肉等祭品。</li>
+                        <li><strong>祭祖仪式：</strong>苗年的第一天，苗族人民会举行隆重的祭祖仪式。人们会在堂屋中摆上祭品，点燃香烛，向祖先的牌位跪拜，祈求祖先的保佑。</li>
+                        <li><strong>走亲访友：</strong>苗年期间，苗族人民会走亲访友，互相拜年，赠送礼物，如糯米粑、酒、肉等。人们会在一起吃饭、喝酒、唱歌、跳舞，非常热闹。</li>
+                        <li><strong>娱乐活动：</strong>苗年期间，苗族人民会举行各种娱乐活动，如跳芦笙舞、铜鼓舞、木鼓舞等，还会举行斗牛、赛马、摔跤、对歌等比赛。这些活动不仅是苗族人民的娱乐方式，也是苗族文化的重要组成部分。</li>
+                        <li><strong>驱邪仪式：</strong>苗年的最后一天，苗族人民会举行驱邪仪式，送走旧年的晦气，迎接新年的好运。人们会用竹子扎成扫帚，打扫房屋，然后将扫帚和一些旧物品拿到村外烧掉，象征着驱走邪气，迎来吉祥。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>苗年是苗族文化的重要象征，具有以下文化意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>苗年是苗族文化传承的重要载体，通过苗年的各种仪式和活动，苗族的历史、文化、宗教信仰等得到了传承和发扬。</li>
+                        <li><strong>民族团结：</strong>苗年是苗族人民团结互助、和谐相处的重要时刻，通过苗年的走亲访友、集体活动等，苗族人民的感情得到了加深，民族团结得到了加强。</li>
+                        <li><strong>宗教信仰：</strong>苗年是苗族宗教信仰的重要体现，通过苗年的祭祖仪式、驱邪仪式等，苗族的宗教信仰得到了表达和传承。</li>
+                        <li><strong>审美情趣：</strong>苗年是苗族审美情趣的重要展示，通过苗年的服饰、音乐、舞蹈等，苗族的审美观念得到了体现和传播。</li>
+                    </ul>
+                </section>
+
+                <!-- 四月八 -->
+                <section class="miao-section">
+                    <h2>四月八</h2>
+                    <p>四月八是苗族的传统节日，每年农历四月初八举行。这个节日起源于苗族先民对祖先蚩尤的祭祀，现在已经成为苗族人民的欢乐节。</p>
+                    
+                    <h3>节日起源</h3>
+                    <p>四月八的起源与苗族的祖先蚩尤有关。据传说，蚩尤是苗族的祖先，是中国古代的强大部落首领。在涿鹿之战中，蚩尤被黄帝击败，英勇牺牲。苗族人民为了纪念蚩尤，将每年的农历四月初八定为节日，举行隆重的祭祀仪式。</p>
+                    
+                    <h3>庆祝方式</h3>
+                    <ul>
+                        <li><strong>祭祀仪式：</strong>四月八这一天，苗族人民会举行隆重的祭祀仪式，祭祀祖先蚩尤。人们会在蚩尤的神像或牌位前摆上祭品，点燃香烛，向蚩尤跪拜，祈求蚩尤的保佑。</li>
+                        <li><strong>穿盛装：</strong>四月八这一天，苗族人民会穿上华丽的盛装，佩戴精美的银饰，展示苗族的服饰文化。</li>
+                        <li><strong>跳芦笙舞：</strong>四月八这一天，苗族人民会举行盛大的芦笙舞会，人们会聚集在一起，吹芦笙、跳芦笙舞，庆祝节日。</li>
+                        <li><strong>对歌：</strong>四月八这一天，苗族青年男女会举行对歌比赛，通过对歌的方式表达爱意，寻找伴侣。</li>
+                        <li><strong>吃五色饭：</strong>四月八这一天，苗族人民会制作五色饭，五色饭是用糯米和各种植物的汁液煮成的，有红、黄、蓝、白、黑五种颜色，象征着五谷丰登、吉祥如意。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>四月八是苗族文化的重要象征，具有以下文化意义：</p>
+                    <ul>
+                        <li><strong>历史记忆：</strong>四月八是苗族历史记忆的重要载体，通过四月八的祭祀仪式和传说，苗族人民记住了自己的祖先蚩尤，传承了苗族的历史文化。</li>
+                        <li><strong>民族认同：</strong>四月八是苗族民族认同的重要标志，通过四月八的庆祝活动，苗族人民增强了对自己民族的认同感和自豪感。</li>
+                        <li><strong>文化交流：</strong>四月八是苗族文化交流的重要平台，通过四月八的各种活动，苗族人民与其他民族的人民进行了文化交流，促进了民族团结。</li>
+                        <li><strong>艺术展示：</strong>四月八是苗族艺术展示的重要舞台，通过四月八的服饰、音乐、舞蹈等，苗族的艺术成就得到了展示和传播。</li>
+                    </ul>
+                </section>
+
+                <!-- 龙舟节 -->
+                <section class="miao-section">
+                    <h2>龙舟节</h2>
+                    <p>龙舟节是苗族的传统节日，每年农历五月二十四至二十九举行。这个节日起源于苗族人民对龙的崇拜，现在已经成为苗族人民的体育盛会。</p>
+                    
+                    <h3>节日起源</h3>
+                    <p>龙舟节的起源与苗族人民对龙的崇拜有关。据传说，苗族人民生活的地区经常遭受洪水灾害，人们认为是龙在作怪。为了祈求龙的保佑，避免洪水灾害，苗族人民每年都会举行龙舟竞渡活动，向龙献祭，祈求平安。</p>
+                    
+                    <h3>庆祝方式</h3>
+                    <ul>
+                        <li><strong>准备工作：</strong>龙舟节到来之前，苗族人民会进行充分的准备工作，如制作龙舟、训练水手等。龙舟通常是用杉木或松木制成的，长达数十米，雕刻精美，装饰着龙的图案。</li>
+                        <li><strong>祭祀仪式：</strong>龙舟节的第一天，苗族人民会举行隆重的祭祀仪式，祭祀龙神。人们会在江边摆上祭品，点燃香烛，向龙神跪拜，祈求龙神的保佑。</li>
+                        <li><strong>龙舟竞渡：</strong>龙舟节的主要活动是龙舟竞渡。比赛时，水手们会穿着统一的服装，拿着桨，在龙舟上奋力划动，争取第一个到达终点。岸上的观众会为水手们加油助威，非常热闹。</li>
+                        <li><strong>娱乐活动：</strong>龙舟节期间，苗族人民会举行各种娱乐活动，如跳芦笙舞、铜鼓舞、木鼓舞等，还会举行对歌、斗牛、赛马等比赛。这些活动不仅是苗族人民的娱乐方式，也是苗族文化的重要组成部分。</li>
+                        <li><strong>吃粽子：</strong>龙舟节期间，苗族人民会吃粽子，粽子是用糯米和各种馅料制成的，象征着吉祥如意。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>龙舟节是苗族文化的重要象征，具有以下文化意义：</p>
+                    <ul>
+                        <li><strong>宗教信仰：</strong>龙舟节是苗族宗教信仰的重要体现，通过龙舟节的祭祀仪式和传说，苗族的龙崇拜得到了表达和传承。</li>
+                        <li><strong>体育精神：</strong>龙舟节是苗族体育精神的重要展示，通过龙舟竞渡活动，苗族人民的团队合作精神、拼搏精神得到了培养和弘扬。</li>
+                        <li><strong>文化传承：</strong>龙舟节是苗族文化传承的重要载体，通过龙舟节的各种仪式和活动，苗族的历史、文化、宗教信仰等得到了传承和发扬。</li>
+                        <li><strong>民族团结：</strong>龙舟节是苗族人民团结互助、和谐相处的重要时刻，通过龙舟节的集体活动等，苗族人民的感情得到了加深，民族团结得到了加强。</li>
+                    </ul>
+                </section>
+
+                <!-- 花山节 -->
+                <section class="miao-section">
+                    <h2>花山节</h2>
+                    <p>花山节是苗族的传统节日，每年农历正月初二至初九举行。这个节日是苗族青年男女社交的重要聚会，也是展示苗族文化的重要窗口。</p>
+                    
+                    <h3>节日起源</h3>
+                    <p>花山节的起源可以追溯到苗族的原始社会时期，是苗族青年男女为了寻找伴侣、交流感情而举行的节日。花山节的名称来源于节日的活动场所，通常在山坡上举行，因此称为"花山节"。</p>
+                    
+                    <h3>庆祝方式</h3>
+                    <ul>
+                        <li><strong>准备工作：</strong>花山节到来之前，苗族人民会进行充分的准备工作，如搭建花山树、准备祭品等。花山树是用杉木或松木制成的，高达数十米，上面装饰着彩布、银饰等物品，象征着吉祥如意。</li>
+                        <li><strong>祭祀仪式：</strong>花山节的第一天，苗族人民会举行隆重的祭祀仪式，祭祀山神、树神等神灵。人们会在花山树前摆上祭品，点燃香烛，向神灵跪拜，祈求神灵的保佑。</li>
+                        <li><strong>跳芦笙舞：</strong>花山节的主要活动是跳芦笙舞。苗族青年男女会聚集在花山树下，吹芦笙、跳芦笙舞，寻找自己的伴侣。跳舞时，青年男女会互相倾诉爱意，表达自己的感情。</li>
+                        <li><strong>对歌：</strong>花山节期间，苗族青年男女会举行对歌比赛，通过对歌的方式表达爱意，寻找伴侣。对歌的内容通常包括爱情、生活、劳动等方面，歌词优美，旋律动听。</li>
+                        <li><strong>抛绣球：</strong>花山节期间，苗族青年男女会举行抛绣球活动。女孩会将绣球抛给自己喜欢的男孩，如果男孩也喜欢女孩，就会接住绣球，然后两人一起跳舞、对歌，表达爱意。</li>
+                        <li><strong>娱乐活动：</strong>花山节期间，苗族人民会举行各种娱乐活动，如斗牛、赛马、摔跤、射箭等比赛。这些活动不仅是苗族人民的娱乐方式，也是苗族文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>花山节是苗族文化的重要象征，具有以下文化意义：</p>
+                    <ul>
+                        <li><strong>婚姻习俗：</strong>花山节是苗族婚姻习俗的重要体现，通过花山节的各种活动，苗族青年男女可以自由恋爱，选择自己的伴侣，体现了苗族的恋爱自由观念。</li>
+                        <li><strong>文化传承：</strong>花山节是苗族文化传承的重要载体，通过花山节的各种仪式和活动，苗族的历史、文化、宗教信仰等得到了传承和发扬。</li>
+                        <li><strong>民族团结：</strong>花山节是苗族人民团结互助、和谐相处的重要时刻，通过花山节的集体活动等，苗族人民的感情得到了加深，民族团结得到了加强。</li>
+                        <li><strong>艺术展示：</strong>花山节是苗族艺术展示的重要舞台，通过花山节的服饰、音乐、舞蹈等，苗族的艺术成就得到了展示和传播。</li>
+                    </ul>
+                </section>
+
+                <!-- 其他传统节日 -->
+                <section class="miao-section">
+                    <h2>其他传统节日</h2>
+                    <p>除了苗年、四月八、龙舟节、花山节等主要传统节日外，苗族还有许多其他传统节日，如吃新节、鼓藏节、清明节、中元节等。</p>
+                    
+                    <h3>吃新节</h3>
+                    <p>吃新节是苗族的传统节日，通常在农历六月至七月之间举行，具体日期由苗族的巫师（巴代）根据天文历法确定。吃新节是苗族人民为了庆祝新粮丰收而举行的节日，人们会品尝新收获的粮食，祈求来年风调雨顺、五谷丰登。</p>
+                    
+                    <h3>鼓藏节</h3>
+                    <p>鼓藏节是苗族的传统节日，通常每十三年举行一次，具体日期由苗族的巫师（巴代）根据天文历法确定。鼓藏节是苗族人民为了祭祀祖先、感恩神灵而举行的节日，人们会举行隆重的祭祀仪式，跳铜鼓舞、木鼓舞等，还会举行斗牛、赛马等比赛。</p>
+                    
+                    <h3>清明节</h3>
+                    <p>清明节是苗族的传统节日，每年农历三月初三举行。清明节是苗族人民为了祭祀祖先、扫墓而举行的节日，人们会到祖先的墓前扫墓、烧纸钱、供祭品，祈求祖先的保佑。</p>
+                    
+                    <h3>中元节</h3>
+                    <p>中元节是苗族的传统节日，每年农历七月十五举行。中元节是苗族人民为了祭祀祖先、超度亡灵而举行的节日，人们会在堂屋中摆上祭品，点燃香烛，向祖先的牌位跪拜，祈求祖先的保佑。</p>
+                </section>
+
+                <!-- 传统节日的传承与发展 -->
+                <section class="miao-section">
+                    <h2>传统节日的传承与发展</h2>
+                    <p>苗族的传统节日是苗族文化的重要组成部分，是苗族人民智慧的结晶。为了保护和传承苗族的传统节日，苗族人民采取了一系列措施。</p>
+                    
+                    <h3>传承方式</h3>
+                    <ul>
+                        <li><strong>口头传承：</strong>苗族的传统节日主要通过口头传承的方式传承，如长辈给晚辈讲述节日的起源和意义，教导晚辈遵守节日的习俗。</li>
+                        <li><strong>实践传承：</strong>苗族的传统节日主要通过实践传承的方式传承，如在节日期间，晚辈通过参与各种仪式和活动，学习和掌握节日的习俗。</li>
+                        <li><strong>家族传承：</strong>苗族的一些传统节日习俗，如制作五色饭、糯米粑等，主要通过家族传承的方式传承，如母亲教女儿、祖母教孙女等。</li>
+                    </ul>
+                    
+                    <h3>发展现状</h3>
+                    <ul>
+                        <li><strong>保护措施：</strong>新中国成立后，党和政府重视少数民族文化的保护和发展，采取了一系列措施，如建立文化保护区、收集整理民间节日资料、培养传承人等。</li>
+                        <li><strong>创新发展：</strong>在保护传统节日的基础上，苗族人民也在不断创新和发展节日形式，如将传统的节日活动与现代元素相结合，创造出具有现代风格的节日形式。</li>
+                        <li><strong>对外交流：</strong>随着改革开放的深入，苗族的传统节日也开始走向世界，如苗族的花山节、龙舟节等节日在国际上受到了关注，苗族的文化也得到了更广泛的传播。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日与文化的关系 -->
+                <section class="miao-section">
+                    <h2>传统节日与文化的关系</h2>
+                    <p>苗族的传统节日与苗族的文化密切相关，它不仅是苗族文化的重要组成部分，也是苗族文化传承的重要载体。</p>
+                    
+                    <h3>传统节日与历史</h3>
+                    <p>苗族的传统节日反映了苗族的历史，如苗年反映了苗族的农业生产历史，四月八反映了苗族的祖先崇拜历史，龙舟节反映了苗族的龙崇拜历史，花山节反映了苗族的婚姻习俗历史等。</p>
+                    
+                    <h3>传统节日与宗教</h3>
+                    <p>苗族的传统节日与苗族的宗教信仰密切相关，如苗年、四月八、龙舟节、花山节等节日都有浓厚的宗教色彩，包含着祭祀、祈福等宗教内容。这些宗教内容反映了苗族的宗教信仰，是苗族宗教文化的重要组成部分。</p>
+                    
+                    <h3>传统节日与艺术</h3>
+                    <p>苗族的传统节日与苗族的艺术密切相关，如传统节日中的音乐、舞蹈、服饰、工艺美术等都是苗族艺术的重要组成部分。这些艺术形式反映了苗族的审美观念和文化传统，是苗族艺术成就的重要展示。</p>
+                    
+                    <h3>传统节日与社会</h3>
+                    <p>苗族的传统节日与苗族的社会密切相关，如传统节日中的走亲访友、集体活动等反映了苗族的社会交往和人际关系，传统节日中的民族团结、互助合作等反映了苗族的社会道德和价值观念。</p>
+                </section>
+
+                <!-- 传统节日的现状与保护 -->
+                <section class="miao-section">
+                    <h2>传统节日的现状与保护</h2>
+                    <p>随着社会的发展和现代化进程的加快，苗族的传统节日也面临着一些挑战和机遇。</p>
+                    
+                    <h3>现状</h3>
+                    <ul>
+                        <li><strong>传统节日的延续：</strong>在苗族聚居的农村地区，传统节日仍然得到保留和传承，如苗年、四月八、龙舟节、花山节等节日仍然隆重举行。</li>
+                        <li><strong>现代节日的影响：</strong>在苗族聚居的城镇地区，现代节日如春节、国庆节、元旦等的影响逐渐扩大，传统节日的地位受到了一定的挑战。</li>
+                        <li><strong>节日形式的变化：</strong>在保护传统节日的基础上，苗族人民也在不断创新和发展节日形式，如将传统的节日活动与现代元素相结合，创造出具有现代风格的节日形式。</li>
+                        <li><strong>节日传承的挑战：</strong>随着社会的发展和现代化进程的加快，苗族的传统节日也面临着一些传承挑战，如年轻人对传统节日的兴趣减少，传统节日的传承出现断层等。</li>
+                    </ul>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>建立文化保护区：</strong>在苗族聚居的地区建立文化保护区，保护苗族的传统节日。</li>
+                        <li><strong>收集整理民间节日资料：</strong>收集整理苗族的民间节日资料，建立数据库和档案，为研究和传承苗族传统节日提供资料。</li>
+                        <li><strong>培养传承人：</strong>通过学校教育、师徒传承等方式，培养苗族传统节日的传承人，确保苗族传统节日的后继有人。</li>
+                        <li><strong>发展文化产业：</strong>将苗族的传统节日与文化产业相结合，如发展苗族文化旅游产业，促进苗族传统节日的传承和发展。</li>
+                        <li><strong>加强对外交流：</strong>加强苗族传统节日的对外交流，如举办苗族文化节、参加国际文化展览等，提高苗族传统节日的知名度和影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

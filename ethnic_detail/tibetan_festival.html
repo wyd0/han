@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藏族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 藏族传统节日页面特定样式 */
+        .tibetan-festival-header {
+            background-image: url('images/藏装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tibetan-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tibetan-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tibetan-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-tibetan {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-tibetan:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tibetan-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tibetan-festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .tibetan-festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tibetan-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tibetan-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tibetan-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tibetan-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日特点网格 */
+        .festival-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .festival-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tibetan-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .tibetan-festival-header p {
+                font-size: 18px;
+            }
+            
+            .tibetan-festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .tibetan-festival-main {
+            opacity: 1 !important;
+        }
+        
+        .tibetan-festival-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .festival-feature-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="tibetan-festival-header">
+        <div class="container">
+            <div class="tibetan-festival-header-content">
+                <h1>藏族传统节日</h1>
+                <p>藏历新年的喜庆，雪顿节的欢乐，望果节的丰收，展现藏族独特的节日文化</p>
+                <a href="tibetan.html" class="back-tibetan">返回藏族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="tibetan-festival-main">
+        <div class="container">
+            <div class="tibetan-festival-content">
+                <!-- 传统节日概述 -->
+                <section class="tibetan-festival-section">
+                    <h2>藏族传统节日概述</h2>
+                    <p>藏族是一个具有丰富传统节日的民族，这些节日承载着藏族的历史、文化、宗教信仰和生活方式，是藏族文化的重要组成部分。藏族的传统节日大多与宗教活动密切相关，同时也反映了藏族人民的生产生活和审美情趣。</p>
+                    <p>藏族的传统节日种类繁多，主要包括藏历新年、雪顿节、望果节、燃灯节、沐浴节等。这些节日都有其独特的历史背景、宗教意义和庆祝方式，是藏族人民表达情感、传承文化的重要方式。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="tibetan-festival-section">
+                    <h2>主要传统节日</h2>
+                    
+                    <h3>藏历新年</h3>
+                    <p>藏历新年是藏族最重要的传统节日，相当于汉族的春节，时间在藏历正月初一。藏历新年是藏族人民辞旧迎新、祈求丰收和幸福的重要节日，具有浓厚的宗教色彩和民族特色。</p>
+                    <h4>节日准备</h4>
+                    <ul>
+                        <li><strong>打扫房屋：</strong> 藏历新年前，藏族家庭会进行全面的打扫，清除污垢，迎接新年的到来。</li>
+                        <li><strong>准备食物：</strong> 藏族家庭会准备丰富的节日食物，如酥油、青稞酒、糌粑、炸油果等。</li>
+                        <li><strong>制作切玛：</strong> 切玛是藏历新年的重要象征，由青稞穗、糌粑、酥油等制成，象征着丰收和吉祥。</li>
+                        <li><strong>缝制新衣：</strong> 藏族家庭会为家人缝制新衣，准备在新年期间穿着。</li>
+                    </ul>
+                    <h4>节日活动</h4>
+                    <ul>
+                        <li><strong>除夕：</strong> 藏历除夕，藏族家庭会团聚在一起，吃团圆饭，守岁到深夜，然后到寺庙烧香祈福。</li>
+                        <li><strong>初一：</strong> 藏历初一，藏族人民会早早起床，穿上新衣，到寺庙烧香祈福，然后互相拜年，赠送哈达和礼物。</li>
+                        <li><strong>初二至十五：</strong> 藏历初二至十五，藏族人民会走亲访友，参加各种娱乐活动，如跳锅庄舞、弦子舞、赛马、射箭等。</li>
+                        <li><strong>十五：</strong> 藏历十五，藏族人民会举行灯会，燃放烟花，庆祝新年的结束。</li>
+                    </ul>
+                    
+                    <h3>雪顿节</h3>
+                    <p>雪顿节是藏族的传统节日，时间在藏历六月底七月初。雪顿节的原意是"酸奶节"，后来逐渐演变为以展佛、藏戏表演和吃酸奶为主要内容的节日。</p>
+                    <h4>节日起源</h4>
+                    <p>雪顿节的起源与藏传佛教有关。据说，在藏传佛教的戒律中，夏季有一段时间禁止僧侣出门，以免伤害昆虫。这段时间结束后，僧侣们可以出门，信徒们会准备酸奶来欢迎他们，逐渐形成了雪顿节。</p>
+                    <h4>节日活动</h4>
+                    <ul>
+                        <li><strong>展佛：</strong> 雪顿节的第一天，藏族人民会在哲蚌寺、色拉寺等寺庙举行展佛仪式，将巨大的佛像唐卡展示在山坡上，信徒们会前来朝拜。</li>
+                        <li><strong>藏戏表演：</strong> 雪顿节期间，藏族人民会在罗布林卡等地举行藏戏表演，表演传统的藏戏剧目，如《文成公主》《格萨尔王传》等。</li>
+                        <li><strong>吃酸奶：</strong> 雪顿节期间，藏族人民会吃酸奶，这是雪顿节的传统习俗，象征着纯洁和吉祥。</li>
+                        <li><strong>游园活动：</strong> 雪顿节期间，藏族人民会在罗布林卡等地举行游园活动，欣赏花卉，参加各种娱乐活动。</li>
+                    </ul>
+                    
+                    <h3>望果节</h3>
+                    <p>望果节是藏族的传统节日，时间在藏历八月，青稞成熟的时候。望果节是藏族人民庆祝丰收的节日，具有浓厚的农业文化特色。</p>
+                    <h4>节日起源</h4>
+                    <p>望果节的起源与藏族的农业生产有关。据说，在古代，藏族农民为了祈求丰收，会举行宗教仪式，绕着农田转圈，祈祷神灵保佑农作物丰收，逐渐形成了望果节。</p>
+                    <h4>节日活动</h4>
+                    <ul>
+                        <li><strong>转田：</strong> 望果节期间，藏族农民会穿着盛装，手持青稞穗、经幡等，绕着农田转圈，祈祷神灵保佑农作物丰收。</li>
+                        <li><strong>宗教仪式：</strong> 望果节期间，藏族人民会举行宗教仪式，由喇嘛诵经，祈求神灵的保佑。</li>
+                        <li><strong>赛马射箭：</strong> 望果节期间，藏族人民会举行赛马、射箭、摔跤等传统体育活动，庆祝丰收。</li>
+                        <li><strong>歌舞表演：</strong> 望果节期间，藏族人民会跳锅庄舞、弦子舞等传统舞蹈，唱歌庆祝丰收。</li>
+                    </ul>
+                </section>
+
+                <!-- 其他传统节日 -->
+                <section class="tibetan-festival-section">
+                    <h2>其他传统节日</h2>
+                    <div class="festival-features-grid">
+                        <div class="festival-feature-item">
+                            <h5>燃灯节</h5>
+                            <p>燃灯节是藏族的传统节日，时间在藏历十月二十五日，是为了纪念藏传佛教格鲁派创始人宗喀巴大师的圆寂。节日期间，藏族人民会在寺庙和家中点燃酥油灯，诵经祈祷，表达对宗喀巴大师的敬仰和怀念。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>沐浴节</h5>
+                            <p>沐浴节是藏族的传统节日，时间在藏历七月上旬，持续七天。节日期间，藏族人民会到河边洗澡，清洗衣物，认为这时候的河水最干净，具有治病健身的功效。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>驱鬼节</h5>
+                            <p>驱鬼节是藏族的传统节日，时间在藏历十二月二十九日。节日期间，藏族人民会举行驱鬼仪式，焚烧鬼俑，祈求平安，驱走一年的晦气。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>萨嘎达瓦节</h5>
+                            <p>萨嘎达瓦节是藏族的传统节日，时间在藏历四月，是为了纪念释迦牟尼佛的诞生、成道和圆寂。节日期间，藏族人民会到寺庙烧香祈福，转经，施舍，参加各种宗教活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日的文化意义 -->
+                <section class="tibetan-festival-section">
+                    <h2>节日的文化意义</h2>
+                    
+                    <h3>宗教意义</h3>
+                    <p>藏族传统节日的宗教意义主要体现在：</p>
+                    <ul>
+                        <li><strong>强化宗教信仰：</strong> 节日期间的宗教仪式和活动，如烧香祈福、转经、诵经等，有助于强化藏族的宗教信仰，加深对宗教教义的理解。</li>
+                        <li><strong>传承宗教文化：</strong> 节日是宗教文化传承的重要载体，通过节日活动，藏族将宗教的教义、历史、传统等传递给下一代。</li>
+                        <li><strong>实践宗教教义：</strong> 节日期间的施舍、行善等活动，是藏族实践宗教教义的重要方式。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>藏族传统节日的文化意义主要体现在：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong> 节日是藏族文化传承的重要方式，通过节日活动，藏族将自己的语言、文学、艺术、风俗习惯等文化元素传递给下一代。</li>
+                        <li><strong>文化融合：</strong> 藏族传统节日融合了宗教文化、农业文化、游牧文化等多种文化元素，体现了藏族文化的多元性和包容性。</li>
+                        <li><strong>文化认同：</strong> 节日是藏族文化认同的重要标志，通过共同的节日活动，藏族增强了对自己文化的认同和自豪感。</li>
+                    </ul>
+                    
+                    <h3>社会意义</h3>
+                    <p>藏族传统节日的社会意义主要体现在：</p>
+                    <ul>
+                        <li><strong>社区凝聚：</strong> 节日期间的集体活动，如跳锅庄舞、赛马、射箭等，有助于增强社区的凝聚力，促进邻里之间的交流和团结。</li>
+                        <li><strong>社会和谐：</strong> 节日期间的互赠礼物、互相拜年等活动，有助于促进社会的和谐与稳定。</li>
+                        <li><strong>文化交流：</strong> 节日期间，藏族会与其他民族进行文化交流，促进各民族之间的相互了解和友谊。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的庆祝方式 -->
+                <section class="tibetan-festival-section">
+                    <h2>节日的庆祝方式</h2>
+                    
+                    <h3>宗教仪式</h3>
+                    <p>藏族传统节日的宗教仪式主要包括：</p>
+                    <ul>
+                        <li><strong>烧香祈福：</strong> 藏族人民会到寺庙烧香，祈求神灵的保佑和加持。</li>
+                        <li><strong>转经：</strong> 藏族人民会手持转经筒，绕着寺庙或神山转经，表达对神灵的敬仰和虔诚。</li>
+                        <li><strong>诵经：</strong> 藏族人民会集体诵经，祈求平安和幸福。</li>
+                        <li><strong>法会：</strong> 寺庙会举行法会，由喇嘛主持，进行宗教仪式和活动。</li>
+                    </ul>
+                    
+                    <h3>传统习俗</h3>
+                    <p>藏族传统节日的传统习俗主要包括：</p>
+                    <ul>
+                        <li><strong>饮食习俗：</strong> 节日期间，藏族人民会准备丰富的传统食物，如酥油、青稞酒、糌粑、炸油果等，与家人和朋友分享。</li>
+                        <li><strong>服饰习俗：</strong> 节日期间，藏族人民会穿着盛装，佩戴各种首饰，展示自己的美丽和财富。</li>
+                        <li><strong>娱乐活动：</strong> 节日期间，藏族人民会参加各种娱乐活动，如跳锅庄舞、弦子舞、赛马、射箭等，庆祝节日的到来。</li>
+                        <li><strong>社交活动：</strong> 节日期间，藏族人民会走亲访友，互赠礼物，互相拜年，加强人际关系。</li>
+                    </ul>
+                    
+                    <h3>现代庆祝方式</h3>
+                    <p>随着社会的发展，藏族传统节日的庆祝方式也在不断创新和变化：</p>
+                    <ul>
+                        <li><strong>文化活动：</strong> 现代藏族节日期间，会举办各种文化活动，如文艺演出、展览、比赛等，丰富节日内容。</li>
+                        <li><strong>旅游活动：</strong> 现代藏族节日期间，会开展旅游活动，吸引国内外游客参与，促进旅游业的发展。</li>
+                        <li><strong>商业活动：</strong> 现代藏族节日期间，会开展各种商业活动，如物资交流、商品展销等，促进经济的发展。</li>
+                        <li><strong>媒体传播：</strong> 现代藏族节日期间，会通过电视、广播、互联网等媒体进行传播，扩大节日的影响力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日与文化传承 -->
+                <section class="tibetan-festival-section">
+                    <h2>节日与文化传承</h2>
+                    
+                    <h3>家庭传承</h3>
+                    <p>家庭是藏族传统节日传承的重要场所：</p>
+                    <ul>
+                        <li><strong>家庭教育：</strong> 家长通过向子女讲述节日的历史背景、宗教意义和传统习俗，将节日文化传递给下一代。</li>
+                        <li><strong>家庭活动：</strong> 家庭成员一起准备节日食物、参加节日活动，共同体验节日文化，增强家庭凝聚力。</li>
+                        <li><strong>家庭传统：</strong> 一些藏族家庭会保留自己独特的节日传统，如特定的食物制作方法、特定的庆祝仪式等，这些传统成为家庭文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>社区传承</h3>
+                    <p>社区是藏族传统节日传承的重要平台：</p>
+                    <ul>
+                        <li><strong>集体活动：</strong> 寺庙和社区组织会举办集体活动，如展佛、藏戏表演、赛马等，为藏族提供共同参与节日的机会。</li>
+                        <li><strong>社区教育：</strong> 寺庙和社区组织会通过举办讲座、培训班等活动，向藏族群众普及节日知识，促进节日文化的传承。</li>
+                        <li><strong>社区传统：</strong> 一些藏族社区会保留自己独特的节日传统，如特定的庆祝仪式、特定的文化活动等，这些传统成为社区文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>社会传承</h3>
+                    <p>社会是藏族传统节日传承的重要环境：</p>
+                    <ul>
+                        <li><strong>媒体宣传：</strong> 媒体通过宣传藏族传统节日的历史背景、宗教意义和传统习俗，提高社会对藏族节日文化的认识和理解。</li>
+                        <li><strong>文化保护：</strong> 政府和社会组织通过制定相关政策、提供资金支持等方式，保护和传承藏族传统节日文化。</li>
+                        <li><strong>文化交流：</strong> 藏族通过与其他民族的文化交流，吸收其他民族节日文化的精华，丰富自己的节日文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的现代意义 -->
+                <section class="tibetan-festival-section">
+                    <h2>节日的现代意义</h2>
+                    
+                    <h3>文化认同</h3>
+                    <p>在现代社会中，藏族传统节日对于增强藏族的文化认同具有重要意义：</p>
+                    <ul>
+                        <li><strong>民族凝聚力：</strong> 通过共同的节日活动，藏族增强了对自己民族的认同感和归属感，促进了民族内部的团结和凝聚力。</li>
+                        <li><strong>文化自信：</strong> 藏族传统节日展示了藏族文化的独特魅力，有助于增强藏族的文化自信，提高藏族在多元文化社会中的文化地位。</li>
+                        <li><strong>文化传承：</strong> 通过节日活动，藏族将自己的文化传统传递给下一代，确保文化的延续和发展。</li>
+                    </ul>
+                    
+                    <h3>社会和谐</h3>
+                    <p>藏族传统节日对于促进社会和谐具有重要意义：</p>
+                    <ul>
+                        <li><strong>民族团结：</strong> 藏族传统节日是藏族与其他民族交流的重要机会，通过节日交流，促进了各民族之间的相互了解和团结。</li>
+                        <li><strong>社会稳定：</strong> 节日期间的社区活动有助于增强社区凝聚力，维护社会稳定。</li>
+                        <li><strong>文化多样性：</strong> 藏族传统节日是中国文化多样性的重要组成部分，丰富了中国的文化景观。</li>
+                    </ul>
+                    
+                    <h3>个人意义</h3>
+                    <p>藏族传统节日对于藏族个人的成长和发展具有重要意义：</p>
+                    <ul>
+                        <li><strong>精神寄托：</strong> 节日期间的宗教活动为藏族提供了精神寄托和心灵安慰，帮助藏族应对现代社会的压力和挑战。</li>
+                        <li><strong>道德教育：</strong> 节日期间的慈善、互助等活动，是藏族实践道德规范、培养良好品德的重要方式。</li>
+                        <li><strong>家庭幸福：</strong> 节日期间的家庭活动有助于增强家庭成员之间的感情，促进家庭幸福。</li>
+                        <li><strong>文化素养：</strong> 节日期间的文化活动有助于提高藏族的文化素养，丰富精神生活。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

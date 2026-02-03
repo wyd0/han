@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艺术形式 - 汉族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 艺术形式页面特定样式 */
+        .art-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .art-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .art-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .art-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .art-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-han {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-han:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .art-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .art-section {
+            margin-bottom: 80px;
+        }
+        
+        .art-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .art-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .art-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .art-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .art-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .art-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .art-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .art-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 艺术形式卡片 */
+        .art-forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .art-form-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .art-form-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .art-form-card h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .art-form-card p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        /* 艺术作品展示 */
+        .artworks {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .artworks h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .art-header h1 {
+                font-size: 36px;
+            }
+            
+            .art-header p {
+                font-size: 18px;
+            }
+            
+            .art-section h2 {
+                font-size: 28px;
+            }
+            
+            .art-forms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .art-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .art-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="art-header">
+        <div class="container">
+            <div class="art-header-content">
+                <h1>艺术形式</h1>
+                <p>汉族文化的瑰宝与创造力的展现</p>
+                <a href="han.html" class="back-han">返回汉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="art-main">
+        <div class="container">
+            <div class="art-content">
+                <!-- 介绍部分 -->
+                <section class="art-section">
+                    <h2>汉族艺术形式概述</h2>
+                    <p>汉族艺术形式丰富多彩，包括书法、绘画、戏曲、音乐、舞蹈等多种形式，是汉族文化的重要组成部分。这些艺术形式展现了汉族人民的智慧和创造力，具有独特的艺术魅力和文化内涵。</p>
+                    <p>汉族艺术形式历史悠久，经过数千年的发展和演变，形成了独特的艺术风格和审美体系。它们不仅是汉族人民的精神财富，也是世界文化遗产的重要组成部分。</p>
+                </section>
+
+                <!-- 主要艺术形式 -->
+                <section class="art-section">
+                    <h2>主要艺术形式</h2>
+                    <div class="art-forms-grid">
+                        <div class="art-form-card">
+                            <h5>书法</h5>
+                            <p>书法是汉族特有的艺术形式，通过毛笔书写汉字来表达情感和美感，包括篆书、隶书、楷书、行书、草书等多种书体。</p>
+                        </div>
+                        <div class="art-form-card">
+                            <h5>绘画</h5>
+                            <p>绘画包括山水画、花鸟画、人物画等多种形式，倡导意境和神韵，注重笔墨的运用和画面的构图。</p>
+                        </div>
+                        <div class="art-form-card">
+                            <h5>戏曲</h5>
+                            <p>戏曲是汉族传统的综合艺术形式，包括京剧、昆曲、越剧、豫剧等多种剧种，融合了音乐、舞蹈、文学、美术等多种艺术元素。</p>
+                        </div>
+                        <div class="art-form-card">
+                            <h5>音乐</h5>
+                            <p>传统音乐包括宫廷音乐、民间音乐、文人音乐等，乐器有古琴、古筝、二胡、笛子等。</p>
+                        </div>
+                        <div class="art-form-card">
+                            <h5>舞蹈</h5>
+                            <p>传统舞蹈包括宫廷舞蹈、民间舞蹈等，如霓裳羽衣舞、龙舞、狮舞等。</p>
+                        </div>
+                        <div class="art-form-card">
+                            <h5>工艺美术</h5>
+                            <p>工艺美术包括陶瓷、丝绸、刺绣、木雕、石雕等多种形式，展现了汉族人民的工艺水平和审美情趣。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 书法 -->
+                <section class="art-section">
+                    <h2>书法</h2>
+                    <p>书法是汉族特有的艺术形式，被誉为"无言的诗，无行的舞，无图的画，无声的乐"。书法通过毛笔书写汉字来表达情感和美感，是汉族文化的重要组成部分。</p>
+                    
+                    <h3>书法的发展历程</h3>
+                    <ul>
+                        <li><strong>甲骨文：</strong>商朝时期的文字，刻在龟甲和兽骨上，是中国最早的成熟文字。</li>
+                        <li><strong>金文：</strong>周朝时期的文字，铸刻在青铜器上，也称为钟鼎文。</li>
+                        <li><strong>篆书：</strong>秦朝统一六国后推行的标准文字，分为大篆和小篆。</li>
+                        <li><strong>隶书：</strong>汉朝时期流行的文字，是汉字从古文字向今文字演变的转折点。</li>
+                        <li><strong>楷书：</strong>魏晋南北朝时期形成的文字，是现代汉字的标准字体。</li>
+                        <li><strong>行书与草书：</strong>魏晋时期发展起来的字体，行书介于楷书和草书之间，草书则更加简化和流畅。</li>
+                    </ul>
+                    
+                    <h3>主要书体</h3>
+                    <div class="artworks">
+                        <h5>篆书</h5>
+                        <p>篆书是汉字的早期形式，包括大篆和小篆。大篆笔画繁复，结构复杂；小篆笔画均匀，结构整齐，是秦朝统一六国后推行的标准文字。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>隶书</h5>
+                        <p>隶书起源于秦朝，成熟于汉朝，笔画简化，结构扁平，讲究蚕头燕尾，一波三折，是汉字从古文字向今文字演变的转折点。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>楷书</h5>
+                        <p>楷书起源于魏晋时期，成熟于唐朝，笔画规整，结构严谨，是现代汉字的标准字体，也是学习书法的基础。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>行书</h5>
+                        <p>行书介于楷书和草书之间，笔画流畅，结构灵活，既有楷书的规整，又有草书的流畅，是最常用的书体之一。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>草书</h5>
+                        <p>草书笔画简化，结构夸张，笔势连贯，气势磅礴，是书法艺术的最高境界之一。</p>
+                    </div>
+                    
+                    <h3>著名书法家</h3>
+                    <ul>
+                        <li><strong>王羲之：</strong>东晋时期著名书法家，被誉为"书圣"，代表作有《兰亭序》等。</li>
+                        <li><strong>颜真卿：</strong>唐朝时期著名书法家，创立了"颜体"，代表作有《颜勤礼碑》等。</li>
+                        <li><strong>柳公权：</strong>唐朝时期著名书法家，创立了"柳体"，代表作有《玄秘塔碑》等。</li>
+                        <li><strong>欧阳询：</strong>唐朝时期著名书法家，创立了"欧体"，代表作有《九成宫醴泉铭》等。</li>
+                        <li><strong>苏轼：</strong>北宋时期著名书法家，创立了"苏体"，代表作有《寒食帖》等。</li>
+                        <li><strong>米芾：</strong>北宋时期著名书法家，代表作有《蜀素帖》等。</li>
+                    </ul>
+                </section>
+
+                <!-- 绘画 -->
+                <section class="art-section">
+                    <h2>绘画</h2>
+                    <p>汉族绘画历史悠久，风格独特，是世界艺术宝库中的重要组成部分。汉族绘画倡导意境和神韵，注重笔墨的运用和画面的构图，具有独特的艺术魅力。</p>
+                    
+                    <h3>绘画的发展历程</h3>
+                    <ul>
+                        <li><strong>原始绘画：</strong>新石器时代的彩陶画、岩画等，是中国绘画的起源。</li>
+                        <li><strong>先秦绘画：</strong>商周时期的青铜器纹饰、帛画等，初步形成了中国绘画的基本特征。</li>
+                        <li><strong>秦汉绘画：</strong>壁画、帛画等，绘画技巧和表现力得到了很大的提高。</li>
+                        <li><strong>魏晋南北朝绘画：</strong>人物画发展成熟，山水画、花鸟画开始形成，出现了顾恺之等著名画家。</li>
+                        <li><strong>隋唐绘画：</strong>绘画艺术达到鼎盛时期，人物画、山水画、花鸟画都得到了很大的发展，出现了吴道子、阎立本等著名画家。</li>
+                        <li><strong>宋元绘画：</strong>山水画成为主流，文人画兴起，注重意境和神韵，出现了苏轼、米芾、赵孟頫等著名画家。</li>
+                        <li><strong>明清绘画：</strong>绘画流派纷呈，风格多样，出现了董其昌、八大山人、石涛等著名画家。</li>
+                    </ul>
+                    
+                    <h3>主要绘画形式</h3>
+                    <div class="artworks">
+                        <h5>山水画</h5>
+                        <p>山水画是汉族绘画的主流，以自然山水为题材，注重意境和神韵，通过笔墨的运用来表达画家的情感和思想。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>花鸟画</h5>
+                        <p>花鸟画以花卉、鸟类、虫鱼等为题材，注重写生和形似，同时也注重意境和神韵的表达。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>人物画</h5>
+                        <p>人物画以人物为题材，注重人物的神态和表情的刻画，通过人物的形象来表达画家的思想和情感。</p>
+                    </div>
+                    
+                    <h3>著名画家</h3>
+                    <ul>
+                        <li><strong>顾恺之：</strong>东晋时期著名画家，代表作有《洛神赋图》等。</li>
+                        <li><strong>吴道子：</strong>唐朝时期著名画家，被誉为"画圣"，代表作有《送子天王图》等。</li>
+                        <li><strong>阎立本：</strong>唐朝时期著名画家，代表作有《步辇图》等。</li>
+                        <li><strong>张择端：</strong>北宋时期著名画家，代表作有《清明上河图》等。</li>
+                        <li><strong>赵孟頫：</strong>元朝时期著名画家，代表作有《鹊华秋色图》等。</li>
+                        <li><strong>八大山人：</strong>清朝时期著名画家，代表作有《荷石水禽图》等。</li>
+                    </ul>
+                </section>
+
+                <!-- 戏曲 -->
+                <section class="art-section">
+                    <h2>戏曲</h2>
+                    <p>戏曲是汉族传统的综合艺术形式，融合了音乐、舞蹈、文学、美术等多种艺术元素，是世界三大古老戏剧文化之一。</p>
+                    
+                    <h3>戏曲的发展历程</h3>
+                    <ul>
+                        <li><strong>原始歌舞：</strong>戏曲的起源可以追溯到原始社会的歌舞活动。</li>
+                        <li><strong>先秦时期：</strong>出现了优伶表演，是戏曲的萌芽。</li>
+                        <li><strong>汉唐时期：</strong>出现了百戏、参军戏等表演形式，戏曲逐渐形成。</li>
+                        <li><strong>宋元时期：</strong>戏曲进入成熟阶段，出现了杂剧、南戏等形式。</li>
+                        <li><strong>明清时期：</strong>戏曲进入鼎盛时期，出现了昆曲、京剧等剧种。</li>
+                        <li><strong>近现代时期：</strong>戏曲面临挑战，但也在不断创新和发展。</li>
+                    </ul>
+                    
+                    <h3>主要剧种</h3>
+                    <div class="artworks">
+                        <h5>京剧</h5>
+                        <p>京剧是中国的国粹，形成于清朝道光年间，融合了徽剧、汉剧等多种剧种的精华，以唱、念、做、打为主要表演手段，具有独特的艺术风格。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>昆曲</h5>
+                        <p>昆曲是中国最古老的剧种之一，形成于明朝嘉靖年间，以其优美的唱腔和细腻的表演而闻名，被誉为"百戏之祖"。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>越剧</h5>
+                        <p>越剧是中国第二大剧种，形成于清朝末年，以其委婉的唱腔和细腻的表演而闻名，主要流行于江浙沪一带。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>豫剧</h5>
+                        <p>豫剧是中国最大的地方剧种之一，形成于清朝末年，以其粗犷豪放的唱腔和表演而闻名，主要流行于河南一带。</p>
+                    </div>
+                </section>
+
+                <!-- 音乐 -->
+                <section class="art-section">
+                    <h2>音乐</h2>
+                    <p>汉族传统音乐历史悠久，风格独特，是汉族文化的重要组成部分。汉族传统音乐包括宫廷音乐、民间音乐、文人音乐等多种形式，乐器有古琴、古筝、二胡、笛子等。</p>
+                    
+                    <h3>音乐的发展历程</h3>
+                    <ul>
+                        <li><strong>原始音乐：</strong>起源于原始社会的劳动和宗教活动，主要是声乐和简单的乐器。</li>
+                        <li><strong>先秦音乐：</strong>出现了钟、鼓、琴、瑟等乐器，形成了一定的音乐理论。</li>
+                        <li><strong>秦汉音乐：</strong>音乐得到了很大的发展，出现了乐府等音乐机构。</li>
+                        <li><strong>魏晋南北朝音乐：</strong>音乐融合了少数民族的元素，出现了新的乐器和音乐形式。</li>
+                        <li><strong>隋唐音乐：</strong>音乐艺术达到鼎盛时期，出现了燕乐等音乐形式，乐器种类繁多。</li>
+                        <li><strong>宋元明清音乐：</strong>民间音乐得到了很大的发展，出现了词调音乐、戏曲音乐等形式。</li>
+                        <li><strong>近现代音乐：</strong>音乐融合了西方音乐的元素，出现了新的音乐形式。</li>
+                    </ul>
+                    
+                    <h3>主要乐器</h3>
+                    <div class="artworks">
+                        <h5>古琴</h5>
+                        <p>古琴是汉族最古老的弹拨乐器之一，被誉为"圣人之器"，音色优美，表现力丰富，是文人音乐的代表乐器。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>古筝</h5>
+                        <p>古筝是汉族传统的弹拨乐器，音色清脆悦耳，表现力丰富，是民间音乐的重要乐器。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>二胡</h5>
+                        <p>二胡是汉族传统的拉弦乐器，音色优美，表现力丰富，是民间音乐的重要乐器。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>笛子</h5>
+                        <p>笛子是汉族传统的吹管乐器，音色清脆悦耳，表现力丰富，是民间音乐的重要乐器。</p>
+                    </div>
+                </section>
+
+                <!-- 舞蹈 -->
+                <section class="art-section">
+                    <h2>舞蹈</h2>
+                    <p>汉族传统舞蹈历史悠久，风格独特，是汉族文化的重要组成部分。汉族传统舞蹈包括宫廷舞蹈、民间舞蹈等多种形式，如霓裳羽衣舞、龙舞、狮舞等。</p>
+                    
+                    <h3>舞蹈的发展历程</h3>
+                    <ul>
+                        <li><strong>原始舞蹈：</strong>起源于原始社会的劳动和宗教活动，主要是模仿动物和自然现象的动作。</li>
+                        <li><strong>先秦舞蹈：</strong>出现了宫廷舞蹈和民间舞蹈，舞蹈动作更加规范和优美。</li>
+                        <li><strong>秦汉舞蹈：</strong>舞蹈得到了很大的发展，出现了长袖舞、盘鼓舞等形式。</li>
+                        <li><strong>魏晋南北朝舞蹈：</strong>舞蹈融合了少数民族的元素，出现了新的舞蹈形式。</li>
+                        <li><strong>隋唐舞蹈：</strong>舞蹈艺术达到鼎盛时期，出现了霓裳羽衣舞等著名舞蹈。</li>
+                        <li><strong>宋元明清舞蹈：</strong>舞蹈逐渐与戏曲结合，成为戏曲表演的重要组成部分。</li>
+                        <li><strong>近现代舞蹈：</strong>舞蹈融合了西方舞蹈的元素，出现了新的舞蹈形式。</li>
+                    </ul>
+                    
+                    <h3>主要舞蹈形式</h3>
+                    <div class="artworks">
+                        <h5>宫廷舞蹈</h5>
+                        <p>宫廷舞蹈是在宫廷中表演的舞蹈，动作规范，形式华丽，是封建社会等级制度的体现。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>民间舞蹈</h5>
+                        <p>民间舞蹈是在民间流传的舞蹈，动作活泼，形式多样，反映了劳动人民的生活和情感。</p>
+                    </div>
+                    
+                    <div class="artworks">
+                        <h5>祭祀舞蹈</h5>
+                        <p>祭祀舞蹈是在宗教仪式中表演的舞蹈，动作庄重，形式神圣，是人与神沟通的媒介。</p>
+                    </div>
+                </section>
+
+                <!-- 艺术的现代价值 -->
+                <section class="art-section">
+                    <h2>艺术的现代价值</h2>
+                    <p>在现代社会，汉族传统艺术仍然具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>传统艺术是汉族文化的重要载体，通过保护和传承传统艺术，汉族优秀传统文化得以延续和发展。</li>
+                        <li><strong>审美教育：</strong>传统艺术具有独特的艺术魅力和审美价值，通过欣赏和学习传统艺术，可以提高人们的审美水平和艺术素养。</li>
+                        <li><strong>精神寄托：</strong>传统艺术是汉族人民的精神寄托，通过传统艺术，人们可以表达情感，舒缓压力，获得精神上的满足。</li>
+                        <li><strong>文化交流：</strong>传统艺术是汉族文化的重要组成部分，通过传统艺术的传播，可以促进不同文化之间的交流和理解。</li>
+                        <li><strong>经济价值：</strong>传统艺术可以转化为文化产业，为经济发展做出贡献，同时也可以促进旅游业的发展。</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术的保护与传承 -->
+                <section class="art-section">
+                    <h2>艺术的保护与传承</h2>
+                    <p>随着社会的发展和时代的变迁，汉族传统艺术面临着一些挑战，需要我们采取措施加以保护和传承：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>通过学校教育、社会教育等方式，向年轻一代传授传统艺术的知识和技能，增强他们对传统艺术的认识和认同。</li>
+                        <li><strong>创新发展：</strong>在保留传统艺术核心内涵的基础上，创新传统艺术的表现形式，使其更加适应现代社会的需求和年轻人的喜好。</li>
+                        <li><strong>政府支持：</strong>政府应加强对传统艺术的保护和支持，通过立法、政策等方式，保障传统艺术的地位和传承。</li>
+                        <li><strong>社会参与：</strong>鼓励社会各界参与传统艺术的保护和传承，形成全社会共同保护和传承传统艺术的良好氛围。</li>
+                        <li><strong>国际传播：</strong>通过各种渠道，向世界传播汉族传统艺术的魅力和价值，增强汉族文化的国际影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.art-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

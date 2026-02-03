@@ -1,0 +1,451 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彝族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 彝族语言文字页面特定样式 */
+        .yi-language-header {
+            background-image: url('images/yi-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .yi-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yi-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yi-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yi-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yi-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yi-language-section {
+            margin-bottom: 80px;
+        }
+        
+        .yi-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yi-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yi-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yi-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yi-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yi-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yi-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点卡片 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .yi-language-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .yi-language-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .yi-language-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .yi-language-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .yi-language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yi-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .yi-language-header p {
+                font-size: 18px;
+            }
+            
+            .yi-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yi-language-header">
+        <div class="container">
+            <div class="yi-language-header-content">
+                <h1>彝族语言文字</h1>
+                <p>历史悠久的彝族语言与独特的表意文字系统</p>
+                <a href="yi.html" class="back-link">返回彝族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="yi-language-main">
+        <div class="container">
+            <div class="yi-language-content">
+                <!-- 彝族语言概述 -->
+                <section class="yi-language-section">
+                    <h2>彝族语言概述</h2>
+                    <p>彝族语言属于汉藏语系藏缅语族彝语支，是彝族人民交流的主要工具，也是彝族文化的重要载体。彝族语言有着悠久的历史，其形成和发展与彝族的迁徙、融合密切相关。</p>
+                    <p>彝族语言在长期的历史发展过程中，形成了多个方言区，各方言之间既有联系又有差异，反映了彝族文化的多样性和丰富性。</p>
+                </section>
+
+                <!-- 彝族语言的方言 -->
+                <section class="yi-language-section">
+                    <h2>彝族语言的方言</h2>
+                    <p>彝族语言分为六大方言区，每个方言区又有若干次方言和土语。六大方言分别是：</p>
+                    
+                    <div class="language-features">
+                        <div class="feature-card">
+                            <h4>北部方言</h4>
+                            <p>主要分布在四川、云南和贵州的部分地区，是彝族最大的方言区，使用人口约占彝族总人口的40%。北部方言内部差异较小，通话相对容易。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>东部方言</h4>
+                            <p>主要分布在贵州、云南和广西的部分地区，使用人口约占彝族总人口的20%。东部方言内部差异较大，不同土语之间通话困难。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>南部方言</h4>
+                            <p>主要分布在云南南部地区，使用人口约占彝族总人口的15%。南部方言与其他方言差异较大，具有独特的语音和词汇特点。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>东南部方言</h4>
+                            <p>主要分布在云南东南部地区，使用人口约占彝族总人口的10%。东南部方言与南部方言较为接近，但也有自己的特点。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>西部方言</h4>
+                            <p>主要分布在云南西部和四川西南部地区，使用人口约占彝族总人口的10%。西部方言内部差异较小，语音系统较为简单。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>中部方言</h4>
+                            <p>主要分布在云南中部地区，使用人口约占彝族总人口的5%。中部方言是彝族语言中较为特殊的一种，与其他方言差异较大。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 彝族文字 -->
+                <section class="yi-language-section">
+                    <h2>彝族文字</h2>
+                    <p>彝族有自己的文字，即彝文，是一种古老的表意文字。彝文的历史悠久，据考证，其形成时间至少可以追溯到汉代，距今已有两千多年的历史。</p>
+                    
+                    <h3>彝文的特点</h3>
+                    <ul>
+                        <li><strong>表意文字：</strong>彝文是一种表意文字，每个字都有固定的含义，与汉字有相似之处。</li>
+                        <li><strong>音节文字：</strong>彝文也是一种音节文字，每个字表示一个音节。</li>
+                        <li><strong>字形独特：</strong>彝文字形独特，多为方块形，笔画复杂，具有浓厚的民族特色。</li>
+                        <li><strong>历史悠久：</strong>彝文的历史悠久，是中国最古老的文字之一。</li>
+                    </ul>
+                    
+                    <h3>彝文的发展</h3>
+                    <p>彝文在历史上经历了漫长的发展过程。古代彝文主要用于记录宗教经典、历史传说和文学作品，是毕摩（彝族宗教职业者）进行宗教活动的重要工具。</p>
+                    <p>新中国成立后，政府重视彝文的整理和规范工作。1975年，国家制定了《彝文规范方案》，规范了彝文的字形和读音，为彝文的推广和使用创造了条件。</p>
+                    <p>现在，彝文在彝族地区得到了广泛的使用，不仅用于出版书籍、报纸和杂志，还用于学校教育和广播电视节目中。彝文的传承和发展，对于保护和弘扬彝族文化起到了重要作用。</p>
+                </section>
+
+                <!-- 彝族语言的特点 -->
+                <section class="yi-language-section">
+                    <h2>彝族语言的特点</h2>
+                    
+                    <div class="language-features">
+                        <div class="feature-card">
+                            <h4>语音特点</h4>
+                            <p>彝族语言的语音系统较为复杂，有较多的辅音和元音。北部方言有43个辅音，10个元音；南部方言有45个辅音，8个元音。彝族语言的声调也较为复杂，一般有3-4个声调。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>词汇特点</h4>
+                            <p>彝族语言的词汇丰富，反映了彝族人民的生产生活和文化传统。词汇构成以单音节词和双音节词为主，多音节词较少。彝族语言中有大量的借词，主要来自汉语和其他少数民族语言。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>语法特点</h4>
+                            <p>彝族语言的语法属于黏着语类型，通过在词根上添加词缀来表示语法意义。彝族语言的语序一般为"主语-宾语-谓语"，与汉语的"主语-谓语-宾语"语序不同。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 彝族语言的保护与传承 -->
+                <section class="yi-language-section">
+                    <h2>彝族语言的保护与传承</h2>
+                    <p>彝族语言是彝族文化的重要组成部分，是彝族人民的精神财富。保护和传承彝族语言，对于维护彝族文化的多样性和促进彝族地区的发展具有重要意义。</p>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li>建立彝族语言文字保护机构，负责彝族语言文字的整理、研究和推广工作。</li>
+                        <li>在彝族地区的学校开设彝族语言课程，鼓励彝族青少年学习和使用彝族语言。</li>
+                        <li>出版彝族语言的书籍、报纸和杂志，丰富彝族语言的载体。</li>
+                        <li>利用现代媒体技术，如广播、电视、互联网等，推广彝族语言。</li>
+                        <li>开展彝族语言的研究工作，深入探讨彝族语言的特点和规律。</li>
+                    </ul>
+                    
+                    <h3>传承意义</h3>
+                    <p>彝族语言的传承不仅是对彝族文化的保护，也是对中华文化多样性的贡献。通过传承彝族语言，可以：</p>
+                    <ul>
+                        <li>保持彝族文化的独特性和完整性。</li>
+                        <li>促进彝族人民的文化认同和民族凝聚力。</li>
+                        <li>为语言学研究提供丰富的材料。</li>
+                        <li>丰富中华文化的内涵。</li>
+                    </ul>
+                </section>
+
+                <!-- 彝族语言与其他语言的关系 -->
+                <section class="yi-language-section">
+                    <h2>彝族语言与其他语言的关系</h2>
+                    <p>彝族语言与其他藏缅语族语言有着密切的关系，同时也受到汉语和其他少数民族语言的影响。</p>
+                    
+                    <h3>与藏缅语族语言的关系</h3>
+                    <p>彝族语言属于汉藏语系藏缅语族彝语支，与同语支的哈尼语、傈僳语、拉祜语等语言有密切的亲属关系。这些语言在语音、词汇和语法方面有许多相似之处，反映了它们共同的历史渊源。</p>
+                    
+                    <h3>与汉语的关系</h3>
+                    <p>彝族语言与汉语的接触历史悠久，汉语对彝族语言的影响较大。彝族语言中有大量的汉语借词，这些借词涵盖了政治、经济、文化、科技等各个领域。同时，彝族语言也对汉语产生了一定的影响，一些彝族词汇被汉语吸收。</p>
+                    
+                    <h3>与其他少数民族语言的关系</h3>
+                    <p>彝族与其他少数民族如白族、纳西族、傣族等长期相处，语言之间也有一定的影响和借用。例如，彝族语言中吸收了一些白语和纳西语的词汇，同时也有一些彝族词汇被其他少数民族语言吸收。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.yi-language-section');
+            const cards = document.querySelectorAll('.feature-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

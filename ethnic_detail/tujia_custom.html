@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土家族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 详细页面特定样式 */
+        .detail-header {
+            background-image: url('images/ethnicity.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-main {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .detail-content h2 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .detail-header h1 {
+                font-size: 28px;
+            }
+            
+            .detail-content h2 {
+                font-size: 24px;
+            }
+            
+            .detail-content h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="detail-header">
+        <div class="container">
+            <div class="detail-header-content">
+                <h1>土家族风俗习惯</h1>
+                <a href="tujia.html" class="back-link">返回土家族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-content">
+                <p>土家族有着独特的风俗习惯，这些风俗习惯反映了土家族人民的生活方式、价值观念和文化传统。土家族的风俗习惯包括日常生活习俗、婚姻习俗、丧葬习俗、节日习俗等多个方面，具有浓郁的民族特色。</p>
+                
+                <h2>日常生活习俗</h2>
+                
+                <h3>饮食习俗</h3>
+                <p>土家族的饮食习俗具有独特的风格和特点，受到南方地区自然环境和生活方式的影响。</p>
+                <ul>
+                    <li><strong>以大米为主食：</strong>南方地区气候温暖湿润，适合种植水稻，土家族人民以大米为主食。</li>
+                    <li><strong>喜欢酸辣口味：</strong>南方地区气候潮湿，土家族人民喜欢吃酸辣食物，有助于祛湿开胃。</li>
+                    <li><strong>擅长制作腌制食品：</strong>土家族的腌制食品制作工艺历史悠久，种类繁多，味道鲜美，如腊肉、酸鱼、酸肉等。</li>
+                    <li><strong>重视茶文化：</strong>土家族人民喜欢喝茶，茶文化是土家族饮食文化的重要组成部分。</li>
+                    <li><strong>喜欢饮酒：</strong>土家族人民喜欢喝自酿的白酒和黄酒，是重要的社交活动之一。</li>
+                </ul>
+                
+                <h3>居住习俗</h3>
+                <p>土家族的居住习俗具有独特的风格和特点，反映了土家族人民的生活方式和文化传统。</p>
+                <ul>
+                    <li><strong>吊脚楼：</strong>土家族传统建筑以吊脚楼为代表，工艺精湛，风格独特，是中国传统建筑的重要组成部分。</li>
+                    <li><strong>聚族而居：</strong>土家族人民喜欢聚族而居，形成以姓氏为中心的村落，有助于加强家族凝聚力。</li>
+                    <li><strong>重视房屋朝向：</strong>土家族人民重视房屋的朝向，通常选择坐北朝南的方向，有利于采光和通风。</li>
+                    <li><strong>房屋布局：</strong>土家族的房屋布局通常包括堂屋、卧室、厨房等多个部分，功能齐全。</li>
+                </ul>
+                
+                <h3>社交习俗</h3>
+                <p>土家族的社交习俗具有独特的风格和特点，反映了土家族人民的价值观念和文化传统。</p>
+                <ul>
+                    <li><strong>热情好客：</strong>土家族人民热情好客，喜欢邀请客人到家中做客，并用最好的食物招待客人。</li>
+                    <li><strong>重视礼仪：</strong>土家族人民重视礼仪，注重尊卑有序，长幼有别。</li>
+                    <li><strong>喜欢唱歌跳舞：</strong>土家族人民喜欢唱歌跳舞，是重要的社交活动之一。</li>
+                    <li><strong>重视家族观念：</strong>土家族人民重视家族观念，注重家族的团结和荣誉。</li>
+                </ul>
+                
+                <h2>婚姻习俗</h2>
+                <p>土家族的婚姻习俗具有独特的风格和特点，反映了土家族人民的价值观念和文化传统。</p>
+                
+                <h3>婚姻程序</h3>
+                <ul>
+                    <li><strong>说媒：</strong>土家族的婚姻通常由媒人介绍，媒人在婚姻中扮演着重要的角色。</li>
+                    <li><strong>订婚：</strong>订婚是土家族婚姻的重要程序，双方父母会商定婚礼的日期和聘礼的金额。</li>
+                    <li><strong>哭嫁：</strong>哭嫁是土家族婚姻的重要程序，新娘在出嫁前会哭嫁，表达对父母和家人的不舍之情。</li>
+                    <li><strong>婚礼：</strong>婚礼是土家族婚姻的重要程序，通常包括迎亲、拜堂、闹洞房等多个环节。</li>
+                    <li><strong>回门：</strong>回门是土家族婚姻的重要程序，新娘在婚后第三天会回娘家，看望父母和家人。</li>
+                </ul>
+                
+                <h3>哭嫁</h3>
+                <p>哭嫁是土家族婚姻习俗的重要组成部分，是土家族女性在出嫁时唱的歌谣。哭嫁的内容丰富，包括对父母的不舍、对未来生活的担忧、对姐妹的思念等多种情感，情感真挚，感人至深。</p>
+                <p>哭嫁的形式独特，通常由新娘主唱，伴娘和亲友和唱，歌词即兴创作，旋律优美，具有强烈的艺术感染力。哭嫁不仅是土家族婚姻习俗的重要组成部分，也是土家族文学艺术的重要组成部分。</p>
+                
+                <h2>丧葬习俗</h2>
+                <p>土家族的丧葬习俗具有独特的风格和特点，反映了土家族人民的宗教信仰和文化传统。</p>
+                
+                <h3>丧葬程序</h3>
+                <ul>
+                    <li><strong>报丧：</strong>当有人去世时，家属会立即向亲友报丧，通知他们前来吊唁。</li>
+                    <li><strong>入殓：</strong>入殓是土家族丧葬的重要程序，家属会为死者穿上寿衣，放入棺材中。</li>
+                    <li><strong>吊唁：</strong>吊唁是土家族丧葬的重要程序，亲友会前来吊唁，表达对死者的哀悼之情。</li>
+                    <li><strong>出殡：</strong>出殡是土家族丧葬的重要程序，家属会抬着棺材前往墓地，举行葬礼。</li>
+                    <li><strong>守孝：</strong>守孝是土家族丧葬的重要程序，家属会在死者去世后守孝一段时间，表达对死者的哀悼之情。</li>
+                </ul>
+                
+                <h3>跳丧</h3>
+                <p>跳丧是土家族丧葬习俗的重要组成部分，是土家族人民在丧葬仪式上跳的舞蹈。跳丧的起源与土家族的宗教信仰密切相关，最初是土家族人民为了超度亡灵而跳的舞蹈，后来逐渐发展成为一种群众性的娱乐活动。</p>
+                <p>跳丧的形式独特，舞者通常头戴面具，身着彩衣，装扮成各种神灵和动物，动作夸张有力，体现了土家族人民的豪放性格。跳丧不仅是土家族丧葬习俗的重要组成部分，也是土家族文学艺术的重要组成部分。</p>
+                
+                <h2>节日习俗</h2>
+                <p>土家族的节日习俗具有独特的风格和特点，反映了土家族人民的宗教信仰和文化传统。土家族的传统节日有赶年、摆手节、牛王节、六月六等，每个节日都有其独特的习俗和意义。</p>
+                
+                <h3>赶年习俗</h3>
+                <ul>
+                    <li><strong>祭祖：</strong>赶年期间，土家族人民会举行隆重的祭祖仪式，向祖先献上祭品，祈求祖先的保佑。</li>
+                    <li><strong>跳摆手舞：</strong>摆手舞是赶年的重要活动，人们会聚集在一起跳摆手舞，庆祝节日。</li>
+                    <li><strong>吃年饭：</strong>赶年的年饭非常丰盛，有腊肉、糍粑、合渣等传统食品，一家人围坐在一起，共度佳节。</li>
+                    <li><strong>拜年：</strong>赶年期间，土家族人民会走亲访友，互相拜年，增进感情。</li>
+                </ul>
+                
+                <h3>摆手节习俗</h3>
+                <ul>
+                    <li><strong>跳摆手舞：</strong>摆手舞是摆手节的核心活动，舞者手持道师，边唱边跳，节奏明快，气氛热烈。</li>
+                    <li><strong>撒叶儿嗬：</strong>撒叶儿嗬是土家族传统舞蹈形式，舞者头戴面具，身着彩衣，表现原始人类的生活场景。</li>
+                    <li><strong>祭祀：</strong>摆手节期间，土家族人民会举行祭祀活动，祈求风调雨顺、五谷丰登。</li>
+                </ul>
+                
+                <h2>风俗习惯的文化意义</h2>
+                <p>土家族的风俗习惯是土家族文化的重要组成部分，反映了土家族人民的生活方式、价值观念和文化传统。土家族的风俗习惯不仅是土家族人民的精神财富，也是中华文化的重要组成部分，对中国文化的发展做出了重要贡献。</p>
+                <p>土家族的风俗习惯体现了土家族人民对自然的敬畏、对祖先的敬仰、对美好生活的向往，是土家族人民集体智慧的结晶，也是中华民族文化多样性的重要体现。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

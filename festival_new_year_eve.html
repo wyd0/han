@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>除夕 - 传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 除夕页面特定样式 */
+        body {
+            background-image: url('images/传统节日.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .festival-detail-header {
+            background-image: url('images/festival_spring.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .festival-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festival-detail-header-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .festival-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .festival-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festival-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festival-detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .festival-detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-detail-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c0392b;
+        }
+        
+        .festival-detail-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-detail-section p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .festival-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festival-detail-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festival-detail-section li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .festival-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .festival-detail-header p {
+                font-size: 18px;
+            }
+            
+            .festival-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-detail-section h3 {
+                font-size: 22px;
+            }
+            
+            .back-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-link {
+                width: 200px;
+                text-align: center;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="festival-detail-header">
+        <div class="container">
+            <div class="festival-detail-header-content">
+                <h1>除夕</h1>
+                <p>农历十二月最后一天</p>
+                <div class="back-links">
+                    <a href="festival.html" class="back-link">返回节日列表</a>
+                    <a href="index.html" class="back-link">返回首页</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="festival-detail-main">
+        <div class="container">
+            <!-- 搜索栏 -->
+            <div class="search-container" style="margin: 30px 0; text-align: center;">
+                <input type="text" id="festival-search" placeholder="搜索传统节日..." style="padding: 12px 20px; width: 60%; max-width: 500px; border: 2px solid #c0392b; border-radius: 25px; font-size: 16px; outline: none;">
+                <button onclick="searchFestival()" style="padding: 12px 20px; margin-left: 10px; background-color: #c0392b; color: white; border: none; border-radius: 25px; font-size: 16px; cursor: pointer;">搜索</button>
+                <button onclick="clearSearch()" style="padding: 12px 20px; margin-left: 10px; background-color: #95a5a6; color: white; border: none; border-radius: 25px; font-size: 16px; cursor: pointer;">清空</button>
+            </div>
+            <div id="search-history" style="margin: 20px 0; text-align: center; color: #666;"></div>
+            <div id="search-results" style="margin: 30px 0;"></div>
+            
+            <div class="festival-detail-content">
+                <!-- 节日来源 -->
+                <section class="festival-detail-section">
+                    <h2>节日来源</h2>
+                    <p>除夕，又称大年夜、除夜、岁除，是中国传统节日之一，日期在农历十二月最后一天。这个节日的起源与中国古代的岁末驱邪活动密切相关，是一个辞旧迎新、祈求吉祥的节日。</p>
+                    <p>除夕的起源可以追溯到上古时期的岁末驱邪活动。据《吕氏春秋·季冬记》记载："岁有大傩，天子，命有司，大傩旁磔，出土牛，以送寒气。"这就是除夕的起源。</p>
+                    <p>关于除夕的起源，还有一个传说：古代有一只名叫"年"的怪兽，每到岁末就会出来伤害人类。后来，人们发现"年"害怕红色和响声，于是就在这一天贴红春联、放鞭炮、守岁，以驱赶"年"兽。为了纪念这一天，人们就把岁末这一天称为"除夕"。</p>
+                </section>
+
+                <!-- 发展演变 -->
+                <section class="festival-detail-section">
+                    <h2>发展演变</h2>
+                    <p>除夕的历史可以追溯到上古时期，经过漫长的发展演变，逐渐成为一个重要的传统节日。</p>
+                    <h3>先秦时期</h3>
+                    <p>先秦时期，除夕已经存在，当时的除夕主要是举行岁末驱邪活动，驱邪逐疫，祈求丰收和吉祥。据《周礼·春官·宗伯》记载："以索室驱疫。"这就是除夕驱邪活动的起源。</p>
+                    <h3>秦汉时期</h3>
+                    <p>秦汉时期，除夕的习俗逐渐形成，人们会在这一天举行驱邪活动，同时还会守岁、放鞭炮、贴春联等。据《史记·秦始皇本纪》记载，秦统一六国后，规定每年的十二月为腊月，除夕成为一个全国性的节日。</p>
+                    <h3>魏晋南北朝时期</h3>
+                    <p>魏晋南北朝时期，除夕的庆祝活动更加隆重，成为一个重要的传统节日。据《荆楚岁时记》记载，这一时期的除夕，人们会在这一天举行驱邪活动，同时还会守岁、放鞭炮、贴春联等。</p>
+                    <h3>隋唐时期</h3>
+                    <p>隋唐时期，除夕达到了鼎盛时期，成为一个非常重要的传统节日。唐代诗人杜甫在《杜位宅守岁》中写道："守岁阿戎家，椒盘已颂花。盍簪喧枥马，列炬散林鸦。四十明朝过，飞腾暮景斜。谁能更拘束，烂醉是生涯。"描述了当时除夕的景象。宋代，除夕的内容更加丰富，人们会在这一天举行驱邪活动，同时还会守岁、放鞭炮、贴春联、吃年夜饭等。</p>
+                    <h3>明清时期</h3>
+                    <p>明清时期，除夕的地位仍然重要，是一个全民参与的节日。这一时期的除夕，人们会在这一天举行驱邪活动，同时还会守岁、放鞭炮、贴春联、吃年夜饭、发压岁钱等。</p>
+                    <h3>现代时期</h3>
+                    <p>现代时期，除夕的习俗依然保留，但庆祝活动的规模有所减小。人们会在这一天举行驱邪活动，同时还会守岁、放鞭炮、贴春联、吃年夜饭、发压岁钱、看春晚等。</p>
+                </section>
+
+                <!-- 节日影响 -->
+                <section class="festival-detail-section">
+                    <h2>节日影响</h2>
+                    <p>除夕作为中国传统节日之一，对中国社会和文化产生了深远的影响。</p>
+                    <ul>
+                        <li><strong>文化传承</strong>：除夕承载着丰富的文化内涵，是中华传统文化的重要组成部分，通过这个节日，传承和弘扬了中华优秀传统文化。</li>
+                        <li><strong>家庭观念</strong>：除夕强调家庭的重要性，人们会在这一天团聚在一起，吃年夜饭、守岁，体现了中华民族重视家庭的传统观念。</li>
+                        <li><strong>民俗文化</strong>：除夕的各种习俗，如贴春联、放鞭炮、吃年夜饭、守岁等，反映了中国的民间文化，成为中华民族特有的文化符号。</li>
+                        <li><strong>社会凝聚</strong>：除夕是一个全民参与的节日，通过各种庆祝活动，增强了社区的凝聚力和认同感。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="festival-detail-section">
+                    <h2>节日习俗</h2>
+                    <p>除夕的习俗丰富多彩，具有浓郁的民族特色。以下是主要习俗：</p>
+                    <h3>贴春联</h3>
+                    <p>除夕贴春联是一个传统习俗，人们会在这一天在门上贴各种喜庆的春联，增加节日的喜庆气氛。春联的内容通常包括吉祥如意、恭喜发财、平安幸福等，寓意着对新年的美好祝愿。</p>
+                    <h3>贴窗花</h3>
+                    <p>除夕贴窗花是一个传统习俗，人们会在这一天在窗户上贴各种精美的窗花，增加节日的喜庆气氛。窗花的图案通常包括花卉、动物、人物等，寓意吉祥如意。</p>
+                    <h3>贴福字</h3>
+                    <p>除夕贴福字是一个传统习俗，人们会在这一天在门上、墙上贴各种福字，寓意着福气临门。有些地方还会将福字倒贴，寓意着"福到"。</p>
+                    <h3>吃年夜饭</h3>
+                    <p>除夕吃年夜饭是最重要的习俗之一，全家人会在这一天团聚在一起，吃一顿丰盛的年夜饭，寓意着团圆美好。年夜饭的菜品通常包括鱼、鸡、鸭、肉、蔬菜等，有些地方还有一些特色菜品，如饺子、年糕等。</p>
+                    <h3>守岁</h3>
+                    <p>除夕守岁是一个传统习俗，人们会在这一天晚上不睡觉，等待新年的到来，寓意着辞旧迎新。守岁的时候，人们会聊天、看电视、放鞭炮等。</p>
+                    <h3>放鞭炮</h3>
+                    <p>除夕放鞭炮是一个传统习俗，人们会在这一天晚上放鞭炮，驱赶邪灵、迎接新年的到来。有些地方还会在零点时分放鞭炮，称为"开门炮"，寓意着开门大吉。</p>
+                    <h3>发压岁钱</h3>
+                    <p>除夕发压岁钱是一个传统习俗，长辈会给晚辈发压岁钱，寓意着平安度过一年。压岁钱通常用红包包裹，寓意着吉祥如意。</p>
+                    <h3>拜年</h3>
+                    <p>除夕拜年是一个传统习俗，人们会在这一天向亲朋好友拜年，传递新年的祝福。有些地方还会在零点时分拜年，称为"拜年"，寓意着新年大吉。</p>
+                    <h3>看春晚</h3>
+                    <p>现代除夕看春晚是一个新的习俗，人们会在这一天晚上观看中央电视台的春节联欢晚会，增加节日的喜庆气氛。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

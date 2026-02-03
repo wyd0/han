@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布依族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布依族文学艺术页面特定样式 */
+        .buyi-literature-header {
+            background-image: url('images/布依族女性服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .buyi-literature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .buyi-literature-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .buyi-literature-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .buyi-literature-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .buyi-literature-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .buyi-literature-section {
+            margin-bottom: 80px;
+        }
+        
+        .buyi-literature-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-literature-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-literature-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-literature-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .buyi-literature-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .buyi-literature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .buyi-literature-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .buyi-literature-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 艺术展示 */
+        .art-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .art-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .art-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .art-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .art-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .buyi-literature-header h1 {
+                font-size: 36px;
+            }
+            
+            .buyi-literature-header p {
+                font-size: 18px;
+            }
+            
+            .buyi-literature-section h2 {
+                font-size: 28px;
+            }
+            
+            .art-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="buyi-literature-header">
+        <div class="container">
+            <div class="buyi-literature-header-content">
+                <h1>布依族文学艺术</h1>
+                <p>丰富多彩的布依族文学与艺术瑰宝</p>
+                <a href="buyi.html" class="back-link">返回布依族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="buyi-literature-main">
+        <div class="container">
+            <div class="buyi-literature-content">
+                <!-- 文学艺术概述 -->
+                <section class="buyi-literature-section">
+                    <h2>文学艺术概述</h2>
+                    <p>布依族是一个有着悠久历史和丰富文化的民族，拥有灿烂的文学艺术遗产。布依族的文学艺术反映了布依族人民的生活方式、价值观念和文化传统，是布依族文化的重要组成部分。</p>
+                    <p>布依族的文学主要包括口头文学和书面文学两部分。口头文学是布依族文学的重要组成部分，包括神话传说、民间故事、诗歌谚语等；书面文学则是指用汉字或布依文记录的文学作品。</p>
+                    <p>布依族的艺术主要包括音乐、舞蹈、美术等形式。布依族的音乐以"八音坐唱"为代表，舞蹈以"铜鼓舞"为代表，美术以"刺绣"和"蜡染"为代表。这些艺术形式展现了布依族人民的审美观念和艺术才华，是布依族文化的重要瑰宝。</p>
+                </section>
+
+                <!-- 文学成就 -->
+                <section class="buyi-literature-section">
+                    <h3>文学成就</h3>
+                    
+                    <h4>口头文学</h4>
+                    <p>口头文学是布依族文学的重要组成部分，它是布依族人民在长期的生产实践和社会生活中创造的，通过口头传承的方式保存下来的文学作品。</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>布依族的神话传说内容丰富，包括创世神话、人类起源神话、自然神话等。例如，《盘古开天地》、《洪水朝天》等，这些神话传说反映了布依族人民对自然和人类起源的认识。</li>
+                        <li><strong>民间故事：</strong>布依族的民间故事内容丰富，包括爱情故事、机智人物故事、动物故事等。例如，《阿三与多妹》、《聪明的阿凡提》等，这些民间故事具有浓郁的民族特色和艺术感染力。</li>
+                        <li><strong>诗歌谚语：</strong>布依族的诗歌谚语内容丰富，包括山歌、情歌、劳动歌、谚语等。例如，《布依情歌》、《布依劳动歌》等，这些诗歌谚语反映了布依族人民的生活经验和智慧。</li>
+                    </ul>
+                    
+                    <h4>书面文学</h4>
+                    <p>书面文学是指用汉字或布依文记录的文学作品，它是布依族文学的重要组成部分。</p>
+                    <ul>
+                        <li><strong>用汉字记录的文学作品：</strong>在历史上，布依族人民用汉字记录了大量的文学作品，如诗歌、散文、小说等。这些作品反映了布依族人民的生活和思想，是布依族文学的重要组成部分。</li>
+                        <li><strong>用布依文记录的文学作品：</strong>1956年，布依族创制了以拉丁字母为基础的布依文。此后，布依族人民用布依文创作和记录了大量的文学作品，如诗歌、散文、小说等。这些作品反映了布依族人民的生活和思想，是布依族文学的重要组成部分。</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术成就 -->
+                <section class="buyi-literature-section">
+                    <h3>艺术成就</h3>
+                    
+                    <div class="art-showcase">
+                        <div class="art-item">
+                            <h4>音乐</h4>
+                            <p>布依族的音乐历史悠久，内容丰富，形式多样。其中，"八音坐唱"是布依族最具代表性的传统音乐形式，由八种乐器演奏，内容丰富，旋律优美。此外，布依族还有许多其他的音乐形式，如山歌、情歌、劳动歌等，这些音乐形式反映了布依族人民的生活和思想，具有浓郁的民族特色。</p>
+                        </div>
+                        
+                        <div class="art-item">
+                            <h4>舞蹈</h4>
+                            <p>布依族的舞蹈历史悠久，内容丰富，形式多样。其中，"铜鼓舞"是布依族最具代表性的传统舞蹈形式，舞者手持铜鼓，边敲边舞，节奏明快，气氛热烈。此外，布依族还有许多其他的舞蹈形式，如摆手舞、跳花舞等，这些舞蹈形式反映了布依族人民的生活和思想，具有浓郁的民族特色。</p>
+                        </div>
+                        
+                        <div class="art-item">
+                            <h4>美术</h4>
+                            <p>布依族的美术历史悠久，内容丰富，形式多样。其中，"刺绣"和"蜡染"是布依族最具代表性的传统美术形式。布依族的刺绣工艺精湛，图案精美，色彩鲜艳；蜡染工艺独特，图案精美，色彩柔和。这些美术形式反映了布依族人民的审美观念和艺术才华，是布依族文化的重要瑰宝。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>工艺</h4>
+                    <p>布依族的工艺历史悠久，内容丰富，形式多样。其中，"刺绣"、"蜡染"、"竹编"、"木雕"等是布依族最具代表性的传统工艺形式。</p>
+                    <ul>
+                        <li><strong>刺绣：</strong>布依族的刺绣工艺精湛，图案精美，色彩鲜艳，是布依族传统工艺的重要组成部分。</li>
+                        <li><strong>蜡染：</strong>布依族的蜡染工艺独特，图案精美，色彩柔和，是布依族传统工艺的重要组成部分。</li>
+                        <li><strong>竹编：</strong>布依族的竹编工艺精湛，图案精美，实用美观，是布依族传统工艺的重要组成部分。</li>
+                        <li><strong>木雕：</strong>布依族的木雕工艺精湛，图案精美，造型美观，是布依族传统工艺的重要组成部分。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术与文化的关系 -->
+                <section class="buyi-literature-section">
+                    <h3>文学艺术与文化的关系</h3>
+                    <p>布依族的文学艺术与布依族文化有着密切的关系。文学艺术是布依族文化的重要组成部分，对布依族文化的发展产生了深远的影响。</p>
+                    
+                    <h4>文学艺术是布依族文化的载体</h4>
+                    <ul>
+                        <li><strong>反映社会生活：</strong>布依族的文学艺术反映了布依族人民的社会生活，包括生产劳动、婚姻家庭、宗教信仰等方面。</li>
+                        <li><strong>传承文化传统：</strong>布依族的文学艺术传承了布依族的文化传统，包括价值观念、道德规范、风俗习惯等方面。</li>
+                        <li><strong>表达思想感情：</strong>布依族的文学艺术表达了布依族人民的思想感情，包括对自然的热爱、对生活的向往、对未来的美好期望等方面。</li>
+                    </ul>
+                    
+                    <h4>布依族文化是文学艺术的内涵</h4>
+                    <ul>
+                        <li><strong>价值观：</strong>布依族的文学艺术反映了布依族人民的价值观，如尊老爱幼、团结互助、诚实守信等。</li>
+                        <li><strong>审美观念：</strong>布依族的文学艺术反映了布依族人民的审美观念，如对自然的热爱、对美的追求等。</li>
+                        <li><strong>生活方式：</strong>布依族的文学艺术反映了布依族人民的生活方式，如以农业为主、重视家庭等。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的传承与发展 -->
+                <section class="buyi-literature-section">
+                    <h3>文学艺术的传承与发展</h3>
+                    <p>布依族的文学艺术是布依族文化的重要组成部分，对布依族文化的发展产生了深远的影响。随着社会的发展和进步，布依族的文学艺术也在不断传承和发展。</p>
+                    
+                    <h4>传承方式</h4>
+                    <ul>
+                        <li><strong>口头传承：</strong>布依族的口头文学通过口头传承的方式保存下来，如神话传说、民间故事、诗歌谚语等。</li>
+                        <li><strong>文字记录：</strong>布依族的文学作品通过文字记录的方式保存下来，如用汉字或布依文记录的诗歌、散文、小说等。</li>
+                        <li><strong>艺术表演：</strong>布依族的音乐、舞蹈等艺术形式通过艺术表演的方式传承下来，如"八音坐唱"、"铜鼓舞"等。</li>
+                        <li><strong>工艺制作：</strong>布依族的工艺通过工艺制作的方式传承下来，如刺绣、蜡染、竹编、木雕等。</li>
+                    </ul>
+                    
+                    <h4>发展现状</h4>
+                    <ul>
+                        <li><strong>保护措施：</strong>中国政府采取了一系列措施，保护和传承布依族的文学艺术，如建立文化保护区、举办文化艺术活动、培养文化艺术人才等。</li>
+                        <li><strong>创新发展：</strong>布依族的文学艺术在传承的基础上不断创新，如将传统音乐与现代音乐相结合，将传统舞蹈与现代舞蹈相结合，将传统工艺与现代工艺相结合等。</li>
+                        <li><strong>对外交流：</strong>布依族的文学艺术通过对外交流的方式走向世界，如参加国际文化艺术展览、举办国际文化艺术活动等。</li>
+                    </ul>
+                    
+                    <h4>发展前景</h4>
+                    <p>随着社会的发展和进步，布依族的文学艺术有着广阔的发展前景。布依族人民在传承传统文学艺术的同时，也在不断创新和发展，使布依族的文学艺术更加丰富多彩，更加适应现代社会的需要。</p>
+                    <p>布依族的文学艺术是中华民族文化的重要组成部分，它不仅是布依族人民的精神财富，也是中华民族的精神财富。我们应该珍惜和保护布依族的文学艺术，让它在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

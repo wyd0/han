@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>达斡尔族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 动画关键帧定义 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 达斡尔族传统节日页面特定样式 */
+        .daur-festival-header {
+            background-image: url('images/传统节日.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .daur-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .daur-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .daur-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .daur-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-daur {
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .daur-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .daur-festival-section {
+            margin-bottom: 80px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        .daur-festival-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .daur-festival-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .daur-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .daur-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .daur-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .daur-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .daur-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 返回达斡尔族文化按钮样式 */
+        .back-daur {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-daur:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .daur-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .daur-festival-header p {
+                font-size: 18px;
+            }
+            
+            .daur-festival-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="daur-festival-header">
+        <div class="container">
+            <div class="daur-festival-header-content">
+                <h1>达斡尔族传统节日</h1>
+                <p>承载民族记忆与情感的文化庆典</p>
+                <a href="daur.html" class="back-daur">返回达斡尔族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="daur-festival-main">
+        <div class="container">
+            <div class="daur-festival-content">
+                <!-- 传统节日概述 -->
+                <section class="daur-festival-section">
+                    <h2>传统节日概述</h2>
+                    <p>达斡尔族的传统节日丰富多彩，是其文化的重要组成部分。这些节日不仅是达斡尔族人民庆祝丰收、祈求平安的重要方式，也是传承和弘扬达斡尔族文化的重要载体。达斡尔族的传统节日主要包括春节、清明节、端午节、中秋节、腊月二十三、抹黑节等。</p>
+                </section>
+                
+                <!-- 春节 -->
+                <section class="daur-festival-section">
+                    <h2>春节</h2>
+                    <p>春节是达斡尔族最重要的传统节日，也是中国最重要的传统节日之一。春节的日期根据农历计算，在每年的农历正月初一举行，为期十六天。</p>
+                    
+                    <h3>春节的由来</h3>
+                    <p>春节的由来可以追溯到古代的农业社会。在古代，人们根据农作物的生长周期来安排生活和生产活动。春节是在农作物收获后、春耕前的农闲时期举行的，是人们庆祝丰收、祈求来年风调雨顺的重要节日。</p>
+                    
+                    <h3>春节的准备</h3>
+                    <p>达斡尔族人民在春节前会进行充分的准备，主要包括：</p>
+                    <ul>
+                        <li><strong>打扫卫生：</strong>春节前，达斡尔族人民会彻底打扫房屋，清除灰尘和垃圾，象征着辞旧迎新。</li>
+                        <li><strong>准备食物：</strong>达斡尔族人民会准备丰富的食物，如饺子、年糕、肉类、奶制品等，为春节期间的饮食做准备。</li>
+                        <li><strong>制作新衣：</strong>达斡尔族人民会在春节前制作或购买新衣服，象征着新年新气象。</li>
+                        <li><strong>贴春联：</strong>达斡尔族人民会在春节前贴春联，春联上写着吉祥如意的话语，表达对新年的美好祝愿。</li>
+                    </ul>
+                    
+                    <h3>春节的庆祝活动</h3>
+                    <p>春节期间，达斡尔族人民会举行各种庆祝活动，主要包括：</p>
+                    <ul>
+                        <li><strong>祭神：</strong>春节的第一天，达斡尔族人民会举行祭祀活动，祭祀祖先，祈求祖先保佑家庭平安、五谷丰登。</li>
+                        <li><strong>拜年：</strong>春节期间，达斡尔族人民会走亲访友，互相拜年，赠送礼物，增进感情。</li>
+                        <li><strong>吃团圆饭：</strong>春节期间，达斡尔族人民会准备丰富的团圆饭，邀请亲朋好友一起吃饭，共同庆祝节日。</li>
+                        <li><strong>玩传统游戏：</strong>春节期间，达斡尔族人民会玩一些传统游戏，如打陀螺、射箭、赛马等，展示达斡尔族人民的勇敢和力量。</li>
+                        <li><strong>跳传统舞蹈：</strong>春节期间，达斡尔族人民会跳传统舞蹈，如鲁日格勒舞、敖包会舞等，表达对新年的美好祝愿。</li>
+                    </ul>
+                    
+                    <h3>春节的习俗</h3>
+                    <p>达斡尔族的春节有一些独特的习俗，主要包括：</p>
+                    <ul>
+                        <li><strong>吃饺子：</strong>达斡尔族人民在春节期间会吃饺子，饺子象征着团圆和幸福。</li>
+                        <li><strong>喝奶茶：</strong>达斡尔族人民在春节期间会喝奶茶，奶茶是达斡尔族的传统饮品，象征着温暖和亲情。</li>
+                        <li><strong>给压岁钱：</strong>达斡尔族的长辈会在春节期间给晚辈压岁钱，压岁钱象征着长辈对晚辈的关爱和祝福。</li>
+                        <li><strong>放鞭炮：</strong>达斡尔族人民在春节期间会放鞭炮，鞭炮象征着驱邪避灾、祈求平安。</li>
+                    </ul>
+                </section>
+                
+                <!-- 清明节 -->
+                <section class="daur-festival-section">
+                    <h2>清明节</h2>
+                    <p>清明节是达斡尔族的传统节日，日期为每年的公历4月4日或5日。清明节是达斡尔族人民祭祀祖先、缅怀先烈的重要节日。</p>
+                    
+                    <h3>清明节的由来</h3>
+                    <p>清明节的由来可以追溯到古代的寒食节。寒食节是为了纪念春秋时期的介子推而设立的，后来与清明节合并，成为一个重要的传统节日。</p>
+                    
+                    <h3>清明节的庆祝活动</h3>
+                    <p>清明节期间，达斡尔族人民会举行各种庆祝活动，主要包括：</p>
+                    <ul>
+                        <li><strong>扫墓：</strong>清明节期间，达斡尔族人民会前往祖先的墓地扫墓，清理墓地周围的杂草，献上鲜花和食物，缅怀祖先的功绩。</li>
+                        <li><strong>祭祀：</strong>清明节期间，达斡尔族人民会举行祭祀活动，祭祀祖先，祈求祖先的保佑。</li>
+                        <li><strong>踏青：</strong>清明节期间，达斡尔族人民会踏青，欣赏春天的美景，感受大自然的生机和活力。</li>
+                        <li><strong>放风筝：</strong>清明节期间，达斡尔族人民会放风筝，风筝象征着希望和梦想。</li>
+                    </ul>
+                </section>
+                
+                <!-- 端午节 -->
+                <section class="daur-festival-section">
+                    <h2>端午节</h2>
+                    <p>端午节是达斡尔族的传统节日，日期为每年的农历五月初五。端午节是达斡尔族人民纪念萨满教创始人萨满霍腾的诞辰而设置的节日。</p>
+                    
+                    <h3>端午节的由来</h3>
+                    <p>关于端午节的由来，达斡尔族有一个传说：萨满霍腾是达斡尔族的萨满教创始人，他具有超凡的能力，能够驱邪避灾、治病救人。为了纪念他的诞辰，达斡尔族人民将每年的农历五月初五定为端午节。</p>
+                    
+                    <h3>端午节的庆祝活动</h3>
+                    <p>端午节期间，达斡尔族人民会举行各种庆祝活动，主要包括：</p>
+                    <ul>
+                        <li><strong>踏青：</strong>端午节期间，达斡尔族人民会踏青，象征着光明和希望，祈求来年风调雨顺、五谷丰登、人民安康。</li>
+                        <li><strong>荡秋千：</strong>端午节期间，达斡尔族人民会荡秋千，荡秋千象征着驱邪避灾、祈求平安。</li>
+                        <li><strong>赛龙舟：</strong>端午节期间，达斡尔族人民会赛龙舟，赛龙舟象征着团结和力量。</li>
+                        <li><strong>吃粽子：</strong>端午节期间，达斡尔族人民会吃粽子，粽子象征着团圆和幸福。</li>
+                        <li><strong>挂艾草：</strong>端午节期间，达斡尔族人民会在门上挂艾草，艾草象征着驱邪避灾、祈求平安。</li>
+                    </ul>
+                </section>
+                
+                <!-- 中秋节 -->
+                <section class="daur-festival-section">
+                    <h2>中秋节</h2>
+                    <p>中秋节是达斡尔族的传统节日，日期为每年的农历八月十五。中秋节是达斡尔族人民庆祝丰收、团圆的重要节日。</p>
+                    
+                    <h3>中秋节的由来</h3>
+                    <p>中秋节的由来可以追溯到古代的农业社会。在古代，人们根据农作物的生长周期来安排生活和生产活动。中秋节是在农作物收获后举行的，是人们庆祝丰收、团圆的重要节日。</p>
+                    
+                    <h3>中秋节的庆祝活动</h3>
+                    <p>中秋节期间，达斡尔族人民会举行各种庆祝活动，主要包括：</p>
+                    <ul>
+                        <li><strong>赏月：</strong>中秋节期间，达斡尔族人民会赏月，欣赏月亮的美丽，感受团圆的幸福。</li>
+                        <li><strong>吃月饼：</strong>中秋节期间，达斡尔族人民会吃月饼，月饼象征着团圆和幸福。</li>
+                        <li><strong>吃团圆饭：</strong>中秋节期间，达斡尔族人民会准备丰富的团圆饭，邀请亲朋好友一起吃饭，共同庆祝节日。</li>
+                        <li><strong>祭祀：</strong>中秋节期间，达斡尔族人民会举行祭祀活动，祭祀月亮神，祈求月亮神的保佑。</li>
+                    </ul>
+                </section>
+                
+                <!-- 腊月二十三 -->
+                <section class="daur-festival-section">
+                    <h2>腊月二十三</h2>
+                    <p>腊月二十三是达斡尔族的传统节日，日期为每年的农历腊月二十三。腊月二十三是达斡尔族人民祭祀灶神的重要节日。</p>
+                    
+                    <h3>腊月二十三的由来</h3>
+                    <p>关于腊月二十三的由来，达斡尔族有一个传说：灶神是负责管理家庭饮食的神灵，他会在每年的农历腊月二十三回到天上，向玉皇大帝汇报家庭的情况。为了让灶神在玉皇大帝面前说好话，达斡尔族人民会在腊月二十三祭祀灶神，献上糖果和食物。</p>
+                    
+                    <h3>腊月二十三的庆祝活动</h3>
+                    <p>腊月二十三期间，达斡尔族人民会举行各种庆祝活动，主要包括：</p>
+                    <ul>
+                        <li><strong>祭祀灶神：</strong>腊月二十三期间，达斡尔族人民会祭祀灶神，献上糖果和食物，祈求灶神在玉皇大帝面前说好话。</li>
+                        <li><strong>打扫卫生：</strong>腊月二十三期间，达斡尔族人民会彻底打扫房屋，清除灰尘和垃圾，象征着辞旧迎新。</li>
+                        <li><strong>准备年货：</strong>腊月二十三期间，达斡尔族人民会开始准备年货，为春节期间的饮食做准备。</li>
+                    </ul>
+                </section>
+                
+                <!-- 抹黑节 -->
+                <section class="daur-festival-section">
+                    <h2>抹黑节</h2>
+                    <p>抹黑节是达斡尔族的传统节日，日期为每年的农历正月十六日。抹黑节是达斡尔族人民互相往脸上抹黑，象征着驱邪避灾、祈求平安的节日。</p>
+                    
+                    <h3>抹黑节的由来</h3>
+                    <p>关于抹黑节的由来，达斡尔族有一个传说：在古代，达斡尔族人民生活在一个美丽的地方，但是有一年，恶魔降临，给达斡尔族人民带来了灾难。为了驱走恶魔，达斡尔族人民互相往脸上抹黑，因为恶魔害怕黑色。最终，恶魔被驱走了，达斡尔族人民恢复了平静的生活。为了纪念这个胜利，达斡尔族人民将每年的农历正月十六日定为抹黑节。</p>
+                    
+                    <h3>抹黑节的庆祝活动</h3>
+                    <p>抹黑节期间，达斡尔族人民会举行各种庆祝活动，主要包括：</p>
+                    <ul>
+                        <li><strong>互相抹黑：</strong>抹黑节期间，达斡尔族人民会互相往脸上抹黑，象征着驱邪避灾、祈求平安。</li>
+                        <li><strong>唱歌跳舞：</strong>抹黑节期间，达斡尔族人民会唱歌跳舞，表达对生活的热爱和对未来的美好祝愿。</li>
+                        <li><strong>吃团圆饭：</strong>抹黑节期间，达斡尔族人民会准备丰富的团圆饭，邀请亲朋好友一起吃饭，共同庆祝节日。</li>
+                    </ul>
+                </section>
+                
+                <!-- 传统节日的文化意义 -->
+                <section class="daur-festival-section">
+                    <h2>传统节日的文化意义</h2>
+                    <p>达斡尔族的传统节日是其文化的重要组成部分，具有深远的文化意义。</p>
+                    
+                    <h3>文化传承的载体</h3>
+                    <p>传统节日是达斡尔族文化传承的重要载体。通过传统节日，达斡尔族的历史、文化、价值观等得到了传承和弘扬。</p>
+                    
+                    <h3>社会凝聚的力量</h3>
+                    <p>传统节日是达斡尔族社会凝聚的重要力量。通过共同的节日庆祝活动，达斡尔族人民增强了彼此之间的联系和认同感，促进了社会的和谐与稳定。</p>
+                    
+                    <h3>情感表达的方式</h3>
+                    <p>传统节日是达斡尔族人民情感表达的重要方式。通过传统节日，达斡尔族人民表达了对祖先的缅怀、对自然的敬畏、对生活的热爱、对未来的美好祝愿等情感。</p>
+                    
+                    <h3>生活节奏的调节</h3>
+                    <p>传统节日是达斡尔族人民生活节奏的重要调节。在紧张的生产生活中，传统节日为达斡尔族人民提供了休息和放松的机会，使他们能够以更加饱满的热情投入到生产生活中。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

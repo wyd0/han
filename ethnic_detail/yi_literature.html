@@ -1,0 +1,482 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彝族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 彝族文学艺术页面特定样式 */
+        .yi-literature-header {
+            background-image: url('images/yi-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .yi-literature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yi-literature-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yi-literature-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yi-literature-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yi-literature-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yi-literature-section {
+            margin-bottom: 80px;
+        }
+        
+        .yi-literature-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yi-literature-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yi-literature-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yi-literature-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yi-literature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yi-literature-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yi-literature-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术卡片 */
+        .literature-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 工艺美术列表 */
+        .craft-list {
+            margin: 40px 0;
+        }
+        
+        .craft-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .craft-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .craft-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .yi-literature-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .yi-literature-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .yi-literature-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .yi-literature-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .yi-literature-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-card, .craft-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .feature-card.visible, .craft-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-card:nth-child(1), .craft-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-card:nth-child(2), .craft-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-card:nth-child(3), .craft-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yi-literature-header h1 {
+                font-size: 36px;
+            }
+            
+            .yi-literature-header p {
+                font-size: 18px;
+            }
+            
+            .yi-literature-section h2 {
+                font-size: 28px;
+            }
+            
+            .literature-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yi-literature-header">
+        <div class="container">
+            <div class="yi-literature-header-content">
+                <h1>彝族文学艺术</h1>
+                <p>丰富多彩的彝族文学与艺术遗产</p>
+                <a href="yi.html" class="back-link">返回彝族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="yi-literature-main">
+        <div class="container">
+            <div class="yi-literature-content">
+                <!-- 彝族文学艺术概述 -->
+                <section class="yi-literature-section">
+                    <h2>彝族文学艺术概述</h2>
+                    <p>彝族是一个有着悠久历史和丰富文化的民族，其文学艺术源远流长，独具特色。彝族的文学艺术包括口头文学、书面文学、音乐、舞蹈、工艺美术等多个方面，是彝族文化的重要组成部分，也是中华文化宝库中的瑰宝。</p>
+                    <p>彝族的文学艺术植根于彝族人民的生产生活和社会实践，反映了彝族人民的思想感情、价值观念和审美情趣。彝族的文学艺术不仅是彝族人民精神生活的重要内容，也是传承和弘扬彝族文化的重要载体。</p>
+                </section>
+
+                <!-- 彝族的文学 -->
+                <section class="yi-literature-section">
+                    <h2>彝族的文学</h2>
+                    
+                    <h3>口头文学</h3>
+                    <p>彝族的口头文学丰富多彩，包括神话、传说、故事、诗歌、谚语、谜语等多种形式。这些口头文学作品通过口耳相传的方式传承下来，是彝族文学的重要组成部分。</p>
+                    
+                    <div class="literature-features">
+                        <div class="feature-card">
+                            <h4>神话</h4>
+                            <p>彝族的神话传说内容丰富，包括创世神话、人类起源神话、自然神话等。其中，《勒俄》和《查姆》是彝族最著名的创世神话，记载了彝族关于宇宙起源、人类诞生、民族迁徙等方面的认识和想象。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>传说</h4>
+                            <p>彝族的传说故事题材广泛，包括历史传说、人物传说、地方传说等。这些传说故事反映了彝族人民的历史记忆、英雄崇拜和对美好生活的向往。例如，关于火把节起源的传说、关于彝族英雄支格阿鲁的传说等。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>诗歌</h4>
+                            <p>彝族的诗歌形式多样，包括叙事诗、抒情诗、仪式诗等。彝族的诗歌语言优美，意境深远，富有民族特色。例如，彝族的爱情诗歌表达了青年男女对爱情的追求和向往；彝族的仪式诗歌则用于各种宗教和节日仪式中。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>书面文学</h3>
+                    <p>彝族的书面文学历史悠久，主要以彝文为载体。彝文是一种古老的表意文字，距今已有两千多年的历史。彝族的书面文学作品主要保存在毕摩的经书中，包括宗教经典、历史文献、文学作品等。</p>
+                    <p>彝族的书面文学作品内容丰富，体裁多样，是彝族文化的重要遗产。例如，《勒俄》和《查姆》不仅是口头文学作品，也是重要的书面文学作品；《玛牧特依》是彝族的道德教育经典；《西南彝志》是彝族的重要历史文献。</p>
+                </section>
+
+                <!-- 彝族的音乐舞蹈 -->
+                <section class="yi-literature-section">
+                    <h2>彝族的音乐舞蹈</h2>
+                    
+                    <div class="literature-features">
+                        <div class="feature-card">
+                            <h4>音乐</h4>
+                            <p>彝族的音乐丰富多彩，包括民间歌曲、器乐曲、宗教音乐等多种形式。彝族的音乐以五声音阶为主，旋律优美，节奏明快，富有民族特色。</p>
+                            <p>彝族的民间歌曲包括山歌、情歌、劳动歌、叙事歌等。彝族的器乐曲以月琴、三弦、笛子、葫芦丝、巴乌等为主要乐器，演奏技巧独特，表现力丰富。彝族的宗教音乐主要用于宗教仪式和节日庆典中，具有庄严、神秘的特点。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>舞蹈</h4>
+                            <p>彝族是一个能歌善舞的民族，其舞蹈形式多样，风格独特。彝族的舞蹈包括达体舞、跳脚舞、左脚舞、铜鼓舞、木鼓舞等多种形式。</p>
+                            <p>达体舞是彝族最具代表性的集体舞蹈，通常在节日或集会时表演，动作整齐划一，气势磅礴。跳脚舞和左脚舞是彝族的传统舞蹈，动作轻快，节奏明快，深受彝族人民喜爱。铜鼓舞和木鼓舞则是彝族的传统祭祀舞蹈，具有浓郁的宗教色彩。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 彝族的工艺美术 -->
+                <section class="yi-literature-section">
+                    <h2>彝族的工艺美术</h2>
+                    <p>彝族的工艺美术历史悠久，工艺精湛，包括漆器、银饰、刺绣、织锦、木雕、石刻等多种形式。彝族的工艺美术作品不仅具有实用价值，也具有很高的艺术价值，是彝族文化的重要组成部分。</p>
+                    
+                    <div class="craft-list">
+                        <div class="craft-item">
+                            <h4>漆器</h4>
+                            <p>彝族漆器是彝族最具代表性的工艺美术品之一，历史悠久，工艺精湛。彝族漆器以木材为胎，以生漆为涂料，采用雕刻、彩绘等工艺制作而成。彝族漆器的图案精美，色彩鲜艳，主要有红、黄、黑三种颜色，象征着彝族人民对自然的崇拜和对生活的热爱。</p>
+                            <p>彝族漆器的种类繁多，包括餐具、酒具、茶具、乐器、家具等。彝族漆器不仅是日常生活的必需品，也是重要的礼品和装饰品。彝族漆器工艺被列入国家级非物质文化遗产名录，得到了有效的保护和传承。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h4>银饰</h4>
+                            <p>彝族银饰是彝族女子服饰的重要组成部分，工艺复杂，图案精美。彝族银饰以纯银为原料，采用锻造、雕刻、镶嵌等工艺制作而成。彝族银饰的种类繁多，包括头饰、项圈、手镯、戒指、耳环等。</p>
+                            <p>彝族银饰的图案多为几何图形、花卉、动物等，具有浓厚的民族特色。彝族银饰不仅是装饰品，也是财富和地位的象征。在彝族的传统节日和婚礼等重要场合，彝族女子都会佩戴精美的银饰，展示自己的美丽和富贵。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h4>刺绣</h4>
+                            <p>彝族刺绣是彝族女子的传统手工艺，历史悠久，工艺精湛。彝族刺绣以棉、麻、丝等为原料，采用挑花、绣花、贴花等多种针法制作而成。彝族刺绣的图案复杂，色彩鲜艳，多为几何图形、花卉、动物等，具有浓厚的民族特色。</p>
+                            <p>彝族刺绣主要用于装饰服饰、头巾、腰带、背包等物品。彝族女子从小就开始学习刺绣，刺绣技艺的高低是衡量彝族女子勤劳和聪慧的重要标准。在彝族的传统节日和婚礼等重要场合，彝族女子都会穿上自己精心刺绣的服饰，展示自己的技艺和美丽。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h4>织锦</h4>
+                            <p>彝族织锦是彝族的传统手工艺之一，历史悠久，工艺精湛。彝族织锦以棉、麻、丝等为原料，采用传统的织机手工编织而成。彝族织锦的图案复杂，色彩鲜艳，多为几何图形、花卉、动物等，具有浓厚的民族特色。</p>
+                            <p>彝族织锦主要用于制作服饰、壁挂、坐垫等物品。彝族织锦的制作工艺复杂，需要经过纺线、染色、织布、刺绣等多个环节，是彝族女子勤劳和智慧的结晶。彝族织锦工艺被列入国家级非物质文化遗产名录，得到了有效的保护和传承。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 彝族文学艺术的特点 -->
+                <section class="yi-literature-section">
+                    <h2>彝族文学艺术的特点</h2>
+                    
+                    <div class="literature-features">
+                        <div class="feature-card">
+                            <h4>民族性</h4>
+                            <p>彝族文学艺术具有鲜明的民族特色，反映了彝族人民的生活方式、价值观念和审美情趣。彝族文学艺术的题材、内容、形式、风格等都具有浓厚的民族特色，是彝族文化的重要标识。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>群众性</h4>
+                            <p>彝族文学艺术来源于彝族人民的生产生活和社会实践，是彝族人民集体智慧的结晶。彝族文学艺术的创作和传承离不开广大彝族人民的参与和支持，具有广泛的群众基础。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>实用性</h4>
+                            <p>彝族文学艺术不仅具有审美价值，也具有实用价值。例如，彝族的音乐舞蹈用于节日庆典和社交活动；彝族的工艺美术品用于日常生活和宗教仪式；彝族的文学作品用于道德教育和历史传承。</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>传承性</h4>
+                            <p>彝族文学艺术具有悠久的历史和强大的生命力，通过口耳相传、师徒传承、家庭传承等多种方式传承下来。彝族文学艺术的传承不仅是对传统文化的保护，也是对民族精神的弘扬。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 彝族文学艺术的现代发展 -->
+                <section class="yi-literature-section">
+                    <h2>彝族文学艺术的现代发展</h2>
+                    <p>随着社会的发展和进步，彝族的文学艺术也在不断变化和发展。现代彝族的文学艺术呈现出传统与现代相结合的特点，既保留了传统的文化内涵，又吸收了现代的元素。</p>
+                    
+                    <h3>传统艺术的传承与创新</h3>
+                    <p>在现代社会，彝族的许多传统艺术形式仍然得到了保留和传承。例如，彝族的漆器、银饰、刺绣等传统工艺仍然在彝族地区广泛流传；彝族的传统音乐、舞蹈仍然是彝族人民喜爱的艺术形式；彝族的传统文学作品仍然被视为民族文化的瑰宝。</p>
+                    <p>同时，彝族的文学艺术也在不断创新和发展。例如，彝族的传统音乐与现代音乐元素相结合，创造出了新的音乐风格；彝族的传统舞蹈与现代舞蹈元素相结合，创造出了新的舞蹈形式；彝族的传统工艺美术与现代设计理念相结合，创造出了新的艺术作品。</p>
+                    
+                    <h3>文学艺术的保护与传承</h3>
+                    <p>政府重视彝族文学艺术的保护和传承工作，通过建立文化保护区、设立非物质文化遗产名录、培养传统工艺传承人等方式，来保护和传承彝族的文学艺术。同时，彝族人民也自觉地参与到文学艺术的保护和传承中来，通过家庭传承、社区活动、学校教育等方式，将彝族的文学艺术代代相传。</p>
+                    
+                    <h3>文学艺术的交流与传播</h3>
+                    <p>随着对外交流的增加，彝族的文学艺术也走出了大山，走向了全国，甚至走向了世界。例如，彝族的漆器、银饰等工艺美术品在国内外展览中受到好评；彝族的音乐、舞蹈在国内外舞台上展现风采；彝族的文学作品被翻译成多种文字，在世界范围内传播。</p>
+                    
+                    <p>彝族的文学艺术是彝族文化的重要组成部分，是彝族人民的精神财富。保护和传承彝族的文学艺术，对于维护彝族文化的多样性和促进彝族地区的发展具有重要意义。同时，彝族的文学艺术也是中华文化宝库中的瑰宝，对于丰富中华文化的内涵和促进中华民族的文化繁荣具有重要作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.yi-literature-section');
+            const cards = document.querySelectorAll('.feature-card, .craft-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

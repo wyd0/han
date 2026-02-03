@@ -1,0 +1,429 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隋唐时期服装 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 隋唐时期页面特定样式 */
+        .dynasty-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .dynasty-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .dynasty-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .dynasty-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .dynasty-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .dynasty-main {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+            overflow-x: auto;
+        }
+        
+        .dynasty-content {
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            min-width: max-content;
+        }
+        
+        .dynasty-section {
+            flex: 0 0 500px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .dynasty-section:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+        
+        .dynasty-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dynasty-section h2 {
+            color: #c0392b;
+            font-size: 38px;
+            margin-bottom: 45px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #c0392b;
+            display: inline-block;
+        }
+        
+        .dynasty-section h3 {
+            color: #c0392b;
+            font-size: 30px;
+            margin: 50px 0 30px;
+            font-family: 'SimSun', serif;
+            padding-left: 15px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .dynasty-section h4 {
+            color: #c0392b;
+            font-size: 26px;
+            margin: 35px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .dynasty-section-content {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #333;
+        }
+        
+        .dynasty-section-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .dynasty-section-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 20px;
+        }
+        
+        .dynasty-section-content li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.8;
+        }
+        
+        .dynasty-section-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 服装比较部分 */
+        .clothing-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .comparison-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-item h5 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 0 0 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dynasty-header h1 {
+                font-size: 36px;
+            }
+            
+            .dynasty-header p {
+                font-size: 18px;
+            }
+            
+            .dynasty-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="dynasty-header">
+        <div class="container">
+            <div class="dynasty-header-content">
+                <h1>隋唐时期服装</h1>
+                <p>公元581年-公元907年</p>
+                <a href="clothing.html" class="back-link">返回服装首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="dynasty-main">
+        <div class="container">
+            <div class="dynasty-content">
+                <!-- 历史概述 -->
+                <section class="dynasty-section">
+                    <h2>历史概述</h2>
+                    <div class="dynasty-section-content">
+                        <p>隋唐时期是中国历史上的繁荣时期，经济发达，文化开放，对外交流频繁，服装风格也变得更加华丽多样、开放包容。这一时期的服装受到西方文化的深远影响，同时也保留了汉服的传统特色，形成了独特的唐装服装风格。</p>
+                        <h3>发展阶段</h3>
+                        <h4>隋朝（公元581年-公元618年）</h4>
+                        <p>隋朝统一南北后，服装制度得到了统一。隋朝的服装制度基本继承了北朝的制度，但也融合了南朝的一些元素。隋朝时期，圆领袍开始流行，成为男子的主要服装。</p>
+                        
+                        <h4>初唐（公元618年-公元712年）</h4>
+                        <p>初唐时期，服装风格基本继承了隋朝的风格，但在唐太宗时期进行了改革。唐太宗时期，重新制定了服装制度，确立了以黄色为贵的色彩制度。初唐时期，女性服装以窄袖短衣为主，风格较为简约。</p>
+                        
+                        <h4>盛唐（公元712年-公元762年）</h4>
+                        <p>盛唐时期，是唐代服装发展的鼎盛时期。这一时期，女性服装变得更加华丽多样，衣领提高至胸部，出现了半臂、披帛等新的款式。中唐时期，胡服成为时尚，如翻领袍、裤褶、靴等。</p>
+                        
+                        <h4>中晚唐（公元762年-公元907年）</h4>
+                        <p>中晚唐时期，服装风格逐渐变得更加内敛含蓄，女性服装的衣领逐渐降低，款式也变得更加保守。这一时期，由于安史之乱的影响，唐朝的国力逐渐衰退，服装风格也随之变得更加简约。</p>
+                    </div>
+                </section>
+
+                <!-- 服装特色 -->
+                <section class="dynasty-section">
+                    <h2>服装特色</h2>
+                    <div class="dynasty-section-content">
+                        <ul>
+                            <li><strong>短衣流行</strong>：短衣搭配长裙，女性服装开放大胆，衣领提高至胸部，展现了女性的曲线美</li>
+                            <li><strong>圆领袍服</strong>：男子普遍穿着圆领袍，从皇帝到百姓都可以穿着，方便实用</li>
+                            <li><strong>胡服流行</strong>：受西域影响，胡服成为时尚，如翻领袍、裤褶、靴等</li>
+                            <li><strong>装饰华丽</strong>：大量使用金银珠宝、精美刺绣、缝制工艺等，使服装更加华丽多样</li>
+                            <li><strong>色彩鲜艳</strong>：唐代服装色彩鲜艳，以红、绿、黄、白等为主色调，体现了唐代的繁荣和开放</li>
+                            <li><strong>对外交流的影响</strong>：丝绸之路的繁荣，使中国服装受到西域、波斯、印度等国家和地区的影响</li>
+                            <li><strong>服装制度完善</strong>：唐代建立了完善的服装等级制度，不同等级的人穿着不同款式和颜色的服装</li>
+                            <li><strong>纺织业发达</strong>：唐代纺织业发达，丝绸、锦缎等面料广泛使用，为服装的发展提供了物质基础</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 男女与官民服装比较 -->
+                <section class="dynasty-section">
+                    <h2>男女与官民服装比较</h2>
+                    <div class="dynasty-section-content">
+                        <div class="clothing-comparison">
+                            <div class="comparison-item">
+                                <h5>贵族服装</h5>
+                                <h4>材质与工艺</h4>
+                                <ul>
+                                    <li>使用丝绸、锦缎、绫罗等高级面料</li>
+                                    <li>精美刺绣和复杂纹样，如花卉、云纹、动物纹等</li>
+                                    <li>精湛的缝制工艺，如缂丝、刺绣、织金等</li>
+                                    <li>使用金线、珍珠、宝石等装饰</li>
+                                </ul>
+                                <h4>款式与颜色</h4>
+                                <ul>
+                                    <li>高腰短衣：女性官民的礼服，衣领提高至胸部</li>
+                                    <li>圆领袍：官员士人的常服，从皇帝到百姓都可以穿着</li>
+                                    <li>半臂：短袖上衣，穿在短衣外面，是唐代女性的常见服装</li>
+                                    <li>披帛：搭在短衣外面的长巾，增加了服装的飘逸感</li>
+                                    <li>使用正色（青、赤、黄、白、黑）</li>
+                                    <li>皇帝专用黄色，官员根据品级使用不同颜色</li>
+                                </ul>
+                                <h4>配饰</h4>
+                                <ul>
+                                    <li>冕冠：皇帝的专用冠帽</li>
+                                    <li>通天冠：皇帝的常服冠帽</li>
+                                    <li>进贤冠：文官的冠帽，根据品级不同，冠梁数量也不同</li>
+                                    <li>武弁大冠：武官的冠帽</li>
+                                    <li>幞头：男子的头巾，唐代幞头样式多样，成为男子的主要头饰</li>
+                                    <li>绶带：官员的重要配饰</li>
+                                    <li>玉佩：佩戴有璜、璧和各种玉饰</li>
+                                    <li>簪花：唐代女性的重要配饰</li>
+                                    <li>靴：从少数民族传入的 footwear，成为唐代的时尚</li>
+                                    <li>袆衣：唐代女性的礼服，用于婚礼等重大场合</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-item">
+                                <h5>平民服装</h5>
+                                <h4>材质与工艺</h4>
+                                <ul>
+                                    <li>使用棉、麻、葛布等低级面料</li>
+                                    <li>简单的织造和染色工艺</li>
+                                    <li>基本没有刺绣和复杂纹样</li>
+                                    <li>使用天然材料，颜色单一</li>
+                                </ul>
+                                <h4>款式与颜色</h4>
+                                <ul>
+                                    <li>短褐：葛布短衣，款式简单</li>
+                                    <li>犊鼻裈：下层劳动者的裤子</li>
+                                    <li>绮襦短衣：款式简单，没有装饰</li>
+                                    <li>使用间色（混合色）</li>
+                                    <li>颜色以素色为主，如灰色、棕色</li>
+                                </ul>
+                                <h4>配饰</h4>
+                                <ul>
+                                    <li>简单的布带或麻绳</li>
+                                    <li>草编或木底鞋</li>
+                                    <li>基本没有饰品和宝石装饰</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 代表服装 -->
+                <section class="dynasty-section">
+                    <h2>代表服装</h2>
+                    <div class="dynasty-section-content">
+                        <h3>皇帝服装</h3>
+                        <p><strong>冕服</strong>：皇帝的礼服，用于祭祀等重大场合。冕服由冕冠、上衣、下裳组成，上面绣有十二章纹。</p>
+                        <p><strong>通天冠服</strong>：皇帝的常服，用于朝会等场合。通天冠高九寸，正面竖直，背面倾斜，冠前有山形冠饰。</p>
+                        
+                        <h3>女性服装</h3>
+                        <p><strong>高腰短衣</strong>：唐代女性的流行服装，衣领提高至胸部，展现了女性的曲线美。</p>
+                        <p><strong>半臂</strong>：短袖上衣，穿在短衣外面，是唐代女性的常见服装。</p>
+                        <p><strong>披帛</strong>：搭在短衣外面的长巾，增加了服装的飘逸感。</p>
+                        <p><strong>袆衣</strong>：唐代女性的礼服，用于婚礼等重大场合，装饰华丽。</p>
+                        
+                        <h3>男性服装</h3>
+                        <p><strong>圆领袍</strong>：官员士人的常服，从皇帝到百姓都可以穿着，方便实用。</p>
+                        <p><strong>幞头</strong>：男子的头巾，唐代幞头样式多样，成为男子的主要头饰。</p>
+                        <p><strong>胡服</strong>：受西域影响的服装，如翻领袍、裤褶、靴等，成为唐代男性的时尚。</p>
+                    </div>
+                </section>
+
+                <!-- 文化内涵 -->
+                <section class="dynasty-section">
+                    <h2>文化内涵</h2>
+                    <div class="dynasty-section-content">
+                        <ul>
+                            <li><strong>开放包容</strong>：唐代服装的开放包容体现了唐代文化的开放精神，吸收了西域、波斯、印度等国家和地区的文化元素。</li>
+                            <li><strong>等级制度</strong>：唐代建立了完善的服装等级制度，不同等级的人穿着不同的服装，体现了封建社会的等级秩序。</li>
+                            <li><strong>审美观念</strong>：唐代服装注重华丽多样，体现了唐代的审美观念，追求大气、华丽、开放的风格。</li>
+                            <li><strong>工艺发展</strong>：唐代的纺织、刺绣、缝制等工艺发达，体现了当时的手工业水平和科技成就。</li>
+                            <li><strong>对外交流</strong>：唐代服装受到西方文化的影响，体现了唐代对外交流的程度和开放程度。</li>
+                            <li><strong>女性地位</strong>：唐代女性服装的开放程度较高，体现了唐代女性地位的相对提高。</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

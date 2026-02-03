@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>门巴族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 门巴族宗教信仰页面特定样式 */
+        .religion-header {
+            background-image: url('images/门巴族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .religion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .religion-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .religion-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-monba {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-monba:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .religion-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .religion-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .religion-content h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-content h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .religion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .religion-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .religion-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .religion-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .religion-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .religion-header-content .back-monba {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .religion-header h1 {
+                font-size: 36px;
+            }
+            
+            .religion-header p {
+                font-size: 18px;
+            }
+            
+            .religion-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="religion-header">
+        <div class="container">
+            <div class="religion-header-content">
+                <h1>门巴族宗教信仰</h1>
+                <p>探索门巴族的宗教信仰与祭祀活动</p>
+                <a href="monba.html" class="back-monba">返回门巴族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="religion-main">
+        <div class="container">
+            <div class="religion-content">
+                <h2>门巴族宗教信仰概况</h2>
+                
+                <p>门巴族的宗教信仰是其文化的重要组成部分，反映了门巴族人民的精神世界和价值观念。门巴族主要信仰藏传佛教，同时也保留着一些原始宗教信仰，如祖先崇拜、自然崇拜等。这些宗教信仰相互融合，形成了门巴族独特的宗教文化。</p>
+                
+                <h3>藏传佛教信仰</h3>
+                <p>藏传佛教是门巴族最主要的宗教信仰，大约在13世纪传入门隅地区。门巴族信仰的藏传佛教主要是格鲁派（黄教），但也有部分地区信仰宁玛派（红教）和噶举派（白教）。</p>
+                <p>藏传佛教对门巴族的社会生活产生了深远的影响，主要表现在以下几个方面：</p>
+                <ul>
+                    <li><strong>宗教活动</strong>：门巴族人民每年都会举行各种宗教活动，如转山、转湖、朝圣等。这些活动不仅是宗教仪式，也是门巴族人民社交和文化交流的重要场合。</li>
+                    <li><strong>宗教节日</strong>：门巴族的许多传统节日都与藏传佛教有关，如藏历年、望果节、酥油灯节等。在这些节日里，门巴族人民会举行隆重的宗教仪式和庆祝活动。</li>
+                    <li><strong>宗教建筑</strong>：门巴族地区有许多佛教寺庙和佛塔，如达旺寺、甘丹寺等。这些建筑不仅是宗教活动的场所，也是门巴族建筑艺术的重要代表。</li>
+                    <li><strong>宗教艺术</strong>：门巴族的宗教艺术非常丰富，包括唐卡绘画、佛像雕塑、佛经印刷等。这些艺术作品具有浓郁的宗教色彩和民族特色。</li>
+                </ul>
+                
+                <h3>原始宗教信仰</h3>
+                <p>除了藏传佛教外，门巴族还保留着一些原始宗教信仰，这些信仰是门巴族人民在长期的生产生活中形成的，反映了他们对自然和生命的认识。主要包括以下几种：</p>
+                <ul>
+                    <li><strong>自然崇拜</strong>：门巴族人民崇拜自然万物，认为自然界的一切都有神灵存在。他们崇拜山神、水神、树神、石神等，认为这些神灵主宰着自然界的一切，能够保佑他们平安吉祥。</li>
+                    <li><strong>祖先崇拜</strong>：门巴族人民非常重视祖先崇拜，认为祖先的灵魂能够保佑后代子孙。他们会在特定的时间举行祭祖仪式，向祖先祈求平安和幸福。</li>
+                    <li><strong>图腾崇拜</strong>：门巴族有一些图腾崇拜，如对虎、豹、鹰等动物的崇拜。他们认为这些动物具有特殊的力量，能够保护他们免受伤害。</li>
+                    <li><strong>巫术信仰</strong>：门巴族人民相信巫术的力量，认为巫师能够沟通神灵，驱邪治病，预测未来。在遇到疾病、灾难或重要事件时，他们会请巫师进行占卜和祈祷。</li>
+                </ul>
+                
+                <h3>宗教仪式与祭祀活动</h3>
+                <p>门巴族的宗教仪式和祭祀活动非常丰富，这些活动是门巴族宗教信仰的具体体现，也是门巴族文化的重要组成部分。主要包括以下几种：</p>
+                <ul>
+                    <li><strong>新年祭祀</strong>：每年藏历新年，门巴族人民会举行隆重的祭祀活动，向神灵和祖先祈求新年平安吉祥、五谷丰登、人畜兴旺。</li>
+                    <li><strong>播种祭祀</strong>：在播种季节，门巴族人民会举行播种祭祀仪式，向土地神和谷神祈求丰收。</li>
+                    <li><strong>收获祭祀</strong>：在收获季节，门巴族人民会举行收获祭祀仪式，感谢神灵的保佑和恩赐。</li>
+                    <li><strong>婚礼祭祀</strong>：在婚礼上，门巴族人民会举行婚礼祭祀仪式，向神灵和祖先祈求婚姻幸福、家庭和睦。</li>
+                    <li><strong>葬礼祭祀</strong>：在葬礼上，门巴族人民会举行葬礼祭祀仪式，超度死者的灵魂，使其早日转世投胎。</li>
+                </ul>
+                
+                <h3>宗教对门巴族社会的影响</h3>
+                <p>宗教信仰对门巴族的社会生活产生了深远的影响，主要表现在以下几个方面：</p>
+                <ul>
+                    <li><strong>道德规范</strong>：宗教信仰为门巴族人民提供了道德规范和行为准则，教导他们要善良、诚实、勤劳、互助。</li>
+                    <li><strong>社会凝聚</strong>：宗教活动是门巴族人民社交和文化交流的重要场合，有助于增强民族凝聚力和社会和谐。</li>
+                    <li><strong>文化传承</strong>：宗教信仰是门巴族文化的重要载体，许多民间故事、传说、民歌等都与宗教有关，通过宗教活动得以传承和发展。</li>
+                    <li><strong>心理安慰</strong>：宗教信仰为门巴族人民提供了心理安慰和精神寄托，在面对困难和挫折时，能够给予他们力量和勇气。</li>
+                </ul>
+                
+                <p>门巴族的宗教信仰是其文化的重要组成部分，对于研究门巴族的历史、文化和社会具有重要价值。我们应该尊重和保护门巴族的宗教信仰自由，促进各民族宗教文化的交流与融合，共同推动中华文化的繁荣和发展。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

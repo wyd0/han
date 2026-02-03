@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中药的分类 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 中药分类页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .medicine-detail-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-detail-header h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-detail-main {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-detail-content h2 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-detail-content h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-detail-content h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 20px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-detail-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .medicine-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .medicine-detail-header h1 {
+                font-size: 32px;
+            }
+            
+            .medicine-detail-content h2 {
+                font-size: 24px;
+            }
+            
+            .medicine-detail-content h3 {
+                font-size: 20px;
+            }
+            
+            .medicine-detail-content h4 {
+                font-size: 16px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="medicine-detail-header">
+        <div class="container">
+            <div class="medicine-detail-header-content">
+                <h1>中药的分类</h1>
+                <a href="medicine.html" class="back-link">返回传统医学</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-detail-main">
+        <div class="container">
+            <div class="medicine-detail-content">
+                <h2>中药分类的意义</h2>
+                <p>中药分类是中药学的重要组成部分，它有助于我们系统地认识和掌握中药的性能和功效，便于临床应用和科学研究。通过分类，我们可以更好地理解中药之间的联系和区别，为合理用药提供依据。</p>
+                
+                <h2>中药的分类方法</h2>
+                
+                <h3>按功效分类</h3>
+                <p>按功效分类是最常用的中药分类方法，它根据中药的主要功效和作用进行分类。这种分类方法与临床应用密切相关，便于医生根据病情选择合适的药物。常见的分类包括：</p>
+                
+                <h4>解表药</h4>
+                <p>具有发散表邪作用的药物，用于治疗表证。根据药性的不同，又分为辛温解表药和辛凉解表药。</p>
+                <ul>
+                    <li>辛温解表药：麻黄、桂枝、紫苏、生姜等。</li>
+                    <li>辛凉解表药：薄荷、桑叶、菊花、柴胡等。</li>
+                </ul>
+                
+                <h4>清热药</h4>
+                <p>具有清热作用的药物，用于治疗热证。根据功效的不同，又分为清热泻火、清热解毒、清热凉血、清热燥湿、清虚热等。</p>
+                <ul>
+                    <li>清热泻火药：石膏、知母、栀子、夏枯草等。</li>
+                    <li>清热解毒药：金银花、连翘、板蓝根、蒲公英等。</li>
+                    <li>清热凉血药：生地黄、玄参、牡丹皮、赤芍等。</li>
+                    <li>清热燥湿药：黄芩、黄连、黄柏、龙胆草等。</li>
+                    <li>清虚热药：青蒿、地骨皮、银柴胡、胡黄连等。</li>
+                </ul>
+                
+                <h4>泻下药</h4>
+                <p>具有泻下通便作用的药物，用于治疗便秘。根据作用强度的不同，又分为攻下药、润下药、峻下逐水药等。</p>
+                <ul>
+                    <li>攻下药：大黄、芒硝、番泻叶等。</li>
+                    <li>润下药：火麻仁、郁李仁、松子仁等。</li>
+                    <li>峻下逐水药：甘遂、大戟、芫花、牵牛子等。</li>
+                </ul>
+                
+                <h4>祛风湿药</h4>
+                <p>具有祛风湿作用的药物，用于治疗风湿痹证。根据功效的不同，又分为祛风湿散寒药、祛风湿清热药、祛风湿强筋骨药等。</p>
+                <ul>
+                    <li>祛风湿散寒药：独活、威灵仙、川乌、草乌等。</li>
+                    <li>祛风湿清热药：秦艽、防己、桑枝、络石藤等。</li>
+                    <li>祛风湿强筋骨药：桑寄生、五加皮、狗脊等。</li>
+                </ul>
+                
+                <h4>化湿药</h4>
+                <p>具有化湿醒脾作用的药物，用于治疗湿阻中焦证。</p>
+                <ul>
+                    <li>藿香、佩兰、苍术、厚朴、砂仁等。</li>
+                </ul>
+                
+                <h4>利水渗湿药</h4>
+                <p>具有利水渗湿作用的药物，用于治疗水湿病证。根据功效的不同，又分为利水消肿药、利尿通淋药、利湿退黄药等。</p>
+                <ul>
+                    <li>利水消肿药：茯苓、泽泻、猪苓、薏苡仁等。</li>
+                    <li>利尿通淋药：车前子、滑石、木通、瞿麦等。</li>
+                    <li>利湿退黄药：茵陈、栀子、大黄、金钱草等。</li>
+                </ul>
+                
+                <h4>温里药</h4>
+                <p>具有温里散寒作用的药物，用于治疗里寒证。</p>
+                <ul>
+                    <li>附子、干姜、肉桂、吴茱萸、花椒等。</li>
+                </ul>
+                
+                <h4>理气药</h4>
+                <p>具有理气作用的药物，用于治疗气滞证。</p>
+                <ul>
+                    <li>陈皮、青皮、枳实、木香、香附等。</li>
+                </ul>
+                
+                <h4>消食药</h4>
+                <p>具有消食化积作用的药物，用于治疗食积证。</p>
+                <ul>
+                    <li>山楂、神曲、麦芽、莱菔子、鸡内金等。</li>
+                </ul>
+                
+                <h4>驱虫药</h4>
+                <p>具有驱虫作用的药物，用于治疗虫积证。</p>
+                <ul>
+                    <li>使君子、苦楝皮、槟榔、南瓜子、鹤草芽等。</li>
+                </ul>
+                
+                <h4>止血药</h4>
+                <p>具有止血作用的药物，用于治疗出血证。根据功效的不同，又分为凉血止血药、化瘀止血药、收敛止血药、温经止血药等。</p>
+                <ul>
+                    <li>凉血止血药：大蓟、小蓟、地榆、槐花等。</li>
+                    <li>化瘀止血药：三七、茜草、蒲黄、花蕊石等。</li>
+                    <li>收敛止血药：白及、仙鹤草、棕榈炭、血余炭等。</li>
+                    <li>温经止血药：艾叶、炮姜、灶心土等。</li>
+                </ul>
+                
+                <h4>活血化瘀药</h4>
+                <p>具有活血化瘀作用的药物，用于治疗瘀血证。根据功效的不同，又分为活血止痛药、活血调经药、活血疗伤药、破血消癥药等。</p>
+                <ul>
+                    <li>活血止痛药：川芎、延胡索、郁金、姜黄等。</li>
+                    <li>活血调经药：丹参、红花、桃仁、益母草等。</li>
+                    <li>活血疗伤药：土鳖虫、自然铜、苏木、骨碎补等。</li>
+                    <li>破血消癥药：莪术、三棱、水蛭、虻虫等。</li>
+                </ul>
+                
+                <h4>化痰止咳平喘药</h4>
+                <p>具有化痰或止咳平喘作用的药物，用于治疗痰证或咳喘证。根据功效的不同，又分为温化寒痰药、清化热痰药、止咳平喘药等。</p>
+                <ul>
+                    <li>温化寒痰药：半夏、天南星、白芥子、旋覆花等。</li>
+                    <li>清化热痰药：川贝母、浙贝母、瓜蒌、竹茹等。</li>
+                    <li>止咳平喘药：麻黄、杏仁、苏子、百部等。</li>
+                </ul>
+                
+                <h4>安神药</h4>
+                <p>具有安神作用的药物，用于治疗神志不安证。根据功效的不同，又分为重镇安神药、养心安神药等。</p>
+                <ul>
+                    <li>重镇安神药：朱砂、磁石、龙骨、琥珀等。</li>
+                    <li>养心安神药：酸枣仁、柏子仁、远志、合欢皮等。</li>
+                </ul>
+                
+                <h4>平肝息风药</h4>
+                <p>具有平肝息风作用的药物，用于治疗肝阳上亢或肝风内动证。根据功效的不同，又分为平肝潜阳药、息风止痉药等。</p>
+                <ul>
+                    <li>平肝潜阳药：石决明、珍珠母、牡蛎、代赭石等。</li>
+                    <li>息风止痉药：羚羊角、牛黄、钩藤、天麻等。</li>
+                </ul>
+                
+                <h4>开窍药</h4>
+                <p>具有开窍醒神作用的药物，用于治疗闭证神昏。</p>
+                <ul>
+                    <li>麝香、冰片、苏合香、石菖蒲等。</li>
+                </ul>
+                
+                <h4>补虚药</h4>
+                <p>具有补益作用的药物，用于治疗虚证。根据功效的不同，又分为补气药、补阳药、补血药、补阴药等。</p>
+                <ul>
+                    <li>补气药：人参、黄芪、白术、甘草等。</li>
+                    <li>补阳药：鹿茸、淫羊藿、巴戟天、杜仲等。</li>
+                    <li>补血药：当归、熟地黄、白芍、阿胶等。</li>
+                    <li>补阴药：北沙参、麦冬、玉竹、石斛等。</li>
+                </ul>
+                
+                <h4>收涩药</h4>
+                <p>具有收敛固涩作用的药物，用于治疗滑脱不禁证。根据功效的不同，又分为固表止汗药、敛肺涩肠药、固精缩尿止带药等。</p>
+                <ul>
+                    <li>固表止汗药：麻黄根、浮小麦、糯稻根须等。</li>
+                    <li>敛肺涩肠药：五味子、乌梅、诃子、肉豆蔻等。</li>
+                    <li>固精缩尿止带药：山茱萸、覆盆子、金樱子、芡实等。</li>
+                </ul>
+                
+                <h4>涌吐药</h4>
+                <p>具有涌吐作用的药物，用于治疗痰涎、宿食或毒物停滞胃脘证。</p>
+                <ul>
+                    <li>瓜蒂、常山、胆矾等。</li>
+                </ul>
+                
+                <h4>解毒杀虫燥湿止痒药</h4>
+                <p>具有解毒、杀虫、燥湿止痒作用的药物，用于治疗疥癣、湿疹、痈肿疮毒等。</p>
+                <ul>
+                    <li>雄黄、硫黄、白矾、蛇床子等。</li>
+                </ul>
+                
+                <h4>拔毒化腐生肌药</h4>
+                <p>具有拔毒化腐、生肌敛疮作用的药物，用于治疗痈疽疮疡溃后脓出不畅、腐肉不去、新肉不生等。</p>
+                <ul>
+                    <li>升药、轻粉、砒石、炉甘石等。</li>
+                </ul>
+                
+                <h3>按自然属性分类</h3>
+                <p>按自然属性分类是根据中药的来源和性质进行分类，这种分类方法便于药材的鉴定和保管。常见的分类包括：</p>
+                <ul>
+                    <li>植物药：根、茎、叶、花、果实、种子等。</li>
+                    <li>动物药：全虫、器官、分泌物、排泄物等。</li>
+                    <li>矿物药：天然矿物、矿物加工品等。</li>
+                </ul>
+                
+                <h3>按药用部位分类</h3>
+                <p>按药用部位分类是根据中药的药用部位进行分类，这种分类方法便于药材的采集和加工。常见的分类包括：</p>
+                <ul>
+                    <li>根类药：人参、黄芪、当归、地黄等。</li>
+                    <li>茎类药：麻黄、桂枝、紫苏梗、桑枝等。</li>
+                    <li>叶类药：桑叶、菊花、薄荷、大青叶等。</li>
+                    <li>花类药：金银花、菊花、红花、槐花等。</li>
+                    <li>果实类药：枸杞子、山楂、五味子、陈皮等。</li>
+                    <li>种子类药：杏仁、桃仁、酸枣仁、柏子仁等。</li>
+                    <li>全草类药：麻黄、薄荷、藿香、益母草等。</li>
+                    <li>皮类药：肉桂、黄柏、杜仲、厚朴等。</li>
+                    <li>藤木类药：鸡血藤、络石藤、海风藤、桑寄生等。</li>
+                    <li>菌藻类药：灵芝、茯苓、猪苓、冬虫夏草等。</li>
+                </ul>
+                
+                <h3>其他分类方法</h3>
+                <ul>
+                    <li><strong>按毒性分类</strong>：分为有毒药、无毒药等。</li>
+                    <li><strong>按药性分类</strong>：分为寒性药、热性药、温性药、凉性药、平性药等。</li>
+                    <li><strong>按五味分类</strong>：分为辛味药、甘味药、酸味药、苦味药、咸味药等。</li>
+                    <li><strong>按归经分类</strong>：分为归心经药、归肝经药、归脾经药等。</li>
+                </ul>
+                
+                <h2>中药分类的发展</h2>
+                <p>中药分类的方法随着中药学的发展而不断演变，经历了以下几个主要阶段：</p>
+                
+                <h3>早期分类阶段（先秦-秦汉时期）</h3>
+                <p>早期的中药分类主要基于药物的功效和毒性，如《神农本草经》将药物分为上、中、下三品：</p>
+                <ul>
+                    <li><strong>上品</strong>：120种，无毒或毒性较小，多为补养类药物，可久服。</li>
+                    <li><strong>中品</strong>：120种，有毒或无毒，多为治疗类药物，需根据病情使用。</li>
+                    <li><strong>下品</strong>：125种，多为有毒药物，多为泻下、杀虫类药物，用于治疗重症。</li>
+                </ul>
+                
+                <h3>自然属性分类阶段（魏晋南北朝时期）</h3>
+                <p>随着中药学的发展，逐渐出现了按药物自然属性分类的方法。陶弘景在《本草经集注》中，将药物分为玉石、草、木、虫兽、果、菜、米食、有名未用等8类，这种分类方法更加科学合理，便于药物的识别和应用。</p>
+                
+                <h3>综合分类阶段（隋唐-宋元时期）</h3>
+                <p>隋唐时期，《新修本草》在继承《本草经集注》分类方法的基础上，对分类进行了调整和补充。宋元时期，《证类本草》进一步完善了分类方法，将药物分为玉石、草、木、人、兽、禽、虫鱼、果、米谷、菜、有名未用等11类，这种分类方法更加详细和系统。</p>
+                
+                <h3>成熟分类阶段（明清时期）</h3>
+                <p>明清时期，中药学达到了鼎盛时期，分类方法也更加成熟。李时珍在《本草纲目》中，将药物分为16部60类：</p>
+                <ul>
+                    <li><strong>水部</strong>：包括各种饮用水、雨露水、潮水等。</li>
+                    <li><strong>火部</strong>：包括各种燃料、灯火、烟火等。</li>
+                    <li><strong>土部</strong>：包括各种土壤、矿物、化石等。</li>
+                    <li><strong>金石部</strong>：包括各种金属、矿物、宝石等。</li>
+                    <li><strong>草部</strong>：包括各种草本植物，分为山草、芳草、隰草、毒草、蔓草、水草、石草、苔草、杂草等。</li>
+                    <li><strong>谷部</strong>：包括各种谷物、豆类、油料作物等。</li>
+                    <li><strong>菜部</strong>：包括各种蔬菜、菌类等。</li>
+                    <li><strong>果部</strong>：包括各种水果、坚果等。</li>
+                    <li><strong>木部</strong>：包括各种木本植物，分为香木、乔木、灌木、寓木、苞木、杂木等。</li>
+                    <li><strong>服器部</strong>：包括各种衣物、器具等。</li>
+                    <li><strong>虫部</strong>：包括各种昆虫、蠕虫等。</li>
+                    <li><strong>鳞部</strong>：包括各种鱼类、爬行动物等。</li>
+                    <li><strong>介部</strong>：包括各种甲壳类动物等。</li>
+                    <li><strong>禽部</strong>：包括各种鸟类等。</li>
+                    <li><strong>兽部</strong>：包括各种哺乳动物等。</li>
+                    <li><strong>人部</strong>：包括人体的各种分泌物、排泄物等。</li>
+                </ul>
+                
+                <h3>现代分类阶段（现代时期）</h3>
+                <p>现代中药学综合运用多种分类方法，以满足不同的需求：</p>
+                <ul>
+                    <li><strong>按功效分类</strong>：这是现代中药学最常用的分类方法，便于临床应用。</li>
+                    <li><strong>按自然属性分类</strong>：便于药物的识别和鉴定。</li>
+                    <li><strong>按药用部位分类</strong>：便于药物的采集和加工。</li>
+                    <li><strong>按化学成分分类</strong>：便于研究药物的作用机制。</li>
+                    <li><strong>按药理作用分类</strong>：便于研究药物的药理作用。</li>
+                </ul>
+                
+                <p>无论采用哪种分类方法，其目的都是为了更好地认识和利用中药，为人类的健康服务。随着科学技术的发展，中药分类的方法也在不断创新和完善，为中药学的发展注入新的活力。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

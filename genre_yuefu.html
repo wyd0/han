@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐府诗 - 诗歌体裁详细说明</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="poetry_styles.css">
+    <style>
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+        
+        /* 页面头部样式 */
+        .genre-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(139, 69, 19, 0.3), rgba(139, 69, 19, 0.1));
+            z-index: 1;
+        }
+        
+        .genre-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .genre-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: slideInDown 1s ease;
+        }
+        
+        .genre-header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease 0.3s both;
+        }
+        
+        /* 内容区域样式 */
+        .poetry-detail-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 50px;
+            margin: 50px auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 1200px;
+        }
+        
+        /* 体裁详细信息样式 */
+        .genre-detail {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .genre-detail h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+            border-left: 4px solid #8B4513;
+            padding-left: 15px;
+        }
+        
+        .genre-detail p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .genre-detail ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        
+        .genre-detail ul li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .genre-detail ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            color: #8B4513;
+            font-weight: bold;
+        }
+        
+        /* 诗歌示例样式 */
+        .poem-example {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        
+        .poem-example:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .poem-example h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .poem-example p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #666;
+            text-align: left;
+        }
+        
+        /* 返回链接样式 */
+        .back-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            background-color: #A0522D;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .genre-header {
+                padding: 80px 0;
+            }
+            
+            .genre-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .genre-header p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .poetry-detail-content {
+                padding: 30px 20px;
+                margin: 30px 20px;
+            }
+            
+            .genre-detail h3 {
+                font-size: 1.5rem;
+            }
+            
+            .genre-detail p,
+            .genre-detail ul li {
+                font-size: 1rem;
+            }
+            
+            .poem-example {
+                padding: 20px;
+            }
+            
+            .poem-example h4 {
+                font-size: 1.1rem;
+            }
+            
+            .back-link {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #8B4513;
+            color: #fff;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: #A0522D;
+            transform: scale(1.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 诗歌导航栏 -->
+    <nav class="poetry-nav">
+        <div class="container">
+            <ul class="poetry-nav-links">
+                <li><a href="poetry_gu_ti.html">古体诗</a></li>
+                <li><a href="poetry_jin_ti.html">近体诗</a></li>
+                <li><a href="poetry_ci.html">词</a></li>
+                <li><a href="poetry_qu.html">曲</a></li>
+                <li><a href="poetry_lyric.html">抒情诗</a></li>
+                <li><a href="poetry_narrative.html">叙事诗</a></li>
+                <li><a href="poetry_landscape.html">山水田园诗</a></li>
+                <li><a href="poetry_frontier.html">边塞诗</a></li>
+                <li><a href="poetry_epic.html">咏史诗</a></li>
+                <li><a href="poetry_object.html">咏物诗</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <section class="genre-header">
+        <div class="container">
+            <div class="genre-header-content">
+                <h1>乐府诗</h1>
+                <p>汉代官方采集和创作的诗歌体裁</p>
+                <a href="poetry_genre_detail.html" class="back-link">返回诗歌体裁总览</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="poetry-detail-main">
+        <div class="container">
+            <div class="poetry-detail-content">
+                <!-- 乐府诗详细说明 -->
+                <section class="poetry-detail-section">
+                    <div class="genre-detail">
+                        <h3>概述</h3>
+                        <p>乐府诗原指汉代乐府采集和创作的诗歌，后来泛指仿照乐府古题创作的诗歌。乐府诗题材广泛，内容丰富，语言质朴自然，形式自由多样，是中国古代文学的重要组成部分。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>历史发展</h3>
+                        <p>乐府诗的起源可以追溯到汉代。汉武帝时期（公元前112年），正式设立了乐府机构，由李延年担任协律都尉，专门负责采集民间歌谣和创作宫廷音乐。乐府机构的设立，标志着中国古代官方开始有组织地收集和整理民间诗歌，这在中国文学史上具有重要的意义。</p>
+                        <p><strong>汉代</strong>是乐府诗的鼎盛时期。汉代乐府诗可以分为民间乐府和文人乐府两部分。</p>
+                        <p><strong>民间乐府</strong>是指乐府机构采集的民间歌谣，这些作品主要来自于全国各地的民间口头创作，内容广泛，包括爱情婚姻、战争徭役、劳动生活、社会不公等多种题材。例如，《有所思》描写了一位女子对负心郎的怨恨；《上邪》表达了女子对爱情的忠贞不渝；《陌上桑》塑造了美丽机智的罗敷形象；《孔雀东南飞》则讲述了一对青年男女的爱情悲剧。这些作品语言质朴自然，形式自由多样，反映了汉代社会的真实面貌，是汉代民间生活的生动写照。</p>
+                        <p><strong>文人乐府</strong>是指文人模仿乐府形式创作的诗歌。汉代的文人乐府始于西汉后期，到东汉时期逐渐兴盛。文人乐府在形式上继承了民间乐府的特点，但在内容上更加注重个人情感的表达和社会现实的批判。例如，曹操的《蒿里行》通过对关东义军讨伐董卓失败的描写，反映了东汉末年战乱频繁、民不聊生的社会现实；《观沧海》则通过对大海壮丽景象的描写，表达了诗人的雄心壮志。曹丕的《燕歌行》是中国文学史上第一首完整的七言诗，描写了一位女子对远方丈夫的思念之情。曹植的《名都篇》、《白马篇》等作品，以其华丽的辞藻和丰富的想象，展现了文人乐府的艺术魅力。</p>
+                        <p><strong>魏晋南北朝时期</strong>，乐府诗得到了进一步的发展。这一时期，社会动荡不安，文人对现实政治感到失望，转而从民间文学中寻求灵感，乐府诗成为他们表达情感和批判现实的重要工具。</p>
+                        <p>魏晋时期，曹操、曹丕、曹植父子的乐府诗成就最高，被称为"三曹"。他们的乐府诗继承了汉代乐府的现实主义传统，同时又融入了个人的情感和风格，形成了质朴刚健、慷慨悲凉的艺术风格，被后人称为"建安风骨"。例如，曹操的《短歌行》、曹丕的《燕歌行》、曹植的《洛神赋》等作品，都是魏晋乐府诗的经典之作。</p>
+                        <p>南北朝时期，乐府诗的发展呈现出南北不同的特点。南朝乐府诗主要来自于江南地区，内容多为爱情题材，语言清新秀丽，风格婉转缠绵，如《子夜歌》、《西洲曲》等。北朝乐府诗主要来自于北方地区，内容多为战争、尚武题材，语言质朴刚健，风格豪放悲壮，如《木兰诗》、《敕勒歌》等。</p>
+                        <p><strong>唐代</strong>，乐府诗继续发展，出现了新乐府运动。新乐府运动是由白居易、元稹等诗人发起的一场诗歌革新运动，始于中唐时期。新乐府运动的主张是"文章合为时而著，歌诗合为事而作"，强调诗歌的现实性和社会批判功能，反对浮华空洞的诗风。</p>
+                        <p>白居易是新乐府运动的领袖，他的《新乐府》五十首、《秦中吟》十首等作品，以鲜明的主题、质朴的语言、生动的描写，揭露了社会的黑暗和人民的疾苦，反映了中唐时期的社会现实。元稹的《连昌宫词》通过对连昌宫盛衰的描写，反映了安史之乱前后的社会变化，是新乐府运动的重要成果。</p>
+                        <p>此外，唐代的许多著名诗人都创作过乐府诗，如李白的《将进酒》、《蜀道难》，杜甫的《三吏》、《三别》，王维的《渭城曲》，高适的《燕歌行》，岑参的《白雪歌送武判官归京》等。这些作品在形式上借鉴了乐府诗的特点，在内容上更加丰富多样，艺术成就也达到了很高的水平。</p>
+                        <p><strong>宋代及以后</strong>，乐府诗逐渐衰落，但仍有一些作品问世。宋代的乐府诗以苏轼的《东坡乐府》、辛弃疾的《稼轩长短句》等为代表，这些作品在形式上借鉴了乐府诗的特点，但更多地融入了词的元素，成为宋代词坛的重要组成部分。</p>
+                        <p>元代的散曲在形式上继承了乐府诗的特点，语言更加口语化，风格更加自由活泼，成为元代文学的重要形式。明代的民歌也受到了乐府诗的影响，内容更加贴近民间生活，语言更加质朴自然。清代的歌谣则在乐府诗的基础上，进一步发展了民间诗歌的传统，成为清代民间文学的重要组成部分。</p>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>艺术特点</h3>
+                        <ul>
+                            <li><strong>题材广泛</strong>：乐府诗的题材广泛，包括爱情婚姻、战争徭役、劳动生活、社会不公等多种内容，反映了社会的各个方面。</li>
+                            <li><strong>语言质朴自然</strong>：乐府诗的语言质朴自然，接近口语，通俗易懂，富有生活气息。</li>
+                            <li><strong>形式自由多样</strong>：乐府诗的形式自由多样，句式长短不一，没有固定的格律限制，用韵也比较自由。</li>
+                            <li><strong>叙事性强</strong>：乐府诗的叙事性强，常常通过具体的情节和人物形象来表达情感和思想。</li>
+                            <li><strong>情感真挚强烈</strong>：乐府诗的情感真挚强烈，常常表达对爱情的追求、对战争的厌恶、对劳动的赞美、对社会不公的不满等复杂情感。</li>
+                            <li><strong>音乐性强</strong>：乐府诗原是为配合音乐演唱而创作的，因此具有很强的音乐性，节奏明快，韵律和谐。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>代表作品</h3>
+                        <div class="poem-example">
+                            <h4>《孔雀东南飞》（汉乐府）</h4>
+                            <p>孔雀东南飞，五里一徘徊。十三能织素，十四学裁衣，十五弹箜篌，十六诵诗书。十七为君妇，心中常苦悲。君既为府吏，守节情不移，贱妾留空房，相见常日稀。鸡鸣入机织，夜夜不得息。三日断五匹，大人故嫌迟。非为织作迟，君家妇难为！妾不堪驱使，徒留无所施，便可白公姥，及时相遣归。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《陌上桑》（汉乐府）</h4>
+                            <p>日出东南隅，照我秦氏楼。秦氏有好女，自名为罗敷。罗敷喜蚕桑，采桑城南隅。青丝为笼系，桂枝为笼钩。头上倭堕髻，耳中明月珠。缃绮为下裙，紫绮为上襦。行者见罗敷，下担捋髭须。少年见罗敷，脱帽著帩头。耕者忘其犁，锄者忘其锄。来归相怨怒，但坐观罗敷。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《蒿里行》（曹操）</h4>
+                            <p>关东有义士，兴兵讨群凶。初期会盟津，乃心在咸阳。军合力不齐，踌躇而雁行。势利使人争，嗣还自相戕。淮南弟称号，刻玺于北方。铠甲生虮虱，万姓以死亡。白骨露于野，千里无鸡鸣。生民百遗一，念之断人肠。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《将进酒》（李白）</h4>
+                            <p>君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。与君歌一曲，请君为我倾耳听。钟鼓馔玉不足贵，但愿长醉不复醒。古来圣贤皆寂寞，惟有饮者留其名。陈王昔时宴平乐，斗酒十千恣欢谑。主人何为言少钱，径须沽取对君酌。五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。</p>
+                        </div>
+                        
+                        <div class="poem-example">
+                            <h4>《卖炭翁》（白居易）</h4>
+                            <p>卖炭翁，伐薪烧炭南山中。满面尘灰烟火色，两鬓苍苍十指黑。卖炭得钱何所营？身上衣裳口中食。可怜身上衣正单，心忧炭贱愿天寒。夜来城外一尺雪，晓驾炭车辗冰辙。牛困人饥日已高，市南门外泥中歇。翩翩两骑来是谁？黄衣使者白衫儿。手把文书口称敕，回车叱牛牵向北。一车炭，千余斤，宫使驱将惜不得。半匹红绡一丈绫，系向牛头充炭直。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="genre-detail">
+                        <h3>影响与地位</h3>
+                        <p>乐府诗在中国古代文学史上占有重要的地位，它不仅是中国诗歌的重要组成部分，也是中国传统文化的重要载体。其影响深远而广泛，主要体现在以下几个方面：</p>
+                        <p><strong>对中国文学的影响</strong>：乐府诗开创了中国文学史上的现实主义流派，与《诗经》、楚辞并称为中国文学的三大源头。它的艺术手法和表现形式，对后世的文学创作产生了深远的影响。</p>
+                        <p>首先，乐府诗的现实主义传统，为后世的文学创作提供了重要的借鉴。从汉魏时期的"建安风骨"，到唐代的新乐府运动，再到宋代的"江西诗派"，清代的"桐城派"，都不同程度地继承和发展了乐府诗的现实主义精神。</p>
+                        <p>其次，乐府诗的形式多样，为后世的诗歌创作提供了丰富的形式借鉴。例如，汉代乐府诗中的五言诗，对魏晋南北朝时期五言诗的成熟和唐代五言律诗的形成产生了重要影响；汉代乐府诗中的七言句，为曹丕《燕歌行》的出现和唐代七言律诗的形成奠定了基础；乐府诗的杂言形式，则对唐代的歌行体和宋代的词产生了重要影响。</p>
+                        <p>再次，乐府诗的叙事性，为后世的小说、戏曲等叙事文学的发展提供了重要的借鉴。例如，《孔雀东南飞》、《木兰诗》等乐府诗的叙事手法，对唐代的传奇小说、宋元的话本小说、明清的章回小说都产生了深远的影响；乐府诗中的戏剧因素，也为中国古代戏曲的形成和发展提供了重要的借鉴。</p>
+                        <p><strong>对中国文化的影响</strong>：乐府诗所表达的价值观和道德观，成为中国传统文化中重要的精神内涵。</p>
+                        <p>首先，乐府诗中对爱情的歌颂，如《上邪》、《有所思》等作品，表达了对真挚爱情的追求和对婚姻自由的向往，反映了中国传统文化中"仁"的精神内涵。</p>
+                        <p>其次，乐府诗中对劳动的赞美，如《江南》、《采莲曲》等作品，表达了对劳动人民的尊重和对劳动成果的珍惜，反映了中国传统文化中"勤"的精神内涵。</p>
+                        <p>再次，乐府诗中对战争的厌恶，如《战城南》、《十五从军征》等作品，表达了对和平的向往和对战争受害者的同情，反映了中国传统文化中"和"的精神内涵。</p>
+                        <p>最后，乐府诗中对社会不公的批判，如《东门行》、《妇病行》等作品，表达了对弱势群体的同情和对黑暗势力的不满，反映了中国传统文化中"义"的精神内涵。</p>
+                        <p><strong>对中国音乐的影响</strong>：乐府诗原是为配合音乐演唱而创作的，因此与音乐有着密切的关系。</p>
+                        <p>首先，乐府诗的音乐性，为中国传统音乐的发展提供了重要的素材。汉代的乐府音乐，魏晋南北朝的清商乐，唐代的燕乐等，都吸收了乐府诗的音乐元素，形成了独具特色的中国传统音乐风格。</p>
+                        <p>其次，乐府诗的歌词与音乐的结合方式，为中国传统音乐的发展提供了重要的借鉴。乐府诗的歌词往往根据音乐的旋律和节奏来创作，这种歌词与音乐相结合的方式，对中国传统音乐的歌词创作产生了深远的影响。</p>
+                        <p>最后，乐府诗的演唱形式，为中国传统音乐的表演形式提供了重要的借鉴。乐府诗的演唱往往伴随着舞蹈和乐器伴奏，这种综合艺术形式，对中国传统音乐的表演形式产生了深远的影响。</p>
+                        <p><strong>对中国社会的影响</strong>：乐府诗通过对社会现实的描写，反映了社会的各个方面，为后人了解中国古代社会提供了重要的资料。</p>
+                        <p>首先，乐府诗中对汉代社会的描写，如《陌上桑》、《孔雀东南飞》等作品，为我们了解汉代的政治制度、经济状况、文化风俗、婚姻家庭等方面提供了珍贵的资料。</p>
+                        <p>其次，乐府诗中对魏晋南北朝社会的描写，如《木兰诗》、《敕勒歌》等作品，为我们了解魏晋南北朝时期的民族融合、社会动荡、文化交流等方面提供了重要的参考。</p>
+                        <p>最后，乐府诗中对唐代社会的描写，如《卖炭翁》、《新丰折臂翁》等作品，为我们了解唐代的政治腐败、社会矛盾、民生疾苦等方面提供了生动的资料。</p>
+                        <p><strong>对世界文学的影响</strong>：乐府诗作为中国文学的瑰宝，不仅在国内产生了深远的影响，也在世界范围内受到了广泛的关注和赞赏。</p>
+                        <p>首先，乐府诗的翻译和传播，为世界文学的发展做出了重要贡献。自19世纪以来，许多外国学者和翻译家将乐府诗翻译成多种文字，如英文、法文、德文、日文等，使乐府诗在世界范围内得到了广泛的传播和认可。</p>
+                        <p>其次，乐府诗的艺术魅力，对世界文学的创作产生了重要的影响。许多外国作家和诗人，如法国的伏尔泰、德国的歌德、美国的庞德等，都对乐府诗给予了高度评价，并在自己的创作中借鉴了乐府诗的艺术手法和表现形式。</p>
+                        <p>最后，乐府诗的文化内涵，为世界文化的交流和融合做出了重要贡献。乐府诗所展现的独特的东方美学韵味和深刻的思想内涵，为世界文化的多样性做出了重要贡献，也为不同文化之间的交流和理解提供了重要的桥梁。</p>
+                        <p><strong>在中国文学史上的地位</strong>：乐府诗在中国文学史上占有重要的地位，它是中国古代文学的重要组成部分，也是中国传统文化的重要载体。</p>
+                        <p>首先，乐府诗是中国古代文学史上第一次大规模地收集和整理民间文学的成果，它不仅保存了大量的民间歌谣，也为后世的文学创作提供了重要的素材和借鉴。</p>
+                        <p>其次，乐府诗是中国古代文学史上现实主义传统的重要源头，它与《诗经》一起，构成了中国古代文学现实主义传统的两大支柱，对后世的文学创作产生了深远的影响。</p>
+                        <p>最后，乐府诗是中国古代文学史上形式多样、内容丰富的诗歌体裁之一，它不仅包括民间歌谣、宫廷乐歌、祭祀乐歌等多种形式，也包括爱情婚姻、战争徭役、劳动生活、社会不公等多种题材，是中国古代社会生活的生动写照。</p>
+                        <p>总之，乐府诗是中国古代文学史上的一朵奇葩，它以其独特的艺术魅力和深刻的文化内涵，在中国文学史上占有重要的地位，并对后世产生了深远的影响。它不仅是中国传统文化的重要组成部分，也是全人类共同的精神财富。</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="poetry_script.js"></script>
+    <script>
+        // 添加返回顶部按钮
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.innerHTML = '↑';
+            document.body.appendChild(backToTopBtn);
+            
+            // 显示/隐藏返回顶部按钮
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // 返回顶部功能
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // 添加诗歌示例的悬停效果
+            const poemExamples = document.querySelectorAll('.poem-example');
+            poemExamples.forEach(example => {
+                example.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px)';
+                    this.style.boxShadow = '0 6px 20px rgba(139, 69, 19, 0.2)';
+                });
+                
+                example.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                    this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+                });
+            });
+            
+            // 添加内容块的淡入效果
+            const genreDetails = document.querySelectorAll('.genre-detail');
+            genreDetails.forEach((detail, index) => {
+                detail.style.opacity = '0';
+                detail.style.transform = 'translateY(20px)';
+                detail.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    detail.style.opacity = '1';
+                    detail.style.transform = 'translateY(0)';
+                }, 300 * (index + 1));
+            });
+        });
+    </script>
+</body>
+</html>

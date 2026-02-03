@@ -1,0 +1,569 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道家 - 思想文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 道家详情页面特定样式 */
+        body {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .school-header {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .school-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .school-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .school-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .school-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .school-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .school-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .school-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .school-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .school-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .school-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .school-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .school-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .school-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .school-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .quotes-section {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .quote-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .quote-item p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .quote-item .author {
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        /* 子导航样式 */
+        .sub-nav {
+            background-color: rgba(192, 57, 43, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sub-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .sub-nav:hover::before {
+            left: 100%;
+        }
+        
+        .sub-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .sub-nav-links li {
+            margin: 0 12px;
+            position: relative;
+        }
+        
+        .sub-nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .sub-nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .sub-nav-links a:hover::before {
+            left: 100%;
+        }
+        
+        .sub-nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        
+        .sub-nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sub-nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .school-header h1 {
+                font-size: 36px;
+            }
+            
+            .school-header p {
+                font-size: 18px;
+            }
+            
+            .school-section h2 {
+                font-size: 28px;
+            }
+            
+            .sub-nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sub-nav-links li {
+                margin: 5px 0;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="school-header">
+        <div class="container">
+            <div class="school-header-content">
+                <h1>道家</h1>
+                <p>自然无为，顺应天理</p>
+                <a href="confucianism.html" class="back-link">返回思想文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 思想文化子导航 -->
+    <nav class="sub-nav">
+        <div class="container">
+            <ul class="sub-nav-links">
+                <li><a href="confucianism_detail.html">儒家</a></li>
+                <li><a href="taoism_detail.html">道家</a></li>
+                <li><a href="legalism_detail.html">法家</a></li>
+                <li><a href="mohism_detail.html">墨家</a></li>
+                <li><a href="military_detail.html">兵家</a></li>
+                <li><a href="mingjia_detail.html">名家</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="school-main">
+        <div class="container">
+            <div class="school-content">
+                <!-- 流派概述 -->
+                <section class="school-section">
+                    <h2>道家概述</h2>
+                    <p>道家是中国古代重要的思想流派之一，以老子、庄子为代表，强调自然无为、顺应天理，追求精神自由和内心宁静。道家思想对中国哲学、文学、艺术等领域产生了深远的影响，与儒家思想一起构成了中国传统文化的两大支柱。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="school-section">
+                    <h2>起源与发展</h2>
+                    <h3>创立与形成</h3>
+                    <p>道家思想的起源可以追溯到先秦时期，其创始人是老子（约公元前571年-公元前471年）。老子是春秋时期的思想家，他的著作《道德经》（又称《老子》）是道家思想的奠基之作。在《道德经》中，老子提出了"道"的核心概念，认为"道"是宇宙的本原和万物的规律。</p>
+                    
+                    <h3>发展与传承</h3>
+                    <p>战国时期，庄子（约公元前369年-公元前286年）继承和发展了老子的思想，著有《庄子》一书。庄子强调"自然无为"、"逍遥游"，追求精神自由和超越世俗的境界。庄子的思想使道家学说更加系统化和理论化，对后世产生了深远的影响。</p>
+                    
+                    <h3>道家的演变</h3>
+                    <p>在汉代，道家思想与神仙方术相结合，形成了道教。道教是中国本土的宗教，奉老子为教主，将道家思想宗教化。道教的形成和发展，使道家思想在民间得到了更广泛的传播和影响。</p>
+                    <p>魏晋时期，玄学兴起，玄学以老庄思想为基础，融合了儒家思想和佛教思想，形成了新的哲学思潮。玄学的代表人物有王弼、郭象等，他们对《老子》、《庄子》等道家经典进行了注解和阐发，推动了道家思想的发展。</p>
+                </section>
+
+                <!-- 哲学观 -->
+                <section class="school-section">
+                    <h2>哲学观</h2>
+                    <h3>道论</h3>
+                    <p>道家哲学的核心是"道论"，认为"道"是宇宙的本原和万物的规律。老子说："道可道，非常道；名可名，非常名"，强调"道"是超越语言和概念的存在。"道生一，一生二，二生三，三生万物"，道是万物的根源和归宿，是宇宙的终极本体。</p>
+                    
+                    <h3>自然观</h3>
+                    <p>道家主张"道法自然"，认为自然是最高的法则。老子强调人类应该效法自然，顺应天道，不要违背自然规律。庄子进一步发展了这种思想，提出"天地与我并生，而万物与我为一"的观点，强调人与自然的和谐统一。</p>
+                    
+                    <h3>认识论</h3>
+                    <p>道家的认识论强调直觉和体悟，反对理性的过度运用。老子主张"致虚极，守静笃"，通过内心的宁静和虚空来体认"道"。庄子提出"坐忘"、"心斋"等修养方法，强调超越感官和理性的限制，直接与"道"相通。</p>
+                    
+                    <h3>辩证思维</h3>
+                    <p>道家思想包含丰富的辩证思维，老子提出了"有无相生，难易相成，长短相形，高下相倾"等观点，认为事物都是对立统一的，相互依存、相互转化。庄子进一步发展了这种辩证思维，提出"齐物论"，认为万物在本质上是平等的，没有绝对的是非善恶之分。</p>
+                    
+                    <h3>人生哲学</h3>
+                    <p>道家的人生哲学强调自然无为、顺应天理，追求精神自由和内心宁静。老子主张"见素抱朴，少私寡欲"，减少物质欲望和私心杂念。庄子提出"逍遥游"，追求超越功名利禄的精神自由，达到"无待"的境界。</p>
+                </section>
+
+                <!-- 核心思想 -->
+                <section class="school-section">
+                    <h2>核心思想</h2>
+                    <h3>道</h3>
+                    <p>"道"是道家思想的核心概念，老子认为"道"是宇宙的本原和万物的规律，是超越时空的存在。"道生一，一生二，二生三，三生万物"，道是万物的根源和归宿。</p>
+                    
+                    <h3>自然无为</h3>
+                    <p>"自然无为"是道家思想的重要原则，强调顺应自然规律，不强行干预事物的发展。老子说："人法地，地法天，天法道，道法自然"，认为人类应该效法自然，顺应天道，不要违背自然规律。</p>
+                    
+                    <h3>逍遥游</h3>
+                    <p>"逍遥游"是庄子思想的核心概念，强调精神自由和超越世俗的境界。庄子认为，人应该摆脱功名利禄的束缚，追求精神上的自由和逍遥，达到"无待"、"无功"、"无名"的境界。</p>
+                    
+                    <h3>辩证思想</h3>
+                    <p>道家思想包含丰富的辩证思想，老子提出了"有无相生，难易相成，长短相形，高下相倾"等观点，认为事物都是对立统一的，相互依存、相互转化。这种辩证思想对中国哲学的发展产生了深远的影响。</p>
+                    
+                    <h3>小国寡民</h3>
+                    <p>老子提出了"小国寡民"的社会理想，认为理想的社会应该是人口稀少、国家小，人民安居乐业，不追求物质享受和功名利禄。这种社会理想反映了道家对原始社会的向往和对现实社会的批判。</p>
+                </section>
+
+                <!-- 历史影响 -->
+                <section class="school-section">
+                    <h2>历史影响</h2>
+                    <h3>哲学影响</h3>
+                    <p>道家思想对中国哲学的发展产生了深远影响。道家提出的"道"的概念，为中国哲学提供了一个超越的本体论框架，影响了后世的哲学思考。道家的辩证思想，也对中国哲学的发展产生了深远的影响。</p>
+                    
+                    <h3>文学艺术影响</h3>
+                    <p>道家思想对中国文学艺术的发展产生了深远影响。道家强调自然、自由、超越的精神，影响了中国文学艺术的审美取向。中国文学中的山水田园诗、绘画中的山水画、书法中的草书等，都体现了道家的逍遥精神。</p>
+                    
+                    <h3>宗教影响</h3>
+                    <p>道家思想是道教的理论基础，道教的形成和发展，使道家思想在民间得到了更广泛的传播和影响。道教的神仙信仰、修炼方法等，都与道家思想密切相关。</p>
+                    
+                    <h3>科学影响</h3>
+                    <p>道家思想对中国古代科学技术的发展也产生了一定的影响。道家强调顺应自然规律，这种思想对于古代的天文学、医学、农学等科学技术的发展具有一定的启发作用。</p>
+                </section>
+
+                <!-- 主要著作 -->
+                <section class="school-section">
+                    <h2>主要著作</h2>
+                    <ul>
+                        <li><strong>《道德经》</strong>：老子的著作，是道家思想的奠基之作，阐述了"道"的概念和自然无为的思想。</li>
+                        <li><strong>《庄子》</strong>：庄子的著作，记录了庄子的思想和言论，强调逍遥游和精神自由。</li>
+                        <li><strong>《列子》</strong>：列子的著作，记录了列子的思想和言论，强调顺应自然和养生之道。</li>
+                        <li><strong>《淮南子》</strong>：西汉淮南王刘安组织门客编写的著作，融合了道家、儒家、法家等思想，是道家思想的重要经典。</li>
+                        <li><strong>《抱朴子》</strong>：东晋葛洪的著作，融合了道家思想和神仙方术，是道教理论的重要著作。</li>
+                        <li><strong>《南华真经》</strong>：唐代对《庄子》的尊称，是道家思想的重要经典。</li>
+                        <li><strong>《冲虚真经》</strong>：唐代对《列子》的尊称，是道家思想的重要经典。</li>
+                        <li><strong>《通玄真经》</strong>：唐代对《文子》的尊称，是道家思想的重要经典。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典语录 -->
+                <section class="school-section">
+                    <h2>经典语录</h2>
+                    <div class="quotes-section">
+                        <div class="quote-item">
+                            <p>"道可道，非常道；名可名，非常名。"</p>
+                            <p class="author">——《道德经》第一章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"祸兮福之所倚，福兮祸之所伏。"</p>
+                            <p class="author">——《道德经》第五十八章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"天下皆知美之为美，斯恶已；皆知善之为善，斯不善已。"</p>
+                            <p class="author">——《道德经》第二章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"致虚极，守静笃。万物并作，吾以观复。"</p>
+                            <p class="author">——《道德经》第十六章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"上善若水。水善利万物而不争，处众人之所恶，故几于道。"</p>
+                            <p class="author">——《道德经》第八章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"人法地，地法天，天法道，道法自然。"</p>
+                            <p class="author">——《道德经》第二十五章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"大智若愚，大巧若拙，大辩若讷。"</p>
+                            <p class="author">——《道德经》第四十五章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"道生一，一生二，二生三，三生万物。"</p>
+                            <p class="author">——《道德经》第四十二章</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"北冥有鱼，其名为鲲。鲲之大，不知其几千里也；化而为鸟，其名为鹏。鹏之背，不知其几千里也；怒而飞，其翼若垂天之云。"</p>
+                            <p class="author">——《庄子·逍遥游》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"天地与我并生，而万物与我为一。"</p>
+                            <p class="author">——《庄子·齐物论》</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 现代意义 -->
+                <section class="school-section">
+                    <h2>现代意义</h2>
+                    <p>在现代社会，道家思想仍然具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>生态环境保护</strong>：道家强调顺应自然规律，不强行干预事物的发展，这种思想对于现代生态环境保护具有重要的启发意义。</li>
+                        <li><strong>心理健康</strong>：道家强调精神自由和内心宁静，这种思想对于缓解现代社会的压力和焦虑，保持心理健康具有重要的作用。</li>
+                        <li><strong>社会和谐</strong>：道家强调"无为而治"，主张减少政府干预，让社会自然发展，这种思想对于构建和谐社会具有一定的参考价值。</li>
+                        <li><strong>个人修养</strong>：道家强调修身养性，追求精神上的自由和逍遥，这种思想对于个人的道德修养和精神提升具有重要的意义。</li>
+                        <li><strong>科学研究</strong>：道家的辩证思想和观察自然的方法，对于现代科学研究也具有一定的启发作用。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.school-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

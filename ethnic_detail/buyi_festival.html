@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布依族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布依族传统节日页面特定样式 */
+        .buyi-festival-header {
+            background-image: url('images/布依族女性服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .buyi-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .buyi-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .buyi-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .buyi-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .buyi-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .buyi-festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .buyi-festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .buyi-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .buyi-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .buyi-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .buyi-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日展示 */
+        .festival-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .buyi-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .buyi-festival-header p {
+                font-size: 18px;
+            }
+            
+            .buyi-festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="buyi-festival-header">
+        <div class="container">
+            <div class="buyi-festival-header-content">
+                <h1>布依族传统节日</h1>
+                <p>丰富多彩的布依族节日文化与庆典活动</p>
+                <a href="buyi.html" class="back-link">返回布依族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="buyi-festival-main">
+        <div class="container">
+            <div class="buyi-festival-content">
+                <!-- 节日概述 -->
+                <section class="buyi-festival-section">
+                    <h2>节日概述</h2>
+                    <p>布依族是一个有着悠久历史和丰富文化的民族，拥有许多传统节日。这些节日反映了布依族人民的生活方式、价值观念和文化传统，是布依族文化的重要组成部分。</p>
+                    <p>布依族的传统节日大多与农业生产、宗教信仰、祖先崇拜等有关，具有浓厚的民族特色。这些节日不仅是布依族人民团聚、娱乐的重要时刻，也是传承布依族文化的重要载体。</p>
+                    <p>布依族的传统节日主要包括"三月三"、"六月六"、"七月半"等，其中"六月六"是布依族最重要的传统节日，又称"小年"、"过新年"。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="buyi-festival-section">
+                    <h3>主要传统节日</h3>
+                    
+                    <div class="festival-showcase">
+                        <div class="festival-item">
+                            <h4>六月六</h4>
+                            <p>六月六是布依族最重要的传统节日，又称"小年"、"过新年"，每年农历六月初六举行。这个节日起源于布依族的农业生产活动，是布依族人民庆祝农业丰收、祈求来年平安幸福的重要节日。节日期间，布依族人民会举行各种庆祝活动，如对歌、跳舞、祭祀祖先等。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>三月三</h4>
+                            <p>三月三是布依族的传统节日，每年农历三月初三举行。这个节日起源于布依族的宗教信仰活动，是布依族人民祭祀山神、水神、祖先的重要节日。节日期间，布依族人民会举行各种庆祝活动，如对歌、跳舞、祭祀仪式等。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>七月半</h4>
+                            <p>七月半是布依族的传统节日，每年农历七月十五日举行。这个节日起源于布依族的祖先崇拜活动，是布依族人民祭祀祖先、超度亡灵的重要节日。节日期间，布依族人民会举行各种庆祝活动，如祭祖、烧纸钱、放河灯等。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="festival-showcase">
+                        <div class="festival-item">
+                            <h4>春节</h4>
+                            <p>春节是布依族的传统节日，与汉族相同，每年农历正月初一举行。这个节日是布依族人民辞旧迎新、祈求来年平安幸福的重要节日。节日期间，布依族人民会举行各种庆祝活动，如贴春联、吃团圆饭、拜年等。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>元宵节</h4>
+                            <p>元宵节是布依族的传统节日，与汉族相同，每年农历正月十五日举行。这个节日是布依族人民庆祝春节结束、祈求来年平安幸福的重要节日。节日期间，布依族人民会举行各种庆祝活动，如吃元宵、赏花灯、猜灯谜等。</p>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>中秋节</h4>
+                            <p>中秋节是布依族的传统节日，与汉族相同，每年农历八月十五日举行。这个节日是布依族人民团圆、赏月、祈求来年平安幸福的重要节日。节日期间，布依族人民会举行各种庆祝活动，如吃月饼、赏月、团圆饭等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日庆祝方式 -->
+                <section class="buyi-festival-section">
+                    <h3>节日庆祝方式</h3>
+                    
+                    <h4>六月六庆祝方式</h4>
+                    <ul>
+                        <li><strong>祭祀祖先：</strong>布依族人民会在节日期间祭祀祖先，向祖先供奉食物、酒和纸钱等物品，表达对祖先的敬仰和怀念之情。</li>
+                        <li><strong>对歌：</strong>布依族人民喜欢唱歌，节日期间会举行对歌活动，青年男女通过对歌的方式寻找伴侣，表达爱意。</li>
+                        <li><strong>跳舞：</strong>布依族人民喜欢跳舞，节日期间会举行跳舞活动，如铜鼓舞、摆手舞等，表达对生活的热爱和对未来的美好期望。</li>
+                        <li><strong>吃团圆饭：</strong>布依族人民会在节日期间全家团聚，一起吃团圆饭，共享天伦之乐。</li>
+                        <li><strong>走亲访友：</strong>布依族人民会在节日期间走亲访友，互相拜访，增进感情。</li>
+                    </ul>
+                    
+                    <h4>三月三庆祝方式</h4>
+                    <ul>
+                        <li><strong>祭祀山神、水神：</strong>布依族人民会在节日期间祭祀山神、水神，祈求山神、水神的保佑，保护山林资源和水源的安全。</li>
+                        <li><strong>对歌：</strong>布依族人民喜欢唱歌，节日期间会举行对歌活动，青年男女通过对歌的方式寻找伴侣，表达爱意。</li>
+                        <li><strong>跳舞：</strong>布依族人民喜欢跳舞，节日期间会举行跳舞活动，如铜鼓舞、摆手舞等，表达对生活的热爱和对未来的美好期望。</li>
+                        <li><strong>吃五色饭：</strong>布依族人民会在节日期间制作五色饭，五色饭是用糯米和各种植物染料制作而成的，色彩斑斓，象征吉祥如意。</li>
+                    </ul>
+                    
+                    <h4>七月半庆祝方式</h4>
+                    <ul>
+                        <li><strong>祭祀祖先：</strong>布依族人民会在节日期间祭祀祖先，向祖先供奉食物、酒和纸钱等物品，表达对祖先的敬仰和怀念之情。</li>
+                        <li><strong>烧纸钱：</strong>布依族人民会在节日期间烧纸钱，给祖先送钱，希望祖先在阴间能够生活得幸福。</li>
+                        <li><strong>放河灯：</strong>布依族人民会在节日期间放河灯，超度亡灵，希望亡灵能够早日投胎转世。</li>
+                        <li><strong>吃鸭子：</strong>布依族人民会在节日期间吃鸭子，鸭子是布依族人民喜爱的食物之一，也是七月半的传统食品。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日文化内涵 -->
+                <section class="buyi-festival-section">
+                    <h3>节日文化内涵</h3>
+                    <p>布依族的传统节日不仅是布依族人民团聚、娱乐的重要时刻，也是传承布依族文化的重要载体。这些节日蕴含着丰富的文化内涵，反映了布依族人民的生活方式、价值观念和文化传统。</p>
+                    
+                    <h4>农业文化</h4>
+                    <p>布依族是一个以农业为主的民族，其传统节日大多与农业生产有关。例如，六月六是布依族庆祝农业丰收、祈求来年平安幸福的重要节日；三月三是布依族祈求风调雨顺、五谷丰登的重要节日。这些节日反映了布依族人民对农业生产的重视，以及对自然的敬畏和感恩之情。</p>
+                    
+                    <h4>宗教文化</h4>
+                    <p>布依族的传统节日大多与宗教信仰有关。例如，三月三是布依族祭祀山神、水神的重要节日；七月半是布依族祭祀祖先、超度亡灵的重要节日。这些节日反映了布依族人民的宗教信仰，以及对祖先、神灵的敬仰和崇拜之情。</p>
+                    
+                    <h4>社交文化</h4>
+                    <p>布依族的传统节日是布依族人民社交的重要场合。例如，在六月六、三月三等节日期间，布依族人民会举行各种庆祝活动，如对歌、跳舞、吃团圆饭等，这些活动为布依族人民提供了一个交流、互动的平台，促进了民族团结和社会和谐。</p>
+                    
+                    <h4>艺术文化</h4>
+                    <p>布依族的传统节日是布依族文化艺术的重要展示平台。例如，在节日期间，布依族人民会举行各种文化艺术活动，如对歌、跳舞、制作五色饭等，这些活动展示了布依族的文化艺术成就，促进了布依族文化艺术的传承和发展。</p>
+                </section>
+
+                <!-- 节日的现代变迁 -->
+                <section class="buyi-festival-section">
+                    <h3>节日的现代变迁</h3>
+                    <p>随着社会的发展和进步，布依族的传统节日也发生了一些变化。这些变化反映了布依族社会的发展和进步，也反映了布依族文化的传承和创新。</p>
+                    
+                    <h4>节日形式的变化</h4>
+                    <ul>
+                        <li><strong>庆祝方式的现代化：</strong>随着科学技术的发展和生活水平的提高，布依族人民的节日庆祝方式也发生了一些变化。例如，在节日期间，布依族人民会使用现代的音响设备、灯光设备等，使节日庆祝活动更加丰富多彩。</li>
+                        <li><strong>节日内容的丰富化：</strong>随着社会的发展和进步，布依族人民的节日内容也更加丰富。例如，在节日期间，布依族人民会举行各种文化艺术活动，如文艺演出、体育比赛等，使节日内容更加丰富多彩。</li>
+                    </ul>
+                    
+                    <h4>节日意义的变化</h4>
+                    <ul>
+                        <li><strong>从宗教性向世俗性的转变：</strong>随着科学技术的发展和教育水平的提高，布依族人民的宗教信仰逐渐淡化，节日的宗教性意义也逐渐减弱，世俗性意义逐渐增强。</li>
+                        <li><strong>从传统性向现代性的转变：</strong>随着社会的发展和进步，布依族人民的生活方式和价值观念也发生了一些变化，节日的传统性意义也逐渐减弱，现代性意义逐渐增强。</li>
+                    </ul>
+                    
+                    <h4>节日的传承与发展</h4>
+                    <p>尽管布依族的传统节日发生了一些变化，但它作为布依族文化的重要组成部分，仍然在布依族社会中发挥着重要的作用。布依族人民在传承传统节日的同时，也在不断适应现代社会的需要，使传统节日与现代社会相协调。</p>
+                    <ul>
+                        <li><strong>传统节日的保留：</strong>布依族人民仍然保留着一些传统节日，如六月六、三月三、七月半等，这些节日是布依族文化的重要组成部分。</li>
+                        <li><strong>传统节日的创新：</strong>布依族人民在传承传统节日的同时，也在不断创新，使传统节日与现代社会相协调。例如，在节日期间，布依族人民会举行各种现代的文化艺术活动，如文艺演出、体育比赛等。</li>
+                        <li><strong>传统节日的保护：</strong>布依族人民重视传统节日的保护，通过各种方式，如口头传承、文字记录、仪式表演等，将传统节日传承给后代。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日与文化的关系 -->
+                <section class="buyi-festival-section">
+                    <h3>节日与文化的关系</h3>
+                    <p>布依族的传统节日与布依族文化有着密切的关系。传统节日是布依族文化的重要组成部分，对布依族文化的发展产生了深远的影响。</p>
+                    
+                    <h4>传统节日是布依族文化的载体</h4>
+                    <ul>
+                        <li><strong>民间文学：</strong>布依族的神话传说、民间故事、诗歌谚语等民间文学作品，很多都与传统节日有关。</li>
+                        <li><strong>宗教信仰：</strong>布依族的宗教仪式、祭祀活动等，很多都与传统节日有关。</li>
+                        <li><strong>风俗习惯：</strong>布依族的风俗习惯、礼仪礼节等，很多都与传统节日有关。</li>
+                        <li><strong>艺术文化：</strong>布依族的音乐、舞蹈、美术等艺术文化，很多都与传统节日有关。</li>
+                    </ul>
+                    
+                    <h4>布依族文化是传统节日的内涵</h4>
+                    <ul>
+                        <li><strong>价值观：</strong>布依族的传统节日反映了布依族人民的价值观，如尊老爱幼、团结互助、诚实守信等。</li>
+                        <li><strong>审美观念：</strong>布依族的传统节日反映了布依族人民的审美观念，如对自然的热爱、对美的追求等。</li>
+                        <li><strong>生活方式：</strong>布依族的传统节日反映了布依族人民的生活方式，如以农业为主、重视家庭等。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

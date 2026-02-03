@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔塔尔族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔塔尔族风俗习惯页面特定样式 */
+        .customs-header {
+            background-image: url('images/塔塔尔族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-tatar {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-tatar:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .customs-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯分类 */
+        .customs-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .category-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .customs-section.visible .category-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .customs-section.visible .category-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .customs-section.visible .category-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .customs-section.visible .category-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .category-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .category-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .customs-header p {
+                font-size: 18px;
+            }
+            
+            .customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="customs-header">
+        <div class="container">
+            <div class="customs-header-content">
+                <h1>塔塔尔族风俗习惯</h1>
+                <p>独特的民族传统与生活方式</p>
+                <a href="tatar.html" class="back-tatar">返回塔塔尔族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="customs-main">
+        <div class="container">
+            <div class="customs-content">
+                <!-- 风俗习惯概述 -->
+                <section class="customs-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>塔塔尔族有着独特的风俗习惯，这些风俗习惯是塔塔尔族人民在长期的历史发展过程中形成的，反映了塔塔尔族的文化传统、生活方式和价值观念。塔塔尔族的风俗习惯与伊斯兰教信仰密切相关，同时也受到周围民族文化的影响，形成了自己独特的风格。</p>
+                    <p>塔塔尔族的风俗习惯涵盖了生活的各个方面，包括居住、饮食、婚姻、丧葬、节日等，这些风俗习惯不仅是塔塔尔族文化的重要组成部分，也是中华民族多元文化的瑰宝。</p>
+                </section>
+
+                <!-- 居住习俗 -->
+                <section class="customs-section">
+                    <h2>居住习俗</h2>
+                    <p>塔塔尔族的居住习俗具有独特的民族特色，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>房屋建筑：</strong>塔塔尔族的传统房屋多为木质结构的平房，屋顶平坦，适合晾晒物品。房屋的墙壁用土坯或砖块砌成，窗户较大，有利于通风和采光。</li>
+                        <li><strong>房屋布局：</strong>塔塔尔族的传统房屋一般分为正房和厢房，正房是家庭成员的主要活动场所，厢房则用于储存物品或作为厨房。房屋内部装饰简洁大方，墙上挂有地毯、挂毯等装饰品。</li>
+                        <li><strong>居住环境：</strong>塔塔尔族喜欢在房屋周围种植树木和花卉，创造一个优美的居住环境。他们也注重房屋的卫生和整洁，保持室内外的清洁。</li>
+                        <li><strong>火塘文化：</strong>在塔塔尔族的传统房屋中，火塘是一个重要的设施，不仅用于取暖和做饭，也是家庭成员聚集交流的地方。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="customs-section">
+                    <h2>饮食习俗</h2>
+                    <p>塔塔尔族的饮食习俗丰富多样，具有独特的民族特色：</p>
+                    <div class="customs-categories">
+                        <div class="category-item">
+                            <h5>主要食物</h5>
+                            <p>塔塔尔族的主要食物包括肉类、奶制品、面食和蔬菜等。肉类以牛肉、羊肉、鸡肉为主，奶制品有酸奶、奶酪、奶皮子等，面食有馕、拉面、烤包子等。</p>
+                        </div>
+                        <div class="category-item">
+                            <h5>特色美食</h5>
+                            <p>塔塔尔族的特色美食有烤包子、手抓肉、油馓子、酸奶等。烤包子是塔塔尔族最具代表性的传统美食，以其皮脆肉嫩、香味四溢而受到人们的喜爱。</p>
+                        </div>
+                        <div class="category-item">
+                            <h5>饮食习惯</h5>
+                            <p>塔塔尔族的饮食习惯与伊斯兰教信仰密切相关，禁食猪肉、血液、自死物等。他们喜欢饮用奶茶、马奶酒和啤酒等饮品，用餐时注重礼仪和卫生。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="customs-section">
+                    <h2>婚姻习俗</h2>
+                    <p>塔塔尔族的婚姻习俗具有独特的民族特色，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>婚姻制度：</strong>塔塔尔族实行一夫一妻制，禁止近亲结婚。婚姻一般由父母包办，但也尊重子女的意愿。</li>
+                        <li><strong>婚姻程序：</strong>塔塔尔族的婚姻程序较为复杂，一般包括提亲、订婚、结婚等环节。提亲时，男方要带礼物到女方家，如果女方同意，就会举行订婚仪式。结婚时，要举行隆重的婚礼，邀请亲朋好友参加。</li>
+                        <li><strong>婚礼仪式：</strong>塔塔尔族的婚礼仪式丰富多彩，包括诵经、跳舞、唱歌等活动。新娘要穿传统的民族服装，新郎要骑马迎接新娘。婚礼上，人们会享用丰盛的美食，载歌载舞，庆祝新人的结合。</li>
+                        <li><strong>婚姻观念：</strong>塔塔尔族重视婚姻的稳定性，强调夫妻之间的相互尊重和忠诚。离婚现象较少，家庭观念较强。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="customs-section">
+                    <h2>丧葬习俗</h2>
+                    <p>塔塔尔族的丧葬习俗严格按照伊斯兰教规进行，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>葬礼程序：</strong>塔塔尔族的葬礼程序较为简单庄重，人死后要尽快举行葬礼，一般不超过一天。葬礼包括净身、裹尸、诵经、埋葬等环节。</li>
+                        <li><strong>埋葬方式：</strong>塔塔尔族实行土葬，墓地一般选择在地势较高、干燥的地方。墓穴为长方形，深度约2米，尸体头朝西，脚朝东，面部朝向麦加方向。</li>
+                        <li><strong>哀悼习俗：</strong>塔塔尔族在人死后会进行一段时间的哀悼，一般为40天。在哀悼期间，家属要穿素色衣服，不参加娱乐活动，以示对死者的尊重。</li>
+                        <li><strong>纪念活动：</strong>塔塔尔族在人死后的第7天、第40天和周年纪念日，会举行纪念活动，邀请亲朋好友参加，诵经祈祷，缅怀死者。</li>
+                    </ul>
+                </section>
+
+                <!-- 社交礼仪 -->
+                <section class="customs-section">
+                    <h2>社交礼仪</h2>
+                    <p>塔塔尔族是一个热情好客的民族，有着独特的社交礼仪：</p>
+                    <ul>
+                        <li><strong>问候礼仪：</strong>塔塔尔族见面时会互相问候，握手致意。如果是长辈和晚辈见面，晚辈要先向长辈问好，长辈则会抚摸晚辈的头表示关爱。</li>
+                        <li><strong>待客礼仪：</strong>塔塔尔族热情好客，客人来访时，会热情款待，拿出最好的食物和饮品招待客人。客人离开时，主人会送到门外，祝福客人一路平安。</li>
+                        <li><strong>禁忌礼仪：</strong>塔塔尔族有一些禁忌礼仪，如在宗教场所要保持安静，不要穿暴露的衣服；在别人家里做客时，不要随便进入主人的卧室；不要用左手传递物品等。</li>
+                        <li><strong>节日礼仪：</strong>在节日期间，塔塔尔族会穿上盛装，走亲访友，互道祝福，赠送礼物。他们也会邀请亲朋好友到家里做客，共享美食，共度佳节。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的传承与发展 -->
+                <section class="customs-section">
+                    <h2>风俗习惯的传承与发展</h2>
+                    <p>塔塔尔族的风俗习惯是塔塔尔族文化的重要组成部分，在历史的长河中不断传承和发展：</p>
+                    <ul>
+                        <li><strong>传承方式：</strong>塔塔尔族的风俗习惯主要通过家庭教育、社会教育和宗教教育等方式传承。长辈会将传统的风俗习惯传授给晚辈，晚辈则要尊重和遵守这些风俗习惯。</li>
+                        <li><strong>文化融合：</strong>在长期的历史发展过程中，塔塔尔族的风俗习惯受到了周围民族文化的影响，同时也对周围民族的文化产生了影响，形成了文化融合的现象。</li>
+                        <li><strong>现代变迁：</strong>随着社会的发展和现代化进程的推进，塔塔尔族的一些风俗习惯也发生了变化，如居住方式、饮食结构等方面都有了现代化的元素。</li>
+                        <li><strong>保护与发展：</strong>为了保护和传承塔塔尔族的风俗习惯，中国政府采取了一系列措施，如建立民族文化保护区，支持传统节日的举办，鼓励民间艺人的传承活动等。这些措施对于保护塔塔尔族的文化遗产，促进塔塔尔族文化的发展起到了重要作用。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

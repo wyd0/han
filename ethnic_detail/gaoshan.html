@@ -1,0 +1,719 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高山族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 动画关键帧定义 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top center;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top center;
+            }
+        }
+        
+        /* 高山族页面特定样式 */
+        .gaoshan-header {
+            background-image: url('images/gaoshan-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .gaoshan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .gaoshan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gaoshan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .gaoshan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .gaoshan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .gaoshan-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .gaoshan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gaoshan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .gaoshan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gaoshan-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gaoshan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .gaoshan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .gaoshan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .gaoshan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .gaoshan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .gaoshan-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .gaoshan-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gaoshan-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .gaoshan-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .gaoshan-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+            animation: none;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .gaoshan-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gaoshan-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gaoshan-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .gaoshan-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .gaoshan-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+            animation: none;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .gaoshan-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gaoshan-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gaoshan-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+            animation: none;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .food-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .gaoshan-section.visible .food-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gaoshan-section.visible .food-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gaoshan-section.visible .food-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .gaoshan-section.visible .food-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .gaoshan-section.visible .food-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .food-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 节日庆典样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 25px 0;
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: top center;
+            transition: all 0.8s ease;
+        }
+        
+        .gaoshan-section.visible .festival-celebration {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+        
+        .gaoshan-section.visible .festival-celebration:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gaoshan-section.visible .festival-celebration:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .gaoshan-section.visible .festival-celebration:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .festival-celebration h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .gaoshan-header h1 {
+                font-size: 36px;
+            }
+            
+            .gaoshan-header p {
+                font-size: 18px;
+            }
+            
+            .gaoshan-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .food-culture {
+                grid-template-columns: 1fr;
+            }
+            
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="gaoshan-header">
+        <div class="container">
+            <div class="gaoshan-header-content">
+                <h1>高山族</h1>
+                <p>台湾的原住民，多彩的部落文化</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="gaoshan-main">
+        <div class="container">
+            <div class="gaoshan-content">
+                <!-- 高山族文化概览 -->
+                <section class="gaoshan-section">
+                    <h2>高山族文化概览</h2>
+                    <p>高山族是中国55个少数民族之一，主要分布在台湾省，少数分布在福建省、浙江省等沿海地区。高山族是台湾省的原住民，是台湾地区最早的居民之一，有着悠久的历史和丰富的文化遗产。</p>
+                    <p>高山族不是单一的民族，而是由多个部族组成的，主要包括阿美、泰雅、排湾、布农、邹、鲁凯、卑南、赛夏、雅美、邵等部族。每个部族都有自己的语言、文化、信仰和艺术，展现出丰富多彩的文化多样性。</p>
+                </section>
+
+                <!-- 历史与起源 -->
+                <section class="gaoshan-section">
+                    <h2>历史与起源</h2>
+                    
+                    <h3>高山族的起源</h3>
+                    <p>高山族的起源可以追溯到古代的百越族和南岛语系民族，与东南亚地区的一些民族有着密切的关系。根据考古发现，早在新石器时代，台湾地区就有人类活动的痕迹，这些早期居民就是高山族的祖先。</p>
+                    
+                    <h3>历史发展</h3>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>新石器时代</h5>
+                            <p>台湾地区已有人类活动，他们就是高山族的祖先。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>宋元时期</h5>
+                            <p>高山族与大陆地区的联系逐渐加强，开始进行贸易往来。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>大量大陆居民迁往台湾，与高山族人民共同开发台湾地区，促进了高山族与汉族的文化交流和融合。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>1949年以后</h5>
+                            <p>中华人民共和国成立后，高山族人民获得了平等的民族权利，经济社会得到了快速发展。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>文化传承与发展</h3>
+                    <p>高山族有着悠久的文化传承，每个部落都有自己独特的文化传统。他们通过口头传承和传统手工艺等方式保存了丰富的历史文化遗产。在现代社会，高山族文化得到了进一步的保护和发展，传统的音乐、舞蹈、手工艺等都得到了传承和创新。</p>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="gaoshan-section">
+                    <h2>文化方面</h2>
+                    
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="gaoshan-language.html" style="color: #c0392b; text-decoration: none;"></a>语言文字</a></h5>
+                            <p>高山族有自己的语言，但没有统一的文字。高山语属于南岛语系印度尼西亚语族，分为阿美、泰雅、排湾、布农、邹、鲁凯、卑南、赛夏、雅美、邵等多个语支。虽然没有统一的文字，但高山族人民通过口头传承记录着本民族的历史文化。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="gaoshan-religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>高山族主要信仰原始宗教，崇拜自然，信仰多神，如太阳神、地神、山神、水神等。他们也信仰祖先崇拜，认为祖先的灵魂会保护后代。此外，部分高山族群众也信仰基督教和天主教。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="gaoshan-customs.html" style="color: #c0392b; text-decoration: none;">传统习俗</a></h5>
+                            <p>高山族有着丰富的传统习俗，如婚礼、葬礼、节日等都有独特的形式和程序。每个部落的习俗都有所不同，展现出丰富多彩的文化多样性。高山族人民热情好客，注重家庭和部落的团结。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="gaoshan-art.html" style="color: #c0392b; text-decoration: none;">文学艺术</a></h5>
+                            <p>高山族有着丰富的文学艺术遗产，如民间故事、神话、传说、谚语等。每个部落都有自己独特的文学艺术形式，展现出丰富多彩的文化多样性。高山族的音乐、舞蹈、手工艺等都非常独特，具有浓郁的民族特色。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服装文化 -->
+                <section class="gaoshan-section">
+                    <h2>服装文化</h2>
+                    <p>高山族的服装具有鲜明的民族特色，每个部落的服装都有所不同，展现出丰富多彩的文化多样性。高山族的服装主要以麻、棉为原料，设计宽松大方，装饰华丽。</p>
+                    
+                    <h3>男子服装</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/高山族男子传统服装.jpg" alt="高山族男子传统服装">
+                            <p>高山族男子传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/高山族男子盛装.jpg" alt="高山族男子盛装">
+                            <p>高山族男子盛装</p>
+                        </div>
+                    </div>
+                    <p>高山族男子通常穿着无领对襟短衫，下着长裤或短裤，用头巾包头。他们喜欢在服装上装饰贝壳、羽毛、兽牙等，显得粗犷豪放。</p>
+                    
+                    <h3>女子服装</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/高山族女子传统服装.jpg" alt="高山族女子传统服装">
+                            <p>高山族女子传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/高山族女子盛装.jpg" alt="高山族女子盛装">
+                            <p>高山族女子盛装</p>
+                        </div>
+                    </div>
+                    <p>高山族女子的服装更加华丽多彩，通常穿着无领对襟短衫或右衽短衣，下着长裙或短裤，用头巾包头。上衣多为彩色，上面绣有华丽的图案。裙子则色彩鲜艳，图案复杂，通常用多层布料缝制而成。她们的头饰也非常独特，喜欢用贝壳、羽毛、兽牙、花链等装饰，显得婀娜多姿。</p>
+                    
+                    <h3>服装特点</h3>
+                    <ul>
+                        <li><strong>部落特色鲜明：</strong>每个部落的服装都有所不同，展现出丰富多彩的文化多样性。</li>
+                        <li><strong>装饰华丽：</strong>服装上装饰有各种华丽的物品，如贝壳、羽毛、兽牙、花链等，展现出高山族人民的艺术才华。</li>
+                        <li><strong>民族特色鲜明：</strong>服装的款式、色彩、装饰等都展现出鲜明的高山族特色，是高山族文化的重要标志。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="gaoshan-section">
+                    <h2>饮食文化</h2>
+                    <p>高山族的饮食文化受到台湾地区自然环境的影响，以稻米为主食，喜欢吃鱼贝、肉类、野菜等食物，擅长烤制各种原始食物和酿酒。</p>
+                    
+                    <div class="food-culture">
+                        <div class="food-item">
+                            <h5>主食</h5>
+                            <p>高山族以米饭为主食，喜欢吃杂粮，如小米、芋头、红薯等。他们的米饭通常用竹筒蒸煮，香气扑鼻，口感松软。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>菜肴</h5>
+                            <p>高山族的菜肴以肉类、鱼类、野菜等为主，如烤山猪肉、竹筒饭、竹筒鱼、野菜汤等。他们也喜欢吃各种原始食物，如生鱼片、生肉等。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>传统饮品</h5>
+                            <p>高山族的传统饮品有米酒、小米酒、果酒等。米酒是高山族的传统佳酿，以糯米为原料，经过发酵而成，酒精度数低，口感甘甜。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>特色食物</h5>
+                            <p>高山族的特色食物有竹筒饭、烤山猪肉、竹筒鱼、米酒等。这些食物不仅味道独特，而且制作工艺精湛，展现出高山族人民的烹饪才华。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>高山族有着独特的饮食习俗，如吃饭时要长辈先动手，晚上才能开始吃饭。他们热情好客，客人来访时，会拿出最好的食物款待，如烤山猪肉、竹筒饭、米酒等。高山族人民注重饮食卫生，讲究饮食礼仪，有着悠久的饮食文化传统。</p>
+                </section>
+
+                <!-- 节日庆典 -->
+                <section class="gaoshan-section">
+                    <h2>节日庆典</h2>
+                    <p>高山族有许多传统节日，每个部落的节日都有所不同，展现出丰富多彩的文化多样性。主要节日有新年祭、播种祭、收获祭、丰年祭等。</p>
+                    
+                    <div class="festival-celebration">
+                        <h5>新年祭</h5>
+                        <p>新年祭是高山族最重要的传统节日，通常在农历十二月举行。在节日期间，高山族人民会穿上盛装，举行祭祀、歌舞、竞技等庆祝活动，祈求来年风调雨顺，五谷丰登。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>播种祭</h5>
+                        <p>播种祭是高山族庆祝播种的节日，通常在农历二三月举行。在节日期间，高山族人民会举行祭祀活动，祈求神灵保佑农作物茁壮成长，获得丰收。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>收获祭</h5>
+                        <p>收获祭是高山族庆祝收获的节日，通常在农历四五月举行。在节日期间，高山族人民会举行祭祀活动，祈求神灵保佑收获顺利，获得丰收。</p>
+                    </div>
+                </section>
+
+                <!-- 文学与艺术 -->
+                <section class="gaoshan-section">
+                    <h2>文学与艺术</h2>
+                    
+                    <h3>民间文学</h3>
+                    <p>高山族有着丰富的民间文学遗产，如民间故事、神话、传说、谚语等。每个部落都有自己独特的民间文学形式，展现出丰富多彩的文化多样性。高山族的民间故事内容广泛，情节曲折，包括创世神话、英雄传说、爱情故事等。</p>
+                    
+                    <h3>音乐与舞蹈</h3>
+                    <p>高山族的音乐和舞蹈非常独特，具有浓郁的民族特色。每个部落都有自己独特的音乐和舞蹈形式，展现出丰富多彩的文化多样性。高山族的传统乐器有口琴、笛子、木鼓、铜锣、芦笙等，其中口琴是最具代表性的乐器。高山族的舞蹈形式多样，如丰年舞、播种舞、收获舞、丰年祭等，其中丰年祭是最著名的舞蹈，以其欢快的节奏和精湛的技艺闻名中外。</p>
+                    
+                    <h3>民间工艺</h3>
+                    <p>高山族的民间工艺也非常发达，如编织、刺绣、雕刻、绘画、陶艺等。每个部落都有自己独特的民间工艺形式，展现出丰富多彩的文化多样性。高山族的编织工艺历史悠久，擅长用麻、棉等原料编织各种布料。刺绣品如服饰、背包、挂饰等，图案精美，色彩鲜艳。雕刻品如木雕、竹雕、骨雕等，造型美观，实用耐用。绘画品如岩画、壁画等，工艺精湛，栩栩如生。</p>
+                </section>
+
+                <!-- 对中华文��的影响 -->
+                <section class="gaoshan-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>高山族文化是中华文化的重要组成部分，对中华文化的发展和繁荣作出了重要贡献。</p>
+                    
+                    <h3>经济交流</h3>
+                    <p>高山族地区是中国台湾地区的重要组成部分，历史上就是中国东南沿海地区的重要门户。高山族人民通过与大陆地区的经济交流，促进了两岸贸易往来和文化交流。</p>
+                    
+                    <h3>文化融合</h3>
+                    <p>高山族文化与中华文化相互融合，相互影响。高山族的音乐、舞蹈、手工艺等都对中华文化产生了深远的影响，同时，高山族也吸收了中华文化的优秀成果，如儒家思想、汉字文化等，丰富了自己的文化内涵。</p>
+                    
+                    <h3>民族团结</h3>
+                    <p>高山族人民热爱祖国，维护中国领土的完整，积极参与国家建设和发展。他们与其他民族和睦相处，共同维护国家的统一和民族团结。高山族文化的传承和发展，对于促进两岸文化交流和融合，增强中华民族的凝聚力和向心力，具有重要意义。</p>
+                    
+                    <h3>文化多样性</h3>
+                    <p>高山族文化的独特性和多样性，丰富了中华文化的内容，促进了中华文化的多元发展。保护和发展高山族文化，对于维护中华文化的多样性和丰富性，推动中华文化的创新和发展，具有重要意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

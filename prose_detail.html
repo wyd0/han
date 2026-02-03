@@ -1,0 +1,434 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>散文艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 散文页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .prose-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .prose-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .prose-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .prose-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .prose-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .prose-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .prose-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .prose-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .prose-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .prose-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .prose-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .prose-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .prose-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .prose-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .prose-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 代表人物 */
+        .representative {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .representative h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 经典语录 */
+        .quotes {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quotes h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .quote-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-left: 4px solid #c0392b;
+            border-radius: 5px;
+        }
+        
+        .quote-item p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .quote-item .author {
+            text-align: right;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .prose-header h1 {
+                font-size: 36px;
+            }
+            
+            .prose-header p {
+                font-size: 18px;
+            }
+            
+            .prose-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="prose-header">
+        <div class="container">
+            <div class="prose-header-content">
+                <h1>散文艺术</h1>
+                <p>中国古代散文的典雅之美</p>
+                <a href="literature.html" class="back-link">返回文学艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="prose-main">
+        <div class="container">
+            <div class="prose-content">
+                <!-- 散文概述 -->
+                <section class="prose-section">
+                    <h2>散文概述</h2>
+                    <p>散文是中国文学中最灵活多样的文学形式之一，它不像诗歌那样严格讲究韵律和格式，也不像小说那样注重故事情节和人物塑造，而是以自由的形式表达作者的思想感情和对社会人生的感悟。</p>
+                    <p>中国散文历史悠久，内容丰富，风格多样，是中国文学的重要组成部分。从先秦时期的历史散文和诸子散文，到秦汉时期的政论散文，再到唐宋时期的古文运动，元明清时期的小品文，中国散文不断发展演变，形成了独特的艺术魅力。</p>
+                </section>
+
+                <!-- 散文的起源 -->
+                <section class="prose-section">
+                    <h3>起源</h3>
+                    <p>中国散文的起源可以追溯到先秦时期。早在甲骨文和金文中，就已经出现了散文的萌芽。随着文字的发展和社会的进步，散文逐渐从简单的记事发展成为一种独立的文学形式。</p>
+                    <p>《尚书》是中国最早的历史文献汇编，也是中国散文的开端。它收录了从虞舜到商周时期的历史文献，内容主要是帝王的诰命、大臣的奏议等，语言古朴典雅，结构严谨，为后世散文的发展奠定了基础。</p>
+                    <p>春秋战国时期，社会动荡不安，百家争鸣，各种思想流派纷纷著书立说，阐述自己的观点和主张。这一时期的散文主要包括历史散文和诸子散文两大类，它们不仅是重要的思想文化遗产，也是中国散文发展的第一个高峰期。</p>
+                </section>
+
+                <!-- 散文的发展 -->
+                <section class="prose-section">
+                    <h3>发展</h3>
+                    <p>中国散文的发展经历了漫长的历史过程，每个时期都有其独特的风格和特点：</p>
+                    
+                    <h4>先秦时期（公元前21世纪-公元前221年）</h4>
+                    <p>这一时期是中国散文的奠基阶段。历史散文以《左传》、《国语》、《战国策》为代表，它们以记事为主，语言生动，叙事详尽，具有很高的文学价值。诸子散文以孔子的《论语》、孟子的《孟子》、庄子的《庄子》、荀子的《荀子》、韩非子的《韩非子》为代表，它们以说理为主，语言犀利，论证严密，具有很强的逻辑性和说服力。</p>
+                    
+                    <h4>秦汉时期（公元前221年-公元220年）</h4>
+                    <p>这一时期的散文主要包括政论散文和历史散文。政论散文以贾谊的《过秦论》、晁错的《论贵粟疏》、董仲舒的《天人三策》为代表，它们针对当时的社会现实，提出了一系列的政治主张和改革建议，语言雄浑有力，气势磅礴。历史散文以司马迁的《史记》和班固的《汉书》为代表，它们不仅是重要的历史著作，也是优秀的文学作品，被称为"史家之绝唱，无韵之离骚"。</p>
+                    
+                    <h4>魏晋南北朝时期（公元220年-公元589年）</h4>
+                    <p>这一时期是中国散文的转变时期。散文开始从经学的束缚中解放出来，注重个人情感的表达和艺术形式的追求。曹操、曹丕、曹植的散文清峻通脱，富有个性。陶渊明的散文自然质朴，意境深远，代表作有《桃花源记》、《五柳先生传》等。王羲之的《兰亭集序》则以其清新自然的语言和深邃的哲理而著称。</p>
+                    
+                    <h4>唐宋时期（公元618年-公元1279年）</h4>
+                    <p>这一时期是中国散文的鼎盛时期。中唐时期，韩愈、柳宗元发起了古文运动，主张恢复先秦两汉散文的传统，反对魏晋以来浮华艳丽的骈文。他们的散文语言古朴典雅，内容充实，气势磅礴，被称为"唐宋八大家"的先驱。宋代的欧阳修、苏洵、苏轼、苏辙、王安石、曾巩等散文家继承和发展了古文运动的传统，他们的散文风格各异，各具特色，将中国散文的发展推向了新的高峰。</p>
+                    
+                    <h4>元明清时期（公元1271年-公元1911年）</h4>
+                    <p>这一时期的散文虽然没有唐宋时期的辉煌，但也有其独特的成就。元代的散文相对衰落，但张养浩、虞集等散文家的作品仍有一定的价值。明代的散文经历了复古与革新的反复。前后七子主张"文必秦汉"，反对宋代散文的平易风格；唐宋派则主张学习唐宋散文的传统，反对前后七子的复古主张。清代的散文流派众多，桐城派是其中影响最大的一个流派，它主张"义理、考据、辞章"三者并重，其散文风格简洁明了，条理清晰。</p>
+                </section>
+
+                <!-- 散文的种类 -->
+                <section class="prose-section">
+                    <h3 id="prose-types">种类</h3>
+                    <p>中国散文的种类繁多，按照不同的分类标准，可以分为不同的类型：</p>
+                    
+                    <h4>按照内容分类</h4>
+                    <ul>
+                        <li><strong>历史散文</strong>：以记载历史事件和历史人物为主，如《左传》、《史记》等。</li>
+                        <li><strong>诸子散文</strong>：以阐述哲学思想和政治主张为主，如《论语》、《孟子》、《庄子》等。</li>
+                        <li><strong>政论散文</strong>：以议论政治问题为主，如贾谊的《过秦论》、晁错的《论贵粟疏》等。</li>
+                        <li><strong>抒情散文</strong>：以抒发作者的情感为主，如陶渊明的《桃花源记》、王羲之的《兰亭集序》等。</li>
+                        <li><strong>叙事散文</strong>：以叙述故事情节和人物经历为主，如韩愈的《张中丞传后叙》、柳宗元的《段太尉逸事状》等。</li>
+                        <li><strong>小品文</strong>：篇幅短小，内容广泛，形式灵活，如明代张岱的《陶庵梦忆》、清代沈复的《浮生六记》等。</li>
+                    </ul>
+                    
+                    <h4>按照形式分类</h4>
+                    <ul>
+                        <li><strong>古文</strong>：又称散文，是与骈文相对而言的一种散文形式。古文句式长短不一，语言自然流畅，不严格讲究对仗和用韵。</li>
+                        <li><strong>骈文</strong>：又称四六文，是魏晋南北朝时期流行的一种散文形式。骈文句式整齐，讲究对仗和用韵，语言华丽典雅。</li>
+                        <li><strong>小品文</strong>：篇幅短小，形式灵活，内容广泛，语言简洁明快。</li>
+                    </ul>
+                </section>
+
+                <!-- 种类详细链接 -->
+                <div style="text-align: center; margin: 40px 0;">
+                    <a href="prose_types_detail.html" style="display: inline-block; background-color: #c0392b; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; font-family: 'SimSun', serif; transition: all 0.3s ease;">查看散文种类详细分类与特点叙述</a>
+                </div>
+
+                <!-- 散文的影响 -->
+                <section class="prose-section">
+                    <h3>影响</h3>
+                    <p>中国散文对中国文化和世界文化都产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>对中国文化的影响</strong>：中国散文是中国文化的重要载体，它记录了中国历史的发展和社会的变迁，传递了中国传统的思想观念和价值体系。散文对中国的哲学、历史、文学等都产生了重要影响，是中国文化的精神象征。</li>
+                        <li><strong>对世界文化的影响</strong>：中国散文中的许多经典作品被翻译成多种文字，在世界范围内广泛传播，为世界文学的发展做出了重要贡献。特别是《论语》、《孟子》等诸子散文，对东亚文化圈的形成和发展产生了深远的影响。</li>
+                        <li><strong>对现代人的影响</strong>：中国散文中的许多经典作品至今仍被人们广泛阅读和欣赏，它们不仅是文学艺术的瑰宝，也是人们陶冶情操、提升审美素养的重要途径。散文中的许多哲理和智慧，对现代人的生活和思想仍然具有重要的启示意义。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="prose-section">
+                    <h3>代表人物</h3>
+                    
+                    <div class="representative">
+                        <h4>孔子（公元前551年-公元前479年）</h4>
+                        <p>名丘，字仲尼，春秋时期鲁国陬邑人，儒家学派的创始人。《论语》是记录孔子及其弟子言行的语录体散文，语言简洁明快，含蓄隽永，充满了智慧和哲理，是中国散文的经典之作。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>孟子（公元前372年-公元前289年）</h4>
+                        <p>名轲，字子舆，战国时期邹国人，儒家学派的代表人物。《孟子》是孟子及其弟子的著作，语言犀利，论证严密，气势磅礴，具有很强的说服力和感染力。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>庄子（约公元前369年-公元前286年）</h4>
+                        <p>名周，字子休，战国时期宋国人，道家学派的代表人物。《庄子》是庄子及其后学的著作，语言生动形象，想象丰富奇特，充满了浪漫主义色彩，被誉为"文学的哲学，哲学的文学"。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>司马迁（公元前145年-公元前87年）</h4>
+                        <p>字子长，西汉时期夏阳人，伟大的史学家、文学家。《史记》是中国第一部纪传体通史，也是一部优秀的文学作品，语言雄浑有力，叙事详尽生动，人物形象鲜明，被称为"史家之绝唱，无韵之离骚"。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>韩愈（768年-824年）</h4>
+                        <p>字退之，唐代河阳人，古文运动的领袖，"唐宋八大家"之首。韩愈的散文语言古朴典雅，内容充实，气势磅礴，代表作有《师说》、《进学解》、《张中丞传后叙》等。</p>
+                    </div>
+                    
+                    <div class="representative">
+                        <h4>苏轼（1037年-1101年）</h4>
+                        <p>字子瞻，号东坡居士，宋代眉州眉山人，"唐宋八大家"之一。苏轼的散文题材广泛，风格豪放洒脱，语言清新自然，代表作有《赤壁赋》、《后赤壁赋》、《石钟山记》等。</p>
+                    </div>
+                </section>
+
+                <!-- 经典语录 -->
+                <section class="prose-section">
+                    <h3>经典语录</h3>
+                    <div class="quotes">
+                        <div class="quote-item">
+                            <p>"三人行，必有我师焉。择其善者而从之，其不善者而改之。"</p>
+                            <p class="author">——孔子《论语·述而》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"天时不如地利，地利不如人和。"</p>
+                            <p class="author">——孟子《孟子·公孙丑下》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"北冥有鱼，其名为鲲。鲲之大，不知其几千里也；化而为鸟，其名为鹏。鹏之背，不知其几千里也；怒而飞，其翼若垂天之云。"</p>
+                            <p class="author">——庄子《庄子·逍遥游》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"人固有一死，或重于泰山，或轻于鸿毛，用之所趋异也。"</p>
+                            <p class="author">——司马迁《报任安书》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"师者，所以传道受业解惑也。"</p>
+                            <p class="author">——韩愈《师说》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也，而又何羡乎！"</p>
+                            <p class="author">——苏轼《赤壁赋》</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

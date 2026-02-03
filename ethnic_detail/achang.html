@@ -1,0 +1,601 @@
+﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿昌族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 阿昌族文化页面特定样式 */
+        .achang-header {
+            background-image: url('images/阿昌族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .achang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .achang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .achang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .achang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .achang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .achang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .achang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .achang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .achang-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .achang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .achang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .achang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .achang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .achang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .achang-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .achang-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .achang-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .achang-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .achang-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .achang-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .achang-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .achang-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .achang-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .achang-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .achang-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .achang-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .achang-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .achang-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .achang-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .achang-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .achang-header h1 {
+                font-size: 36px;
+            }
+            
+            .achang-header p {
+                font-size: 18px;
+            }
+            
+            .achang-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="achang-header">
+        <div class="container">
+            <div class="achang-header-content">
+                <h1>阿昌族文化</h1>
+                <p>户撒刀工艺精湛，欢快的阿露窝罗节</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="achang-main">
+        <div class="container">
+            <div class="achang-content">
+                <!-- 文化概述 -->
+                <section class="achang-section">
+                    <h2>阿昌族文化概览</h2>
+                    <p>阿昌族是中国的一个少数民族，主要分布在云南省德宏傣族景颇族自治州陇川县、梁河县以及保山地段腾冲等地方。阿昌族有着悠久的历史和丰富的文化，以其精湛的户撒刀工艺而闻名于世。</p>
+                    <p>阿昌族文化具有独特的地域特色和民族风情，包括语言、宗教、建筑、饮食、音乐、舞蹈等多个方面。阿昌族人民信仰原始宗教，同时保留了许多原始宗教的仪式。</p>
+                    <p>阿昌族的传统经济以农业为主，同时也从事手工业和商业。阿昌族人民勤劳勇敢，在长期的生产生活中创造了丰富多彩的文化，为中华文化的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 历史脉络 -->
+                <section class="achang-section">
+                    <h2>历史脉络</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>阿昌族的先民在古代时期就在西南地区活动。据史书记载，阿昌族的祖先被称为"寻传蛮"、"峨昌"，是中国古代西南地区的重要民族之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>唐宋时期</h5>
+                            <p>唐宋时期，阿昌族地区属于南诏、大理国管辖。这一时期，阿昌族的经济文化得到了进一步发展，与汉族、傣族等民族的交流也日益密切。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>元明清时期</h5>
+                            <p>元明清时期，中央政府对阿昌族地区实行土司制度，加强了对阿昌族地区的管理。这一时期，阿昌族的手工业，尤其是户撒刀工艺得到了很大的发展，成为阿昌族的重要经济来源。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代时期</h5>
+                            <p>近现代以来，阿昌族人民积极参与祖国建设和发展，为国家的繁荣和发展做出了重要贡献。1953年，阿昌族被正式确认为中国的一个少数民族。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="achang-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="achang_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>阿昌族主要信仰原始宗教，同时也保留了许多原始宗教的仪式。阿昌族人民崇拜自然万物，信仰鬼神，如天神、水神、树神等。阿昌族的宗教活动主要由祭师、和尚头主持，包括祭祀、念经、做斋等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="achang_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>阿昌族有自己的语言，属汉藏语系藏缅语族阿昌语支。阿昌族没有本民族的文字，历史上主要使用汉文和傣文。现在，阿昌族人民普遍使用汉文。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="achang_music.html" style="color: #c0392b; text-decoration: none;">音乐舞蹈</a></h5>
+                            <p>阿昌族的音乐舞蹈具有独特的民族风格。阿昌族的民间歌曲主要包括劳动歌、情歌、叙事歌等，旋律优美，节奏明快。阿昌族的舞蹈以阿露窝罗舞最为著名，动作矫健有力，充满活力。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="achang_festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>阿昌族的传统节日主要有开门节、关门节、泼水节等，这些节日与南传佛教有关。此外，阿昌族还有自己的传统节日，如阿露窝罗节、会街节等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服装特色 -->
+                <section class="achang-section">
+                    <h2>服装特色</h2>
+                    <p>阿昌族服装具有鲜明的民族特色，色彩鲜艳，图案丰富。阿昌族男子一般穿白色或蓝色对襟上衣、长裤，缠黑色或白色包头。女子则穿短上衣、长裤，头戴黑布包头，系黑色围裙、黑色腰带等。</p>
+                    <p>阿昌族服装的主要特色包括：</p>
+                    <ul>
+                        <li><strong>色彩搭配：</strong>阿昌族服装以红、蓝、黄为主色调，搭配鲜艳的图案，给人以开朗的视觉感受。</li>
+                        <li><strong>银饰丰富：</strong>阿昌族女子喜欢佩戴各种银饰，如银项圈、银耳环、银手镯等，这些银饰工艺精湛，造型美观。</li>
+                        <li><strong>工艺精湛：</strong>阿昌族服装的制作工艺非常精湛，包括刺绣、织锦等多种技艺。这些技艺历史悠久，是阿昌族文化的重要组成部分。</li>
+                        <li><strong>实用性强：</strong>阿昌族服装的设计考虑了当地的自然环境和生活方式，具有很强的实用性。例如，宽松的裤子便于活动，包头可以防晒等。</li>
+                    </ul>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/阿昌族传统服饰.jpg" alt="阿昌族传统服装">
+                            <p>阿昌族传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/阿昌族女子服装.jpg" alt="阿昌族女子服装">
+                            <p>阿昌族女子服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/阿昌族男子服装.jpg" alt="阿昌族男子服装">
+                            <p>阿昌族男子服装</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="achang-section">
+                    <h2>饮食文化</h2>
+                    <p>阿昌族的饮食文化具有鲜明的地域特色，以大米为主食，辅以各种蔬菜和肉类。阿昌族人民喜欢食用酸辣食物，擅长制作各种特色美食。</p>
+                    <p>阿昌族的主要传统美食包括：</p>
+                    <ul>
+                        <li><strong>过桥米线：</strong>阿昌族的传统美食，以米线、肉片、蔬菜等为原料制作而成，味道鲜美，是阿昌族人民喜爱的传统美食。</li>
+                        <li><strong>户撒刀宴：</strong>阿昌族的传统宴席，以各种肉类、蔬菜为原料，用户撒刀切割食用，是阿昌族人民在节日和喜庆场合必备的宴席。</li>
+                        <li><strong>酸角糕：</strong>阿昌族的传统糕点，以酸角、糯米、白糖等为原料加工而成，味道酸甜可口，是阿昌族人民喜爱的传统糕点。</li>
+                        <li><strong>米酒：</strong>阿昌族的传统饮品，以大米为原料发酵而成，味道醇香，具有保健作用。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="achang-section">
+                    <h2>传统节日</h2>
+                    <p>阿昌族有着丰富多彩的传统节日，这些节日不仅是阿昌族人民欢庆丰收、祈求吉祥的重要方式，也是传承和弘扬阿昌族文化的重要载体。</p>
+                    <p>阿昌族的主要传统节日包括：</p>
+                    <ul>
+                        <li><strong>阿露窝罗节：</strong>阿昌族最重要的传统节日之一，通常在农历正月初四举行，人们会举行各种庆祝活动，包括祭祀、唱歌、跳舞、体育比赛等。阿露窝罗节的主要活动是跳阿露窝罗舞，纪念阿昌族的祖先。</li>
+                        <li><strong>会街节：</strong>阿昌族的传统节日，通常在农历九月初十举行，人们会举行各种庆祝活动，包括耍青龙、白象、跳象脚鼓舞等。</li>
+                        <li><strong>开门节：</strong>阿昌族的传统节日，通常在农历十月十六日举行，标志着雨季结束，农业季节开始。</li>
+                        <li><strong>关门节：</strong>阿昌族的传统节日，通常在农历六月十六日举行，标志着雨季开始，农业季节结束。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="achang-section">
+                    <h2>文学艺术</h2>
+                    <p>阿昌族有着丰富的民间文学和艺术瑰宝，包括民间传说、民间故事、诗歌、谚语等。这些文学作品反映了阿昌族人民的生活、智慧和情感，是阿昌族文化的重要组成部分。</p>
+                    <p>阿昌族的民间艺术主要包括：</p>
+                    <ul>
+                        <li><strong>户撒刀工艺：</strong>阿昌族的传统手工艺品，以钢材为原料，经过锻打、淬火等工艺制作而成，工艺精湛，锋利无比，被誉为"天下第一刀"。户撒刀工艺已被列入国家级非物质文化遗产名录。</li>
+                        <li><strong>银饰工艺：</strong>阿昌族的传统手工艺品，以银为原料，经过雕刻、焊接等工艺制作而成，工艺精湛，造型美观。</li>
+                        <li><strong>音乐：</strong>阿昌族的音乐以民间歌曲为主，旋律优美，节奏明快，反映了阿昌族人民的生活和情感。</li>
+                        <li><strong>舞蹈：</strong>阿昌族的舞蹈以阿露窝罗舞最为著名，动作矫健有力，充满活力，是阿昌族人民喜爱的传统舞蹈形式。</li>
+                    </ul>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="achang-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>阿昌族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。阿昌族文化与汉族文化、傣族文化等相互交流、融合，形成了独特的文化景观。</p>
+                    <p>阿昌族文化对中华文化的影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>工艺文化：</strong>阿昌族的户撒刀工艺是中国传统工艺的重要组成部分，对中国工艺的发展产生了重要影响。户撒刀工艺已被列入国家级非物质文化遗产名录。</li>
+                        <li><strong>文学艺术：</strong>阿昌族的民间文学和艺术丰富了中华文化的内涵，为中华文化的发展做出了重要贡献。</li>
+                        <li><strong>民族融合：</strong>阿昌族文化与汉族文化、傣族文化等相互交流、融合，促进了各民族之间的相互理解和团结，为中华民族的形成和发展做出了重要贡献。</li>
+                        <li><strong>文化多样性：</strong>阿昌族文化的独特性和丰富性，为中华文化的多样性和丰富性做出了重要贡献，促进了中华文化的发展和繁荣。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

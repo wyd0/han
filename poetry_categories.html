@@ -1,0 +1,437 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>诗歌分类 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 诗歌分类页面特定样式 */
+        body {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .poetry-categories-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .poetry-categories-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .poetry-categories-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .poetry-categories-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .poetry-categories-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .poetry-categories-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .poetry-categories-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .poetry-categories-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .poetry-categories-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .poetry-categories-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .poetry-categories-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        /* 分类网格 */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .category-card {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-card h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .category-card p {
+            margin-bottom: 20px;
+        }
+        
+        .example-poems {
+            margin-top: 20px;
+        }
+        
+        .example-poem {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .example-poem h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .example-poem p {
+            margin-bottom: 5px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        .example-poem .author {
+            text-align: right;
+            font-weight: bold;
+            color: #c0392b;
+            margin-top: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .poetry-categories-header h1 {
+                font-size: 36px;
+            }
+            
+            .poetry-categories-header p {
+                font-size: 18px;
+            }
+            
+            .poetry-categories-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="poetry-categories-header">
+        <div class="container">
+            <div class="poetry-categories-header-content">
+                <h1>诗歌分类</h1>
+                <p>按种类欣赏中国古代诗歌</p>
+                <a href="poetry_detail.html" class="back-link">返回诗歌艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="poetry-categories-main">
+        <div class="container">
+            <div class="poetry-categories-content">
+                <!-- 按形式分类 -->
+                <section class="poetry-categories-section">
+                    <h2>按形式分类</h2>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <h4><a href="poetry_gu_ti.html" style="color: #c0392b; text-decoration: none;">古体诗</a></h4>
+                            <p>又称古诗、古风，是与近体诗相对而言的一种诗歌形式。古体诗句式自由，不严格讲究平仄和对仗，用韵也比较自由。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>将进酒</h5>
+                                    <p>君不见，黄河之水天上来，奔流到海不复回。</p>
+                                    <p>君不见，高堂明镜悲白发，朝如青丝暮成雪。</p>
+                                    <p>人生得意须尽欢，莫使金樽空对月。</p>
+                                    <p class="author">——李白</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_jin_ti.html" style="color: #c0392b; text-decoration: none;">近体诗</a></h4>
+                            <p>又称今体诗，是唐代形成的一种诗歌形式，包括律诗和绝句。近体诗严格讲究平仄、对仗和用韵，句式整齐。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>静夜思</h5>
+                                    <p>床前明月光，疑是地上霜。</p>
+                                    <p>举头望明月，低头思故乡。</p>
+                                    <p class="author">——李白</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_ci.html" style="color: #c0392b; text-decoration: none;">词</a></h4>
+                            <p>又称长短句、诗余，是宋代最流行的诗歌形式。词有固定的词牌，句式长短不一，讲究平仄和用韵。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>念奴娇·赤壁怀古</h5>
+                                    <p>大江东去，浪淘尽，千古风流人物。</p>
+                                    <p>故垒西边，人道是，三国周郎赤壁。</p>
+                                    <p class="author">——苏轼</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_qu.html" style="color: #c0392b; text-decoration: none;">曲</a></h4>
+                            <p>又称散曲，是元代最流行的诗歌形式。曲比词更加口语化，句式更加自由，用韵也更加宽松。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>天净沙·秋思</h5>
+                                    <p>枯藤老树昏鸦，小桥流水人家，古道西风瘦马。</p>
+                                    <p>夕阳西下，断肠人在天涯。</p>
+                                    <p class="author">——马致远</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 按内容分类 -->
+                <section class="poetry-categories-section">
+                    <h2>按内容分类</h2>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <h4><a href="poetry_lyric.html" style="color: #c0392b; text-decoration: none;">抒情诗</a></h4>
+                            <p>以抒发诗人的情感为主，表达诗人的喜怒哀乐、人生感慨等。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>春望</h5>
+                                    <p>国破山河在，城春草木深。</p>
+                                    <p>感时花溅泪，恨别鸟惊心。</p>
+                                    <p class="author">——杜甫</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_narrative.html" style="color: #c0392b; text-decoration: none;">叙事诗</a></h4>
+                            <p>以叙述故事情节为主，往往篇幅较长，情节完整。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>长恨歌（节选）</h5>
+                                    <p>汉皇重色思倾国，御宇多年求不得。</p>
+                                    <p>杨家有女初长成，养在深闺人未识。</p>
+                                    <p class="author">——白居易</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_landscape.html" style="color: #c0392b; text-decoration: none;">山水田园诗</a></h4>
+                            <p>以描绘自然景色和田园生活为主，表达诗人对大自然的热爱和对闲适生活的向往。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>山居秋暝</h5>
+                                    <p>空山新雨后，天气晚来秋。</p>
+                                    <p>明月松间照，清泉石上流。</p>
+                                    <p class="author">——王维</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_frontier.html" style="color: #c0392b; text-decoration: none;">边塞诗</a></h4>
+                            <p>以描写边塞风光和战争生活为主，表达诗人对战争的看法和对戍边将士的同情。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>白雪歌送武判官归京（节选）</h5>
+                                    <p>北风卷地白草折，胡天八月即飞雪。</p>
+                                    <p>忽如一夜春风来，千树万树梨花开。</p>
+                                    <p class="author">——岑参</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_epic.html" style="color: #c0392b; text-decoration: none;">咏史诗</a></h4>
+                            <p>以吟咏历史事件和历史人物为主，表达诗人对历史的看法和感慨。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>赤壁</h5>
+                                    <p>折戟沉沙铁未销，自将磨洗认前朝。</p>
+                                    <p>东风不与周郎便，铜雀春深锁二乔。</p>
+                                    <p class="author">——杜牧</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-card">
+                            <h4><a href="poetry_object.html" style="color: #c0392b; text-decoration: none;">咏物诗</a></h4>
+                            <p>以描绘自然景物或社会事物为主，往往托物言志，表达诗人的思想感情。</p>
+                            <div class="example-poems">
+                                <div class="example-poem">
+                                    <h5>咏柳</h5>
+                                    <p>碧玉妆成一树高，万条垂下绿丝绦。</p>
+                                    <p>不知细叶谁裁出，二月春风似剪刀。</p>
+                                    <p class="author">——贺知章</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.poetry-categories-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

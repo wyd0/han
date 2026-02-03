@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>独龙族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 独龙族风俗习惯页面特定样式 */
+        .customs-header {
+            background-image: url('images/独龙族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-drung {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-drung:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .customs-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯分类 */
+        .customs-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .category-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .customs-section.visible .category-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .customs-section.visible .category-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .customs-section.visible .category-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .customs-section.visible .category-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .category-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .category-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .customs-header p {
+                font-size: 18px;
+            }
+            
+            .customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="customs-header">
+        <div class="container">
+            <div class="customs-header-content">
+                <h1>独龙族风俗习惯</h1>
+                <p>神秘的纹面文化，独特的民族传统</p>
+                <a href="drung.html" class="back-drung">返回独龙族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="customs-main">
+        <div class="container">
+            <div class="customs-content">
+                <!-- 风俗习惯概述 -->
+                <section class="customs-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>独龙族有着独特的风俗习惯，这些风俗习惯是独龙族人民在长期的历史发展过程中形成的，反映了独龙族的文化传统、生活方式和价值观念。独龙族的风俗习惯与他们的生活环境、生产方式和宗教信仰密切相关，是独龙族文化的重要组成部分。</p>
+                    <p>独龙族的风俗习惯涵盖了生活的各个方面，包括居住、饮食、婚姻、丧葬、节日等，这些风俗习惯不仅是独龙族文化的重要组成部分，也是中华民族多元文化的瑰宝。</p>
+                </section>
+
+                <!-- 居住习俗 -->
+                <section class="customs-section">
+                    <h2>居住习俗</h2>
+                    <p>独龙族的居住习俗具有独特的民族特色，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>房屋建筑：</strong>独龙族的传统房屋多为竹楼和木楼，建筑材料主要是竹子、木材和茅草。房屋一般建在山坡上，呈长方形，分为上下两层，上层住人，下层养牲畜。</li>
+                        <li><strong>房屋布局：</strong>独龙族的传统房屋内部布局简洁，一般分为卧室、客厅和厨房等部分。房屋中央有一个火塘，用于取暖、做饭和照明，也是家庭成员聚集交流的地方。</li>
+                        <li><strong>居住环境：</strong>独龙族喜欢在房屋周围种植树木和花卉，创造一个优美的居住环境。他们也注重房屋的卫生和整洁，保持室内外的清洁。</li>
+                        <li><strong>现代变迁：</strong>随着社会的发展和现代文化的影响，独龙族的居住条件得到了改善，一些传统的竹楼和木楼逐渐被现代的砖瓦房所取代。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="customs-section">
+                    <h2>饮食习俗</h2>
+                    <div class="customs-categories">
+                        <div class="category-item">
+                            <h5>主要食物</h5>
+                            <p>独龙族的主要食物包括玉米、土豆、大米、小麦等粮食作物，以及各种蔬菜和肉类。他们喜欢食用野生的竹笋、菌类和野菜等。</p>
+                        </div>
+                        <div class="category-item">
+                            <h5>特色美食</h5>
+                            <p>独龙族的特色美食有竹筒饭、烤肉、烤鱼、酸汤等。竹筒饭是独龙族最具代表性的传统美食，将米和各种配料放入竹筒中煮熟，香味四溢。</p>
+                        </div>
+                        <div class="category-item">
+                            <h5>饮食习惯</h5>
+                            <p>独龙族人民喜欢饮酒，尤其是自酿的水酒和烧酒。他们也喜欢喝茶，主要饮用烤茶。独龙族的饮食注重营养均衡，口味偏酸辣。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="customs-section">
+                    <h2>婚姻习俗</h2>
+                    <p>独龙族的婚姻习俗具有独特的民族特色，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>婚姻制度：</strong>独龙族实行一夫一妻制，禁止近亲结婚。婚姻一般由父母包办，但也尊重子女的意愿。</li>
+                        <li><strong>婚姻程序：</strong>独龙族的婚姻程序较为复杂，一般包括提亲、订婚、结婚等环节。提亲时，男方要带礼物到女方家，如果女方同意，就会举行订婚仪式。结婚时，要举行隆重的婚礼，邀请亲朋好友参加。</li>
+                        <li><strong>婚礼仪式：</strong>独龙族的婚礼仪式丰富多彩，包括唱歌、跳舞、饮酒等活动。新娘要穿传统的民族服装，佩戴各种装饰品。婚礼上，人们会享用丰盛的美食，载歌载舞，庆祝新人的结合。</li>
+                        <li><strong>婚姻观念：</strong>独龙族重视婚姻的稳定性，强调夫妻之间的相互尊重和忠诚。离婚现象较少，家庭观念较强。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="customs-section">
+                    <h2>丧葬习俗</h2>
+                    <p>独龙族的丧葬习俗隆重而复杂，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>葬礼程序：</strong>独龙族的葬礼程序较为复杂，人死后要尽快举行葬礼，一般不超过三天。葬礼包括停尸、念经、献祭、埋葬等环节。</li>
+                        <li><strong>埋葬方式：</strong>独龙族实行土葬，墓地一般选择在山坡上或森林中。墓穴为长方形，深度约2米，尸体头朝西，脚朝东。</li>
+                        <li><strong>哀悼习俗：</strong>独龙族在人死后会进行一段时间的哀悼，一般为49天。在哀悼期间，家属要穿素色衣服，不参加娱乐活动，以示对死者的尊重。</li>
+                        <li><strong>纪念活动：</strong>独龙族在人死后的第7天、第49天和周年纪念日，会举行纪念活动，邀请亲朋好友参加，念经祈祷，缅怀死者。</li>
+                    </ul>
+                </section>
+
+                <!-- 纹面习俗 -->
+                <section class="customs-section">
+                    <h2>纹面习俗</h2>
+                    <p>独龙族的纹面习俗是其最具特色的文化传统之一，主要流行于独龙族女性中：</p>
+                    <ul>
+                        <li><strong>纹面历史：</strong>独龙族的纹面习俗有着悠久的历史，据说是为了防止外族的掳掠，后来逐渐成为一种美的象征和民族标识。</li>
+                        <li><strong>纹面过程：</strong>独龙族的纹面过程较为痛苦，一般在女孩十二三岁时进行。纹面前，要先在脸上画出图案，然后用荆棘或竹签蘸着墨汁或锅底灰在脸上刺出图案，最后涂上药物防止感染。</li>
+                        <li><strong>纹面图案：</strong>独龙族的纹面图案多种多样，主要有条纹、圆点、几何图形等，不同的地区和家族有着不同的纹面图案。</li>
+                        <li><strong>现代变迁：</strong>随着社会的发展和现代文化的影响，独龙族的纹面习俗逐渐消失，现在只有一些老年妇女还保留着纹面的传统。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="customs-section">
+                    <h2>传统节日</h2>
+                    <p>独龙族的传统节日丰富多彩，主要包括以下几个：</p>
+                    <div class="customs-categories">
+                        <div class="category-item">
+                            <h5>卡雀哇节</h5>
+                            <p>卡雀哇节是独龙族最重要的传统节日，每年农历腊月举行，为期三天。节日期间，人们会穿上盛装，举行各种庆祝活动，如祭祀、跳舞、唱歌、射弩比赛等。</p>
+                        </div>
+                        <div class="category-item">
+                            <h5>春节</h5>
+                            <p>春节是独龙族的重要节日之一，与汉族的春节基本相同。节日期间，人们会穿上盛装，走亲访友，互道祝福，共享美食。</p>
+                        </div>
+                        <div class="category-item">
+                            <h5>其他节日</h5>
+                            <p>独龙族还有一些其他的传统节日，如清明节、端午节、中秋节等，这些节日与汉族的传统节日基本相同，但也有一些独龙族的特色。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 社交礼仪 -->
+                <section class="customs-section">
+                    <h2>社交礼仪</h2>
+                    <p>独龙族是一个热情好客的民族，有着独特的社交礼仪：</p>
+                    <ul>
+                        <li><strong>问候礼仪：</strong>独龙族见面时会互相问候，握手致意。如果是长辈和晚辈见面，晚辈要先向长辈问好，长辈则会抚摸晚辈的头表示关爱。</li>
+                        <li><strong>待客礼仪：</strong>独龙族热情好客，客人来访时，会热情款待，拿出最好的食物和饮品招待客人。客人离开时，主人会送到门外，祝福客人一路平安。</li>
+                        <li><strong>禁忌礼仪：</strong>独龙族有一些禁忌礼仪，如在宗教场所要保持安静，不要穿暴露的衣服；在别人家里做客时，不要随便进入主人的卧室；不要用左手传递物品等。</li>
+                        <li><strong>节日礼仪：</strong>在节日期间，独龙族会穿上盛装，走亲访友，互道祝福，赠送礼物。他们也会邀请亲朋好友到家里做客，共享美食，共度佳节。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 京族宗教信仰页面特定样式 */
+        .jing-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jing-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jing-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jing-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jing-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jing-section {
+            margin-bottom: 80px;
+        }
+        
+        .jing-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jing-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jing-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jing-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jing-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 特色内容样式 */
+        .feature-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .jing-header h1 {
+                font-size: 36px;
+            }
+            
+            .jing-header p {
+                font-size: 18px;
+            }
+            
+            .jing-section h2 {
+                font-size: 28px;
+            }
+            
+            .feature-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jing-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jing-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jing-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jing-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .jing-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jing-header">
+        <div class="container">
+            <div class="jing-header-content">
+                <h1>京族宗教信仰</h1>
+                <p>探索京族独特的宗教体系和信仰文化</p>
+                <a href="jing.html" class="back-difference">返回京族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="jing-main">
+        <div class="container">
+            <div class="jing-content">
+                <!-- 宗教概况 -->
+                <section class="jing-section">
+                    <h2>宗教概况</h2>
+                    <p>京族的宗教信仰是一个多元融合的体系，主要包括道教、佛教以及原始宗教信仰。这种多元性反映了京族历史上与不同文化的交流和融合，也体现了京族人民对自然、祖先和神灵的敬畏之情。</p>
+                    <p>京族的宗教信仰与他们的日常生活、生产活动和社会习俗密切相关，是京族文化的重要组成部分。宗教仪式和祭祀活动不仅是京族人民表达信仰的方式，也是他们传承文化、凝聚社群的重要手段。</p>
+                </section>
+
+                <!-- 主要宗教信仰 -->
+                <section class="jing-section">
+                    <h2>主要宗教信仰</h2>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>道教</h4>
+                            <p>道教是京族信仰的主要宗教之一，大约在明清时期传入京族地区。京族人民尊崇道教的神灵，如玉皇大帝、观音菩萨、三清尊神等，并且修建了许多道教庙宇。道教的伦理观念和修行方法对京族的社会生活和文化传统产生了深远的影响。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>佛教</h4>
+                            <p>佛教也是京族信仰的重要组成部分，同样在明清时期传入。京族人民信仰佛教的慈悲观念和因果报应思想，许多京族地区都有佛教寺庙。佛教的节日和仪式，如农历正月初一的新年祈福、农历四月初八的浴佛节等，都是京族人民重要的宗教活动。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>原始宗教</h4>
+                            <p>京族还保留着一些原始宗教的信仰和习俗，如自然崇拜、祖先崇拜和神灵崇拜。他们相信万物有灵，崇拜天地、山川、河流、海洋等自然力量，认为这些自然力量会影响人们的生活和命运。祖先崇拜则是京族原始宗教的核心内容之一，他们相信祖先的灵魂会保佑后代子孙。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教仪式与祭祀活动 -->
+                <section class="jing-section">
+                    <h2>宗教仪式与祭祀活动</h2>
+                    <p>京族有着丰富多样的宗教仪式和祭祀活动，这些活动不仅是宗教信仰的具体体现，也是京族文化的重要组成部分：</p>
+                    <ul>
+                        <li><strong>哈节</strong>：哈节是京族最盛大的传统节日，也是最重要的宗教祭祀活动之一。每年农历六月初至八月初十期间，京族人民会举行隆重的祭祀仪式，祈求神灵保佑丰收、平安和幸福。哈节期间，人们会穿上盛装，唱歌跳舞，举行各种庆祝活动。</li>
+                        <li><strong>祖先祭祀</strong>：京族人民非常重视祖先祭祀，每年的清明节、农历七月十五的中元节和农历除夕，都会举行隆重的祖先祭祀仪式，向祖先表达敬意和感恩之情，同时祈求祖先的保佑。</li>
+                        <li><strong>自然神灵祭祀</strong>：京族人民会定期祭祀自然神灵，如土地神、海神、山神等，祈求风调雨顺、渔业丰收、人畜平安。特别是海神祭祀，对于以海洋为生的京族人民来说尤为重要。</li>
+                        <li><strong>人生礼仪</strong>：京族的人生礼仪，如出生、成年、婚姻、丧葬等，都包含着丰富的宗教仪式内容。这些仪式不仅是对个人生命阶段的纪念，也是对神灵和祖先的祈求和感恩。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教与文化的关系 -->
+                <section class="jing-section">
+                    <h2>宗教与文化的关系</h2>
+                    <p>京族的宗教信仰与京族文化有着密切的关系，对京族的社会生活、文学艺术、风俗习惯等方面产生了深远的影响：</p>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>文学艺术</h4>
+                            <p>京族的宗教信仰为京族的文学艺术提供了丰富的题材和灵感。京族的民间故事、神话传说、歌谣等文学作品中，有许多与宗教有关的内容。京族的传统音乐、舞蹈、绘画等艺术形式，也常常表现宗教主题或在宗教仪式中使用。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>风俗习惯</h4>
+                            <p>京族的许多风俗习惯都与宗教信仰有关。例如，京族的饮食禁忌、服饰习俗、居住习俗等，都受到宗教信仰的影响。宗教节日和仪式也是京族风俗习惯的重要组成部分，反映了京族人民的价值观和生活方式。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>社会秩序</h4>
+                            <p>京族的宗教信仰在维护社会秩序、促进社会和谐方面发挥着重要作用。宗教的伦理观念和道德规范，如尊老爱幼、诚实守信、互助互爱等，是京族社会的重要行为准则。宗教仪式和祭祀活动也为京族人民提供了定期聚会、交流情感、增强凝聚力的机会。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教信仰的现代变迁 -->
+                <section class="jing-section">
+                    <h2>宗教信仰的现代变迁</h2>
+                    <p>随着社会的发展和现代化进程的加速，京族的宗教信仰也在发生着变化：</p>
+                    <ul>
+                        <li>宗教信仰的形式更加多样化，一些京族人民开始接受现代宗教观念和实践方式</li>
+                        <li>宗教仪式和祭祀活动的规模和形式有所简化，但核心内容和精神内涵仍然保持</li>
+                        <li>宗教与现代教育、科学知识的关系更加协调，京族人民在保持宗教信仰的同时，也积极接受现代科学文化知识</li>
+                        <li>政府和社会各界更加重视对京族宗教文化的保护和传承，将其作为非物质文化遗产的重要组成部分加以保护</li>
+                    </ul>
+                    <p>这些变化反映了京族宗教信仰的适应性和生命力，也体现了京族文化在现代社会中的传承和发展。京族的宗教信仰将继续在京族人民的生活中发挥重要作用，为京族文化的繁荣和发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

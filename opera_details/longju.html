@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陇剧 - 中国传统戏曲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STSong', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.8), rgba(240,240,240,0.8));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #CD853F;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CD853F;
+        }
+        
+        h3 {
+            color: #5D4037;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .classic-line {
+            background-color: #f9f3e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #CD853F;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .classic-line p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .classic-line .source {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #CD853F;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>陇剧</h1>
+            <p>甘肃地方传统戏曲，中国国家级非物质文化遗产</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#origin">起源</a></li>
+                <li><a href="#development">发展</a></li>
+                <li><a href="#art-features">艺术特点</a></li>
+                <li><a href="#roles">行当</a></li>
+                <li><a href="#representative-plays">代表剧目</a></li>
+                <li><a href="#classic-lines">经典戏词</a></li>
+            </ul>
+        </nav>
+        
+        <section id="origin" class="section">
+            <h2>起源</h2>
+            <p>陇剧，原名“陇东道情”，是甘肃省的地方传统戏曲剧种，流行于甘肃及陕西、宁夏部分地区。其起源可追溯至清代，由甘肃民间说唱艺术与地方戏曲相结合发展而成。</p>
+            <p>清代中期，甘肃东部的民间说唱艺术“陇东道情”在民间广泛流传，成为一种深受群众喜爱的艺术形式。后来，艺人们开始尝试将其由说唱形式发展为戏曲形式，逐渐形成了具有甘肃地方特色的戏曲剧种。</p>
+        </section>
+        
+        <section id="development" class="section">
+            <h2>发展</h2>
+            <p>清代末年，陇东道情已形成较为完整的艺术体系，出现了专业班社和著名艺人。民国时期，陇东道情进入繁荣期，班社众多，剧目丰富，表演技艺日趋成熟。</p>
+            <p>新中国成立后，陇东道情得到了党和政府的重视与扶持。1953年，成立了专业陇东道情表演团体，对传统剧目进行了整理、改编和创作，同时在音乐、表演、舞台美术等方面进行了改革创新。1959年，陇东道情正式更名为“陇剧”。</p>
+            <p>改革开放以来，陇剧进入新的发展时期。通过创作新剧目、培养年轻演员等措施，陇剧的艺术水平得到显著提高，成为甘肃文化的重要代表之一。</p>
+        </section>
+        
+        <section id="art-features" class="section">
+            <h2>艺术特点</h2>
+            <h3>音乐唱腔</h3>
+            <p>陇剧的音乐唱腔以陇东道情为基础，融合了甘肃民间音乐的元素，形成了独具特色的音乐风格。主要唱腔有“慢板”“二六”“流水”“散板”等，音调优美动听，富有节奏感。演唱时多使用甘肃方言，语音质朴自然，富有地方特色。</p>
+            
+            <h3>表演艺术</h3>
+            <p>陇剧的表演艺术吸收了甘肃民间歌舞的特点，动作轻盈优美，富有节奏感。表演风格质朴自然，注重情感表达，通过细腻的动作和表情来刻画人物性格。演员的演唱与表演紧密结合，形成了独特的艺术魅力。</p>
+            
+            <h3>舞台美术</h3>
+            <p>陇剧的舞台美术简洁明快，注重营造意境。传统剧目多使用虚拟道具和象征性布景，现代剧目则结合实景和灯光效果，增强视觉表现力。服装色彩鲜艳，体现了甘肃的民俗文化特色。</p>
+        </section>
+        
+        <section id="roles" class="section">
+            <h2>行当</h2>
+            <p>陇剧的行当分为生、旦、净、丑四大类，每个行当又有细致的分工：</p>
+            <ul>
+                <li><strong>生行</strong>：包括文生、武生等，扮演男性角色。文生多为儒雅书生，武生擅长武打。</li>
+                <li><strong>旦行</strong>：包括正旦、花旦、武旦、老旦等，扮演女性角色。正旦多为端庄贤淑的女性，花旦活泼俏丽，武旦擅长武打，老旦扮演老年妇女。</li>
+                <li><strong>净行</strong>：又称“花脸”，扮演性格刚烈、粗犷豪放的男性角色，如忠臣、猛将、反派人物等。</li>
+                <li><strong>丑行</strong>：包括文丑、武丑等，扮演滑稽幽默、插科打诨的角色，是陇剧中不可或缺的行当，为观众带来欢乐。</li>
+            </ul>
+        </section>
+        
+        <section id="representative-plays" class="section">
+            <h2>代表剧目</h2>
+            <p>陇剧的传统剧目丰富多样，题材广泛，包括民间故事、爱情故事、历史传说等。以下是一些代表性剧目：</p>
+            <ul>
+                <li><strong>《枫洛池》</strong>：传统剧目，讲述苏戍娟与简仁同的爱情故事，是陇剧的经典剧目之一。</li>
+                <li><strong>《官鹅情歌》</strong>：传统剧目，讲述官鹅与鹅嫚的爱情故事，是陇剧的代表作。</li>
+                <li><strong>《假婿乘龙》</strong>：传统剧目，讲述一个关于假婿的幽默故事，是陇剧的经典剧目。</li>
+                <li><strong>《红色医生》</strong>：现代题材剧目，讲述红色医生的故事，是陇剧的现代代表作。</li>
+                <li><strong>《天下第一鼓》</strong>：现代题材剧目，讲述羊皮鼓的故事，是陇剧的现代代表作。</li>
+                <li><strong>《敦煌梦》</strong>：历史题材剧目，讲述敦煌的故事，是陇剧的经典剧目。</li>
+            </ul>
+        </section>
+        
+        <section id="classic-lines" class="section">
+            <h2>经典戏词</h2>
+            <div class="classic-line">
+                <p>枫洛池边好风光，苏戍娟与简仁同。
+                爱情故事传千古，陇剧艺术放光彩。</p>
+                <div class="source">——《枫洛池》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>官鹅情歌传佳话，鹅嫚与官鹅情意长。
+                历经磨难终成眷属，陇剧艺术永流传。</p>
+                <div class="source">——《官鹅情歌》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>假婿乘龙喜洋洋，幽默故事传四方。
+                陇剧艺术多魅力，观众笑声满剧场。</p>
+                <div class="source">——《假婿乘龙》 佚名</div>
+            </div>
+        </section>
+        
+        <a href="../opera_regional.html" class="back-link">返回剧种列表</a>
+    </div>
+</body>
+</html>

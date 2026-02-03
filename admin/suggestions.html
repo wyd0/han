@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员 - 戏曲种类建议</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STSong', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .nav {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .nav a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #CD853F;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CD853F;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .suggestion-list {
+            margin-top: 30px;
+        }
+        
+        .suggestion-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #CD853F;
+        }
+        
+        .suggestion-item h3 {
+            color: #5D4037;
+            margin-bottom: 10px;
+        }
+        
+        .suggestion-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .suggestion-content {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .suggestion-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: #CD853F;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #8B4513;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #CD853F;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .suggestion-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>管理员 - 戏曲种类建议</h1>
+            <p>查看和管理用户提交的戏曲种类修改和增加建议</p>
+        </header>
+        
+        <div class="nav">
+            <a href="../opera_regional.html">返回戏曲地域分类</a>
+            <a href="index.html">管理员首页</a>
+        </div>
+        
+        <div class="section">
+            <h2>建议管理</h2>
+            
+            <div class="success-message">
+                <p>建议提交成功！感谢您对戏曲文化的贡献。我们会尽快处理您的建议。</p>
+            </div>
+            
+            <div class="suggestion-list">
+                <h3>所有建议</h3>
+                
+                <!-- 示例建议项 -->
+                <div class="suggestion-item">
+                    <h3>增加新戏曲种类：潮剧</h3>
+                    <div class="suggestion-meta">
+                        <p>类型：增加新戏曲种类 | 提交时间：2026-01-31 | 联系方式：example@email.com</p>
+                    </div>
+                    <div class="suggestion-content">
+                        <p>潮剧是广东潮汕地区的传统戏曲剧种，历史悠久，艺术特色鲜明，建议在广东省部分增加潮剧的介绍。</p>
+                    </div>
+                    <div class="suggestion-actions">
+                        <button class="btn btn-primary">处理</button>
+                        <button class="btn btn-secondary">编辑</button>
+                        <button class="btn btn-danger">删除</button>
+                    </div>
+                </div>
+                
+                <div class="suggestion-item">
+                    <h3>修改现有戏曲种类：京剧</h3>
+                    <div class="suggestion-meta">
+                        <p>类型：修改现有戏曲种类 | 提交时间：2026-01-30 | 联系方式：13800138000</p>
+                    </div>
+                    <div class="suggestion-content">
+                        <p>建议在京剧的介绍中增加更多关于其发展历史的详细信息，特别是在民国时期的发展情况。</p>
+                    </div>
+                    <div class="suggestion-actions">
+                        <button class="btn btn-primary">处理</button>
+                        <button class="btn btn-secondary">编辑</button>
+                        <button class="btn btn-danger">删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="../opera_regional.html" class="back-link">返回戏曲地域分类</a>
+    </div>
+    
+    <script>
+        // 模拟表单提交处理
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查URL参数，显示成功消息
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('submitted') === 'true') {
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.innerHTML = '<p>建议提交成功！感谢您对戏曲文化的贡献。我们会尽快处理您的建议。</p>';
+                document.querySelector('.section').insertBefore(successMessage, document.querySelector('.suggestion-list'));
+            }
+        });
+        
+        // 表单提交处理
+        if (document.getElementById('suggestion-form')) {
+            document.getElementById('suggestion-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // 模拟表单提交
+                window.location.href = 'admin/suggestions.html?submitted=true';
+            });
+        }
+    </script>
+</body>
+</html>

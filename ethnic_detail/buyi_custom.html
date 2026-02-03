@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布依族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布依族风俗习惯页面特定样式 */
+        .buyi-custom-header {
+            background-image: url('images/布依族女性服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .buyi-custom-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .buyi-custom-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .buyi-custom-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .buyi-custom-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .buyi-custom-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .buyi-custom-section {
+            margin-bottom: 80px;
+        }
+        
+        .buyi-custom-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-custom-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-custom-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-custom-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .buyi-custom-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .buyi-custom-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .buyi-custom-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .buyi-custom-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗展示 */
+        .custom-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .custom-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .custom-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .buyi-custom-header h1 {
+                font-size: 36px;
+            }
+            
+            .buyi-custom-header p {
+                font-size: 18px;
+            }
+            
+            .buyi-custom-section h2 {
+                font-size: 28px;
+            }
+            
+            .custom-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="buyi-custom-header">
+        <div class="container">
+            <div class="buyi-custom-header-content">
+                <h1>布依族风俗习惯</h1>
+                <p>独特多样的布依族传统习俗与生活方式</p>
+                <a href="buyi.html" class="back-link">返回布依族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="buyi-custom-main">
+        <div class="container">
+            <div class="buyi-custom-content">
+                <!-- 风俗习惯概述 -->
+                <section class="buyi-custom-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>布依族是一个有着悠久历史和丰富文化的民族，拥有独特的风俗习惯。这些风俗习惯反映了布依族人民的生活方式、价值观念和文化传统，是布依族文化的重要组成部分。</p>
+                    <p>布依族的风俗习惯涵盖了日常生活、婚姻家庭、社交礼仪、节日庆典等各个方面，具有浓厚的民族特色。这些风俗习惯不仅是布依族人民生活的重要组成部分，也是传承布依族文化的重要载体。</p>
+                    <p>布依族的风俗习惯受到自然环境、历史传统、宗教信仰等多种因素的影响，形成了自己独特的风格和特点。通过研究布依族的风俗习惯，我们可以更好地了解布依族的历史、文化和社会生活。</p>
+                </section>
+
+                <!-- 日常风俗习惯 -->
+                <section class="buyi-custom-section">
+                    <h3>日常风俗习惯</h3>
+                    
+                    <div class="custom-showcase">
+                        <div class="custom-item">
+                            <h4>饮食习俗</h4>
+                            <p>布依族的饮食习俗具有独特的风格和特点，受到西南地区自然环境和生活方式的影响。布依族人民以大米为主食，喜欢吃酸辣食物，擅长制作糯米食品和腌制食品。布依族的传统食品有五色饭、酸汤鱼、糯米粑、糯米酒等。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>居住习俗</h4>
+                            <p>布依族的居住习俗具有独特的风格和特点，受到西南地区自然环境和生活方式的影响。布依族传统民居多为"干栏式"建筑，适应西南地区炎热多雨的气候特点。"干栏式"建筑是一种以木材为主要建筑材料的高脚屋，底层架空，用于饲养牲畜和存放杂物，上层用于居住。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>服饰习俗</h4>
+                            <p>布依族的服饰习俗具有独特的风格和特点，反映了布依族人民的审美观念和生活情趣。布依族传统服饰以蓝、黑、白为主色调，象征着布依族人民对自然的崇拜和对生活的热爱。布依族女性的服饰最为华丽，通常包括头帕、上衣、裙子和腰带，上面绣有各种精美的图案。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>生产习俗</h4>
+                    <p>布依族是一个以农业为主的民族，其生产习俗与农业生产密切相关。</p>
+                    <ul>
+                        <li><strong>春耕：</strong>每年的春季，布依族人民会举行春耕仪式，祈求神灵保佑农业生产的顺利进行和农作物的丰收。</li>
+                        <li><strong>夏耘：</strong>每年的夏季，布依族人民会进行田间管理，如除草、施肥、灌溉等，确保农作物的正常生长。</li>
+                        <li><strong>秋收：</strong>每年的秋季，布依族人民会举行秋收仪式，感谢神灵保佑农业生产的顺利进行和农作物的丰收。</li>
+                        <li><strong>冬藏：</strong>每年的冬季，布依族人民会储存粮食和其他农产品，为来年的生活做准备。</li>
+                    </ul>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="buyi-custom-section">
+                    <h3>婚姻习俗</h3>
+                    <p>布依族的婚姻习俗具有独特的风格和特点，反映了布依族人民的婚姻观念和家庭伦理。</p>
+                    
+                    <h4>婚姻观念</h4>
+                    <ul>
+                        <li><strong>婚姻自由：</strong>布依族人民崇尚婚姻自由，青年男女通过对歌、赶场等方式自由恋爱，选择自己的伴侣。</li>
+                        <li><strong>一夫一妻制：</strong>布依族实行一夫一妻制，禁止重婚和婚外恋。</li>
+                        <li><strong>重视家庭：</strong>布依族人民重视家庭，认为婚姻是家庭的基础，夫妻应该相互尊重、相互扶持，共同维护家庭的和谐。</li>
+                    </ul>
+                    
+                    <h4>婚姻程序</h4>
+                    <ul>
+                        <li><strong>恋爱：</strong>青年男女通过对歌、赶场等方式自由恋爱，选择自己的伴侣。</li>
+                        <li><strong>说亲：</strong>当青年男女确定恋爱关系后，男方会请媒人到女方家说亲，表达结婚的意愿。</li>
+                        <li><strong>订婚：</strong>女方同意后，双方会举行订婚仪式，交换聘礼，确定婚姻关系。</li>
+                        <li><strong>结婚：</strong>订婚一段时间后，双方会举行结婚仪式，包括接亲、拜堂、婚宴等程序。</li>
+                    </ul>
+                    
+                    <h4>婚礼仪式</h4>
+                    <ul>
+                        <li><strong>接亲：</strong>结婚当天，男方会组织接亲队伍到女方家接亲，女方会组织送亲队伍送亲。</li>
+                        <li><strong>拜堂：</strong>接亲队伍回到男方家后，新人会举行拜堂仪式，拜天地、拜祖先、拜父母，然后夫妻对拜。</li>
+                        <li><strong>婚宴：</strong>拜堂仪式后，男方会举行婚宴，邀请亲朋好友参加，共同庆祝新人的婚礼。</li>
+                        <li><strong>闹洞房：</strong>婚宴后，亲朋好友会到新房闹洞房，增加婚礼的热闹气氛。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="buyi-custom-section">
+                    <h3>丧葬习俗</h3>
+                    <p>布依族的丧葬习俗具有独特的风格和特点，反映了布依族人民的生死观念和宗教信仰。</p>
+                    
+                    <h4>丧葬观念</h4>
+                    <ul>
+                        <li><strong>灵魂不灭：</strong>布依族人民认为，人死后灵魂仍然存在，并且会进入另一个世界继续生活。</li>
+                        <li><strong>祖先崇拜：</strong>布依族人民认为，祖先的灵魂会保佑子孙后代的平安和幸福，因此要对祖先进行祭祀。</li>
+                        <li><strong>重视葬礼：</strong>布依族人民认为，葬礼是对死者的最后敬意，要举行隆重的葬礼，让死者体面地离开人世。</li>
+                    </ul>
+                    
+                    <h4>丧葬程序</h4>
+                    <ul>
+                        <li><strong>报丧：</strong>当有人去世后，家人会立即向亲朋好友报丧，通知他们前来吊唁。</li>
+                        <li><strong>停灵：</strong>死者的尸体会停放在家中，供亲朋好友吊唁。停灵期间，家人会请道士或巫师举行道场，为死者超度亡灵。</li>
+                        <li><strong>出殡：</strong>停灵一段时间后，家人会选择吉日举行出殡仪式，将死者的棺材抬到墓地埋葬。</li>
+                        <li><strong>下葬：</strong>出殡队伍到达墓地后，家人会举行下葬仪式，将死者的棺材放入墓穴，然后填土掩埋。</li>
+                        <li><strong>守孝：</strong>下葬后，家人会守孝一段时间，期间要穿孝服，停止娱乐活动，以示对死者的哀悼。</li>
+                    </ul>
+                </section>
+
+                <!-- 社交礼仪 -->
+                <section class="buyi-custom-section">
+                    <h3>社交礼仪</h3>
+                    <p>布依族的社交礼仪具有独特的风格和特点，反映了布依族人民的价值观念和道德规范。</p>
+                    
+                    <div class="custom-showcase">
+                        <div class="custom-item">
+                            <h4>称呼礼仪</h4>
+                            <p>布依族的称呼礼仪具有独特的风格和特点，反映了布依族人民的尊卑观念和人际关系。布依族人民在称呼他人时，会根据对方的年龄、性别、身份等因素使用不同的称呼，如对长辈要使用尊称，对平辈要使用亲切的称呼，对晚辈要使用爱护的称呼。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>见面礼仪</h4>
+                            <p>布依族的见面礼仪具有独特的风格和特点，反映了布依族人民的热情好客和友好相处。布依族人民在见面时，会互相问候，握手或拥抱，表达友好之情。在一些地区，布依族人民还有"碰额礼"的习俗，即两人额头相碰，表示亲密和友好。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>待客礼仪</h4>
+                            <p>布依族的待客礼仪具有独特的风格和特点，反映了布依族人民的热情好客和慷慨大方。布依族人民在待客时，会准备丰盛的饭菜，热情地招待客人，让客人感受到家的温暖。布依族人民还有"喝交杯酒"的习俗，即主人和客人一起喝交杯酒，表达友谊和热情。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>禁忌习俗</h4>
+                    <p>布依族的禁忌习俗具有独特的风格和特点，反映了布依族人民的价值观念和宗教信仰。</p>
+                    <ul>
+                        <li><strong>饮食禁忌：</strong>布依族人民在饮食方面有一些禁忌，如禁止食用狗肉、马肉等。</li>
+                        <li><strong>行为禁忌：</strong>布依族人民在行为方面有一些禁忌，如禁止在长辈面前大声说话、禁止在寺庙内大声喧哗等。</li>
+                        <li><strong>语言禁忌：</strong>布依族人民在语言方面有一些禁忌，如禁止说脏话、禁止在节日期间说不吉利的话等。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯与文化的关系 -->
+                <section class="buyi-custom-section">
+                    <h3>风俗习惯与文化的关系</h3>
+                    <p>布依族的风俗习惯与布依族文化有着密切的关系。风俗习惯是布依族文化的重要组成部分，对布依族文化的发展产生了深远的影响。</p>
+                    
+                    <h4>风俗习惯是布依族文化的载体</h4>
+                    <ul>
+                        <li><strong>反映社会生活：</strong>布依族的风俗习惯反映了布依族人民的社会生活，包括生产劳动、婚姻家庭、宗教信仰等方面。</li>
+                        <li><strong>传承文化传统：</strong>布依族的风俗习惯传承了布依族的文化传统，包括价值观念、道德规范、宗教信仰等方面。</li>
+                        <li><strong>表达思想感情：</strong>布依族的风俗习惯表达了布依族人民的思想感情，包括对自然的热爱、对生活的向往、对未来的美好期望等方面。</li>
+                    </ul>
+                    
+                    <h4>布依族文化是风俗习惯的内涵</h4>
+                    <ul>
+                        <li><strong>价值观：</strong>布依族的风俗习惯反映了布依族人民的价值观，如尊老爱幼、团结互助、诚实守信等。</li>
+                        <li><strong>审美观念：</strong>布依族的风俗习惯反映了布依族人民的审美观念，如对自然的热爱、对美的追求等。</li>
+                        <li><strong>生活方式：</strong>布依族的风俗习惯反映了布依族人民的生活方式，如以农业为主、重视家庭等。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的现代变迁 -->
+                <section class="buyi-custom-section">
+                    <h3>风俗习惯的现代变迁</h3>
+                    <p>随着社会的发展和进步，布依族的风俗习惯也发生了一些变化。这些变化反映了布依族社会的发展和进步，也反映了布依族文化的传承和创新。</p>
+                    
+                    <h4>变化原因</h4>
+                    <ul>
+                        <li><strong>社会发展：</strong>随着社会的发展和进步，布依族人民的生活方式和价值观念也发生了一些变化，导致风俗习惯的变化。</li>
+                        <li><strong>文化交流：</strong>随着文化交流的增加，布依族的风俗习惯受到了其他民族文化的影响，导致风俗习惯的变化。</li>
+                        <li><strong>科技进步：</strong>随着科技的进步，布依族人民的生产方式和生活方式也发生了一些变化，导致风俗习惯的变化。</li>
+                    </ul>
+                    
+                    <h4>变化表现</h4>
+                    <ul>
+                        <li><strong>饮食习俗的变化：</strong>随着生活水平的提高，布依族人民的饮食习俗也发生了一些变化，如饮食更加多样化、更加注重营养等。</li>
+                        <li><strong>居住习俗的变化：</strong>随着生活水平的提高，布依族人民的居住习俗也发生了一些变化，如住房条件得到改善、建筑风格更加现代化等。</li>
+                        <li><strong>服饰习俗的变化：</strong>随着生活水平的提高，布依族人民的服饰习俗也发生了一些变化，如服饰更加多样化、更加注重时尚等。</li>
+                        <li><strong>婚姻习俗的变化：</strong>随着社会的发展和进步，布依族人民的婚姻习俗也发生了一些变化，如婚姻更加自由、婚礼更加简化等。</li>
+                    </ul>
+                    
+                    <h4>传承与发展</h4>
+                    <p>尽管布依族的风俗习惯发生了一些变化，但它作为布依族文化的重要组成部分，仍然在布依族社会中发挥着重要的作用。布依族人民在传承传统风俗习惯的同时，也在不断适应现代社会的需要，使风俗习惯与现代社会相协调。</p>
+                    <ul>
+                        <li><strong>传统风俗习惯的保留：</strong>布依族人民仍然保留着一些传统风俗习惯，如节日庆典、婚姻习俗、丧葬习俗等，这些风俗习惯是布依族文化的重要组成部分。</li>
+                        <li><strong>风俗习惯的创新：</strong>布依族人民在传承传统风俗习惯的同时，也在不断创新，使风俗习惯与现代社会相协调。例如，在节日庆典中，布依族人民会加入一些现代元素，使节日庆典更加丰富多彩。</li>
+                        <li><strong>风俗习惯的保护：</strong>中国政府采取了一系列措施，保护和传承布依族的风俗习惯，如建立文化保护区、举办文化活动、培养文化人才等。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

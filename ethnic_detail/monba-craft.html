@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>门巴族传统工艺 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 门巴族传统工艺页面特定样式 */
+        .craft-header {
+            background-image: url('images/门巴族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .craft-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .craft-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .craft-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .craft-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-monba {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-monba:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .craft-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .craft-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .craft-content h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .craft-content h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .craft-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .craft-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .craft-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .craft-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .craft-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .craft-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .craft-header-content .back-monba {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .craft-header h1 {
+                font-size: 36px;
+            }
+            
+            .craft-header p {
+                font-size: 18px;
+            }
+            
+            .craft-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="craft-header">
+        <div class="container">
+            <div class="craft-header-content">
+                <h1>门巴族传统工艺</h1>
+                <p>探索门巴族精湛的传统工艺与文化传承</p>
+                <a href="monba.html" class="back-monba">返回门巴族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="craft-main">
+        <div class="container">
+            <div class="craft-content">
+                <h2>门巴族传统工艺概况</h2>
+                
+                <p>门巴族有着悠久的传统工艺历史，这些工艺是门巴族文化的重要组成部分，反映了门巴族人民的智慧和创造力。门巴族的传统工艺主要有竹编、木刻、编织等，这些工艺具有独特的民族风格和地方特色，是门巴族人民在长期的生产生活中积累和发展起来的。</p>
+                
+                <h3>竹编工艺</h3>
+                <p>竹编是门巴族最具特色的传统工艺之一，门巴族人民利用当地丰富的竹子资源，制作各种实用的竹制品和精美的竹编艺术品。</p>
+                <ul>
+                    <li><strong>工艺特点</strong>：门巴族的竹编工艺精湛，编法多样，包括平编、绞编、辫编、缠编等多种编法。竹编作品通常结构紧密，纹理清晰，造型美观，具有很高的实用价值和艺术价值。</li>
+                    <li><strong>主要产品</strong>：门巴族的竹编产品种类繁多，包括日常生活用品和装饰品。日常生活用品主要有竹筐、竹篮、竹篓、竹席、竹椅等；装饰品主要有竹编花瓶、竹编挂饰、竹编壁画等。</li>
+                    <li><strong>文化意义</strong>：门巴族的竹编工艺不仅是一种实用技艺，也是一种文化传承。竹编作品中常常融入门巴族的文化元素和审美观念，反映了门巴族人民的生活方式和价值观念。例如，一些竹编作品上会编织出门巴族的传统图案和花纹，如几何图形、自然景物等。</li>
+                </ul>
+                
+                <h3>木刻工艺</h3>
+                <p>木刻是门巴族的另一种重要传统工艺，门巴族人民利用当地的木材资源，制作各种木制用品和木雕艺术品。</p>
+                <ul>
+                    <li><strong>工艺特点</strong>：门巴族的木刻工艺精湛，刀法细腻，造型生动。木刻作品通常采用浮雕、透雕、圆雕等多种雕刻技法，具有很高的艺术价值。</li>
+                    <li><strong>主要产品</strong>：门巴族的木刻产品种类繁多，包括日常生活用品和装饰品。日常生活用品主要有木碗、木盆、木勺、木桌、木椅等；装饰品主要有木雕佛像、木雕挂件、木雕壁画等。</li>
+                    <li><strong>文化意义</strong>：门巴族的木刻工艺不仅是一种实用技艺，也是一种文化传承。木刻作品中常常融入门巴族的宗教信仰和审美观念，反映了门巴族人民的精神世界和价值观念。例如，一些木雕作品上会雕刻出门巴族的宗教符号和传统图案，如佛像、菩萨像、几何图形等。</li>
+                </ul>
+                
+                <h3>编织工艺</h3>
+                <p>编织是门巴族的传统工艺之一，门巴族人民利用当地的植物纤维和动物毛，制作各种编织品。</p>
+                <ul>
+                    <li><strong>工艺特点</strong>：门巴族的编织工艺精湛，织法多样，包括平织、斜织、提花织等多种织法。编织作品通常色彩鲜艳，图案精美，具有很高的实用价值和艺术价值。</li>
+                    <li><strong>主要产品</strong>：门巴族的编织产品种类繁多，包括日常生活用品和装饰品。日常生活用品主要有毛毯、毛毡、毛袜、毛帽等；装饰品主要有挂毯、壁毯、坐垫等。</li>
+                    <li><strong>文化意义</strong>：门巴族的编织工艺不仅是一种实用技艺，也是一种文化传承。编织作品中常常融入门巴族的文化元素和审美观念，反映了门巴族人民的生活方式和价值观念。例如，一些编织作品上会编织出门巴族的传统图案和花纹，如几何图形、自然景物、宗教符号等。</li>
+                </ul>
+                
+                <h3>其他传统工艺</h3>
+                <p>除了竹编、木刻、编织等主要传统工艺外，门巴族还有一些其他的传统工艺，如金属工艺、陶瓷工艺等。</p>
+                <ul>
+                    <li><strong>金属工艺</strong>：门巴族的金属工艺主要包括银器制作、铜器制作等。门巴族的银器制作工艺精湛，银器作品通常造型美观，纹饰精美，具有很高的艺术价值。例如，门巴族的银饰包括银项链、银手镯、银耳环等，这些银饰通常雕刻有精美的图案和花纹。</li>
+                    <li><strong>陶瓷工艺</strong>：门巴族的陶瓷工艺主要包括陶器制作、瓷器制作等。门巴族的陶器制作工艺简单，但陶器作品通常造型古朴，色彩自然，具有浓厚的民族特色和地方特色。例如，门巴族的陶器包括陶罐、陶盆、陶碗等，这些陶器通常用于日常生活中。</li>
+                </ul>
+                
+                <h3>传统工艺的传承与发展</h3>
+                <p>门巴族的传统工艺是其文化的重要组成部分，对于研究门巴族的历史和文化具有重要价值。然而，随着社会的发展和现代化进程的加快，门巴族的传统工艺面临着一些挑战，如传承后继无人、传统工艺逐渐被现代工艺取代等。</p>
+                <p>为了保护和发展门巴族的传统工艺，政府和社会各界采取了一系列措施：</p>
+                <ul>
+                    <li>收集、整理和研究门巴族的传统工艺，建立门巴族传统工艺档案。</li>
+                    <li>培养门巴族传统工艺人才，鼓励年轻一代学习和传承传统工艺。</li>
+                    <li>通过展览、展示等方式，推广和传播门巴族的传统工艺。</li>
+                    <li>在门巴族聚居区的学校中开设传统工艺课程，提高年轻一代对本民族传统工艺的认识和热爱。</li>
+                    <li>制定相关政策，鼓励和支持门巴族传统工艺的发展，如提供资金支持、技术指导等。</li>
+                </ul>
+                
+                <p>门巴族的传统工艺是中华文化百花园中的一朵奇葩，对于丰富和发展中华文化具有重要意义。我们应该尊重和保护门巴族的传统工艺，促进各民族传统工艺的交流与融合，共同推动中华文化的繁荣和发展。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

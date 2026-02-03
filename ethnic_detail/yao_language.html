@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑶族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 瑶族语言文字页面特定样式 */
+        .language-header {
+            background-image: url('images/瑶族刺绣.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .language-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言支系样式 */
+        .language-branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .branch-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .language-section.visible .branch-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .language-section.visible .branch-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .language-section.visible .branch-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .language-section.visible .branch-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .branch-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .branch-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .branch-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 瑶文特点样式 */
+        .writing-features {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .writing-features h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .language-header h1 {
+                font-size: 36px;
+            }
+            
+            .language-header p {
+                font-size: 18px;
+            }
+            
+            .language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-branches {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="language-header">
+        <div class="container">
+            <div class="language-header-content">
+                <h1>瑶族语言文字</h1>
+                <p>瑶语的语言支系与瑶文的创制和发展</p>
+                <a href="yao.html" class="back-yao">返回瑶族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="language-main">
+        <div class="container">
+            <div class="language-content">
+                <!-- 语言概述 -->
+                <section class="language-section">
+                    <h2>语言概述</h2>
+                    <p>瑶族是一个拥有自己独特语言的民族，瑶语属于汉藏语系苗瑶语族瑶语支。由于瑶族分布广泛，居住在不同地区的瑶族人民使用的语言存在一定的差异，形成了不同的语言支系。</p>
+                    <p>瑶语是瑶族人民交流的重要工具，也是瑶族文化传承的重要载体。通过瑶语，瑶族人民传承着自己的历史、文化、宗教信仰和生活经验。</p>
+                </section>
+
+                <!-- 语言支系 -->
+                <section class="language-section">
+                    <h2>语言支系</h2>
+                    <p>瑶语分为三个主要的语言支系，每个支系都有自己的特点和分布区域：</p>
+                    <div class="language-branches">
+                        <div class="branch-item">
+                            <h4>勉语支系</h4>
+                            <p>勉语是瑶族使用最广泛的语言支系，主要分布在广西、湖南、广东、云南、贵州等省区的瑶族聚居区。勉语分为多个方言，如勉方言、金门方言、标敏方言等。</p>
+                            <p>勉语的特点是声母较多，韵母较少，声调一般为8个，语法上以虚词和语序为主要语法手段。</p>
+                        </div>
+                        <div class="branch-item">
+                            <h4>布努语支系</h4>
+                            <p>布努语主要分布在广西壮族自治区的都安、巴马、大化等瑶族自治县，以及云南、贵州等省的部分瑶族地区。布努语分为多个土语，如布努土语、巴哼土语、炯奈土语等。</p>
+                            <p>布努语的特点是声母较少，韵母较多，声调一般为6个，语法上与勉语有一定的差异。</p>
+                        </div>
+                        <div class="branch-item">
+                            <h4>拉珈语支系</h4>
+                            <p>拉珈语主要分布在广西壮族自治区金秀瑶族自治县的茶山瑶聚居区，使用人口较少。拉珈语是瑶族语言中较为独特的一个支系，与其他支系的差异较大。</p>
+                            <p>拉珈语的特点是声母和韵母都比较复杂，声调一般为6个，语法上有自己独特的特点。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 瑶文创制 -->
+                <section class="language-section">
+                    <h2>瑶文创制</h2>
+                    <p>瑶族虽然有着悠久的历史和丰富的文化，但在很长一段时间内没有自己的文字。直到20世纪80年代，瑶族才有了自己的文字——瑶文。</p>
+                    <h3>创制过程</h3>
+                    <p>1982年，在国家民族事务委员会的关怀和支持下，瑶族各界人士和语言专家共同努力，创制了以拉丁字母为基础的拼音文字——瑶文。瑶文的创制是瑶族文化发展史上的一件大事，标志着瑶族有了自己的书面语言。</p>
+                    <p>瑶文的创制遵循了以下原则：</p>
+                    <ul>
+                        <li>以勉语为基础方言，以大瑶山（金秀）话为标准音点</li>
+                        <li>采用拉丁字母为基础的拼音方案</li>
+                        <li>尽可能与汉语拼音方案保持一致，便于瑶族人民学习汉语</li>
+                        <li>充分考虑瑶族语言的特点，确保瑶文能够准确反映瑶语的语音系统</li>
+                    </ul>
+                    <h3>瑶文特点</h3>
+                    <div class="writing-features">
+                        <h4>瑶文的主要特点</h4>
+                        <ul>
+                            <li><strong>拼音文字：</strong>瑶文是一种拼音文字，每个字母代表一个音素，拼写规则与汉语拼音相似。</li>
+                            <li><strong>拉丁字母：</strong>使用26个拉丁字母，其中部分字母加有附加符号，以表示瑶语中的特殊音素。</li>
+                            <li><strong>声调标记：</strong>使用数字1-8标记声调，与汉语拼音的声调标记方法不同。</li>
+                            <li><strong>词汇丰富：</strong>瑶文词汇丰富，能够准确表达瑶族人民的思想和情感。</li>
+                            <li><strong>便于学习：</strong>瑶文的拼写规则简单明了，便于瑶族人民学习和使用。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 瑶文的使用和推广 -->
+                <section class="language-section">
+                    <h2>瑶文的使用和推广</h2>
+                    <p>瑶文创制后，在瑶族地区得到了广泛的使用和推广，为瑶族文化的传承和发展做出了重要贡献。</p>
+                    <h3>使用范围</h3>
+                    <ul>
+                        <li><strong>教育领域：</strong>在瑶族聚居区的学校中，瑶文被用作教学语言，帮助瑶族学生更好地学习文化知识。</li>
+                        <li><strong>出版领域：</strong>使用瑶文出版了各种书籍、报刊、杂志，包括瑶族历史、文化、民间文学等方面的内容。</li>
+                        <li><strong>广播影视：</strong>在瑶族地区的广播、电视节目中，使用瑶文进行播音和字幕制作。</li>
+                        <li><strong>日常交流：</strong>在瑶族人民的日常交流中，瑶文被用于写信、记事、记账等方面。</li>
+                    </ul>
+                    <h3>推广成果</h3>
+                    <p>通过多年的推广和使用，瑶文已经成为瑶族人民重要的交流工具和文化载体，为瑶族文化的传承和发展发挥了重要作用。越来越多的瑶族人民能够读写瑶文，瑶族的历史、文化、民间文学等得到了更好的保存和传承。</p>
+                    <p>同时，瑶文的使用也促进了瑶族与其他民族之间的交流和理解，为中华民族的团结和发展做出了贡献。</p>
+                </section>
+
+                <!-- 语言保护 -->
+                <section class="language-section">
+                    <h2>语言保护</h2>
+                    <p>随着社会的发展和进步，瑶族语言面临着一些挑战，如年轻一代使用瑶语的频率降低、部分瑶语词汇逐渐流失等。为了保护和传承瑶族语言，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>在瑶族聚居区的学校中，加强瑶语教学，培养学生的瑶语能力。</li>
+                        <li><strong>推广瑶文：</strong>进一步推广瑶文的使用，提高瑶族人民的瑶文读写能力。</li>
+                        <li><strong>记录整理：</strong>对瑶族语言进行全面的记录和整理，建立瑶族语言数据库。</li>
+                        <li><strong>文化活动：</strong>举办各种瑶族语言文化活动，如瑶语演讲比赛、瑶语歌曲大赛等，激发瑶族人民使用瑶语的热情。</li>
+                        <li><strong>政策支持：</strong>政府应出台相关政策，支持瑶族语言的保护和传承工作。</li>
+                    </ul>
+                    <p>保护和传承瑶族语言，不仅是对瑶族文化的保护，也是对中华民族文化多样性的保护。我们应该共同努力，让瑶族语言在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.language-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

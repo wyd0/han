@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哲学思想 - 汉族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哲学思想页面特定样式 */
+        .philosophy-header {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .philosophy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .philosophy-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .philosophy-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .philosophy-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-han {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-han:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .philosophy-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .philosophy-section {
+            margin-bottom: 80px;
+        }
+        
+        .philosophy-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .philosophy-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .philosophy-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .philosophy-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .philosophy-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .philosophy-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .philosophy-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 哲学流派卡片 */
+        .philosophy-schools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .philosophy-school {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .philosophy-school:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .philosophy-school h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .philosophy-school p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        /* 哲学发展时间线 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #c0392b;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #c0392b;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f9f9f9;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #f9f9f9;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f9f9f9 transparent transparent;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: #f9f9f9;
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        .timeline-content h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .philosophy-header h1 {
+                font-size: 36px;
+            }
+            
+            .philosophy-header p {
+                font-size: 18px;
+            }
+            
+            .philosophy-section h2 {
+                font-size: 28px;
+            }
+            
+            .philosophy-schools {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid #f9f9f9;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #f9f9f9 transparent transparent;
+            }
+            
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .philosophy-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .philosophy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="philosophy-header">
+        <div class="container">
+            <div class="philosophy-header-content">
+                <h1>哲学思想</h1>
+                <p>汉族文化的核心与精神支柱</p>
+                <a href="han.html" class="back-han">返回汉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="philosophy-main">
+        <div class="container">
+            <div class="philosophy-content">
+                <!-- 介绍部分 -->
+                <section class="philosophy-section">
+                    <h2>汉族哲学思想概述</h2>
+                    <p>汉族哲学思想是汉族文化的核心，是汉族人民在长期的历史实践中形成的关于宇宙、人生、社会等方面的根本观点和智慧结晶。汉族哲学思想以儒家思想为核心，同时融合了道家、佛教等多种思想流派，形成了多元化的哲学体系。</p>
+                    <p>汉族哲学思想强调天人合一、中庸之道、以人为本、和谐共生等理念，这些理念不仅塑造了汉族人民的思维方式和行为准则，也对中国社会的发展和文化的传承产生了深远的影响。</p>
+                </section>
+
+                <!-- 主要哲学流派 -->
+                <section class="philosophy-section">
+                    <h2>主要哲学流派</h2>
+                    <div class="philosophy-schools">
+                        <div class="philosophy-school">
+                            <h5>儒家思想</h5>
+                            <p>儒家思想由孔子创立，以仁、义、礼、智、信为核心价值观，强调个人的道德修养和社会责任，主张通过道德教化来实现社会的和谐与稳定。</p>
+                            <p>代表人物：孔子、孟子、荀子、董仲舒、朱熹、王阳明等。</p>
+                        </div>
+                        <div class="philosophy-school">
+                            <h5>道家思想</h5>
+                            <p>道家思想由老子创立，以道为核心概念，强调自然无为、天人合一、顺应自然，主张通过内心的修养来达到与道合一的境界。</p>
+                            <p>代表人物：老子、庄子、列子等。</p>
+                        </div>
+                        <div class="philosophy-school">
+                            <h5>佛教思想</h5>
+                            <p>佛教自汉代传入中国，与儒家、道家思想融合，形成了中国特色的佛教文化，强调慈悲为怀、因果报应、涅槃寂静等理念。</p>
+                            <p>代表人物：慧能、玄奘、鸠摩罗什等。</p>
+                        </div>
+                        <div class="philosophy-school">
+                            <h5>法家思想</h5>
+                            <p>法家思想强调以法治国，主张通过严刑峻法来维护社会秩序，注重实际效果和功利主义。</p>
+                            <p>代表人物：韩非子、商鞅、李斯等。</p>
+                        </div>
+                        <div class="philosophy-school">
+                            <h5>墨家思想</h5>
+                            <p>墨家思想由墨子创立，主张兼爱、非攻、尚贤、尚同，强调平等、博爱和实用主义。</p>
+                            <p>代表人物：墨子、禽滑厘等。</p>
+                        </div>
+                        <div class="philosophy-school">
+                            <h5>名家思想</h5>
+                            <p>名家思想注重名实关系的探讨，强调逻辑思维和辩论技巧，对中国古代逻辑学的发展做出了重要贡献。</p>
+                            <p>代表人物：公孙龙、惠施等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 哲学发展历程 -->
+                <section class="philosophy-section">
+                    <h2>哲学思想的发展历程</h2>
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>先秦时期</h4>
+                                <p>春秋战国时期是中国哲学的黄金时代，出现了百家争鸣的局面，儒家、道家、法家、墨家等诸子百家纷纷创立自己的学说。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>秦汉时期</h4>
+                                <p>秦朝奉行法家思想，汉朝初期推行黄老之学，汉武帝时期采纳董仲舒的建议，"罢黜百家，独尊儒术"，儒家思想成为官方正统思想。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>魏晋南北朝时期</h4>
+                                <p>玄学兴起，融合了道家和儒家思想，强调清淡和思辨，同时佛教传入中国并逐渐本土化。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>隋唐时期</h4>
+                                <p>佛教发展达到鼎盛，形成了禅宗、天台宗、华严宗等中国特色的佛教宗派，同时儒家思想也在不断发展。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>宋元时期</h4>
+                                <p>宋明理学兴起，以程颢、程颐、朱熹为代表，融合了儒家、道家和佛教思想，强调天理和心性的探讨。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>明清时期</h4>
+                                <p>王阳明创立心学，强调心即理、知行合一，对宋明理学进行了批判和发展，同时实学思潮兴起，强调经世致用。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>近现代时期</h4>
+                                <p>西方哲学传入中国，与中国传统哲学相互碰撞和融合，形成了现代新儒学等思潮。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 儒家思想 -->
+                <section class="philosophy-section">
+                    <h2>儒家思想</h2>
+                    <h3>核心价值观</h3>
+                    <ul>
+                        <li><strong>仁：</strong>儒家思想的核心概念，指爱人、关心他人，是一种道德情感和道德境界。</li>
+                        <li><strong>义：</strong>指行为符合道德规范，是一种道德责任和道德原则。</li>
+                        <li><strong>礼：</strong>指社会规范和礼仪制度，是维护社会秩序的重要手段。</li>
+                        <li><strong>智：</strong>指智慧和知识，是实现道德的重要条件。</li>
+                        <li><strong>信：</strong>指诚实守信，是人际关系的重要基础。</li>
+                    </ul>
+                    
+                    <h3>主要代表人物</h3>
+                    <h4>孔子</h4>
+                    <p>孔子（公元前551年-公元前479年），名丘，字仲尼，春秋时期鲁国人，儒家学派的创始人。孔子提出了"仁"的核心概念，强调道德修养和社会责任，主张"为政以德"，通过道德教化来实现社会的和谐与稳定。孔子的思想主要记录在《论语》中。</p>
+                    
+                    <h4>孟子</h4>
+                    <p>孟子（公元前372年-公元前289年），名轲，字子舆，战国时期邹国人，儒家学派的重要代表人物。孟子继承和发展了孔子的思想，提出了"性善论"，强调人性本善，主张"仁政"，通过实行仁政来实现国家的长治久安。孟子的思想主要记录在《孟子》中。</p>
+                    
+                    <h4>荀子</h4>
+                    <p>荀子（公元前313年-公元前238年），名况，字卿，战国时期赵国人，儒家学派的重要代表人物。荀子提出了"性恶论"，强调人性本恶，需要通过后天的教育和修养来改善，主张"礼法并用"，通过道德教化和法律制度来维护社会秩序。荀子的思想主要记录在《荀子》中。</p>
+                </section>
+
+                <!-- 道家思想 -->
+                <section class="philosophy-section">
+                    <h2>道家思想</h2>
+                    <h3>核心概念</h3>
+                    <ul>
+                        <li><strong>道：</strong>道家思想的核心概念，指宇宙的本原和万物的规律，是一种超越时空的存在。</li>
+                        <li><strong>自然：</strong>指事物的本来面目和自然状态，强调顺应自然，不以人为的力量去干预。</li>
+                        <li><strong>无为：</strong>指不刻意而为，顺应自然的规律，是道家的重要实践原则。</li>
+                        <li><strong>逍遥：</strong>指精神上的自由和超越，是道家追求的理想境界。</li>
+                    </ul>
+                    
+                    <h3>主要代表人物</h3>
+                    <h4>老子</h4>
+                    <p>老子（约公元前571年-公元前471年），姓李，名耳，字聃，春秋时期楚国人，道家学派的创始人。老子提出了"道"的核心概念，强调自然无为、顺应自然，主张"小国寡民"的社会理想。老子的思想主要记录在《道德经》中。</p>
+                    
+                    <h4>庄子</h4>
+                    <p>庄子（约公元前369年-公元前286年），名周，字子休，战国时期宋国人，道家学派的重要代表人物。庄子继承和发展了老子的思想，强调精神上的自由和超越，主张"逍遥游"的人生境界。庄子的思想主要记录在《庄子》中。</p>
+                </section>
+
+                <!-- 佛教思想 -->
+                <section class="philosophy-section">
+                    <h2>佛教思想</h2>
+                    <h3>核心教义</h3>
+                    <ul>
+                        <li><strong>四圣谛：</strong>苦谛、集谛、灭谛、道谛，是佛教的基本教义，阐述了人生的痛苦、痛苦的原因、痛苦的消灭和消灭痛苦的方法。</li>
+                        <li><strong>十二因缘：</strong>阐述了人生痛苦的因果关系，包括无明、行、识、名色、六入、触、受、爱、取、有、生、老死等十二个环节。</li>
+                        <li><strong>三法印：</strong>诸行无常、诸法无我、涅槃寂静，是佛教的基本真理，标志着佛教与其他宗教的区别。</li>
+                        <li><strong>因果报应：</strong>强调善有善报、恶有恶报，是佛教的重要伦理原则。</li>
+                    </ul>
+                    
+                    <h3>中国佛教宗派</h3>
+                    <ul>
+                        <li><strong>禅宗：</strong>以慧能为代表，强调顿悟成佛，主张"不立文字，教外别传"。</li>
+                        <li><strong>天台宗：</strong>以智顗为代表，强调诸法实相，主张"一念三千"。</li>
+                        <li><strong>华严宗：</strong>以法藏为代表，强调法界缘起，主张"事事无碍"。</li>
+                        <li><strong>净土宗：</strong>以昙鸾、道绰、善导为代表，强调念佛往生，主张"一心不乱"。</li>
+                    </ul>
+                </section>
+
+                <!-- 哲学思想的影响 -->
+                <section class="philosophy-section">
+                    <h2>哲学思想的影响</h2>
+                    <h3>对中国的影响</h3>
+                    <ul>
+                        <li><strong>价值观：</strong>汉族哲学思想塑造了中国人的价值观，如重视家庭、尊重长辈、强调集体主义等。</li>
+                        <li><strong>思维方式：</strong>汉族哲学思想影响了中国人的思维方式，如辩证思维、整体思维、直觉思维等。</li>
+                        <li><strong>社会制度：</strong>汉族哲学思想对中国的社会制度产生了深远的影响，如封建礼教、科举制度等。</li>
+                        <li><strong>文化艺术：</strong>汉族哲学思想对中国的文化艺术产生了重要影响，如文学、绘画、音乐、建筑等。</li>
+                    </ul>
+                    
+                    <h3>对世界的影响</h3>
+                    <ul>
+                        <li><strong>东亚文化圈：</strong>汉族哲学思想对日本、朝鲜、越南等东亚国家产生了深远的影响，形成了以儒家思想为核心的东亚文化圈。</li>
+                        <li><strong>西方哲学：</strong>汉族哲学思想对西方哲学产生了重要影响，如莱布尼茨、伏尔泰等西方哲学家都受到了中国哲学的启发。</li>
+                        <li><strong>现代社会：</strong>汉族哲学思想中的天人合一、和谐共生等理念，对现代社会的可持续发展具有重要的启示意义。</li>
+                    </ul>
+                </section>
+
+                <!-- 哲学思想的现代价值 -->
+                <section class="philosophy-section">
+                    <h2>哲学思想的现代价值</h2>
+                    <p>在现代社会，汉族传统哲学思想仍然具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>个人修养：</strong>儒家的道德修养、道家的内心宁静、佛教的慈悲为怀等理念，对个人的心理健康和道德建设具有重要的启示意义。</li>
+                        <li><strong>社会和谐：</strong>汉族哲学思想中的和谐共生、以人为本等理念，对构建和谐社会具有重要的指导意义。</li>
+                        <li><strong>环境保护：</strong>汉族哲学思想中的天人合一、顺应自然等理念，对环境保护和可持续发展具有重要的启示意义。</li>
+                        <li><strong>世界和平：</strong>汉族哲学思想中的和而不同、兼爱非攻等理念，对促进世界和平与发展具有重要的意义。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.philosophy-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

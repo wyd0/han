@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锡伯族传统节日- 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 锡伯族传统节日页面特定样式 */
+        .xibe-header {
+            background-image: url('images/锡伯族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .xibe-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .xibe-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .xibe-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .xibe-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .xibe-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .xibe-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .xibe-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .xibe-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .xibe-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .xibe-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .xibe-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .xibe-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .xibe-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .xibe-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日特点样式 */
+        .festival-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 节日活动样式 */
+        .festival-activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .activity-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .activity-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .activity-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="xibe-header">
+        <div class="container">
+            <div class="xibe-header-content">
+                <h1>锡伯族传统节日</h1>
+                <p>传承民族历史与文化的重要载体</p>
+                <a href="xibe.html" class="back-difference">返回锡伯族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="xibe-main">
+        <div class="container">
+            <div class="xibe-content">
+                <!-- 传统节日概述 -->
+                <section class="xibe-section">
+                    <h2>传统节日概述</h2>
+                    <p>锡伯族有着丰富多彩的传统节日，这些节日不仅是锡伯族人民庆祝丰收、祭祀祖先的重要方式，也是传承和弘扬锡伯族文化的重要载体。锡伯族的传统节日既有与汉族等其他民族共同的节日，如春节、清明节等，也有独具锡伯族特色的节日，如西迁节等。</p>
+                    <p>锡伯族的传统节日通常具有深厚的历史文化内涵，反映了锡伯族人民的生活方式、价值观念和审美情趣。这些节日不仅是锡伯族人民生活中的重要组成部分，也是中华民族多元文化的重要体现。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="xibe-section">
+                    <h3>主要传统节日</h3>
+                    
+                    <h4>西迁节</h4>
+                    <p>西迁节是锡伯族最重要的传统节日，也是锡伯族独有的节日。西迁节通常在农历四月十八日举行，是为了纪念锡伯族西迁戍边的历史。</p>
+                    <div class="festival-features">
+                        <div class="feature-item">
+                            <h4>节日起源</h4>
+                            <p>1764年，乾隆政府从盛京（今沈阳）等地抽调锡伯族官兵及家属4000余人，西迁至新疆伊犁地区，戍守边疆。为了纪念这一历史事件，锡伯族人民将每年的农历四月十八日定为西迁节。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>庆祝活动</h4>
+                            <p>西迁节期间，锡伯族人民会举行各种庆祝活动，包括祭祀、歌舞、体育比赛等。其中，最具特色的是"西迁节大会"，人们会聚集在一起，演唱《西迁歌》，讲述西迁历史，表达对祖先的敬意和对祖国的热爱。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>节日意义</h4>
+                            <p>西迁节不仅是锡伯族人民对历史的纪念，也是锡伯族文化传承的重要载体。通过西迁节，锡伯族人民传承了西迁精神，即爱国主义、团结协作、艰苦奋斗的精神，这些精神已经成为锡伯族民族精神的重要组成部分。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>春节</h4>
+                    <p>春节是锡伯族与汉族等其他民族共同的传统节日，也是锡伯族最隆重的节日之一。锡伯族的春节通常从农历腊月二十三开始，到正月十五结束，持续约20天。</p>
+                    <div class="festival-activities">
+                        <div class="activity-item">
+                            <h4>节前准备</h4>
+                            <p>春节前，锡伯族人民会进行一系列的准备活动，包括打扫房屋、制作节日食品、购买节日用品等。其中，最具特色的是制作"锡伯大饼"，这是锡伯族春节期间的传统食品。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h4>节日活动</h4>
+                            <p>春节期间，锡伯族人民会举行各种庆祝活动，包括贴春联、放鞭炮、走亲访友、设宴款待等。此外，锡伯族人民还会举行传统的歌舞表演，如贝伦舞等，增添节日的喜庆氛围。</p>
+                        </div>
+                        <div class="activity-item">
+                            <h4>节日食品</h4>
+                            <p>锡伯族春节期间的传统食品主要包括锡伯大饼、花花菜、血肠、奶茶等。这些食品不仅味道鲜美，而且具有浓郁的民族特色，是锡伯族春节文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>清明节</h4>
+                    <p>清明节是锡伯族与汉族等其他民族共同的传统节日，也是锡伯族重要的祭祀节日。锡伯族的清明节通常在公历4月4日或5日举行。</p>
+                    <p>清明节期间，锡伯族人民会前往祖先墓地扫墓，祭祀祖先，表达对祖先的敬意和哀思。扫墓时，人们会携带食品、纸钱等祭品，在祖先墓前举行祭祀仪式，然后焚烧纸钱，培土修墓。</p>
+                    <p>除了扫墓祭祀外，锡伯族人民还会在清明节期间进行一些户外活动，如踏青、放风筝等，感受春天的气息，享受大自然的美景。</p>
+                    
+                    <h4>中元节</h4>
+                    <p>中元节是锡伯族与汉族等其他民族共同的传统节日，也是锡伯族重要的祭祀节日。锡伯族的中元节通常在农历七月十五日举行。</p>
+                    <p>中元节期间，锡伯族人民会举行各种祭祀活动，包括祭祖、放河灯等。祭祖时，人们会在家庭中设立祭坛，摆放祭品，祭祀祖先的灵魂。放河灯时，人们会将制作好的河灯放入河中，寓意为祖先的灵魂照亮回家的路。</p>
+                    <p>中元节不仅是锡伯族人民对祖先的纪念，也是锡伯族文化传承的重要方式。通过中元节，锡伯族人民传承了尊老爱幼、感恩祖先的传统美德。</p>
+                </section>
+
+                <!-- 节日特点 -->
+                <section class="xibe-section">
+                    <h3>节日特点</h3>
+                    <p>锡伯族的传统节日具有以下特点：</p>
+                    <ul>
+                        <li><strong>历史文化内涵深厚：</strong>锡伯族的传统节日大多具有深厚的历史文化内涵，反映了锡伯族的历史发展、社会生活和文化传统。例如，西迁节就是为了纪念锡伯族西迁戍边的历史，具有重要的历史意义。</li>
+                        <li><strong>民族特色鲜明：</strong>锡伯族的传统节日具有鲜明的民族特色，无论是节日活动还是节日食品，都体现了锡伯族的民族风格和文化特色。例如，西迁节的庆祝活动就具有独特的锡伯族特色。</li>
+                        <li><strong>与生产生活密切相关：</strong>锡伯族的传统节日与生产生活密切相关，反映了锡伯族人民的生产方式和生活习惯。例如，春节的庆祝活动就与农业生产密切相关，人们通过春节祈求来年风调雨顺、五谷丰登。</li>
+                        <li><strong>融合了多民族文化元素：</strong>锡伯族的传统节日融合了多民族文化元素，既有锡伯族自身的文化特色，也吸收了汉族、满族、维吾尔族等其他民族的文化元素，形成了独具特色的节日文化。</li>
+                        <li><strong>注重家庭和社区的团结：</strong>锡伯族的传统节日注重家庭和社区的团结，节日期间，人们会走亲访友，举行集体活动，增强家庭和社区的凝聚力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的文化意义 -->
+                <section class="xibe-section">
+                    <h3>节日的文化意义</h3>
+                    <p>锡伯族的传统节日是其文化的重要组成部分，具有多方面的文化意义：</p>
+                    <ul>
+                        <li><strong>文化传承的载体：</strong>锡伯族的传统节日是锡伯族文化传承的重要载体，通过节日活动，锡伯族的历史、文化、传统等得以记录和传承。</li>
+                        <li><strong>民族认同的标志：</strong>锡伯族的传统节日是锡伯族民族认同的重要标志，是锡伯族人民区别于其他民族的重要特征之一。</li>
+                        <li><strong>社会凝聚的纽带：</strong>锡伯族的传统节日是锡伯族社会凝聚的重要纽带，通过共同的节日活动，增强了锡伯族人民的民族认同感和凝聚力。</li>
+                        <li><strong>道德教育的课堂：</strong>锡伯族的传统节日是锡伯族道德教育的重要课堂，通过节日活动，锡伯族人民传承了尊老爱幼、感恩祖先、团结协作等传统美德。</li>
+                        <li><strong>文化交流的平台：</strong>锡伯族的传统节日是锡伯族与其他民族进行文化交流的重要平台，通过节日活动，锡伯族文化与其他民族文化得以相互学习和融合。</li>
+                    </ul>
+                    <p>锡伯族的传统节日是其文化宝库中的重要组成部分，体现了锡伯族人民的智慧和创造力，也是中华民族多元文化的重要体现。</p>
+                </section>
+
+                <!-- 节日的保护与发展 -->
+                <section class="xibe-section">
+                    <h3>节日的保护与发展</h3>
+                    <p>在当今全球化和现代化的背景下，锡伯族的传统节日面临着一些挑战，如传统节日的氛围淡化、年轻一代对传统节日的兴趣下降等。为了保护和发展锡伯族的传统节日，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>加强教育传承：</strong>通过学校教育、家庭传承等方式，培养年轻一代对锡伯族传统节日的兴趣和认识，确保传统节日的传承后继有人。</li>
+                        <li><strong>开展文化活动：</strong>通过举办锡伯族传统节日相关的文化活动，如西迁节大会、春节联欢会等，提高传统节日的知名度和影响力，营造浓厚的节日氛围。</li>
+                        <li><strong>加强学术研究：</strong>组织专家学者对锡伯族传统节日进行深入的学术研究，探讨其历史、特点、规律和发展趋势，为节日的保护和发展提供理论支持。</li>
+                        <li><strong>利用现代技术：</strong>利用现代信息技术，如互联网、手机应用等，宣传锡伯族传统节日的文化内涵和庆祝活动，扩大节日的传播范围。</li>
+                        <li><strong>加强文化遗产保护：</strong>将锡伯族的传统节日，如西迁节，申报为非物质文化遗产，通过法律手段保护传统节日的文化内涵和表现形式。</li>
+                    </ul>
+                    <p>锡伯族的传统节日是锡伯族人民的宝贵财富，也是中华民族多元文化的重要组成部分。通过全社会的共同努力，相信锡伯族的传统节日一定能够得到更好的保护和发展，继续在锡伯族文化传承中发挥重要的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.xibe-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

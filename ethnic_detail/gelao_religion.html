@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仡佬族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 仡佬族宗教信仰页面特定样式 */
+        .gelao-header {
+            background-image: url('images/仡佬族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .gelao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .gelao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gelao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .gelao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-gelao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-gelao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .gelao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .gelao-section {
+            margin-bottom: 80px;
+        }
+        
+        .gelao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .gelao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .gelao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .gelao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .gelao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教仪式样式 */
+        .ritual-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .ritual-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .ritual-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .ritual-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gelao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .gelao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .gelao-header-content .back-gelao {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .gelao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .gelao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="gelao-header">
+        <div class="container">
+            <div class="gelao-header-content">
+                <h1>仡佬族宗教信仰</h1>
+                <p>万物有灵的传统信仰体系</p>
+                <a href="gelao.html" class="back-gelao">返回仡佬族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="gelao-main">
+        <div class="container">
+            <div class="gelao-content">
+                <!-- 信仰概述 -->
+                <section class="gelao-section">
+                    <h2>信仰概述</h2>
+                    <p>仡佬族是一个具有悠久历史的民族，其宗教信仰体系以多神教为核心，崇尚万物有灵，认为自然界的一切事物都有神灵主宰。这种信仰体系是仡佬族文化的重要组成部分，深刻影响着仡佬族人民的日常生活、生产活动和社会关系。</p>
+                    <p>仡佬族的宗教信仰经历了漫长的发展过程，从原始的自然崇拜逐渐演变，同时吸收了道教、佛教等外来宗教的元素，形成了独具特色的信仰体系。</p>
+                </section>
+
+                <!-- 自然崇拜 -->
+                <section class="gelao-section">
+                    <h2>自然崇拜</h2>
+                    <p>自然崇拜是仡佬族宗教信仰的核心内容之一，反映了仡佬族人民对自然力量的敬畏和依赖。主要包括以下几种：</p>
+                    <ul>
+                        <li><strong>山神崇拜：</strong>仡佬族居住在山区，山是他们赖以生存的基础。因此，山神被视为最重要的自然神灵之一，负责保护山林资源和居住安全。每年春秋两季，仡佬族人民都会举行隆重的山神祭祀活动。</li>
+                        <li><strong>水神崇拜：</strong>水是生命之源，仡佬族人民对水神十分崇拜。他们认为水神主宰着雨水、河流和湖泊，影响着农业生产和日常生活。在干旱季节，人们会举行祈雨仪式，祈求水神赐福。</li>
+                        <li><strong>树神崇拜：</strong>仡佬族人民认为古老的大树具有灵性，是神灵的栖息之所。他们会在村寨附近选择一棵古老的大树作为神树，定期举行祭祀活动，祈求树神保佑村寨平安、人畜兴旺。</li>
+                        <li><strong>土地神崇拜：</strong>土地神被视为掌管土地肥力和农作物生长的神灵。每年春耕和秋收时节，仡佬族人民都会祭祀土地神，祈求丰收。</li>
+                    </ul>
+                </section>
+
+                <!-- 祖先崇拜 -->
+                <section class="gelao-section">
+                    <h2>祖先崇拜</h2>
+                    <p>祖先崇拜是仡佬族宗教信仰的重要组成部分，体现了仡佬族人民对祖先的尊敬和怀念。仡佬族人民认为祖先的灵魂仍然存在，能够影响后代的命运，因此非常重视对祖先的祭祀。</p>
+                    <p>仡佬族的祖先崇拜主要通过以下方式体现：</p>
+                    <ul>
+                        <li><strong>家祭：</strong>每个家庭都会在堂屋设置祖先牌位，定期举行祭祀活动。在春节、清明节等重要节日，家庭成员会聚集在一起，向祖先牌位献祭，祈求祖先保佑家庭平安、幸福。</li>
+                        <li><strong>墓祭：</strong>清明节是仡佬族进行墓祭的重要节日。人们会前往祖先墓地，清扫墓地、献祭食物、烧纸钱，表达对祖先的思念和敬意。</li>
+                        <li><strong>宗族祭：</strong>同一宗族的成员会定期举行集体祭祀活动，祭祀共同的祖先。这种活动不仅是宗教仪式，也是加强宗族凝聚力的重要方式。</li>
+                    </ul>
+                </section>
+
+                <!-- 鬼师与宗教仪式 -->
+                <section class="gelao-section">
+                    <h2>鬼师与宗教仪式</h2>
+                    <p>鬼师是仡佬族宗教活动的主持者，被认为是人与神灵之间的桥梁。鬼师通常由具有丰富宗教知识和仪式经验的人担任，他们掌握着各种祭祀、驱邪、占卜的方法。</p>
+                    <h3>主要宗教仪式</h3>
+                    <div class="ritual-details">
+                        <div class="ritual-item">
+                            <h4>祭祀仪式</h4>
+                            <p>包括山神祭、水神祭、树神祭、土地神祭等多种形式。祭祀时，鬼师会主持仪式，献上祭品，念诵咒语，祈求神灵保佑。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>驱邪仪式</h4>
+                            <p>当村寨或家庭遭遇不幸时，人们会请鬼师举行驱邪仪式，驱逐邪恶势力，净化环境，恢复祥和。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>占卜仪式</h4>
+                            <p>鬼师通过占卜来预测吉凶、寻找失物、决定重要事项。常用的占卜方法包括鸡骨卜、竹卜、蛋卜等。</p>
+                        </div>
+                        <div class="ritual-item">
+                            <h4>人生仪式</h4>
+                            <p>包括出生、成年、结婚、死亡等重要人生阶段的仪式。这些仪式不仅具有宗教意义，也是仡佬族社会文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 外来宗教的影响 -->
+                <section class="gelao-section">
+                    <h2>外来宗教的影响</h2>
+                    <p>随着历史的发展和民族交流的加强，仡佬族的宗教信仰也受到了道教、佛教等外来宗教的影响。这种影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>道教影响：</strong>道教的神仙体系、修炼方法和斋醮仪式对仡佬族的宗教信仰产生了一定影响。一些仡佬族地区的鬼师会吸收道教的元素，丰富自己的仪式内容。</li>
+                        <li><strong>佛教影响：</strong>佛教的因果报应、轮回转世等观念逐渐被仡佬族人民接受，成为其宗教信仰的一部分。一些仡佬族地区还修建了佛教寺庙，定期举行佛教活动。</li>
+                        <li><strong>融合与适应：</strong>仡佬族人民在吸收外来宗教元素的同时，始终保持着自己传统信仰的核心内容，形成了融合多种宗教元素的独特信仰体系。</li>
+                    </ul>
+                </section>
+
+                <!-- 信仰的社会功能 -->
+                <section class="gelao-section">
+                    <h2>信仰的社会功能</h2>
+                    <p>仡佬族的宗教信仰不仅是一种精神寄托，还具有重要的社会功能：</p>
+                    <ul>
+                        <li><strong>道德规范：</strong>宗教信仰中的善恶观念、禁忌规定等，对仡佬族人民的行为起到了约束和规范作用，维护了社会秩序。</li>
+                        <li><strong>心理安慰：</strong>在面对自然灾害、疾病等困难时，宗教信仰为仡佬族人民提供了心理安慰和精神支持。</li>
+                        <li><strong>文化传承：</strong>宗教仪式、神话传说等是仡佬族文化的重要载体，通过宗教活动，仡佬族的传统文化得以传承和发展。</li>
+                        <li><strong>社会凝聚：</strong>集体宗教活动是仡佬族人民加强联系、增进感情的重要方式，有助于增强社会凝聚力。</li>
+                    </ul>
+                </section>
+
+                <!-- 现代变迁 -->
+                <section class="gelao-section">
+                    <h2>现代变迁</h2>
+                    <p>随着社会的发展和现代文明的冲击，仡佬族的宗教信仰也发生了一些变化：</p>
+                    <ul>
+                        <li><strong>信仰形式的简化：</strong>现代仡佬族人民的宗教信仰形式逐渐简化，一些复杂的宗教仪式不再被严格执行。</li>
+                        <li><strong>信仰内容的变化：</strong>科学知识的普及使得仡佬族人民对自然现象有了更理性的认识，传统信仰中的一些观念逐渐淡化。</li>
+                        <li><strong>信仰与现代生活的结合：</strong>现代仡佬族人民在保持传统信仰核心内容的同时，也将其与现代生活相结合，使其适应现代社会的发展。</li>
+                    </ul>
+                    <p>尽管如此，仡佬族的宗教信仰仍然是其文化认同的重要标志，在仡佬族人民的生活中发挥着重要作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

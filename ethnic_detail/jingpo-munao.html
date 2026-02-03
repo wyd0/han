@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景颇族目瑙纵歌 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 景颇族目瑙纵歌页面特定样式 */
+        .jingpo-header {
+            background-image: url('images/景颇族女装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jingpo-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jingpo-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jingpo-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jingpo-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jingpo-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jingpo-section {
+            margin-bottom: 60px;
+        }
+        
+        .jingpo-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jingpo-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jingpo-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jingpo-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jingpo-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jingpo-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jingpo-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 目瑙纵歌特色样式 */
+        .munao-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .munao-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .munao-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .munao-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 目瑙柱样式 */
+        .munao-pillar {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .jingpo-header h1 {
+                font-size: 36px;
+            }
+            
+            .jingpo-header p {
+                font-size: 18px;
+            }
+            
+            .jingpo-section h2 {
+                font-size: 28px;
+            }
+            
+            .munao-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="jingpo-header">
+        <div class="container">
+            <div class="jingpo-header-content">
+                <h1>景颇族目瑙纵歌</h1>
+                <p>万人之舞的文化盛宴</p>
+                <a href="jingpo.html" class="back-difference">返回景颇族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="jingpo-main">
+        <div class="container">
+            <div class="jingpo-content">
+                <!-- 目瑙纵歌概览 -->
+                <section class="jingpo-section">
+                    <h2>目瑙纵歌概览</h2>
+                    <p>目瑙纵歌是景颇族最隆重、最盛大的传统节日，也是景颇族文化的重要标志。它集景颇族的历史、文化、艺术、宗教等元素于一体，是景颇族人民智慧的结晶。目瑙纵歌以其宏大的规模、整齐的动作、热烈的气氛而闻名，被称为"万人之舞"。</p>
+                    <p>目瑙纵歌的历史可以追溯到遥远的古代，它起源于景颇族的原始宗教信仰，是景颇族先民为了祭祀神灵、祈求丰收、庆祝胜利而举行的大型集体活动。经过漫长的历史发展，目瑙纵歌逐渐演变成了景颇族的传统节日，成为景颇族文化传承的重要载体。</p>
+                </section>
+                
+                <!-- 目瑙纵歌的起源与传说 -->
+                <section class="jingpo-section">
+                    <h2>目瑙纵歌的起源与传说</h2>
+                    <p>关于目瑙纵歌的起源，景颇族民间流传着许多美丽的传说，这些传说不仅解释了目瑙纵歌的起源，也反映了景颇族的历史、文化和价值观。</p>
+                    
+                    <h3>主要传说</h3>
+                    <div class="munao-features">
+                        <div class="munao-item">
+                            <h4>太阳神传说</h4>
+                            <p>传说太阳神的女儿与凡间的景颇族男子相爱，太阳神为了考验男子的诚意，让他在天界举行目瑙纵歌。男子成功学会了目瑙纵歌，并将其带回人间，从此景颇族就有了目瑙纵歌。</p>
+                        </div>
+                        <div class="munao-item">
+                            <h4>创世传说</h4>
+                            <p>传说在创世之初，天地混沌，景颇族的祖先宁贯娃通过目瑙纵歌沟通天地，创造了万物。为了纪念宁贯娃的功绩，景颇族人民每年都举行目瑙纵歌。</p>
+                        </div>
+                        <div class="munao-item">
+                            <h4>战争胜利传说</h4>
+                            <p>传说景颇族先民在一次战争中取得了胜利，为了庆祝胜利，他们举行了盛大的目瑙纵歌，从此目瑙纵歌成为了景颇族庆祝胜利的传统活动。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>传说的文化意义</h3>
+                    <p>这些传说虽然内容不同，但都反映了景颇族人民对自然、对祖先、对美好生活的向往和崇敬。它们不仅是景颇族民间文学的重要组成部分，也是研究景颇族历史、文化、宗教的重要资料。</p>
+                </section>
+                
+                <!-- 目瑙纵歌的仪式与流程 -->
+                <section class="jingpo-section">
+                    <h2>目瑙纵歌的仪式与流程</h2>
+                    <p>目瑙纵歌是一种大型的集体活动，有着严格的仪式和流程。完整的目瑙纵歌通常持续三天，包括祭祀、舞蹈、唱歌、物资交流等多个环节。</p>
+                    
+                    <h3>准备阶段</h3>
+                    <p>在目瑙纵歌举行前，景颇族人民需要进行充分的准备工作：</p>
+                    <ul>
+                        <li><strong>搭建目瑙柱：</strong>目瑙柱是目瑙纵歌的核心象征，通常由两根高大的木柱组成，上面雕刻着太阳、月亮、星辰、动植物等图案，以及景颇族的历史、传说等内容。</li>
+                        <li><strong>准备祭品：</strong>景颇族人民会准备各种祭品，如牛、羊、猪、鸡等，用于祭祀神灵和祖先。</li>
+                        <li><strong>组织人员：</strong>目瑙纵歌需要大量的人员参与，包括舞者、歌手、乐手、组织者等，需要提前组织和安排。</li>
+                        <li><strong>准备服装：</strong>参与者需要穿着传统的景颇族服装，这些服装通常需要提前准备和制作。</li>
+                    </ul>
+                    
+                    <h3>仪式流程</h3>
+                    <p>目瑙纵歌的仪式流程通常包括以下几个环节：</p>
+                    <ul>
+                        <li><strong>祭祀仪式：</strong>目瑙纵歌的第一天，景颇族人民会举行隆重的祭祀仪式，祭祀目瑙神和祖先，祈求来年风调雨顺、五谷丰登、人畜平安。祭祀仪式由专门的宗教职业者"董萨"主持。</li>
+                        <li><strong>开幕仪式：</strong>祭祀仪式结束后，举行开幕仪式，由德高望重的老人宣布目瑙纵歌开始。</li>
+                        <li><strong>集体舞蹈：</strong>开幕仪式结束后，参与者开始围绕目瑙柱跳舞。舞者们穿着传统的景颇族服装，手持长刀或扇子，按照固定的步伐和节奏跳舞。舞蹈动作整齐划一、节奏明快，充满了力量感和美感。</li>
+                        <li><strong>唱歌表演：</strong>在舞蹈间隙，歌手们会演唱景颇族的传统歌曲，内容包括历史、传说、爱情、劳动等多个方面。</li>
+                        <li><strong>物资交流：</strong>目瑙纵歌期间，景颇族人民会举行物资交流活动，交换各种生产资料和生活用品，促进经济发展。</li>
+                        <li><strong>闭幕仪式：</strong>目瑙纵歌的最后一天，举行闭幕仪式，由德高望重的老人宣布目瑙纵歌结束，并祈求神灵保佑景颇族人民。</li>
+                    </ul>
+                </section>
+                
+                <!-- 目瑙柱的文化意义 -->
+                <section class="jingpo-section">
+                    <h2>目瑙柱的文化意义</h2>
+                    <div class="munao-pillar">
+                        <h3>目瑙柱的结构与装饰</h3>
+                        <p>目瑙柱是目瑙纵歌的核心象征，通常由两根高大的木柱组成，木柱之间有横梁连接。目瑙柱的高度一般在10米以上，上面雕刻着精美的图案和文字。</p>
+                        <ul>
+                            <li><strong>图案：</strong>目瑙柱上雕刻的图案主要包括太阳、月亮、星辰、动植物、几何图形等，这些图案不仅美观，也有着深刻的文化内涵。</li>
+                            <li><strong>文字：</strong>目瑙柱上通常会刻有景颇文，内容包括景颇族的历史、传说、祝福语等。</li>
+                            <li><strong>装饰：</strong>目瑙柱上还会装饰有各种物品，如羽毛、贝壳、彩布等，这些装饰不仅美观，也有着特定的文化意义。</li>
+                        </ul>
+                        
+                        <h3>目瑙柱的文化象征</h3>
+                        <p>目瑙柱是景颇族文化的重要象征，具有深刻的文化意义：</p>
+                        <ul>
+                            <li><strong>天地连接：</strong>目瑙柱象征着天地之间的连接，是景颇族人民与神灵沟通的桥梁。</li>
+                            <li><strong>历史传承：</strong>目瑙柱上雕刻的图案和文字，记录了景颇族的历史、传说和文化，是景颇族历史传承的重要载体。</li>
+                            <li><strong>民族认同：</strong>目瑙柱是景颇族民族认同的重要象征，看到目瑙柱，景颇族人民就会想起自己的民族和文化。</li>
+                            <li><strong>美好生活：</strong>目瑙柱上的图案和文字，表达了景颇族人民对美好生活的向往和追求。</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- 目瑙纵歌的艺术特色 -->
+                <section class="jingpo-section">
+                    <h2>目瑙纵歌的艺术特色</h2>
+                    <p>目瑙纵歌是一种集音乐、舞蹈、美术、文学于一体的综合艺术形式，具有独特的艺术特色。</p>
+                    
+                    <h3>舞蹈特色</h3>
+                    <ul>
+                        <li><strong>规模宏大：</strong>目瑙纵歌的参与者多达数千人甚至上万人，场面非常壮观。</li>
+                        <li><strong>动作整齐：</strong>舞者们按照固定的步伐和节奏跳舞，动作整齐划一，充满了力量感和美感。</li>
+                        <li><strong>节奏明快：</strong>目瑙纵歌的节奏明快有力，通常由木鼓、象脚鼓、锣、钹等乐器伴奏。</li>
+                        <li><strong>寓意深刻：</strong>目瑙纵歌的舞蹈动作有着深刻的寓意，如模仿动物的动作、表现生产劳动的场景等。</li>
+                    </ul>
+                    
+                    <h3>音乐特色</h3>
+                    <ul>
+                        <li><strong>乐器多样：</strong>目瑙纵歌的伴奏乐器主要有木鼓、象脚鼓、锣、钹等，这些乐器发出的声音浑厚有力，充满了民族特色。</li>
+                        <li><strong>旋律优美：</strong>目瑙纵歌的音乐旋律优美，节奏明快，具有强烈的感染力。</li>
+                        <li><strong>歌词丰富：</strong>目瑙纵歌的歌词内容丰富，包括历史、传说、爱情、劳动等多个方面，是景颇族民间文学的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>服装特色</h3>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>景颇族的传统服装色彩鲜艳，以黑、红、白为主要色调，搭配各种装饰品，非常美观。</li>
+                        <li><strong>装饰精美：</strong>景颇族的传统服装装饰精美，上面绣有各种图案，如太阳、月亮、星辰、动植物等，这些图案不仅美观，也有着深刻的文化内涵。</li>
+                        <li><strong>风格独特：</strong>景颇族的传统服装风格独特，具有鲜明的民族特色，是景颇族文化的重要组成部分。</li>
+                    </ul>
+                </section>
+                
+                <!-- 目瑙纵歌的文化价值 -->
+                <section class="jingpo-section">
+                    <h2>目瑙纵歌的文化价值</h2>
+                    <p>目瑙纵歌是景颇族文化的重要组成部分，具有极高的文化价值，不仅是景颇族的宝贵财富，也是中华民族文化宝库中的重要遗产。</p>
+                    
+                    <h3>历史价值</h3>
+                    <p>目瑙纵歌是景颇族历史的活化石，通过目瑙纵歌的仪式、舞蹈、音乐、服装等，我们可以了解景颇族的历史、社会、经济、文化等各个方面的情况。</p>
+                    
+                    <h3>文化价值</h3>
+                    <p>目瑙纵歌是景颇族文化的重要载体，它集景颇族的音乐、舞蹈、美术、文学、宗教等文化元素于一体，是景颇族文化的综合体现。</p>
+                    
+                    <h3>社会价值</h3>
+                    <p>目瑙纵歌是景颇族社会凝聚的重要力量，通过共同的目瑙纵歌活动，景颇族人民增强了群体意识和民族认同，促进了社会的和谐与稳定。</p>
+                    
+                    <h3>艺术价值</h3>
+                    <p>目瑙纵歌是一种独特的艺术形式，具有极高的艺术价值。它的舞蹈、音乐、服装等，都具有独特的艺术魅力，是中华民族艺术宝库中的重要组成部分。</p>
+                    
+                    <h3>旅游价值</h3>
+                    <p>目瑙纵歌以其宏大的规模、独特的艺术魅力和深厚的文化内涵，吸引了众多的国内外游客，成为了景颇族地区重要的旅游资源，促进了当地经济的发展。</p>
+                </section>
+                
+                <!-- 目瑙纵歌的传承与发展 -->
+                <section class="jingpo-section">
+                    <h2>目瑙纵歌的传承与发展</h2>
+                    <p>目瑙纵歌是景颇族的宝贵文化遗产，对于它的传承与发展，我们应该给予高度的重视。</p>
+                    
+                    <h3>传承现状</h3>
+                    <p>近年来，在党和政府的重视和支持下，景颇族的目瑙纵歌得到了较好的传承和发展：</p>
+                    <ul>
+                        <li><strong>列入非物质文化遗产：</strong>2006年，景颇族目瑙纵歌被列入第一批国家级非物质文化遗产名录，得到了国家的正式认可和保护。</li>
+                        <li><strong>定期举行：</strong>现在，景颇族地区每年都会定期举行目瑙纵歌，规模不断扩大，参与人数不断增加。</li>
+                        <li><strong>文化交流：</strong>目瑙纵歌已经走出了景颇族地区，走向了全国，甚至走向了世界，成为了景颇族文化对外交流的重要窗口。</li>
+                        <li><strong>教育传承：</strong>现在，一些学校已经将目瑙纵歌纳入了教学内容，通过教育的方式传承目瑙纵歌。</li>
+                    </ul>
+                    
+                    <h3>发展挑战</h3>
+                    <p>尽管目瑙纵歌的传承与发展取得了一定的成绩，但也面临着一些挑战：</p>
+                    <ul>
+                        <li><strong>现代化冲击：</strong>随着现代化的不断推进，景颇族的生产生活方式发生了很大的变化，这对目瑙纵歌的传承产生了一定的冲击。</li>
+                        <li><strong>年轻人参与度：</strong>现在，一些年轻人对传统文化的兴趣不高，参与目瑙纵歌的积极性不够，这对目瑙纵歌的传承产生了一定的影响。</li>
+                        <li><strong>传承人才：</strong>目瑙纵歌的传承需要大量的专业人才，如舞者、歌手、乐手、组织者等，但现在这样的人才相对缺乏。</li>
+                        <li><strong>文化保护：</strong>在发展旅游的过程中，目瑙纵歌可能会被过度商业化，失去其原有的文化内涵。</li>
+                    </ul>
+                    
+                    <h3>发展对策</h3>
+                    <p>为了更好地传承和发展目瑙纵歌，我们可以采取以下对策：</p>
+                    <ul>
+                        <li><strong>加强保护：</strong>加强对目瑙纵歌的保护，制定相关的法律法规，确保目瑙纵歌的传承和发展有法可依。</li>
+                        <li><strong>培养人才：</strong>加强对目瑙纵歌传承人才的培养，通过学校教育、师徒传承等方式，培养更多的专业人才。</li>
+                        <li><strong>创新发展：</strong>在保持目瑙纵歌原有文化内涵的基础上，进行适当的创新，使其更适应现代社会的需求。</li>
+                        <li><strong>宣传推广：</strong>加强对目瑙纵歌的宣传推广，通过各种媒体和渠道，让更多的人了解和认识目瑙纵歌。</li>
+                        <li><strong>文旅融合：</strong>合理利用目瑙纵歌的旅游价值，促进文化与旅游的融合，实现经济效益和社会效益的双赢。</li>
+                    </ul>
+                    
+                    <p>总之，目瑙纵歌是景颇族的宝贵文化遗产，是中华民族文化宝库中的重要组成部分。我们应该珍惜和保护目瑙纵歌，促进目瑙纵歌的传承和发展，让这一"万人之舞"在新时代焕发出新的生机和活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

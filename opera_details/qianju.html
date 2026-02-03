@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黔剧 - 中国传统戏曲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STSong', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.8), rgba(240,240,240,0.8));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #CD853F;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CD853F;
+        }
+        
+        h3 {
+            color: #5D4037;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .classic-line {
+            background-color: #f9f3e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #CD853F;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .classic-line p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .classic-line .source {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #CD853F;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>黔剧</h1>
+            <p>贵州地方传统戏曲，中国国家级非物质文化遗产</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#origin">起源</a></li>
+                <li><a href="#development">发展</a></li>
+                <li><a href="#art-features">艺术特点</a></li>
+                <li><a href="#roles">行当</a></li>
+                <li><a href="#representative-plays">代表剧目</a></li>
+                <li><a href="#classic-lines">经典戏词</a></li>
+            </ul>
+        </nav>
+        
+        <section id="origin" class="section">
+            <h2>起源</h2>
+            <p>黔剧，原名“文琴戏”，是贵州省的地方传统戏曲剧种，流行于贵州及云南、四川部分地区。其起源可追溯至清代，由贵州扬琴与贵州方言相结合发展而成。</p>
+            <p>清代中期，贵州扬琴在民间广泛流传，成为一种深受群众喜爱的说唱艺术。民国时期，贵州扬琴的艺人们开始尝试将其由说唱形式发展为戏曲形式，逐渐形成了具有贵州地方特色的戏曲剧种。</p>
+        </section>
+        
+        <section id="development" class="section">
+            <h2>发展</h2>
+            <p>20世纪50年代，贵州文琴戏正式更名为“黔剧”，并成立了专业表演团体。这一时期，黔剧创作了一批反映现实生活的新剧目，如《秦娘美》《张秀眉》等，受到了广大观众的喜爱。</p>
+            <p>20世纪60年代至70年代，黔剧在音乐、表演、舞台美术等方面进行了改革创新，吸收了京剧、川剧等剧种的艺术元素，丰富了自身的艺术表现力。</p>
+            <p>改革开放以来，黔剧进入新的发展时期。通过整理传统剧目、创作新剧目、培养年轻演员等措施，黔剧的艺术水平得到显著提高，成为贵州文化的重要代表之一。</p>
+        </section>
+        
+        <section id="art-features" class="section">
+            <h2>艺术特点</h2>
+            <h3>音乐唱腔</h3>
+            <p>黔剧的音乐唱腔以贵州扬琴为基础，融合了贵州民间音乐的元素，形成了独具特色的音乐风格。主要唱腔有“二黄”“西皮”“梆子”等，音调优美动听，富有节奏感。演唱时多使用贵州方言，语音生动活泼，富有地方特色。</p>
+            
+            <h3>表演艺术</h3>
+            <p>黔剧的表演艺术吸收了京剧、川剧等剧种的表演技巧，同时保留了贵州民间艺术的特色。表演风格质朴自然，注重情感表达，通过细腻的动作和表情来刻画人物性格。演员的演唱与表演紧密结合，形成了独特的艺术魅力。</p>
+            
+            <h3>舞台美术</h3>
+            <p>黔剧的舞台美术简洁明快，注重营造意境。传统剧目多使用虚拟道具和象征性布景，现代剧目则结合实景和灯光效果，增强视觉表现力。服装色彩鲜艳，体现了贵州少数民族的服饰特色。</p>
+        </section>
+        
+        <section id="roles" class="section">
+            <h2>行当</h2>
+            <p>黔剧的行当分为生、旦、净、丑四大类，每个行当又有细致的分工：</p>
+            <ul>
+                <li><strong>生行</strong>：包括文生、武生等，扮演男性角色。文生多为儒雅书生，武生擅长武打。</li>
+                <li><strong>旦行</strong>：包括正旦、花旦、武旦、老旦等，扮演女性角色。正旦多为端庄贤淑的女性，花旦活泼俏丽，武旦擅长武打，老旦扮演老年妇女。</li>
+                <li><strong>净行</strong>：又称“花脸”，扮演性格刚烈、粗犷豪放的男性角色，如忠臣、猛将、反派人物等。</li>
+                <li><strong>丑行</strong>：包括文丑、武丑等，扮演滑稽幽默、插科打诨的角色，是黔剧中不可或缺的行当，为观众带来欢乐。</li>
+            </ul>
+        </section>
+        
+        <section id="representative-plays" class="section">
+            <h2>代表剧目</h2>
+            <p>黔剧的传统剧目丰富多样，题材广泛，包括民间故事、爱情故事、历史传说等。以下是一些代表性剧目：</p>
+            <ul>
+                <li><strong>《秦娘美》</strong>：根据贵州民间传说改编，讲述秦娘美的爱情故事，是黔剧的经典剧目之一。</li>
+                <li><strong>《张秀眉》</strong>：历史题材剧目，讲述苗族领袖张秀眉起义的故事，是黔剧的代表作。</li>
+                <li><strong>《奢香夫人》</strong>：历史题材剧目，讲述明代彝族女政治家奢香夫人的故事，是黔剧的经典剧目。</li>
+                <li><strong>《珍珠塔》</strong>：传统剧目，讲述方卿与陈翠娥的爱情故事，是黔剧的传统剧目。</li>
+                <li><strong>《薛仁贵征东》</strong>：历史题材剧目，讲述薛仁贵征东的故事，是黔剧的经典剧目。</li>
+                <li><strong>《天渠》</strong>：现代题材剧目，讲述黄大发修建天渠的故事，是黔剧的现代代表作。</li>
+            </ul>
+        </section>
+        
+        <section id="classic-lines" class="section">
+            <h2>经典戏词</h2>
+            <div class="classic-line">
+                <p>秦娘美，美如花，苗家姑娘惹人夸。
+                爱情故事传千古，黔剧艺术放光彩。</p>
+                <div class="source">——《秦娘美》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>奢香夫人明大义，民族团结谱新章。
+                贵州山水多秀丽，黔剧歌声传四方。</p>
+                <div class="source">——《奢香夫人》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>珍珠塔，塔珍珠，方卿翠娥情意深。
+                历经磨难终成眷属，爱情故事动人心。</p>
+                <div class="source">——《珍珠塔》 佚名</div>
+            </div>
+        </section>
+        
+        <a href="../opera_regional.html" class="back-link">返回剧种列表</a>
+    </div>
+</body>
+</html>

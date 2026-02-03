@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裕固族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 裕固族宗教信仰页面特定样式 */
+        .yugur-religion-header {
+            background-image: url('images/裕固族男子传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .yugur-religion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yugur-religion-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yugur-religion-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .yugur-religion-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yugur {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yugur:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yugur-religion-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yugur-religion-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .yugur-religion-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-religion-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .yugur-religion-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yugur-religion-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yugur-religion-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yugur-religion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yugur-religion-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yugur-religion-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教特色 */
+        .religion-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .yugur-religion-section.visible .feature-item,
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-religion-section.visible .feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .yugur-religion-section.visible .feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .yugur-religion-section.visible .feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yugur-religion-header h1 {
+                font-size: 36px;
+            }
+            
+            .yugur-religion-header p {
+                font-size: 18px;
+            }
+            
+            .yugur-religion-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="yugur.html">裕固族文化</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yugur-religion-header">
+        <div class="container">
+            <div class="yugur-religion-header-content">
+                <h1>裕固族宗教信仰</h1>
+                <p>藏传佛教与原始宗教的融合，滋养民族精神世界</p>
+                <a href="yugur.html" class="back-yugur">返回裕固族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="yugur-religion-main">
+        <div class="container">
+            <div class="yugur-religion-content">
+                <!-- 宗教概况 -->
+                <section class="yugur-religion-section">
+                    <h2>宗教概况</h2>
+                    <p>裕固族的宗教信仰以藏传佛教为主，同时保留着一些原始宗教的信仰和仪式。这种多元宗教信仰的现象，反映了裕固族历史上的文化交流和融合过程，也是裕固族文化多样性的重要体现。</p>
+                    <p>藏传佛教在裕固族中的传播始于元代，经过明清两代的发展，逐渐成为裕固族的主要宗教信仰。同时，裕固族也保留了一些原始宗教的元素，如对自然神灵的崇拜、祖先崇拜等。</p>
+                </section>
+
+                <!-- 宗教特色 -->
+                <section class="yugur-religion-section">
+                    <h2>宗教特色</h2>
+                    <div class="religion-features">
+                        <div class="feature-item">
+                            <h5>藏传佛教</h5>
+                            <p>裕固族主要信奉藏传佛教格鲁派（黄教），寺院是裕固族宗教活动的中心。著名的寺院有康隆寺、红湾寺、文殊寺等，这些寺院不仅是宗教活动场所，也是裕固族文化传承的重要载体。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>原始宗教</h5>
+                            <p>裕固族保留了一些原始宗教的信仰和仪式，如对天地、山水、动物等自然神灵的崇拜，以及祖先崇拜、图腾崇拜等。这些原始宗教元素与藏传佛教相互融合，形成了裕固族独特的宗教文化。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>宗教活动</h5>
+                            <p>裕固族的宗教活动丰富多彩，包括寺院法会、家庭祭祀、节日庆典等。重要的宗教节日有正月大法会、六月转山会等，这些活动不仅是宗教仪式，也是裕固族社会生活的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教仪式 -->
+                <section class="yugur-religion-section">
+                    <h2>主要宗教仪式</h2>
+                    <h3>寺院法会</h3>
+                    <p>裕固族的寺院法会是最隆重的宗教活动之一，每年正月、六月、九月等月份都会举行。法会期间，寺院会举行各种宗教仪式，如诵经、跳神、酥油灯会等，吸引大量信徒参加。</p>
+                    
+                    <h3>转山会</h3>
+                    <p>转山会是裕固族的传统宗教节日，通常在农历六月举行。届时，裕固族群众会穿上盛装，前往附近的神山进行转山活动，祈求神灵保佑人畜平安、风调雨顺。转山会期间还会举行赛马、射箭、歌舞表演等活动，是裕固族重要的传统节日。</p>
+                    
+                    <h3>家庭祭祀</h3>
+                    <p>裕固族的家庭祭祀活动主要包括祖先祭祀、神灵祭祀等。在重要的节日或家庭重大事件时，裕固族家庭会在家中设立神位，进行祭祀活动，祈求神灵和祖先的保佑。</p>
+                </section>
+
+                <!-- 宗教与文化 -->
+                <section class="yugur-religion-section">
+                    <h2>宗教与文化的关系</h2>
+                    <p>裕固族的宗教信仰对其文化产生了深远的影响，渗透到裕固族社会生活的各个方面。</p>
+                    <ul>
+                        <li><strong>对艺术的影响：</strong>裕固族的绘画、雕塑、音乐、舞蹈等艺术形式，都带有浓厚的宗教色彩。寺院的壁画、唐卡、佛像等，是裕固族艺术的重要组成部分。</li>
+                        <li><strong>对建筑的影响：</strong>裕固族的寺院建筑融合了藏式和汉式建筑风格，形成了独特的建筑艺术。同时，裕固族的民居建筑也受到宗教信仰的影响，如在房屋中设立神龛等。</li>
+                        <li><strong>对风俗习惯的影响：</strong>裕固族的婚姻、丧葬、节日等风俗习惯，都与宗教信仰密切相关。如婚礼中的宗教仪式、葬礼中的超度仪式等。</li>
+                        <li><strong>对道德观念的影响：</strong>藏传佛教的教义对裕固族的道德观念产生了重要影响，如慈悲、善良、诚信、尊重生命等观念，成为裕固族传统道德的重要组成部分。</li>
+                    </ul>
+                    <p>宗教信仰不仅是裕固族精神生活的重要内容，也是裕固族文化传承的重要载体。保护和传承裕固族的宗教文化，对于维护裕固族文化的多样性，促进裕固族社会的和谐发展，具有重要的意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                        <li><a href="yugur.html">裕固族文化</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

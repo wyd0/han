@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傈僳族传统习俗 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傈僳族传统习俗页面特定样式 */
+        .lisu-customs-header {
+            background-image: url('images/傈僳族男子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lisu-customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lisu-customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lisu-customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lisu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lisu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lisu-customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lisu-customs-section {
+            margin-bottom: 80px;
+        }
+        
+        .lisu-customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lisu-customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lisu-customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lisu-customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lisu-customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 习俗特点样式 */
+        .customs-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .customs-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .customs-feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .customs-feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 人生礼仪样式 */
+        .life-rituals {
+            margin: 25px 0;
+        }
+        
+        .ritual-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        
+        .ritual-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lisu-customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .lisu-customs-header p {
+                font-size: 18px;
+            }
+            
+            .lisu-customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lisu-customs-header">
+        <div class="container">
+            <div class="lisu-customs-header-content">
+                <h1>傈僳族传统习俗</h1>
+                <p>丰富多彩的民族风情</p>
+                <a href="lisu.html" class="back-lisu">返回傈僳族</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lisu-customs-main">
+        <div class="container">
+            <div class="lisu-customs-content">
+                <!-- 传统习俗概述 -->
+                <section class="lisu-customs-section">
+                    <h2>传统习俗概述</h2>
+                    <p>傈僳族有着丰富多彩的传统习俗，这些习俗是傈僳族文化的重要组成部分，反映了傈僳族的历史、社会生活和价值观念。傈僳族的传统习俗涵盖了日常生活、节日庆典、人生礼仪等各个方面，展现了傈僳族独特的民族风情。</p>
+                </section>
+
+                <!-- 人生礼仪 -->
+                <section class="lisu-customs-section">
+                    <h2>人生礼仪</h2>
+                    <p>傈僳族的人生礼仪是傈僳族传统习俗的重要组成部分，包括出生、成年、结婚、死亡等重要阶段的仪式和习俗：</p>
+                    
+                    <div class="life-rituals">
+                        <div class="ritual-item">
+                            <h4>出生习俗</h4>
+                            <p>傈僳族对新生命的诞生非常重视，有一系列的习俗和仪式：</p>
+                            <ul>
+                                <li><strong>产前习俗：</strong>孕妇在怀孕期间，家人会给予特别的照顾，避免孕妇接触不吉利的事物。</li>
+                                <li><strong>分娩习俗：</strong>分娩时，通常由有经验的老年妇女帮助接生，产房要保持安静和清洁。</li>
+                                <li><strong>产后习俗：</strong>产后，产妇要休息一段时间，家人会为产妇准备营养丰富的食物。</li>
+                                <li><strong>命名习俗：</strong>婴儿出生后，家人会为婴儿举行命名仪式，通常由长辈为婴儿取名。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="ritual-item">
+                            <h4>成年习俗</h4>
+                            <p>傈僳族的成年习俗标志着年轻人从少年进入成年，具有重要的意义：</p>
+                            <ul>
+                                <li><strong>成年礼：</strong>部分傈僳族地区有成年礼的习俗，通常在男女青少年十四五岁时举行。</li>
+                                <li><strong>换装仪式：</strong>在成年礼上，青少年会换上成年人的服装，表示他们已经长大成人。</li>
+                                <li><strong>成人责任：</strong>成年后，年轻人要承担更多的家庭和社会责任，如参加劳动、参与社区活动等。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="ritual-item">
+                            <h4>婚姻习俗</h4>
+                            <p>傈僳族的婚姻习俗独特而隆重，通常包括以下几个环节：</p>
+                            <ul>
+                                <li><strong>恋爱：</strong>傈僳族青年男女自由恋爱，通常通过对歌、参加节日活动等方式相识相恋。</li>
+                                <li><strong>提亲：</strong>当青年男女确定恋爱关系后，男方会请媒人到女方家提亲。</li>
+                                <li><strong>订婚：</strong>提亲成功后，双方会举行订婚仪式，男方会向女方送聘礼。</li>
+                                <li><strong>婚礼：</strong>婚礼是傈僳族最隆重的仪式之一，通常持续数天，包括迎亲、拜堂、喜宴等环节。</li>
+                                <li><strong>婚后习俗：</strong>婚后，新娘通常会在娘家居住一段时间，然后再到婆家生活。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="ritual-item">
+                            <h4>丧葬习俗</h4>
+                            <p>傈僳族的丧葬习俗庄重而复杂，反映了傈僳族对生命和死亡的认识：</p>
+                            <ul>
+                                <li><strong>报丧：</strong>人去世后，家人会立即向亲友报丧，亲友会前来吊唁。</li>
+                                <li><strong>停灵：</strong>死者的遗体通常会在家中停灵数天，期间家人会为死者准备后事。</li>
+                                <li><strong>出殡：</strong>出殡时，亲友会抬着棺材前往墓地，一路上会有人撒纸钱、放鞭炮。</li>
+                                <li><strong>埋葬：</strong>傈僳族通常实行土葬，墓地一般选择在山坡上。</li>
+                                <li><strong>守孝：</strong>死者的家人会守孝一段时间，期间要避免参加娱乐活动。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="lisu-customs-section">
+                    <h2>节日习俗</h2>
+                    <p>傈僳族有许多传统节日，这些节日是傈僳族人民庆祝丰收、祈求平安、传承文化的重要方式：</p>
+                    
+                    <div class="customs-features">
+                        <div class="customs-feature-item">
+                            <h4>刀杆节</h4>
+                            <p>刀杆节是傈僳族最重要的传统节日，通常在农历二月初举行。在节日期间，傈僳族人民会举行上刀山、下火海等惊险表演，象征着他们的勇敢和坚韧。同时，还会进行对歌、跳舞、赛马等庆祝活动。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>新米节</h4>
+                            <p>新米节是傈僳族的传统新年，通常在农历十二月初举行。在节日期间，傈僳族人民会穿上盛装，进行对歌、跳舞、赛马等庆祝活动。他们还会准备丰盛的食物，如烤肉、酸鱼、苦荞饼等，款待客人。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>收获节</h4>
+                            <p>收获节是傈僳族庆祝丰收的节日，通常在农历八月举行。在节日期间，傈僳族人民会举行各种庆祝活动，如跳舞、对歌等，感谢大自然的恩赐，祈求来年丰收。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>火把节</h4>
+                            <p>火把节是傈僳族的传统节日，通常在农历六月二十四日举行。在节日期间，傈僳族人民会点燃火把，围绕火把跳舞，祈求平安和丰收。同时，还会进行摔跤、斗牛等传统体育活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 日常生活习俗 -->
+                <section class="lisu-customs-section">
+                    <h2>日常生活习俗</h2>
+                    <p>傈僳族的日常生活习俗丰富多彩，反映了傈僳族的生活方式和价值观念：</p>
+                    
+                    <div class="customs-features">
+                        <div class="customs-feature-item">
+                            <h4>饮食习俗</h4>
+                            <p>傈僳族的饮食习俗独特而多样，以玉米、荞麦、高粱为主食，喜欢吃酸、辣、苦等口味的食物。他们热情好客，客人来访时，会拿出最好的食物款待，如烤肉、酸鱼、苦荞饼等。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>居住习俗</h4>
+                            <p>傈僳族的传统住房主要有两种：一种是木楞房，用原木搭建而成；另一种是竹楼，用竹子搭建而成。傈僳族的住房通常建在山坡上，视野开阔，通风良好。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>服饰习俗</h4>
+                            <p>傈僳族的服饰具有鲜明的民族特色，主要以棉、麻为原料，设计简洁大方，色彩斑斓。男子通常穿着黑色或深蓝色的对襟短衫，下着长裤；女子通常穿着色彩斑斓的上衣，下着长裙。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>社交习俗</h4>
+                            <p>傈僳族热情好客，崇尚礼仪，重视家庭和社区的团结。他们喜欢通过对歌、跳舞等方式进行社交活动，增进彼此之间的感情。傈僳族人民尊重长辈，讲究长幼有序。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统习俗的特点 -->
+                <section class="lisu-customs-section">
+                    <h2>传统习俗的特点</h2>
+                    <p>傈僳族的传统习俗具有以下几个特点：</p>
+                    
+                    <ul>
+                        <li><strong>多样性：</strong>傈僳族的传统习俗涵盖了日常生活、节日庆典、人生礼仪等各个方面，内容丰富多样。</li>
+                        <li><strong>民族性：</strong>傈僳族的传统习俗具有鲜明的民族特色，反映了傈僳族的历史、文化和生活方式。</li>
+                        <li><strong>传承性：</strong>傈僳族的传统习俗通过口头传承、实践传承等方式，代代相传，延续至今。</li>
+                        <li><strong>适应性：</strong>傈僳族的传统习俗在保持传统的同时，也在不断适应现代社会的发展和变化。</li>
+                        <li><strong>社会性：</strong>傈僳族的传统习俗是傈僳族社会生活的重要组成部分，具有重要的社会功能。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统习俗的价值 -->
+                <section class="lisu-customs-section">
+                    <h2>传统习俗的价值</h2>
+                    <p>傈僳族的传统习俗具有重要的价值：</p>
+                    
+                    <div class="customs-features">
+                        <div class="customs-feature-item">
+                            <h4>文化价值</h4>
+                            <p>傈僳族的传统习俗是傈僳族文化的重要组成部分，承载着傈僳族的历史记忆、文化传统和价值观念，是傈僳族文化传承的重要载体。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>社会价值</h4>
+                            <p>傈僳族的传统习俗在傈僳族社会中发挥着重要的作用，如凝聚民族精神、维护社会秩序、促进社会和谐等。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>经济价值</h4>
+                            <p>傈僳族的传统习俗可以转化为旅游资源，促进傈僳族地区的经济发展。例如，刀杆节、火把节等传统节日已经成为当地重要的旅游品牌。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>精神价值</h4>
+                            <p>傈僳族的传统习俗是傈僳族人民精神生活的重要组成部分，为傈僳族人民提供了精神寄托和情感表达的方式。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统习俗的保护与传承 -->
+                <section class="lisu-customs-section">
+                    <h2>传统习俗的保护与传承</h2>
+                    <p>随着社会的发展和变迁，傈僳族的传统习俗面临着一些挑战，需要采取措施加以保护和传承：</p>
+                    
+                    <ul>
+                        <li><strong>加强教育：</strong>通过教育，让年轻一代了解和认识傈僳族的传统习俗，增强他们的文化认同感和自豪感。</li>
+                        <li><strong>开展活动：</strong>定期开展传统习俗活动，如传统节日庆典、传统技艺展示等，让传统习俗在实践中得到传承。</li>
+                        <li><strong>政策支持：</strong>政府应制定相关政策，支持傈僳族传统习俗的保护和传承，如设立专项资金、建立文化保护区等。</li>
+                        <li><strong>创新发展：</strong>在保持传统习俗核心内涵的同时，对传统习俗进行适当的创新和发展，使其适应现代社会的需求。</li>
+                        <li><strong>记录保存：</strong>通过文字、图片、音频、视频等方式，对傈僳族的传统习俗进行记录和保存，为后人留下宝贵的文化遗产。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

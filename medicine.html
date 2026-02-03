@@ -1,0 +1,422 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传统医学 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统医学页面特定样式 */
+        body {
+            background-image: url('images/传统医学.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .medicine-header {
+            background-image: url('images/medicine_herb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .medicine-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .medicine-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .medicine-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .medicine-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .medicine-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .medicine-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .medicine-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .medicine-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .medicine-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .medicine-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .medicine-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .medicine-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .medicine-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .medicine-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 链接样式 */
+        .medicine-theory h4 a {
+            color: #c0392b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .medicine-theory h4 a:hover {
+            color: #a93226;
+            text-decoration: underline;
+        }
+        
+        /* 医学理论网格 */
+        .medicine-theories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .medicine-theory {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .medicine-theory:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .medicine-theory h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .medicine-header h1 {
+                font-size: 36px;
+            }
+            
+            .medicine-header p {
+                font-size: 18px;
+            }
+            
+            .medicine-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="medicine-header">
+        <div class="container">
+            <div class="medicine-header-content">
+                <h1>传统医学</h1>
+                <p>中国汉族传统医学的智慧</p>
+                <a href="index.html" class="back-home">返回首页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="medicine-main">
+        <div class="container">
+            <div class="medicine-content">
+                <!-- 综述部分 -->
+                <section class="medicine-section">
+                    <h2>传统医学概述</h2>
+                    <p>中国汉族传统医学是中华传统文化的重要组成部分，是中华民族在长期的医疗实践中积累的宝贵财富。它包括中医理论、针灸、推拿、中药等多个方面，具有独特的理论体系和治疗方法。</p>
+                    <p>传统医学的发展与中国的历史、文化、社会生活密切相关，每个时代都有其独特的医学理论和治疗方法。从先秦时期的《黄帝内经》，到汉魏时期的《伤寒杂病论》，再到唐宋时期的《千金方》、《本草纲目》，明清时期的温病学派，汉族传统医学不断创新和发展，形成了独具特色的医学体系。</p>
+                </section>
+
+                <!-- 传统医学理论 -->
+                <section class="medicine-section">
+                    <h2>传统医学理论</h2>
+                    <div class="medicine-theories">
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_yinyang.html">阴阳五行学说</a></h4>
+                            <p>中医认为人体和自然界都由阴阳五行构成，阴阳平衡是健康的基础。阴阳五行学说贯穿于中医的诊断、治疗和预防等各个方面。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_meridian.html">经络学说</a></h4>
+                            <p>经络是人体气血运行的通道，针灸、推拿等疗法都是基于经络学说。经络学说认为，人体的各个部位通过经络相互连接，形成一个有机的整体。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_zangfu.html">脏腑学说</a></h4>
+                            <p>中医将人体分为五脏六腑，每个脏腑都有其特定的功能和生理特点。脏腑学说认为，脏腑之间相互联系、相互影响，共同维持人体的生命活动。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_qixue.html">气血津液学说</a></h4>
+                            <p>气血津液是维持人体生命活动的基本物质，它们的盛衰直接影响人体的健康。气血津液学说认为，气血津液的运行和平衡是健康的基础。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_diagnosis.html">辨证施治</a></h4>
+                            <p>辨证施治是中医诊断和治疗的核心原则，包括辨证和施治两个方面。辨证是通过望、闻、问、切四诊，收集患者的症状和体征，分析病因、病性和病位；施治是根据辨证的结果，制定个性化的治疗方案，而不是简单地对症治疗。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_prevention.html">预防为主</a></h4>
+                            <p>中医强调预防为主，认为预防疾病比治疗疾病更重要。预防为主包括未病先防和既病防变两个方面，通过调整生活方式、饮食起居、心理调节等，预防疾病的发生和发展。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统医学的特点 -->
+                <section class="medicine-section">
+                    <h2>传统医学的特点</h2>
+                    <ul>
+                        <li><strong>整体观念</strong>：中医认为人体是一个有机的整体，各个脏腑、组织、器官之间相互联系、相互影响，同时人体与自然界也是一个整体，自然的变化会影响人体的健康。</li>
+                        <li><strong>辨证施治</strong>：中医强调辨证施治，根据患者的具体情况，制定个性化的治疗方案，而不是简单地对症治疗。</li>
+                        <li><strong>自然疗法</strong>：中医采用自然疗法，如中药、针灸、推拿等，这些疗法来自于自然界，副作用小，对人体的刺激小。</li>
+                        <li><strong>预防为主</strong>：中医强调预防为主，认为预防疾病比治疗疾病更重要，通过调整生活方式、饮食起居、心理调节等，预防疾病的发生和发展。</li>
+                        <li><strong>注重个体差异</strong>：中医重视个体差异，认为不同的人有不同的体质和状态，因此治疗方法也应该因人而异。</li>
+                    </ul>
+                </section>
+
+                <!-- 医学流派 -->
+                <section class="medicine-section">
+                    <h2>医学流派</h2>
+                    <p>中国传统医学在长期的发展过程中，形成了许多不同的医学流派，每个流派都有其独特的理论基础和实践特色。以下是一些主要的医学流派：</p>
+                    
+                    <div class="medicine-theories">
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_shanghan.html">伤寒学派</a></h4>
+                            <p>以张仲景的《伤寒杂病论》为理论基础，主要研究外感热病的诊治规律。伤寒学派强调辨证施治，注重六经辨证，运用经方治疗外感疾病。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_wenbing.html">温病学派</a></h4>
+                            <p>以叶天士、吴鞠通等为代表，主要研究温热病的诊治规律。温病学派创立了卫气营血辨证和三焦辨证，运用清热养阴的方法治疗温热病。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_jingfang.html">经方学派</a></h4>
+                            <p>主张使用《伤寒杂病论》等经典著作中的方剂，注重方剂的原始配伍和药量，认为经方是治疗疾病的有效方法。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_shifang.html">时方学派</a></h4>
+                            <p>主张在继承经典的基础上，根据时代的变化和临床实践，创造新的方剂，强调方剂的灵活性和适应性。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_butu.html">补土学派</a></h4>
+                            <p>以李东垣为代表，强调脾胃在人体中的重要作用，认为脾胃虚弱是导致多种疾病的根本原因，运用温补脾胃的方法治疗疾病。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_ziyin.html">滋阴学派</a></h4>
+                            <p>以朱丹溪为代表，强调滋阴降火，认为阴虚火旺是导致多种疾病的根本原因，运用滋阴清热的方法治疗疾病。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_gongxie.html">攻邪学派</a></h4>
+                            <p>以张从正为代表，强调驱邪外出，认为邪气是导致疾病的根本原因，运用汗、吐、下三法治疗疾病。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_school_huoshen.html">火神学派</a></h4>
+                            <p>以郑钦安为代表，强调阳气在人体中的重要作用，认为阳气不足是导致多种疾病的根本原因，运用温补阳气的方法治疗疾病。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 中药文化 -->
+                <section class="medicine-section" id="chinese-medicine-culture">
+                    <h2>中药文化</h2>
+                    <p>中药是中国传统医学的重要组成部分，是中华民族在长期的医疗实践中积累的宝贵财富。中药文化源远流长，博大精深，包括中药的采集、炮制、配伍、应用等多个方面。</p>
+                    
+                    <div class="medicine-theories">
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_chinese_medicine_basic.html">中药的基本概念</a></h4>
+                            <p>中药是指在中医理论指导下，用于预防、治疗、诊断疾病并具有康复与保健作用的物质。中药主要来源于天然药及其加工品，包括植物药、动物药、矿物药及部分化学、生物制品类药物。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_chinese_medicine_classification.html">中药的分类</a></h4>
+                            <p>中药的分类方法很多，常见的有按功效分类、按自然属性分类、按药用部位分类等。按功效分类是最常用的方法，包括解表药、清热药、泻下药、祛风湿药、化湿药、利水渗湿药、温里药、理气药、消食药、驱虫药、止血药、活血化瘀药、化痰止咳平喘药、安神药、平肝息风药、开窍药、补虚药、收涩药、涌吐药、解毒杀虫燥湿止痒药、拔毒化腐生肌药等。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_chinese_medicine_processing.html">中药的炮制</a></h4>
+                            <p>中药炮制是指在中医理论的指导下，按照医疗、调配、制剂的不同要求，对中药材进行各种加工处理的传统制药技术。炮制的目的是纯净药材、改变药物性能、增强疗效、降低毒副作用、便于储存和制剂等。常见的炮制方法有修制、水制、火制、水火共制等。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_chinese_medicine_compatibility.html">中药的配伍</a></h4>
+                            <p>中药配伍是指根据病情的需要和药物的性能，有选择地将两种或两种以上的药物配合使用。配伍的目的是增强疗效、降低毒副作用、适应复杂病情等。中药配伍的基本规律包括单行、相须、相使、相畏、相杀、相恶、相反等七情。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_chinese_medicine_application.html">中药的应用</a></h4>
+                            <p>中药的应用形式多样，包括汤剂、散剂、丸剂、膏剂、丹剂、酒剂、露剂、茶剂、锭剂、条剂、线剂、栓剂、注射剂等。其中，汤剂是最常用的剂型，具有吸收快、作用强、灵活加减等优点。</p>
+                        </div>
+                        <div class="medicine-theory">
+                            <h4><a href="medicine_chinese_medicine_heritage.html">中药文化的传承与发展</a></h4>
+                            <p>中药文化是中华传统文化的重要组成部分，是中华民族智慧的结晶。在现代社会，中药文化面临着新的机遇和挑战，我们需要在继承传统的基础上，不断创新和发展，让中药文化在新时代焕发出新的活力。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统医学的影响 -->
+                <section class="medicine-section">
+                    <h2>传统医学的影响</h2>
+                    <p>传统医学对汉族人民的生活和社会发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>保障人民健康</strong>：传统医学为汉族人民提供了有效的医疗保健服务，保障了人民的健康和生命安全。</li>
+                        <li><strong>传承文化遗产</strong>：传统医学是中华传统文化的重要载体，通过传统医学，传承和弘扬了中华优秀传统文化。</li>
+                        <li><strong>促进医学发展</strong>：传统医学的理论和实践为现代医学的发展提供了重要的参考和借鉴，促进了医学的进步。</li>
+                        <li><strong>丰富世界医学</strong>：传统医学是世界医学的重要组成部分，通过传统医学，向世界展示了中华文化的魅力，丰富了世界医学。</li>
+                        <li><strong>增强民族自信</strong>：传统医学是中华民族的瑰宝，通过传统医学，增强了民族自豪感和认同感。</li>
+                    </ul>
+                    <p>在现代社会，传统医学仍然具有重要的价值和意义，它不仅是我们了解历史、认识社会的重要窗口，也是我们保持健康、预防疾病的重要手段。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布依族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布依族文化页面特定样式 */
+        .buyi-header {
+            background-image: url('images/布依族女性服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .buyi-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .buyi-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .buyi-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .buyi-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .buyi-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .buyi-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .buyi-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .buyi-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .buyi-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .buyi-section h5 {
+            color: #333;
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .buyi-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .buyi-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .buyi-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .buyi-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .buyi-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .buyi-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .buyi-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .buyi-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .buyi-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .buyi-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .buyi-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .buyi-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .buyi-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .buyi-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .buyi-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .buyi-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .buyi-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .buyi-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item h5 a {
+            color: #c0392b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .culture-item h5 a:hover {
+            color: #a93226;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .buyi-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .buyi-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .buyi-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .buyi-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .buyi-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .buyi-header h1 {
+                font-size: 36px;
+            }
+            
+            .buyi-header p {
+                font-size: 18px;
+            }
+            
+            .buyi-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="buyi-header">
+        <div class="container">
+            <div class="buyi-header-content">
+                <h1>布依族文化</h1>
+                <p>独具特色的布依风情与六月六文化传承</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="buyi-main">
+        <div class="container">
+            <div class="buyi-content">
+                <!-- 介绍部分 -->
+                <section class="buyi-section">
+                    <h2>布依族文化概览</h2>
+                    <p>布依族是中国西南地区的古老民族，主要分布在贵州、云南、四川等省份，其中贵州省是布依族人口最多的省份。布依族有着悠久的历史和丰富的文化，其文化深受汉族、苗族、彝族等周边民族的影响，同时保持着自己独特的民族特色。</p>
+                    <p>布依族人民勤劳善良，擅长种植和手工艺，有着丰富的民间文学艺术和传统节日。布依族的语言属于汉藏语系壮侗语族壮傣语支，虽然没有本民族文字，但有着丰富的口头文学传承。</p>
+                </section>
+
+                <!-- 布依族历史 -->
+                <section class="buyi-section">
+                    <h2>布依族历史</h2>
+                    <p>布依族的历史可以追溯到古代的百越族群，是中国西南地区的古老民族之一。</p>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>先秦时期</h5>
+                            <p>布依族的先民属于百越族群的一部分，聚居在今西南地区一带。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>秦汉时期</h5>
+                            <p>中央王朝开始对西南地区进行统治，设郡县，布依族地区纳入中国版图。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>唐宋时期</h5>
+                            <p>布依族地区先后隶属于南诏、大理等地方政权，与中央王朝保持着密切联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>元明清时期</h5>
+                            <p>中央王朝加强对西南地区的统治，实行土司制度，布依族社会得到进一步发展。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代</h5>
+                            <p>1949年后，布依族地区实行民族区域自治，成立了多个布依族自治州、县，布依族人民的生活水平得到显著提高。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 布依族来源 -->
+                <section class="buyi-section">
+                    <h2>布依族来源</h2>
+                    <p>布依族的族源可以追溯到古代的百越族群，是中国西南地区的古老民族之一。</p>
+                    <h3>主要来源</h3>
+                    <ul>
+                        <li><strong>百越族群：</strong>布依族是百越族群的后裔，与壮族、侗族、黎族等民族有着密切的血缘关系。</li>
+                        <li><strong>当地土著：</strong>长期居住在西南地区，与当地其他民族融合发展。</li>
+                        <li><strong>古代移民：</strong>历史上有部分汉族、苗族等民族的人融合入布依族。</li>
+                    </ul>
+                    <p>布依族的形成是一个多民族融合的过程，在长期的历史发展中，形成了自己独特的民族文化和传统。</p>
+                </section>
+
+                <!-- 布依族文化 -->
+                <section class="buyi-section">
+                    <h2>布依族文化</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="buyi_language.html">语言文字</a></h5>
+                            <p>布依语属于汉藏语系壮侗语族壮傣语支，分为黔南、黔中、黔西三个方言区。布依族没有本民族文字，历史上曾使用汉字，1956年创制了以拉丁字母为基础的布依文。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="buyi_religion.html">宗教信仰</a></h5>
+                            <p>布依族主要信仰原始宗教，崇拜自然神灵和祖先，同时也受到佛教、道教的影响。布依族人民有着丰富的宗教活动和祭祀仪式。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="buyi_festival.html">传统节日</a></h5>
+                            <p>布依族的传统节日有"三月三"、"六月六"、"七月半"等，其中"六月六"是布依族最重要的传统节日，又称"小年"、"过新年"。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="buyi_literature.html">文学艺术</a></h5>
+                            <p>布依族有着丰富的民间文学艺术，包括神话传说、民间故事、诗歌、谚语等。布依族的传统音乐舞蹈也很有特色，如"八音坐唱"、"铜鼓舞"等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="buyi_custom.html">风俗习惯</a></h5>
+                            <p>布依族有着独特的风俗习惯，如尊老爱幼、热情好客、重视家族观念等。布依族的婚姻习俗也很有特色，有着自己独特的婚礼程序。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="buyi_architecture.html">建筑风格</a></h5>
+                            <p>布依族传统建筑以"干栏式"建筑为主，适应西南地区炎热多雨的气候特点。布依族的"石头寨"也很有特色，房屋用石头建造，冬暖夏凉。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 布依族服装 -->
+                <section class="buyi-section">
+                    <h2>布依族服装</h2>
+                    <p>布依族服装具有独特的风格和特点，色彩鲜艳，图案精美，反映了布依族人民的审美观念和生活情趣。</p>
+                    
+                    <h3>服装特色</h3>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>喜欢使用红、蓝、绿、紫等鲜艳的颜色，体现了布依族人民开朗活泼的性格。</li>
+                        <li><strong>图案精美：</strong>服装上绣有各种精美的图案，如蝴蝶、动物、几何图形等，寓意吉祥如意。</li>
+                        <li><strong>款式多样：</strong>不同地区、不同年龄段的布依族服装款式有所不同，体现了布依族文化的多样性。</li>
+                        <li><strong>银饰丰富：</strong>布依族女性喜欢佩戴各种银饰，如银项圈、银手镯、银耳环等，展现了布依族人民对美的追求。</li>
+                        <li><strong>刺绣工艺：</strong>布依族的刺绣工艺历史悠久，图案精美，是中国传统工艺的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>服装展示</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/布依族女性服装.jpg" alt="布依族 - 女性服装">
+                            <p>布依族女性服装：色彩鲜艳，图案精美，佩戴银饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/布依族男性服装.jpg" alt="布依族 - 男性服装">
+                            <p>布依族男性服装：简洁大方，适合劳动生产</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/布依族刺绣.jpg" alt="布依族 - 刺绣">
+                            <p>布依族刺绣：传统工艺，图案精美，色彩鲜艳</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/布依族银饰.jpg" alt="布依族 - 银饰">
+                            <p>布依族银饰：工艺精湛，造型美观，体现身份</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 布依族饮食文化 -->
+                <section class="buyi-section">
+                    <h2>布依族饮食文化</h2>
+                    <p>布依族饮食文化具有独特的风格和特点，受到西南地区自然环境和生活方式的影响。</p>
+                    
+                    <h3>饮食特色</h3>
+                    <ul>
+                        <li><strong>以大米为主食：</strong>由于西南地区气候温暖湿润，适合种植水稻，布依族人民以大米为主食。</li>
+                        <li><strong>喜欢酸辣口味：</strong>西南地区气候潮湿，布依族人民喜欢吃酸辣食物，有助于祛湿开胃。</li>
+                        <li><strong>擅长制作糯米食品：</strong>如糯米粑、糯米酒、五色饭等，是布依族传统饮食的重要组成部分。</li>
+                        <li><strong>重视腌制食品：</strong>如腌肉、腌菜、腌鱼等，这些食品可以长期保存，适合西南地区的气候特点。</li>
+                        <li><strong>喜欢饮茶：</strong>布依族人民喜欢喝自己种植的茶叶，是重要的社交活动之一。</li>
+                    </ul>
+                    
+                    <h3>传统食品</h3>
+                    <ul>
+                        <li><strong>五色饭：</strong>用糯米和各种植物染料制作而成，色彩斑斓，象征吉祥如意。</li>
+                        <li><strong>酸汤鱼：</strong>以新鲜的鱼和酸汤为原料制作而成，味道酸辣可口，是布依族传统名菜。</li>
+                        <li><strong>糯米粑：</strong>用糯米蒸制而成，是布依族人民喜爱的传统食品。</li>
+                        <li><strong>糯米酒：</strong>用糯米发酵而成，口感香甜，酒精度低。</li>
+                        <li><strong>酸菜：</strong>用青菜、萝卜等蔬菜腌制而成，是布依族餐桌上的常见食品。</li>
+                    </ul>
+                </section>
+
+                <!-- 布依族传统节日 -->
+                <section class="buyi-section">
+                    <h2>布依族传统节日</h2>
+                    <p>布依族有许多传统节日，这些节日承载着丰富的文化内涵，是布依族文化的重要组成部分。</p>
+                    
+                    <h3>主要传统节日</h3>
+                    <ul>
+                        <li><strong>六月六：</strong>布依族最重要的传统节日，又称"小年"、"过新年"，主要活动有祭祀祖先、对歌、跳铜鼓舞等。</li>
+                        <li><strong>三月三：</strong>传统的祭祀节日，主要活动有祭祀山神、水神、祖先等，祈求风调雨顺、五谷丰登。</li>
+                        <li><strong>七月半：</strong>传统的鬼节，主要活动有祭祀祖先、放河灯等，表达对祖先的敬仰之情。</li>
+                        <li><strong>春节：</strong>与汉族相同，布依族也过春节，主要活动有贴春联、吃团圆饭、拜年等。</li>
+                    </ul>
+                </section>
+
+                <!-- 布依族文学艺术 -->
+                <section class="buyi-section">
+                    <h2>布依族文学艺术</h2>
+                    <p>布依在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展做出了重要贡献。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>神话传说：</strong>如《盘古开天地》、《洪水朝天》等，反映了布依族人民对自然和人类起源的认识。</li>
+                        <li><strong>民间故事：</strong>如《阿三与多妹》、《聪明的阿凡提》等，具有浓郁的民族特色和艺术感染力。</li>
+                        <li><strong>诗歌谚语：</strong>布依族有着丰富的诗歌和谚语，反映了布依族人民的生活经验和智慧。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>八音坐唱：</strong>布依族传统音乐形式，由八种乐器演奏，内容丰富，旋律优美。</li>
+                        <li><strong>铜鼓舞：</strong>布依族传统舞蹈形式，舞者手持铜鼓，边敲边舞，节奏明快，气氛热烈。</li>
+                        <li><strong>刺绣工艺：</strong>布依族传统工艺，图案精美，色彩鲜艳，是中国传统工艺的重要组成部分。</li>
+                        <li><strong>蜡染工艺：</strong>布依族传统工艺，图案精美，工艺精湛，展现了布依族人民的审美观念。</li>
+                    </ul>
+                </section>
+
+                <!-- 布依族对中国文化的影响 -->
+                <section class="buyi-section">
+                    <h2>布依族对中国文化的影响</h2>
+                    <p>布依族文化是中华文化的重要组成部分，对中国文化的发展产生了重要影响。</p>
+                    
+                    <ul>
+                        <li><strong>工艺技术：</strong>布依族的刺绣、蜡染等传统工艺，丰富了中国传统工艺的内容。</li>
+                        <li><strong>文学艺术：</strong>布依族的民间文学艺术，如神话传说、民间故事、音乐舞蹈等，丰富了中国文学艺术的宝库。</li>
+                        <li><strong>饮食文化：</strong>布依族的饮食文化，如酸汤鱼、五色饭等，丰富了中国饮食文化的多样性。</li>
+                        <li><strong>风俗习惯：</strong>布依族的一些风俗习惯，如尊老爱幼、热情好客等，与汉族等其他民族的风俗习惯相互影响，共同构成了中国人民的传统美德。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

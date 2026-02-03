@@ -1,0 +1,658 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仡佬族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 仡佬族文化页面特定样式 */
+        .gelao-header {
+            background-image: url('images/仡佬族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .gelao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .gelao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gelao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .gelao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .gelao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .gelao-section {
+            margin-bottom: 80px;
+        }
+        
+        .gelao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gelao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .gelao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .gelao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .gelao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .gelao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .gelao-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .gelao-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gelao-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .gelao-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .gelao-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .gelao-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gelao-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gelao-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .gelao-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .gelao-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .gelao-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gelao-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .gelao-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .gelao-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top center;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top center;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .gelao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .gelao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .gelao-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .gelao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .gelao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="gelao-header">
+        <div class="container">
+            <div class="gelao-header-content">
+                <h1>仡佬族</h1>
+                <p>贵州的古老民族，多彩的文化传统</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="gelao-main">
+        <div class="container">
+            <div class="gelao-content">
+                <!-- 文化概览 -->
+                <section class="gelao-section">
+                    <h2>仡佬族文化概览</h2>
+                    <p>仡佬族是中国的一个古老少数民族，主要分布在贵州省、广西壮族自治区、云南省等地。仡佬族有着悠久的历史和丰富的文化遗产，是中国西南地区的重要民族之一。</p>
+                    <p>仡佬族文化具有独特的地域特色和民族风格，包括语言、信仰、建筑、服装、音乐、舞蹈等多个方面。仡佬族人民信仰多神教，保留了许多原始信仰的痕迹。</p>
+                    <p>仡佬族的传统经济以农业为主，同时也从事畜牧业和手工业。仡佬族人民勤劳勇敢，在长期的生产生活中创造了丰富多彩的文化，为中华文化的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="gelao-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>仡佬族的先民在古代时期就已在中国西南地区活动。据古籍记载，仡佬族的先民被称为"濮人"、"僚人"，是中国古代南方的重要民族之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>唐宋时期</h5>
+                            <p>唐宋时期，仡佬族地区与中原王朝有着密切的联系。唐朝时，设立了羁縻州，加强了对仡佬族地区的管理。宋朝时，仡佬族地区属西南夷管辖。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>元明清时期</h5>
+                            <p>元明清时期，中央政府对仡佬族地区实行土司制度，加强了对仡佬族地区的统治。这一时期，仡佬族的经济文化得到了进一步发展，与汉族、苗族等民族的交流也日益频繁。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代时期</h5>
+                            <p>近现代以来，仡佬族人民积极参与中国革命和建设，为国家的独立和发展做出了重要贡献。1956年，仡佬族被正式确认为中国的一个少数民族。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="gelao-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="gelao_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>仡佬族主要信仰多神教，崇尚万物有灵，崇拜自然神灵，如山神、水神、树神等。仡佬族的信仰活动主要由鬼师主持，包括祭祀、驱邪、占卜等。此外，仡佬族也受到道教和佛教的影响。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="gelao_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>仡佬族有自己的语言，属汉藏语系壮侗语族仡佬语支。仡佬族没有本民族的文字，历史上主要使用汉字。现在，仡佬族人民普遍使用汉语。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="gelao_music.html" style="color: #c0392b; text-decoration: none;">音乐舞蹈</a></h5>
+                            <p>仡佬族的音乐舞蹈具有独特的民族风格。仡佬族的民间歌曲主要包括劳动歌、爱情歌、叙事歌等，旋律优美，节奏明快。仡佬族的舞蹈以踩堂舞最具盛名，动作刚健有力，充满活力。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="gelao_festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>仡佬族的传统节日主要有春节、清明节、端午节、吃新节等。吃新节是仡佬族最重要的传统节日之一，通常在农历七月举行，人们会举行各种庆祝活动，包括祭祀、歌舞、体育比赛等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服装特色 -->
+                <section class="gelao-section">
+                    <h2>服装特色</h2>
+                    <p>仡佬族服装具有鲜明的民族特色，色彩绚丽，图案丰富。仡佬族男子一般穿对襟短衫、长裤，头缠黑色或白色头巾。女子则穿大襟上衣、长裤或裙，头缠布帕，佩戴银饰。</p>
+                    <p>仡佬族服装的主要特点包括：</p>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>仡佬族服装以红、蓝、黄为主色调，搭配绚丽的图案，给人以明快的视觉感受。</li>
+                        <li><strong>图案丰富：</strong>仡佬族服装上的图案主要包括花卉、动物、几何图形等，这些图案不仅具有装饰作用，还反映了仡佬族人民的生活和信仰。</li>
+                        <li><strong>工艺精湛：</strong>仡佬族服装的制作工艺非常精湛，包括刺绣、编织等多种技法。这些工艺历史悠久，是仡佬族文化的重要组成部分。</li>
+                        <li><strong>实用性强：</strong>仡佬族服装的设计考虑了当地的自然环境和生活方式，具有很强的实用性。例如，长裤便于劳动，头巾可防晒等。</li>
+                    </ul>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/仡佬族传统服装.jpg" alt="仡佬族传统服装">
+                            <p>仡佬族传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/仡佬族女子服装.jpg" alt="仡佬族女子服装">
+                            <p>仡佬族女子服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/仡佬族男子服装.jpg" alt="仡佬族男子服装">
+                            <p>仡佬族男子服装</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="gelao-section">
+                    <h2>饮食文化</h2>
+                    <p>仡佬族的饮食文化具有鲜明的地域特色，以大米、玉米为主食，辅以各种蔬菜和肉类。仡佬族人民喜欢食用酸性食物，擅长制作各种特色美食。</p>
+                    <p>仡佬族的主要传统美食包括：</p>
+                    <ul>
+                        <li><strong>仡佬油茶：</strong>仡佬族的传统食品，以糯米、花生、芝麻、玉米等为原料制作而成，味道鲜美，营养丰富。</li>
+                        <li><strong>酸汤鱼：</strong>仡佬族的传统菜肴，以鲜鱼、番茄、辣椒等为原料烹制而成，味道酸辣可口，是仡佬族人民喜爱的传统菜肴。</li>
+                        <li><strong>灰豆腐：</strong>仡佬族的传统食品，以豆腐为原料，经过特殊工艺制作而成，味道独特，营养丰富。</li>
+                        <li><strong>糯米饭：</strong>仡佬族的传统主食，以糯米为原料，经过蒸煮而成，味道香甜，是仡佬族人民在节日和喜庆场合必备的食品。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="gelao-section">
+                    <h2>传统节日</h2>
+                    <p>仡佬族有着丰富多彩的传统节日，这些节日不仅是仡佬族人民庆祝丰收、祭祀祖先的重要方式，也是传承和弘扬仡佬族文化的重要载体。</p>
+                    <p>仡佬族的主要传统节日包括：</p>
+                    <ul>
+                        <li><strong>春节：</strong>仡佬族的传统节日，与汉族春节相似，人们会进行各种庆祝活动，包括贴春联、放鞭炮、走亲访友、吃团圆饭等。</li>
+                        <li><strong>清明节：</strong>仡佬族的传统节日，人们会前往祖先墓地扫墓，祭祀祖先，表达对祖先的敬意和哀思。</li>
+                        <li><strong>端午节：</strong>仡佬族的传统节日，通常在农历五月初五举行，人们会吃粽子、挂菖蒲、喝雄黄酒等，以驱邪避瘟。</li>
+                        <li><strong>吃新节：</strong>仡佬族最重要的传统节日之一，通常在农历七月举行，人们会举行各种庆祝活动，包括祭祀、歌舞、体育比赛等，以庆祝丰收。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="gelao-section">
+                    <h2>文学艺术</h2>
+                    <p>仡佬族有着丰富的民间文学和艺术遗产，包括神话传说、民间故事、歌谣、谚语等。这些文学作品反映了仡佬族人民的生活、信仰和价值观，是仡佬族文化的重要组成部分。</p>
+                    <p>仡佬族的民间艺术主要包括：</p>
+                    <ul>
+                        <li><strong>刺绣：</strong>仡佬族刺绣是仡佬族传统的手工艺品，图案精美，色彩鲜艳，主要用于服装装饰、头巾、背包等。</li>
+                        <li><strong>编织：</strong>仡佬族编织是仡佬族传统的手工艺品，以竹子为原料，编织各种生活用品和装饰品，工艺精湛，造型美观。</li>
+                        <li><strong>音乐：</strong>仡佬族的音乐以民间歌曲为主，旋律优美，节奏明快，反映了仡佬族人民的生活和情感。</li>
+                        <li><strong>舞蹈：</strong>仡佬族的舞蹈以踩堂舞最具盛名，动作刚健有力，充满活力，是仡佬族人民喜爱的传统舞蹈形式。</li>
+                    </ul>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="gelao-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>仡佬族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。仡佬族文化与汉族文化、苗族文化等相互交流、融合，形成了独特的文化景观。</p>
+                    <p>仡佬族文化对中华文化的影响主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>历史文化：</strong>仡佬族是中国古老的民族之一，其历史文化丰富了中华文化的内容，为中华文化的发展做出了重要贡献。</li>
+                        <li><strong>民间工艺：</strong>仡佬族的传统民间工艺，如刺绣、编织等，是中国传统民间工艺的重要组成部分，对中国民间工艺的发展产生了重要影响。</li>
+                        <li><strong>民族团结：</strong>仡佬族文化与汉族文化、苗族文化等相互交流、融合，促进了各民族之间的相互理解和团结，为中华民族的形成和发展做出了重要贡献。</li>
+                        <li><strong>文化多样性：</strong>仡佬族文化的独特性和丰富性，为中华文化的多样性和丰富性做出了重要贡献，推动了中华文化的发展和繁荣。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

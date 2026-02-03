@@ -1,0 +1,526 @@
+﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>草书 - 书法艺术</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 草书页面特定样式 */
+        body {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .calligraphy-header {
+            background-image: url('images/书法艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .calligraphy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .calligraphy-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .calligraphy-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .calligraphy-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-home {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-home:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .calligraphy-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .calligraphy-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .calligraphy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .calligraphy-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .calligraphy-section h3 {
+            color: #8B4513;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .calligraphy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .calligraphy-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .calligraphy-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .calligraphy-content li {
+            margin-bottom: 10px;
+        }
+        
+        /* 字帖展示 */
+        .copybook-section {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .copybook-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .copybook-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .copybook-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .copybook-item h4 {
+            color: #c0392b;
+            margin-bottom: 10px;
+        }
+        
+        /* 主要字体导航样式 */
+        .font-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .font-nav h3 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .font-nav-links {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .font-nav-links li {
+            margin: 0 10px;
+        }
+        
+        .font-nav-links a {
+            color: #c0392b;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 2px solid transparent;
+        }
+        
+        .font-nav-links a:hover {
+            background-color: #c0392b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(192, 57, 43, 0.3);
+        }
+        
+        .font-nav-links a.active {
+            background-color: #c0392b;
+            color: #fff;
+            border-color: #c0392b;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .calligraphy-header h1 {
+                font-size: 36px;
+            }
+            
+            .calligraphy-header p {
+                font-size: 18px;
+            }
+            
+            .calligraphy-section h2 {
+                font-size: 28px;
+            }
+            
+            .calligraphy-section h3 {
+                font-size: 20px;
+            }
+            
+            .copybook-section {
+                padding: 20px;
+            }
+            
+            .font-nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .font-nav-links li {
+                margin: 5px 0;
+            }
+            
+            .font-nav-links a {
+                display: block;
+                text-align: center;
+                width: 100%;
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="calligraphy-header">
+        <div class="container">
+            <div class="calligraphy-header-content">
+                <h1>草书艺术</h1>
+                <p>自由奔放的书体，书法艺术的极致表现</p>
+                <a href="calligraphy.html" class="back-home">返回书法艺术</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="calligraphy-main">
+        <div class="container">
+            <div class="calligraphy-content">
+                <!-- 主要字体导航 -->
+                <div class="font-nav">
+                    <h3>主要字体导航</h3>
+                    <ul class="font-nav-links">
+                        <li><a href="calligraphy_seal.html">篆书</a></li>
+                        <li><a href="calligraphy_official.html">隶书</a></li>
+                        <li><a href="calligraphy_regular.html">楷书</a></li>
+                        <li><a href="calligraphy_running.html">行书</a></li>
+                        <li><a href="calligraphy_cursive.html" class="active">草书</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 起源 -->
+                <section class="calligraphy-section">
+                    <h2>草书的起源</h2>
+                    <p>草书是中国书法史上最具艺术性和表现力的字体之一。草书的起源可以追溯到汉代，它是在隶书的基础上发展演变而来的。</p>
+                    <p>草书的名称来源于其书写速度和风格特点（"草"有草率、快速的意思）。草书的形成与汉代的社会文化背景密切相关。汉代是中国历史上一个强大的朝代，社会经济繁荣，文化艺术发达。在这种背景下，人们需要一种更加快捷、高效的书写方式，于是草书应运而生。</p>
+                    <p>草书的发展经历了早期草书、章草、今草、狂草等阶段。早期草书是在隶书的基础上简化演变而来的，保留了较多隶书的特点。章草是东汉后期形成的一种草书，它是在早期草书的基础上规范化、标准化而来的。今草是魏晋时期形成的一种草书，它是在章草的基础上进一步简化、流畅化而来的。狂草是唐代形成的一种草书，它是在今草的基础上更加放纵、自由而来的。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="calligraphy-section">
+                    <h2>草书的发展</h2>
+                    <h3>汉代（公元前202年-公元220年）</h3>
+                    <p>汉代是草书的形成时期。汉代初期，草书开始在民间流行。由于汉代社会经济繁荣，文化艺术发达，人们需要一种更加快捷、高效的书写方式，于是草书应运而生。</p>
+                    <p>汉代草书的发展经历了两个阶段：</p>
+                    <ul>
+                        <li><strong>早期草书</strong>：汉代初期的草书，也称为"草隶"，是在隶书的基础上简化演变而来的，保留了较多隶书的特点，笔画之间有连笔，但字与字之间不相连。这一时期的草书作品主要保存在简牍上，如甘肃敦煌出土的《流沙坠简》和居延出土的《居延汉简》等，字体风格古朴，结构简约，笔画流畅自然。</li>
+                        <li><strong>章草</strong>：汉代中期，草书得到了进一步的发展和完善，逐渐形成了章草。章草的特点是保留了隶书的波磔，笔画之间有连笔，但字与字之间不相连。章草的名称来源于其规范化、标准化的特点，"章"有章程、规范的意思。汉代章草的代表书法家有张芝、崔瑗等，张芝被后人称为"草圣"，他的草书作品如《冠军帖》、《终年帖》等，风格流畅自然，变化多端，笔法精妙。</li>
+                    </ul>
+                    
+                    <h3>魏晋时期（公元220年-公元420年）</h3>
+                    <p>魏晋时期是草书的发展时期。魏晋时期，社会动荡不安，文人士大夫阶层追求个性自由和精神解放，这种文化氛围促进了草书的发展。魏晋草书逐渐摆脱了隶书的影响，形成了今草。</p>
+                    <p>今草的特点是笔画流畅自然，笔画之间有连笔，字与字之间也有连笔，更加自由奔放。王羲之、王献之父子是这一时期的代表书法家，他们的草书风格典雅秀丽，流畅自然，代表作品有《十七帖》、《远宦帖》、《中秋帖》等。</p>
+                    <p>王羲之的草书被称为"小王草书"，风格典雅秀丽，流畅自然，笔法精妙，代表作如《十七帖》、《远宦帖》等。王献之的草书被称为"大令草书"，风格豪放洒脱，流畅自然，笔法精妙，代表作如《中秋帖》、《鸭头丸帖》等。王氏父子的草书被视为魏晋草书的典范，对后世草书的发展产生了深远的影响。</p>
+                    
+                    <h3>唐代（公元618年-公元907年）</h3>
+                    <p>唐代是草书的鼎盛时期。唐代草书融合了魏晋草书的特点，风格更加多样化，出现了狂草。唐代社会经济繁荣，文化艺术发达，人们的精神面貌开放进取，这种文化氛围促进了草书的发展。</p>
+                    <p>狂草的特点是笔画放纵自由，结构变化多端，字与字之间紧密相连，甚至一笔写成多个字，更加自由奔放，富有表现力。张旭、怀素是这一时期的代表书法家，他们被称为"颠张狂素"，他们的草书风格豪放洒脱，气势磅礴，代表作品有《古诗四帖》、《自叙帖》等。</p>
+                    <ul>
+                        <li><strong>张旭</strong>：唐代著名书法家，擅长草书，被称为"草圣"。张旭的草书风格豪放洒脱，气势磅礴，笔法精妙，代表作如《古诗四帖》、《肚痛帖》等。张旭的草书常常在醉酒后挥毫泼墨，笔走龙蛇，变幻莫测，被称为"颠草"。</li>
+                        <li><strong>怀素</strong>：唐代著名书法家，擅长草书，被称为"草圣"。怀素的草书风格豪放洒脱，气势磅礴，笔法精妙，代表作如《自叙帖》、《食鱼帖》等。怀素的草书以"狂草"著称，他的草书常常在醉酒后挥毫泼墨，笔走龙蛇，变幻莫测，与张旭的草书并称"颠张狂素"。</li>
+                    </ul>
+                    <p>唐代草书的成就超过了前代，成为草书发展史上的高峰。唐代草书书法家们在继承魏晋草书传统的基础上，不断创新，使草书这一艺术形式达到了新的高度。</p>
+                    
+                    <h3>宋代（公元960年-公元1279年）</h3>
+                    <p>宋代草书融合了唐代草书的特点，风格更加多样化。宋代书法家注重个性表达，强调书法的艺术性，因此宋代草书在继承唐代草书传统的基础上，出现了许多新的风格特点。</p>
+                    <p>宋代草书的代表书法家有黄庭坚、米芾等。黄庭坚的草书风格开张多变，气象万千，笔法精妙，代表作如《诸上座帖》、《廉颇蔺相如列传》等。米芾的草书风格跌宕起伏，结构变化多端，笔法八面出锋，代表作如《论书帖》、《草书九帖》等。</p>
+                    
+                    <h3>元代（公元1271年-公元1368年）</h3>
+                    <p>元代草书继承了魏晋和唐代草书的传统，同时也受到了赵孟頫的深刻影响。赵孟頫是元代最著名的书法家，他的草书风格典雅秀丽，结构严谨，笔画圆润流畅，代表作如《草书千字文》、《秋兴赋》等。</p>
+                    <p>除了赵孟頫之外，元代的草书书法家还有鲜于枢、邓文原等，他们的草书风格也受到了赵孟頫的影响，典雅秀丽，结构严谨。鲜于枢的草书作品如《草书千字文》、《秋兴诗册》等，风格豪放洒脱，结构宽博，笔画浑厚有力。邓文原的草书作品如《急就章》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。</p>
+                    
+                    <h3>明代（公元1368年-公元1644年）</h3>
+                    <p>明代草书的发展呈现出多元化的趋势，书法家们在继承传统的基础上，不断创新，形成了各具特色的草书风格。明代的文化氛围宽松，文人士大夫阶层注重文学艺术的修养，这种文化氛围促进了草书的发展。</p>
+                    <ul>
+                        <li><strong>明代前期</strong>：宋濂、沈度等是这一时期的代表书法家，他们的草书风格典雅秀丽，结构严谨，受到了赵孟頫的深刻影响。宋濂的草书作品如《草书轴》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。沈度的草书作品如《草书轴》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。</li>
+                        <li><strong>明代中期</strong>：文徵明、祝允明等是这一时期的代表书法家，他们的草书风格更加多样化。文徵明的草书风格严谨秀丽，结构端庄，笔画圆润流畅，代表作如《草书轴》、《草书诗卷》等。祝允明的草书风格豪放自然，结构跌宕，笔画流畅自然，代表作如《草书诗卷》、《草书前后赤壁赋卷》等。</li>
+                        <li><strong>明代后期</strong>：王铎、董其昌等是这一时期的代表书法家，他们的草书风格更加注重个性表达。王铎的草书风格跌宕起伏，结构变化多端，笔画浑厚有力，代表作如《草书轴》、《草书诗卷》等。董其昌的草书风格疏朗秀逸，结构简约，笔画圆润流畅，代表作如《草书轴》、《草书诗卷》等。</li>
+                    </ul>
+                    
+                    <h3>清代（公元1644年-公元1912年）</h3>
+                    <p>清代草书的发展呈现出多元化的趋势，书法家们在继承传统的基础上，不断创新，形成了各具特色的草书风格。清代的金石学研究兴盛，大量出土的古代碑刻为书法家提供了学习草书的重要资料，促进了草书的创新和发展。</p>
+                    <ul>
+                        <li><strong>清代前期</strong>：傅山、王铎等是这一时期的代表书法家，他们的草书风格豪放洒脱，结构跌宕。傅山的草书作品如《草书轴》、《草书诗卷》等，风格豪放洒脱，结构跌宕，笔画浑厚有力。王铎的草书作品如《草书轴》、《草书诗卷》等，风格跌宕起伏，结构变化多端，笔画浑厚有力。</li>
+                        <li><strong>清代中期</strong>：刘墉、梁同书等是这一时期的代表书法家，他们的草书风格典雅秀丽，结构端庄。刘墉的草书作品如《草书轴》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。梁同书的草书作品如《草书轴》、《草书诗卷》等，风格典雅秀丽，结构端庄，笔画圆润流畅。</li>
+                        <li><strong>清代后期</strong>：何绍基、赵之谦等是这一时期的代表书法家，他们的草书风格更加多样化。何绍基的草书融合了颜真卿和北碑的特点，风格浑厚有力，结构宽博，代表作如《草书轴》、《草书诗卷》等。赵之谦的草书则融合了北碑和帖学的特点，风格奇崛开张，结构跌宕，代表作如《草书轴》、《草书诗卷》等。</li>
+                    </ul>
+                    
+                    <h3>近现代草书</h3>
+                    <p>近现代以来，草书在书法艺术中的地位更加突出。许多书法家在继承传统的基础上，不断创新，形成了各具特色的草书风格。如于右任的草书融合了北碑的特点，风格豪放洒脱，结构跌宕；沈尹默的草书则继承了二王的传统，风格典雅秀丽，结构端庄；启功的草书融合了赵孟頫和唐代草书的特点，风格疏朗秀逸，结构简约。</p>
+                    <p>现代草书的发展呈现出多元化的趋势，书法家们不仅继承了传统草书的特点，还融合了其他书体的特点，创造出了许多新的草书风格，使草书这一古老的书体在现代社会中仍然具有强大的生命力。</p>
+                </section>
+
+                <!-- 影响 -->
+                <section class="calligraphy-section">
+                    <h2>草书的影响</h2>
+                    <p>草书作为中国书法史上最具艺术性和表现力的字体之一，对中国书法艺术的发展产生了深远的影响：</p>
+                    <ul>
+                        <li><strong>推动了书法艺术的创新</strong>：草书的自由奔放、变化多端的特点，推动了书法艺术的创新和发展，为书法艺术注入了新的活力。</li>
+                        <li><strong>影响了其他字体的发展</strong>：草书的笔画和结构对行书、楷书等字体的发展产生了重要影响，促进了它们的创新和演变。</li>
+                        <li><strong>体现了中国传统美学观念</strong>：草书的自由奔放、变化多端的特点，体现了中国传统艺术中的自然、和谐、灵动等观念。</li>
+                        <li><strong>传承了中华文化</strong>：草书作为一种艺术字体，承载着丰富的文化信息，是中华文化传承的重要载体。</li>
+                        <li><strong>对周边国家的影响</strong>：草书对日本、朝鲜半岛、越南等周边国家的文字和书法艺术产生了重要影响。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="calligraphy-section">
+                    <h2>草书的代表人物</h2>
+                    
+                    <h3>张芝（?年-约192年）</h3>
+                    <p>东汉著名书法家，擅长草书。张芝的草书风格流畅自然，变化多端，代表作品有《冠军帖》、《终年帖》等。他被后人称为"草圣"。</p>
+                    
+                    <h3>王羲之（303年-361年）</h3>
+                    <p>东晋著名书法家，擅长草书、行书、楷书。王羲之的草书风格典雅秀丽，流畅自然，代表作品有《十七帖》、《远宦帖》等。他被后人称为"书圣"。</p>
+                    
+                    <h3>王献之（344年-386年）</h3>
+                    <p>东晋著名书法家，王羲之的第七子，擅长草书、行书、楷书。王献之的草书风格奔放洒脱，流畅自然，代表作品有《中秋帖》、《中圣帖》等。他被后人称为"小圣"。</p>
+                    
+                    <h3>张旭（约675年-约750年）</h3>
+                    <p>唐代著名书法家，擅长草书。张旭的草书风格豪放洒脱，气势磅礴，代表作品有《古诗四帖》、《肚痛帖》等。他被后人称为"草圣"。</p>
+                    
+                    <h3>怀素（725年-785年）</h3>
+                    <p>唐代著名书法家，擅长草书。怀素的草书风格豪放洒脱，气势磅礴，代表作品有《自叙帖》、《食鱼帖》等。他被后人称为"草圣"。</p>
+                    
+                    <h3>黄庭坚（1045年-1105年）</h3>
+                    <p>北宋著名文学家、书法家，擅长草书、行书。黄庭坚的草书风格开张多变，气象万千，代表作品有《诸上座帖》、《廉颇蔺相如列传》等。</p>
+                    
+                    <h3>祝允明（1460年-1527年）</h3>
+                    <p>明代著名书画家，擅长草书、行书。祝允明的草书风格奔放洒脱，变化多端，代表作品有《草书诗卷》、《草书前后赤壁赋卷》等。</p>
+                    
+                    <h3>王铎（1592年-1652年）</h3>
+                    <p>清代著名书画家，擅长草书、行书。王铎的草书风格变化多端，气势磅礴，代表作品有《草书诗卷》、《草书轴》等。</p>
+                </section>
+
+                <!-- 字帖 -->
+                <section class="calligraphy-section">
+                    <div class="copybook-section">
+                        <h3>草书经典字帖</h3>
+                        <div class="copybook-list">
+                            <div class="copybook-item">
+                                <h4>《冠军帖》</h4>
+                                <p>东汉张芝所书，草书的代表作品，笔画流畅自然，变化多端。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《十七帖》</h4>
+                                <p>东晋王羲之所书，草书的代表作品，风格典雅秀丽，流畅自然。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《古诗四帖》</h4>
+                                <p>唐代张旭所书，草书的代表作品，风格豪放洒脱，气势磅礴。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《自叙帖》</h4>
+                                <p>唐代怀素所书，草书的代表作品，风格豪放洒脱，气势磅礴。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《诸上座帖》</h4>
+                                <p>北宋黄庭坚所书，草书的代表作品，风格开张多变，气象万千。</p>
+                            </div>
+                            <div class="copybook-item">
+                                <h4>《草书诗卷》</h4>
+                                <p>明代祝允明所书，草书的代表作品，风格奔放洒脱，变化多端。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.calligraphy-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服饰文化 - 汉族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 服饰文化页面特定样式 */
+        .clothing-header {
+            background-image: url('images/深衣.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .clothing-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .clothing-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .clothing-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .clothing-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-han {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-han:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .clothing-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .clothing-section {
+            margin-bottom: 80px;
+        }
+        
+        .clothing-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .clothing-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .clothing-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .clothing-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .clothing-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .clothing-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .clothing-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .clothing-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 汉服款式卡片 */
+        .hanfu-styles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .hanfu-style-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .hanfu-style-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hanfu-style-card h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .hanfu-style-card p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        /* 服饰文化 */
+        .clothing-culture {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .clothing-culture h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .clothing-header h1 {
+                font-size: 36px;
+            }
+            
+            .clothing-header p {
+                font-size: 18px;
+            }
+            
+            .clothing-section h2 {
+                font-size: 28px;
+            }
+            
+            .hanfu-styles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .clothing-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .clothing-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="clothing-header">
+        <div class="container">
+            <div class="clothing-header-content">
+                <h1>服饰文化</h1>
+                <p>汉族文化的重要象征与审美表达</p>
+                <a href="han.html" class="back-han">返回汉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="clothing-main">
+        <div class="container">
+            <div class="clothing-content">
+                <!-- 介绍部分 -->
+                <section class="clothing-section">
+                    <h2>汉族传统服饰概述</h2>
+                    <p>汉族传统服饰，简称汉服，是汉族的传统服装，具有悠久的历史和丰富的文化内涵。汉服的基本特征包括交领右衽、宽袍大袖、系带隐扣等，体现了中华传统文化的博大精深。</p>
+                    <p>汉服的演变反映了中国社会的变迁和文化的发展，是汉族文化的重要象征。汉服不仅是一种服装，更是汉族文化的重要载体，蕴含着丰富的文化信息和审美价值。</p>
+                </section>
+
+                <!-- 汉服的基本特征 -->
+                <section class="clothing-section">
+                    <h2>汉服的基本特征</h2>
+                    <ul>
+                        <li><strong>交领右衽：</strong>汉服的衣领交叉，右襟压左襟，称为右衽，是汉服的核心特征之一。</li>
+                        <li><strong>宽袍大袖：</strong>汉服的袖子宽大，体现了汉族文化的雍容大度和含蓄之美。</li>
+                        <li><strong>系带隐扣：</strong>汉服使用系带固定，很少使用扣子，体现了汉族文化的自然和谐。</li>
+                        <li><strong>上衣下裳：</strong>汉服的基本款式是上衣下裳，体现了天地阴阳的观念。</li>
+                        <li><strong>分裁制：</strong>汉服的上衣和下裳分开裁剪，体现了汉族文化的严谨和规范。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉服的基本款式 -->
+                <section class="clothing-section">
+                    <h2>汉服的基本款式</h2>
+                    <div class="hanfu-styles-grid">
+                        <div class="hanfu-style-card">
+                            <h5>深衣</h5>
+                            <p>深衣是汉服的基本款式之一，上下相连，体现天人合一，是古代士大夫的礼服。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>襦裙</h5>
+                            <p>襦裙是上襦下裙的款式，适合女子穿着，款式多样，色彩丰富。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>直裰</h5>
+                            <p>直裰是古代男子的常服，款式简洁大方，适合日常穿着。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>道袍</h5>
+                            <p>道袍是明代士大夫的便服，样式宽松舒适，体现了文人的洒脱气质。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>曲裾</h5>
+                            <p>曲裾是汉代流行的款式，下摆呈弧形，适合女子穿着。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>圆领袍</h5>
+                            <p>圆领袍是唐代流行的款式，领口为圆形，适合男子穿着。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>褙子</h5>
+                            <p>褙子是宋代流行的款式，是一种对襟的外套，适合男女穿着。</p>
+                        </div>
+                        <div class="hanfu-style-card">
+                            <h5>袄裙</h5>
+                            <p>袄裙是明代流行的款式，上身为袄，下身为裙，适合女子穿着。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 汉服的演变历史 -->
+                <section class="clothing-section">
+                    <h2>汉服的演变历史</h2>
+                    <h3>先秦时期</h3>
+                    <p>先秦时期是汉服的起源和形成时期，主要款式有上衣下裳、深衣等。</p>
+                    
+                    <h3>秦汉时期</h3>
+                    <p>秦汉时期是汉服的发展时期，主要款式有曲裾、直裾等。</p>
+                    
+                    <h3>魏晋南北朝时期</h3>
+                    <p>魏晋南北朝时期是汉服的融合时期，吸收了少数民族的服饰元素，主要款式有衫、袄等。</p>
+                    
+                    <h3>隋唐时期</h3>
+                    <p>隋唐时期是汉服的鼎盛时期，主要款式有圆领袍、襦裙等。</p>
+                    
+                    <h3>宋元时期</h3>
+                    <p>宋元时期是汉服的变化时期，主要款式有褙子、直裰等。</p>
+                    
+                    <h3>明清时期</h3>
+                    <p>明清时期是汉服的衰落时期，主要款式有袄裙、道袍等。</p>
+                    
+                    <h3>近现代时期</h3>
+                    <p>近现代时期，汉服逐渐被西式服装取代，但近年来，随着汉服复兴运动的兴起，汉服重新受到人们的关注和喜爱。</p>
+                </section>
+
+                <!-- 汉服的文化内涵 -->
+                <section class="clothing-section">
+                    <h2>汉服的文化内涵</h2>
+                    <div class="clothing-culture">
+                        <h5>天人合一</h5>
+                        <p>汉服的设计理念体现了天人合一的思想，如深衣的下摆象征地载，袖口象征天道圆融。</p>
+                    </div>
+                    
+                    <div class="clothing-culture">
+                        <h5>等级制度</h5>
+                        <p>汉服的穿着有严格的等级制度，不同的场合和身份穿着不同的服装，体现了中国传统的等级文化。</p>
+                    </div>
+                    
+                    <div class="clothing-culture">
+                        <h5>美学观念</h5>
+                        <p>汉服的设计注重含蓄、典雅、和谐的美学观念，体现了汉族人民的审美情趣。</p>
+                    </div>
+                    
+                    <div class="clothing-culture">
+                        <h5>民族认同</h5>
+                        <p>汉服是汉族的重要象征，穿着汉服可以增强民族认同感和自豪感。</p>
+                    </div>
+                </section>
+
+                <!-- 汉服的色彩与纹饰 -->
+                <section class="clothing-section">
+                    <h2>汉服的色彩与纹饰</h2>
+                    <h3>色彩</h3>
+                    <ul>
+                        <li><strong>正色：</strong>汉服的正色包括青、赤、黄、白、黑，称为五色，是汉服的主要色彩。</li>
+                        <li><strong>间色：</strong>汉服的间色是由正色混合而成的颜色，如绿、紫、粉等，是汉服的辅助色彩。</li>
+                        <li><strong>等级色彩：</strong>汉服的色彩有严格的等级规定，如黄色是皇帝的专用色彩，紫色是官员的专用色彩等。</li>
+                    </ul>
+                    
+                    <h3>纹饰</h3>
+                    <ul>
+                        <li><strong>龙纹：</strong>龙纹是汉服的重要纹饰，象征着皇权和尊贵。</li>
+                        <li><strong>凤纹：</strong>凤纹是汉服的重要纹饰，象征着吉祥和美好。</li>
+                        <li><strong>云纹：</strong>云纹是汉服的常见纹饰，象征着高升和吉祥。</li>
+                        <li><strong>花卉纹：</strong>花卉纹是汉服的常见纹饰，象征着美好和纯洁。</li>
+                        <li><strong>几何纹：</strong>几何纹是汉服的常见纹饰，象征着秩序和和谐。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉服的穿着礼仪 -->
+                <section class="clothing-section">
+                    <h2>汉服的穿着礼仪</h2>
+                    <h3>穿着场合</h3>
+                    <ul>
+                        <li><strong>礼服：</strong>用于重要场合，如祭祀、婚礼、朝会等，款式庄重，色彩鲜艳。</li>
+                        <li><strong>常服：</strong>用于日常穿着，款式简洁，色彩淡雅。</li>
+                        <li><strong>便服：</strong>用于休闲场合，款式宽松，色彩随意。</li>
+                    </ul>
+                    
+                    <h3>穿着规范</h3>
+                    <ul>
+                        <li><strong>衣领：</strong>汉服的衣领要整齐，不能歪斜。</li>
+                        <li><strong>衣袖：</strong>汉服的衣袖要自然下垂，不能卷起。</li>
+                        <li><strong>腰带：</strong>汉服的腰带要系紧，不能松散。</li>
+                        <li><strong>鞋子：</strong>汉服要搭配传统的鞋子，如布鞋、木屐等。</li>
+                    </ul>
+                </section>
+
+                <!-- 汉服的复兴 -->
+                <section class="clothing-section">
+                    <h2>汉服的复兴</h2>
+                    <p>近年来，随着中国综合国力的增强和民族文化自信心的提升，汉服复兴运动逐渐兴起，越来越多的年轻人开始关注和喜爱汉服。</p>
+                    
+                    <h3>复兴的原因</h3>
+                    <ul>
+                        <li><strong>文化自信：</strong>随着中国综合国力的增强，人们的文化自信心不断提升，开始重新审视和重视传统文化。</li>
+                        <li><strong>民族认同：</strong>汉服是汉族的重要象征，穿着汉服可以增强民族认同感和自豪感。</li>
+                        <li><strong>美学价值：</strong>汉服具有独特的美学价值，其设计理念和审美情趣符合现代人的审美需求。</li>
+                        <li><strong>网络传播：</strong>互联网的普及为汉服的传播提供了便利条件，通过网络，更多的人了解和认识了汉服。</li>
+                    </ul>
+                    
+                    <h3>复兴的现状</h3>
+                    <ul>
+                        <li><strong>汉服社团：</strong>全国各地成立了许多汉服社团，组织各种汉服活动。</li>
+                        <li><strong>汉服商家：</strong>越来越多的商家开始生产和销售汉服，汉服产业逐渐形成。</li>
+                        <li><strong>汉服活动：</strong>各种汉服活动如汉服节、汉服婚礼等逐渐增多。</li>
+                        <li><strong>媒体关注：</strong>媒体对汉服的关注和报道逐渐增多，提高了汉服的知名度。</li>
+                    </ul>
+                    
+                    <h3>复兴的意义</h3>
+                    <ul>
+                        <li><strong>文化传承：</strong>汉服的复兴有助于传承和弘扬汉族优秀传统文化。</li>
+                        <li><strong>民族认同：</strong>汉服的复兴有助于增强民族认同感和自豪感。</li>
+                        <li><strong>文化交流：</strong>汉服的复兴有助于促进不同文化之间的交流和理解。</li>
+                        <li><strong>经济发展：</strong>汉服的复兴有助于促进相关产业的发展，为经济增长做出贡献。</li>
+                    </ul>
+                </section>
+
+                <!-- 服饰文化的现代价值 -->
+                <section class="clothing-section">
+                    <h2>服饰文化的现代价值</h2>
+                    <p>在现代社会，汉族传统服饰文化仍然具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>传统服饰文化是汉族文化的重要组成部分，通过保护和传承传统服饰文化，汉族优秀传统文化得以延续和发展。</li>
+                        <li><strong>审美教育：</strong>传统服饰具有独特的美学价值，通过欣赏和学习传统服饰，可以提高人们的审美水平和艺术素养。</li>
+                        <li><strong>民族认同：</strong>传统服饰是汉族的重要象征，穿着传统服饰可以增强民族认同感和自豪感。</li>
+                        <li><strong>文化交流：</strong>传统服饰是汉族文化的重要组成部分，通过传统服饰的传播，可以促进不同文化之间的交流和理解。</li>
+                        <li><strong>经济价值：</strong>传统服饰可以转化为文化产业，为经济发展做出贡献，同时也可以促进旅游业的发展。</li>
+                    </ul>
+                </section>
+
+                <!-- 服饰文化的保护与传承 -->
+                <section class="clothing-section">
+                    <h2>服饰文化的保护与传承</h2>
+                    <p>随着社会的发展和时代的变迁，汉族传统服饰文化面临着一些挑战，需要我们采取措施加以保护和传承：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>通过学校教育、社会教育等方式，向年轻一代传授传统服饰文化的知识和技能，增强他们对传统服饰文化的认识和认同。</li>
+                        <li><strong>创新发展：</strong>在保留传统服饰文化核心内涵的基础上，创新传统服饰的设计和款式，使其更加适应现代社会的需求和年轻人的喜好。</li>
+                        <li><strong>政府支持：</strong>政府应加强对传统服饰文化的保护和支持，通过立法、政策等方式，保障传统服饰文化的地位和传承。</li>
+                        <li><strong>社会参与：</strong>鼓励社会各界参与传统服饰文化的保护和传承，形成全社会共同保护和传承传统服饰文化的良好氛围。</li>
+                        <li><strong>国际传播：</strong>通过各种渠道，向世界传播汉族传统服饰文化的魅力和价值，增强汉族文化的国际影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.clothing-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

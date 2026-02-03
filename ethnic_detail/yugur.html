@@ -1,0 +1,589 @@
+﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裕固族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 裕固族页面特定样式 */
+        .yugur-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .yugur-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yugur-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yugur-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .yugur-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yugur-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yugur-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .yugur-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .yugur-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yugur-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yugur-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yugur-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yugur-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yugur-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yugur-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 介绍部分 */
+        .yugur-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yugur-intro p {
+            margin-bottom: 20px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .yugur-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .yugur-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .yugur-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .yugur-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .yugur-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .yugur-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .yugur-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .yugur-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .yugur-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .yugur-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .yugur-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .yugur-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .yugur-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .yugur-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .yugur-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .yugur-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yugur-header h1 {
+                font-size: 36px;
+            }
+            
+            .yugur-header p {
+                font-size: 18px;
+            }
+            
+            .yugur-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .grow-down {
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            animation: growDown 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yugur-header">
+        <div class="container">
+            <div class="yugur-header-content">
+                <h1>裕固族文化</h1>
+                <p>草原游牧文化，独特的裕固族语言艺术</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="yugur-main">
+        <div class="container">
+            <div class="yugur-content">
+                <!-- 文化介绍 -->
+                <section class="yugur-section">
+                    <h2>裕固族文化概览</h2>
+                    <div class="yugur-intro">
+                        <p>裕固族是中国的一个少数民族，主要分布在甘肃省肃南裕固族自治县、酒泉市黄泥堡裕固族乡，以及青海省祁连县等地。裕固族有着悠久的历史和独特的文化，是河西走廊的重要古老民族之一。</p>
+                        <p>裕固族文化以其独特的游牧传统、语言艺术和宗教信仰而闻名，是中华文化多元一体格局中的重要组成部分。</p>
+                    </div>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="yugur-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>远古时期</h5>
+                            <p>裕固族先民是古代回纥人的一支，在河西走廊和西域地区繁衍生息，创造了早期的游牧文明。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>隋唐时期</h5>
+                            <p>裕固族先民建立了回鹘汗国，与中原王朝有了密切的经济文化交流。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>宋元明时期</h5>
+                            <p>裕固族先民先后归属于元朝、明朝和清朝统治，开始了与其他民族的融合和交流。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近代时期</h5>
+                            <p>裕固族地区受到西方列强的侵略和压迫，同时也开始了现代化的进程。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>现代时期</h5>
+                            <p>新中国成立后，裕固族地区实行了民族区域自治，经济社会得到了快速发展，文化传统得到了保护和传承。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="yugur-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="yugur_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>裕固族有自己的语言，分为东部裕固语和西部裕固语，分别属于阿尔泰语系蒙古语族和突厥语族，但没有本民族的文字。历史上曾使用过回鹘文和藏文，现通用汉文。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="yugur_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>裕固族主要信奉藏传佛教，同时也保留着一些原始宗教的信仰和仪式。佛教寺院和宗教活动是裕固族社会的重要组成部分。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="yugur_customs.html" style="color: #c0392b; text-decoration: none;">风俗习惯</a></h5>
+                            <p>裕固族有着独特的风俗习惯，如帐篷建筑多为圆形和就地结构的穹庐，婚姻制度实行一夫一妻制，服饰样式则根据藏传佛教的规定进行。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服装特色 -->
+                <section class="yugur-section">
+                    <h2>服装特色</h2>
+                    <p>裕固族传统服装以其鲜艳的色彩、独特的款式和精美的装饰而闻名。男子一般穿长袍、长靴，外披短褂，头戴狐皮帽或礼帽。女子则梳高盘长辫，外披坎肩，头戴圆筒形红缨帽，佩戴项链、耳环、手镯等装饰品。裕固族姑娘的红缨帽是她们服装的重要标志，象征着吉祥和幸福。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/裕固族女子传统服装.jpg" alt="裕固族女子传统服装">
+                            <p>裕固族女子传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/裕固族男子传统服装.jpg" alt="裕固族男子传统服装">
+                            <p>裕固族男子传统服装</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="yugur-section">
+                    <h2>饮食文化</h2>
+                    <p>裕固族的饮食文化以其丰富的种类和独特的风味而闻名。主要食物包括肉类、奶制品、面食和蔬菜等，同时也喜欢喝茶、奶茶和青稞酒等饮品。裕固族人民的饮食具有典型的游牧民族特色，以肉类和奶制品为主。</p>
+                    <p>裕固族的传统食品有手抓羊肉、奶皮子、酥油、酸奶、青稞饼等，其中手抓羊肉是裕固族最具代表性的传统美食。</p>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="yugur-section">
+                    <h2>传统节日</h2>
+                    <p>裕固族的传统节日主要有春节、祭祀新年、转山会等。这些节日都与宗教信仰和传统习俗有关，是裕固族人民欢乐聚会、祈求平安的重要时刻。</p>
+                    <p>在节日期间，裕固族人民会穿上盛装，举行各种庆祝活动，如歌舞表演、宗教仪式、赛马、射箭等，展现了裕固族人民的热情好客和丰富多彩的文化生活。</p>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="yugur-section">
+                    <h2>文学艺术</h2>
+                    <p>裕固族有着丰富的民间文学和艺术传统。民间文学包括神话传说、故事、歌谣等，其中最著名的是《裕固族的来源》和《萨娜玛珂》等神话传说。</p>
+                    <p>裕固族的传统艺术包括音乐、舞蹈、绘画、雕塑等。音乐以其独特的旋律和节奏而闻名，舞蹈则以其优美的动作和深情的表演而受到人们的喜爱。裕固族的民歌和马头琴演奏更是闻名遐迩，深受人们的喜爱。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="yugur-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>裕固族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。裕固族的语言、宗教、习俗、服装形式等都为中华文化增添了丰富的内容。</p>
+                    <p>同时，裕固族文化也受到了中华文化的深刻影响，在长期的历史发展过程中，与汉族和其他少数民族文化相互交流、相互借鉴，形成了独特的文化特色。裕固族的民歌和马头琴演奏更是成为了中华文化的重要组成部分，受到人们的喜爱和赞赏。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

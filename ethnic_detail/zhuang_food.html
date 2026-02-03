@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壮族饮食文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 壮族饮食文化页面特定样式 */
+        .zhuang-food-header {
+            background-image: url('images/zhuang-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .zhuang-food-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .zhuang-food-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .zhuang-food-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .zhuang-food-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .zhuang-food-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .zhuang-food-section {
+            margin-bottom: 80px;
+        }
+        
+        .zhuang-food-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-food-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-food-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-food-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .zhuang-food-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .zhuang-food-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .zhuang-food-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .zhuang-food-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 美食展示 */
+        .food-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .food-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .food-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .food-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .food-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .zhuang-food-header h1 {
+                font-size: 36px;
+            }
+            
+            .zhuang-food-header p {
+                font-size: 18px;
+            }
+            
+            .zhuang-food-section h2 {
+                font-size: 28px;
+            }
+            
+            .food-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="zhuang-food-header">
+        <div class="container">
+            <div class="zhuang-food-header-content">
+                <h1>壮族饮食文化</h1>
+                <p>独具特色的壮族美食与饮食习俗</p>
+                <a href="zhuang.html" class="back-link">返回壮族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="zhuang-food-main">
+        <div class="container">
+            <div class="zhuang-food-content">
+                <!-- 饮食文化概述 -->
+                <section class="zhuang-food-section">
+                    <h2>饮食文化概述</h2>
+                    <p>壮族的饮食文化以稻米为主，注重原汁原味，具有独特的民族特色。壮族的传统食物包括五色糯米饭、酸汤鱼、竹筒饭、烤乳猪等，这些食物不仅味道鲜美，而且蕴含着丰富的文化内涵。</p>
+                    <p>壮族的饮食习俗反映了壮族人民的生活方式、价值观念和文化传统。壮族人民热情好客，喜欢聚众饮酒，有"喝交杯酒"的习俗。壮族的饮食文化是壮族文化的重要组成部分，也是中华文化的重要瑰宝。</p>
+                </section>
+
+                <!-- 主要美食 -->
+                <section class="zhuang-food-section">
+                    <h3>主要美食</h3>
+                    
+                    <div class="food-showcase">
+                        <div class="food-item">
+                            <h4>五色糯米饭</h4>
+                            <p>五色糯米饭是壮族的传统美食，以糯米为原料，用不同颜色的植物汁液染成五种颜色，味道香甜，营养丰富。五色糯米饭象征着壮族人民对自然的崇拜和对生活的热爱，是壮族传统节日和喜庆场合的必备食品。</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>酸汤鱼</h4>
+                            <p>酸汤鱼是壮族的传统名菜，以鲜鱼、酸笋、辣椒等为原料，味道酸辣可口，有助于消化。酸汤鱼是壮族人民喜爱的家常菜，也是壮族饮食文化的代表之一。</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>竹筒饭</h4>
+                            <p>竹筒饭是壮族的传统美食，以糯米、腊肉、香菇等为原料，放入竹筒中蒸煮而成，味道清香，营养丰富。竹筒饭是壮族人民在野外劳动时的方便食品，也是壮族饮食文化的特色之一。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="food-showcase">
+                        <div class="food-item">
+                            <h4>烤乳猪</h4>
+                            <p>烤乳猪是壮族的传统名菜，以乳猪为原料，用炭火烤制而成，皮脆肉嫩，味道鲜美。烤乳猪是壮族人民在喜庆场合的必备食品，也是壮族饮食文化的代表之一。</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>壮家酸肉</h4>
+                            <p>壮家酸肉是壮族的传统肉品，是一种用猪肉发酵而成的腌肉，味道酸辣可口，是壮族人民喜爱的下酒菜。壮家酸肉是壮族饮食文化的特色之一，反映了壮族人民的智慧和创造力。</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>壮家米酒</h4>
+                            <p>壮家米酒是壮族的传统饮品，以糯米为原料，经过发酵而成，味道香甜，度数较低。壮家米酒是壮族人民日常生活和喜庆场合的必备饮品，也是壮族饮食文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="zhuang-food-section">
+                    <h3>饮食习俗</h3>
+                    
+                    <h4>日常饮食习俗</h4>
+                    <ul>
+                        <li><strong>主食：</strong>以稻米为主，包括米饭、糯米饭、竹筒饭等。</li>
+                        <li><strong>菜肴：</strong>喜欢酸味食物，如酸笋、酸鱼、酸肉等。</li>
+                        <li><strong>饮品：</strong>喜欢饮酒，尤其是自酿的米酒。</li>
+                        <li><strong>调味品：</strong>喜欢使用辣椒、姜、蒜等调味品。</li>
+                        <li><strong>用餐方式：</strong>传统上使用八仙桌，围坐在一起用餐。</li>
+                    </ul>
+                    
+                    <h4>节日饮食习俗</h4>
+                    <ul>
+                        <li><strong>三月三：</strong>食用五色糯米饭、彩蛋等。</li>
+                        <li><strong>春节：</strong>食用年糕、粽子、腊肉等。</li>
+                        <li><strong>中元节：</strong>食用鸭子、糯米饭等。</li>
+                        <li><strong>牛魂节：</strong>给牛喂食好料，人们也食用好饭好菜。</li>
+                    </ul>
+                    
+                    <h4>待客饮食习俗</h4>
+                    <ul>
+                        <li><strong>热情好客：</strong>客人到来时，要准备丰盛的饭菜。</li>
+                        <li><strong>敬酒：</strong>有"喝交杯酒"的习俗，表达友谊和热情。</li>
+                        <li><strong>让座：</strong>让客人坐在上座，体现尊重。</li>
+                        <li><strong>添饭：</strong>主动为客人添饭，体现关心。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化内涵 -->
+                <section class="zhuang-food-section">
+                    <h3>饮食文化内涵</h3>
+                    
+                    <h4>自然崇拜</h4>
+                    <p>壮族的饮食文化反映了壮族人民对自然的崇拜。例如，五色糯米饭的五种颜色象征着自然界的五种元素，即金、木、水、火、土。壮族人民通过食用五色糯米饭，表达对自然的敬畏和感恩之情。</p>
+                    
+                    <h4>民族团结</h4>
+                    <p>壮族的饮食文化反映了壮族人民的民族团结精神。例如，在节日和喜庆场合，壮族人民会准备丰盛的饭菜，邀请亲朋好友一起分享，体现了壮族人民的团结互助精神。</p>
+                    
+                    <h4>生活智慧</h4>
+                    <p>壮族的饮食文化反映了壮族人民的生活智慧。例如，壮族人民善于利用当地的自然资源，制作出各种美味的食物。壮族的酸品制作技术，不仅可以延长食物的保质期，还可以增加食物的营养价值和口感。</p>
+                    
+                    <h4>文化传承</h4>
+                    <p>壮族的饮食文化是壮族文化的重要组成部分，通过世代相传，保存了壮族的历史记忆和文化传统。例如，壮族的传统美食制作技术，如五色糯米饭的染色技术、酸品的发酵技术等，都是壮族人民智慧的结晶，也是壮族文化的重要遗产。</p>
+                </section>
+
+                <!-- 饮食文化的传承与发展 -->
+                <section class="zhuang-food-section">
+                    <h3>饮食文化的传承与发展</h3>
+                    <p>新中国成立以来，壮族的饮食文化得到了前所未有的重视和保护。政府采取了一系列措施，保护和传承壮族的饮食文化，如举办美食节、加强饮食文化教育、推广壮族特色美食等。</p>
+                    <p>同时，壮族的饮食文化也在不断创新和发展。现代壮族人民在继承传统的基础上，吸收现代饮食文化元素，对传统美食进行了适当的调整和创新，使其更加适应现代社会的需要。例如，壮族的五色糯米饭现在不仅可以在传统节日食用，还可以作为日常食品在市场上销售。</p>
+                    <p>如今，壮族的饮食文化已经成为中华文化的重要组成部分，得到了越来越多的关注和认可。壮族的五色糯米饭、酸汤鱼、竹筒饭等传统美食已经成为中国美食的重要代表，展现了壮族文化的独特魅力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

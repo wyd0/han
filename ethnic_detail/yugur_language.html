@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>裕固族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 裕固族语言文字页面特定样式 */
+        .yugur-language-header {
+            background-image: url('images/裕固族女子传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .yugur-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .yugur-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yugur-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .yugur-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yugur {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yugur:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .yugur-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .yugur-language-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .yugur-language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .yugur-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .yugur-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .yugur-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .yugur-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .yugur-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .yugur-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .yugur-language-section.visible .feature-item,
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .yugur-language-section.visible .feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .yugur-language-section.visible .feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .yugur-language-section.visible .feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .yugur-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .yugur-language-header p {
+                font-size: 18px;
+            }
+            
+            .yugur-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="yugur.html">裕固族文化</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="yugur-language-header">
+        <div class="container">
+            <div class="yugur-language-header-content">
+                <h1>裕固族语言文字</h1>
+                <p>独特的双语体系，承载民族历史文化</p>
+                <a href="yugur.html" class="back-yugur">返回裕固族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="yugur-language-main">
+        <div class="container">
+            <div class="yugur-language-content">
+                <!-- 语言概况 -->
+                <section class="yugur-language-section">
+                    <h2>语言概况</h2>
+                    <p>裕固族是中国唯一同时使用两种不同语系语言的少数民族，拥有东部裕固语和西部裕固语两种语言，分别属于阿尔泰语系的蒙古语族和突厥语族。这种独特的语言现象在世界民族语言中也较为罕见，反映了裕固族复杂的历史迁徙和文化融合过程。</p>
+                    <p>由于历史原因，裕固族没有本民族的文字系统，历史上曾使用过回鹘文和藏文，现通用汉文作为书面交流工具。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="yugur-language-section">
+                    <h2>语言特点</h2>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h5>东部裕固语</h5>
+                            <p>属于阿尔泰语系蒙古语族，主要分布在肃南裕固族自治县东部地区。与蒙古语有密切的亲属关系，保留了许多古代蒙古语的词汇和语法特点，同时也吸收了一些汉语和藏语的借词。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>西部裕固语</h5>
+                            <p>属于阿尔泰语系突厥语族，主要分布在肃南裕固族自治县西部地区。与维吾尔语、哈萨克语等突厥语族语言有一定的亲属关系，保留了古代突厥语的一些特点，同时也吸收了汉语、藏语等语言的词汇。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>语言现状</h5>
+                            <p>随着社会的发展和教育的普及，汉语在裕固族地区的使用越来越广泛，特别是在年轻一代中，双语现象普遍存在。为了保护和传承裕固族语言，政府和社会各界采取了一系列措施，如编写教材、开设语言课程等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言保护 -->
+                <section class="yugur-language-section">
+                    <h2>语言保护与传承</h2>
+                    <p>裕固族语言是裕固族文化的重要组成部分，承载着裕固族的历史记忆、文化传统和民族精神。为了保护和传承这一宝贵的语言资源，近年来采取了以下措施：</p>
+                    <ul>
+                        <li>编写出版裕固族语言教材和词典，为语言教学提供基础资料</li>
+                        <li>在裕固族地区的学校开设裕固语课程，培养年轻一代的语言能力</li>
+                        <li>开展裕固族语言文化调查研究，记录和保存语言资料</li>
+                        <li>利用现代信息技术，建立裕固族语言数据库和数字资源</li>
+                        <li>鼓励裕固族民间艺人、歌手使用本民族语言进行创作和表演</li>
+                    </ul>
+                    <p>这些措施的实施，对于促进裕固族语言的保护和传承，维护裕固族文化的多样性，具有重要的意义。</p>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="yugur-language-section">
+                    <h2>语言与文化的关系</h2>
+                    <p>裕固族语言与裕固族文化之间存在着密切的关系。语言是文化的载体，裕固族的民间故事、神话传说、歌谣谚语等口头文学，都是通过语言传承下来的。同时，语言也反映了裕固族的生产生活方式、宗教信仰、价值观念等文化内容。</p>
+                    <p>例如，裕固族语言中有大量与畜牧业生产相关的词汇，反映了裕固族传统的游牧生活；还有许多与藏传佛教相关的词汇，反映了宗教信仰对裕固族文化的影响。</p>
+                    <p>保护和传承裕固族语言，不仅是保护一种语言资源，更是保护裕固族独特的文化遗产，对于促进中华民族文化的多样性和丰富性，具有重要的意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                        <li><a href="yugur.html">裕固族文化</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

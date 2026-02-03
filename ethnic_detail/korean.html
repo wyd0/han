@@ -1,0 +1,685 @@
+﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朝鲜族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 朝鲜族文化页面特定样式 */
+        .korean-header {
+            background-image: url('images/ethnicity.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .korean-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .korean-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .korean-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .korean-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .korean-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .korean-section {
+            margin-bottom: 80px;
+        }
+        
+        .korean-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .korean-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .korean-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .korean-section h5 {
+            color: #333;
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .korean-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .korean-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .korean-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .korean-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .korean-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .korean-header h1 {
+                font-size: 36px;
+            }
+            
+            .korean-header p {
+                font-size: 18px;
+            }
+            
+            .korean-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .korean-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .korean-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .korean-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .korean-section {
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .korean-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .culture-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .clothing-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="korean-header">
+        <div class="container">
+            <div class="korean-header-content">
+                <h1>朝鲜族文化</h1>
+                <p>独具特色的朝鲜族风情与长鼓舞文化传承</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="korean-main">
+        <div class="container">
+            <div class="korean-content">
+                <!-- 介绍部分 -->
+                <section class="korean-section">
+                    <h2>朝鲜族文化概览</h2>
+                    <p>朝鲜族是中国东北边疆的古老民族，主要分布在吉林、黑龙江、辽宁等省份，其中吉林省是朝鲜族人口最多的省份。朝鲜族有着悠久的历史和灿烂的文化，其文化深受中国传统文化、朝鲜半岛文化和日本文化的影响，同时保持着自己独特的民族特色。</p>
+                    <p>朝鲜族人民勤劳善良，擅长歌舞和手工艺，有着丰富的民间文学艺术和传统节日。朝鲜族的语言属于阿尔泰语系朝鲜族语族，有着自己的文字——韩文。</p>
+                </section>
+
+                <!-- 朝鲜族历史 -->
+                <section class="korean-section">
+                    <h2>朝鲜族历史</h2>
+                    <p>朝鲜族的历史可以追溯到古代朝鲜半岛的居民，是中国东北边疆的古老民族之一。</p>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>朝鲜族的先民在朝鲜半岛和中国东北地区有着悠久的居住历史，与中国东北地区有着密切的联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>明清时期，大量朝鲜半岛居民迁徙到中国东北地区定居，形成了中国的朝鲜族。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近代时期</h5>
+                            <p>随着日本对朝鲜半岛的侵略，更多的朝鲜半岛居民迁徙到中国东北地区，朝鲜族人口进一步增加。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>现代时期</h5>
+                            <p>1949年后，朝鲜族地区实行民族区域自治，成立了多个朝鲜族自治州、县，朝鲜族人民的生活水平得到显著提高。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 朝鲜族来源 -->
+                <section class="korean-section">
+                    <h2>朝鲜族来源</h2>
+                    <p>朝鲜族的来源主要来自古代朝鲜半岛的居民，以及后来迁徙到中国东北地区的朝鲜半岛居民。</p>
+                    <h3>主要来源</h3>
+                    <ul>
+                        <li><strong>古代朝鲜半岛居民：</strong>朝鲜族的先民在朝鲜半岛有着悠久的居住历史，与中国东北地区有着密切的联系。</li>
+                        <li><strong>明清时期的移民：</strong>明清时期，大量朝鲜半岛居民迁徙到中国东北地区定居，形成了中国的朝鲜族。</li>
+                        <li><strong>近代时期的移民：</strong>随着日本对朝鲜半岛的侵略，更多的朝鲜半岛居民迁徙到中国东北地区，朝鲜族人口进一步增加。</li>
+                    </ul>
+                    <p>朝鲜族的形成是一个多民族融合的过程，在长期的历史发展中，形成了自己独特的民族文化和传统。</p>
+                </section>
+
+                <!-- 朝鲜族文化 -->
+                <section class="korean-section">
+                    <h2>朝鲜族文化</h2>
+                    <div class="culture-aspects">
+                        <a href="korean_language.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>语言文字</h5>
+                                <p>朝鲜语属于阿尔泰语系朝鲜族语族，分为东方式言、西方式言、南方式言等。朝鲜族有着自己的文字——韩文，是1443年由朝鲜李朝世宗大王创制的。</p>
+                            </div>
+                        </a>
+                        <a href="korean_religion.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>宗教信仰</h5>
+                                <p>朝鲜族主要信仰佛教、儒教、天道教等，同时也保留着一些原始宗教信仰。朝鲜族人民有着丰富的宗教活动和宗教仪式。</p>
+                            </div>
+                        </a>
+                        <a href="korean_festivals.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>传统节日</h5>
+                                <p>朝鲜族的传统节日有春节、上元节、寒食节、秋夕节、开天节等，其中秋夕节是朝鲜族最重要的传统节日，相当于中国的中秋节。</p>
+                            </div>
+                        </a>
+                        <a href="korean_literature.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>文学艺术</h5>
+                                <p>朝鲜族有着丰富的民间文学艺术，包括神话传说、民间故事、诗歌谚语等。朝鲜族的传统音乐舞蹈也很有特色，如长鼓舞、农乐舞等。</p>
+                            </div>
+                        </a>
+                        <a href="korean_customs.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>风俗习惯</h5>
+                                <p>朝鲜族有着尊老爱幼、热情好客、重视教育等风俗习惯。朝鲜族的婚俗也很有特色，有着独特的礼仪程序。</p>
+                            </div>
+                        </a>
+                        <a href="korean_architecture.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>建筑风格</h5>
+                                <p>朝鲜族传统建筑以“草房”和“瓦房”为主，适应东北平原地区寒冷的气候特点。朝鲜族的“炕”文化也很有特色，是朝鲜族人民生活的重要组成部分。</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 朝鲜族服装 -->
+                <section class="korean-section">
+                    <h2>朝鲜族服装</h2>
+                    <p>朝鲜族服装具有独特的风格和特点，色彩鲜艳，线条流畅，反映了朝鲜族人民的审美观和生活习惯。</p>
+                    
+                    <h3>服装特点</h3>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>喜欢使用红、蓝、绿、粉等鲜艳的颜色，体现了朝鲜族人民开朗活泼的性格。</li>
+                        <li><strong>线条流畅：</strong>服装线条流畅，裁剪合体，体现了朝鲜族人民对美的追求。</li>
+                        <li><strong>样式多样：</strong>不同地区、不同年龄段的朝鲜族服装样式有所不同，体现了朝鲜族文化的多样性。</li>
+                        <li><strong>传统图案：</strong>服装上绣有各种传统图案，如花卉、动物、几何图形等，寓意吉祥如意。</li>
+                        <li><strong>男女有别：</strong>男装和女装在样式、颜色、图案等方面有着明显的区别。</li>
+                    </ul>
+                    
+                    <h3>服装展示</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/朝鲜族女性服装.jpg" alt="朝鲜族 - 女性服装">
+                            <p>朝鲜族女性服装：色彩鲜艳，线条流畅，体现女性美</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/朝鲜族男性服装.jpg" alt="朝鲜族 - 男性服装">
+                            <p>朝鲜族男性服装：粗犷大方，适合劳动生产</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/长鼓舞服装.jpg" alt="朝鲜族 - 长鼓舞服装">
+                            <p>长鼓舞服装：朝鲜族传统舞蹈服装，色彩鲜艳，装饰华丽</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/农乐舞服装.jpg" alt="朝鲜族 - 农乐舞服装">
+                            <p>农乐舞服装：朝鲜族传统舞蹈服装，帽子上有长长的飘带</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 朝鲜族饮食文化 -->
+                <section class="korean-section">
+                    <h2>朝鲜族饮食文化</h2>
+                    <p>朝鲜族饮食文化具有独特的风格和特点，受到东北平原地区自然环境和生活方式的影响。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>以米饭为主食：</strong>朝鲜族人民以米饭为主食，喜欢吃各种杂粮米饭，如小米饭、高梁米饭等。</li>
+                        <li><strong>喜欢酸辣口味：</strong>东北平原地区气候寒冷，朝鲜族人民喜欢吃酸辣食物，有助于开胃和保暖。</li>
+                        <li><strong>擅长制作泡菜：</strong>朝鲜族的泡菜制作工艺历史悠久，种类繁多，味道鲜美，是朝鲜族饮食文化的重要组成部分。</li>
+                        <li><strong>重视汤菜：</strong>朝鲜族人民喜欢喝汤，汤菜是朝鲜族餐桌上的重要组成部分。</li>
+                        <li><strong>喜欢饮酒：</strong>朝鲜族人民喜欢自酿的米酒和烧酒，是重要的社交活动之一。</li>
+                    </ul>
+                    
+                    <h3>传统食品</h3>
+                    <ul>
+                        <li><strong>泡菜：</strong>朝鲜族传统食品，种类繁多，味道鲜美，是朝鲜族饮食文化的重要组成部分。</li>
+                        <li><strong>冷面：</strong>朝鲜族传统面食，以荞麦面为原料制作而成，口感清凉，味道酸辣可口。</li>
+                        <li><strong>烤肉：</strong>朝鲜族传统食品，将牛肉、猪肉等食材放在铁板上加热制作而成，味道鲜美。</li>
+                        <li><strong>打糕：</strong>朝鲜族传统食品，用糯米煮熟后捶打制作而成，口感粘糯，味道香甜。</li>
+                        <li><strong>烧酒：</strong>朝鲜族传统酒类，口感清爽，度数适中。</li>
+                    </ul>
+                </section>
+
+                <!-- 朝鲜族传统节日 -->
+                <section class="korean-section">
+                    <h2>朝鲜族传统节日</h2>
+                    <p>朝鲜族有许多传统节日，这些节日承载着丰富的文化内涵，是朝鲜族文化的重要组成部分。</p>
+                    
+                    <h3>主要传统节日</h3>
+                    <ul>
+                        <li><strong>春节：</strong>朝鲜族最重要的传统节日之一，主要活动有祭祀祖先、拜年、吃年夜饭等。</li>
+                        <li><strong>上元节：</strong>农历正月十五，主要活动有赏月、吃元宵、放烟花等。</li>
+                        <li><strong>寒食节：</strong>农历清明节前一天，主要活动有扫墓、踏青等。</li>
+                        <li><strong>端午：</strong>农历五月初五，主要活动有吃粽子、赛龙舟、插艾蒿等。</li>
+                        <li><strong>秋夕节：</strong>农历八月十五，相当于中国的中秋节，主要活动有赏月、吃月饼、祭祀祖先等。</li>
+                    </ul>
+                </section>
+
+                <!-- 朝鲜族文学艺术 -->
+                <section class="korean-section">
+                    <h2>朝鲜族文学艺术</h2>
+                    <p>朝鲜在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展做出了重要贡献。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>神话传说：</strong>如《檀君神话》、《高句丽神话》等，反映了朝鲜族人民对自然和人类起源的认识。</li>
+                        <li><strong>民间故事：</strong>如《兔子传》、《田螺传》等，具有浓郁的民族特色和艺术感染力。</li>
+                        <li><strong>诗歌：</strong>朝鲜族有着丰富的诗歌传统，包括民谣、时调等。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>长鼓舞：</strong>朝鲜族传统舞蹈形式，舞者手持长鼓，边击边舞，节奏明快，气氛热烈。</li>
+                        <li><strong>农乐舞：</strong>朝鲜族传统舞蹈形式，舞者头戴农帽，帽子上有长长的飘带，舞者旋转时飘带飞舞，非常美观。</li>
+                        <li><strong>伽倻琴：</strong>朝鲜族传统乐器，音色优美，是朝鲜族传统音乐的重要组成部分。</li>
+                        <li><strong>洞箫：</strong>朝鲜族传统乐器，音色深沉，富有表现力。</li>
+                    </ul>
+                </section>
+
+                <!-- 朝鲜族对中国文化的影响 -->
+                <section class="korean-section">
+                    <h2>朝鲜族对中国文化的影响</h2>
+                    <p>朝鲜族文化是中华文化的重要组成部分，对中国文化的发展产生了重要影响。</p>
+                    
+                    <ul>
+                        <li><strong>饮食文化：</strong>朝鲜族的饮食文化，如泡菜、冷面、石锅拌饭等，丰富了中国饮食文化的多样性。</li>
+                        <li><strong>文学艺术：</strong>朝鲜族的民间文学艺术，如神话传说、民间故事、音乐舞蹈等，丰富了中国文学艺术的宝库。</li>
+                        <li><strong>体育活动：</strong>朝鲜族的传统体育活动，如摔跤、秋千、跳板等，丰富了中国传统体育的内容。</li>
+                        <li><strong>风俗习惯：</strong>朝鲜族的一些风俗习惯，如尊老爱幼、重视教育等，与汉族等其他民族的风俗习惯相互影响，共同构成了中国人民的传统美德。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

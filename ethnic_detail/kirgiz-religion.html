@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯尔克孜族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 宗教信仰页面特定样式 */
+        .religion-header {
+            background-image: url('images/柯尔克孜族饰品.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .religion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .religion-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .religion-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .religion-section {
+            margin-bottom: 60px;
+        }
+        
+        .religion-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .religion-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .religion-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .religion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .religion-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .religion-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 返回按钮样式 */
+        .back-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            margin-top: 20px;
+        }
+        
+        .back-button:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(169, 50, 38, 0.3);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .religion-header h1 {
+                font-size: 36px;
+            }
+            
+            .religion-header p {
+                font-size: 18px;
+            }
+            
+            .religion-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .religion-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .religion-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .religion-header-content .back-button {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .religion-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .religion-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="religion-header">
+        <div class="container">
+            <div class="religion-header-content">
+                <h1>柯尔克孜族宗教信仰</h1>
+                <p>多元信仰的融合与文化传承</p>
+                <a href="kirgiz.html" class="back-button">返回柯尔克孜族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="religion-main">
+        <div class="container">
+            <div class="religion-content">
+                <!-- 宗教信仰概述 -->
+                <section class="religion-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>柯尔克孜族的宗教信仰是其文化的重要组成部分，经历了漫长的历史发展过程。从原始宗教到伊斯兰教的传入，柯尔克孜族的宗教信仰逐渐形成了以伊斯兰教为主，保留部分原始宗教元素的特点。</p>
+                </section>
+                
+                <!-- 伊斯兰教 -->
+                <section class="religion-section">
+                    <h3>伊斯兰教</h3>
+                    <p>伊斯兰教是柯尔克孜族的主要宗教，属于逊尼派。伊斯兰教大约在16世纪传入柯尔克孜族地区，经过几个世纪的传播和发展，已经深入到柯尔克孜族的社会生活、文化传统和风俗习惯中。</p>
+                    <p>伊斯兰教对柯尔克孜族的影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>宗教仪式：</strong>柯尔克孜族人民遵守伊斯兰教的基本教义和仪式，如每日五次礼拜、每年的斋月、古尔邦节和开斋节等重要宗教节日。</li>
+                        <li><strong>生活习俗：</strong>伊斯兰教的教义对柯尔克孜族的饮食、婚姻、丧葬等生活习俗产生了深远影响。例如，柯尔克孜族人民禁食猪肉，实行土葬等。</li>
+                        <li><strong>文化教育：</strong>伊斯兰教的传入促进了柯尔克孜族文化教育的发展，许多清真寺成为当地的文化教育中心，培养了一批批宗教和文化人才。</li>
+                        <li><strong>建筑艺术：</strong>柯尔克孜族地区的清真寺建筑融合了伊斯兰建筑风格和本民族的建筑特色，成为柯尔克孜族建筑艺术的重要组成部分。</li>
+                    </ul>
+                </section>
+                
+                <!-- 原始宗教 -->
+                <section class="religion-section">
+                    <h3>原始宗教</h3>
+                    <p>在伊斯兰教传入之前，柯尔克孜族信仰原始宗教，包括自然崇拜、祖先崇拜、图腾崇拜等。虽然伊斯兰教已经成为柯尔克孜族的主要宗教，但在一些偏远地区，柯尔克孜族人民仍然保留着部分原始宗教的元素。</p>
+                    <p>原始宗教在柯尔克孜族中的主要表现形式：</p>
+                    <ul>
+                        <li><strong>自然崇拜：</strong>柯尔克孜族人民对自然界的日月星辰、山水草木、风雨雷电等自然现象充满敬畏，认为它们都有神灵主宰。例如，他们崇拜太阳、月亮、高山、河流等。</li>
+                        <li><strong>祖先崇拜：</strong>柯尔克孜族人民非常尊重祖先，认为祖先的灵魂会保佑后代。他们会在重要节日或特殊场合祭祀祖先，表达对祖先的敬意和怀念。</li>
+                        <li><strong>图腾崇拜：</strong>柯尔克孜族有图腾崇拜的传统，主要崇拜鹰、熊等动物。鹰被视为柯尔克孜族的精神象征，代表着勇敢、自由和力量。</li>
+                        <li><strong>萨满教：</strong>萨满教是柯尔克孜族原始宗教的重要组成部分，萨满（巫师）在柯尔克孜族社会中扮演着沟通人与神的角色，负责主持各种宗教仪式和治疗疾病。</li>
+                    </ul>
+                </section>
+                
+                <!-- 宗教信仰的文化意义 -->
+                <section class="religion-section">
+                    <h3>宗教信仰的文化意义</h3>
+                    <p>柯尔克孜族的宗教信仰不仅是一种精神寄托，更是其文化传承的重要载体。宗教信仰对柯尔克孜族文化的影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化认同：</strong>宗教信仰是柯尔克孜族文化认同的重要标志之一，它将柯尔克孜族人民紧密联系在一起，增强了民族凝聚力。</li>
+                        <li><strong>道德规范：</strong>宗教教义中的道德规范对柯尔克孜族人民的行为准则产生了深远影响，如尊老爱幼、团结互助、诚实守信等传统美德。</li>
+                        <li><strong>艺术创作：</strong>宗教信仰为柯尔克孜族的艺术创作提供了丰富的素材和灵感，如音乐、舞蹈、绘画、雕刻等艺术形式中都融入了宗教元素。</li>
+                        <li><strong>节日庆典：</strong>柯尔克孜族的许多传统节日都与宗教信仰有关，如诺鲁孜节、古尔邦节、开斋节等，这些节日成为柯尔克孜族文化传承的重要载体。</li>
+                    </ul>
+                </section>
+                
+                <!-- 宗教信仰的现代发展 -->
+                <section class="religion-section">
+                    <h3>宗教信仰的现代发展</h3>
+                    <p>随着社会的发展和进步，柯尔克孜族的宗教信仰也在不断适应现代社会的变化。在现代柯尔克孜族社会中，宗教信仰与科学文化知识相互融合，共同促进着柯尔克孜族的发展和进步。</p>
+                    <p>现代柯尔克孜族宗教信仰的特点：</p>
+                    <ul>
+                        <li><strong>宗教与科学的融合：</strong>柯尔克孜族人民在保持宗教信仰的同时，积极学习科学文化知识，用科学的方法认识和改造世界。</li>
+                        <li><strong>宗教活动的规范化：</strong>柯尔克孜族的宗教活动在法律和政策的框架内进行，既满足了信教群众的宗教需求，又维护了社会的和谐稳定。</li>
+                        <li><strong>宗教文化的保护与传承：</strong>柯尔克孜族人民重视对宗教文化的保护与传承，通过各种方式将宗教文化中的优秀元素传递给后代。</li>
+                        <li><strong>宗教与民族团结：</strong>柯尔克孜族与其他民族在宗教信仰上相互尊重、相互理解，促进了民族团结和社会和谐。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // 确保页面加载时内容可见
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.religion-section');
+            console.log('找到的宗教信仰页面section数量:', sections.length);
+            sections.forEach(section => {
+                section.classList.add('visible');
+                console.log('为section添加visible类:', section.className);
+            });
+        });
+        
+        // 页面加载完成后再次确保
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.religion-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>

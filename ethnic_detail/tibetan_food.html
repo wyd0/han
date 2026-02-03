@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藏族饮食文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 藏族饮食文化页面特定样式 */
+        .tibetan-header {
+            background-image: url('images/藏装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .tibetan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tibetan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tibetan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .tibetan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-tibetan {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-tibetan:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tibetan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tibetan-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .tibetan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tibetan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .tibetan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tibetan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tibetan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tibetan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tibetan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 饮食特色网格 */
+        .food-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .food-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tibetan-section.visible .food-feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tibetan-section.visible .food-feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tibetan-section.visible .food-feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tibetan-section.visible .food-feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tibetan-section.visible .food-feature-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .food-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .food-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tibetan-header h1 {
+                font-size: 36px;
+            }
+            
+            .tibetan-header p {
+                font-size: 18px;
+            }
+            
+            .tibetan-section h2 {
+                font-size: 28px;
+            }
+            
+            .food-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="tibetan-header">
+        <div class="container">
+            <div class="tibetan-header-content">
+                <h1>藏族饮食文化</h1>
+                <p>高原特色的饮食传统与文化内涵</p>
+                <a href="tibetan.html" class="back-tibetan">返回藏族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="tibetan-main">
+        <div class="container">
+            <div class="tibetan-content">
+                <!-- 介绍部分 -->
+                <section class="tibetan-section">
+                    <h2>饮食文化概述</h2>
+                    <p>藏族饮食文化是藏族文化的重要组成部分，反映了藏族人民在青藏高原特殊环境下的生活方式和文化传承。藏族饮食文化具有独特的风格和特点，适应青藏高原的高寒气候和地理环境，同时也体现了藏族的宗教信仰和文化传统。</p>
+                    <p>藏族饮食文化的形成与青藏高原的自然环境密切相关。青藏高原海拔高，气候寒冷，氧气稀薄，生态环境独特，这些因素决定了藏族饮食的原料、制作方法和饮食习惯。藏族饮食以青稞、牦牛、绵羊等为主要原料，形成了以糌粑、酥油茶、青稞酒等为特色的饮食体系。</p>
+                </section>
+
+                <!-- 饮食特点 -->
+                <section class="tibetan-section">
+                    <h2>饮食特点</h2>
+                    <p>藏族饮食具有独特的特点，这些特点与青藏高原的自然环境和藏族的生活方式密切相关。</p>
+                    
+                    <h3>原料特点</h3>
+                    <ul>
+                        <li><strong>以青稞为主：</strong>青稞是青藏高原的主要粮食作物，适应高寒气候，是藏族饮食的主要原料。</li>
+                        <li><strong>以畜牧业产品为主：</strong>牦牛、绵羊等是青藏高原的主要牲畜，其肉、奶、皮等是藏族饮食的重要原料。</li>
+                        <li><strong>野生植物资源：</strong>青藏高原拥有丰富的野生植物资源，如冬虫夏草、雪莲、蕨麻等，这些也是藏族饮食的重要原料。</li>
+                        <li><strong>适应高寒气候：</strong>藏族饮食的原料大多具有高热量、高脂肪、高蛋白的特点，能够适应青藏高原的高寒气候。</li>
+                    </ul>
+                    
+                    <h3>制作特点</h3>
+                    <ul>
+                        <li><strong>简单粗犷：</strong>藏族饮食的制作方法相对简单粗犷，注重食物的营养价值和热量，而不是精细的制作工艺。</li>
+                        <li><strong>烧烤和炖煮：</strong>藏族饮食的制作方法主要以烧烤和炖煮为主，如烤羊肉、煮牛肉等。</li>
+                        <li><strong>发酵食品：</strong>藏族饮食中有许多发酵食品，如青稞酒、酸奶等，这些食品不仅美味可口，而且易于消化。</li>
+                        <li><strong>风干食品：</strong>藏族饮食中有许多风干食品，如风干牛肉、风干羊肉等，这些食品便于保存，是藏族人民的传统食品。</li>
+                    </ul>
+                    
+                    <h3>口味特点</h3>
+                    <ul>
+                        <li><strong>偏咸：</strong>藏族饮食的口味偏咸，这是因为青藏高原海拔高，人体需要更多的盐分来维持生理平衡。</li>
+                        <li><strong>偏油腻：</strong>藏族饮食的口味偏油腻，这是因为青藏高原气候寒冷，人体需要更多的脂肪来提供热量。</li>
+                        <li><strong>喜欢乳制品：</strong>藏族饮食中乳制品的比例较高，如酥油、酸奶、奶酪等，这些食品营养丰富，易于消化。</li>
+                        <li><strong>喜欢辛辣：</strong>藏族饮食中也有一些辛辣的食品，如辣椒、花椒等，这些食品能够增加食欲，驱寒保暖。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统食物 -->
+                <section class="tibetan-section">
+                    <h2>传统食物</h2>
+                    <p>藏族有许多传统食物，这些食物具有独特的风味和营养价值，是藏族饮食文化的重要组成部分。</p>
+                    
+                    <h3>主食</h3>
+                    <ul>
+                        <li><strong>糌粑：</strong>藏族的主要主食，由青稞面制成。制作方法是将青稞炒熟后磨成面，然后用酥油茶或青稞酒拌成面团食用。糌粑营养丰富，易于消化，是藏族人民的传统主食。</li>
+                        <li><strong>青稞饼：</strong>由青稞面制成的饼，通常在火上烤制而成，口感香脆，是藏族人民的传统食品。</li>
+                        <li><strong>青稞粥：</strong>由青稞煮成的粥，口感清淡，营养丰富，是藏族人民的传统食品。</li>
+                    </ul>
+                    
+                    <h3>饮品</h3>
+                    <ul>
+                        <li><strong>酥油茶：</strong>藏族的传统饮品，由酥油、茶、盐等原料制成。制作方法是将茶叶煮成浓茶，然后加入酥油和盐，用茶桶搅拌均匀后饮用。酥油茶味道浓郁，能够提供充足的热量，是藏族人民的传统饮品。</li>
+                        <li><strong>青稞酒：</strong>藏族的传统酒类，由青稞发酵而成。青稞酒味道醇香，度数较低，是藏族人民的传统饮品，也是重要的社交媒介。</li>
+                        <li><strong>奶茶：</strong>由牛奶和茶制成的饮品，口感香甜，营养丰富，是藏族人民的传统饮品。</li>
+                    </ul>
+                    
+                    <h3>副食</h3>
+                    <ul>
+                        <li><strong>牦牛肉：</strong>藏族的主要肉食，肉质鲜美，营养丰富，是藏族人民的传统食品。</li>
+                        <li><strong>绵羊肉：</strong>藏族的重要肉食，肉质细嫩，味道鲜美，是藏族人民的传统食品。</li>
+                        <li><strong>酸奶：</strong>藏族的传统食品，由牛奶发酵而成。酸奶味道酸甜可口，营养丰富，是藏族人民的传统食品。</li>
+                        <li><strong>奶酪：</strong>藏族的传统食品，由牛奶制成。奶酪味道浓郁，营养丰富，是藏族人民的传统食品。</li>
+                        <li><strong>酥油：</strong>藏族的传统食品，由牛奶提炼而成。酥油味道浓郁，营养丰富，是藏族人民的传统食品，也是酥油茶的重要原料。</li>
+                    </ul>
+                    
+                    <h3>特色食品</h3>
+                    <ul>
+                        <li><strong>手抓肉：</strong>藏族的传统特色食品，将牦牛肉或绵羊肉切成大块，煮熟后用手抓食，味道鲜美。</li>
+                        <li><strong>血肠：</strong>藏族的传统特色食品，将动物的血和内脏混合后灌入肠衣中，煮熟后食用，味道独特。</li>
+                        <li><strong>风干肉：</strong>藏族的传统特色食品，将牦牛肉或绵羊肉切成条状，风干后食用，味道香脆。</li>
+                        <li><strong>蕨麻米饭：</strong>藏族的传统特色食品，由蕨麻、大米、酥油等原料制成，味道香甜，营养丰富。</li>
+                        <li><strong>人参果：</strong>藏族的传统特色食品，实际上是蕨麻的块根，味道香甜，营养丰富，是藏族人民的传统食品。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食习惯 -->
+                <section class="tibetan-section">
+                    <h2>饮食习惯</h2>
+                    <p>藏族人民有着独特的饮食习惯，这些习惯与青藏高原的自然环境和藏族的文化传统密切相关。</p>
+                    
+                    <h3>日常饮食习惯</h3>
+                    <ul>
+                        <li><strong>一日三餐：</strong>藏族人民的日常饮食通常为一日三餐，早餐、午餐和晚餐。</li>
+                        <li><strong>早餐：</strong>藏族人民的早餐通常比较简单，主要吃糌粑、喝酥油茶或奶茶。</li>
+                        <li><strong>午餐：</strong>藏族人民的午餐通常比较丰盛，主要吃米饭、面条、肉类等。</li>
+                        <li><strong>晚餐：</strong>藏族人民的晚餐通常比较简单，主要吃糌粑、喝酥油茶或奶茶。</li>
+                        <li><strong>加餐：</strong>藏族人民在两餐之间通常会有一些加餐，如吃酸奶、奶酪、青稞饼等。</li>
+                    </ul>
+                    
+                    <h3>节日饮食习惯</h3>
+                    <ul>
+                        <li><strong>藏历新年：</strong>藏历新年是藏族最重要的传统节日，在这个节日里，藏族人民会准备丰盛的食品，如手抓肉、血肠、青稞酒等。</li>
+                        <li><strong>雪顿节：</strong>雪顿节是藏族的传统节日，在这个节日里，藏族人民会吃酸奶、看藏戏等。</li>
+                        <li><strong>望果节：</strong>望果节是藏族的传统节日，在这个节日里，藏族人民会吃青稞酒、手抓肉等，庆祝丰收。</li>
+                        <li><strong>酥油灯节：</strong>酥油灯节是藏族的传统节日，在这个节日里，藏族人民会吃酥油、糌粑等。</li>
+                    </ul>
+                    
+                    <h3>宗教饮食习惯</h3>
+                    <ul>
+                        <li><strong>素食：</strong>在宗教节日或宗教活动期间，藏族人民通常会吃素食，如糌粑、蔬菜等。</li>
+                        <li><strong>禁食：</strong>在某些宗教节日或宗教活动期间，藏族人民会禁食，以表达对宗教的虔诚。</li>
+                        <li><strong>布施：</strong>藏族人民会将食物布施给僧侣或穷人，以积累功德。</li>
+                        <li><strong>祭祀：</strong>藏族人民会将食物作为祭品，祭祀神灵或祖先。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食礼仪 -->
+                <section class="tibetan-section">
+                    <h2>饮食礼仪</h2>
+                    <p>藏族人民在饮食方面有着丰富的礼仪，这些礼仪体现了藏族的文化传统和社会规范。</p>
+                    
+                    <h3>用餐礼仪</h3>
+                    <ul>
+                        <li><strong>座位安排：</strong>在藏族家庭中，座位的安排通常是按照辈分和地位来确定的，长辈或地位高的人坐在上位，晚辈或地位低的人坐在下位。</li>
+                        <li><strong>进食顺序：</strong>在藏族家庭中，进食的顺序通常是先给长辈或地位高的人盛饭，然后再给晚辈或地位低的人盛饭。</li>
+                        <li><strong>使用餐具：</strong>藏族人民通常使用手或勺子进食，而不是筷子。在一些地区，藏族人民也会使用刀叉进食。</li>
+                        <li><strong>进食方式：</strong>藏族人民通常坐在地上或矮桌旁进食，进食时保持安静，不随意交谈。</li>
+                    </ul>
+                    
+                    <h3>待客礼仪</h3>
+                    <ul>
+                        <li><strong>献茶：</strong>客人来访时，主人会先给客人献上酥油茶或奶茶，表示欢迎。</li>
+                        <li><strong>敬酒：</strong>客人来访时，主人会向客人敬酒，通常是青稞酒，表示敬意。</li>
+                        <li><strong>敬食：</strong>客人来访时，主人会向客人敬食，如手抓肉、糌粑等，表示热情好客。</li>
+                        <li><strong>待客丰盛：</strong>藏族人民热情好客，客人来访时，会准备丰盛的食品，以表示对客人的尊重和欢迎。</li>
+                    </ul>
+                    
+                    <h3>饮食禁忌</h3>
+                    <ul>
+                        <li><strong>禁食马肉、驴肉、狗肉：</strong>藏族人民认为这些动物是不洁的，因此禁食。</li>
+                        <li><strong>禁食鱼、虾等水生动物：</strong>在一些地区，藏族人民禁食鱼、虾等水生动物，认为这些动物是不洁的。</li>
+                        <li><strong>禁食大蒜：</strong>藏族人民认为大蒜是不洁的，因此在宗教活动期间禁食。</li>
+                        <li><strong>饮食卫生：</strong>藏族人民注重饮食卫生，不吃变质的食物，不喝不干净的水。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化的现代变迁 -->
+                <section class="tibetan-section">
+                    <h2>饮食文化的现代变迁</h2>
+                    <p>随着社会的发展和变迁，藏族饮食文化也在不断变化，吸收了现代文化元素，同时也保持了传统特色。</p>
+                    
+                    <h3>现代因素的影响</h3>
+                    <ul>
+                        <li><strong>食品种类的丰富：</strong>随着交通的便利和经济的发展，藏族人民的食品种类越来越丰富，不仅有传统的藏族食品，还有来自其他地区的食品。</li>
+                        <li><strong>饮食方式的变化：</strong>随着生活节奏的加快，藏族人民的饮食方式也在发生变化，越来越多的人开始选择快餐、外卖等便捷的饮食方式。</li>
+                        <li><strong>饮食观念的变化：</strong>随着教育水平的提高和健康意识的增强，藏族人民的饮食观念也在发生变化，越来越注重饮食的营养均衡和健康。</li>
+                        <li><strong>食品加工技术的进步：</strong>随着食品加工技术的进步，藏族传统食品的加工方式也在发生变化，如使用现代设备加工糌粑、青稞酒等。</li>
+                    </ul>
+                    
+                    <h3>传统与现代的融合</h3>
+                    <ul>
+                        <li><strong>传统食品的创新：</strong>藏族人民在保持传统食品特色的同时，也在不断创新，如开发出各种口味的糌粑、青稞酒等。</li>
+                        <li><strong>现代食品的本土化：</strong>藏族人民在吸收现代食品的同时，也在将其本土化，如将披萨、汉堡等现代食品与藏族传统食品相结合。</li>
+                        <li><strong>饮食文化的传承：</strong>藏族人民注重饮食文化的传承，通过家庭、学校、社会等多种渠道，将传统的饮食文化传递给下一代。</li>
+                        <li><strong>饮食文化的保护：</strong>藏族人民注重饮食文化的保护，通过申报非物质文化遗产、举办饮食文化节等方式，保护和弘扬传统的饮食文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化的文化意义 -->
+                <section class="tibetan-section">
+                    <h2>饮食文化的文化意义</h2>
+                    <p>藏族饮食文化不仅是一种生活方式，也是一种文化现象，具有深远的文化意义。</p>
+                    
+                    <div class="food-features-grid">
+                        <div class="food-feature-item">
+                            <h5>文化传承</h5>
+                            <p>藏族饮食文化是藏族文化的重要载体，通过饮食文化，藏族的历史、宗教、艺术等文化元素得以传承和发展。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>民族认同</h5>
+                            <p>藏族饮食文化是藏族民族认同的重要标志，体现了藏族人民的共同文化特征和民族精神。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>社会和谐</h5>
+                            <p>藏族饮食文化中的礼仪规范，有助于维护社会秩序，促进社会和谐，增强民族凝聚力。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>文化交流</h5>
+                            <p>藏族饮食文化是藏族与其他民族文化交流的重要桥梁，促进了各民族之间的相互了解和友谊。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>饮食文化与宗教信仰</h3>
+                    <p>藏族饮食文化与宗教信仰密切相关，体现了藏族人民的宗教观念和精神追求。</p>
+                    <ul>
+                        <li><strong>宗教禁忌：</strong>藏族饮食文化中的许多禁忌都与宗教信仰有关，如禁食某些动物、在宗教活动期间禁食等。</li>
+                        <li><strong>宗教仪式：</strong>藏族饮食文化中的许多仪式都与宗教信仰有关，如祭祀、布施等。</li>
+                        <li><strong>宗教象征：</strong>藏族饮食文化中的许多食品都具有宗教象征意义，如酥油、青稞酒等，是宗教仪式的重要用品。</li>
+                        <li><strong>精神追求：</strong>藏族饮食文化不仅满足了人们的生理需求，也满足了人们的精神需求，体现了藏族人民对美好生活的向往和追求。</li>
+                    </ul>
+                    
+                    <h3>饮食文化与自然环境</h3>
+                    <p>藏族饮食文化与自然环境密切相关，体现了藏族人民对自然环境的适应和尊重。</p>
+                    <ul>
+                        <li><strong>适应自然：</strong>藏族饮食文化是藏族人民适应青藏高原自然环境的结果，如以青稞、牦牛等为主要原料，适应了青藏高原的高寒气候。</li>
+                        <li><strong>利用自然：</strong>藏族饮食文化充分利用了青藏高原的自然资源，如野生植物、畜牧业产品等，体现了藏族人民对自然环境的利用能力。</li>
+                        <li><strong>尊重自然：</strong>藏族饮食文化体现了藏族人民对自然环境的尊重，如合理利用自然资源、保护生态环境等。</li>
+                        <li><strong>人与自然和谐：</strong>藏族饮食文化体现了藏族人民追求人与自然和谐相处的理念，如通过宗教信仰、风俗习惯等方式，表达对自然环境的敬畏和感恩。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

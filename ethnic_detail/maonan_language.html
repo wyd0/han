@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毛南族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 毛南族文化页面特定样式 */
+        .maonan-header {
+            background-image: url('images/毛南族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .maonan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .maonan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .maonan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .maonan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .maonan-section {
+            margin-bottom: 80px;
+        }
+        
+        .maonan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .maonan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .maonan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .maonan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .maonan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .maonan-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .maonan-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .maonan-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .maonan-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .maonan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="maonan-header">
+        <div class="container">
+            <div class="maonan-header-content">
+                <h1>毛南族语言文字</h1>
+                <p>独特的语言体系与文化传承</p>
+                <a href="maonan.html" class="back-difference">返回毛南族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="maonan-main">
+        <div class="container">
+            <div class="maonan-content">
+                <!-- 语言概述 -->
+                <section class="maonan-section">
+                    <h2>语言概述</h2>
+                    <p>毛南族有自己的语言，属于汉藏语系壮侗语族侗水语支。毛南语与同语支的侗语、水语、仫佬语等语言有密切的亲属关系，同时也受到汉语的深刻影响。</p>
+                    <p>毛南语是毛南族人民在长期的生产生活中创造和发展起来的，是毛南族文化的重要载体。通过毛南语，毛南族人民传承着自己的历史、文化、信仰和价值观。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="maonan-section">
+                    <h3>语言特点</h3>
+                    <p>毛南语具有以下主要特点：</p>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>毛南语的语音系统比较复杂，有丰富的声母、韵母和声调。毛南语有8个声调，比汉语普通话的声调多，这使得毛南语的语音更加丰富多变。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>毛南语的词汇非常丰富，反映了毛南族人民的生产生活、宗教信仰、风俗习惯等各个方面。毛南语中有大量的固有词汇，同时也吸收了不少汉语借词。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>毛南语的语法结构与汉语有较大的差异。毛南语的语序是主语-谓语-宾语，与汉语相同，但在修饰语的位置、量词的使用等方面与汉语有所不同。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>方言差异</h4>
+                            <p>毛南语内部存在一定的方言差异，主要分为南片和北片两个方言区。南片方言主要分布在环江县南部，北片方言主要分布在环江县北部。两个方言区的语音和词汇有一些差异，但基本可以互通。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="maonan-section">
+                    <h3>文字使用</h3>
+                    <p>毛南族没有本民族的文字，历史上主要使用汉字。毛南族人民用汉字记录毛南族的历史、文化和民间文学，形成了丰富的书面文献。</p>
+                    <p>在现代社会中，毛南族人民普遍使用汉语，汉语成为毛南族人民与其他民族交流的重要工具。同时，毛南族人民也在努力保护和传承毛南语，通过各种方式促进毛南语的使用和发展。</p>
+                </section>
+
+                <!-- 语言传承 -->
+                <section class="maonan-section">
+                    <h3>语言传承</h3>
+                    <p>毛南语是毛南族文化的重要载体，对于毛南族的文化传承具有重要意义。为了保护和传承毛南语，毛南族人民采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>家庭传承：</strong>在家庭中，父母会向子女传授毛南语，使毛南语成为家庭成员之间交流的重要工具。</li>
+                        <li><strong>社区传承：</strong>在毛南族聚居的社区中，人们会使用毛南语进行日常交流，保持毛南语的活力。</li>
+                        <li><strong>学校教育：</strong>在一些毛南族地区的学校中，开设了毛南语课程，向学生传授毛南语知识和毛南族文化。</li>
+                        <li><strong>文化活动：</strong>通过举办各种文化活动，如毛南族民歌比赛、毛南族故事讲述等，促进毛南语的使用和传承。</li>
+                        <li><strong>语言研究：</strong>学者们对毛南语进行了深入的研究，出版了毛南语词典、语法书等著作，为毛南语的保护和传承提供了学术支持。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="maonan-section">
+                    <h3>语言与文化</h3>
+                    <p>毛南语与毛南族文化之间存在着密切的关系。毛南语是毛南族文化的重要载体，毛南族的文化通过毛南语得以传承和发展。</p>
+                    <p>毛南族的民间文学，如民间传说、民间故事、歌谣、谚语等，都是通过毛南语口口相传的。这些民间文学作品反映了毛南族人民的生活、思想和情感，是毛南族文化的重要组成部分。</p>
+                    <p>毛南族的宗教信仰、风俗习惯、传统节日等也与毛南语密切相关。宗教仪式中的祈祷词、咒语，传统节日中的祝词、歌词，都是用毛南语表达的，体现了毛南族文化的独特魅力。</p>
+                </section>
+
+                <!-- 语言的现代变迁 -->
+                <section class="maonan-section">
+                    <h3>语言的现代变迁</h3>
+                    <p>随着社会的发展和进步，毛南语的使用情况也发生了一些变化。在现代社会中，毛南族人民的生活方式发生了很大的变化，与外界的交流日益频繁，汉语的使用范围越来越广，毛南语的使用范围受到了一定的影响。</p>
+                    <p>然而，毛南族人民并没有放弃自己的语言。相反，他们更加重视毛南语的保护和传承，通过各种方式促进毛南语的使用和发展。在毛南族聚居的地区，毛南语仍然是人们日常交流的重要工具，毛南族的文化传统通过毛南语得以保持和传承。</p>
+                    <p>同时，毛南族人民也在积极适应现代社会的发展需求，努力提高自己的汉语水平，以便更好地与外界交流和沟通。毛南族人民在保持自己语言特色的同时，也在不断吸收新的词汇和表达方式，使毛南语更加丰富和完善。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

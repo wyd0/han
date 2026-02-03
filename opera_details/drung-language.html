@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>独龙族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 独龙族语言文字页面特定样式 */
+        .language-header {
+            background-image: url('images/独龙族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-drung {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-drung:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .language-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .language-section.visible .feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .language-section.visible .feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .language-section.visible .feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .language-section.visible .feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .feature-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .language-header h1 {
+                font-size: 36px;
+            }
+            
+            .language-header p {
+                font-size: 18px;
+            }
+            
+            .language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="language-header">
+        <div class="container">
+            <div class="language-header-content">
+                <h1>独龙族语言文字</h1>
+                <p>独特的汉藏语系藏缅语族语言</p>
+                <a href="drung.html" class="back-drung">返回独龙族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="language-main">
+        <div class="container">
+            <div class="language-content">
+                <!-- 语言概述 -->
+                <section class="language-section">
+                    <h2>语言概述</h2>
+                    <p>独龙族有自己的语言，属于汉藏语系藏缅语族，是独龙族人民在长期的历史发展过程中创造和使用的语言。独龙族语与同属藏缅语族的怒族语、傈僳族语等语言有着密切的联系，同时也有自己独特的特点。</p>
+                    <p>独龙族人民在日常生活中主要使用独龙族语进行交流，同时也普遍使用汉语，体现了各民族之间的文化交流和融合。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="language-section">
+                    <h2>语言特点</h2>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h5>语音特点</h5>
+                            <p>独龙族语的语音系统丰富，有较多的辅音和元音。声调系统较为复杂，一般有3-4个声调，声调的变化会影响词汇的意义。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>词汇特点</h5>
+                            <p>独龙族语的词汇丰富，包括固有词汇和外来词汇。固有词汇反映了独龙族的日常生活和文化传统，外来词汇则来自汉语、傈僳语等语言。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>语法特点</h5>
+                            <p>独龙族语的语法属于黏着语类型，通过在词干后添加各种后缀来表示语法意义，如格、数、时态等。基本句式为SOV（主语-宾语-谓语）结构。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="language-section">
+                    <h2>文字使用</h2>
+                    <p>独龙族没有本民族的文字，历史上曾经使用过藏文，现通用汉字。在新中国成立前，独龙族人民主要通过口耳相传的方式传承本民族的文化和历史。</p>
+                    <p>新中国成立后，为了促进独龙族的文化教育事业，政府采取了一系列措施，如开办学校、推广汉语教学、培养本民族的教师等。同时，也有学者对独龙族语进行了研究和记录，为保护和传承独龙族语言文化做出了贡献。</p>
+                </section>
+
+                <!-- 语言现状 -->
+                <section class="language-section">
+                    <h2>语言现状</h2>
+                    <p>随着社会的发展和各民族之间交流的加深，独龙族语的使用情况发生了一些变化：</p>
+                    <ul>
+                        <li><strong>使用范围：</strong>在独龙族聚居的地区，如云南省贡山独龙族怒族自治县的独龙江乡，独龙族语仍然是当地人民日常生活中的主要交流语言。</li>
+                        <li><strong>双语现象：</strong>由于汉语的广泛使用和教育的普及，许多独龙族人民，尤其是年轻人，都能够熟练掌握汉语，成为双语使用者。</li>
+                        <li><strong>语言保护：</strong>为了保护和传承独龙族语言，政府和相关机构采取了一系列措施，如建立语言资源库、记录民间故事和歌谣、培养语言传承人等。</li>
+                        <li><strong>挑战与机遇：</strong>现代社会的发展给独龙族语言带来了挑战，同时也带来了机遇。通过语言保护和推广，可以让更多的人了解和认识独龙族语言文化，促进各民族之间的文化交流。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="language-section">
+                    <h2>语言与文化</h2>
+                    <p>独龙族语言与独龙族文化之间存在着密切的关系：</p>
+                    <ul>
+                        <li><strong>文化载体：</strong>独龙族语是独龙族文化的重要载体，通过语言，独龙族的历史、文学、艺术、风俗习惯等文化遗产得以传承和发展。</li>
+                        <li><strong>民族认同：</strong>独龙族语是独龙族民族认同的重要标志之一，使用独龙族语有助于增强独龙族人民的民族凝聚力和认同感。</li>
+                        <li><strong>文化交流：</strong>独龙族语也是独龙族与其他民族之间文化交流的桥梁，通过语言的交流，各民族之间的文化相互影响、相互融合。</li>
+                        <li><strong>学术价值：</strong>独龙族语对于研究汉藏语系藏缅语族语言的历史演变、各民族语言的相互影响等具有重要的学术价值。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

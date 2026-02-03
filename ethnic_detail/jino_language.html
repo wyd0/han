@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基诺族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 基诺族语言文字页面特定样式 */
+        .jino-header {
+            background-image: url('images/基诺族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jino-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jino-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jino-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-jino {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-jino:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jino-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jino-section {
+            margin-bottom: 80px;
+        }
+        
+        .jino-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jino-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jino-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jino-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jino-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jino-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jino-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jino-header-content .back-jino {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jino-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .jino-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jino-header">
+        <div class="container">
+            <div class="jino-header-content">
+                <h1>基诺族语言文字</h1>
+                <p>深入了解基诺族的语言特点和文字发展</p>
+                <a href="jino.html" class="back-jino">返回基诺族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="jino-main">
+        <div class="container">
+            <div class="jino-content">
+                <!-- 语言概述 -->
+                <section class="jino-section">
+                    <h2>语言概述</h2>
+                    <p>基诺族有自己的语言，属于汉藏语系藏缅语族彝语支。基诺语与彝族、哈尼族等语言有一定的亲缘关系，这反映了这些民族在历史上的密切联系。</p>
+                    <p>基诺语是基诺族人民日常交流的主要工具，也是传承民族文化的重要载体。通过基诺语，基诺族的历史、文化、传统得以代代相传。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="jino-section">
+                    <h3>语言特点</h3>
+                    <ul>
+                        <li><strong>语音系统：</strong>基诺语的语音系统较为复杂，包含多个声调，声调的变化会影响词语的意义。</li>
+                        <li><strong>词汇构成：</strong>基诺语的词汇丰富，有大量与日常生活、生产劳动、宗教信仰相关的词汇。</li>
+                        <li><strong>语法结构：</strong>基诺语的语法结构与汉语有较大差异，通常采用主宾谓的语序。</li>
+                        <li><strong>借词现象：</strong>由于与其他民族的交流，基诺语中吸收了一些汉语、傣语等语言的借词。</li>
+                    </ul>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="jino-section">
+                    <h3>文字使用</h3>
+                    <p>历史上基诺族没有本民族文字，通用汉字。在与汉族、傣族等民族的交流中，基诺族人民逐渐学会了使用汉字来记录和传递信息。</p>
+                    <p>新中国成立后，党和政府十分重视少数民族语言文字的保护和发展。虽然目前基诺族还没有正式的民族文字，但在一些场合会使用汉字来拼写基诺语，以保存民族语言。</p>
+                </section>
+
+                <!-- 语言保护 -->
+                <section class="jino-section">
+                    <h3>语言保护</h3>
+                    <p>随着社会的发展和民族间交流的加强，基诺语的使用面临着一些挑战。为了保护和传承基诺语，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li>在基诺族聚居地区的学校中开展双语教学，既教授汉语，也教授基诺语。</li>
+                        <li>组织语言专家对基诺语进行记录和研究，建立语言数据库。</li>
+                        <li>通过广播、电视等媒体推广基诺语节目，增强民族语言的活力。</li>
+                        <li>鼓励基诺族青少年学习和使用本民族语言，培养语言传承意识。</li>
+                    </ul>
+                    <p>这些措施对于保护基诺族的语言文化起到了重要作用，使得基诺语在现代社会中依然保持着生命力。</p>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="jino-section">
+                    <h3>语言与文化</h3>
+                    <p>基诺语不仅仅是一种交流工具，更是基诺族文化的重要组成部分。通过基诺语，我们可以了解基诺族的：</p>
+                    <ul>
+                        <li><strong>民间文学：</strong>基诺族的神话、传说、故事、民歌等都通过基诺语传承下来。</li>
+                        <li><strong>宗教信仰：</strong>基诺族的宗教仪式、咒语、祈祷词等都使用基诺语。</li>
+                        <li><strong>传统知识：</strong>关于自然环境、动植物、医药等方面的传统知识通过基诺语代代相传。</li>
+                        <li><strong>社会习俗：</strong>基诺族的礼仪、禁忌、节日等社会习俗也体现在基诺语的使用中。</li>
+                    </ul>
+                    <p>因此，保护和发展基诺语，对于传承和弘扬基诺族的优秀传统文化具有重要意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

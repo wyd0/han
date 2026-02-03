@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>达斡尔族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 动画关键帧定义 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 达斡尔族语言文字页面特定样式 */
+        .daur-language-header {
+            background-image: url('images/传统工艺.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .daur-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .daur-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .daur-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .daur-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-daur {
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .daur-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .daur-language-section {
+            margin-bottom: 80px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        .daur-language-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .daur-language-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .daur-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .daur-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .daur-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .daur-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .daur-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 返回达斡尔族文化按钮样式 */
+        .back-daur {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-daur:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .daur-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .daur-language-header p {
+                font-size: 18px;
+            }
+            
+            .daur-language-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="daur-language-header">
+        <div class="container">
+            <div class="daur-language-header-content">
+                <h1>达斡尔族语言文字</h1>
+                <p>承载民族历史与文化的语言瑰宝</p>
+                <a href="daur.html" class="back-daur">返回达斡尔族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="daur-language-main">
+        <div class="container">
+            <div class="daur-language-content">
+                <!-- 语言文字概述 -->
+                <section class="daur-language-section">
+                    <h2>语言文字概述</h2>
+                    <p>达斡尔族拥有自己独特的语言——达斡尔语，属于阿尔泰语系蒙古语族。虽然达斡尔族没有自己的文字，但在历史上曾经使用过满文，现在通用汉文。达斡尔语是达斡尔族文化的重要载体，承载着达斡尔族的历史、文化、价值观等。</p>
+                </section>
+                
+                <!-- 达斡尔语的特点 -->
+                <section class="daur-language-section">
+                    <h2>达斡尔语的特点</h2>
+                    <p>达斡尔语具有独特的语音、词汇和语法特点，是达斡尔族人民智慧的结晶。</p>
+                    
+                    <h3>语音特点</h3>
+                    <ul>
+                        <li><strong>元音系统：</strong>达斡尔语有8个基本元音，包括a、e、i、o、u、ü、ö、ə。这些元音有长短之分，长元音用双写表示。</li>
+                        <li><strong>辅音系统：</strong>达斡尔语有24个辅音，包括塞音、擦音、塞擦音、鼻音、边音、颤音等。</li>
+                        <li><strong>重音：</strong>达斡尔语的重音一般落在词的第一个音节上。</li>
+                        <li><strong>语调：</strong>达斡尔语的语调比较平缓，没有明显的升降变化。</li>
+                    </ul>
+                    
+                    <h3>词汇特点</h3>
+                    <ul>
+                        <li><strong>词汇构成：</strong>达斡尔语的词汇主要由词根和词缀构成。词根是词汇的核心，词缀是附加在词根上的构词成分。</li>
+                        <li><strong>借词：</strong>达斡尔语中有大量的借词，主要来自汉语、满语、蒙古语、俄语等。这些借词反映了达斡尔族与其他民族的交流和融合。</li>
+                        <li><strong>词汇分类：</strong>达斡尔语的词汇可以分为名词、动词、形容词、副词、代词、数词、量词、介词、连词、助词、叹词等十一个词类。</li>
+                    </ul>
+                    
+                    <h3>语法特点</h3>
+                    <ul>
+                        <li><strong>语序：</strong>达斡尔语的基本语序是主语-宾语-谓语，这与汉语的主语-谓语-宾语语序不同。</li>
+                        <li><strong>格变化：</strong>达斡尔语的名词、代词有格的变化，主要包括主格、宾格、领格、与格、离格等。</li>
+                        <li><strong>时态：</strong>达斡尔语的动词有时态变化，主要包括现在时、过去时、将来时等。</li>
+                        <li><strong>语态：</strong>达斡尔语的动词有语态变化，主要包括主动态、被动态等。</li>
+                        <li><strong>语气：</strong>达斡尔语的动词有语气变化，主要包括陈述语气、疑问语气、祈使语气、虚拟语气等。</li>
+                    </ul>
+                </section>
+                
+                <!-- 达斡尔语的方言 -->
+                <section class="daur-language-section">
+                    <h2>达斡尔语的方言</h2>
+                    <p>由于地理分布和历史原因，达斡尔语形成了多个方言，主要包括布特哈方言、齐齐哈尔方言、海拉尔方言和新疆方言。</p>
+                    
+                    <h3>布特哈方言</h3>
+                    <p>布特哈方言主要分布在内蒙古自治区莫力达瓦达斡尔族自治旗、鄂温克族自治旗等地。这是达斡尔语最古老、最纯正的方言，保留了达斡尔语的许多原始特征。</p>
+                    
+                    <h3>齐齐哈尔方言</h3>
+                    <p>齐齐哈尔方言主要分布在黑龙江省齐齐哈尔市梅里斯达斡尔族区、富裕县、嫩江县等地。由于与汉族的长期接触，齐齐哈尔方言中有较多的汉语借词。</p>
+                    
+                    <h3>海拉尔方言</h3>
+                    <p>海拉尔方言主要分布在内蒙古自治区呼伦贝尔市海拉尔区等地。由于与蒙古族的长期接触，海拉尔方言中有较多的蒙古语借词。</p>
+                    
+                    <h3>新疆方言</h3>
+                    <p>新疆方言主要分布在新疆维吾尔自治区塔城地区的塔城市、额敏县、乌苏市等地。由于与哈萨克族、维吾尔族等民族的长期接触，新疆方言中有较多的哈萨克语、维吾尔语借词。</p>
+                </section>
+                
+                <!-- 达斡尔族的文字使用 -->
+                <section class="daur-language-section">
+                    <h2>达斡尔族的文字使用</h2>
+                    <p>达斡尔族没有自己的文字，历史上曾经使用过满文，现在通用汉文。</p>
+                    
+                    <h3>满文的使用</h3>
+                    <p>清朝时期，达斡尔族曾经使用过满文。满文是清朝的官方文字，达斡尔族的一些文人学者通过学习满文，翻译了大量的满文书籍，促进了达斡尔族文化的发展。</p>
+                    
+                    <h3>汉文的使用</h3>
+                    <p>随着清朝的灭亡和汉族文化的影响，达斡尔族逐渐开始使用汉文。现在，汉文已经成为达斡尔族的主要文字，达斡尔族的学校教育、出版印刷等都使用汉文。</p>
+                    
+                    <h3>文字改革尝试</h3>
+                    <p>20世纪50年代，中国政府曾经为达斡尔族创制了以拉丁字母为基础的拼音文字，但由于各种原因，没有得到广泛推广和使用。</p>
+                </section>
+                
+                <!-- 达斡尔语的现状 -->
+                <section class="daur-language-section">
+                    <h2>达斡尔语的现状</h2>
+                    <p>随着社会的发展和汉族文化的影响，达斡尔语的使用范围逐渐缩小，面临着传承和保护的挑战。</p>
+                    
+                    <h3>使用情况</h3>
+                    <ul>
+                        <li><strong>年龄分布：</strong>达斡尔语的使用主要集中在中老年人中，年轻人和儿童使用达斡尔语的比例较低。</li>
+                        <li><strong>地区分布：</strong>达斡尔语的使用主要集中在达斡尔族聚居区，如内蒙古自治区莫力达瓦达斡尔族自治旗、黑龙江省齐齐哈尔市梅里斯达斡尔族区等地。</li>
+                        <li><strong>使用场合：</strong>达斡尔语主要在家庭、亲友聚会等非正式场合使用，在学校、工作单位等正式场合使用较少。</li>
+                    </ul>
+                    
+                    <h3>面临的挑战</h3>
+                    <ul>
+                        <li><strong>语言环境的变化：</strong>随着城市化进程的加快，达斡尔族人民逐渐分散居住，达斡尔语的使用环境受到了破坏。</li>
+                        <li><strong>汉语的影响：</strong>随着汉族文化的影响，汉语已经成为达斡尔族人民的主要交流语言，达斡尔语的使用范围逐渐缩小。</li>
+                        <li><strong>传承机制的缺失：</strong>由于没有自己的文字，达斡尔语的传承主要依靠口耳相传，这种传承方式容易受到外界因素的影响。</li>
+                        <li><strong>年轻一代的语言态度：</strong>年轻一代的达斡尔族人民对达斡尔语的重视程度不够，学习和使用达斡尔语的积极性不高。</li>
+                    </ul>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>语言教育：</strong>在达斡尔族聚居区的学校中开设达斡尔语课程，培养年轻一代的达斡尔语能力。</li>
+                        <li><strong>语言研究：</strong>加强对达斡尔语的研究，记录和整理达斡尔语的语音、词汇、语法等资料。</li>
+                        <li><strong>文化活动：</strong>举办各种达斡尔族文化活动，如达斡尔语演讲比赛、达斡尔族民歌比赛等，促进达斡尔语的使用和传承。</li>
+                        <li><strong>媒体传播：</strong>利用广播、电视、网络等媒体，传播达斡尔语和达斡尔族文化。</li>
+                    </ul>
+                </section>
+                
+                <!-- 达斡尔语的文化意义 -->
+                <section class="daur-language-section">
+                    <h2>达斡尔语的文化意义</h2>
+                    <p>达斡尔语是达斡尔族文化的重要组成部分，具有深远的文化意义。</p>
+                    
+                    <h3>历史记忆的载体</h3>
+                    <p>达斡尔语承载着达斡尔族的历史记忆，通过达斡尔语，我们可以了解达斡尔族的起源、发展和变迁。</p>
+                    
+                    <h3>文化传承的工具</h3>
+                    <p>达斡尔语是达斡尔族文化传承的重要工具，通过达斡尔语，达斡尔族的神话传说、民间故事、民歌民谣等得到了传承和弘扬。</p>
+                    
+                    <h3>民族认同的标志</h3>
+                    <p>达斡尔语是达斡尔族民族认同的重要标志，通过使用达斡尔语，达斡尔族人民增强了彼此之间的联系和认同感，促进了民族的团结和稳定。</p>
+                    
+                    <h3>语言多样性的贡献</h3>
+                    <p>达斡尔语是中国语言多样性的重要组成部分，丰富了中国的语言宝库，为人类语言的研究和发展做出了贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

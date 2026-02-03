@@ -1,0 +1,457 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>婚姻礼仪 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 婚姻礼仪页面特定样式 */
+        body {
+            background-image: url('images/礼仪制度.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .marriage-header {
+            background-image: url('images/礼仪制度.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .marriage-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .marriage-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .marriage-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .marriage-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-ritual {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-ritual:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .marriage-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .marriage-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .marriage-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .marriage-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .marriage-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .marriage-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .marriage-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .marriage-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .marriage-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .marriage-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 婚姻流程步骤 */
+        .marriage-process {
+            counter-reset: step;
+            margin: 40px 0;
+        }
+        
+        .process-step {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .process-step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #c0392b;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .process-step h4 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .marriage-header h1 {
+                font-size: 36px;
+            }
+            
+            .marriage-header p {
+                font-size: 18px;
+            }
+            
+            .marriage-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 内部导航栏样式 */
+        .internal-nav {
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+        
+        .internal-nav .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .internal-nav .nav-links li {
+            margin: 0 10px;
+        }
+        
+        .internal-nav .nav-links a {
+            text-decoration: none;
+            color: #c0392b;
+            font-size: 16px;
+            font-family: 'SimSun', serif;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .internal-nav .nav-links a:hover {
+            background-color: #c0392b;
+            color: #fff;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="marriage-header">
+        <div class="container">
+            <div class="marriage-header-content">
+                <h1>婚姻礼仪</h1>
+                <p>中国汉族传统婚姻文化的深邃内涵</p>
+                <a href="ritual.html" class="back-ritual">返回礼仪分类</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 内部导航栏 -->
+    <section class="internal-nav">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="ritual_sacrifice.html">祭祀礼仪</a></li>
+                <li><a href="ritual_marriage.html">婚姻礼仪</a></li>
+                <li><a href="ritual_funeral.html">丧葬礼仪</a></li>
+                <li><a href="ritual_social.html">社交礼仪</a></li>
+                <li><a href="ritual_court.html">宫廷礼仪</a></li>
+                <li><a href="ritual_festival.html">节日礼仪</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="marriage-main">
+        <div class="container">
+            <div class="marriage-content">
+                <!-- 婚姻礼仪介绍 -->
+                <section class="marriage-section">
+                    <h2>婚姻礼仪介绍</h2>
+                    <p>婚姻礼仪是中国汉民族传统文化中最重要的组成部分之一，是中华民族在长期的历史发展过程中形成的婚姻仪式和习俗。它包括纳采、问名、纳吉、纳征、请期、亲迎等六个步骤，体现了对婚姻的重视和祝福。</p>
+                    <p>婚姻礼仪是汉族人民生活中的重要仪式，象征着家庭的建立和延续。它不仅是两个人的结合，更是两个家庭的结合，体现了中华儿女的家庭观念和社会责任感。婚姻礼仪的发展与中国的历史、文化、社会生活密切相关，每个时代都有其独特的婚姻礼仪和特点。</p>
+                </section>
+
+                <!-- 婚姻礼仪的起源 -->
+                <section class="marriage-section">
+                    <h2>婚姻礼仪的起源</h2>
+                    <p>婚姻礼仪的起源可以追溯到原始社会时期。在那个生产力水平低下的时代，人类的婚姻形式经历了从群婚制到对偶婚制再到一夫一妻制的演变过程。随着社会的发展和文明的进步，婚姻礼仪逐渐形成和完善。</p>
+                    <h3>原始社会的婚姻形式</h3>
+                    <ul>
+                        <li><strong>群婚制</strong>：原始社会早期的婚姻形式，没有固定的配偶关系。</li>
+                        <li><strong>对偶婚制</strong>：原始社会中期的婚姻形式，有相对固定的配偶关系，但仍不牢固。</li>
+                        <li><strong>一夫一妻制</strong>：原始社会晚期的婚姻形式，形成了固定的配偶关系，为婚姻礼仪的形成奠定了基础。</li>
+                    </ul>
+                    <p>随着私有财产的出现和阶级的分化，婚姻礼仪逐渐规范化、制度化，形成了一套完整的婚姻礼仪体系。</p>
+                </section>
+
+                <!-- 婚姻礼仪的发展 -->
+                <section class="marriage-section">
+                    <h2>婚姻礼仪的发展</h2>
+                    <p>婚姻礼仪的发展经历了漫长的演变过程，每个时代都有其独特的婚姻礼仪和特点。</p>
+                    
+                    <h3>夏商周时期</h3>
+                    <p>夏商周时期是中国古代婚姻礼仪形成的重要时期。在这个时期，婚姻礼仪逐渐规范化、制度化，形成了一套完整的婚姻礼仪体系。《周礼》中对婚姻礼仪有详细的规定，包括纳采、问名、纳吉、纳征、请期、亲迎等六个步骤，这就是所谓的"六礼"。</p>
+                    <ul>
+                        <li><strong>夏朝</strong>：夏朝已经有了初步的婚姻礼仪，如男女双方在结婚前需要经过父母的同意，并且有简单的聘礼和婚礼仪式。据《史记》记载，夏朝的婚姻制度已经从群婚制过渡到了对偶婚制，开始形成了一夫一妻制的雏形。</li>
+                        <li><strong>商朝</strong>：商朝的婚姻礼仪更加完善，已经形成了一些基本的婚姻仪式，如纳采、亲迎等。商朝的婚姻制度以一夫一妻制为主，但贵族阶层也存在一夫多妻的现象。商朝的婚姻礼仪注重占卜，如在结婚前需要通过占卜确定婚姻的吉凶。</li>
+                        <li><strong>周朝</strong>：周朝是中国古代婚姻礼仪的鼎盛时期，制定了详细的婚姻礼仪制度，即"六礼"。周朝的"六礼"包括纳采、问名、纳吉、纳征、请期、亲迎六个步骤，每个步骤都有详细的规定和仪式。周朝的婚姻礼仪注重等级制度，不同等级的人使用不同的婚姻礼仪和聘礼。周朝还规定了"父母之命，媒妁之言"的婚姻原则，强调婚姻需要经过父母的同意和媒人的介绍。</li>
+                    </ul>
+                    
+                    <h3>秦汉至明清时期</h3>
+                    <p>秦汉至明清时期，婚姻礼仪在继承周朝礼仪制度的基础上，不断变革和发展，适应了不同时代的社会需求。</p>
+                    <ul>
+                        <li><strong>秦汉时期</strong>：秦汉时期的婚姻礼仪更加规范化、制度化，形成了以"六礼"为基础的婚姻礼仪体系。秦朝统一六国后，制定了统一的婚姻制度，强调"夫为妻纲"的伦理观念。汉朝继承了秦朝的婚姻制度，并进一步发展，如规定了女子的"三从四德"，强调女子的贞洁观念。汉朝的婚姻礼仪也更加注重聘礼和嫁妆的重要性，聘礼和嫁妆的多少成为衡量婚姻地位的重要标志。</li>
+                        <li><strong>魏晋南北朝时期</strong>：魏晋南北朝时期的婚姻礼仪更加隆重和繁琐，同时也更加注重礼仪的象征意义。这个时期，由于社会动荡，人们更加注重婚姻的稳定性和家族的延续，因此婚姻礼仪更加隆重和繁琐。魏晋南北朝时期的婚姻礼仪融合了少数民族的婚姻文化，如北方少数民族的"掠夺婚"、"转房婚"等习俗对汉族的婚姻礼仪产生了一定的影响。同时，这个时期的婚姻礼仪也更加注重个人的情感表达，如在婚礼仪式中加入了更多的娱乐元素。</li>
+                        <li><strong>唐宋时期</strong>：唐宋时期的婚姻礼仪在继承前代婚姻礼仪的基础上，更加注重礼仪的文化内涵和艺术性。唐朝时期，婚姻礼仪融合了胡族的文化元素，如在婚礼仪式中加入了胡族的音乐、舞蹈等。唐朝的婚姻礼仪也更加开放和自由，如女子的贞洁观念相对宽松，离婚和再婚的现象比较常见。宋朝时期，婚姻礼仪更加规范化和制度化，制定了更加详细的婚姻礼仪制度，如《政和五礼新仪》等。宋朝的婚姻礼仪也更加注重伦理道德，强调"饿死事小，失节事大"的贞洁观念，对女子的约束更加严格。</li>
+                        <li><strong>元明清时期</strong>：元明清时期的婚姻礼仪在继承前代婚姻礼仪的基础上，融入了少数民族的婚姻文化，形成了具有时代特色的婚姻礼仪体系。元朝时期，婚姻礼仪融合了蒙古族的文化元素，如蒙古族的"抢婚"习俗对汉族的婚姻礼仪产生了一定的影响。明朝时期，婚姻礼仪更加规范化和制度化，制定了更加详细的婚姻礼仪制度，如《大明集礼》等。明朝的婚姻礼仪也更加注重等级制度，严格规定了不同等级的人使用不同的婚姻礼仪和聘礼。清朝时期，婚姻礼仪融合了满族的文化元素，如满族的"旗婚"习俗对汉族的婚姻礼仪产生了一定的影响。同时，清朝的婚姻礼仪也更加注重传统伦理道德，对女子的约束更加严格。</li>
+                    </ul>
+                    
+                    <h3>现代时期</h3>
+                    <p>现代时期，婚姻礼仪在继承传统婚姻礼仪的基础上，不断变革和发展，适应了现代社会的需求。现代的婚姻礼仪更加注重平等和自由，如男女双方在婚姻中的地位更加平等，婚姻自由成为基本权利。现代的婚姻礼仪也更加简约和个性化，如简化了传统的"六礼"仪式，增加了个性化的婚礼环节。同时，现代的婚姻礼仪还融合了西方的婚姻文化元素，如穿婚纱、交换戒指、举办教堂婚礼等。现代的婚姻礼仪更加注重情感表达和家庭幸福，而不是过分注重仪式的繁琐性和等级性。</p>
+                    <p>总之，婚姻礼仪的发展是一个不断演变和完善的过程，每个时代都有其独特的婚姻礼仪和特点。婚姻礼仪的发展反映了中国社会的变迁和文化的传承，是中华传统文化的重要组成部分。
+                </section>
+
+                <!-- 婚姻礼仪的流程 -->
+                <section class="marriage-section">
+                    <h2>婚姻礼仪的流程</h2>
+                    <p>中国汉族传统婚姻礼仪的流程通常包括以下六个步骤，即所谓的"六礼"：</p>
+                    
+                    <div class="marriage-process">
+                        <div class="process-step">
+                            <h4>纳采</h4>
+                            <p>纳采是婚姻礼仪的第一步，是男方家庭向女方家庭求婚的仪式。男方家庭需要准备一定的聘礼，如大雁、金银等，由媒人送往女方家庭，表示求亲的诚意。</p>
+                            <p>大雁在古代被视为忠贞不渝的象征，因此被用作聘礼的信物，象征着婚姻的美满和长久。</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>问名</h4>
+                            <p>问名是婚姻礼仪的第二步，是男方家庭向女方家庭询问女方姓名和生辰八字的仪式。男方家庭需要通过媒人向女方家庭询问女方的姓名和生辰八字，然后测算八字，看双方是否适合结婚。</p>
+                            <p>如果测算结果显示双方适合结婚，男方家庭就会进入下一步；如果测算结果显示双方不适合结婚，男方家庭就会终止求亲。</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>纳吉</h4>
+                            <p>纳吉是婚姻礼仪的第三步，是男方家庭向女方家庭通知测算结果的仪式。男方家庭需要准备一定的聘礼，如大雁、金银等，由媒人送往女方家庭，表示双方适合结婚。</p>
+                            <p>纳吉仪式标志着双方正式确定婚姻关系，相当于现代的订婚仪式。</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>纳征</h4>
+                            <p>纳征是婚姻礼仪的第四步，是男方家庭向女方家庭送聘礼的仪式。男方家庭需要准备一定的聘礼，如金银首饰、绸缎、食品等，由媒人送往女方家庭，表示对女方的尊重和诚意。</p>
+                            <p>纳征仪式标志着双方的婚姻关系更加牢固，女方家庭收到聘礼后，就会开始准备嫁妆。</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>请期</h4>
+                            <p>请期是婚姻礼仪的第五步，是男方家庭向女方家庭询问结婚日期的仪式。男方家庭需要请阴阳先生选择一个吉利的结婚日期，然后通过媒人向女方家庭询问是否同意这个日期。</p>
+                            <p>如果女方家庭同意这个日期，男方家庭就会确定结婚日期；如果女方家庭不同意这个日期，男方家庭就会重新选择结婚日期。</p>
+                        </div>
+                        
+                        <div class="process-step">
+                            <h4>亲迎</h4>
+                            <p>亲迎是婚姻礼仪的第六步，是新郎亲自到女方家庭迎娶新娘的仪式。新郎需要穿着吉服，乘坐花轿，带着迎亲队伍到女方家庭迎娶新娘。</p>
+                            <p>新娘在离开娘家前，需要行拜别父母的仪式，然后穿着婚服，乘坐花轿，由迎亲队伍护送前往新郎家。到新郎家后，新娘需要行拜堂、入洞房等仪式，完成整个婚姻礼仪的过程。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻礼仪的影响 -->
+                <section class="marriage-section">
+                    <h2>婚姻礼仪的影响</h2>
+                    <p>婚姻礼仪作为中华传统文化的重要组成部分，对中国社会和文化产生了深远的影响，主要表现在以下几个方面：</p>
+                    
+                    <h3>对家庭结构的影响</h3>
+                    <ul>
+                        <li><strong>强化家庭观念</strong>：婚姻礼仪强化了家庭观念，促进了家庭的团结和凝聚力。</li>
+                        <li><strong>维护家庭稳定</strong>：婚姻礼仪中的各种仪式和习俗，有助于维护家庭的稳定和和谐。</li>
+                        <li><strong>促进家族延续</strong>：婚姻礼仪象征着家庭的建立和延续，有助于促进家族的繁衍和发展。</li>
+                    </ul>
+                    
+                    <h3>对社会关系的影响</h3>
+                    <ul>
+                        <li><strong>促进社会和谐</strong>：婚姻礼仪是两个家庭的结合，有助于促进社会的和谐和稳定。</li>
+                        <li><strong>维护社会秩序</strong>：婚姻礼仪中的各种规范和要求，有助于维护社会的秩序和稳定。</li>
+                        <li><strong>传承社会文化</strong>：婚姻礼仪是社会文化的重要载体，有助于传承和弘扬社会文化。</li>
+                    </ul>
+                    
+                    <h3>对文化传承的影响</h3>
+                    <ul>
+                        <li><strong>传承传统文化</strong>：婚姻礼仪是中华传统文化的重要组成部分，有助于传承和弘扬中华优秀传统文化。</li>
+                        <li><strong>丰富文化内涵</strong>：婚姻礼仪中的音乐、舞蹈、文学等元素，丰富了中华文化的内涵。</li>
+                        <li><strong>塑造民族性格</strong>：婚姻礼仪培养了中华民族重亲情、守礼仪、敬老爱幼的民族性格。</li>
+                    </ul>
+                    
+                    <h3>对现代社会的意义</h3>
+                    <ul>
+                        <li><strong>增强家庭责任感</strong>：婚姻礼仪中的各种仪式和习俗，有助于增强婚姻双方的家庭责任感。</li>
+                        <li><strong>促进婚姻和谐</strong>：婚姻礼仪中的各种规范和要求，有助于促进婚姻的和谐和稳定。</li>
+                        <li><strong>传承优秀传统</strong>：婚姻礼仪中的尊老爱幼、互敬互爱等传统美德，对现代社会仍有深刻的借鉴意义。</li>
+                        <li><strong>保护文化遗产</strong>：婚姻礼仪是中国非物质文化遗产的重要组成部分，保护婚姻礼仪有助于保护和传承中华优秀传统文化。</li>
+                    </ul>
+                    
+                    <p>在现代社会，我们应该理性看待婚姻礼仪，取其精华，去其糟粕，继承和发扬其中的优秀成分，同时根据现代社会的特点和需要，对其进行适当的调整和创新，使其在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

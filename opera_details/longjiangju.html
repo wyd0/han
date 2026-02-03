@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙江剧 - 汉韵风华</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* 剧种详情页面特定样式 */
+        body {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .opera-detail-header {
+            background-image: url('../images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .opera-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .opera-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opera-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .opera-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .opera-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .opera-detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .opera-detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .opera-detail-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-detail-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 40px 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .opera-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .opera-detail-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .opera-detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .opera-detail-content li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .opera-detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .opera-detail-content blockquote {
+            border-left: 4px solid #c0392b;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .opera-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .opera-detail-header p {
+                font-size: 18px;
+            }
+            
+            .opera-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .opera-detail-section h3 {
+                font-size: 22px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../culture.html">传统文化</a></li>
+                    <li><a href="../clothing.html">中国服饰</a></li>
+                    <li><a href="../difference.html">文化区别</a></li>
+                    <li><a href="../index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="opera-detail-header">
+        <div class="container">
+            <div class="opera-detail-header-content">
+                <h1>龙江剧</h1>
+                <p>黑龙江地方戏曲剧种</p>
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                    <a href="../opera_regional.html" class="back-link">返回戏曲地域分类</a>
+                    <a href="../opera_detail.html" class="back-link">返回戏曲艺术</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="opera-detail-main">
+        <div class="container">
+            <div class="opera-detail-content">
+                <!-- 剧种概述 -->
+                <section class="opera-detail-section">
+                    <h2>剧种概述</h2>
+                    <p>龙江剧，是黑龙江省的地方戏曲剧种，形成于20世纪50年代。龙江剧以二人转为基础，吸收了京剧等戏曲元素，形成了独特的艺术风格。龙江剧的唱腔优美动听，表演生动活泼，深受黑龙江观众的喜爱。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="opera-detail-section">
+                    <h2>起源与发展</h2>
+                    <h3>起源</h3>
+                    <p>龙江剧的起源可以追溯到20世纪50年代，当时黑龙江的文艺工作者在二人转的基础上，吸收了京剧等戏曲元素，创造了一种新的戏曲剧种。1959年，龙江剧正式命名。</p>
+                    
+                    <h3>发展</h3>
+                    <p>龙江剧的发展经历了几个重要阶段：</p>
+                    <ul>
+                        <li><strong>形成期（1952-1959）</strong>：黑龙江的文艺工作者在二人转的基础上，创造了龙江剧。</li>
+                        <li><strong>成熟期（1959-1976）</strong>：龙江剧逐渐形成了自己独特的艺术风格，创作了一批优秀剧目。</li>
+                        <li><strong>复兴期（1976-1990）</strong>：文化大革命结束后，龙江剧开始恢复创作和演出，创作了一批新剧目。</li>
+                        <li><strong>创新期（1990至今）</strong>：龙江剧进入了创新发展的阶段，创作了一批具有时代特色的剧目，同时也对传统剧目进行了整理和改编。</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术特点 -->
+                <section class="opera-detail-section">
+                    <h2>艺术特点</h2>
+                    <h3>唱腔</h3>
+                    <p>龙江剧的唱腔以二人转的唱腔为基础，吸收了京剧等剧种的唱腔元素，形成了独特的唱腔风格。龙江剧的唱腔优美动听，旋律流畅，节奏明快，富有黑龙江地方特色。</p>
+                    
+                    <h3>表演</h3>
+                    <p>龙江剧的表演吸收了二人转的表演元素，同时也借鉴了京剧等剧种的表演方法，形成了生动活泼、贴近生活的表演风格。龙江剧的演员通常具有扎实的基本功，能够完成各种高难度的动作。龙江剧的表演强调真实感和生活气息，通过手势、眼神、面部表情等手段来表现人物的性格和情绪。</p>
+                    
+                    <h3>舞台美术</h3>
+                    <p>龙江剧的舞台美术简洁明快，注重营造生活氛围。龙江剧的服装和道具都比较贴近生活，反映了黑龙江的地方特色和时代特点。龙江剧的化妆也很有特色，尤其是旦角的化妆，注重自然美和生活气息。</p>
+                </section>
+
+                <!-- 行当 -->
+                <section class="opera-detail-section">
+                    <h2>行当</h2>
+                    <p>龙江剧的角色行当分为生、旦、净、丑四个行当，每个行当又有不同的分支：</p>
+                    
+                    <h3>生行</h3>
+                    <p>生行是龙江剧的主要行当之一，扮演男性角色。生行分为：</p>
+                    <ul>
+                        <li><strong>老生</strong>：扮演中年以上的男性角色，如张元秀、王延龄等。</li>
+                        <li><strong>小生</strong>：扮演年轻的男性角色，如许仙、梁山伯等。</li>
+                        <li><strong>武生</strong>：扮演武艺高强的男性角色，如武松、林冲等。</li>
+                    </ul>
+                    
+                    <h3>旦行</h3>
+                    <p>旦行是龙江剧的主要行当之一，扮演女性角色。旦行分为：</p>
+                    <ul>
+                        <li><strong>青衣</strong>：扮演端庄、贤淑的中青年女性角色，如王宝钏、秦香莲等。</li>
+                        <li><strong>花旦</strong>：扮演活泼、俏丽的年轻女性角色，如红娘、春草等。</li>
+                        <li><strong>武旦</strong>：扮演武艺高强的女性角色，如穆桂英、樊梨花等。</li>
+                        <li><strong>老旦</strong>：扮演老年女性角色，如佘太君、岳母等。</li>
+                    </ul>
+                    
+                    <h3>净行</h3>
+                    <p>净行是龙江剧的主要行当之一，扮演性格刚烈、粗犷的男性角色，又称花脸。净行分为：</p>
+                    <ul>
+                        <li><strong>铜锤花脸</strong>：扮演性格忠厚、稳重的男性角色，如包拯、廉颇等。</li>
+                        <li><strong>架子花脸</strong>：扮演性格豪爽、勇猛的男性角色，如张飞、李逵等。</li>
+                    </ul>
+                    
+                    <h3>丑行</h3>
+                    <p>丑行是龙江剧的主要行当之一，扮演滑稽、幽默的角色。丑行分为：</p>
+                    <ul>
+                        <li><strong>文丑</strong>：扮演幽默、诙谐的男性角色，如蒋干、时迁等。</li>
+                        <li><strong>武丑</strong>：扮演武艺高强、幽默诙谐的男性角色，如杨香武、刘利华等。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表剧目 -->
+                <section class="opera-detail-section">
+                    <h2>代表剧目</h2>
+                    <p>龙江剧的代表剧目包括：</p>
+                    <ul>
+                        <li><strong>传统剧目</strong>：《双锁山》、《王二姐思夫》、《刘三姐》等。</li>
+                        <li><strong>现代剧目</strong>：《江姐》、《焦裕禄》、《雷雨》等。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典戏词 -->
+                <section class="opera-detail-section">
+                    <h2>经典戏词</h2>
+                    
+                    <h3>《双锁山》</h3>
+                    <blockquote>
+                        <p>双锁山高又高，穆桂英在此扎下营盘。我父穆羽是总兵，我是他的女儿穆桂英。</p>
+                        <footer>—— 穆桂英唱段</footer>
+                    </blockquote>
+                    
+                    <h3>《王二姐思夫》</h3>
+                    <blockquote>
+                        <p>王二姐坐北楼，眼泪汪汪。思想起我的丈夫张庭秀，他一去三年未回还。</p>
+                        <footer>—— 王二姐唱段</footer>
+                    </blockquote>
+                    
+                    <h3>《刘三姐》</h3>
+                    <blockquote>
+                        <p>刘三姐生来爱唱歌，山山水水都是歌。唱得财主心发慌，唱得穷人笑呵呵。</p>
+                        <footer>—— 刘三姐唱段</footer>
+                    </blockquote>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="../culture.html">传统文化</a></li>
+                        <li><a href="../clothing.html">中国服饰</a></li>
+                        <li><a href="../difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.opera-detail-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

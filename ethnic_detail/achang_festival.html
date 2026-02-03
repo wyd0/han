@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿昌族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 阿昌族传统节日页面特定样式 */
+        .achang-header {
+            background-image: url('images/阿昌族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .achang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .achang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .achang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .achang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-achang {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-achang:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .achang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .achang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .achang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .achang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .achang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .achang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .achang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .achang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .achang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 传统节日样式 */
+        .festival-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .achang-section.visible .feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .achang-section.visible .feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .achang-section.visible .feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .achang-section.visible .feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .achang-section.visible .feature-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .feature-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .achang-header h1 {
+                font-size: 36px;
+            }
+            
+            .achang-header p {
+                font-size: 18px;
+            }
+            
+            .achang-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-features {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="achang-header">
+        <div class="container">
+            <div class="achang-header-content">
+                <h1>阿昌族传统节日</h1>
+                <p>丰富多彩的民族庆典</p>
+                <a href="achang.html" class="back-achang">返回阿昌族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="achang-main">
+        <div class="container">
+            <div class="achang-content">
+                <!-- 传统节日概述 -->
+                <section class="achang-section">
+                    <h2>传统节日概述</h2>
+                    <p>阿昌族是一个有着丰富多彩传统节日的民族。这些节日不仅是阿昌族人民欢庆丰收、祈求吉祥的重要方式，也是传承和弘扬阿昌族文化的重要载体。阿昌族的传统节日既有与农业生产相关的节日，也有与宗教信仰相关的节日，还有与民族历史相关的节日。这些节日反映了阿昌族人民的生活状况、思想感情和文化传统，是阿昌族文化的重要组成部分。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="achang-section">
+                    <h2>主要传统节日</h2>
+                    <div class="festival-features">
+                        <div class="feature-item">
+                            <h5>阿露窝罗节</h5>
+                            <p>阿露窝罗节是阿昌族最重要的传统节日之一，通常在农历正月初四举行。这个节日是为了纪念阿昌族的祖先遮帕麻和遮米麻，他们是阿昌族传说中的创世神。在节日期间，阿昌族人民会举行盛大的庆祝活动，包括祭祀、唱歌、跳舞、体育比赛等。其中，最具特色的是跳阿露窝罗舞，这是一种集体舞蹈，动作矫健有力，节奏明快，能够表达出阿昌族人民对美好生活的向往和追求。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>会街节</h5>
+                            <p>会街节是阿昌族的传统节日，通常在农历九月初十举行。这个节日的主要活动是耍青龙、白象和跳象脚鼓舞。青龙和白象是用竹篾编制的，装饰得非常漂亮。在节日期间，阿昌族人民会穿着节日盛装，敲锣打鼓，舞动青龙和白象，在村寨中游行。会街节不仅是阿昌族人民欢庆丰收的节日，也是阿昌族人民展示民族文化的重要场合。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>开门节</h5>
+                            <p>开门节是阿昌族的传统节日，通常在农历十月十六日举行。这个节日标志着雨季结束，农业季节开始。在节日期间，阿昌族人民会举行各种庆祝活动，包括祭祀、唱歌、跳舞等。开门节也是阿昌族人民走亲访友、交流感情的重要时机。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h5>关门节</h5>
+                            <p>关门节是阿昌族的传统节日，通常在农历六月十六日举行。这个节日标志着雨季开始，农业季节结束。在节日期间，阿昌族人民会举行各种宗教仪式，祈求神灵保佑农作物茁壮成长。关门节期间，阿昌族人民会减少外出活动，集中精力从事农业生产。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="achang-section">
+                    <h2>节日习俗</h2>
+                    <p>阿昌族的传统节日有着丰富多彩的习俗，这些习俗反映了阿昌族人民的生活方式、思想观念和文化传统。</p>
+                    <ul>
+                        <li><strong>祭祀活动：</strong>阿昌族的传统节日通常都伴有祭祀活动，人们会祭祀祖先、神灵，祈求平安和丰收。例如，在阿露窝罗节期间，阿昌族人民会祭祀创世神遮帕麻和遮米麻，感谢他们创造了天地和人类。</li>
+                        <li><strong>歌舞表演：</strong>阿昌族是一个能歌善舞的民族，传统节日期间，人们会唱歌跳舞，表达喜悦之情。例如，在会街节期间，阿昌族人民会跳象脚鼓舞、耍青龙白象舞等，这些舞蹈动作矫健有力，节奏明快，能够营造出热烈的节日气氛。</li>
+                        <li><strong>传统美食：</strong>阿昌族的传统节日期间，人们会制作各种传统美食，如过桥米线、户撒刀宴、酸角糕等。这些美食不仅味道鲜美，也是阿昌族文化的重要组成部分。</li>
+                        <li><strong>民族服饰：</strong>在传统节日期间，阿昌族人民会穿着节日盛装，展示民族服饰的魅力。阿昌族的民族服饰色彩鲜艳，图案丰富，工艺精湛，是阿昌族文化的重要载体。</li>
+                        <li><strong>体育活动：</strong>阿昌族的传统节日期间，人们会举行各种体育活动，如摔跤、射箭、打陀螺等。这些活动不仅能够增强体质，也是阿昌族人民传承民族文化的重要方式。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的文化意义 -->
+                <section class="achang-section">
+                    <h2>节日的文化意义</h2>
+                    <p>阿昌族的传统节日不仅是一种庆祝活动，也是一种文化传承的重要方式，具有丰富的文化意义。</p>
+                    <ul>
+                        <li><strong>历史传承：</strong>阿昌族的传统节日记录了阿昌族的历史发展过程，反映了阿昌族人民的生活状况和社会变迁。例如，阿露窝罗节讲述了阿昌族的起源和发展，是阿昌族历史文化的重要组成部分。</li>
+                        <li><strong>文化认同：</strong>阿昌族的传统节日是阿昌族人民文化认同的重要标志，通过参与节日活动，阿昌族人民能够增强民族自豪感和凝聚力。例如，在会街节期间，阿昌族人民会穿着节日盛装，展示民族文化，增强民族认同感。</li>
+                        <li><strong>社会整合：</strong>阿昌族的传统节日是阿昌族人民社会整合的重要方式，通过参与节日活动，阿昌族人民能够加强彼此之间的联系和交流，维护社会的和谐稳定。例如，在开门节期间，阿昌族人民会走亲访友，交流感情，加强社会联系。</li>
+                        <li><strong>道德教育：</strong>阿昌族的传统节日蕴含着丰富的道德观念，通过参与节日活动，阿昌族人民能够接受道德教育，树立正确的价值观。例如，在祭祀活动中，阿昌族人民会强调尊老爱幼、团结互助等传统美德。</li>
+                        <li><strong>艺术传承：</strong>阿昌族的传统节日是阿昌族艺术传承的重要载体，通过参与节日活动，阿昌族人民能够传承和弘扬民族艺术。例如，在节日期间，阿昌族人民会唱歌跳舞，展示民族音乐舞蹈的魅力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的现代变迁 -->
+                <section class="achang-section">
+                    <h2>节日的现代变迁</h2>
+                    <p>随着社会的发展和现代化进程的加快，阿昌族的传统节日也在不断变迁和发展。</p>
+                    <ul>
+                        <li><strong>节日形式的变化：</strong>现代阿昌族的传统节日在形式上更加多样化，除了传统的祭祀、歌舞等活动外，还增加了现代元素，如文艺表演、体育比赛、商品展销等。这些现代元素不仅丰富了节日内容，也适应了现代社会的需求。</li>
+                        <li><strong>节日功能的变化：</strong>现代阿昌族的传统节日不仅是一种文化传承的方式，也是一种经济发展的手段。通过举办节日活动，阿昌族地区可以吸引更多的游客，促进当地经济的发展。例如，一些阿昌族地区通过举办阿露窝罗节，发展旅游业，增加了当地居民的收入。</li>
+                        <li><strong>节日观念的变化：</strong>现代阿昌族人民的节日观念更加开放和包容，他们在保留传统节日特色的同时，也吸收了其他民族的节日元素，形成了新的节日文化。例如，一些阿昌族青年在传统节日期间，会结合现代元素，创造出新的节日庆祝方式。</li>
+                        <li><strong>节日传承的变化：</strong>现代阿昌族的传统节日传承方式更加多样化，除了传统的口传心授外，还通过学校教育、媒体宣传等方式，让更多的人了解和参与传统节日活动。例如，一些阿昌族地区的学校会在传统节日期间，组织学生参加节日活动，培养学生的民族自豪感和文化认同感。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的保护与发展 -->
+                <section class="achang-section">
+                    <h2>节日的保护与发展</h2>
+                    <p>为了保护和发展阿昌族的传统节日，阿昌族人民和有关部门采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>文化普查与记录：</strong>有关部门组织专家学者对阿昌族的传统节日进行全面的普查和记录，收集了大量的节日资料，为节日的保护和发展提供了科学依据。</li>
+                        <li><strong>非物质文化遗产申报：</strong>阿昌族的一些传统节日，如阿露窝罗节，已经被列入国家级非物质文化遗产名录，得到了国家的保护和支持。</li>
+                        <li><strong>节日活动的组织与推广：</strong>阿昌族人民和有关部门定期组织传统节日活动，如阿露窝罗节、会街节等，通过这些活动，促进传统节日的传播和交流。</li>
+                        <li><strong>文化教育与传承：</strong>在阿昌族聚居区的学校中，开设了阿昌族文化课程，教授阿昌族的传统节日知识和习俗，培养学生的民族自豪感和文化认同感。</li>
+                        <li><strong>旅游开发与利用：</strong>通过将传统节日与旅游业相结合，促进传统节日的保护和发展。例如，一些阿昌族地区通过举办节日旅游活动，既保护了传统节日，又促进了当地经济的发展。</li>
+                    </ul>
+                    <p>通过这些措施，阿昌族的传统节日得到了有效的保护和发展。现在，越来越多的阿昌族人民认识到传统节日的重要性，积极参与传统节日活动，为传统节日的传承和发展做出了贡献。相信在阿昌族人民的共同努力下，阿昌族的传统节日一定能够得到更好的保护和发展，继续为阿昌族文化的传承和弘扬做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

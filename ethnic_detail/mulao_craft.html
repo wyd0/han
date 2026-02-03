@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仫佬族传统工艺 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 仫佬族传统工艺页面特定样式 */
+        .mulao-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mulao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mulao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mulao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-mulao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-mulao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mulao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mulao-section {
+            margin-bottom: 80px;
+        }
+        
+        .mulao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mulao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mulao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mulao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mulao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 传统工艺样式 */
+        .crafts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .craft-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .craft-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .craft-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 工艺特点样式 */
+        .craft-features {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .craft-features h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 动画类 */
+        .mulao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .mulao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .craft-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .craft-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .craft-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .craft-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .craft-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .craft-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .mulao-header h1 {
+                font-size: 36px;
+            }
+            
+            .mulao-header p {
+                font-size: 18px;
+            }
+            
+            .mulao-section h2 {
+                font-size: 28px;
+            }
+            
+            .crafts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .craft-features {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="mulao-header">
+        <div class="container">
+            <div class="mulao-header-content">
+                <h1>仫佬族传统工艺</h1>
+                <p>精湛的手工技艺，独特的民族风格</p>
+                <a href="mulao.html" class="back-mulao">返回仫佬族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mulao-main">
+        <div class="container">
+            <div class="mulao-content">
+                <!-- 传统工艺概述 -->
+                <section class="mulao-section">
+                    <h2>传统工艺概述</h2>
+                    <p>仫佬族的传统工艺是仫佬族文化的重要组成部分，它是仫佬族人民在长期的生产生活中创造和积累的精湛技艺，具有独特的民族风格和地方特色。仫佬族的传统工艺主要包括刺绣、编织、竹编、木刻等多种形式，这些工艺不仅反映了仫佬族人民的智慧和创造力，也是仫佬族文化的重要载体。</p>
+                    <p>仫佬族的传统工艺与他们的生产生活密切相关，是他们适应自然环境、改善生活条件的重要手段。同时，传统工艺也体现了仫佬族人民的审美观念和文化价值，是他们精神世界的重要表达形式。通过传统工艺，仫佬族人民传承了历史文化，增强了民族凝聚力和认同感。</p>
+                </section>
+
+                <!-- 主要传统工艺 -->
+                <section class="mulao-section">
+                    <h3>主要传统工艺</h3>
+                    <div class="crafts-grid">
+                        <div class="craft-item">
+                            <h4>刺绣</h4>
+                            <p>刺绣是仫佬族最具代表性的传统工艺之一。仫佬族的刺绣工艺历史悠久，技艺精湛，图案精美。刺绣的题材广泛，包括花鸟、山水、人物、几何图形等，其中以花鸟图案最为常见。刺绣主要用于装饰服装、头巾、手帕等物品，是仫佬族女性必备的手工技艺。</p>
+                            <p>仫佬族的刺绣针法多样，包括平绣、挑绣、贴绣等多种针法。刺绣的颜色以红、绿、蓝、黑等颜色为主，色彩鲜艳，对比强烈，具有浓郁的民族特色。刺绣作品不仅美观实用，也是仫佬族文化的重要象征。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h4>编织</h4>
+                            <p>编织是仫佬族的传统工艺之一，主要包括竹编、草编、藤编等多种形式。编织工艺在仫佬族的日常生活中占有重要地位，是他们制作生活用品的重要手段。</p>
+                            <p>竹编是仫佬族最常见的编织工艺，主要用于制作竹篮、竹筐、竹席、竹椅等生活用品。草编则主要用于制作草帽、草席、草鞋等物品。藤编则主要用于制作藤椅、藤篮等家具和生活用品。这些编织品不仅实用，而且造型美观，具有独特的民族风格。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h4>木刻</h4>
+                            <p>木刻是仫佬族的传统工艺之一，主要用于制作家具、农具、宗教用品等。仫佬族的木刻工艺历史悠久，技艺精湛，具有独特的民族风格。</p>
+                            <p>仫佬族的木刻作品题材广泛，包括人物、动物、花卉、几何图形等。木刻的刀法细腻，线条流畅，形象生动。木刻作品不仅实用，也是仫佬族文化的重要表达形式，反映了仫佬族人民的审美观念和文化价值。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h4>其他工艺</h4>
+                            <p>除了刺绣、编织、木刻之外，仫佬族还有一些其他传统工艺，如陶瓷、金属工艺等。这些工艺虽然规模不大，但同样具有独特的民族特色和地方风格。</p>
+                            <p>陶瓷工艺主要用于制作日常生活用品，如碗、盘、罐等。金属工艺则主要用于制作农具、餐具、装饰品等。这些传统工艺共同构成了仫佬族丰富多彩的工艺文化，是仫佬族文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统工艺的特点 -->
+                <section class="mulao-section">
+                    <h3>传统工艺的特点</h3>
+                    <div class="craft-features">
+                        <h4>民族特色鲜明</h4>
+                        <p>仫佬族的传统工艺具有鲜明的民族特色，它反映了仫佬族的历史文化、生活方式和审美观念。工艺作品的图案、色彩、造型等都体现了仫佬族独特的艺术风格，与其他民族的工艺有所区别。</p>
+                        
+                        <h4>实用性与艺术性结合</h4>
+                        <p>仫佬族的传统工艺注重实用性，同时也追求艺术性。工艺作品不仅是日常生活用品，也是艺术品，体现了仫佬族人民对美好生活的向往和追求。</p>
+                        
+                        <h4>手工制作</h4>
+                        <p>仫佬族的传统工艺主要依靠手工制作，每一件作品都凝聚了工匠的心血和智慧，具有独特的个性和艺术价值。手工制作也使得传统工艺得以传承和发展，成为仫佬族文化的重要组成部分。</p>
+                        
+                        <h4>就地取材</h4>
+                        <p>仫佬族的传统工艺充分利用当地的自然资源，如竹子、木材、藤条、草料等，体现了仫佬族人民适应自然、利用自然的智慧。就地取材也使得传统工艺具有浓郁的地方特色。</p>
+                    </div>
+                </section>
+
+                <!-- 传统工艺的传承与发展 -->
+                <section class="mulao-section">
+                    <h3>传统工艺的传承与发展</h3>
+                    <p>仫佬族的传统工艺是仫佬族文化的瑰宝，它不仅是仫佬族人民智慧的结晶，也是中华文化的重要组成部分。然而，随着社会的发展和现代化进程的加速，仫佬族的传统工艺面临着一些挑战，如传承后继无人、市场需求减少、工艺创新不足等。</p>
+                    <p>为了保护和传承仫佬族的传统工艺，仫佬族人民采取了一系列措施：</p>
+                    <ul>
+                        <li>培养传统工艺传承人，通过拜师学艺、举办培训班等方式，让年轻一代学习和掌握传统工艺技能。</li>
+                        <li>政府和社会各界加大对传统工艺的保护和支持力度，提供资金、技术等方面的帮助。</li>
+                        <li>将传统工艺与现代生活相结合，进行创新和发展，开发适合现代市场需求的工艺产品。</li>
+                        <li>加强对传统工艺的宣传和推广，提高其知名度和影响力，让更多的人了解和认识仫佬族的传统工艺。</li>
+                        <li>建立传统工艺保护基地，为传统工艺的传承和发展提供场所和条件。</li>
+                    </ul>
+                    <p>通过这些措施，仫佬族的传统工艺得到了有效的保护和传承，同时也在现代社会中焕发了新的生机和活力。</p>
+                </section>
+
+                <!-- 传统工艺的文化意义 -->
+                <section class="mulao-section">
+                    <h3>传统工艺的文化意义</h3>
+                    <p>仫佬族的传统工艺具有重要的文化意义，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化传承</strong>：传统工艺是仫佬族文化的重要载体，通过传统工艺，仫佬族的历史、文化、传统等得到了传承和弘扬。</li>
+                        <li><strong>民族认同</strong>：传统工艺是仫佬族民族身份的重要标志，它体现了仫佬族的独特性和差异性，增强了仫佬族人民的民族认同感和自豪感。</li>
+                        <li><strong>艺术价值</strong>：仫佬族的传统工艺具有独特的艺术价值，它不仅是仫佬族人民智慧的结晶，也是中华文化百花园中的一朵奇葩，为中华文化的繁荣和发展做出了贡献。</li>
+                        <li><strong>经济价值</strong>：传统工艺可以开发成为文化产业，为仫佬族人民增加收入，改善生活条件，促进当地经济的发展。</li>
+                        <li><strong>社会功能</strong>：传统工艺的传承和发展可以促进社会和谐，增强社区凝聚力，丰富仫佬族人民的文化生活。</li>
+                    </ul>
+                    <p>总之，仫佬族的传统工艺是仫佬族文化的重要组成部分，对于研究和了解仫佬族的历史、文化、社会等方面具有重要意义。我们应该重视和保护仫佬族的传统工艺，让它在现代社会中继续发扬光大，为仫佬族文化的繁荣和发展做出贡献。</p>
+                </section>
+
+                <!-- 传统工艺的未来展望 -->
+                <section class="mulao-section">
+                    <h3>传统工艺的未来展望</h3>
+                    <p>在现代社会中，仫佬族的传统工艺面临着机遇和挑战。随着人们对传统文化的重视和对非物质文化遗产保护意识的提高，仫佬族的传统工艺得到了更多的关注和支持。同时，现代科技的发展也为传统工艺的创新和发展提供了新的可能性。</p>
+                    <p>未来，仫佬族的传统工艺可以通过以下方式实现更好的发展：</p>
+                    <ul>
+                        <li>加强传统工艺与现代设计的结合，开发具有时代特色的工艺产品，满足现代市场的需求。</li>
+                        <li>利用现代科技手段，提高传统工艺的生产效率和质量，同时保持传统工艺的特色和价值。</li>
+                        <li>建立传统工艺数据库，记录和保存传统工艺的技艺、工艺流程等信息，为传承和研究提供资料。</li>
+                        <li>加强国际交流与合作，让仫佬族的传统工艺走向世界，提高其国际知名度和影响力。</li>
+                        <li>将传统工艺纳入学校教育体系，让年轻一代了解和认识传统工艺，培养他们对传统工艺的兴趣和热爱。</li>
+                    </ul>
+                    <p>通过这些努力，仫佬族的传统工艺必将在现代社会中焕发新的生机和活力，继续为仫佬族文化的繁荣和发展做出贡献，同时也为中华文化的多样性和丰富性增添光彩。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

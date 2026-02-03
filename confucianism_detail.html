@@ -1,0 +1,581 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>儒家 - 思想文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 儒家详情页面特定样式 */
+        body {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .school-header {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .school-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .school-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .school-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .school-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .school-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .school-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .school-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .school-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .school-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 20px;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .school-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .school-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .school-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .school-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .school-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .quotes-section {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .quote-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .quote-item p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .quote-item .author {
+            font-weight: bold;
+            color: #c0392b;
+        }
+        
+        /* 子导航样式 */
+        .sub-nav {
+            background-color: rgba(192, 57, 43, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sub-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .sub-nav:hover::before {
+            left: 100%;
+        }
+        
+        .sub-nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .sub-nav-links li {
+            margin: 0 12px;
+            position: relative;
+        }
+        
+        .sub-nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .sub-nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .sub-nav-links a:hover::before {
+            left: 100%;
+        }
+        
+        .sub-nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+        
+        .sub-nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .sub-nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 3px;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .school-header h1 {
+                font-size: 36px;
+            }
+            
+            .school-header p {
+                font-size: 18px;
+            }
+            
+            .school-section h2 {
+                font-size: 28px;
+            }
+            
+            .sub-nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sub-nav-links li {
+                margin: 5px 0;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bannerMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="school-header">
+        <div class="container">
+            <div class="school-header-content">
+                <h1>儒家</h1>
+                <p>仁爱正义，德治天下</p>
+                <a href="confucianism.html" class="back-link">返回思想文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 思想文化子导航 -->
+    <nav class="sub-nav">
+        <div class="container">
+            <ul class="sub-nav-links">
+                <li><a href="confucianism_detail.html">儒家</a></li>
+                <li><a href="taoism_detail.html">道家</a></li>
+                <li><a href="legalism_detail.html">法家</a></li>
+                <li><a href="mohism_detail.html">墨家</a></li>
+                <li><a href="military_detail.html">兵家</a></li>
+                <li><a href="mingjia_detail.html">名家</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="school-main">
+        <div class="container">
+            <div class="school-content">
+                <!-- 流派概述 -->
+                <section class="school-section">
+                    <h2>儒家概述</h2>
+                    <p>儒家是中国古代最有影响力的思想流派之一，由孔子创立于春秋时期，经过孟子、荀子等思想家的发展和完善，成为中国传统文化的核心组成部分。儒家思想强调仁爱、礼制、中庸、道德等价值观，主张德治和仁政，对中国乃至东亚文化圈产生了深远的影响。</p>
+                </section>
+
+                <!-- 起源与发展 -->
+                <section class="school-section">
+                    <h2>起源与发展</h2>
+                    <h3>创立与形成</h3>
+                    <p>儒家思想由孔子（公元前551年-公元前479年）创立于春秋时期。孔子生活在一个礼崩乐坏的时代，他主张恢复周礼，提出了"仁"的核心思想，并整理了《诗》、《书》、《礼》、《易》、《乐》、《春秋》等古代文献，形成了儒家经典的基础。</p>
+                    
+                    <h3>发展与传承</h3>
+                    <p>战国时期，孟子（约公元前372年-公元前289年）继承和发展了孔子的思想，提出了"性善论"和"仁政"学说，强调"民为贵，社稷次之，君为轻"的民本思想。孟子的思想使儒家学说更加系统化和理论化。</p>
+                    <p>荀子（约公元前313年-公元前238年）则提出了"性恶论"，强调后天教育的重要性，主张"隆礼重法"，将儒家思想与法家思想相结合。荀子的学生韩非和李斯后来成为法家思想的代表人物。</p>
+                    
+                    <h3>正统地位的确立</h3>
+                    <p>西汉时期，董仲舒提出"罢黜百家，独尊儒术"，儒家思想开始成为中国封建社会的正统思想，影响了中国两千多年的政治和社会生活。朱熹将儒家思想与佛教禅学相结合，形成了新的儒学体系。</p>
+                    
+                    <h3>宋明理学</h3>
+                    <p>宋明时期，儒家思想与佛教、道教思想进一步融合，形成了宋明理学。理学以程颐、程颢、朱熹为代表，强调"存天理，灭人欲"的道德修养，将儒家思想上升到哲学高度。</p>
+                    <p>明朝时期，王守仁提出了心学，主张"心即理"、"知行合一"，对理学进行了革新和发展，形成了儒家思想的又一重要流派。</p>
+                </section>
+
+                <!-- 哲学观 -->
+                <section class="school-section">
+                    <h2>哲学观</h2>
+                    <h3>天人合一</h3>
+                    <p>儒家哲学观的重要内容之一是"天人合一"，强调人与自然的和谐统一。孔子认为，人应当遵循天道，顺应自然规律，同时通过道德修养和社会实践来实现人与自然的和谐共生。这种观念体现了儒家对宇宙整体的认识和对人类责任的理解。</p>
+                    
+                    <h3>性善论与性恶论</h3>
+                    <p>儒家在人性问题上有不同的观点。孟子提出"性善论"，认为人的本性是善良的，通过道德修养可以保持和发展这种善性。荀子则提出"性恶论"，认为人的本性是趋利避害的，需要通过后天的教育和礼制来约束和引导，使人性向善。这两种观点虽然有所不同，但都强调了道德教育的重要性。</p>
+                    
+                    <h3>知行合一</h3>
+                    <p>儒家强调知识与实践的统一，认为真正的知识必须通过实践来验证和体现。孔子主张"学以致用"，强调将所学的道德知识应用到实际生活中。王阳明进一步发展了这一思想，提出"知行合一"的学说，认为知与行是不可分割的整体，真正的知必然表现为行动，而行动也必然基于正确的认识。</p>
+                    
+                    <h3>中庸之道</h3>
+                    <p>中庸是儒家哲学的重要方法论，强调在处理问题时寻求适度和平衡，避免极端。孔子认为"过犹不及"，主张在各种对立的因素之间找到平衡点。中庸之道不仅是一种思维方式，也是一种生活态度和道德修养的方法，体现了儒家对和谐与稳定的追求。</p>
+                    
+                    <h3>正名思想</h3>
+                    <p>孔子提出"正名"思想，强调名分与实际的一致性。他认为"名不正则言不顺，言不顺则事不成"，主张通过正名来规范社会秩序和人际关系。这种思想体现了儒家对社会规范和道德秩序的重视，是儒家哲学中的重要组成部分。</p>
+                </section>
+
+                <!-- 核心思想 -->
+                <section class="school-section">
+                    <h2>核心思想</h2>
+                    <h3>仁</h3>
+                    <p>"仁"是儒家思想的核心概念，孔子将其定义为"爱人"，强调人与人之间的互相关爱和尊重。"己所不欲，勿施于人"是仁的基本原则，体现了推己及人的道德观念。</p>
+                    
+                    <h3>礼</h3>
+                    <p>"礼"是儒家思想的重要组成部分，指的是社会秩序和行为规范的总和，包括礼仪、制度和道德准则。孔子强调"克己复礼"，通过礼仪来维护社会秩序和和谐。</p>
+                    
+                    <h3>义</h3>
+                    <p>"义"是儒家思想中的道德准则，指的是行为符合道德规范和社会正义。孔子强调"君子喻于义，小人喻于利"，认为义是做人的行为准则。</p>
+                    
+                    <h3>智</h3>
+                    <p>"智"是儒家思想中的智慧和知识，指的是对道德和真理的认识。孔子强调"学而不思则罔，思而不学则殆"，认为学习和思考是获得智慧的重要途径。</p>
+                    
+                    <h3>信</h3>
+                    <p>"信"是儒家思想中的诚信和信用，指的是真诚待人、言行一致。孔子强调"人而无信，不知其可也"，认为诚信是做人的基本原则。</p>
+                    
+                    <h3>中庸</h3>
+                    <p>"中庸"是儒家思想的重要方法论，强调适度、平衡，避免极端。孔子强调"过犹不及"，认为在各种关系中寻求和谐与平衡是最高的道德境界。</p>
+                </section>
+
+                <!-- 历史影响 -->
+                <section class="school-section">
+                    <h2>历史影响</h2>
+                    <h3>政治影响</h3>
+                    <p>儒家思想对中国封建社会的政治制度产生了深远影响。儒家主张"为政以德"，强调统治者应通过道德教化来治理国家，而不是单纯依靠法律和惩罚。这种德治思想成为中国封建社会的基本政治理念。</p>
+                    <p>儒家思想中的民本思想，如"民为贵，社稷次之，君为轻"，对中国封建社会的政治实践产生了重要影响，促使统治者重视民众，缓和社会矛盾。</p>
+                    
+                    <h3>社会影响</h3>
+                    <p>儒家思想对中国传统社会的伦理道德和社会秩序产生了深远影响。儒家强调的仁爱、礼制、中庸等价值观，成为中国传统社会的基本道德准则，塑造了中国人的行为方式和价值观。</p>
+                    <p>儒家思想中的家族观念和孝悌思想，对中国传统社会的家庭结构和人际关系产生了重要影响，形成了以家族为中心的社会结构。</p>
+                    
+                    <h3>文化影响</h3>
+                    <p>儒家思想对中国传统文化的发展产生了深远影响。儒家经典如《论语》、《孟子》、《大学》、《中庸》等，成为中国传统文化的重要组成部分，对中国文学、哲学、教育等领域产生了重要影响。</p>
+                    <p>儒家思想中的教育理念，如"有教无类"、"因材施教"等，对中国传统教育的发展产生了重要影响，成为中国传统教育的基本理念。</p>
+                    
+                    <h3>国际影响</h3>
+                    <p>儒家思想对东亚文化圈的形成和发展产生了深远影响。儒家思想传入朝鲜、日本、越南等国家，与当地文化结合，形成了各具特色的儒家文化。</p>
+                    <p>在现代社会，儒家思想中的许多价值观，如仁爱、诚信、和谐等，仍具有重要的现实意义，受到世界各国的关注和重视。</p>
+                </section>
+
+                <!-- 主要著作 -->
+                <section class="school-section">
+                    <h2>主要著作</h2>
+                    <ul>
+                        <li><strong>《论语》</strong>：孔子及弟子的言行录，由孔子的弟子及再传弟子编撰而成，是儒家思想的重要经典。</li>
+                        <li><strong>《孟子》</strong>：孟子及弟子的著作，记录了孟子的思想和言论，是儒家思想的重要经典。</li>
+                        <li><strong>《大学》</strong>：儒家经典之一，原为《礼记》中的一篇，宋代以后被列为四书之一，强调修身齐家治国平天下的思想。</li>
+                        <li><strong>《中庸》</strong>：儒家经典之一，原为《礼记》中的一篇，宋代以后被列为四书之一，强调中庸之道的思想。</li>
+                        <li><strong>《荀子》</strong>：荀子的著作，记录了荀子的思想和言论，是儒家思想的重要经典。</li>
+                        <li><strong>《春秋》</strong>：孔子修订的编年体史书，是儒家经典之一，强调微言大义的思想。</li>
+                        <li><strong>《礼记》</strong>：儒家经典之一，记录了周代的礼仪制度和儒家的思想观点。</li>
+                        <li><strong>《诗经》</strong>：中国最早的诗歌总集，孔子对其进行整理，是儒家经典之一。</li>
+                    </ul>
+                </section>
+
+                <!-- 经典语录 -->
+                <section class="school-section">
+                    <h2>经典语录</h2>
+                    <div class="quotes-section">
+                        <div class="quote-item">
+                            <p>"学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？"</p>
+                            <p class="author">——《论语·学而》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"己所不欲，勿施于人。"</p>
+                            <p class="author">——《论语·颜渊》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"三人行，必有我师焉。择其善者而从之，其不善者而改之。"</p>
+                            <p class="author">——《论语·述而》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"君子坦荡荡，小人长戚戚。"</p>
+                            <p class="author">——《论语·述而》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"仁远乎哉？我欲仁，斯仁至矣。"</p>
+                            <p class="author">——《论语·述而》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"民为贵，社稷次之，君为轻。"</p>
+                            <p class="author">——《孟子·尽心下》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"天时不如地利，地利不如人和。"</p>
+                            <p class="author">——《孟子·公孙丑下》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"富贵不能淫，贫贱不能移，威武不能屈，此之谓大丈夫。"</p>
+                            <p class="author">——《孟子·滕文公下》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"大学之道，在明明德，在亲民，在止于至善。"</p>
+                            <p class="author">——《大学》</p>
+                        </div>
+                        <div class="quote-item">
+                            <p>"中庸之为德也，其至矣乎！民鲜久矣。"</p>
+                            <p class="author">——《论语·雍也》</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 现代意义 -->
+                <section class="school-section">
+                    <h2>现代意义</h2>
+                    <p>在现代社会，儒家思想仍具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>道德建设</strong>：儒家思想中的仁爱、诚信、正义等价值观，对于提高现代社会的道德水平具有重要作用。</li>
+                        <li><strong>和谐社会建设</strong>：儒家思想中的和谐观念，对于构建现代和谐社会具有积极的借鉴意义。</li>
+                        <li><strong>人际关系处理</strong>：儒家思想中的"己所不欲，勿施于人"等思想，有助于建立良好的人际关系。</li>
+                        <li><strong>教育改革</strong>：儒家思想中的教育理念，如"有教无类"、"因材施教"等，对于现代教育改革仍有启发意义。</li>
+                        <li><strong>企业文化建设</strong>：儒家思想中的团队合作、诚信经营和社会责任等观念，对于现代企业文化建设具有重要价值。</li>
+                        <li><strong>全球治理</strong>：儒家思想中的"和而不同"、"天下大同"等理念，对于构建人类命运共同体具有重要的参考价值。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.school-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

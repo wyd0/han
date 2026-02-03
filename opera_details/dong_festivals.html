@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侗族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 动画关键帧定义 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 侗族传统节日页面特定样式 */
+        .festival-header {
+            background-image: url('images/侗族妇女服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-dong {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-dong:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日类型样式 */
+        .festival-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 节日活动样式 */
+        .festival-activities {
+            margin: 30px 0;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .festival-activities h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .festival-header p {
+                font-size: 18px;
+            }
+            
+            .festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-types {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .festival-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .festival-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .festival-header-content .back-dong {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .festival-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .festival-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="festival-header">
+        <div class="container">
+            <div class="festival-header-content">
+                <h1>侗族传统节日</h1>
+                <p>探索侗族丰富多彩的传统节日与文化内涵</p>
+                <a href="dong.html" class="back-dong">返回侗族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="festival-main">
+        <div class="container">
+            <div class="festival-content">
+                <!-- 节日概览 -->
+                <section class="festival-section">
+                    <h2>传统节日概览</h2>
+                    <p>侗族是一个有着丰富传统节日的民族，这些节日承载着侗族的历史、文化、信仰和生活习俗，是侗族文化的重要组成部分。侗族的传统节日形式多样，内容丰富，既有与汉族相同的节日，如春节、清明节、端午节等，也有具有本民族特色的节日，如侗年、吃新节、花炮节等。</p>
+                    <p>侗族的传统节日通常与农业生产、宗教信仰、历史事件等密切相关，反映了侗族人民对自然的敬畏、对祖先的敬仰、对美好生活的向往。这些节日不仅是侗族人民庆祝和娱乐的重要场合，也是传承和弘扬侗族文化的重要载体。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="festival-section">
+                    <h2>主要传统节日</h2>
+                    
+                    <h3>花炮节</h3>
+                    <div class="festival-activities">
+                        <p>花炮节是侗族最隆重、最热闹的传统节日之一，也是侗族人民最重视的节日。花炮节通常在农历正月或二月举行，具体日期因地区而异。</p>
+                        <h4>节日起源</h4>
+                        <p>花炮节的起源与侗族的历史有关。传说在古代，侗族人民为了纪念一位为民除害的英雄，每年都会举行隆重的庆祝活动，后来逐渐演变为花炮节。</p>
+                        <h4>主要活动</h4>
+                        <ul>
+                            <li><strong>抢花炮：</strong>花炮是用红布包裹的小铁环，放在铁炮的顶端，点燃炮仗后，花炮会被射向空中。人们争相抢夺花炮，抢到花炮的人被视为幸运者，会受到人们的尊敬和祝福。</li>
+                            <li><strong>文艺表演：</strong>花炮节期间，侗族人民会举行各种文艺表演，如侗族大歌、芦笙舞、踩堂舞等，展示侗族的传统文化艺术。</li>
+                            <li><strong>体育竞技：</strong>花炮节期间，还会举行各种体育竞技活动，如斗牛、斗鸡、斗鸟、赛马等，增加节日的热闹氛围。</li>
+                            <li><strong>聚餐活动：</strong>花炮节期间，侗族人民会举行集体聚餐活动，共同分享节日的快乐，增进彼此之间的感情。</li>
+                        </ul>
+                        <h4>节日意义</h4>
+                        <p>花炮节不仅是侗族人民庆祝和娱乐的重要场合，也是传承和弘扬侗族文化的重要载体。通过花炮节，侗族人民加强了彼此之间的联系和团结，增强了对本民族文化的认同感和自豪感。</p>
+                    </div>
+                    
+                    <h3>侗年</h3>
+                    <div class="festival-activities">
+                        <p>侗年是侗族的传统新年，是侗族人民最重视的节日之一。侗年通常在农历十一月初一至十五之间举行，具体日期因地区而异。</p>
+                        <h4>节日起源</h4>
+                        <p>侗年的起源与侗族的农业生产有关。侗族人民在秋收后，为了庆祝丰收，感谢祖先的保佑，会举行隆重的庆祝活动，后来逐渐演变为侗年。</p>
+                        <h4>主要活动</h4>
+                        <ul>
+                            <li><strong>祭祀祖先：</strong>侗年期间，侗族人民会在家中设立祖先牌位，举行隆重的祭祀仪式，向祖先敬献祭品，祈求祖先保佑家庭平安、子孙昌盛。</li>
+                            <li><strong>走亲访友：</strong>侗年期间，侗族人民会走亲访友，互相拜年，赠送礼物，增进彼此之间的感情。</li>
+                            <li><strong>文艺表演：</strong>侗年期间，侗族人民会举行各种文艺表演，如侗族大歌、芦笙舞、踩堂舞等，展示侗族的传统文化艺术。</li>
+                            <li><strong>聚餐活动：</strong>侗年期间，侗族人民会举行集体聚餐活动，共同分享节日的快乐，品尝各种传统美食。</li>
+                        </ul>
+                        <h4>节日意义</h4>
+                        <p>侗年是侗族人民庆祝丰收、祈求平安的重要节日，也是传承和弘扬侗族文化的重要载体。通过侗年，侗族人民加强了家庭和社会的凝聚力，增强了对本民族文化的认同感和自豪感。</p>
+                    </div>
+                    
+                    <h3>吃新节</h3>
+                    <div class="festival-activities">
+                        <p>吃新节是侗族的传统节日，也是侗族人民庆祝丰收的重要节日。吃新节通常在农历六月至八月之间举行，具体日期因地区而异，一般在水稻成熟的时候举行。</p>
+                        <h4>节日起源</h4>
+                        <p>吃新节的起源与侗族的农业生产有关。侗族人民在水稻成熟后，为了庆祝丰收，感谢祖先的保佑，会举行隆重的庆祝活动，后来逐渐演变为吃新节。</p>
+                        <h4>主要活动</h4>
+                        <ul>
+                            <li><strong>祭祀祖先：</strong>吃新节期间，侗族人民会在家中设立祖先牌位，举行隆重的祭祀仪式，向祖先敬献新收获的稻谷和其他祭品，祈求祖先保佑年年丰收。</li>
+                            <li><strong>品尝新粮：</strong>吃新节期间，侗族人民会品尝新收获的稻谷，制作各种传统美食，如糯米饭、酸鱼、酸肉等。</li>
+                            <li><strong>文艺表演：</strong>吃新节期间，侗族人民会举行各种文艺表演，如侗族大歌、芦笙舞、踩堂舞等，展示侗族的传统文化艺术。</li>
+                            <li><strong>聚餐活动：</strong>吃新节期间，侗族人民会举行集体聚餐活动，共同分享丰收的喜悦，增进彼此之间的感情。</li>
+                        </ul>
+                        <h4>节日意义</h4>
+                        <p>吃新节是侗族人民庆祝丰收、感谢祖先的重要节日，也是传承和弘扬侗族文化的重要载体。通过吃新节，侗族人民加强了对农业生产的重视，增强了对本民族文化的认同感和自豪感。</p>
+                    </div>
+                    
+                    <h3>其他传统节日</h3>
+                    <div class="festival-types">
+                        <div class="festival-item">
+                            <h4>春节</h4>
+                            <p>春节是侗族人民与汉族共同庆祝的传统节日，通常在农历正月初一至十五之间举行。春节期间，侗族人民会举行各种庆祝活动，如祭祀祖先、走亲访友、文艺表演等。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>清明节</h4>
+                            <p>清明节是侗族人民与汉族共同庆祝的传统节日，通常在公历4月4日至6日之间举行。清明节期间，侗族人民会举行扫墓、祭祖等活动，表达对祖先的敬仰和怀念之情。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>端午节</h4>
+                            <p>端午节是侗族人民与汉族共同庆祝的传统节日，通常在农历五月初五举行。端午节期间，侗族人民会举行吃粽子、赛龙舟、插艾草等活动，纪念屈原，祈求平安。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>中秋节</h4>
+                            <p>中秋节是侗族人民与汉族共同庆祝的传统节日，通常在农历八月十五举行。中秋节期间，侗族人民会举行赏月、吃月饼、祭祀祖先等活动，祈求家庭团圆、幸福美满。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日文化内涵 -->
+                <section class="festival-section">
+                    <h2>节日文化内涵</h2>
+                    <p>侗族的传统节日不仅是庆祝和娱乐的重要场合，也是侗族文化的重要载体，蕴含着丰富的文化内涵。</p>
+                    
+                    <h3>农业文化</h3>
+                    <p>侗族是一个以农业为主的民族，农业生产是侗族人民的主要生活来源。因此，侗族的许多传统节日都与农业生产密切相关，如吃新节、侗年等。这些节日反映了侗族人民对农业生产的重视，对自然的敬畏，对丰收的渴望。</p>
+                    <ul>
+                        <li><strong>节气观念：</strong>侗族的传统节日大多与节气有关，如吃新节在水稻成熟的时候举行，反映了侗族人民对节气的认识和利用。</li>
+                        <li><strong>祈福活动：</strong>侗族的传统节日中，有许多祈福活动，如祈求风调雨顺、五谷丰登、人畜兴旺等，反映了侗族人民对农业生产的重视和对美好生活的向往。</li>
+                        <li><strong>感恩意识：</strong>侗族的传统节日中，有许多感恩活动，如感谢祖先的保佑、感谢自然的赐予等，反映了侗族人民的感恩意识和对自然的敬畏之情。</li>
+                    </ul>
+                    
+                    <h3>宗教文化</h3>
+                    <p>侗族的传统节日与宗教信仰密切相关，许多节日都包含着宗教祭祀活动，如祭祀祖先、祭祀神灵等。这些活动反映了侗族人民的宗教信仰和精神世界。</p>
+                    <ul>
+                        <li><strong>祖先崇拜：</strong>侗族的传统节日中，有许多祭祀祖先的活动，如侗年、吃新节等，反映了侗族人民对祖先的敬仰和怀念之情。</li>
+                        <li><strong>神灵崇拜：</strong>侗族的传统节日中，有许多祭祀神灵的活动，如花炮节、萨岁节等，反映了侗族人民对神灵的信仰和崇拜。</li>
+                        <li><strong>宗教仪式：</strong>侗族的传统节日中，有许多宗教仪式，如祈福、占卜等，反映了侗族人民的宗教信仰和精神需求。</li>
+                    </ul>
+                    
+                    <h3>社会文化</h3>
+                    <p>侗族的传统节日是侗族社会的重要组成部分，也是侗族人民社交和娱乐的重要场合。这些节日反映了侗族的社会结构、人际关系和价值观念。</p>
+                    <ul>
+                        <li><strong>民族团结：</strong>侗族的传统节日是侗族人民团结协作的重要场合，如集体聚餐、集体活动等，反映了侗族人民的团结精神和集体意识。</li>
+                        <li><strong>人际关系：</strong>侗族的传统节日是侗族人民交流和沟通的重要场合，如走亲访友、互相拜年等，反映了侗族人民重视人际关系和社会和谐。</li>
+                        <li><strong>价值观念：</strong>侗族的传统节日中，蕴含着侗族的价值观念，如尊老爱幼、互助互爱、勤劳节俭等，反映了侗族人民的道德规范和行为准则。</li>
+                    </ul>
+                    
+                    <h3>艺术文化</h3>
+                    <p>侗族的传统节日是侗族文化艺术的重要载体，许多节日都包含着丰富多彩的文化艺术活动，如音乐、舞蹈、绘画、雕刻等。这些活动反映了侗族的艺术成就和审美观念。</p>
+                    <ul>
+                        <li><strong>音乐艺术：</strong>侗族的传统节日中，有许多音乐活动，如侗族大歌、芦笙演奏等，反映了侗族人民的音乐才华和艺术成就。</li>
+                        <li><strong>舞蹈艺术：</strong>侗族的传统节日中，有许多舞蹈活动，如芦笙舞、踩堂舞等，反映了侗族人民的舞蹈才华和艺术成就。</li>
+                        <li><strong>工艺艺术：</strong>侗族的传统节日中，有许多工艺活动，如制作民族服饰、制作手工艺品等，反映了侗族人民的工艺才华和艺术成就。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的现代意义 -->
+                <section class="festival-section">
+                    <h2>节日的现代意义</h2>
+                    <p>在现代社会，侗族的传统节日仍然具有重要的意义，对侗族的社会发展和文化传承产生着深远的影响。</p>
+                    
+                    <h3>文化传承</h3>
+                    <p>侗族的传统节日是侗族文化的重要载体，通过这些节日，侗族的传统文化得到了传承和弘扬。在现代社会，我们应该重视和保护侗族的传统节日，促进侗族文化的传承和发展。</p>
+                    <ul>
+                        <li><strong>文化认同：</strong>侗族的传统节日是侗族文化认同的重要标志，通过参与传统节日活动，侗族人民增强了对本民族文化的认同感和自豪感。</li>
+                        <li><strong>文化教育：</strong>侗族的传统节日是侗族文化教育的重要课堂，通过参与传统节日活动，年轻一代了解和认识了本民族的传统文化，增强了文化自信心。</li>
+                        <li><strong>文化交流：</strong>侗族的传统节日是侗族文化交流的重要平台，通过举办传统节日活动，侗族人民与其他民族的人民进行了文化交流，促进了各民族之间的相互了解和友谊。</li>
+                    </ul>
+                    
+                    <h3>社会和谐</h3>
+                    <p>侗族的传统节日是侗族社会和谐的重要纽带，通过这些节日，侗族人民加强了彼此之间的联系和团结，促进了社会的和谐与稳定。</p>
+                    <ul>
+                        <li><strong>民族团结：</strong>侗族的传统节日是侗族人民团结协作的重要场合，通过参与传统节日活动，侗族人民加强了彼此之间的联系和团结，增强了民族凝聚力。</li>
+                        <li><strong>社会互助：</strong>侗族的传统节日中，有许多互助活动，如互相帮助准备节日、互相赠送礼物等，反映了侗族人民的互助精神和社会责任感。</li>
+                        <li><strong>人际关系：</strong>侗族的传统节日是侗族人民交流和沟通的重要场合，通过参与传统节日活动，侗族人民改善了人际关系，促进了社会的和谐与稳定。</li>
+                    </ul>
+                    
+                    <h3>经济发展</h3>
+                    <p>侗族的传统节日具有独特的文化魅力，是侗族旅游资源的重要组成部分。在现代社会，我们可以合理开发和利用这些旅游资源，促进侗族地区的经济发展。</p>
+                    <ul>
+                        <li><strong>旅游开发：</strong>侗族的传统节日可以作为旅游资源进行开发，如举办花炮节旅游活动、侗年旅游活动等，吸引更多的游客前来观光、体验，促进侗族地区的经济发展。</li>
+                        <li><strong>文化产业：</strong>侗族的传统节日可以作为文化产业进行开发，如制作节日相关的手工艺品、文化产品等，促进侗族地区的经济发展。</li>
+                        <li><strong>就业机会：</strong>侗族的传统节日旅游和文化产业的发展，可以为侗族人民提供更多的就业机会，增加侗族人民的收入，改善侗族人民的生活水平。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的保护与传承 -->
+                <section class="festival-section">
+                    <h2>节日的保护与传承</h2>
+                    <p>随着社会的发展和现代化进程的加快，侗族的传统节日面临着前所未有的挑战，如年轻一代对传统节日的兴趣下降、传统节日的形式和内容逐渐简化等。为了保护和传承侗族的传统节日，我们需要采取一系列措施。</p>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>法律保护：</strong>制定和完善相关法律法规，加强对侗族传统节日的法律保护。将侗族的传统节日列入非物质文化遗产名录，通过法律手段保障其生存和发展。</li>
+                        <li><strong>教育保护：</strong>在侗族地区的学校中，加强对侗族传统节日的教育，让年轻一代了解和认识本民族的传统节日，增强他们的文化认同感和自豪感。</li>
+                        <li><strong>文化保护：</strong>加强对侗族传统节日文化的保护和研究，如收集、整理、保存节日相关的资料、实物、艺术品等，为节日的传承提供物质基础。</li>
+                        <li><strong>社会保护：</strong>营造有利于传统节日传承的社会环境，尊重和理解侗族的传统节日，支持和鼓励正常的节日活动。</li>
+                    </ul>
+                    
+                    <h3>传承发展</h3>
+                    <ul>
+                        <li><strong>创新形式：</strong>在保护传统的基础上，对传统节日的形式和内容进行创新，使其更加适应现代社会的需要。例如，利用现代媒体技术，宣传和推广侗族的传统节日。</li>
+                        <li><strong>培养人才：</strong>加强对传统节日相关人才的培养，如节日活动的组织者、表演者、研究者等，确保传统节日的正常传承和发展。</li>
+                        <li><strong>文化交流：</strong>加强与其他民族和地区的文化交流，吸收其他文化的优秀元素，丰富和发展侗族的传统节日。同时，也向其他民族和地区展示侗族传统节日的独特魅力，提高其知名度和影响力。</li>
+                        <li><strong>旅游开发：</strong>合理开发和利用侗族传统节日的旅游资源，通过旅游活动促进传统节日的传承和发展。例如，开发节日文化旅游线路，举办节日文化节等。</li>
+                    </ul>
+                    
+                    <h3>节日的未来</h3>
+                    <p>侗族的传统节日是侗族文化的重要组成部分，是中华民族文化的瑰宝。在现代社会，侗族的传统节日面临着新的挑战和机遇。</p>
+                    <p>我们相信，通过全社会的共同努力，侗族的传统节日一定能够得到有效的保护和传承，在新时代焕发出新的生机和活力。侗族的传统节日不仅是侗族人民的宝贵财富，也是中华民族的宝贵财富，对于促进民族团结、社会和谐、文化繁荣具有重要的意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为节日相关的部分添加动画效果
+            const festivalSections = document.querySelectorAll('.festival-section');
+            
+            // 页面加载时为所有部分添加可见类
+            setTimeout(() => {
+                festivalSections.forEach(section => {
+                    section.classList.add('visible');
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

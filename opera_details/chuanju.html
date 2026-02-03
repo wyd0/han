@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川剧 - 中国传统戏曲</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SimSun', 'STSong', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.8), rgba(240,240,240,0.8));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513, #CD853F);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #8B4513;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #CD853F;
+        }
+        
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
+        .section:nth-child(6) { animation-delay: 0.5s; }
+        .section:nth-child(7) { animation-delay: 0.6s; }
+        
+        h2 {
+            color: #8B4513;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #CD853F;
+        }
+        
+        h3 {
+            color: #5D4037;
+            font-size: 1.4em;
+            margin: 20px 0 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .classic-line {
+            background-color: #f9f3e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #CD853F;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .classic-line p {
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .classic-line .source {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: #CD853F;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>川剧</h1>
+            <p>四川地方传统戏曲，中国国家级非物质文化遗产</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#origin">起源</a></li>
+                <li><a href="#development">发展</a></li>
+                <li><a href="#art-features">艺术特点</a></li>
+                <li><a href="#roles">行当</a></li>
+                <li><a href="#representative-plays">代表剧目</a></li>
+                <li><a href="#classic-lines">经典戏词</a></li>
+            </ul>
+        </nav>
+        
+        <section id="origin" class="section">
+            <h2>起源</h2>
+            <p>川剧，又称“川戏”，是四川省的地方传统戏曲剧种，流行于四川、重庆及贵州、云南部分地区。其起源可追溯至明代，由昆曲、高腔、胡琴、弹戏、灯调五种声腔艺术融合而成。</p>
+            <p>明代初期，昆曲传入四川，与当地的民间音乐、方言土语相结合，形成了具有四川特色的昆曲。随后，高腔、胡琴、弹戏等声腔相继传入，与四川本地的灯调相互融合，逐渐形成了统一的川剧艺术体系。</p>
+        </section>
+        
+        <section id="development" class="section">
+            <h2>发展</h2>
+            <p>清代是川剧发展的重要时期。乾隆年间，川剧已形成较为完整的艺术体系，出现了专业班社和著名艺人。咸丰、同治年间，川剧进入繁荣期，班社众多，剧目丰富，表演技艺日趋成熟。</p>
+            <p>民国时期，川剧开始吸收京剧、话剧等剧种的艺术元素，在音乐、表演、舞台美术等方面进行改革创新，同时创作了一批反映现实生活的新剧目。</p>
+            <p>新中国成立后，川剧得到了党和政府的重视与扶持。1952年，成立了国营四川省川剧院，随后各地也相继成立专业川剧团体。经过整理、改编和创作，川剧的艺术水平得到显著提高，成为四川文化的重要代表。</p>
+        </section>
+        
+        <section id="art-features" class="section">
+            <h2>艺术特点</h2>
+            <h3>音乐唱腔</h3>
+            <p>川剧的音乐唱腔由昆曲、高腔、胡琴、弹戏、灯调五种声腔组成，每种声腔都有其独特的艺术风格。高腔是川剧的主要声腔，以帮腔为特色，音调高亢激越；昆曲典雅细腻；胡琴（二黄）深沉委婉；弹戏（梆子）明快爽朗；灯调活泼轻快，富有民间色彩。</p>
+            
+            <h3>表演艺术</h3>
+            <p>川剧的表演艺术精湛绝伦，尤以变脸、吐火、滚灯等特技著称于世。变脸是川剧的标志性特技，演员通过快速变换脸谱来表现人物情绪的变化；吐火则是通过特殊技巧，从口中喷出火焰，增强舞台效果；滚灯是丑角的绝活，演员头顶油灯做出各种高难度动作。</p>
+            
+            <h3>舞台美术</h3>
+            <p>川剧的舞台美术丰富多彩，包括脸谱、服装、道具等。川剧脸谱色彩鲜艳，图案精美，不同颜色代表不同的人物性格；服装华丽典雅，体现了中国传统服饰的美学特色；道具精巧细致，为表演增添了生动的视觉效果。</p>
+        </section>
+        
+        <section id="roles" class="section">
+            <h2>行当</h2>
+            <p>川剧的行当分为生、旦、净、末、丑五大类，每个行当又有细致的分工：</p>
+            <ul>
+                <li><strong>生行</strong>：包括文生、武生、红生等，扮演男性角色。文生多为儒雅书生，武生擅长武打，红生则扮演关羽等红脸人物。</li>
+                <li><strong>旦行</strong>：包括正旦、花旦、武旦、老旦等，扮演女性角色。正旦多为端庄贤淑的女性，花旦活泼俏丽，武旦擅长武打，老旦扮演老年妇女。</li>
+                <li><strong>净行</strong>：又称“花脸”，扮演性格刚烈、粗犷豪放的男性角色，如忠臣、猛将、反派人物等。</li>
+                <li><strong>末行</strong>：扮演老年男性角色，多为忠厚长者或地位较高的人物。</li>
+                <li><strong>丑行</strong>：包括文丑、武丑等，扮演滑稽幽默、插科打诨的角色，是川剧中不可或缺的行当，为观众带来欢乐。</li>
+            </ul>
+        </section>
+        
+        <section id="representative-plays" class="section">
+            <h2>代表剧目</h2>
+            <p>川剧的传统剧目丰富多样，题材广泛，包括历史故事、民间传说、爱情故事等。以下是一些代表性剧目：</p>
+            <ul>
+                <li><strong>《白蛇传》</strong>：讲述白素贞与许仙的爱情故事，是川剧的经典剧目之一。</li>
+                <li><strong>《柳荫记》</strong>：改编自梁山伯与祝英台的故事，是川剧的代表作。</li>
+                <li><strong>《空城计》</strong>：历史题材剧目，讲述诸葛亮空城退敌的故事，展现了川剧的表演特色。</li>
+                <li><strong>《铡美案》</strong>：讲述包拯铡陈世美的故事，是川剧的经典剧目。</li>
+                <li><strong>《变脸》</strong>：现代川剧剧目，以变脸特技为核心，展现了川剧的艺术魅力。</li>
+                <li><strong>《死水微澜》</strong>：根据李劼人同名小说改编，是川剧的现代代表作。</li>
+            </ul>
+        </section>
+        
+        <section id="classic-lines" class="section">
+            <h2>经典戏词</h2>
+            <div class="classic-line">
+                <p>西湖山水还依旧，憔悴难对满眼秋。
+                霜染丹枫寒林瘦，不堪回首忆旧游。</p>
+                <div class="source">——《白蛇传》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>山伯临终含恨去，英台哭墓天地悲。
+                双双化蝶翩跹舞，千古爱情永流传。</p>
+                <div class="source">——《柳荫记》 佚名</div>
+            </div>
+            
+            <div class="classic-line">
+                <p>我本是卧龙岗散淡的人，凭阴阳如反掌保定乾坤。
+                先帝爷下南阳御驾三请，联东吴灭曹威鼎足三分。</p>
+                <div class="source">——《空城计》 佚名</div>
+            </div>
+        </section>
+        
+        <a href="../opera_regional.html" class="back-link">返回剧种列表</a>
+    </div>
+</body>
+</html>

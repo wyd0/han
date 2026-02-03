@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>撒拉族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 撒拉族语言文字页面特定样式 */
+        .salar-language-header {
+            background-image: url('images/撒拉族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .salar-language-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .salar-language-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .salar-language-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .salar-language-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .salar-language-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .salar-language-section {
+            margin-bottom: 60px;
+        }
+        
+        .salar-language-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .salar-language-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .salar-language-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .salar-language-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .salar-language-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .salar-language-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .salar-language-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 文字使用样式 */
+        .writing-usage {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .usage-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .usage-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .usage-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .usage-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .salar-language-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .salar-language-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .salar-language-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .salar-language-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .salar-language-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .salar-language-header h1 {
+                font-size: 36px;
+            }
+            
+            .salar-language-header p {
+                font-size: 18px;
+            }
+            
+            .salar-language-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .writing-usage {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="salar-language-header">
+        <div class="container">
+            <div class="salar-language-header-content">
+                <h1>撒拉族语言文字</h1>
+                <p>独特的语言系统，丰富的文化载体</p>
+                <a href="salar.html" class="back-link">返回撒拉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="salar-language-main">
+        <div class="container">
+            <div class="salar-language-content">
+                <!-- 语言概况 -->
+                <section class="salar-language-section">
+                    <h2>语言文字概况</h2>
+                    <p>撒拉族有自己的语言，属阿尔泰语系突厥语族西匈语支乌古斯语组。撒拉语是撒拉族人民在长期的生产生活中形成的独特语言，是撒拉族文化的重要组成部分。</p>
+                    <p>撒拉族没有本民族的文字，历史上主要使用阿拉伯文和汉文。阿拉伯文主要用于宗教活动和宗教教育，汉文则用于日常生活和对外交流。现在，撒拉族人民普遍使用汉文，同时也保留了一些阿拉伯文的使用习惯。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="salar-language-section">
+                    <h3>语言特点</h3>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>撒拉语的语音系统具有突厥语族的共同特点，同时也有一些独特的语音现象。撒拉语有8个元音，包括a、e、i、o、u、ü等，其中有些元音有长短之分。辅音系统比较丰富，包括b、p、m、f、d、t、n、l、g、k、h、j、q、x、zh、ch、sh、r、z、c、s等。撒拉语的重音通常落在词的最后一个音节上。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>撒拉语的词汇主要由突厥语族的固有词汇组成，同时也吸收了一些阿拉伯语、波斯语、汉语等语言的借词。阿拉伯语和波斯语的借词主要与宗教、文化相关，汉语借词则主要与日常生活、现代事物相关。撒拉语的词汇丰富，表现力强，能够满足撒拉族人民日常生活和文化交流的需要。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>撒拉语的语法属于黏着语类型，通过在词根上添加各种后缀来表达语法意义。撒拉语的名词有格、数、领属等语法范畴，动词有态、式、时、人称等语法范畴。撒拉语的句子结构通常是主语-宾语-谓语，这与突厥语族的其他语言相似。撒拉语的语法规则比较系统，表达形式多样。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言使用情况 -->
+                <section class="salar-language-section">
+                    <h3>语言使用情况</h3>
+                    <p>撒拉语是撒拉族人民的母语，在撒拉族聚居区被广泛使用。撒拉族人民在家庭内部、社区内部通常使用撒拉语进行交流，特别是在中老年人中，撒拉语的使用更为普遍。</p>
+                    <p>随着社会的发展和教育的普及，越来越多的撒拉族年轻人开始使用汉语进行交流，撒拉语的使用范围逐渐缩小。为了保护和传承撒拉语，撒拉族地区的学校开始开设撒拉语课程，同时也有一些学者和文化工作者致力于撒拉语的研究和保护工作。</p>
+                </section>
+
+                <!-- 文字使用情况 -->
+                <section class="salar-language-section">
+                    <h3>文字使用情况</h3>
+                    <div class="writing-usage">
+                        <div class="usage-item">
+                            <h4>阿拉伯文</h4>
+                            <p>阿拉伯文是撒拉族历史上使用的主要文字之一，主要用于宗教活动和宗教教育。撒拉族的清真寺和道堂通常使用阿拉伯文书写《古兰经》和其他宗教经典，阿訇在讲经布道时也会使用阿拉伯文。阿拉伯文在撒拉族的宗教文化中占有重要地位，是撒拉族伊斯兰文化的重要载体。</p>
+                        </div>
+                        <div class="usage-item">
+                            <h4>汉文</h4>
+                            <p>汉文是撒拉族历史上使用的另一种主要文字，主要用于日常生活和对外交流。随着社会的发展和教育的普及，汉文在撒拉族地区的使用越来越广泛，现在已经成为撒拉族人民普遍使用的文字。撒拉族的学校教育主要使用汉文，撒拉族的文学作品、报刊杂志等也主要使用汉文出版。</p>
+                        </div>
+                        <div class="usage-item">
+                            <h4>其他文字</h4>
+                            <p>除了阿拉伯文和汉文外，撒拉族历史上还曾经使用过一些其他文字，如波斯文等。波斯文主要用于一些宗教文献和文学作品中，现在使用较少。此外，随着现代科技的发展，撒拉族人民也开始使用拉丁字母来拼写撒拉语，这为撒拉语的记录和传播提供了新的方式。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言与文化的关系 -->
+                <section class="salar-language-section">
+                    <h3>语言与文化的关系</h3>
+                    <p>撒拉语与撒拉族文化之间存在着密切的关系，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>语言是文化的载体：</strong>撒拉语是撒拉族文化的重要载体，通过撒拉语，撒拉族的历史、传统、价值观等得以传承和弘扬。撒拉族的民间故事、歌谣、谚语等都是通过撒拉语口口相传的，撒拉语是撒拉族非物质文化遗产的重要组成部分。</li>
+                        <li><strong>文化是语言的内涵：</strong>撒拉族的文化传统为撒拉语的发展提供了丰富的内涵，撒拉语的词汇、语法、表达方式等都反映了撒拉族的文化特色。例如，撒拉语中有许多与伊斯兰教、畜牧业、农业相关的词汇，这些词汇反映了撒拉族的宗教信仰和生产生活方式。</li>
+                        <li><strong>语言与文化相互影响：</strong>撒拉语的发展变化受到撒拉族文化的影响，同时，撒拉语的变化也会影响撒拉族文化的发展。例如，随着撒拉族与其他民族的交流日益频繁，撒拉语中吸收了许多其他民族的词汇，这反映了撒拉族文化的开放性和包容性。</li>
+                        <li><strong>语言是民族身份的象征：</strong>撒拉语是撒拉族的重要标志之一，是撒拉族人民民族身份的象征。使用撒拉语进行交流，不仅是撒拉族人民日常生活的需要，也是撒拉族人民表达民族认同和文化自信的重要方式。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言保护与传承 -->
+                <section class="salar-language-section">
+                    <h3>语言保护与传承</h3>
+                    <p>随着社会的发展和全球化的进程，撒拉语面临着一些挑战，如使用范围缩小、年轻人使用意愿下降等。为了保护和传承撒拉语，撒拉族地区采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>开设撒拉语课程：</strong>在撒拉族地区的学校开设撒拉语课程，让年轻一代学习和掌握撒拉语。通过正规教育的方式，培养年轻人对撒拉语的兴趣和认同感。</li>
+                        <li><strong>收集整理撒拉语资料：</strong>组织学者和文化工作者收集整理撒拉语的民间故事、歌谣、谚语等资料，建立撒拉语语料库，为撒拉语的研究和保护提供基础。</li>
+                        <li><strong>开展撒拉语研究：</strong>支持学者开展撒拉语的研究工作，探索撒拉语的特点、发展规律和保护策略。通过学术研究，提高撒拉语的地位和影响力。</li>
+                        <li><strong>举办撒拉语活动：</strong>举办撒拉语演讲比赛、故事比赛、歌谣比赛等活动，激发撒拉族人民使用撒拉语的热情，营造良好的语言环境。</li>
+                        <li><strong>利用现代科技：</strong>利用现代科技手段，如录音、录像、互联网等，记录和传播撒拉语。通过现代科技，扩大撒拉语的影响范围，吸引更多的人关注和学习撒拉语。</li>
+                    </ul>
+                    <p>保护和传承撒拉语，不仅是保护撒拉族的文化遗产，也是保护中华文化的多样性。撒拉族人民将继续努力，让撒拉语在新时代焕发出新的活力。</p>
+                </section>
+
+                <!-- 语言的未来发展 -->
+                <section class="salar-language-section">
+                    <h3>语言的未来发展</h3>
+                    <p>面对新时代的机遇和挑战，撒拉语的未来发展需要考虑以下几个方面：</p>
+                    <ul>
+                        <li><strong>双语教育：</strong>在保持撒拉语传承的同时，加强汉语教育，培养撒拉族人民的双语能力。双语教育不仅有利于撒拉族人民的个人发展，也有利于撒拉族与其他民族的交流和融合。</li>
+                        <li><strong>语言创新：</strong>在保持撒拉语传统特色的同时，吸收现代语言的有益成分，丰富撒拉语的表达方式。语言创新可以使撒拉语更好地适应现代社会的需要，保持其生命力。</li>
+                        <li><strong>文化自信：</strong>增强撒拉族人民的文化自信，让撒拉族人民认识到撒拉语的价值和重要性。文化自信是语言传承的内在动力，只有当撒拉族人民充分认识到撒拉语的价值时，才会积极主动地使用和传承撒拉语。</li>
+                        <li><strong>国际交流：</strong>利用撒拉语与中亚一些民族语言的亲缘关系，开展国际交流与合作。国际交流可以为撒拉语的研究和发展提供新的视角和机遇。</li>
+                    </ul>
+                    <p>撒拉语是撒拉族人民的宝贵财富，是中华文化宝库中的重要组成部分。相信在撒拉族人民的共同努力下，撒拉语将会在新时代继续发挥重要作用，为撒拉族文化的繁荣和中华文化的发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 确保撒拉族语言文字页面元素显示
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为所有salar-language-section元素添加visible类
+            const sections = document.querySelectorAll('.salar-language-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+            console.log('撒拉族语言文字页面元素已添加visible类');
+        });
+        
+        // 页面加载完成后再次确保元素显示
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.salar-language-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+            console.log('撒拉族语言文字页面元素在页面加载完成后已添加visible类');
+        });
+    </script>
+</body>
+</html>

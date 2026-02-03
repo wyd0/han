@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饮食文化 - 汉族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 饮食文化页面特定样式 */
+        .food-header {
+            background-image: url('images/传统工艺.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .food-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .food-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .food-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .food-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-han {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-han:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .food-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .food-section {
+            margin-bottom: 80px;
+        }
+        
+        .food-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .food-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .food-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .food-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .food-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .food-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .food-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .food-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 菜系卡片 */
+        .cuisines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .cuisine-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .cuisine-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cuisine-card h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .cuisine-card p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        /* 饮食习俗 */
+        .food-customs {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .food-customs h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .food-header h1 {
+                font-size: 36px;
+            }
+            
+            .food-header p {
+                font-size: 18px;
+            }
+            
+            .food-section h2 {
+                font-size: 28px;
+            }
+            
+            .cuisines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .food-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .food-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="food-header">
+        <div class="container">
+            <div class="food-header-content">
+                <h1>饮食文化</h1>
+                <p>汉族文化的味蕾记忆与生活艺术</p>
+                <a href="han.html" class="back-han">返回汉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="food-main">
+        <div class="container">
+            <div class="food-content">
+                <!-- 介绍部分 -->
+                <section class="food-section">
+                    <h2>汉族饮食文化概述</h2>
+                    <p>汉族饮食文化是汉族文化的重要组成部分，具有悠久的历史和丰富的内涵。汉族饮食文化以其精湛的烹饪技艺、丰富的菜品、独特的饮食习俗和深厚的文化底蕴而闻名于世。</p>
+                    <p>汉族饮食文化的形成和发展与汉族的历史、地理、气候、物产等因素密切相关。经过数千年的发展和演变，汉族饮食文化形成了独特的体系，包括烹饪技艺、饮食习俗、饮食礼仪等多个方面。</p>
+                </section>
+
+                <!-- 八大菜系 -->
+                <section class="food-section">
+                    <h2>八大菜系</h2>
+                    <p>汉族饮食文化博大精深，形成了川菜、粤菜、鲁菜、苏菜、闽菜、浙菜、湘菜、徽菜等八大菜系，每个菜系都有其独特的风味和特点。</p>
+                    
+                    <div class="cuisines-grid">
+                        <div class="cuisine-card">
+                            <h5>川菜</h5>
+                            <p>川菜以麻辣著称，注重调味，善用辣椒、花椒等调料，代表菜品有麻婆豆腐、水煮鱼、回锅肉等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>粤菜</h5>
+                            <p>粤菜以清淡、鲜美著称，注重食材的原味，善用海鲜、煲汤等，代表菜品有白切鸡、烧鹅、叉烧等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>鲁菜</h5>
+                            <p>鲁菜是北方菜系的代表，注重火候和调味，善用高汤，代表菜品有糖醋里脊、九转大肠、葱烧海参等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>苏菜</h5>
+                            <p>苏菜以精致、鲜美著称，注重刀工和造型，善用河鲜，代表菜品有松鼠桂鱼、狮子头、叫花鸡等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>闽菜</h5>
+                            <p>闽菜以清淡、鲜美著称，注重汤品和海鲜，代表菜品有佛跳墙、清蒸石斑鱼、荔枝肉等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>浙菜</h5>
+                            <p>浙菜以鲜嫩、清脆著称，注重食材的原味，善用河鲜和笋类，代表菜品有西湖醋鱼、龙井虾仁、叫花鸡等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>湘菜</h5>
+                            <p>湘菜以酸辣著称，注重调味，善用辣椒、豆豉等调料，代表菜品有剁椒鱼头、红烧肉、酸辣土豆丝等。</p>
+                        </div>
+                        <div class="cuisine-card">
+                            <h5>徽菜</h5>
+                            <p>徽菜以重油、重色、重火工著称，注重食材的原味，善用山珍和野味，代表菜品有臭鳜鱼、毛豆腐、火腿炖甲鱼等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 烹饪技艺 -->
+                <section class="food-section">
+                    <h2>烹饪技艺</h2>
+                    <p>汉族烹饪技艺精湛，包括炒、煮、蒸、炸、煎、烤、炖、焖等多种烹饪方法，每种方法都有其独特的特点和适用范围。</p>
+                    
+                    <h3>主要烹饪方法</h3>
+                    <ul>
+                        <li><strong>炒：</strong>是汉族最常用的烹饪方法之一，通过高温快速翻炒，使菜品保持鲜嫩的口感。</li>
+                        <li><strong>煮：</strong>是将食材放入水中煮熟，适用于汤类、粥类等菜品。</li>
+                        <li><strong>蒸：</strong>是利用水蒸气将食材蒸熟，保持食材的原味和营养。</li>
+                        <li><strong>炸：</strong>是将食材放入油中炸熟，使菜品外皮酥脆，内部鲜嫩。</li>
+                        <li><strong>煎：</strong>是将食材放入锅中煎熟，适用于鱼类、肉类等菜品。</li>
+                        <li><strong>烤：</strong>是利用火的热量将食材烤熟，适用于肉类、蔬菜等菜品。</li>
+                        <li><strong>炖：</strong>是将食材放入锅中慢炖，使菜品口感软烂，汤汁浓郁。</li>
+                        <li><strong>焖：</strong>是将食材放入锅中焖熟，适用于肉类、豆类等菜品。</li>
+                    </ul>
+                    
+                    <h3>烹饪技巧</h3>
+                    <div class="food-customs">
+                        <h5>刀工</h5>
+                        <p>刀工是汉族烹饪技艺的重要组成部分，包括切、片、丝、条、块等多种刀法，不同的刀法适用于不同的食材和菜品。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>火候</h5>
+                        <p>火候是汉族烹饪技艺的关键，包括旺火、中火、小火等多种火候，不同的火候适用于不同的烹饪方法和食材。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>调味</h5>
+                        <p>调味是汉族烹饪技艺的重要环节，包括盐、糖、醋、酱油、料酒等多种调料，不同的调料组合可以产生不同的风味。</p>
+                    </div>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="food-section">
+                    <h2>饮食习俗</h2>
+                    <p>汉族饮食习俗丰富多彩，与汉族的历史、文化、宗教等因素密切相关，反映了汉族人民的生活方式和价值观念。</p>
+                    
+                    <h3>日常饮食习俗</h3>
+                    <div class="food-customs">
+                        <h5>三餐制</h5>
+                        <p>汉族传统饮食实行三餐制，即早餐、午餐和晚餐。早餐通常比较简单，午餐和晚餐则比较丰盛。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>主食与副食</h5>
+                        <p>汉族饮食以谷物为主食，如米饭、馒头、面条等，以蔬菜、肉类、蛋类等为副食。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>筷子的使用</h5>
+                        <p>汉族使用筷子作为餐具，已有数千年的历史。筷子的使用不仅是一种饮食习俗，也是一种文化象征。</p>
+                    </div>
+                    
+                    <h3>节日饮食习俗</h3>
+                    <div class="food-customs">
+                        <h5>春节</h5>
+                        <p>春节是汉族最重要的传统节日，饮食习俗丰富多样，如吃年夜饭、吃饺子、吃年糕等。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>元宵节</h5>
+                        <p>元宵节吃元宵，象征着团圆和幸福。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>清明节</h5>
+                        <p>清明节吃青团，象征着对祖先的思念。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>端午节</h5>
+                        <p>端午节吃粽子，纪念屈原。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>中秋节</h5>
+                        <p>中秋节吃月饼，象征着团圆和幸福。</p>
+                    </div>
+                </section>
+
+                <!-- 饮食礼仪 -->
+                <section class="food-section">
+                    <h2>饮食礼仪</h2>
+                    <p>汉族饮食礼仪是汉族文化的重要组成部分，反映了汉族人民的道德观念和社会规范。</p>
+                    
+                    <h3>餐桌礼仪</h3>
+                    <ul>
+                        <li><strong>座次：</strong>在正式场合，座次有严格的规定，通常以左为尊，上座为长辈或贵客。</li>
+                        <li><strong>上菜顺序：</strong>上菜顺序通常是先冷菜，后热菜，再汤类，最后是主食和甜点。</li>
+                        <li><strong>敬酒：</strong>在正式场合，敬酒是一种重要的礼仪，通常由晚辈向长辈敬酒，下级向上级敬酒。</li>
+                        <li><strong>夹菜：</strong>在餐桌上，应该用公筷夹菜，避免用自己的筷子给别人夹菜。</li>
+                        <li><strong>用餐姿势：</strong>用餐时应该保持端正的姿势，避免趴在桌子上或跷二郎腿。</li>
+                    </ul>
+                    
+                    <h3>饮食禁忌</h3>
+                    <ul>
+                        <li><strong>宗教禁忌：</strong>某些宗教有饮食禁忌，如佛教徒忌吃荤腥，道教徒忌吃五辛等。</li>
+                        <li><strong>地域禁忌：</strong>不同地区有不同的饮食禁忌，如某些地区忌吃狗肉，某些地区忌吃蛇肉等。</li>
+                        <li><strong>个人禁忌：</strong>个人因体质、健康等原因有不同的饮食禁忌，如过敏体质者忌吃某些食物等。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食与健康 -->
+                <section class="food-section">
+                    <h2>饮食与健康</h2>
+                    <p>汉族饮食文化注重饮食与健康的关系，强调合理饮食，均衡营养。</p>
+                    
+                    <h3>饮食观念</h3>
+                    <ul>
+                        <li><strong>五谷为养：</strong>强调谷物是饮食的基础，是人体能量的主要来源。</li>
+                        <li><strong>五果为助：</strong>强调水果是饮食的辅助，补充人体所需的维生素和矿物质。</li>
+                        <li><strong>五畜为益：</strong>强调肉类是饮食的补益，补充人体所需的蛋白质和脂肪。</li>
+                        <li><strong>五菜为充：</strong>强调蔬菜是饮食的补充，补充人体所需的膳食纤维和维生素。</li>
+                    </ul>
+                    
+                    <h3>季节性饮食</h3>
+                    <div class="food-customs">
+                        <h5>春季</h5>
+                        <p>春季宜吃清淡、温补的食物，如春笋、菠菜、韭菜等，有助于肝气的疏泄。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>夏季</h5>
+                        <p>夏季宜吃清热、解暑的食物，如西瓜、黄瓜、绿豆等，有助于防暑降温。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>秋季</h5>
+                        <p>秋季宜吃润燥、养肺的食物，如梨、百合、银耳等，有助于预防秋燥。</p>
+                    </div>
+                    
+                    <div class="food-customs">
+                        <h5>冬季</h5>
+                        <p>冬季宜吃温补、壮阳的食物，如羊肉、狗肉、桂圆等，有助于保暖防寒。</p>
+                    </div>
+                </section>
+
+                <!-- 饮食文化的现代价值 -->
+                <section class="food-section">
+                    <h2>饮食文化的现代价值</h2>
+                    <p>在现代社会，汉族饮食文化仍然具有重要的价值和意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>饮食文化是汉族文化的重要载体，通过保护和传承饮食文化，汉族优秀传统文化得以延续和发展。</li>
+                        <li><strong>健康生活：</strong>汉族饮食文化注重饮食与健康的关系，强调合理饮食，均衡营养，对现代健康生活具有重要的启示意义。</li>
+                        <li><strong>经济发展：</strong>饮食文化可以转化为文化产业，为经济发展做出贡献，同时也可以促进旅游业的发展。</li>
+                        <li><strong>文化交流：</strong>饮食文化是汉族文化的重要组成部分，通过饮食文化的传播，可以促进不同文化之间的交流和理解。</li>
+                        <li><strong>社会和谐：</strong>饮食是人们日常生活的重要组成部分，通过饮食活动，人们可以增进感情，促进社会和谐。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化的保护与传承 -->
+                <section class="food-section">
+                    <h2>饮食文化的保护与传承</h2>
+                    <p>随着社会的发展和时代的变迁，汉族饮食文化面临着一些挑战，需要我们采取措施加以保护和传承：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>通过学校教育、社会教育等方式，向年轻一代传授饮食文化的知识和技能，增强他们对饮食文化的认识和认同。</li>
+                        <li><strong>创新发展：</strong>在保留饮食文化核心内涵的基础上，创新饮食文化的表现形式，使其更加适应现代社会的需求和年轻人的喜好。</li>
+                        <li><strong>政府支持：</strong>政府应加强对饮食文化的保护和支持，通过立法、政策等方式，保障饮食文化的地位和传承。</li>
+                        <li><strong>社会参与：</strong>鼓励社会各界参与饮食文化的保护和传承，形成全社会共同保护和传承饮食文化的良好氛围。</li>
+                        <li><strong>国际传播：</strong>通过各种渠道，向世界传播汉族饮食文化的魅力和价值，增强汉族文化的国际影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.food-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

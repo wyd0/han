@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔吉克族音乐舞蹈 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔吉克族文化详细页面特定样式 */
+        .detail-header {
+            background-image: url('images/塔吉克族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .detail-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="detail-header">
+        <div class="container">
+            <div class="detail-header-content">
+                <h1>塔吉克族音乐舞蹈</h1>
+                <p>帕米尔高原上的艺术瑰宝</p>
+                <a href="tajik.html" class="back-link">返回塔吉克族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-content">
+                <!-- 音乐舞蹈概述 -->
+                <section class="detail-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>塔吉克族的音乐舞蹈具有独特的民族风格和波斯文化的影响，是塔吉克族文化的重要组成部分。塔吉克族人民热爱音乐和舞蹈，在日常生活、节日庆典、婚礼仪式等场合都离不开音乐和舞蹈。</p>
+                    <p>塔吉克族的音乐旋律优美，节奏明快，富有感染力。塔吉克族的舞蹈动作矫健有力，充满生命力，尤其是著名的"鹰舞"，更是塔吉克族文化的重要象征。</p>
+                </section>
+
+                <!-- 音乐特点 -->
+                <section class="detail-section">
+                    <h3>音乐特点</h3>
+                    <p>塔吉克族的音乐具有以下特点：</p>
+                    <ul>
+                        <li><strong>旋律优美：</strong>塔吉克族音乐的旋律优美动听，通常采用五声音阶或七声音阶，音域宽广，起伏较大，富有表现力。</li>
+                        <li><strong>节奏明快：</strong>塔吉克族音乐的节奏明快有力，通常采用2/4拍、4/4拍或6/8拍，以手鼓、鹰笛等乐器伴奏，富有动感。</li>
+                        <li><strong>形式多样：</strong>塔吉克族的音乐形式多样，包括民间歌谣、叙事诗、器乐演奏等。其中，民间歌谣是塔吉克族音乐的重要组成部分，反映了塔吉克族人民的生活、情感和思想。</li>
+                        <li><strong>乐器丰富：</strong>塔吉克族的传统乐器丰富多样，包括鹰笛、手鼓、热瓦甫、弹布尔等。这些乐器造型独特，音色优美，是塔吉克族音乐的重要组成部分。</li>
+                    </ul>
+                </section>
+
+                <!-- 民间歌谣 -->
+                <section class="detail-section">
+                    <h3>民间歌谣</h3>
+                    <p>塔吉克族的民间歌谣内容丰富，形式多样，主要包括以下几种类型：</p>
+                    <ul>
+                        <li><strong>劳动歌：</strong>反映塔吉克族人民劳动生活的歌谣，如放牧歌、农耕歌、打场歌等。这些歌谣节奏明快，富有生活气息，是塔吉克族人民劳动时的精神支柱。</li>
+                        <li><strong>情歌：</strong>表达塔吉克族青年男女爱情的歌谣，如求爱歌、思念歌、婚礼歌等。这些歌谣旋律优美，情感真挚，是塔吉克族爱情文化的重要组成部分。</li>
+                        <li><a href="#" class="link">叙事歌：</a>讲述塔吉克族历史、传说、故事的歌谣，如英雄歌、传说歌、历史歌等。这些歌谣篇幅较长，内容丰富，是塔吉克族历史文化的重要载体。</li>
+                        <li><strong>仪式歌：</strong>在塔吉克族各种仪式上演唱的歌谣，如婚礼歌、葬礼歌、节日歌等。这些歌谣具有浓厚的宗教色彩和仪式感，是塔吉克族仪式文化的重要组成部分。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统乐器 -->
+                <section class="detail-section">
+                    <h3>传统乐器</h3>
+                    <p>塔吉克族的传统乐器丰富多样，主要包括：</p>
+                    <ul>
+                        <li><strong>鹰笛：</strong>塔吉克族最具特色的传统乐器之一，用鹰的翅膀骨制成，音色清脆悠扬，富有高原特色。鹰笛是塔吉克族音乐的重要象征，通常用于独奏或伴奏。</li>
+                        <li><strong>手鼓：</strong>塔吉克族的传统打击乐器，用牛皮或羊皮制成，音色深沉有力，是塔吉克族音乐的重要伴奏乐器。手鼓在塔吉克族的舞蹈中也起着重要的作用，为舞蹈提供节奏。</li>
+                        <li><strong>热瓦甫：</strong>塔吉克族的传统弦乐器，用木头制成，音色优美动听，是塔吉克族音乐的重要伴奏乐器。热瓦甫通常用于独奏或伴奏，在塔吉克族的音乐中占有重要地位。</li>
+                        <li><strong>弹布尔：</strong>塔吉克族的传统弦乐器，用木头制成，音色清脆明亮，是塔吉克族音乐的重要伴奏乐器。弹布尔通常用于独奏或伴奏，在塔吉克族的音乐中也占有重要地位。</li>
+                    </ul>
+                </section>
+
+                <!-- 舞蹈特点 -->
+                <section class="detail-section">
+                    <h3>舞蹈特点</h3>
+                    <p>塔吉克族的舞蹈具有以下特点：</p>
+                    <ul>
+                        <li><strong>动作矫健有力：</strong>塔吉克族舞蹈的动作矫健有力，充满生命力，尤其是腿部动作和手臂动作，刚柔相济，富有表现力。</li>
+                        <li><strong>节奏明快：</strong>塔吉克族舞蹈的节奏明快有力，通常与手鼓、鹰笛等乐器的节奏相配合，富有动感。</li>
+                        <li><strong>形式多样：</strong>塔吉克族的舞蹈形式多样，包括集体舞、单人舞、双人舞等。其中，集体舞是塔吉克族舞蹈的重要形式，通常在节日庆典、婚礼仪式等场合表演。</li>
+                        <li><strong>道具丰富：</strong>塔吉克族的舞蹈道具丰富多样，包括手鼓、鹰笛、头巾、彩带等。这些道具不仅丰富了舞蹈的表现力，也增加了舞蹈的观赏性。</li>
+                    </ul>
+                </section>
+
+                <!-- 著名舞蹈 -->
+                <section class="detail-section">
+                    <h3>著名舞蹈</h3>
+                    <p>塔吉克族的著名舞蹈包括：</p>
+                    <ul>
+                        <li><strong>鹰舞：</strong>塔吉克族最具代表性的传统舞蹈，以模仿鹰的动作为主要特点，动作矫健有力，充满生命力。鹰舞是塔吉克族文化的重要象征，被誉为"帕米尔高原的雄鹰"。</li>
+                        <li><strong>刀郎舞：</strong>塔吉克族的传统舞蹈之一，以模仿刀郎人的生活和劳动为主要特点，动作粗犷豪放，富有生活气息。</li>
+                        <li><strong>盘子舞：</strong>塔吉克族的传统舞蹈之一，以手持盘子表演为主要特点，动作轻盈优美，富有观赏性。</li>
+                        <li><strong>婚礼舞：</strong>塔吉克族在婚礼仪式上表演的舞蹈，动作欢快喜庆，表达了人们对新人的祝福和对美好生活的向往。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐舞蹈的意义 -->
+                <section class="detail-section">
+                    <h3>音乐舞蹈的意义</h3>
+                    <p>塔吉克族的音乐舞蹈对塔吉克族来说具有重要的意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>塔吉克族的音乐舞蹈是塔吉克族文化的重要组成部分，承载着塔吉克族的历史、文化和价值观。通过音乐舞蹈，塔吉克族的文化得以传承和发扬。</li>
+                        <li><strong>社会交流：</strong>塔吉克族的音乐舞蹈是塔吉克族人民社会交流的重要方式，在节日庆典、婚礼仪式等场合，人们通过音乐舞蹈增进感情，加强联系。</li>
+                        <li><strong>情感表达：</strong>塔吉克族的音乐舞蹈是塔吉克族人民情感表达的重要方式，通过音乐舞蹈，塔吉克族人民表达了对生活的热爱、对爱情的向往、对英雄的敬仰等情感。</li>
+                        <li><strong>文化认同：</strong>塔吉克族的音乐舞蹈是塔吉克族人民身份认同的重要标志，通过音乐舞蹈，塔吉克族人民保持了对本民族文化的认同和自豪感。</li>
+                        <li><strong>文化交流：</strong>塔吉克族的音乐舞蹈是塔吉克族与其他民族文化交流的重要桥梁，通过音乐舞蹈，塔吉克族文化与其他民族文化相互交流、相互融合，共同促进了中华文化的发展和繁荣。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐舞蹈的保护与发展 -->
+                <section class="detail-section">
+                    <h3>音乐舞蹈的保护与发展</h3>
+                    <p>随着社会的发展和进步，塔吉克族的音乐舞蹈面临着一些挑战，如传统音乐舞蹈的传承后继乏人、现代音乐舞蹈的冲击等。为了保护和发展塔吉克族的音乐舞蹈，政府和社会采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>文化保护政策：</strong>国家制定了相关的文化保护政策，将塔吉克族的音乐舞蹈列入非物质文化遗产保护名录，保障塔吉克族音乐舞蹈的传承和发展。</li>
+                        <li><strong>传承人的培养：</strong>通过认定非物质文化遗产传承人、举办培训班、组织演出等方式，培养塔吉克族音乐舞蹈的后继人才，确保塔吉克族音乐舞蹈的传承。</li>
+                        <li><strong>文化活动的开展：</strong>通过举办音乐节、舞蹈比赛、文化艺术节等活动，促进塔吉克族音乐舞蹈的交流和发展，提高塔吉克族音乐舞蹈的知名度和影响力。</li>
+                        <li><strong>文化产业的发展：</strong>通过发展文化旅游、文化演艺等产业，为塔吉克族音乐舞蹈的传承和发展提供经济支持，促进塔吉克族音乐舞蹈的市场化和产业化。</li>
+                        <li><strong>学术研究：</strong>组织专家学者对塔吉克族的音乐舞蹈进行研究，包括历史、现状、特点、价值等方面的研究，为塔吉克族音乐舞蹈的保护和发展提供理论支持。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

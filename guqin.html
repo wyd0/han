@@ -1,0 +1,341 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古琴 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 古琴页面特定样式 */
+        body {
+            background-image: url('images/古琴.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bannerMove 20s linear infinite;
+        }
+        
+        .instrument-header {
+            background-image: url('images/古琴.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .instrument-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .instrument-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .instrument-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .instrument-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .instrument-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .instrument-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .instrument-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .instrument-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .instrument-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .instrument-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .instrument-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .instrument-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .instrument-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .instrument-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .instrument-header h1 {
+                font-size: 36px;
+            }
+            
+            .instrument-header p {
+                font-size: 18px;
+            }
+            
+            .instrument-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="instrument-header">
+        <div class="container">
+            <div class="instrument-header-content">
+                <h1>古琴</h1>
+                <p>中国最古老的拨弦乐器之一</p>
+                <a href="music.html" class="back-link">返回传统音乐</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="instrument-main">
+        <div class="container">
+            <div class="instrument-content">
+                <!-- 乐器导航栏 -->
+                <section class="instrument-nav" style="margin-bottom: 50px; padding: 20px; background-color: rgba(249, 249, 249, 0.95); border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: #c0392b; font-size: 24px; margin-bottom: 20px; font-family: 'SimSun', serif; text-align: center;">传统乐器导航</h3>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                        <a href="guqin.html" style="display: inline-block; padding: 10px 20px; background-color: #c0392b; color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">古琴</a>
+                        <a href="guzheng.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">古筝</a>
+                        <a href="erhu.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">二胡</a>
+                        <a href="pipa.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">琵琶</a>
+                        <a href="dizi.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">笛子</a>
+                        <a href="suona.html" style="display: inline-block; padding: 10px 20px; background-color: rgba(192, 57, 43, 0.8); color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; font-family: 'SimSun', serif;">唢呐</a>
+                    </div>
+                </section>
+                
+                <!-- 介绍 -->
+                <section class="instrument-section">
+                    <h2>古琴介绍</h2>
+                    <p>古琴，又称瑶琴、玉琴、七弦琴，是中国最古老的拨弦乐器之一，被誉为"琴棋书画"四艺之首。古琴的历史可以追溯到3000多年前的商周时期，是中国传统文化的重要象征之一。</p>
+                </section>
+
+                <!-- 起源 -->
+                <section class="instrument-section">
+                    <h3>起源</h3>
+                    <p>古琴的起源可以追溯到中国古代的传说时代。据《史记》记载，古琴的发明者是伏羲氏，他"削桐为琴，绳丝为弦"，创造了最早的古琴。另一种说法是神农氏发明了古琴，用于调和阴阳、沟通天地之气。</p>
+                    <p>考古发现表明，早在新石器时代晚期，中国就已经有了类似古琴的乐器。1978年，在湖北随县曾侯乙墓出土的战国时期的古琴，是目前发现的最早的古琴实物之一，距今已有2400多年的历史。</p>
+                </section>
+
+                <!-- 发展 -->
+                <section class="instrument-section">
+                    <h3>发展</h3>
+                    <p>古琴的发展经历了漫长的发展过程：</p>
+                    <ul>
+                        <li><strong>先秦时期</strong>：古琴开始形成基本形制，成为贵族和士大夫阶层的重要乐器，出现了许多著名的琴曲和琴师。</li>
+                        <li><strong>秦汉时期</strong>：古琴得到进一步发展，出现了专门的琴学和琴论，如《琴操》等著作。</li>
+                        <li><strong>魏晋南北朝时期</strong>：古琴艺术达到第一个高峰，出现了蔡邕、嵇康等著名琴家，创作了《广陵散》等经典琴曲。</li>
+                        <li><strong>唐宋时期</strong>：古琴艺术进一步繁荣，出现了许多琴谱和琴论，如《碣石调幽兰》、《琴史》等名著。</li>
+                        <li><strong>元明清时期</strong>：古琴艺术继续发展，出现了更多的琴谱和琴论，如《神奇秘谱》、《溪山琴况》等经典曲目。</li>
+                        <li><strong>近现代</strong>：古琴艺术面临传承危机，但在20世纪后半叶得到了复兴，被联合国教科文组织列为"人类口头和非物质文化遗产代表作"。</li>
+                    </ul>
+                </section>
+
+                <!-- 影响 -->
+                <section class="instrument-section">
+                    <h3>影响</h3>
+                    <p>古琴在中国传统文化中具有深远的影响：</p>
+                    <ul>
+                        <li><strong>文化象征</strong>：古琴被视为君子修身养性的工具，是中国传统文化的重要象征之一，与"琴棋书画"四艺之首的地位相匹配。</li>
+                        <li><strong>哲学思想</strong>：古琴音乐体现了中国传统哲学中的"天人合一"、"中庸之道"等思想，追求自然、和谐的艺术境界。</li>
+                        <li><strong>文学艺术</strong>：古琴与中国文学密切相关，许多诗词、散文都以古琴为主题或背景，如白居易的《琴歌》等。</li>
+                        <li><strong>音乐理论</strong>：古琴的演奏技巧和音乐理论对中国传统音乐的发展产生了深远影响，如"减字谱"的发明和应用。</li>
+                        <li><strong>国际影响</strong>：古琴艺术不仅在中国影响深远，也受到了国际社会的关注和欣赏，成为中华文化的重要使者。</li>
+                    </ul>
+                </section>
+
+                <!-- 演奏方法和技巧 -->
+                <section class="instrument-section">
+                    <h3>演奏方法和技巧</h3>
+                    <p>古琴的演奏方法和技巧非常复杂，主要包括以下几个方面：</p>
+                    <ul>
+                        <li><strong>基本姿势</strong>：演奏时，古琴横置于琴桌或膝上，左手按弦，右手拨弦。</li>
+                        <li><strong>右手技巧</strong>：主要包括"散"、"按"、"泛"三种基本技法，以及"擘"、"托"、"挑"、"勾"等具体指法。</li>
+                        <li><strong>左手技巧</strong>：主要包括"按音"、"滑音"、"揉音"等技法，通过左手在琴弦上的移动和按压，产生不同的音高和音色。</li>
+                        <li><strong>音色控制</strong>：通过不同的拨弦方法和力度，控制古琴的音色，如"清越"、"雄浑"、"圆润"等。</li>
+                        <li><strong>音乐表现力</strong>：古琴的演奏注重音乐的表现力，通过节奏、力度、音色的变化，表现各种情感和意境。</li>
+                    </ul>
+                </section>
+
+                <!-- 代表人物 -->
+                <section class="instrument-section">
+                    <h3>代表人物</h3>
+                    <p>中国历史上有许多著名的古琴演奏家和作曲家：</p>
+                    <ul>
+                        <li><strong>伯牙</strong>：春秋时期著名琴师，相传创作了《高山流水》等名曲，与钟子期的"知音"故事广为流传。</li>
+                        <li><strong>嵇康</strong>：魏晋时期著名文学家、音乐家，擅长演奏《广陵散》，著有《琴赋》等音乐理论著作。</li>
+                        <li><strong>阮籍</strong>：魏晋时期著名文学家、音乐家，擅长演奏古琴，其音乐风格豪放洒脱。</li>
+                        <li><strong>郭子仪</strong>：唐代著名琴师，被称为"郭大"，以擅长琴画诗著称。</li>
+                        <li><strong>朱权</strong>：明代时期著名琴师，创作了《平沙落雁》等名曲，是浙派琴学的创始人。</li>
+                        <li><strong>查阜西</strong>：近现代著名古琴演奏家、理论家，为古琴艺术的传承和发展做出了重要贡献。</li>
+                        <li><strong>吴景略</strong>：近现代著名古琴演奏家，擅长演奏《广陵散》等名曲，录制了许多古琴唱片。</li>
+                    </ul>
+                </section>
+
+                <!-- 琴谱与曲目 -->
+                <section class="instrument-section">
+                    <h3>琴谱与曲目</h3>
+                    <p>古琴的琴谱采用独特的"减字谱"记谱法，是中国最早的记谱法之一。以下是一些著名的古琴曲目：</p>
+                    <ul>
+                        <li><strong>《高山流水》</strong>：相传为伯牙所作，表现了对大自然的赞美和对知音的渴望。</li>
+                        <li><strong>《广陵散》</strong>：嵇康擅长演奏的名曲，表现了慷慨激昂的故事，音乐结构庞大。</li>
+                        <li><strong>《平沙落雁》</strong>：明清时期的名曲，表现了秋天的景色和鸿雁南飞的情景，音乐优美动人。</li>
+                        <li><strong>《潇湘水云》</strong>：明清时期的名曲，表现了游人和樵夫之间的对话，音乐古朴典雅。</li>
+                        <li><strong>《渔樵问答》</strong>：明代朱权所作，表现了渔樵山水的景色和作者的爱国情怀，音乐深情厚重。</li>
+                        <li><strong>《胡笳十八拍》</strong>：根据蔡文姬的故事改编，表现了别离亲人的情景，音乐委婉动人。</li>
+                        <li><strong>《梅花三弄》</strong>：东晋桓伊所作，表现了梅花的高洁品质，音乐清越流畅。</li>
+                    </ul>
+                    <p>这些经典曲目不仅是古琴艺术的瑰宝，也是中国传统文化的重要组成部分，至今仍被广泛演奏和传承。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
