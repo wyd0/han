@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉祜族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 拉祜族宗教信仰页面特定样式 */
+        .lahu-religion-header {
+            background-image: url('images/lahu-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lahu-religion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lahu-religion-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lahu-religion-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-religion-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lahu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lahu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lahu-religion-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lahu-religion-section {
+            margin-bottom: 80px;
+        }
+        
+        .lahu-religion-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-religion-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-religion-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lahu-religion-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lahu-religion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lahu-religion-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lahu-religion-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教信仰类型样式 */
+        .religion-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .religion-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .religion-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 宗教仪式样式 */
+        .ritual-details {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .ritual-details h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .ritual-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .ritual-step {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ritual-step h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        /* 禁忌与信仰样式 */
+        .taboo-belief {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .taboo-item,
+        .belief-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .taboo-item h4,
+        .belief-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lahu-religion-header h1 {
+                font-size: 36px;
+            }
+            
+            .lahu-religion-header p {
+                font-size: 18px;
+            }
+            
+            .lahu-religion-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-types,
+            .ritual-steps,
+            .taboo-belief {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .lahu-religion-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .lahu-religion-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lahu-religion-header">
+        <div class="container">
+            <div class="lahu-religion-header-content">
+                <h1>拉祜族宗教信仰</h1>
+                <p>心灵的寄托，文化的传承</p>
+                <a href="lahu.html" class="back-lahu">返回拉祜族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lahu-religion-main">
+        <div class="container">
+            <div class="lahu-religion-content">
+                <!-- 宗教信仰概况 -->
+                <section class="lahu-religion-section">
+                    <h2>拉祜族宗教信仰概况</h2>
+                    <p>拉祜族的宗教信仰是其文化的重要组成部分，反映了拉祜族人民对自然、生命和宇宙的认识。拉祜族的宗教信仰具有多元性和包容性，主要包括原始宗教、祖先崇拜，以及后来传入的佛教和基督教。</p>
+                    <p>拉祜族的宗教信仰与其生产生活密切相关，是拉祜族人民精神生活的重要内容。通过宗教信仰，拉祜族人民表达了对美好生活的向往，对祖先的敬仰，以及对自然的敬畏之情。</p>
+                </section>
+
+                <!-- 原始宗教 -->
+                <section class="lahu-religion-section">
+                    <h2>原始宗教</h2>
+                    <p>原始宗教是拉祜族最古老、最基础的宗教信仰形式，主要表现为对自然的崇拜和多神信仰。</p>
+                    
+                    <div class="religion-types">
+                        <div class="religion-item">
+                            <h4>自然崇拜</h4>
+                            <p>拉祜族人民崇拜自然，认为自然界的万物都有神灵存在。他们崇拜的自然神灵主要包括：</p>
+                            <ul>
+                                <li><strong>天神：</strong>掌管天空、天气和命运，是最高的神灵。</li>
+                                <li><strong>地神：</strong>掌管土地、农作物和丰收。</li>
+                                <li><strong>山神：</strong>掌管山林、野兽和狩猎。</li>
+                                <li><strong>水神：</strong>掌管河流、湖泊和水源。</li>
+                                <li><strong>树神：</strong>掌管森林和树木，特别是古老的大树被视为神灵的居所。</li>
+                            </ul>
+                        </div>
+                        <div class="religion-item">
+                            <h4>多神信仰</h4>
+                            <p>拉祜族信仰多神，认为世界上存在着各种各样的神灵，这些神灵各司其职，影响着人们的生产生活。拉祜族人民通过祭祀、祈祷等方式与神灵沟通，祈求神灵的保佑和庇护。</p>
+                            <p>拉祜族的多神信仰体现了他们对自然的敬畏和依赖，是其原始宗教的核心内容。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 祖先崇拜 -->
+                <section class="lahu-religion-section">
+                    <h2>祖先崇拜</h2>
+                    <p>祖先崇拜是拉祜族宗教信仰的重要组成部分，反映了拉祜族人民对祖先的敬仰和怀念之情。</p>
+                    
+                    <h3>祖先崇拜的内容</h3>
+                    <ul>
+                        <li><strong>祖先灵魂信仰：</strong>拉祜族认为祖先的灵魂会继续存在，并且会保佑和庇护后代。</li>
+                        <li><strong>祖先祭祀：</strong>拉祜族定期举行祖先祭祀仪式，向祖先献祭食物、酒等物品，表达对祖先的敬仰和感谢之情。</li>
+                        <li><strong>祖先墓地：</strong>拉祜族非常重视祖先的墓地，认为墓地是祖先灵魂的居所，必须保持整洁和庄严。</li>
+                        <li><strong>祖先故事：</strong>拉祜族通过口头传承的方式，讲述祖先的故事和功绩，让后代了解祖先的历史和文化。</li>
+                    </ul>
+                    
+                    <h3>祖先崇拜的仪式</h3>
+                    <div class="ritual-details">
+                        <h4>祖先祭祀仪式</h4>
+                        <div class="ritual-steps">
+                            <div class="ritual-step">
+                                <h5>准备祭品</h5>
+                                <p>准备祖先喜欢的食物、酒、茶叶等祭品，以及香、纸钱等祭祀用品。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>设置祭坛</h5>
+                                <p>在家庭中设置祭坛，摆放祖先的牌位或照片，以及祭品。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>举行仪式</h5>
+                                <p>由家族中的长辈主持仪式，点燃香烛，向祖先献祭，祈祷祖先保佑家族平安、幸福。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>分享祭品</h5>
+                                <p>仪式结束后，家族成员分享祭品，象征着与祖先共享福泽。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 佛教与基督教 -->
+                <section class="lahu-religion-section">
+                    <h2>佛教与基督教</h2>
+                    <p>随着历史的发展和文化的交流，佛教和基督教逐渐传入拉祜族地区，对拉祜族的宗教信仰产生了一定的影响。</p>
+                    
+                    <div class="religion-types">
+                        <div class="religion-item">
+                            <h4>佛教</h4>
+                            <p>佛教传入拉祜族地区的时间较早，主要是南传上座部佛教（小乘佛教）。佛教的传入对拉祜族的宗教信仰、文化艺术和社会生活产生了一定的影响。</p>
+                            <p>部分拉祜族群众信仰佛教，他们修建佛塔、寺庙，举行佛教仪式，诵读佛经。佛教的一些教义和仪式与拉祜族的原始宗教信仰相互融合，形成了具有拉祜族特色的佛教信仰。</p>
+                        </div>
+                        <div class="religion-item">
+                            <h4>基督教</h4>
+                            <p>基督教传入拉祜族地区的时间较晚，主要是在19世纪末20世纪初由西方传教士传入。基督教的传入对拉祜族的宗教信仰、教育和社会生活也产生了一定的影响。</p>
+                            <p>部分拉祜族群众信仰基督教，他们修建教堂，举行基督教仪式，诵读《圣经》。基督教的一些教义和仪式与拉祜族的传统文化相互融合，形成了具有拉祜族特色的基督教信仰。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教仪式与禁忌 -->
+                <section class="lahu-religion-section">
+                    <h2>宗教仪式与禁忌</h2>
+                    
+                    <h3>宗教仪式</h3>
+                    <p>拉祜族的宗教仪式丰富多彩，与生产生活密切相关。主要的宗教仪式包括：</p>
+                    
+                    <div class="ritual-details">
+                        <h4>主要宗教仪式</h4>
+                        <div class="ritual-steps">
+                            <div class="ritual-step">
+                                <h5>祭天仪式</h5>
+                                <p>在每年的重要节日或重大事件时举行，祈求天神保佑风调雨顺、五谷丰登。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>祭地仪式</h5>
+                                <p>在播种、收获等重要农业活动时举行，祈求地神保佑农作物丰收。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>祭山仪式</h5>
+                                <p>在狩猎前或进山采药前举行，祈求山神保佑平安、获得丰收。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>祭祖仪式</h5>
+                                <p>在春节、清明节等重要节日时举行，纪念祖先，祈求祖先保佑。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>婚礼仪式</h5>
+                                <p>在结婚时举行，祈求神灵和祖先保佑婚姻幸福、家庭美满。</p>
+                            </div>
+                            <div class="ritual-step">
+                                <h5>葬礼仪式</h5>
+                                <p>在人去世后举行，超度亡灵，祈求神灵和祖先接纳死者的灵魂。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>宗教禁忌</h3>
+                    <div class="taboo-belief">
+                        <div class="taboo-item">
+                            <h4>日常禁忌</h4>
+                            <ul>
+                                <li>禁止在神灵居住的地方（如神山、神树、神泉等）大声喧哗、乱扔垃圾。</li>
+                                <li>禁止砍伐神树、破坏神山的植被。</li>
+                                <li>禁止在祭祀场所或祖先墓地附近大小便。</li>
+                                <li>禁止对神灵和祖先不敬的言行。</li>
+                                <li>禁止在重要的宗教节日或仪式期间做不洁净的事情。</li>
+                            </ul>
+                        </div>
+                        <div class="taboo-item">
+                            <h4>饮食禁忌</h4>
+                            <ul>
+                                <li>部分拉祜族群众信仰佛教，忌食狗肉、牛肉等肉类。</li>
+                                <li>部分拉祜族群众信仰基督教，忌食血制品。</li>
+                                <li>在祭祀仪式期间，忌食辛辣、刺激性食物。</li>
+                                <li>在重要的宗教节日期间，饮食要清淡、洁净。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教信仰的文化意义 -->
+                <section class="lahu-religion-section">
+                    <h2>宗教信仰的文化意义</h2>
+                    <p>拉祜族的宗教信仰具有重要的文化意义，主要体现在以下几个方面：</p>
+                    
+                    <div class="belief-item">
+                        <h4>文化传承</h4>
+                        <p>拉祜族的宗教信仰是其文化的重要载体，通过宗教仪式、神话传说、民间故事等形式，传承了拉祜族的历史、文化和价值观。</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>社会凝聚</h4>
+                        <p>拉祜族的宗教仪式是社区成员共同参与的活动，通过这些活动，增强了社区成员之间的联系和凝聚力，维护了社会的和谐与稳定。</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>道德规范</h4>
+                        <p>拉祜族的宗教信仰包含了许多道德规范和行为准则，如尊重长辈、团结互助、保护环境、诚实守信等，这些规范和准则对拉祜族人民的行为起到了约束和引导作用。</p>
+                    </div>
+                    
+                    <div class="belief-item">
+                        <h4>心理安慰</h4>
+                        <p>拉祜族的宗教信仰为人们提供了心理安慰和精神寄托，帮助人们面对生活中的困难和挫折，增强了人们的生活信心和勇气。</p>
+                    </div>
+                </section>
+
+                <!-- 宗教信仰的现代发展 -->
+                <section class="lahu-religion-section">
+                    <h2>宗教信仰的现代发展</h2>
+                    <p>随着社会的发展和变迁，拉祜族的宗教信仰也在不断发展和变化。主要表现在以下几个方面：</p>
+                    
+                    <ul>
+                        <li><strong>宗教信仰的多元化：</strong>现代拉祜族社会中，不同的宗教信仰并存，人们可以根据自己的意愿选择信仰的宗教。</li>
+                        <li><strong>宗教仪式的简化：</strong>随着生活节奏的加快，一些传统的宗教仪式逐渐简化，更加适应现代生活的需要。</li>
+                        <li><strong>宗教文化的保护：</strong>在现代社会中，拉祜族人民更加重视对传统宗教文化的保护和传承，通过各种方式保存和弘扬宗教文化遗产。</li>
+                        <li><strong>宗教与现代生活的融合：</strong>拉祜族的宗教信仰逐渐与现代生活相融合，成为现代拉祜族文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <p>拉祜族的宗教信仰是其文化的瑰宝，是拉祜族人民智慧的结晶。在现代社会中，拉祜族人民将继续传承和发展宗教信仰，使其在新的时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.lahu-religion-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

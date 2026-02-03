@@ -1,0 +1,594 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 京族页面特定样式 */
+        .jing-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jing-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jing-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jing-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jing-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jing-section {
+            margin-bottom: 80px;
+        }
+        
+        .jing-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jing-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jing-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jing-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jing-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 介绍部分 */
+        .jing-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jing-intro p {
+            margin-bottom: 20px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .jing-header h1 {
+                font-size: 36px;
+            }
+            
+            .jing-header p {
+                font-size: 18px;
+            }
+            
+            .jing-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jing-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jing-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jing-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jing-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .jing-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .timeline-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jing-header">
+        <div class="container">
+            <div class="jing-header-content">
+                <h1>京族</h1>
+                <p>南海之滨的海洋民族，独特的京族文化风情</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="jing-main">
+        <div class="container">
+            <div class="jing-content">
+                <!-- 文化概览 -->
+                <section class="jing-section">
+                    <h2>京族文化概览</h2>
+                    <div class="jing-intro">
+                        <p>京族是中国的一个少数民族，主要分布在广西壮族自治区防城港市东兴市的万尾岛等地，以及越南的北部地区。京族有着悠久的历史和独特的文化，是中国唯一的海洋少数民族之一。</p>
+                        <p>京族文化以其独特的海洋文化、宗教信仰、语言文字、生活习俗和艺术形式而闻名，是中华文化多元一体格局中的重要组成部分。</p>
+                    </div>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="jing-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>远古时期</h5>
+                            <p>京族先民早在远古时期就在南海之滨繁衍生息，创造了早期的海洋文化和渔业文明。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>唐宋时期</h5>
+                            <p>京族先民开始与中原王朝有了更多的交流和联系，受到了中华文化的广泛影响。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>元明清时期</h5>
+                            <p>京族先民先后归附元朝、明朝和清朝统治，开始了与其他民族的融合和交流。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近代时期</h5>
+                            <p>京族地区受到西方列强的侵略和压迫，同时也开始了现代化的进程。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>现代时期</h5>
+                            <p>新中国成立后，京族地区实行了民族区域自治政策，经济社会得到了快速发展，文化传统得到了保护和传承。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="jing-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="jing_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>京族有自己的语言，属于南亚语系越芒语族越语支，使用以拉丁字母为基础的京文。同时，京族也普遍使用汉语和汉字。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="jing_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>京族主要信仰道教和佛教，同时也保留着一些原始宗教的信仰和习俗。他们崇拜自然、祖先和神灵，有丰富的祭祀活动和宗教仪式。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="jing_customs.html" style="color: #c0392b; text-decoration: none;">生活习俗</a></h5>
+                            <p>京族有着独特的生活习俗，如民居建筑多为高脚屋，婚姻制度实行一夫一妻制，丧葬仪式复杂多样等。京族人民的生活与海洋密切相关，有着丰富的海洋文化传统。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服装特色 -->
+                <section class="jing-section">
+                    <h2>服装特色</h2>
+                    <p>京族传统服装以其鲜艳的色彩、独特的款式和精美的装饰而闻名。男子一般穿无领长袖衣、长裤，外罩长衫，头戴斗笠。女子则穿短上衣和宽大的长裤，外着白色或黑色的长外套，头戴锥形帽，佩戴耳环、项链、手镯等装饰品。京族女子的服装以其独特的海洋文化特色而受到人们的喜爱。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/京族女子传统服装.jpg" alt="京族女子传统服装">
+                            <p>京族女子传统服装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/京族男子传统服装.jpg" alt="京族男子传统服装">
+                            <p>京族男子传统服装</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="jing-section">
+                    <h2>饮食文化</h2>
+                    <p>京族的饮食文化以其独特的海洋特色和风味而闻名。主要食物包括各种海鲜、大米、蔬菜和水果等，同时也喜欢喝茶、酒等饮品。京族的传统美食有鱼露、白米饭、烤鱼、烤虾等，其中鱼露是京族最具代表性的传统调味品，被称为"京族的味道"。</p>
+                    <p>京族的传统美食有鱼露、白米饭、烤鱼、烤虾等，其中鱼露是京族最具代表性的传统调味品，被称为"京族的味道"。</p>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="jing-section">
+                    <h2>传统节日</h2>
+                    <p>京族的传统节日主要有哈节、春节、中秋节等。其中，哈节是京族最盛大的传统节日，每年农历六月初至八月初十期间举行，人们通过祭祀活动祈求丰收和平安，同时也举行各种庆祝活动。</p>
+                    <p>在节日期间，京族人民会穿上盛装，举行各种庆祝活动，如唱歌跳舞、竞技比赛、放烟花等，展示了京族人民的热情好客和丰富多彩的文化生活。</p>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="jing-section">
+                    <h2>文学艺术</h2>
+                    <p>京族有着丰富的民间文学和艺术传统。民间文学包括神话传说、故事、歌谣等，其中最著名的是《京族的来源》和《海龙王的传说》等神话传说。</p>
+                    <p>京族的传统艺术包括音乐、舞蹈、绘画、雕刻等。音乐以其独特的旋律和节奏而闻名，舞蹈则以其优美的动作和流畅的线条而受到人们的喜爱。京族的哈歌和独弦琴演奏更是闻名遐迩，深受人们的喜爱。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="jing-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>京族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。京族的语言、宗教、生活习俗和艺术形式等都为中华文化增添了丰富的内容。</p>
+                    <p>同时，京族文化也受到了中华文化的深刻影响，在长期的历史发展过程中，与汉族和其他少数民族文化相互交流、相互融合，形成了独特的文化特色。京族的海洋文化传统更是丰富了中华文化的内涵，为中华文化增添了新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

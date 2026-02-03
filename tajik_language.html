@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔吉克族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔吉克族文化详细页面特定样式 */
+        .detail-header {
+            background-image: url('images/塔吉克族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .detail-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="detail-header">
+        <div class="container">
+            <div class="detail-header-content">
+                <h1>塔吉克族语言文字</h1>
+                <p>印欧语系伊朗语族的独特语言</p>
+                <a href="tajik.html" class="back-link">返回塔吉克族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-content">
+                <!-- 语言概述 -->
+                <section class="detail-section">
+                    <h2>语言文字概述</h2>
+                    <p>塔吉克族有自己的语言，属印欧语系伊朗语族帕米尔语支，是中国唯一操伊朗语族语言的少数民族。塔吉克语在语音、词汇、语法等方面都具有独特的特点，反映了塔吉克族的历史、文化和生活方式。</p>
+                    <p>塔吉克族没有本民族的文字，历史上主要使用波斯文和维吾尔文。现在，塔吉克族人民普遍使用维吾尔文和汉文，这为他们与其他民族的交流和融入现代社会提供了便利。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="detail-section">
+                    <h3>塔吉克语的特点</h3>
+                    <p>塔吉克语具有以下特点：</p>
+                    <ul>
+                        <li><strong>语音系统：</strong>塔吉克语有丰富的元音和辅音，其中包括一些在汉语中不存在的音素。塔吉克语的重音通常落在单词的最后一个音节上。</li>
+                        <li><strong>词汇构成：</strong>塔吉克语的词汇主要由本族词、波斯语借词、阿拉伯语借词和汉语借词组成。其中，波斯语借词和阿拉伯语借词主要与宗教、文化、科学等方面有关，汉语借词主要与现代生活和科技有关。</li>
+                        <li><strong>语法结构：</strong>塔吉克语的语法结构属于屈折语，通过词形变化来表示语法关系。塔吉克语的名词有性别、数、格的变化，动词有人称、数、时态、语态的变化。</li>
+                        <li><strong>语序：</strong>塔吉克语的基本语序是主语-宾语-谓语，这与汉语的主语-谓语-宾语语序不同。</li>
+                    </ul>
+                </section>
+
+                <!-- 方言差异 -->
+                <section class="detail-section">
+                    <h3>塔吉克语的方言</h3>
+                    <p>塔吉克语内部存在一些方言差异，主要分为以下几种方言：</p>
+                    <ul>
+                        <li><strong>色勒库尔方言：</strong>主要分布在塔什库尔干塔吉克自治县，是塔吉克语的主要方言，也是中国塔吉克族使用最广泛的方言。</li>
+                        <li><strong>瓦罕方言：</strong>主要分布在塔什库尔干塔吉克自治县的瓦罕走廊地区，与阿富汗的塔吉克语有一定的相似性。</li>
+                        <li><strong>萨里库尔方言：</strong>主要分布在塔什库尔干塔吉克自治县的萨里库尔地区，与色勒库尔方言有一定的差异。</li>
+                    </ul>
+                    <p>尽管存在方言差异，但不同地区的塔吉克族人民之间仍然可以相互理解，这体现了塔吉克族文化的统一性。</p>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="detail-section">
+                    <h3>文字使用情况</h3>
+                    <p>塔吉克族没有本民族的文字，历史上和现在的文字使用情况如下：</p>
+                    <ul>
+                        <li><strong>历史上的文字使用：</strong>历史上，塔吉克族主要使用波斯文和维吾尔文。波斯文是伊朗语族通用的文字，塔吉克族通过波斯文吸收了大量的波斯文化。维吾尔文是新疆地区通用的文字，塔吉克族通过维吾尔文与维吾尔族等其他民族进行交流。</li>
+                        <li><strong>现代的文字使用：</strong>现在，塔吉克族人民普遍使用维吾尔文和汉文。维吾尔文是新疆地区的官方文字之一，塔吉克族人民通过维吾尔文参与当地的社会、经济和文化活动。汉文是全国通用的文字，塔吉克族人民通过汉文接受现代教育、了解国家政策和参与全国性的活动。</li>
+                        <li><strong>文字教育：</strong>在塔吉克族地区的学校中，学生同时学习维吾尔文和汉文。此外，一些有条件的学校还会开设波斯文课程，以帮助学生了解塔吉克族的历史和文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言的保护与发展 -->
+                <section class="detail-section">
+                    <h3>语言的保护与发展</h3>
+                    <p>随着社会的发展和进步，塔吉克语面临着一些挑战，如使用范围缩小、年轻人使用频率降低等。为了保护和发展塔吉克语，政府和社会采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>语言保护政策：</strong>国家制定了相关的语言保护政策，保障塔吉克族人民使用本民族语言的权利。例如，在塔吉克族地区的政府文件、公共标识等中，都使用维吾尔文和汉文，同时也会使用塔吉克语。</li>
+                        <li><strong>语言教育：</strong>在塔吉克族地区的学校中，加强了塔吉克语的教学，培养学生对本民族语言的兴趣和自豪感。此外，一些高等院校还开设了塔吉克语专业，培养塔吉克语的教学和研究人才。</li>
+                        <li><strong>文化传承：</strong>通过收集、整理和出版塔吉克族的民间文学、历史文献等，促进塔吉克语的使用和发展。例如，出版塔吉克语的民间故事集、诗歌集等，让更多的人了解和使用塔吉克语。</li>
+                        <li><strong>语言研究：</strong>组织专家学者对塔吉克语进行研究，包括语音、词汇、语法等方面的研究，以及塔吉克语与其他语言的比较研究，为塔吉克语的保护和发展提供理论支持。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言的意义 -->
+                <section class="detail-section">
+                    <h3>塔吉克语的意义</h3>
+                    <p>塔吉克语对塔吉克族来说具有重要的意义：</p>
+                    <ul>
+                        <li><strong>文化认同：</strong>塔吉克语是塔吉克族文化的重要组成部分，是塔吉克族人民身份认同的重要标志。通过使用塔吉克语，塔吉克族人民保持了对本民族文化的认同和自豪感。</li>
+                        <li><strong>历史传承：</strong>塔吉克语承载着塔吉克族的历史和文化，是塔吉克族人民了解自己历史和文化的重要工具。通过塔吉克语，塔吉克族的历史、传说、故事等得以传承和发扬。</li>
+                        <li><strong>社会交流：</strong>塔吉克语是塔吉克族人民内部交流的重要工具，也是塔吉克族与其他操伊朗语族语言的民族交流的桥梁。通过塔吉克语，塔吉克族人民保持了与中亚地区其他塔吉克族的联系。</li>
+                        <li><strong>文化多样性：</strong>塔吉克语是中国语言多样性的重要组成部分，为中国的语言文化宝库增添了独特的色彩。保护和发展塔吉克语，有助于维护中国的语言文化多样性。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

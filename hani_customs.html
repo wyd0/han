@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尼族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哈尼族风俗习惯页面特定样式 */
+        .hani-header {
+            background-image: url('images/哈尼族女性服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hani-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hani-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hani-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hani {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hani:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hani-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hani-section {
+            margin-bottom: 80px;
+        }
+        
+        .hani-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hani-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hani-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hani-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hani-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯分类样式 */
+        .customs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 风俗习惯详情样式 */
+        .custom-detail {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .custom-detail h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hani-header h1 {
+                font-size: 36px;
+            }
+            
+            .hani-header p {
+                font-size: 18px;
+            }
+            
+            .hani-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="hani-header">
+        <div class="container">
+            <div class="hani-header-content">
+                <h1>哈尼族风俗习惯</h1>
+                <p>独特的民族风情与文化传统</p>
+                <a href="hani.html" class="back-hani">返回哈尼族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hani-main">
+        <div class="container">
+            <div class="hani-content">
+                <!-- 风俗习惯概述 -->
+                <section class="hani-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>哈尼族的风俗习惯是哈尼族文化的重要组成部分，是哈尼族人民在长期的历史发展中形成的，反映了哈尼族人民的生活方式、价值观念、道德规范和审美追求。哈尼族的风俗习惯具有鲜明的民族特色和地域特色，是哈尼族民族身份的重要标志。</p>
+                    <p>哈尼族的风俗习惯内容丰富，涉及到生产、生活、婚姻、家庭、宗教、节日等多个方面，它们相互联系、相互影响，共同构成了哈尼族丰富多彩的文化生活。</p>
+                </section>
+
+                <!-- 日常生活习俗 -->
+                <section class="hani-section">
+                    <h2>日常生活习俗</h2>
+                    
+                    <div class="customs-grid">
+                        <div class="custom-item">
+                            <h4>饮食习俗</h4>
+                            <p>哈尼族的饮食习俗具有独特的民族特色，反映了哈尼族人民的生活方式和审美观念。</p>
+                            <div class="custom-detail">
+                                <h5>主食</h5>
+                                <p>以大米为主食，辅以玉米、荞麦、小麦等杂粮。</p>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>特色食品</h5>
+                                <ul>
+                                    <li><strong>竹筒饭：</strong>将米饭和各种食材放入竹筒中烤制而成，味道清香。</li>
+                                    <li><strong>哈尼蘸水：</strong>以辣椒为原料制作而成，味道鲜美，是哈尼族人民喜爱的传统调料。</li>
+                                    <li><strong>酸角：</strong>以酸角为原料腌制而成，味道酸甜可口。</li>
+                                    <li><strong>哈尼梯田红米：</strong>以梯田种植的红米为原料制作而成，口感香糯，营养丰富。</li>
+                                    <li><strong>哈尼腊肉：</strong>以当地产的猪肉为原料腌制而成，味道鲜美。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>饮食禁忌</h5>
+                                <ul>
+                                    <li>禁止食用狗肉、马肉等。</li>
+                                    <li>在祭祀期间有特定的饮食禁忌。</li>
+                                    <li>吃饭时要尊老爱幼，长辈先动筷。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>服饰习俗</h4>
+                            <p>哈尼族的服饰习俗具有独特的民族特色，反映了哈尼族人民的审美观念和文化传统。</p>
+                            <div class="custom-detail">
+                                <h5>女性服饰</h5>
+                                <ul>
+                                    <li><strong>上衣：</strong>多为对襟或左衽短衣，色彩鲜艳，图案精美。</li>
+                                    <li><strong>下装：</strong>多为长裤或裙子，裙子多为百褶裙。</li>
+                                    <li><strong>头饰：</strong>喜欢佩戴各种头饰，如银头饰、布头饰、羽毛头饰等。</li>
+                                    <li><strong>装饰：</strong>喜欢佩戴银饰、贝壳、珠子等装饰品。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>男性服饰</h5>
+                                <ul>
+                                    <li><strong>上衣：</strong>多为对襟短衣或长衫，颜色以黑色、蓝色为主。</li>
+                                    <li><strong>下装：</strong>多为长裤，颜色以黑色、蓝色为主。</li>
+                                    <li><strong>头饰：</strong>多为包头巾，颜色以黑色、蓝色为主。</li>
+                                    <li><strong>装饰：</strong>喜欢佩戴银饰、烟斗等装饰品。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>服饰特点</h5>
+                                <ul>
+                                    <li><strong>色彩鲜艳：</strong>喜欢使用红、黑、蓝、绿、紫等鲜艳的颜色。</li>
+                                    <li><strong>图案精美：</strong>服饰上绣有各种美丽的图案，如花卉、动物、几何图形等。</li>
+                                    <li><strong>款式多样：</strong>不同地区、不同年龄段的服饰款式有所不同。</li>
+                                    <li><strong>工艺精湛：</strong>刺绣、编织等工艺技法精湛，具有很高的艺术价值。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>居住习俗</h4>
+                            <p>哈尼族的居住习俗具有独特的民族特色，反映了哈尼族人民的生活方式和建筑智慧。</p>
+                            <div class="custom-detail">
+                                <h5>传统民居</h5>
+                                <ul>
+                                    <li><strong>蘑菇房：</strong>哈尼族传统建筑的代表，因其外形像蘑菇而得名。蘑菇房一般分为三层，底层养牲畜，中层住人，上层存放粮食和杂物。</li>
+                                    <li><strong>土掌房：</strong>以土坯为主要建筑材料，屋顶平坦，可以晾晒粮食。</li>
+                                    <li><strong>竹楼：</strong>在一些地区，哈尼族人民居住竹楼，通风透气，适合热带气候。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>村寨布局</h5>
+                                <ul>
+                                    <li><strong>依山而建：</strong>哈尼族村寨多依山而建，错落有致，与自然环境和谐统一。</li>
+                                    <li><strong>寨门：</strong>村寨通常有寨门，是村寨的象征和保护神的居所。</li>
+                                    <li><strong>公共空间：</strong>村寨内有公共活动空间，如广场、打谷场等。</li>
+                                    <li><strong>神林：</strong>村寨附近通常有一片神林，是哈尼族人民祭祀神灵的地方。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>居住禁忌</h5>
+                                <ul>
+                                    <li>禁止在神林内砍伐树木、捕猎野生动物。</li>
+                                    <li>禁止在村寨内大声喧哗、斗殴闹事。</li>
+                                    <li>禁止随意进入他人住宅，需要事先打招呼。</li>
+                                    <li>在建房、乔迁等重要时刻有特定的禁忌和仪式。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>生产习俗</h4>
+                            <p>哈尼族的生产习俗具有独特的民族特色，反映了哈尼族人民的生产方式和劳动智慧。</p>
+                            <div class="custom-detail">
+                                <h5>农业生产</h5>
+                                <ul>
+                                    <li><strong>梯田耕作：</strong>哈尼族人民创造了独特的梯田耕作系统，是哈尼族农业文化的杰作。</li>
+                                    <li><strong>耕作工具：</strong>使用犁、耙、锄等传统耕作工具。</li>
+                                    <li><strong>耕作季节：</strong>根据季节变化安排农业生产，如春季播种、夏季管理、秋季收获、冬季休闲。</li>
+                                    <li><strong>生产仪式：</strong>在农业生产的关键时期，如开耕、播种、收割等，会举行相应的仪式，祈求丰收。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>副业生产</h5>
+                                <ul>
+                                    <li><strong>手工业：</strong>包括纺织、刺绣、银饰制作、竹编、木雕等。</li>
+                                    <li><strong>畜牧业：</strong>饲养牛、羊、猪、鸡等家畜家禽。</li>
+                                    <li><strong>采集狩猎：</strong>在山区采集野果、野菜，狩猎野生动物。</li>
+                                    <li><strong>商业活动：</strong>在集市上进行商品交易，交换生产生活用品。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>生产禁忌</h5>
+                                <ul>
+                                    <li>在特定的日子禁止从事农业生产，如祭龙节期间。</li>
+                                    <li>禁止在神林内从事生产活动。</li>
+                                    <li>在生产过程中要尊重自然，保护环境。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 家庭与婚姻习俗 -->
+                <section class="hani-section">
+                    <h2>家庭与婚姻习俗</h2>
+                    
+                    <div class="customs-grid">
+                        <div class="custom-item">
+                            <h4>家庭习俗</h4>
+                            <p>哈尼族的家庭习俗具有独特的民族特色，反映了哈尼族人民的家庭观念和伦理道德。</p>
+                            <div class="custom-detail">
+                                <h5>家庭结构</h5>
+                                <ul>
+                                    <li><strong>父系大家庭：</strong>传统的哈尼族家庭多为父系大家庭，由父母、子女、祖父母等组成。</li>
+                                    <li><strong>核心家庭：</strong>现代哈尼族家庭多为核心家庭，由父母和子女组成。</li>
+                                    <li><strong>家族观念：</strong>哈尼族人民具有强烈的家族观念，重视家族的团结和荣誉。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>家庭关系</h5>
+                                <ul>
+                                    <li><strong>尊老爱幼：</strong>哈尼族人民非常尊重长辈，爱护晚辈，形成了良好的家庭氛围。</li>
+                                    <li><strong>夫妻关系：</strong>夫妻之间相互尊重、相互支持，共同承担家庭责任。</li>
+                                    <li><strong>兄弟关系：</strong>兄弟之间团结互助，共同维护家庭的利益。</li>
+                                    <li><strong>邻里关系：</strong>邻里之间相互帮助、相互照顾，形成了和谐的邻里关系。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>家庭教育</h5>
+                                <ul>
+                                    <li><strong>道德教育：</strong>注重培养子女的道德品质，如尊老爱幼、团结互助、诚实守信等。</li>
+                                    <li><strong>劳动教育：</strong>从小培养子女的劳动习惯和技能，让他们学会自立自强。</li>
+                                    <li><strong>文化教育：</strong>传授子女本民族的文化知识和传统习俗，培养他们的民族自豪感。</li>
+                                    <li><strong>礼仪教育：</strong>教导子女各种礼仪规范，如社交礼仪、餐桌礼仪等。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>婚姻习俗</h4>
+                            <p>哈尼族的婚姻习俗具有独特的民族特色，反映了哈尼族人民的爱情观念和婚姻伦理。</p>
+                            <div class="custom-detail">
+                                <h5>婚姻形态</h5>
+                                <ul>
+                                    <li><strong>一夫一妻制：</strong>哈尼族实行一夫一妻制，禁止重婚。</li>
+                                    <li><strong>族内婚：</strong>传统上，哈尼族多实行族内婚，禁止与外族通婚。现代社会，族外婚逐渐增多。</li>
+                                    <li><strong>自由恋爱：</strong>哈尼族青年男女享有一定的恋爱自由，可以通过对歌、约会等方式相互了解。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>婚姻程序</h5>
+                                <ul>
+                                    <li><strong>提亲：</strong>男方家请媒人到女方家提亲，表达结婚意愿。</li>
+                                    <li><strong>订婚：</strong>双方家长商定结婚日期、聘礼等事项，举行订婚仪式。</li>
+                                    <li><strong>迎亲：</strong>结婚当天，男方家组织迎亲队伍到女方家迎娶新娘。</li>
+                                    <li><strong>婚礼：</strong>举行隆重的婚礼仪式，包括拜堂、宴客、歌舞等活动。</li>
+                                    <li><strong>回门：</strong>婚后几天，新娘回娘家省亲，与娘家亲人团聚。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>婚姻禁忌</h5>
+                                <ul>
+                                    <li>禁止近亲结婚。</li>
+                                    <li>禁止在特定的日子结婚，如忌日、祭祀日等。</li>
+                                    <li>结婚年龄要符合法律规定。</li>
+                                    <li>离婚、再婚等事项要按照传统习俗和法律规定办理。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 礼仪与禁忌 -->
+                <section class="hani-section">
+                    <h2>礼仪与禁忌</h2>
+                    
+                    <div class="customs-grid">
+                        <div class="custom-item">
+                            <h4>社交礼仪</h4>
+                            <p>哈尼族的社交礼仪具有独特的民族特色，反映了哈尼族人民的文明素养和道德规范。</p>
+                            <div class="custom-detail">
+                                <h5>问候礼仪</h5>
+                                <ul>
+                                    <li><strong>见面问候：</strong>见面时要互相问候，询问对方的健康、生活等情况。</li>
+                                    <li><strong>称呼礼仪：</strong>根据对方的年龄、身份使用适当的称呼，如长辈、晚辈、朋友等。</li>
+                                    <li><strong>握手礼仪：</strong>握手时要热情、真诚，力度适中。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>待客礼仪</h5>
+                                <ul>
+                                    <li><strong>热情好客：</strong>哈尼族人民非常热情好客，对待客人如同对待亲人。</li>
+                                    <li><strong>让座敬茶：</strong>客人到来时，要主动让座、敬茶，表达欢迎之情。</li>
+                                    <li><strong>设宴款待：</strong>为客人准备丰盛的饭菜，体现对客人的尊重。</li>
+                                    <li><strong>赠送礼物：</strong>客人离开时，要赠送礼物，表达惜别之情。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>节日礼仪</h5>
+                                <ul>
+                                    <li><strong>节日问候：</strong>节日期间，要互相问候，祝福对方节日快乐。</li>
+                                    <li><strong>走亲访友：</strong>节日期间，要走亲访友，增进亲情和友情。</li>
+                                    <li><strong>参加庆典：</strong>积极参加村寨的节日庆典活动，与大家共同庆祝。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>禁忌习俗</h4>
+                            <p>哈尼族的禁忌习俗是哈尼族文化的重要组成部分，反映了哈尼族人民的宗教信仰和道德规范。</p>
+                            <div class="custom-detail">
+                                <h5>宗教禁忌</h5>
+                                <ul>
+                                    <li>禁止在神林内砍伐树木、捕猎野生动物。</li>
+                                    <li>禁止亵渎神灵，如辱骂、嘲笑神灵等。</li>
+                                    <li>禁止在祭祀期间进行与祭祀无关的活动。</li>
+                                    <li>禁止破坏宗教场所和宗教用品。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>生活禁忌</h5>
+                                <ul>
+                                    <li><strong>饮食禁忌：</strong>禁止食用狗肉、马肉等。</li>
+                                    <li><strong>行为禁忌：</strong>禁止在村寨内大声喧哗、斗殴闹事。</li>
+                                    <li><strong>语言禁忌：</strong>禁止说脏话、谎话，禁止辱骂他人。</li>
+                                    <li><strong>服饰禁忌：</strong>在特定的场合要穿着适当的服饰。</li>
+                                </ul>
+                            </div>
+                            <div class="custom-detail">
+                                <h5>生产禁忌</h5>
+                                <ul>
+                                    <li>禁止在特定的日子从事农业生产，如祭龙节期间。</li>
+                                    <li>禁止破坏梯田、水源等生产设施。</li>
+                                    <li>禁止浪费粮食和其他生产资料。</li>
+                                    <li>禁止在生产过程中使用对环境有害的生产方式。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 风俗习惯的特点 -->
+                <section class="hani-section">
+                    <h2>风俗习惯的特点</h2>
+                    
+                    <h3>民族特色</h3>
+                    <ul>
+                        <li><strong>独特性：</strong>哈尼族的风俗习惯具有独特的民族特色，与其他民族的风俗习惯有所不同。</li>
+                        <li><strong>传承性：</strong>哈尼族的风俗习惯在长期的历史发展中得以传承和发展，具有很强的生命力。</li>
+                        <li><strong>群众性：</strong>哈尼族的风俗习惯是哈尼族人民集体创造和遵守的，具有广泛的群众基础。</li>
+                        <li><strong>适应性：</strong>哈尼族的风俗习惯能够适应社会的发展和变化，不断丰富和完善。</li>
+                    </ul>
+                    
+                    <h3>地域特色</h3>
+                    <ul>
+                        <li><strong>与自然环境的适应：</strong>哈尼族的风俗习惯与哈尼族居住地区的自然环境相适应，如梯田耕作、蘑菇房建筑等。</li>
+                        <li><strong>与生产方式的联系：</strong>哈尼族的风俗习惯与哈尼族的生产方式密切相关，如农业生产习俗、狩猎习俗等。</li>
+                        <li><strong>与宗教信仰的融合：</strong>哈尼族的风俗习惯与哈尼族的宗教信仰相互融合，如祭祀习俗、禁忌习俗等。</li>
+                    </ul>
+                    
+                    <h3>文化价值</h3>
+                    <ul>
+                        <li><strong>历史价值：</strong>哈尼族的风俗习惯记录了哈尼族的历史发展和社会变迁，是研究哈尼族历史的重要资料。</li>
+                        <li><strong>文化价值：</strong>哈尼族的风俗习惯是哈尼族文化的重要组成部分，是哈尼族文化传承和发展的重要载体。</li>
+                        <li><strong>社会价值：</strong>哈尼族的风俗习惯在哈尼族社会中发挥着重要的社会功能，如规范行为、维护秩序、促进团结等。</li>
+                        <li><strong>艺术价值：</strong>哈尼族的风俗习惯中蕴含着丰富的艺术元素，如服饰艺术、建筑艺术、饮食艺术等。</li>
+                        <li><strong>教育价值：</strong>哈尼族的风俗习惯中蕴含着丰富的教育内容，如道德教育、劳动教育、文化教育等。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的变迁与发展 -->
+                <section class="hani-section">
+                    <h2>风俗习惯的变迁与发展</h2>
+                    
+                    <h3>历史变迁</h3>
+                    <ul>
+                        <li><strong>传统风俗习惯的形成：</strong>哈尼族的传统风俗习惯形成于远古时期，与当时的生产力水平、社会结构和宗教信仰相适应。</li>
+                        <li><strong>风俗习惯的演变：</strong>随着社会的发展和与其他民族的交流，哈尼族的风俗习惯不断演变和发展，吸收了其他民族的一些风俗习惯。</li>
+                        <li><strong>现代社会的影响：</strong>近现代以来，随着现代文化的传播和生活方式的变化，哈尼族的一些传统风俗习惯受到了一定的冲击，部分传统风俗习惯逐渐简化或消失。</li>
+                    </ul>
+                    
+                    <h3>现状与挑战</h3>
+                    <ul>
+                        <li><strong>传统风俗习惯的保留：</strong>大部分哈尼族传统风俗习惯仍然被保留和传承，成为哈尼族人民生活的重要组成部分。</li>
+                        <li><strong>年轻一代的认同：</strong>由于现代生活方式的影响，部分年轻哈尼族同胞对传统风俗习惯的认同和参与度有所下降。</li>
+                        <li><strong>风俗习惯的变迁：</strong>一些传统风俗习惯在现代社会中发生了变化，部分传统内容被赋予了现代意义。</li>
+                        <li><strong>文化冲击：</strong>西方文化和现代文化的传入，对哈尼族的传统风俗习惯产生了一定的冲击。</li>
+                    </ul>
+                    
+                    <h3>保护与发展措施</h3>
+                    <ul>
+                        <li><strong>文化保护：</strong>将哈尼族的传统风俗习惯作为非物质文化遗产进行保护，记录和整理相关的风俗习惯资料。</li>
+                        <li><strong>教育传承：</strong>通过学校教育、社区教育等方式，向年轻一代传授哈尼族的传统风俗习惯知识，培养他们对传统风俗习惯的认同和热爱。</li>
+                        <li><strong>创新发展：</strong>在保留传统风俗习惯核心内涵的基础上，结合现代元素，创新传统风俗习惯的表现形式和内容，增强传统风俗习惯的吸引力和感染力。</li>
+                        <li><strong>文化交流：</strong>加强哈尼族传统风俗习惯与其他民族风俗习惯的交流和融合，吸收其他民族风俗习惯的优秀成果，丰富哈尼族传统风俗习惯的内涵。</li>
+                        <li><strong>社区参与：</strong>鼓励社区居民积极参与传统风俗习惯的传承和发展，增强社区的凝聚力和认同感。</li>
+                        <li><strong>政策支持：</strong>政府制定相关政策，支持哈尼族传统风俗习惯的保护和发展，为传统风俗习惯的传承和发展提供必要的支持和帮助。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的现代意义 -->
+                <section class="hani-section">
+                    <h2>风俗习惯的现代意义</h2>
+                    
+                    <h3>文化认同</h3>
+                    <p>哈尼族的传统风俗习惯是哈尼族文化的重要组成部分，是哈尼族民族身份的重要标志。通过传承和发展哈尼族的传统风俗习惯，可以增强哈尼族人民的文化认同感和民族自豪感，促进哈尼族文化的传承和发展。</p>
+                    
+                    <h3>社会和谐</h3>
+                    <p>哈尼族的传统风俗习惯中蕴含着丰富的道德规范和行为准则，如尊老爱幼、团结互助、热情好客等，这些规范和准则对于维护社会秩序、促进社会和谐具有重要意义。</p>
+                    
+                    <h3>文化多样性</h3>
+                    <p>哈尼族的传统风俗习惯是中华民族文化多样性的重要组成部分，丰富了中国的文化宝库。保护和发展哈尼族的传统风俗习惯，对于维护中华民族文化多样性，促进中国文化的繁荣和发展具有重要意义。</p>
+                    
+                    <h3>经济发展</h3>
+                    <p>哈尼族的传统风俗习惯中蕴含着丰富的文化资源，如饮食文化、服饰文化、建筑文化等，这些文化资源可以转化为经济资源，促进当地经济的发展，提高哈尼族人民的生活水平。</p>
+                    
+                    <h3>旅游开发</h3>
+                    <p>哈尼族的传统风俗习惯是哈尼族文化旅游的重要资源，如传统节日、传统歌舞、传统工艺等，可以吸引游客前来观光、体验，促进哈尼族地区的旅游发展。</p>
+                    
+                    <h3>国际交流</h3>
+                    <p>哈尼族的传统风俗习惯具有独特的民族特色和文化魅力，可以通过国际文化交流的方式，向世界展示哈尼族的文化特色，促进中华文化的国际传播，增强中国文化的软实力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

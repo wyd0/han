@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯尔克孜族英雄史诗 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 英雄史诗页面特定样式 */
+        .epic-header {
+            background-image: url('images/柯尔克孜族男装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .epic-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .epic-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .epic-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .epic-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .epic-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .epic-section {
+            margin-bottom: 60px;
+        }
+        
+        .epic-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .epic-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .epic-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .epic-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .epic-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .epic-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .epic-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 返回按钮样式 */
+        .back-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            margin-top: 20px;
+        }
+        
+        .back-button:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(169, 50, 38, 0.3);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .epic-header h1 {
+                font-size: 36px;
+            }
+            
+            .epic-header p {
+                font-size: 18px;
+            }
+            
+            .epic-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .epic-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .epic-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .epic-header-content .back-button {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .epic-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .epic-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="epic-header">
+        <div class="container">
+            <div class="epic-header-content">
+                <h1>柯尔克孜族英雄史诗</h1>
+                <p>《玛纳斯》：东方的伊利亚特</p>
+                <a href="kirgiz.html" class="back-button">返回柯尔克孜族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="epic-main">
+        <div class="container">
+            <div class="epic-content">
+                <!-- 英雄史诗概述 -->
+                <section class="epic-section">
+                    <h2>英雄史诗概述</h2>
+                    <p>柯尔克孜族的英雄史诗《玛纳斯》是世界上最长的英雄史诗之一，被誉为"东方的伊利亚特"。它不仅是柯尔克孜族文化的重要瑰宝，也是中华民族乃至世界文化的宝贵遗产。《玛纳斯》讲述了柯尔克孜族英雄玛纳斯及其子孙八代人抗击外来侵略、保卫家园的英雄事迹，内容涵盖了柯尔克孜族的历史、文化、宗教信仰、风俗习惯等多个方面。</p>
+                </section>
+                
+                <!-- 《玛纳斯》的内容结构 -->
+                <section class="epic-section">
+                    <h3>《玛纳斯》的内容结构</h3>
+                    <p>《玛纳斯》是一部规模宏大的史诗，共有八部，分别讲述了玛纳斯及其七代子孙的英雄事迹：</p>
+                    <ul>
+                        <li><strong>第一部《玛纳斯》：</strong>主要讲述了玛纳斯的诞生、成长、统一柯尔克孜各部、抗击卡勒玛克人的侵略以及最终牺牲的故事。这是史诗中最核心、最精彩的部分，也是流传最广的部分。</li>
+                        <li><strong>第二部《赛麦台依》：</strong>讲述了玛纳斯之子赛麦台依继承父业，继续抗击卡勒玛克人，最终为父报仇的故事。</li>
+                        <li><strong>第三部《赛依铁克》：</strong>讲述了赛麦台依之子赛依铁克的英雄事迹，他继续与卡勒玛克人作战，保卫家园。</li>
+                        <li><strong>第四部《凯涅尼木》：</strong>讲述了赛依铁克之子凯涅尼木的故事，他不仅抗击外敌，还致力于内部的团结和发展。</li>
+                        <li><strong>第五部《赛依特》：</strong>讲述了凯涅尼木之子赛依特的英雄事迹，他继续保卫柯尔克孜族的家园。</li>
+                        <li><strong>第六部《阿斯勒巴恰、别克巴恰》：</strong>讲述了赛依特的两个儿子阿斯勒巴恰和别克巴恰的故事，他们共同抗击外敌，保卫家园。</li>
+                        <li><strong>第七部《索木碧莱克》：</strong>讲述了别克巴恰之子索木碧莱克的英雄事迹。</li>
+                        <li><strong>第八部《奇格台依》：</strong>讲述了索木碧莱克之子奇格台依的故事，这是史诗的最后一部。</li>
+                    </ul>
+                </section>
+                
+                <!-- 《玛纳斯》的艺术特色 -->
+                <section class="epic-section">
+                    <h3>《玛纳斯》的艺术特色</h3>
+                    <p>《玛纳斯》具有独特的艺术魅力，其艺术特色主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>宏大的叙事结构：</strong>《玛纳斯》以玛纳斯家族八代人的英雄事迹为主线，构建了一个宏大的叙事结构，展现了柯尔克孜族的历史发展和社会变迁。</li>
+                        <li><strong>鲜明的人物形象：</strong>史诗塑造了众多鲜明的人物形象，如勇敢无畏的玛纳斯、智慧过人的阿勒曼别特、美丽善良的卡妮凯等，这些人物形象栩栩如生，具有强烈的艺术感染力。</li>
+                        <li><strong>丰富的语言艺术：</strong>《玛纳斯》的语言生动形象、富有韵律，大量运用比喻、拟人、夸张等修辞手法，具有浓郁的民族特色和艺术魅力。</li>
+                        <li><strong>多样的艺术表现形式：</strong>《玛纳斯》不仅是一部口头文学作品，还与音乐、舞蹈等艺术形式相结合，形成了独特的艺术表现形式。史诗的演唱通常伴有库姆孜等乐器的伴奏，具有强烈的音乐性。</li>
+                        <li><strong>深刻的思想内涵：</strong>《玛纳斯》蕴含着深刻的思想内涵，如爱国主义、英雄主义、民族团结、善恶分明等，这些思想观念对柯尔克孜族的价值观和道德观产生了深远影响。</li>
+                    </ul>
+                </section>
+                
+                <!-- 《玛纳斯》的传承方式 -->
+                <section class="epic-section">
+                    <h3>《玛纳斯》的传承方式</h3>
+                    <p>《玛纳斯》主要通过口头传承的方式在柯尔克孜族民间流传，这种传承方式具有以下特点：</p>
+                    <ul>
+                        <li><strong>玛纳斯奇的作用：</strong>玛纳斯奇是专门演唱《玛纳斯》的民间艺人，他们是《玛纳斯》传承的核心。玛纳斯奇通常从小开始学习演唱《玛纳斯》，经过长期的训练和实践，才能成为合格的玛纳斯奇。</li>
+                        <li><strong>口头创作与即兴发挥：</strong>玛纳斯奇在演唱《玛纳斯》时，并不是机械地背诵，而是在基本故事情节的基础上进行口头创作和即兴发挥，使史诗在流传过程中不断丰富和发展。</li>
+                        <li><strong>家族传承：</strong>《玛纳斯》的传承往往以家族为单位，父传子、子传孙，形成了独特的家族传承体系。这种传承方式保证了史诗的完整性和准确性。</li>
+                        <li><strong>社会传承：</strong>除了家族传承外，《玛纳斯》还通过社会交往、节日庆典等方式在柯尔克孜族社会中广泛传承，成为柯尔克孜族文化生活的重要组成部分。</li>
+                        <li><strong>书面记录与整理：</strong>随着社会的发展，《玛纳斯》也开始通过书面记录和整理的方式进行传承。20世纪以来，许多学者对《玛纳斯》进行了搜集、整理和研究，为史诗的传承和保护做出了重要贡献。</li>
+                    </ul>
+                </section>
+                
+                <!-- 《玛纳斯》的文化价值 -->
+                <section class="epic-section">
+                    <h3>《玛纳斯》的文化价值</h3>
+                    <p>《玛纳斯》作为柯尔克孜族的英雄史诗，具有极高的文化价值，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>历史价值：</strong>《玛纳斯》是柯尔克孜族历史的重要载体，它记录了柯尔克孜族的起源、发展、迁徙等历史过程，为研究柯尔克孜族的历史提供了宝贵的资料。</li>
+                        <li><strong>文化价值：</strong>《玛纳斯》涵盖了柯尔克孜族的宗教信仰、风俗习惯、伦理道德、艺术审美等多个方面的文化内容，是柯尔克孜族文化的百科全书。</li>
+                        <li><strong>艺术价值：</strong>《玛纳斯》是柯尔克孜族文学艺术的巅峰之作，它的语言艺术、叙事技巧、人物塑造等方面都达到了很高的艺术水平，对柯尔克孜族的文学艺术发展产生了深远影响。</li>
+                        <li><strong>民族精神价值：</strong>《玛纳斯》所展现的爱国主义、英雄主义、民族团结等民族精神，是柯尔克孜族的精神支柱，对柯尔克孜族的民族认同和凝聚力产生了重要作用。</li>
+                        <li><strong>世界文化价值：</strong>《玛纳斯》作为世界上最长的英雄史诗之一，与《伊利亚特》、《奥德赛》等世界著名史诗相媲美，是世界文化的宝贵遗产，为世界文学艺术的发展做出了重要贡献。</li>
+                    </ul>
+                </section>
+                
+                <!-- 《玛纳斯》的保护与传承 -->
+                <section class="epic-section">
+                    <h3>《玛纳斯》的保护与传承</h3>
+                    <p>为了保护和传承《玛纳斯》这一宝贵的文化遗产，柯尔克孜族人民和中国政府采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>建立传承人名录：</strong>通过建立玛纳斯奇传承人名录，对优秀的玛纳斯奇进行认定和保护，鼓励他们继续传承和发展《玛纳斯》。</li>
+                        <li><strong>开展教育传承：</strong>在柯尔克孜族地区的学校教育中引入《玛纳斯》的相关内容，培养年轻一代对《玛纳斯》的兴趣和认识。</li>
+                        <li><strong>加强学术研究：</strong>组织学者对《玛纳斯》进行深入的学术研究，出版相关的研究著作和翻译作品，扩大《玛纳斯》的影响力。</li>
+                        <li><strong>举办文化活动：</strong>定期举办《玛纳斯》演唱比赛、文化节等活动，为玛纳斯奇提供展示和交流的平台，促进《玛纳斯》的传承和发展。</li>
+                        <li><strong>利用现代媒体：</strong>利用广播、电视、网络等现代媒体对《玛纳斯》进行传播和推广，使更多的人了解和认识《玛纳斯》。</li>
+                        <li><strong>申报非物质文化遗产：</strong>2006年，《玛纳斯》被列入第一批国家级非物质文化遗产名录；2009年，被联合国教科文组织列入人类非物质文化遗产代表作名录，得到了国际社会的认可和保护。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // 确保页面加载时内容可见
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.epic-section');
+            console.log('找到的英雄史诗页面section数量:', sections.length);
+            sections.forEach(section => {
+                section.classList.add('visible');
+                console.log('为section添加visible类:', section.className);
+            });
+        });
+        
+        // 页面加载完成后再次确保
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.epic-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 回族传统节日页面特定样式 */
+        .hui-festival-header {
+            background-image: url('images/传统节日.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hui-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hui-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hui-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hui {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hui:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hui-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hui-festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .hui-festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hui-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hui-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hui-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hui-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日特点网格 */
+        .festival-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .festival-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hui-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .hui-festival-header p {
+                font-size: 18px;
+            }
+            
+            .hui-festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .hui-festival-main {
+            opacity: 1 !important;
+        }
+        
+        .hui-festival-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .festival-feature-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="hui-festival-header">
+        <div class="container">
+            <div class="hui-festival-header-content">
+                <h1>回族传统节日</h1>
+                <p>伊斯兰文化与中国传统的融合，展现回族独特的节日风情</p>
+                <a href="hui.html" class="back-hui">返回回族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hui-festival-main">
+        <div class="container">
+            <div class="hui-festival-content">
+                <!-- 节日概述 -->
+                <section class="hui-festival-section">
+                    <h2>回族传统节日概述</h2>
+                    <p>回族的传统节日主要与伊斯兰教有关，这些节日是回族文化的重要组成部分，承载着回族的宗教信仰、历史记忆和文化传统。回族的传统节日不仅是宗教仪式的重要载体，也是回族社区凝聚、文化传承的重要方式。</p>
+                    <p>回族的传统节日主要包括开斋节、古尔邦节、圣纪节等，这些节日都有其独特的历史背景、宗教意义和庆祝方式。同时，回族也会庆祝一些与汉族和其他民族共同的节日，如春节、中秋节等，但庆祝方式会融入回族的宗教和文化特色。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="hui-festival-section">
+                    <h2>主要传统节日</h2>
+                    
+                    <h3>开斋节</h3>
+                    <p>开斋节（Eid al-Fitr）是回族最重要的传统节日之一，时间在伊斯兰历十月一日，是斋月结束后的第一天。开斋节的主要意义是庆祝斋月的圆满完成，感谢安拉的恩赐。</p>
+                    <h4>节日准备</h4>
+                    <ul>
+                        <li><strong>清洁卫生：</strong> 开斋节前，回族家庭会进行全面的清洁卫生，打扫房屋、沐浴更衣，以整洁的面貌迎接节日。</li>
+                        <li><strong>准备食物：</strong> 回族家庭会准备丰富的节日食物，如油香、馓子、麻花、糖果等传统食品。</li>
+                        <li><strong>装饰房屋：</strong> 一些回族家庭会装饰房屋，挂上彩灯、贴上门联等，营造节日氛围。</li>
+                    </ul>
+                    <h4>节日活动</h4>
+                    <ul>
+                        <li><strong>会礼：</strong> 开斋节当天清晨，回族穆斯林会前往清真寺参加会礼，聆听阿訇讲经，祈祷祝福。</li>
+                        <li><strong>走亲访友：</strong> 会礼后，回族穆斯林会走亲访友，互致问候，赠送礼物。</li>
+                        <li><strong>聚餐：</strong> 回族家庭会举办聚餐，品尝传统美食，共度佳节。</li>
+                        <li><strong>施舍：</strong> 开斋节期间，回族穆斯林会进行施舍，帮助贫困家庭，体现伊斯兰教的慈善精神。</li>
+                    </ul>
+                    
+                    <h3>古尔邦节</h3>
+                    <p>古尔邦节（Eid al-Adha）是回族的重要传统节日，时间在伊斯兰历十二月十日，又称"宰牲节"、"忠孝节"。古尔邦节的主要意义是纪念先知易卜拉欣（亚伯拉罕）遵守安拉的命令，愿意牺牲自己的儿子伊斯玛仪（以实玛利），以及安拉用绵羊代替伊斯玛仪作为牺牲的故事。</p>
+                    <h4>节日准备</h4>
+                    <ul>
+                        <li><strong>准备牲畜：</strong> 古尔邦节前，有条件的回族家庭会准备牛、羊等牲畜，用于节日宰牲。</li>
+                        <li><strong>清洁卫生：</strong> 古尔邦节前，回族家庭会进行全面的清洁卫生，打扫房屋、沐浴更衣。</li>
+                        <li><strong>准备食物：</strong> 回族家庭会准备丰富的节日食物，如油香、馓子、麻花等传统食品。</li>
+                    </ul>
+                    <h4>节日活动</h4>
+                    <ul>
+                        <li><strong>会礼：</strong> 古尔邦节当天清晨，回族穆斯林会前往清真寺参加会礼，聆听阿訇讲经，祈祷祝福。</li>
+                        <li><strong>宰牲：</strong> 会礼后，有条件的回族家庭会进行宰牲，将宰牲的肉分为三份，一份自己食用，一份赠送亲友，一份施舍给贫困家庭。</li>
+                        <li><strong>走亲访友：</strong> 回族穆斯林会走亲访友，互致问候，赠送宰牲的肉。</li>
+                        <li><strong>聚餐：</strong> 回族家庭会举办聚餐，品尝传统美食，共度佳节。</li>
+                    </ul>
+                    
+                    <h3>圣纪节</h3>
+                    <p>圣纪节（Mawlid al-Nabi）是回族的传统节日，时间在伊斯兰历三月十二日，是先知穆罕默德的诞辰和忌日。圣纪节的主要意义是纪念穆罕默德的生平事迹，学习他的品德和精神。</p>
+                    <h4>节日活动</h4>
+                    <ul>
+                        <li><strong>会礼：</strong> 圣纪节当天，回族穆斯林会前往清真寺参加会礼，聆听阿訇讲述穆罕默德的生平事迹和教诲。</li>
+                        <li><strong>诵经：</strong> 回族穆斯林会集体诵读《古兰经》，缅怀穆罕默德。</li>
+                        <li><strong>聚餐：</strong> 清真寺会举办集体聚餐，回族穆斯林会一起品尝传统美食，共度佳节。</li>
+                        <li><strong>讲述穆罕默德的故事：</strong> 回族穆斯林会讲述穆罕默德的生平事迹、品德和教诲，传承伊斯兰文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 其他传统节日 -->
+                <section class="hui-festival-section">
+                    <h2>其他传统节日</h2>
+                    <div class="festival-features-grid">
+                        <div class="festival-feature-item">
+                            <h5>阿舒拉节</h5>
+                            <p>阿舒拉节（Ashura）是伊斯兰历一月十日，是伊斯兰教的重要节日之一。回族穆斯林在这一天会 fasting（斋戒），纪念先知穆萨（摩西）带领以色列人脱离埃及法老的奴役。一些回族社区会举办宗教讲座、诵经等活动。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>登霄节</h5>
+                            <p>登霄节（Isra and Mi'raj）是伊斯兰历七月二十七日，纪念先知穆罕默德夜登九霄，接受安拉启示的故事。回族穆斯林在这一天会进行祈祷、诵经、讲述穆罕默德登霄的故事等活动。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>白拉特夜</h5>
+                            <p>白拉特夜（Laylat al-Barat）是伊斯兰历八月十五日，被认为是安拉记录人类善恶行为的夜晚。回族穆斯林在这一天会进行祈祷、诵经、施舍等活动，祈求安拉的宽恕和祝福。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日的文化意义 -->
+                <section class="hui-festival-section">
+                    <h2>节日的文化意义</h2>
+                    
+                    <h3>宗教意义</h3>
+                    <p>回族传统节日的宗教意义主要体现在：</p>
+                    <ul>
+                        <li><strong>强化宗教信仰：</strong> 节日期间的宗教仪式和活动，如会礼、诵经、祈祷等，有助于强化回族的宗教信仰，加深对伊斯兰教教义的理解。</li>
+                        <li><strong>传承宗教文化：</strong> 节日是宗教文化传承的重要载体，通过节日活动，回族将伊斯兰教的教义、历史、传统等传递给下一代。</li>
+                        <li><strong>实践宗教教义：</strong> 节日期间的施舍、宰牲等活动，是回族实践伊斯兰教慈善、博爱等教义的重要方式。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>回族传统节日的文化意义主要体现在：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong> 节日是回族文化传承的重要方式，通过节日活动，回族将自己的语言、文学、艺术、风俗习惯等文化元素传递给下一代。</li>
+                        <li><strong>文化融合：</strong> 回族传统节日融合了伊斯兰文化和中国传统文化元素，体现了回族文化的多元性和包容性。</li>
+                        <li><strong>文化认同：</strong> 节日是回族文化认同的重要标志，通过共同的节日活动，回族增强了对自己文化的认同和自豪感。</li>
+                    </ul>
+                    
+                    <h3>社会意义</h3>
+                    <p>回族传统节日的社会意义主要体现在：</p>
+                    <ul>
+                        <li><strong>社区凝聚：</strong> 节日期间的集体活动，如会礼、聚餐等，有助于增强回族社区的凝聚力，促进邻里之间的交流和团结。</li>
+                        <li><strong>社会互助：</strong> 节日期间的施舍、赠送礼物等活动，有助于促进社会互助，帮助困难家庭。</li>
+                        <li><strong>文化交流：</strong> 节日期间，回族会与汉族和其他民族进行交流，促进各民族之间的相互了解和团结。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的庆祝方式 -->
+                <section class="hui-festival-section">
+                    <h2>节日的庆祝方式</h2>
+                    
+                    <h3>宗教仪式</h3>
+                    <p>回族传统节日的宗教仪式主要包括：</p>
+                    <ul>
+                        <li><strong>会礼：</strong> 节日当天，回族穆斯林会前往清真寺参加会礼，聆听阿訇讲经，祈祷祝福。</li>
+                        <li><strong>诵经：</strong> 回族穆斯林会集体诵读《古兰经》，缅怀先知，祈求祝福。</li>
+                        <li><strong>祈祷：</strong> 回族穆斯林会进行个人和集体祈祷，祈求安拉的宽恕和祝福。</li>
+                    </ul>
+                    
+                    <h3>传统习俗</h3>
+                    <p>回族传统节日的传统习俗主要包括：</p>
+                    <ul>
+                        <li><strong>饮食习俗：</strong> 节日期间，回族会准备丰富的传统食物，如油香、馓子、麻花、糖果等，这些食物不仅美味可口，也具有宗教和文化意义。</li>
+                        <li><strong>服饰习俗：</strong> 节日期间，回族会穿着整洁的传统服饰，如男子戴无檐小帽，女子戴盖头，以庄重的面貌迎接节日。</li>
+                        <li><strong>社交习俗：</strong> 节日期间，回族会走亲访友，互致问候，赠送礼物，加强亲友之间的联系。</li>
+                    </ul>
+                    
+                    <h3>现代庆祝方式</h3>
+                    <p>随着社会的发展，回族传统节日的庆祝方式也在不断丰富和创新：</p>
+                    <ul>
+                        <li><strong>文化活动：</strong> 一些回族社区会举办文化活动，如书法展览、演讲比赛、文艺演出等，丰富节日内容。</li>
+                        <li><strong>旅游活动：</strong> 一些回族家庭会利用节日假期进行旅游，放松身心，增进家庭感情。</li>
+                        <li><strong>公益活动：</strong> 一些回族组织会举办公益活动，如慰问困难家庭、义诊、助学等，践行伊斯兰教的慈善精神。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日与文化传承 -->
+                <section class="hui-festival-section">
+                    <h2>节日与文化传承</h2>
+                    
+                    <h3>家庭传承</h3>
+                    <p>家庭是回族传统节日传承的重要场所：</p>
+                    <ul>
+                        <li><strong>家庭教育：</strong> 家长通过向子女讲述节日的历史背景、宗教意义和传统习俗，将节日文化传递给下一代。</li>
+                        <li><strong>家庭活动：</strong> 家庭成员一起准备节日食物、参加节日活动，共同体验节日文化，增强家庭凝聚力。</li>
+                        <li><strong>家庭传统：</strong> 一些回族家庭会保留自己独特的节日传统，如特定的食物制作方法、特定的庆祝仪式等，这些传统成为家庭文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>社区传承</h3>
+                    <p>社区是回族传统节日传承的重要平台：</p>
+                    <ul>
+                        <li><strong>集体活动：</strong> 清真寺和回族社区组织会举办集体活动，如会礼、聚餐、文化活动等，为回族提供共同参与节日的机会。</li>
+                        <li><strong>社区教育：</strong> 清真寺和回族社区组织会通过举办讲座、培训班等活动，向回族群众普及节日知识，促进节日文化的传承。</li>
+                        <li><strong>社区传统：</strong> 一些回族社区会保留自己独特的节日传统，如特定的庆祝仪式、特定的文化活动等，这些传统成为社区文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>社会传承</h3>
+                    <p>社会是回族传统节日传承的重要环境：</p>
+                    <ul>
+                        <li><strong>媒体宣传：</strong> 媒体通过宣传回族传统节日的历史背景、宗教意义和传统习俗，提高社会对回族节日文化的认识和理解。</li>
+                        <li><strong>文化保护：</strong> 政府和社会组织通过制定相关政策、提供资金支持等方式，保护和传承回族传统节日文化。</li>
+                        <li><strong>文化交流：</strong> 回族通过与其他民族的文化交流，吸收其他民族节日文化的精华，丰富自己的节日文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的现代意义 -->
+                <section class="hui-festival-section">
+                    <h2>节日的现代意义</h2>
+                    
+                    <h3>文化认同</h3>
+                    <p>在现代社会，回族传统节日对于增强回族的文化认同具有重要意义：</p>
+                    <ul>
+                        <li><strong>民族凝聚力：</strong> 通过共同的节日活动，回族增强了对自己民族的认同感和归属感，促进了民族内部的团结和凝聚力。</li>
+                        <li><strong>文化自信：</strong> 回族传统节日展示了回族文化的独特魅力，有助于增强回族的文化自信，提高回族在多元文化社会中的文化地位。</li>
+                        <li><strong>文化传承：</strong> 通过节日活动，回族将自己的文化传统传递给下一代，确保文化的延续和发展。</li>
+                    </ul>
+                    
+                    <h3>社会和谐</h3>
+                    <p>回族传统节日对于促进社会和谐具有重要意义：</p>
+                    <ul>
+                        <li><strong>民族团结：</strong> 回族传统节日是回族与其他民族交流的重要机会，通过节日交流，促进了各民族之间的相互了解和团结。</li>
+                        <li><strong>社会稳定：</strong> 节日期间的社区活动有助于增强社区凝聚力，维护社会稳定。</li>
+                        <li><strong>文化多样性：</strong> 回族传统节日是中国文化多样性的重要组成部分，丰富了中国的文化景观。</li>
+                    </ul>
+                    
+                    <h3>个人意义</h3>
+                    <p>回族传统节日对于回族个人的成长和发展具有重要意义：</p>
+                    <ul>
+                        <li><strong>精神寄托：</strong> 节日期间的宗教活动为回族提供了精神寄托和心灵安慰，帮助回族应对现代社会的压力和挑战。</li>
+                        <li><strong>道德教育：</strong> 节日期间的慈善、互助等活动，是回族实践道德规范、培养良好品德的重要方式。</li>
+                        <li><strong>家庭幸福：</strong> 节日期间的家庭活动有助于增强家庭成员之间的感情，促进家庭幸福。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怒族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 通用样式 */
+        .nu-detail-header {
+            background-image: url('images/怒族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nu-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .nu-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nu-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-nu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-nu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .nu-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .nu-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .nu-detail-section {
+            margin-bottom: 60px;
+        }
+        
+        .nu-detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-section p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .nu-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .nu-detail-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .nu-detail-section li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .language-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .language-feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .language-feature-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .language-feature-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nu-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .nu-detail-header p {
+                font-size: 18px;
+            }
+            
+            .nu-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="nu-detail-header">
+        <div class="container">
+            <div class="nu-detail-header-content">
+                <h1>怒族语言文字</h1>
+                <p>独特的语言系统与文字传承</p>
+                <a href="nu.html" class="back-nu">返回怒族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="nu-detail-main">
+        <div class="container">
+            <div class="nu-detail-content">
+                <!-- 语言概述 -->
+                <section class="nu-detail-section">
+                    <h2>语言概述</h2>
+                    <p>怒族是中国的一个古老民族，拥有自己独特的语言系统。怒族语言属于汉藏语系藏缅语族，是怒族人民在长期的历史发展过程中创造和使用的交流工具。</p>
+                    <p>怒族语言主要分布在云南省怒江傈僳族自治州的碧江、福贡、贡山和兰坪，以及迪庆藏族自治州的维西县和西藏自治区的察隅县等地。由于地域差异，怒族语言内部存在一定的方言差异，但总体上保持着较强的一致性。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="nu-detail-section">
+                    <h2>语言特点</h2>
+                    <div class="language-features">
+                        <div class="language-feature-item">
+                            <h4>语音特点</h4>
+                            <p>怒族语言的语音系统较为复杂，有较多的辅音和元音，声调变化丰富。语音的抑扬顿挫体现了怒族人民的情感表达特点。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h4>词汇特点</h4>
+                            <p>怒族语言的词汇丰富，尤其是与日常生活、自然环境、宗教信仰相关的词汇。许多词汇反映了怒族人民的生产生活方式和文化传统。</p>
+                        </div>
+                        <div class="language-feature-item">
+                            <h4>语法特点</h4>
+                            <p>怒族语言的语法结构独特，有自己的语序和语法规则。通过不同的语法形式，可以表达丰富的语义和语法关系。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="nu-detail-section">
+                    <h2>文字使用</h2>
+                    <p>怒族历史上没有本民族的文字，长期处于无文字状态。在历史发展过程中，怒族人民曾使用过其他民族的文字来记录和传递信息：</p>
+                    <ul>
+                        <li><strong>藏文</strong>：由于受到藏传佛教的影响，部分怒族地区曾使用藏文来记录宗教经典和历史文献。</li>
+                        <li><strong>傈僳文</strong>：在与傈僳族的长期交往中，部分怒族人民也使用过傈僳文。</li>
+                        <li><strong>汉文</strong>：随着汉族文化的影响不断加深，汉文逐渐成为怒族人民通用的文字，尤其是在现代教育和官方事务中。</li>
+                    </ul>
+                </section>
+
+                <!-- 语言传承 -->
+                <section class="nu-detail-section">
+                    <h2>语言传承</h2>
+                    <p>在现代社会的发展过程中，怒族语言面临着传承和保护的挑战。为了保护和传承怒族语言，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li>在怒族聚居区的学校中开展双语教学，既教授汉文，也教授怒族语言。</li>
+                        <li>组织专家学者对怒族语言进行调查和研究，建立语言档案。</li>
+                        <li>通过民间文化活动、广播电视等媒体，推广和使用怒族语言。</li>
+                        <li>鼓励年轻一代学习和使用怒族语言，增强民族语言意识。</li>
+                    </ul>
+                    <p>这些措施对于怒族语言的传承和发展起到了积极的作用，使得怒族语言在现代社会中依然保持着活力。</p>
+                </section>
+
+                <!-- 语言与文化 -->
+                <section class="nu-detail-section">
+                    <h2>语言与文化</h2>
+                    <p>怒族语言是怒族文化的重要组成部分，与怒族的宗教信仰、风俗习惯、文学艺术等方面密切相关：</p>
+                    <ul>
+                        <li>怒族的口头文学，如神话传说、故事、诗歌等，都是通过怒族语言传承下来的。</li>
+                        <li>怒族的宗教仪式和祭祀活动中，使用怒族语言进行祈祷和诵经。</li>
+                        <li>怒族的传统音乐、舞蹈等艺术形式，也与怒族语言有着密切的联系。</li>
+                    </ul>
+                    <p>怒族语言不仅是怒族人民的交流工具，更是怒族文化的载体和象征，对于研究怒族的历史、文化和社会具有重要的价值。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

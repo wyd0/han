@@ -1,0 +1,658 @@
+﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 满族文化页面特定样式 */
+        .manchu-header {
+            background-image: url('images/旗袍.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .manchu-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .manchu-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .manchu-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .manchu-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .manchu-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .manchu-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .manchu-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .manchu-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .manchu-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .manchu-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .manchu-section h5 {
+            color: #333;
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .manchu-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .manchu-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .manchu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .manchu-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .manchu-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .manchu-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .manchu-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .manchu-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .manchu-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .manchu-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .manchu-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .manchu-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .manchu-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .manchu-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .manchu-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .manchu-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .manchu-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .manchu-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .manchu-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .manchu-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .manchu-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .manchu-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .manchu-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .manchu-header h1 {
+                font-size: 36px;
+            }
+            
+            .manchu-header p {
+                font-size: 18px;
+            }
+            
+            .manchu-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="manchu-header">
+        <div class="container">
+            <div class="manchu-header-content">
+                <h1>满族文化</h1>
+                <p>独具特色的民族风情与丰富多彩的文化传承</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="manchu-main">
+        <div class="container">
+            <div class="manchu-content">
+                <!-- 介绍部分 -->
+                <section class="manchu-section">
+                    <h2>满族文化介绍</h2>
+                    <p>满族是中国历史上的重要民族，有着悠久的历史和独特的文化。满族的历史可以追溯到先秦时期的肃慎，隋唐时期的靺鞨，辽金时期的女真，明清时期的满洲。清朝时期，满族建立了中国历史上最后一个封建王朝，统治中国长达268年，对中国历史和文化产生了深远的影响。</p>
+                    <p>满族文化是中华文化的重要组成部分，它融合了汉族、蒙古族、朝鲜族等多个民族的文化元素，形成了独特的文化体系。满族文化在语言文字、宗教信仰、传统节日、文学艺术、风俗习惯、服饰等方面都有着鲜明的特点。</p>
+                </section>
+
+                <!-- 满族历史 -->
+                <section class="manchu-section">
+                    <h2>满族历史</h2>
+                    <p>满族的历史可以追溯到古代的肃慎，经过漫长的发展过程，逐渐形成了今天的满族。</p>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>先秦时期</h5>
+                            <p>肃慎人向中原王朝进贡楛矢石砮，建立了与中原的联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>隋唐时期</h5>
+                            <p>靺鞨人建立了渤海国，与唐朝保持着密切的政治、经济和文化联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>辽金时期</h5>
+                            <p>女真族兴起，建立了金国，统治中国北方长达百余年。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>努尔哈赤统一女真各部，建立后金；皇太极改女真族名为满洲，后改国号为清。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代</h5>
+                            <p>清朝灭亡后，满族人民继续为中国的发展和繁荣做出贡献。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 满族来源 -->
+                <section class="manchu-section">
+                    <h2>满族来源</h2>
+                    <p>满族的族源可以追溯到古代的肃慎、挹娄、勿吉、靺鞨、女真等民族。</p>
+                    <h3>主要来源</h3>
+                    <ul>
+                        <li><strong>肃慎：</strong>满族的最早先民，居住在东北地区，以狩猎和捕鱼为生。</li>
+                        <li><strong>靺鞨：</strong>肃慎的后裔，分为粟末靺鞨和黑水靺鞨，粟末靺鞨建立了渤海国。</li>
+                        <li><strong>女真：</strong>靺鞨的后裔，12世纪建立了金国，16世纪努尔哈赤统一女真各部。</li>
+                        <li><strong>满洲：</strong>1635年，皇太极改女真族名为满洲，1636年改国号为清。</li>
+                    </ul>
+                    <p>满族的形成是一个多民族融合的过程，吸收了汉族、蒙古族、朝鲜族等多个民族的成分。</p>
+                </section>
+
+                <!-- 满族文化 -->
+                <section class="manchu-section">
+                    <h2>满族文化</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5>语言文字</h5>
+                            <p>满语属于阿尔泰语系满-通古斯语族满语支，满文是1599年由努尔哈赤命额尔德尼和噶盖参照蒙古文创制的。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5>宗教信仰</h5>
+                            <p>满族最早信仰萨满教，后逐渐接受了佛教、道教和儒家思想，形成了多元的宗教信仰体系。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5>传统节日</h5>
+                            <p>满族的传统节日包括颁金节（满族诞生日）、春节、元宵节、端午节、中秋节等，其中颁金节是满族最重要的节日。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5>文学艺术</h5>
+                            <p>满族在文学、艺术、音乐、舞蹈等方面有着独特的成就，如《红楼梦》的作者曹雪芹就是满族，满族的传统舞蹈有蟒式舞、扬烈舞等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5>风俗习惯</h5>
+                            <p>满族有着独特的风俗习惯，如尊老爱幼、重视家庭观念、喜欢吃黏食和肉食、善骑射等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5>建筑风格</h5>
+                            <p>满族传统建筑以四合院为主，注重对称和布局，房屋建筑材料多采用木材和泥土，适应北方地区的气候特点。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 满族服饰 -->
+                <section class="manchu-section">
+                    <h2>满族服饰</h2>
+                    <p>满族服饰是中国传统服饰的重要组成部分，具有独特的风格和特点，对中国近现代服饰产生了深远的影响。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>旗袍：</strong>满族女性的传统服饰，后来发展为中国女性的代表性服装</li>
+                        <li><strong>马褂：</strong>满族男性的传统服饰，对现代西装的形成产生了影响</li>
+                        <li><strong>旗头：</strong>满族女性的头饰，种类繁多，装扮华丽</li>
+                        <li><strong>花盆底鞋：</strong>满族女性的传统鞋子，鞋跟较高，形状如花盆</li>
+                        <li><strong>箭袖：</strong>袖口前端有可放下的护盖，适合骑射活动</li>
+                        <li><strong>对襟设计：</strong>多采用对襟设计，便于穿脱和活动</li>
+                    </ul>
+                    
+                    <h3>服饰展示</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/旗袍.jpg" alt="满族 - 旗袍">
+                            <p>旗袍：满族女性的传统服饰，线条流畅，展现女性美</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/马褂.jpg" alt="满族 - 马褂">
+                            <p>马褂：满族男性的传统服饰，短款设计，便于骑射</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/旗头.jpg" alt="满族 - 旗头">
+                            <p>旗头：满族女性的头饰，装扮华丽，彰显身份</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/花盆底鞋.jpg" alt="满族 - 花盆底鞋">
+                            <p>花盆底鞋：满族女性的传统鞋子，独特的设计风格</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 满族饮食文化 -->
+                <section class="manchu-section">
+                    <h2>满族饮食文化</h2>
+                    <p>满族饮食文化具有独特的风格和特点，深受东北地区自然环境和生活方式的影响。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>喜欢吃黏食：</strong>如年糕、打糕、苏子叶饽饽等，这些食物适合寒冷的气候，能够提供充足的热量。</li>
+                        <li><strong>擅长腌制食物：</strong>如酸菜、酱菜等，这些食品可以长期保存，适合东北地区的冬季。</li>
+                        <li><strong>注重肉食：</strong>由于历史上以狩猎和游牧为生，满族人民喜欢吃猪肉、羊肉、牛肉等肉类食物。</li>
+                        <li><strong>独特的烹饪方法：</strong>如火锅、烤肉等，这些烹饪方法适合东北地区的寒冷气候。</li>
+                    </ul>
+                    
+                    <h3>传统食物</h3>
+                    <ul>
+                        <li><strong>满族饽饽：</strong>满族传统点心，以面粉、猪油、糖等为原料制作而成，香甜可口。</li>
+                        <li><strong>萨其马：</strong>满族传统面食，以面条为原料制作而成，口感酥脆可口。</li>
+                        <li><strong>酸菜白肉：</strong>满族传统名菜，以酸菜、白肉等为原料，味道鲜美。</li>
+                        <li><strong>火锅：</strong>满族传统饮食，以各种肉类、蔬菜等为原料，在锅中涮食。</li>
+                    </ul>
+                </section>
+
+                <!-- 满族传统节日 -->
+                <section class="manchu-section">
+                    <h2>满族传统节日</h2>
+                    <p>满族有许多传统节日，这些节日承载着丰富的文化内涵，是满族文化的重要组成部分。</p>
+                    
+                    <h3>主要传统节日</h3>
+                    <ul>
+                        <li><strong>颁金节：</strong>农历十月十三日，是满族的诞生日，纪念1635年皇太极改女真族名为满洲。</li>
+                        <li><strong>春节：</strong>满族最重要的传统节日，有贴春联、吃饺子、拜年等传统习俗。</li>
+                        <li><strong>元宵节：</strong>农历正月十五日，有吃元宵、观灯、扭秧歌等传统习俗。</li>
+                        <li><strong>端午节：</strong>农历五月初五日，有吃粽子、赛龙舟、插艾蒿等传统习俗。</li>
+                        <li><strong>中秋节：</strong>农历八月十五日，有赏月、吃月饼等传统习俗。</li>
+                        <li><strong>腊八节：</strong>农历十二月初八日，有喝腊八粥等传统习俗。</li>
+                    </ul>
+                </section>
+
+                <!-- 满族文学艺术 -->
+                <section class="manchu-section">
+                    <h2>满族文学艺术</h2>
+                    <p>满族在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展做出了重要贡献。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>《红楼梦》：</strong>清代作家曹雪芹创作的长篇小说，是中国古典小说的巅峰之作，对中国文学的发展产生了重要影响。</li>
+                        <li><strong>《满族说部》：</strong>满族传统史诗，讲述了满族祖先的传奇故事。</li>
+                        <li><strong>满族民间故事：</strong>如《人参姑娘》《天鹅姑娘》等，具有浓郁的民族特色。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>传统舞蹈：</strong>如蟒式舞、扬烈舞、太平鼓舞等，具有独特的风格和特点。</li>
+                        <li><strong>传统音乐：</strong>如萨满音乐、民间音乐等，具有浓郁的民族特色。</li>
+                        <li><strong>传统工艺：</strong>如刺绣、剪纸、木雕等，工艺精湛，具有独特的艺术魅力。</li>
+                    </ul>
+                </section>
+
+                <!-- 满族对中国文化的影响 -->
+                <section class="manchu-section">
+                    <h2>满族对中国文化的影响</h2>
+                    <p>满族文化对中国文化的发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    
+                    <ul>
+                        <li><strong>政治制度：</strong>清朝时期建立的中央集权制度，对中国近现代政治制度的发展产生了重要影响。</li>
+                        <li><strong>服饰文化：</strong>旗袍、马褂等满族服饰元素，对中国近现代服饰的发展产生了深远的影响。</li>
+                        <li><strong>文学艺术：</strong>满族作家曹雪芹创作的《红楼梦》，是中国古典小说的巅峰之作，对中国文学的发展产生了重要影响。</li>
+                        <li><strong>饮食文化：</strong>满族的饮食文化，如火锅、酸菜等，已经成为中国饮食文化的重要组成部分。</li>
+                        <li><strong>风俗习惯：</strong>满族的一些风俗习惯，如拜年、扭秧歌等，已经成为中国人民共同的传统习俗。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

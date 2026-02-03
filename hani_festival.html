@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尼族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哈尼族传统节日页面特定样式 */
+        .hani-header {
+            background-image: url('images/哈尼族女性服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hani-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hani-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hani-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hani {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hani:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hani-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hani-section {
+            margin-bottom: 80px;
+        }
+        
+        .hani-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hani-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hani-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hani-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hani-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日介绍样式 */
+        .festival-intro {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        /* 主要节日样式 */
+        .festivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-date {
+            font-size: 14px;
+            color: #666;
+            margin: 0 0 15px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* 节日活动样式 */
+        .festival-activities {
+            margin: 20px 0;
+        }
+        
+        .activity-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .activity-item h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hani-header h1 {
+                font-size: 36px;
+            }
+            
+            .hani-header p {
+                font-size: 18px;
+            }
+            
+            .hani-section h2 {
+                font-size: 28px;
+            }
+            
+            .festivals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="hani-header">
+        <div class="container">
+            <div class="hani-header-content">
+                <h1>哈尼族传统节日</h1>
+                <p>丰富多彩的节日文化与民族风情</p>
+                <a href="hani.html" class="back-hani">返回哈尼族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hani-main">
+        <div class="container">
+            <div class="hani-content">
+                <!-- 节日概述 -->
+                <section class="hani-section">
+                    <h2>节日概述</h2>
+                    <p>哈尼族是一个热爱生活、能歌善舞的民族，有着丰富多彩的传统节日。这些节日承载着哈尼族的历史记忆、文化传统和价值观念，是哈尼族文化的重要组成部分。</p>
+                    <p>哈尼族的传统节日大多与农业生产、宗教信仰、祖先崇拜等密切相关，反映了哈尼族以农业为主的生产方式和对自然、祖先的敬畏之情。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="hani-section">
+                    <h2>主要传统节日</h2>
+                    
+                    <div class="festivals-grid">
+                        <div class="festival-item">
+                            <h4>十月年</h4>
+                            <div class="festival-date">农历十月第一个属龙日开始，持续3-5天</div>
+                            <p>十月年是哈尼族最重要的传统节日，相当于汉族的春节。它标志着一年的结束和新一年的开始，是哈尼族人民辞旧迎新、祈求丰收的重要时刻。</p>
+                            
+                            <div class="festival-activities">
+                                <div class="activity-item">
+                                    <h5>祭祀活动</h5>
+                                    <p>节日期间，哈尼族人民会举行隆重的祭祀仪式，祭祀祖先和神灵，祈求新的一年风调雨顺、五谷丰登、人畜平安。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>团圆饭</h5>
+                                    <p>全家人团聚在一起，享用丰盛的团圆饭，包括糯米粑粑、鸡肉、猪肉、牛肉等美食。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>歌舞活动</h5>
+                                    <p>哈尼族人民会穿上节日盛装，跳起传统的铓鼓舞、棕扇舞等，唱起哈尼族民歌，尽情欢乐。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>走亲访友</h5>
+                                    <p>人们会走亲访友，互赠礼物，互相祝福，增进亲情和友情。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>六月年</h4>
+                            <div class="festival-date">农历六月二十四日左右，持续3-4天</div>
+                            <p>六月年是哈尼族的另一个重要传统节日，也称为“苦扎扎”节。它是哈尼族人民庆祝丰收、祈求安康的节日。</p>
+                            
+                            <div class="festival-activities">
+                                <div class="activity-item">
+                                    <h5>打磨秋</h5>
+                                    <p>这是六月年最具特色的活动之一，人们会搭建高大的磨秋架，青壮年轮流在上面旋转、跳跃，展示力量和技巧。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>祭祀山神</h5>
+                                    <p>举行祭祀山神的仪式，祈求山神保佑村寨平安、人畜兴旺。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>篝火晚会</h5>
+                                    <p>夜晚，人们会点燃篝火，围着火堆跳舞、唱歌，通宵达旦。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>体育比赛</h5>
+                                    <p>举行摔跤、射箭、拔河等传统体育比赛，增强体质，增进团结。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>新米节</h4>
+                            <div class="festival-date">农历八月，稻谷成熟时举行</div>
+                            <p>新米节是哈尼族庆祝丰收的节日，当稻谷成熟时，哈尼族人民会选择一个吉祥的日子，举行隆重的尝新仪式。</p>
+                            
+                            <div class="festival-activities">
+                                <div class="activity-item">
+                                    <h5>尝新仪式</h5>
+                                    <p>从稻田中采摘新稻，舂成新米，做成米饭，先祭祀祖先和神灵，然后全家一起品尝。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>感恩活动</h5>
+                                    <p>感谢祖先的保佑、大自然的恩赐和自己的辛勤劳动，表达对丰收的喜悦之情。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>分享活动</h5>
+                                    <p>将新米赠送给亲朋好友，分享丰收的喜悦。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>祭龙节</h4>
+                            <div class="festival-date">农历二月初二左右</div>
+                            <p>祭龙节是哈尼族祭祀龙神的传统节日，主要目的是祈求龙神保佑风调雨顺、五谷丰登、村寨平安。</p>
+                            
+                            <div class="festival-activities">
+                                <div class="activity-item">
+                                    <h5>祭祀龙神</h5>
+                                    <p>在村寨附近的龙潭或龙树旁举行隆重的祭祀仪式，献上祭品，诵读祭文。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>龙树崇拜</h5>
+                                    <p>哈尼族认为龙树是龙神的居所，节日期间会对龙树进行装饰和祭祀。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>歌舞庆典</h5>
+                                    <p>举行盛大的歌舞庆典，表达对龙神的敬意和感激之情。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>火把节</h4>
+                            <div class="festival-date">农历六月二十四日左右</div>
+                            <p>火把节是哈尼族与彝族等民族共同的传统节日，主要活动包括点燃火把、驱邪祈福、歌舞狂欢等。</p>
+                            
+                            <div class="festival-activities">
+                                <div class="activity-item">
+                                    <h5>点火把</h5>
+                                    <p>夜晚，人们会点燃火把，在村寨周围、田间地头行走，驱邪避灾。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>篝火晚会</h5>
+                                    <p>将火把集中在一起，形成篝火，人们围着火堆跳舞、唱歌。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>祈福活动</h5>
+                                    <p>人们会向火把祈求平安、健康、丰收等美好愿望。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="festival-item">
+                            <h4>祭山节</h4>
+                            <div class="festival-date">农历三月或四月</div>
+                            <p>祭山节是哈尼族祭祀山神的传统节日，主要目的是祈求山神保佑山林茂盛、野生动物繁衍、人畜安全。</p>
+                            
+                            <div class="festival-activities">
+                                <div class="activity-item">
+                                    <h5>祭祀山神</h5>
+                                    <p>在村寨附近的神山举行祭祀仪式，献上祭品，祈求山神的保佑。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>山林保护</h5>
+                                    <p>节日期间，禁止砍伐树木、捕猎野生动物，体现了哈尼族对自然环境的保护意识。</p>
+                                </div>
+                                <div class="activity-item">
+                                    <h5>集体活动</h5>
+                                    <p>举行集体聚餐、歌舞表演等活动，增强社区凝聚力。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日文化内涵 -->
+                <section class="hani-section">
+                    <h2>节日文化内涵</h2>
+                    
+                    <h3>农业文化的体现</h3>
+                    <p>哈尼族的传统节日大多与农业生产密切相关，反映了哈尼族以农业为主的生产方式和对农业丰收的期盼。</p>
+                    <ul>
+                        <li><strong>节气关联：</strong>许多节日都与农业节气相吻合，如六月年对应夏季农忙结束，新米节对应稻谷成熟。</li>
+                        <li><strong>生产祈愿：</strong>节日期间的祭祀活动主要是祈求风调雨顺、五谷丰登，体现了哈尼族对农业生产的重视。</li>
+                        <li><strong>丰收庆祝：</strong>新米节等节日是对丰收的庆祝，表达了哈尼族人民对劳动成果的珍惜和喜悦。</li>
+                    </ul>
+                    
+                    <h3>宗教信仰的表达</h3>
+                    <p>哈尼族的传统节日蕴含着丰富的宗教信仰内容，是哈尼族宗教信仰的重要表达方式。</p>
+                    <ul>
+                        <li><strong>神灵崇拜：</strong>节日期间会祭祀天神、地神、山神、龙神等自然神灵，表达对自然的敬畏之情。</li>
+                        <li><strong>祖先崇拜：</strong>许多节日都有祭祀祖先的环节，表达对祖先的敬意和怀念，祈求祖先的保佑。</li>
+                        <li><strong>巫术仪式：</strong>部分节日活动包含巫术仪式，如驱邪、招魂等，体现了哈尼族的原始宗教信仰。</li>
+                    </ul>
+                    
+                    <h3>社会功能的实现</h3>
+                    <p>哈尼族的传统节日在社会生活中发挥着重要的功能，是哈尼族社会凝聚力的重要来源。</p>
+                    <ul>
+                        <li><strong>社区凝聚：</strong>节日期间，全村寨的人会聚集在一起，共同参加各种活动，增强了社区的凝聚力和认同感。</li>
+                        <li><strong>亲情友情：</strong>走亲访友、互赠礼物等活动增进了亲朋好友之间的感情。</li>
+                        <li><strong>文化传承：</strong>节日期间的歌舞、仪式、传说等是哈尼族文化的重要载体，通过节日活动得以传承。</li>
+                        <li><strong>道德教育：</strong>节日期间的各种禁忌和规范，如尊老爱幼、热情好客等，是对年轻一代的道德教育。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日特色与意义 -->
+                <section class="hani-section">
+                    <h2>节日特色与意义</h2>
+                    
+                    <h3>节日特色</h3>
+                    <ul>
+                        <li><strong>全民参与：</strong>哈尼族的传统节日是全民性的活动，无论男女老少都会积极参与。</li>
+                        <li><strong>隆重热烈：</strong>节日期间，哈尼族人民会穿上节日盛装，举行隆重的仪式和热烈的庆祝活动。</li>
+                        <li><strong>文化多元：</strong>节日活动包含了祭祀、歌舞、体育、饮食等多种文化元素，体现了哈尼族文化的多样性。</li>
+                        <li><strong>地域差异：</strong>不同地区的哈尼族节日在具体日期、活动内容等方面可能存在一定的差异，体现了哈尼族文化的丰富性。</li>
+                    </ul>
+                    
+                    <h3>节日意义</h3>
+                    <ul>
+                        <li><strong>文化传承：</strong>传统节日是哈尼族文化的重要载体，通过节日活动，哈尼族的历史、文化、价值观得以传承和弘扬。</li>
+                        <li><strong>社会和谐：</strong>节日期间的集体活动增强了社区的凝聚力，促进了人与人之间的和谐相处。</li>
+                        <li><strong>心理调适：</strong>节日是哈尼族人民放松身心、享受生活的时刻，有助于缓解日常劳动的压力。</li>
+                        <li><strong>身份认同：</strong>传统节日是哈尼族民族身份的重要标志，通过参与节日活动，哈尼族人民的民族认同感得到增强。</li>
+                        <li><strong>生态保护：</strong>许多节日都包含了对自然环境的保护内容，如祭山节期间禁止砍伐树木，体现了哈尼族的生态环保意识。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的变迁与发展 -->
+                <section class="hani-section">
+                    <h2>节日的变迁与发展</h2>
+                    
+                    <h3>历史变迁</h3>
+                    <ul>
+                        <li><strong>传统节日的形成：</strong>哈尼族的传统节日形成于远古时期，与当时的生产力水平、宗教信仰和社会结构相适应。</li>
+                        <li><strong>节日内容的丰富：</strong>随着社会的发展和与周边民族的交流，哈尼族的节日内容不断丰富和发展。</li>
+                        <li><strong>现代社会的影响：</strong>近现代以来，随着现代文化的传播和生活方式的变化，哈尼族的传统节日受到了一定的影响，部分传统活动逐渐简化或消失。</li>
+                    </ul>
+                    
+                    <h3>现状与挑战</h3>
+                    <ul>
+                        <li><strong>传统节日的保留：</strong>大部分哈尼族传统节日仍然被保留和传承，成为哈尼族人民生活的重要组成部分。</li>
+                        <li><strong>年轻一代的参与：</strong>由于现代生活方式的影响，部分年轻哈尼族同胞对传统节日的参与度和了解程度有所下降。</li>
+                        <li><strong>节日商业化：</strong>在一些地区，传统节日被赋予了商业色彩，部分传统内涵可能被淡化。</li>
+                        <li><strong>文化冲击：</strong>西方节日和现代节日的传入，对哈尼族传统节日产生了一定的冲击。</li>
+                    </ul>
+                    
+                    <h3>保护与传承</h3>
+                    <ul>
+                        <li><strong>文化保护：</strong>将哈尼族的传统节日作为非物质文化遗产进行保护，记录和整理相关的节日习俗、仪式、传说等。</li>
+                        <li><strong>教育传承：</strong>通过学校教育、社区活动等方式，向年轻一代传授传统节日的知识和意义，培养他们对传统节日的兴趣和认同。</li>
+                        <li><strong>创新发展：</strong>在保留传统节日核心内涵的基础上，结合现代元素，创新节日活动形式，增强传统节日的吸引力。</li>
+                        <li><strong>社区参与：</strong>鼓励社区居民积极参与传统节日的组织和庆祝活动，增强社区的凝聚力和认同感。</li>
+                        <li><strong>文化旅游：</strong>合理利用传统节日的文化资源，发展文化旅游，促进经济发展，同时提高传统节日的知名度和影响力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日与现代生活 -->
+                <section class="hani-section">
+                    <h2>节日与现代生活</h2>
+                    
+                    <h3>传统节日的现代意义</h3>
+                    <p>在现代社会中，哈尼族的传统节日仍然具有重要的意义，不仅是对传统文化的传承，也是对现代生活的丰富和补充。</p>
+                    <ul>
+                        <li><strong>文化认同：</strong>传统节日是哈尼族民族文化的重要标志，有助于增强哈尼族人民的文化认同感和民族自豪感。</li>
+                        <li><strong>家庭和谐：</strong>节日期间的家庭团聚活动有助于增进家庭成员之间的感情，促进家庭和谐。</li>
+                        <li><strong>社区凝聚：</strong>集体性的节日活动有助于增强社区的凝聚力，促进社区成员之间的交流和合作。</li>
+                        <li><strong>文化多样性：</strong>哈尼族的传统节日是中华民族文化多样性的重要组成部分，丰富了中国的文化宝库。</li>
+                        <li><strong>精神寄托：</strong>传统节日为哈尼族人民提供了精神寄托，帮助他们在现代社会的快节奏生活中找到心灵的归属感。</li>
+                    </ul>
+                    
+                    <h3>传统节日的现代适应</h3>
+                    <p>为了在现代社会中更好地传承和发展传统节日，哈尼族人民采取了一系列适应措施：</p>
+                    <ul>
+                        <li><strong>时间调整：</strong>部分节日的日期可能会根据现代生活的需要进行适当调整，以便人们有更多的时间参与。</li>
+                        <li><strong>内容创新：</strong>在保留传统节日核心内容的基础上，增加一些现代元素，如文艺演出、体育比赛、商品交易等。</li>
+                        <li><strong>媒体宣传：</strong>利用现代媒体如电视、广播、互联网等宣传传统节日，提高传统节日的知名度和影响力。</li>
+                        <li><strong>教育推广：</strong>将传统节日纳入学校教育内容，通过课堂教学、课外活动等方式，向学生传授传统节日的知识和意义。</li>
+                        <li><strong>旅游开发：</strong>将传统节日与旅游开发相结合，通过举办节日庆典、文化展示等活动，吸引游客，促进经济发展，同时传播哈尼族文化。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

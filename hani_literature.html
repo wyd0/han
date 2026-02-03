@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈尼族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哈尼族文学艺术页面特定样式 */
+        .hani-header {
+            background-image: url('images/哈尼族女性服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hani-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hani-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hani-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hani {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hani:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hani-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hani-section {
+            margin-bottom: 80px;
+        }
+        
+        .hani-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hani-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hani-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hani-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hani-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hani-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术分类样式 */
+        .literature-arts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .literature-art-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .literature-art-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .literature-art-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 艺术作品样式 */
+        .artworks {
+            margin: 40px 0;
+        }
+        
+        .artwork-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            border-left: 4px solid #c0392b;
+        }
+        
+        .artwork-item h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        .artwork-description {
+            font-style: italic;
+            color: #666;
+            margin: 10px 0;
+        }
+        
+        /* 文学作品示例样式 */
+        .literature-examples {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .example-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .example-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .example-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hani-header h1 {
+                font-size: 36px;
+            }
+            
+            .hani-header p {
+                font-size: 18px;
+            }
+            
+            .hani-section h2 {
+                font-size: 28px;
+            }
+            
+            .literature-arts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="hani-header">
+        <div class="container">
+            <div class="hani-header-content">
+                <h1>哈尼族文学艺术</h1>
+                <p>丰富多彩的民间文学与艺术瑰宝</p>
+                <a href="hani.html" class="back-hani">返回哈尼族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hani-main">
+        <div class="container">
+            <div class="hani-content">
+                <!-- 文学艺术概述 -->
+                <section class="hani-section">
+                    <h2>文学艺术概述</h2>
+                    <p>哈尼族有着丰富多样的文学艺术遗产，这些遗产是哈尼族人民在长期的历史发展中创造的，反映了哈尼族人民的生活、思想、情感和审美追求。哈尼族的文学艺术具有鲜明的民族特色和地域特色，是中华民族文学艺术宝库中的重要组成部分。</p>
+                    <p>哈尼族的文学艺术形式多样，包括民间文学、音乐、舞蹈、绘画、雕刻、工艺等多个方面，它们相互融合、相互促进，共同构成了哈尼族丰富多彩的文化生活。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="hani-section">
+                    <h2>民间文学</h2>
+                    <p>哈尼族的民间文学是哈尼族文学的主体，是哈尼族人民集体智慧的结晶，通过口耳相传的方式在民间广泛流传。</p>
+                    
+                    <div class="literature-arts-grid">
+                        <div class="literature-art-item">
+                            <h4>神话传说</h4>
+                            <p>哈尼族的神话传说内容丰富，主要包括创世神话、人类起源神话、自然神话、英雄神话等类型。这些神话传说反映了哈尼族人民对宇宙、自然和人类起源的认识和理解，体现了哈尼族人民的原始思维和审美观念。</p>
+                            <div class="artwork-item">
+                                <h5>《哈尼族迁徙史诗》</h5>
+                                <div class="artwork-description">哈尼族最著名的创世史诗，讲述了哈尼族的起源、迁徙和发展历史，是哈尼族民间文学的瑰宝。</div>
+                            </div>
+                            <div class="artwork-item">
+                                <h5>《白鹇鸟的传说》</h5>
+                                <div class="artwork-description">讲述了白鹇鸟与哈尼族人民的深厚感情，体现了哈尼族人民对自然的热爱和尊重。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>民间故事</h4>
+                            <p>哈尼族的民间故事题材广泛，包括生活故事、爱情故事、动物故事、寓言故事等。这些故事生动有趣，情节曲折，语言朴实，反映了哈尼族人民的生活状况和思想情感，具有浓郁的生活气息和民族特色。</p>
+                            <div class="artwork-item">
+                                <h5>《阿匹阿话》</h5>
+                                <div class="artwork-description">哈尼族著名的民间故事，讲述了聪明勇敢的阿匹阿话如何战胜各种困难，保护村寨和人民的故事。</div>
+                            </div>
+                            <div class="artwork-item">
+                                <h5>《青蛙与老虎》</h5>
+                                <div class="artwork-description">寓言故事，通过青蛙与老虎的斗争，讲述了弱者如何凭借智慧战胜强者的道理。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>民歌民谣</h4>
+                            <p>哈尼族是一个能歌善舞的民族，民歌民谣是哈尼族民间文学的重要组成部分。哈尼族的民歌民谣内容丰富，形式多样，包括劳动歌、爱情歌、叙事歌、祭祀歌、儿歌等多种类型。</p>
+                            <div class="artwork-item">
+                                <h5>劳动歌</h5>
+                                <div class="artwork-description">反映哈尼族人民劳动生活的歌曲，如《栽秧歌》、《收割歌》等，节奏明快，富有感染力。</div>
+                            </div>
+                            <div class="artwork-item">
+                                <h5>爱情歌</h5>
+                                <div class="artwork-description">表达哈尼族青年男女爱情的歌曲，如《情歌对唱》、《送别歌》等，情感真挚，旋律优美。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>谚语格言</h4>
+                            <p>哈尼族的谚语格言是哈尼族人民在长期的生产生活实践中总结出来的智慧结晶，语言简洁明了，寓意深刻，具有很强的哲理性和指导性。</p>
+                            <div class="artwork-item">
+                                <h5>生产谚语</h5>
+                                <div class="artwork-description">如“春种一粒粟，秋收万颗子”、“人勤地生宝，人懒地生草”等，反映了哈尼族人民的生产经验。</div>
+                            </div>
+                            <div class="artwork-item">
+                                <h5>生活格言</h5>
+                                <div class="artwork-description">如“尊老爱幼是美德”、“团结就是力量”等，反映了哈尼族人民的道德观念和价值取向。</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈 -->
+                <section class="hani-section">
+                    <h2>音乐舞蹈</h2>
+                    <p>哈尼族的音乐舞蹈是哈尼族艺术的重要组成部分，具有鲜明的民族特色和地域特色，是哈尼族人民表达情感、庆祝节日、祭祀神灵的重要方式。</p>
+                    
+                    <div class="literature-arts-grid">
+                        <div class="literature-art-item">
+                            <h4>传统音乐</h4>
+                            <p>哈尼族的传统音乐包括民间歌曲和器乐两部分，具有独特的音乐风格和表现形式。</p>
+                            <h5>民间歌曲</h5>
+                            <ul>
+                                <li><strong>叙事歌：</strong>篇幅较长，内容丰富，主要讲述哈尼族的历史、传说和故事。</li>
+                                <li><strong>山歌：</strong>节奏自由，旋律优美，主要在山野间演唱，表达对自然和生活的热爱。</li>
+                                <li><strong>情歌：</strong>情感真挚，旋律委婉，主要表达青年男女之间的爱情。</li>
+                                <li><strong>祭祀歌：</strong>庄严神圣，旋律低沉，主要在祭祀仪式中演唱。</li>
+                            </ul>
+                            <h5>器乐</h5>
+                            <ul>
+                                <li><strong>打击乐器：</strong>如铓、鼓、锣等，是哈尼族传统音乐中最常用的乐器。</li>
+                                <li><strong>弦乐器：</strong>如三弦、二胡等，主要用于伴奏。</li>
+                                <li><strong>管乐器：</strong>如笛子、唢呐等，音色清脆悦耳。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>传统舞蹈</h4>
+                            <p>哈尼族的传统舞蹈形式多样，内容丰富，主要包括宗教舞蹈、节日舞蹈、生产舞蹈等类型。</p>
+                            <div class="artwork-item">
+                                <h5>铓鼓舞</h5>
+                                <div class="artwork-description">哈尼族最具代表性的传统舞蹈之一，舞者手持铓和鼓，边敲边舞，节奏明快，气氛热烈，主要在节日和祭祀活动中表演。</div>
+                            </div>
+                            <div class="artwork-item">
+                                <h5>棕扇舞</h5>
+                                <div class="artwork-description">哈尼族传统舞蹈，舞者手持棕扇，翩翩起舞，姿态优美，主要表现哈尼族人民的生产生活和爱情故事。</div>
+                            </div>
+                            <div class="artwork-item">
+                                <h5>鼓舞</h5>
+                                <div class="artwork-description">以鼓为主要道具的舞蹈，节奏强烈，动作有力，主要表达哈尼族人民的喜悦之情和战斗精神。</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 工艺美术 -->
+                <section class="hani-section">
+                    <h2>工艺美术</h2>
+                    <p>哈尼族的工艺美术历史悠久，技艺精湛，主要包括纺织、刺绣、银饰、木雕、竹编等多个门类，具有鲜明的民族特色和地域特色。</p>
+                    
+                    <div class="literature-arts-grid">
+                        <div class="literature-art-item">
+                            <h4>纺织与刺绣</h4>
+                            <p>哈尼族的纺织与刺绣工艺历史悠久，技艺精湛，是哈尼族女性的传统技艺。</p>
+                            <h5>纺织</h5>
+                            <ul>
+                                <li><strong>原料：</strong>主要使用棉花、麻等天然纤维。</li>
+                                <li><strong>工艺：</strong>包括纺纱、织布、染色等环节，采用传统的手工纺织工具。</li>
+                                <li><strong>特点：</strong>纺织的布料质地柔软，色彩鲜艳，图案精美。</li>
+                            </ul>
+                            <h5>刺绣</h5>
+                            <ul>
+                                <li><strong>针法：</strong>包括平绣、挑绣、十字绣等多种针法。</li>
+                                <li><strong>图案：</strong>主要包括花卉、动物、几何图形等，寓意吉祥如意。</li>
+                                <li><strong>应用：</strong>主要用于装饰服饰、头巾、背包等物品。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>银饰工艺</h4>
+                            <p>哈尼族的银饰工艺历史悠久，技艺精湛，是哈尼族文化的重要组成部分。</p>
+                            <ul>
+                                <li><strong>种类：</strong>包括头饰、耳饰、颈饰、胸饰、手饰等多个种类。</li>
+                                <li><strong>工艺：</strong>包括锻造、雕刻、镶嵌等多种工艺技法。</li>
+                                <li><strong>图案：</strong>主要包括花卉、动物、几何图形等，寓意吉祥如意。</li>
+                                <li><strong>特点：</strong>银饰造型美观，工艺精湛，具有很高的艺术价值。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>木雕与竹编</h4>
+                            <p>哈尼族的木雕与竹编工艺是哈尼族人民利用当地丰富的木材和竹子资源创造的传统工艺。</p>
+                            <h5>木雕</h5>
+                            <ul>
+                                <li><strong>应用：</strong>主要用于建筑装饰、家具制作、宗教用品等。</li>
+                                <li><strong>图案：</strong>主要包括花卉、动物、几何图形等，寓意吉祥如意。</li>
+                                <li><strong>特点：</strong>雕刻精细，造型美观，具有很高的艺术价值。</li>
+                            </ul>
+                            <h5>竹编</h5>
+                            <ul>
+                                <li><strong>应用：</strong>主要用于日常生活用品，如竹篮、竹筐、竹席等。</li>
+                                <li><strong>工艺：</strong>采用传统的竹编工艺，编织出各种精美的图案。</li>
+                                <li><strong>特点：</strong>竹编制品质地坚韧，造型美观，实用价值高。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="literature-art-item">
+                            <h4>绘画与装饰</h4>
+                            <p>哈尼族的绘画与装饰艺术主要体现在建筑装饰、服饰图案、宗教用品等方面。</p>
+                            <ul>
+                                <li><strong>建筑装饰：</strong>在传统建筑的墙壁、门窗、梁柱等部位绘制各种精美的图案。</li>
+                                <li><strong>服饰图案：</strong>在服饰上绣制各种精美的图案，如花卉、动物、几何图形等。</li>
+                                <li><strong>宗教用品：</strong>在宗教仪式中使用的各种用品上绘制或雕刻各种宗教图案。</li>
+                                <li><strong>特点：</strong>绘画风格简洁明快，色彩鲜艳，图案精美，具有鲜明的民族特色。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的特点 -->
+                <section class="hani-section">
+                    <h2>文学艺术的特点</h2>
+                    
+                    <h3>民族特色</h3>
+                    <ul>
+                        <li><strong>反映民族生活：</strong>哈尼族的文学艺术作品大多反映哈尼族人民的生产生活、风俗习惯、宗教信仰等内容，具有浓郁的民族生活气息。</li>
+                        <li><strong>体现民族精神：</strong>哈尼族的文学艺术作品体现了哈尼族人民勤劳勇敢、团结互助、热爱生活、尊重自然等民族精神。</li>
+                        <li><strong>独特的艺术风格：</strong>哈尼族的文学艺术作品具有独特的艺术风格，如音乐中的多声部合唱、舞蹈中的铓鼓舞、工艺美术中的银饰等。</li>
+                    </ul>
+                    
+                    <h3>地域特色</h3>
+                    <ul>
+                        <li><strong>反映地域环境：</strong>哈尼族的文学艺术作品反映了哈尼族居住地区的自然环境、地理特征等内容，如梯田、森林、河流等。</li>
+                        <li><strong>利用地域资源：</strong>哈尼族的工艺美术作品充分利用了当地丰富的自然资源，如木材、竹子、银等。</li>
+                        <li><strong>融合地域文化：</strong>哈尼族的文学艺术作品融合了当地其他民族的文化元素，形成了独特的地域文化特色。</li>
+                    </ul>
+                    
+                    <h3>文化价值</h3>
+                    <ul>
+                        <li><strong>历史价值：</strong>哈尼族的文学艺术作品记录了哈尼族的历史发展、社会变迁等内容，是研究哈尼族历史的重要资料。</li>
+                        <li><strong>文化价值：</strong>哈尼族的文学艺术作品是哈尼族文化的重要组成部分，是哈尼族文化传承和发展的重要载体。</li>
+                        <li><strong>艺术价值：</strong>哈尼族的文学艺术作品具有很高的艺术价值，是中华民族艺术宝库中的重要组成部分。</li>
+                        <li><strong>教育价值：</strong>哈尼族的文学艺术作品蕴含着丰富的道德教育、审美教育等内容，对哈尼族人民的思想道德建设和审美素养提高具有重要意义。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的传承与发展 -->
+                <section class="hani-section">
+                    <h2>文学艺术的传承与发展</h2>
+                    
+                    <h3>传承现状</h3>
+                    <ul>
+                        <li><strong>口耳相传：</strong>哈尼族的民间文学主要通过口耳相传的方式在民间广泛流传，是哈尼族文学传承的主要方式。</li>
+                        <li><strong>家族传承：</strong>哈尼族的传统工艺如银饰制作、纺织刺绣等主要通过家族传承的方式代代相传。</li>
+                        <li><strong>社区传承：</strong>哈尼族的传统音乐、舞蹈等主要通过社区活动的方式在社区内传承。</li>
+                        <li><strong>学校教育：</strong>近年来，一些学校开始将哈尼族的文学艺术纳入学校教育内容，通过课堂教学的方式传承哈尼族的文学艺术。</li>
+                    </ul>
+                    
+                    <h3>面临的挑战</h3>
+                    <ul>
+                        <li><strong>现代文化的冲击：</strong>随着现代文化的传播和生活方式的变化，哈尼族的传统文学艺术受到了一定的冲击，部分传统文学艺术形式逐渐衰落。</li>
+                        <li><strong>传承人的缺失：</strong>由于年轻一代对传统文学艺术的兴趣和参与度降低，一些传统文学艺术的传承人面临后继无人的困境。</li>
+                        <li><strong>传承环境的变化：</strong>随着社会的发展和生活方式的变化，哈尼族传统文学艺术的传承环境发生了很大的变化，一些传统的传承方式已经不再适应现代社会的需要。</li>
+                        <li><strong>文化自信的不足：</strong>部分哈尼族人民对本民族的传统文学艺术缺乏足够的认识和自信，影响了传统文学艺术的传承和发展。</li>
+                    </ul>
+                    
+                    <h3>保护与发展措施</h3>
+                    <ul>
+                        <li><strong>文化保护：</strong>将哈尼族的传统文学艺术作为非物质文化遗产进行保护，记录和整理相关的文学艺术作品、工艺技法、传承人口述资料等。</li>
+                        <li><strong>教育传承：</strong>通过学校教育、社区教育等方式，向年轻一代传授哈尼族的传统文学艺术知识和技能，培养他们对传统文学艺术的兴趣和热爱。</li>
+                        <li><strong>人才培养：</strong>加强对哈尼族传统文学艺术传承人的培养和扶持，建立传承人档案，为传承人提供必要的支持和帮助。</li>
+                        <li><strong>创新发展：</strong>在保留传统文学艺术核心内涵的基础上，结合现代元素，创新传统文学艺术的表现形式和内容，增强传统文学艺术的吸引力和感染力。</li>
+                        <li><strong>文化交流：</strong>加强哈尼族传统文学艺术与其他民族文学艺术的交流和融合，吸收其他民族文学艺术的优秀成果，丰富哈尼族传统文学艺术的内涵。</li>
+                        <li><strong>产业开发：</strong>合理利用哈尼族传统文学艺术资源，发展文化产业，如民族服饰、手工艺品、文化旅游等，促进传统文学艺术的传承和发展。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的现代价值 -->
+                <section class="hani-section">
+                    <h2>文学艺术的现代价值</h2>
+                    
+                    <h3>文化认同</h3>
+                    <p>哈尼族的传统文学艺术是哈尼族文化的重要组成部分，是哈尼族民族身份的重要标志。通过传承和发展哈尼族的传统文学艺术，可以增强哈尼族人民的文化认同感和民族自豪感，促进哈尼族文化的传承和发展。</p>
+                    
+                    <h3>文化多样性</h3>
+                    <p>哈尼族的传统文学艺术是中华民族文化多样性的重要组成部分，丰富了中国的文化宝库。保护和发展哈尼族的传统文学艺术，对于维护中华民族文化多样性，促进中国文化的繁荣和发展具有重要意义。</p>
+                    
+                    <h3>经济发展</h3>
+                    <p>哈尼族的传统文学艺术具有很高的艺术价值和经济价值，可以通过发展文化产业的方式，将传统文学艺术资源转化为经济资源，促进当地经济的发展，提高哈尼族人民的生活水平。</p>
+                    
+                    <h3>社会和谐</h3>
+                    <p>哈尼族的传统文学艺术蕴含着丰富的道德教育、审美教育等内容，对哈尼族人民的思想道德建设和审美素养提高具有重要意义。通过传承和发展哈尼族的传统文学艺术，可以促进哈尼族社会的和谐发展，增强哈尼族社区的凝聚力和向心力。</p>
+                    
+                    <h3>国际交流</h3>
+                    <p>哈尼族的传统文学艺术具有独特的艺术魅力和文化价值，可以通过国际文化交流的方式，向世界展示哈尼族的文化特色，促进中华文化的国际传播，增强中国文化的软实力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

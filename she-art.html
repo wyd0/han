@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畲族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 文学艺术页面特定样式 */
+        .art-header {
+            background-image: url('images/畲族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .art-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .art-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .art-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .art-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-she {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-she:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .art-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .art-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .art-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .art-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .art-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .art-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .art-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .art-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .art-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .art-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 艺术特点样式 */
+        .art-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 艺术形式样式 */
+        .art-forms {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .art-forms h4 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        .form-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .form-item {
+            flex: 1;
+            min-width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .form-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .art-header h1 {
+                font-size: 36px;
+            }
+            
+            .art-header p {
+                font-size: 18px;
+            }
+            
+            .art-section h2 {
+                font-size: 28px;
+            }
+            
+            .art-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-list {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="art-header">
+        <div class="container">
+            <div class="art-header-content">
+                <h1>畲族文学艺术</h1>
+                <p>传承千年的文化瑰宝，独具特色的民族艺术</p>
+                <a href="she.html" class="back-she">返回畲族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="art-main">
+        <div class="container">
+            <div class="art-content">
+                <!-- 文学艺术概述 -->
+                <section class="art-section">
+                    <h2>文学艺术概述</h2>
+                    <p>畲族有着丰富的民间文学和艺术，这些文学艺术作品是畲族人民在长期的生产生活中创造的，反映了畲族的历史文化、价值观念和生活方式。畲族的文学艺术形式多样，包括民间故事、诗歌、谚语、谜语、音乐、舞蹈、手工艺等，具有鲜明的民族特色。</p>
+                    <p>畲族的文学艺术是畲族文化的重要组成部分，也是中华民族文化宝库的重要财富。这些文学艺术作品不仅展现了畲族人民的智慧和创造力，也为我们了解畲族的历史文化提供了重要的窗口。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="art-section">
+                    <h2>民间文学</h2>
+                    <p>畲族的民间文学丰富多彩，是畲族文学艺术的重要组成部分。畲族的民间文学主要包括民间故事、诗歌、谚语、谜语等形式，这些作品在畲族人民中广泛流传，是畲族文化传承的重要载体。</p>
+                    <h3>民间故事</h3>
+                    <p>畲族的民间故事内容丰富，题材广泛，包括神话传说、历史故事、生活故事等。这些故事反映了畲族人民的生活经历、价值观念和审美情趣，具有浓厚的民族特色。例如，《盘瓠传说》是畲族最著名的神话传说，讲述了畲族始祖盘瓠的英雄事迹，是畲族文化的重要组成部分。</p>
+                    <h3>诗歌</h3>
+                    <p>畲族的诗歌形式多样，包括长篇叙事诗、山歌、情歌等。其中，《高皇歌》是畲族最著名的长篇叙事诗歌，讲述了畲族人民的起源和发展历程，充满了传奇色彩。畲族的山歌和情歌也非常有名，通常以对歌的形式演唱，内容涉及爱情、生活、劳动等各个方面，表达了畲族人民的情感和愿望。</p>
+                    <h3>谚语和谜语</h3>
+                    <p>畲族的谚语和谜语也是其民间文学的重要组成部分。畲族的谚语简洁明了，富有哲理，反映了畲族人民的生活智慧和价值观念。畲族的谜语生动有趣，富有想象力，是畲族人民在长期的生产生活中创造的一种娱乐形式。</p>
+                </section>
+
+                <!-- 音乐舞蹈 -->
+                <section class="art-section">
+                    <h2>音乐舞蹈</h2>
+                    <p>畲族的音乐和舞蹈非常独特，具有浓郁的民族特色。畲族的音乐以山歌、情歌、劳动歌等为主要形式，舞蹈则以民间舞蹈、宗教舞蹈等为主要形式。</p>
+                    <div class="art-forms">
+                        <h4>音乐形式</h4>
+                        <div class="form-list">
+                            <div class="form-item">
+                                <h5>山歌</h5>
+                                <p>畲族的山歌是其最主要的音乐形式之一，通常在劳动、节日、婚礼等场合演唱。山歌的内容丰富，题材广泛，包括劳动歌、爱情歌、叙事歌等。畲族的山歌旋律优美，节奏明快，富有感染力。</p>
+                            </div>
+                            <div class="form-item">
+                                <h5>情歌</h5>
+                                <p>畲族的情歌是其音乐的重要组成部分，通常以对歌的形式演唱，表达男女之间的爱情和思念之情。畲族的情歌歌词优美，旋律动听，是畲族青年男女表达情感的重要方式。</p>
+                            </div>
+                            <div class="form-item">
+                                <h5>劳动歌</h5>
+                                <p>畲族的劳动歌是其在劳动过程中创作的歌曲，通常与劳动内容相关，如采茶歌、插秧歌、收割歌等。这些歌曲不仅能够减轻劳动的疲劳，还能够协调劳动节奏，提高劳动效率。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="art-forms">
+                        <h4>舞蹈形式</h4>
+                        <div class="form-list">
+                            <div class="form-item">
+                                <h5>民间舞蹈</h5>
+                                <p>畲族的民间舞蹈形式多样，包括龙舞、狮舞、铜鼓舞等。这些舞蹈通常在节日、婚礼等喜庆场合表演，动作优美，节奏明快，富有民族特色。</p>
+                            </div>
+                            <div class="form-item">
+                                <h5>宗教舞蹈</h5>
+                                <p>畲族的宗教舞蹈主要与宗教仪式相关，如祭祖舞、驱邪舞等。这些舞蹈通常由巫师或道士表演，动作庄重，仪式感强。</p>
+                            </div>
+                            <div class="form-item">
+                                <h5>节日舞蹈</h5>
+                                <p>畲族的节日舞蹈是其在节日期间表演的舞蹈，如三月三的对舞、四月八的盘瓠舞等。这些舞蹈通常由男女青年共同表演，表达了畲族人民对生活的热爱和对美好未来的向往。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 手工艺 -->
+                <section class="art-section">
+                    <h2>手工艺</h2>
+                    <p>畲族的手工艺非常发达，具有悠久的历史和独特的民族特色。畲族的手工艺主要包括织锦、刺绣、编织、竹编等形式，这些手工艺品不仅实用美观，而且具有很高的艺术价值。</p>
+                    <div class="art-features">
+                        <div class="feature-item">
+                            <h4>织锦</h4>
+                            <p>畲族的织锦工艺历史悠久，擅长用麻、棉等原料织成各种布料。畲族的织锦图案精美，色彩鲜艳，通常以几何图形、花卉、动物等为主题，具有浓厚的民族特色。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>刺绣</h4>
+                            <p>畲族的刺绣工艺非常精湛，擅长在各种布料上绣出精美的图案。畲族的刺绣品如头巾、背包、鞋子等，图案精美，色彩鲜艳，是畲族文化的重要体现。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>编织</h4>
+                            <p>畲族的编织工艺也非常发达，擅长用各种材料编织成各种物品，如草编、藤编等。畲族的编织品如草席、藤篮等，实用美观，耐用性强。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>竹编</h4>
+                            <p>畲族的竹编工艺历史悠久，擅长用竹子编织成各种物品，如竹席、竹篮、竹帽等。畲族的竹编品实用美观，耐用性强，是畲族人民日常生活中不可或缺的物品。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的特点 -->
+                <section class="art-section">
+                    <h2>文学艺术的特点</h2>
+                    <p>畲族的文学艺术具有鲜明的民族特色，这些特点反映了畲族的历史文化、价值观念和生活方式。</p>
+                    <ul>
+                        <li><strong>民族特色鲜明：</strong>畲族的文学艺术具有鲜明的民族特色，反映了畲族的历史文化、价值观念和生活方式，是畲族文化的重要体现。</li>
+                        <li><strong>与生产生活密切相关：</strong>畲族的文学艺术与他们的生产生活密切相关，如劳动歌、采茶舞等，反映了畲族人民的劳动生活和情感世界。</li>
+                        <li><strong>口头传承为主：</strong>畲族的文学艺术主要通过口头传承的方式流传下来，如民间故事、山歌等，体现了畲族人民的智慧和创造力。</li>
+                        <li><strong>多元融合：</strong>畲族的文学艺术吸收了汉族和其他民族的文化元素，同时保留了自己的民族特色，体现了文化的多元融合。</li>
+                        <li><strong>艺术价值高：</strong>畲族的文学艺术具有很高的艺术价值，如《高皇歌》、畲族织锦等，是中华民族文化宝库的重要财富。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的文化意义 -->
+                <section class="art-section">
+                    <h2>文学艺术的文化意义</h2>
+                    <p>畲族的文学艺术是畲族文化的重要组成部分，具有深厚的文化意义。这些文学艺术作品不仅反映了畲族人民的生活方式和价值观念，也是畲族文化传承和发展的重要载体。</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>文学艺术是畲族文化传承的重要载体，通过这些作品，畲族的历史文化、价值观念和生活方式得到了有效的传承和弘扬。</li>
+                        <li><strong>社会凝聚：</strong>文学艺术是畲族社会凝聚的重要纽带，通过共同的文学艺术活动，畲族人民增强了民族认同感和凝聚力。</li>
+                        <li><strong>文化交流：</strong>文学艺术是畲族与其他民族文化交流的重要桥梁，通过文学艺术的交流和融合，促进了各民族之间的理解和友谊。</li>
+                        <li><strong>艺术价值：</strong>畲族的文学艺术具有很高的艺术价值，是中华民族文化宝库的重要财富，为中华民族的文化繁荣做出了重要贡献。</li>
+                        <li><strong>精神寄托：</strong>文学艺术是畲族人民的精神寄托，通过文学艺术作品，畲族人民表达了对美好生活的向往和对未来的希望。</li>
+                    </ul>
+                    <p>总之，畲族的文学艺术是畲族文化的瑰宝，是中华民族文化多样性的重要体现。我们应该珍惜和保护这些文学艺术遗产，让它们在现代社会中继续发挥其独特的作用，为畲族文化的传承和发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.art-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

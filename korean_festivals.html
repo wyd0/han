@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朝鲜族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统节日页面特定样式 */
+        .festivals-header {
+            background-image: url('images/黑龙旗.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .festivals-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .festivals-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .festivals-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festivals-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-korean {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-korean:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .festivals-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festivals-section {
+            margin-bottom: 80px;
+        }
+        
+        .festivals-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festivals-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festivals-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .festivals-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .festivals-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .festivals-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .festivals-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .festivals-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 传统节日样式 */
+        .festivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .festival-item p {
+            margin: 0 0 15px;
+            text-align: justify;
+        }
+        
+        .festival-item .festival-date {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        /* 节日习俗样式 */
+        .customs-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        .customs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .custom-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .custom-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .custom-item p {
+            margin: 0;
+            font-size: 15px;
+            text-align: justify;
+        }
+        
+        /* 节日食物样式 */
+        .food-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .food-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .food-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .food-item p {
+            margin: 0;
+            font-size: 15px;
+            text-align: justify;
+        }
+        
+        /* 节日意义样式 */
+        .meaning-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .festivals-header h1 {
+                font-size: 36px;
+            }
+            
+            .festivals-header p {
+                font-size: 18px;
+            }
+            
+            .festivals-section h2 {
+                font-size: 28px;
+            }
+            
+            .festivals-grid,
+            .customs-grid,
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .festivals-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .festivals-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .festivals-header-content .back-korean {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .festivals-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .festivals-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="festivals-header">
+        <div class="container">
+            <div class="festivals-header-content">
+                <h1>朝鲜族传统节日</h1>
+                <p>探索朝鲜族丰富多彩的传统节日与文化内涵</p>
+                <a href="korean.html" class="back-korean">返回朝鲜族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="festivals-main">
+        <div class="container">
+            <div class="festivals-content">
+                <!-- 传统节日概览 -->
+                <section class="festivals-section">
+                    <h2>传统节日概览</h2>
+                    <p>朝鲜族是一个重视传统节日的民族，拥有丰富多彩的传统节日。这些节日不仅是朝鲜族人民庆祝丰收、祈求平安的重要方式，也是朝鲜族文化的重要组成部分。朝鲜族的传统节日既有与汉族相似的节日，如春节、元宵节、端午节、中秋节等，也有自己独特的节日，如清明节、开天节等。</p>
+                    <p>朝鲜族的传统节日通常与农业生产、宗教信仰、历史传说等密切相关，反映了朝鲜族的生产生活方式、价值观念和文化传统。这些节日不仅是朝鲜族人民团聚、交流的重要场合，也是传承和弘扬朝鲜族文化的重要载体。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="festivals-section">
+                    <h2>主要传统节日</h2>
+                    <div class="festivals-grid">
+                        <div class="festival-item">
+                            <h4>春节</h4>
+                            <span class="festival-date">农历正月初一</span>
+                            <p>春节是朝鲜族最重要的传统节日之一，相当于汉族的春节。朝鲜族人民在春节期间会进行一系列的庆祝活动，如祭祀祖先、拜年、吃年夜饭、穿新衣等。春节期间，朝鲜族人民还会举行各种传统游戏和表演，如跳板、秋千、长鼓舞等。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>元宵节</h4>
+                            <span class="festival-date">农历正月十五</span>
+                            <p>元宵节是朝鲜族的传统节日之一，相当于汉族的元宵节。朝鲜族人民在元宵节期间会吃元宵、赏月、放烟花等。在一些地区，朝鲜族人民还会举行传统的灯节活动，展示各种精美的花灯。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>寒食节</h4>
+                            <span class="festival-date">清明节前一天</span>
+                            <p>寒食节是朝鲜族的传统节日之一，与汉族的寒食节相似。朝鲜族人民在寒食节期间会禁火、吃冷食、扫墓等。寒食节是为了纪念古代的忠臣义士，表达对祖先的缅怀之情。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>清明节</h4>
+                            <span class="festival-date">公历4月4日或5日</span>
+                            <p>清明节是朝鲜族的传统节日之一，与汉族的清明节相似。朝鲜族人民在清明节期间会扫墓、祭祖、踏青等。清明节是朝鲜族人民缅怀祖先、祈求平安的重要节日。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>端午节</h4>
+                            <span class="festival-date">农历五月初五</span>
+                            <p>端午节是朝鲜族的传统节日之一，与汉族的端午节相似。朝鲜族人民在端午节期间会吃粽子、赛龙舟、插艾蒿等。端午节是为了纪念古代的爱国诗人屈原，表达对祖国的热爱之情。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>秋夕节</h4>
+                            <span class="festival-date">农历八月十五</span>
+                            <p>秋夕节是朝鲜族最重要的传统节日之一，相当于汉族的中秋节。朝鲜族人民在秋夕节期间会赏月、吃月饼、吃松饼、祭祖等。秋夕节是朝鲜族人民团聚、感恩的重要节日，象征着丰收和团圆。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>开天节</h4>
+                            <span class="festival-date">农历十月初三</span>
+                            <p>开天节是朝鲜族的传统节日之一，是为了纪念传说中的朝鲜族始祖檀君而设立的。朝鲜族人民在开天节期间会举行各种庆祝活动，如祭祀檀君、举行传统文艺表演等。开天节是朝鲜族人民表达民族自豪感和凝聚力的重要节日。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日习俗与活动 -->
+                <section class="festivals-section">
+                    <h2>节日习俗与活动</h2>
+                    <p>朝鲜族的节日习俗与活动丰富多彩，反映了朝鲜族的文化传统和生活方式。这些习俗和活动不仅是节日庆祝的重要组成部分，也是朝鲜族文化的重要表现形式。</p>
+                    
+                    <div class="customs-section">
+                        <h4>主要节日习俗</h4>
+                        <div class="customs-grid">
+                            <div class="custom-item">
+                                <h5>祭祀祖先</h5>
+                                <p>祭祀祖先是朝鲜族传统节日中的重要习俗之一。在春节、秋夕节等重要节日，朝鲜族人民会准备各种祭品，如米饭、肉类、水果等，祭祀祖先，表达对祖先的缅怀之情和感恩之心。</p>
+                            </div>
+                            <div class="custom-item">
+                                <h5>拜年</h5>
+                                <p>拜年是朝鲜族春节期间的重要习俗之一。正月初一，朝鲜族人民会穿着新衣，到亲戚朋友家拜年，互相祝福，增进感情。拜年时，晚辈要向长辈行跪拜礼，长辈则会给晚辈压岁钱。</p>
+                            </div>
+                            <div class="custom-item">
+                                <h5>传统游戏</h5>
+                                <p>传统游戏是朝鲜族节日期间的重要活动之一。朝鲜族的传统游戏包括跳板、秋千、摔跤、拔河等。这些游戏不仅是娱乐活动，也是朝鲜族人民锻炼身体、展示技艺的重要方式。</p>
+                            </div>
+                            <div class="custom-item">
+                                <h5>文艺表演</h5>
+                                <p>文艺表演是朝鲜族节日期间的重要活动之一。朝鲜族的传统文艺表演包括长鼓舞、农乐舞、伽倻琴演奏等。这些表演不仅是娱乐活动，也是传承和弘扬朝鲜族文化的重要方式。</p>
+                            </div>
+                            <div class="custom-item">
+                                <h5>特色饮食</h5>
+                                <p>特色饮食是朝鲜族节日期间的重要组成部分。不同的节日有不同的特色饮食，如春节的年糕汤、秋夕节的松饼、端午节的粽子等。这些特色饮食不仅是节日的象征，也是朝鲜族饮食文化的重要组成部分。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日特色饮食 -->
+                <section class="festivals-section">
+                    <h2>节日特色饮食</h2>
+                    <p>朝鲜族的节日特色饮食丰富多彩，反映了朝鲜族的饮食文化和生活方式。这些特色饮食不仅是节日庆祝的重要组成部分，也是朝鲜族文化的重要表现形式。</p>
+                    
+                    <div class="food-section">
+                        <h4>主要节日饮食</h4>
+                        <div class="food-grid">
+                            <div class="food-item">
+                                <h5>年糕汤</h5>
+                                <p>年糕汤是朝鲜族春节期间的传统饮食之一。年糕汤由年糕、牛肉、鸡蛋等食材制作而成，味道鲜美，营养丰富。朝鲜族人民认为，春节喝年糕汤可以增长一岁，象征着新的开始。</p>
+                            </div>
+                            <div class="food-item">
+                                <h5>松饼</h5>
+                                <p>松饼是朝鲜族秋夕节期间的传统饮食之一。松饼由糯米粉、红豆、芝麻等食材制作而成，形状像半月，味道香甜可口。松饼象征着丰收和团圆，是秋夕节的重要象征之一。</p>
+                            </div>
+                            <div class="food-item">
+                                <h5>粽子</h5>
+                                <p>粽子是朝鲜族端午节期间的传统饮食之一。朝鲜族的粽子通常由糯米、红豆、大枣等食材制作而成，味道香甜可口。粽子是为了纪念古代的爱国诗人屈原，表达对祖国的热爱之情。</p>
+                            </div>
+                            <div class="food-item">
+                                <h5>打糕</h5>
+                                <p>打糕是朝鲜族传统节日期间的传统饮食之一。打糕由糯米煮熟后捶打制作而成，口感粘糯，味道香甜。打糕是朝鲜族人民喜爱的传统食品之一，也是节日期间的重要祭品。</p>
+                            </div>
+                            <div class="food-item">
+                                <h5>米酒</h5>
+                                <p>米酒是朝鲜族传统节日期间的传统饮品之一。米酒由大米发酵制作而成，口感清爽，度数适中。米酒是朝鲜族人民喜爱的传统饮品之一，也是节日期间招待客人的重要饮品。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日的意义与价值 -->
+                <section class="festivals-section">
+                    <h2>节日的意义与价值</h2>
+                    <p>朝鲜族的传统节日不仅是庆祝和娱乐的场合，也是传承和弘扬朝鲜族文化的重要载体，具有重要的意义和价值。</p>
+                    
+                    <div class="meaning-section">
+                        <h4>主要意义与价值</h4>
+                        <ul>
+                            <li><strong>文化传承：</strong>传统节日是朝鲜族文化传承的重要载体，通过节日的各种习俗和活动，朝鲜族的历史、文化、价值观念等得以传承和弘扬。</li>
+                            <li><strong>民族凝聚：</strong>传统节日是朝鲜族人民团聚、交流的重要场合，通过共同的节日庆祝活动，增强了民族凝聚力和认同感。</li>
+                            <li><strong>伦理道德：</strong>传统节日中的各种习俗和活动，如祭祀祖先、拜年等，体现了朝鲜族的伦理道德观念，如尊老爱幼、尊重祖先、团结互助等。</li>
+                            <li><strong>审美教育：</strong>传统节日中的各种文艺表演和特色饮食，体现了朝鲜族的审美观念和艺术才华，对朝鲜族人民起到了审美教育的作用。</li>
+                            <li><strong>社会和谐：</strong>传统节日是朝鲜族社会和谐的重要体现，通过节日的庆祝活动，促进了人与人之间的交流和理解，增强了社会的和谐与稳定。</li>
+                            <li><strong>历史记忆：</strong>传统节日与朝鲜族的历史密切相关，通过节日的庆祝活动，朝鲜族人民的历史记忆得以保留和传承。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 节日的现状与未来 -->
+                <section class="festivals-section">
+                    <h2>节日的现状与未来</h2>
+                    <p>随着社会的发展和变化，朝鲜族的传统节日也面临着新的挑战和机遇。在现代化和全球化的背景下，朝鲜族的传统节日呈现出一些新的特点和趋势。</p>
+                    
+                    <h3>现状</h3>
+                    <ul>
+                        <li><strong>传统与现代的融合：</strong>在现代社会中，朝鲜族的传统节日逐渐与现代生活方式相结合，形成了新的节日庆祝方式。</li>
+                        <li><strong>城市化的影响：</strong>随着城市化的发展，朝鲜族的传统节日庆祝方式逐渐简化，一些传统习俗和活动逐渐消失。</li>
+                        <li><strong>年轻一代的参与：</strong>年轻一代对传统节日的兴趣和参与度逐渐降低，传统节日的传承面临挑战。</li>
+                        <li><strong>政府的支持：</strong>政府对传统节日的保护和传承给予了越来越多的支持，通过各种方式促进传统节日的传承和发展。</li>
+                    </ul>
+                    
+                    <h3>未来发展趋势</h3>
+                    <p>展望未来，朝鲜族的传统节日将继续在传承中创新，在创新中发展，保持着生命力和活力。</p>
+                    <ul>
+                        <li><strong>传统与现代的平衡：</strong>传统节日将在保持传统特色的同时，适应现代社会的发展和变化，形成传统与现代相结合的新形式。</li>
+                        <li><strong>教育与传承：</strong>通过教育和宣传，增强年轻一代对传统节日的认识和兴趣，促进传统节日的传承和发展。</li>
+                        <li><strong>文化旅游：</strong>传统节日将成为朝鲜族文化旅游的重要资源，通过文化旅游的发展，促进传统节日的传承和弘扬。</li>
+                        <li><strong>国际交流：</strong>随着国际交流的不断扩大，朝鲜族的传统节日将逐渐走向世界，成为世界文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>保护与传承的意义</h3>
+                    <p>保护和传承朝鲜族的传统节日具有重要的意义：</p>
+                    <ul>
+                        <li><strong>文化多样性：</strong>保护和传承朝鲜族的传统节日，有助于维护世界文化的多样性，丰富人类的文化遗产。</li>
+                        <li><strong>民族认同：</strong>保护和传承朝鲜族的传统节日，有助于增强朝鲜族人民的民族认同感和凝聚力。</li>
+                        <li><strong>文化自信：</strong>保护和传承朝鲜族的传统节日，有助于增强朝鲜族人民的文化自信，促进朝鲜族文化的繁荣和发展。</li>
+                        <li><strong>社会和谐：</strong>保护和传承朝鲜族的传统节日，有助于促进社会的和谐与稳定，增强社会的凝聚力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日与文化的关系 -->
+                <section class="festivals-section">
+                    <h2>节日与文化的关系</h2>
+                    <p>传统节日是朝鲜族文化的重要组成部分，与朝鲜族的其他文化元素密切相关，共同构成了朝鲜族丰富多彩的文化体系。</p>
+                    
+                    <h3>节日与宗教信仰</h3>
+                    <p>朝鲜族的传统节日与宗教信仰密切相关，许多节日都具有宗教意义。例如，寒食节、清明节等节日与祖先崇拜有关，开天节与檀君信仰有关。宗教信仰为传统节日提供了精神内涵和仪式规范，传统节日则为宗教信仰提供了表达和实践的场合。</p>
+                    
+                    <h3>节日与文学艺术</h3>
+                    <p>朝鲜族的传统节日与文学艺术密切相关，许多文学艺术作品都以传统节日为主题。例如，朝鲜族的传统诗歌、散文、绘画等作品中，经常出现与传统节日相关的内容。传统节日为文学艺术提供了创作素材和灵感，文学艺术则为传统节日增添了文化内涵和艺术魅力。</p>
+                    
+                    <h3>节日与风俗习惯</h3>
+                    <p>朝鲜族的传统节日与风俗习惯密切相关，许多风俗习惯都与传统节日有关。例如，朝鲜族的饮食习俗、服饰习俗、礼仪习俗等，都在传统节日中得到了集中体现。传统节日是风俗习惯的重要载体，风俗习惯则为传统节日增添了丰富的内容和特色。</p>
+                    
+                    <h3>节日与历史传说</h3>
+                    <p>朝鲜族的传统节日与历史传说密切相关，许多节日都与历史传说有关。例如，端午节与屈原的传说有关，开天节与檀君的传说有关。历史传说为传统节日提供了历史背景和文化内涵，传统节日则为历史传说的传承和弘扬提供了重要场合。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为节日相关的部分添加动画效果
+            const festivalsSections = document.querySelectorAll('.festivals-section');
+            
+            // 页面加载时为所有部分添加可见类
+            setTimeout(() => {
+                festivalsSections.forEach(section => {
+                    section.classList.add('visible');
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

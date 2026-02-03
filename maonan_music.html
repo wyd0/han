@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毛南族音乐舞蹈 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 毛南族文化页面特定样式 */
+        .maonan-header {
+            background-image: url('images/毛南族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .maonan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .maonan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .maonan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .maonan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .maonan-section {
+            margin-bottom: 80px;
+        }
+        
+        .maonan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .maonan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .maonan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .maonan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .maonan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 音乐舞蹈样式 */
+        .music-dance {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .music-dance-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .music-dance-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .maonan-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .maonan-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .maonan-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .maonan-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .maonan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="maonan-header">
+        <div class="container">
+            <div class="maonan-header-content">
+                <h1>毛南族音乐舞蹈</h1>
+                <p>独特的民族艺术与文化表达</p>
+                <a href="maonan.html" class="back-difference">返回毛南族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="maonan-main">
+        <div class="container">
+            <div class="maonan-content">
+                <!-- 音乐舞蹈概述 -->
+                <section class="maonan-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>毛南族的音乐舞蹈具有独特的民族风格，是毛南族文化的重要组成部分。毛南族的音乐舞蹈反映了毛南族人民的生活、思想和情感，是毛南族人民表达喜怒哀乐的重要方式。</p>
+                    <p>毛南族的音乐舞蹈历史悠久，形式多样，内容丰富。它们不仅是毛南族人民的精神食粮，也是中华民族艺术宝库中的重要组成部分。</p>
+                </section>
+
+                <!-- 民间音乐 -->
+                <section class="maonan-section">
+                    <h3>民间音乐</h3>
+                    <p>毛南族的民间音乐是毛南族人民在长期的生产生活中创造和发展起来的，具有浓郁的民族特色和地域风格。毛南族的民间音乐主要包括以下几种类型：</p>
+                    <div class="music-dance">
+                        <div class="music-dance-item">
+                            <h4>劳动歌</h4>
+                            <p>劳动歌是毛南族人民在劳动过程中创作和演唱的歌曲，主要包括耕田歌、插秧歌、收割歌、采茶歌等。这些歌曲节奏明快，旋律优美，能够激发劳动者的热情，提高劳动效率。</p>
+                        </div>
+                        <div class="music-dance-item">
+                            <h4>情歌</h4>
+                            <p>情歌是毛南族青年男女表达爱情的歌曲，主要包括约会歌、表白歌、思念歌等。这些歌曲旋律优美，情感真挚，是毛南族青年男女之间传递爱意的重要方式。</p>
+                        </div>
+                        <div class="music-dance-item">
+                            <h4>叙事歌</h4>
+                            <p>叙事歌是毛南族人民讲述历史故事、民间传说和生活经历的歌曲，主要包括创世歌、英雄歌、生活歌等。这些歌曲篇幅较长，情节曲折，是毛南族人民传承历史文化的重要方式。</p>
+                        </div>
+                        <div class="music-dance-item">
+                            <h4>仪式歌</h4>
+                            <p>仪式歌是毛南族人民在宗教仪式、传统节日等场合演唱的歌曲，主要包括祭祀歌、婚礼歌、葬礼歌等。这些歌曲庄严肃穆，具有浓厚的宗教色彩和仪式感。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统乐器 -->
+                <section class="maonan-section">
+                    <h3>传统乐器</h3>
+                    <p>毛南族的传统乐器种类繁多，主要包括以下几种：</p>
+                    <ul>
+                        <li><strong>打击乐器：</strong>包括铜鼓、皮鼓、锣、钹等，这些乐器在毛南族的宗教仪式和传统节日中发挥着重要作用。</li>
+                        <li><strong>吹奏乐器：</strong>包括唢呐、笛子、箫等，这些乐器音色优美，是毛南族民间音乐中的重要组成部分。</li>
+                        <li><strong>弦乐器：</strong>包括二胡、京胡等，这些乐器在毛南族的民间音乐中也有一定的应用。</li>
+                    </ul>
+                    <p>毛南族的传统乐器制作工艺精湛，造型美观，不仅是音乐表演的工具，也是毛南族传统手工艺品的重要组成部分。</p>
+                </section>
+
+                <!-- 民间舞蹈 -->
+                <section class="maonan-section">
+                    <h3>民间舞蹈</h3>
+                    <p>毛南族的民间舞蹈是毛南族人民在长期的生产生活中创造和发展起来的，具有独特的民族风格和艺术魅力。毛南族的民间舞蹈主要包括以下几种类型：</p>
+                    <div class="music-dance">
+                        <div class="music-dance-item">
+                            <h4>师公舞</h4>
+                            <p>师公舞是毛南族最著名的传统舞蹈，主要在宗教仪式中表演。师公舞的动作粗犷有力，充满神秘色彩，舞者通常穿着道袍，戴着面具，手持法器，边舞边唱。</p>
+                        </div>
+                        <div class="music-dance-item">
+                            <h4>丰收舞</h4>
+                            <p>丰收舞是毛南族人民在丰收季节表演的舞蹈，主要表达对丰收的喜悦和对神灵的感谢。丰收舞的动作欢快活泼，节奏明快，舞者通常手持农具或农作物，边舞边唱。</p>
+                        </div>
+                        <div class="music-dance-item">
+                            <h4>婚礼舞</h4>
+                            <p>婚礼舞是毛南族人民在婚礼仪式中表演的舞蹈，主要表达对新人的祝福和对美好生活的向往。婚礼舞的动作优美典雅，节奏舒缓，舞者通常穿着盛装，边舞边唱。</p>
+                        </div>
+                        <div class="music-dance-item">
+                            <h4>节日舞</h4>
+                            <p>节日舞是毛南族人民在传统节日中表演的舞蹈，主要表达对节日的庆祝和对神灵的敬意。节日舞的动作多样，节奏明快，舞者通常穿着盛装，边舞边唱。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈的特点 -->
+                <section class="maonan-section">
+                    <h3>音乐舞蹈的特点</h3>
+                    <p>毛南族的音乐舞蹈具有以下主要特点：</p>
+                    <ul>
+                        <li><strong>民族特色鲜明：</strong>毛南族的音乐舞蹈具有浓郁的民族特色，反映了毛南族人民的生活、思想和情感。</li>
+                        <li><strong>形式多样：</strong>毛南族的音乐舞蹈形式多样，包括劳动歌、情歌、叙事歌、仪式歌等多种类型的音乐，以及师公舞、丰收舞、婚礼舞、节日舞等多种类型的舞蹈。</li>
+                        <li><strong>内容丰富：</strong>毛南族的音乐舞蹈内容丰富，反映了毛南族人民的生产生活、宗教信仰、风俗习惯、传统节日等各个方面。</li>
+                        <li><strong>与生活密切相关：</strong>毛南族的音乐舞蹈与毛南族人民的生活密切相关，是毛南族人民表达喜怒哀乐的重要方式。</li>
+                        <li><strong>传承性强：</strong>毛南族的音乐舞蹈通过口口相传、师徒相授等方式传承至今，是毛南族文化的重要组成部分。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐舞蹈的传承与发展 -->
+                <section class="maonan-section">
+                    <h3>音乐舞蹈的传承与发展</h3>
+                    <p>毛南族的音乐舞蹈是毛南族文化的重要组成部分，对于毛南族的文化传承具有重要意义。为了保护和传承毛南族的音乐舞蹈，毛南族人民采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>民间传承：</strong>通过口口相传、师徒相授等方式，将毛南族的音乐舞蹈传承给下一代。</li>
+                        <li><strong>学校教育：</strong>在一些毛南族地区的学校中，开设了毛南族音乐舞蹈课程，向学生传授毛南族的音乐舞蹈知识和技能。</li>
+                        <li><strong>文化活动：</strong>通过举办各种文化活动，如毛南族民歌比赛、毛南族舞蹈表演等，促进毛南族音乐舞蹈的传播和发展。</li>
+                        <li><strong>艺术创作：</strong>鼓励艺术家对毛南族的音乐舞蹈进行创新和发展，创作具有时代特色的毛南族音乐舞蹈作品。</li>
+                        <li><strong>学术研究：</strong>支持学者对毛南族的音乐舞蹈进行深入的研究，为毛南族音乐舞蹈的保护和传承提供学术支持。</li>
+                    </ul>
+                    <p>在现代社会中，毛南族的音乐舞蹈也在不断创新和发展。毛南族的艺术家们在保持传统特色的基础上，吸收了现代音乐舞蹈的元素，创作出了一批具有时代特色的音乐舞蹈作品，使毛南族的音乐舞蹈更加丰富多彩。</p>
+                </section>
+
+                <!-- 音乐舞蹈的文化意义 -->
+                <section class="maonan-section">
+                    <h3>音乐舞蹈的文化意义</h3>
+                    <p>毛南族的音乐舞蹈具有重要的文化意义，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>毛南族的音乐舞蹈是毛南族文化的重要载体，通过音乐舞蹈，毛南族人民传承着自己的历史、文化、信仰和价值观。</li>
+                        <li><strong>社会凝聚：</strong>毛南族的音乐舞蹈是毛南族人民社会生活的重要组成部分，它们能够增强毛南族人民的凝聚力和认同感。</li>
+                        <li><strong>艺术表达：</strong>毛南族的音乐舞蹈是毛南族人民艺术表达的重要方式，它们反映了毛南族人民的审美情趣和艺术创造力。</li>
+                        <li><strong>文化交流：</strong>毛南族的音乐舞蹈是毛南族与其他民族文化交流的重要桥梁，它们向外界展示了毛南族的文化特色和艺术魅力。</li>
+                        <li><strong>精神寄托：</strong>毛南族的音乐舞蹈是毛南族人民的精神寄托，它们能够带给毛南族人民快乐和安慰，增强毛南族人民的生活信心和勇气。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑶族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 瑶族风俗习惯页面特定样式 */
+        .custom-header {
+            background-image: url('images/瑶族刺绣.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .custom-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .custom-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .custom-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .custom-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .custom-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .custom-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .custom-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .custom-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .custom-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .custom-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .custom-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .custom-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .custom-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .custom-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .custom-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯样式 */
+        .custom-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .custom-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .custom-section.visible .custom-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .custom-section.visible .custom-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .custom-section.visible .custom-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .custom-section.visible .custom-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .custom-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .custom-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .custom-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 风俗习惯特点样式 */
+        .custom-features {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .custom-features h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .custom-header h1 {
+                font-size: 36px;
+            }
+            
+            .custom-header p {
+                font-size: 18px;
+            }
+            
+            .custom-section h2 {
+                font-size: 28px;
+            }
+            
+            .custom-areas {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="custom-header">
+        <div class="container">
+            <div class="custom-header-content">
+                <h1>瑶族风俗习惯</h1>
+                <p>独特的瑶族生活习俗与文化传统</p>
+                <a href="yao.html" class="back-yao">返回瑶族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="custom-main">
+        <div class="container">
+            <div class="custom-content">
+                <!-- 风俗习惯概述 -->
+                <section class="custom-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>瑶族是一个有着独特风俗习惯的民族，瑶族的风俗习惯是瑶族文化的重要组成部分，反映了瑶族人民的思想观念、价值取向和生活方式。瑶族的风俗习惯涵盖了生活的各个方面，包括日常礼仪、饮食习俗、婚姻习俗、丧葬习俗、禁忌习俗等，每种习俗都有其独特的意义和内涵。</p>
+                    <p>瑶族的风俗习惯大多与瑶族的历史、宗教信仰、生产生活密切相关，是瑶族人民在长期的历史发展中形成的。通过风俗习惯，瑶族人民不仅传承和发展了瑶族的文化传统，也表达了对美好生活的向往和追求。</p>
+                </section>
+
+                <!-- 日常礼仪 -->
+                <section class="custom-section">
+                    <h2>日常礼仪</h2>
+                    <p>瑶族人民热情好客，注重礼仪，有着丰富的日常礼仪习俗。瑶族的日常礼仪主要包括问候礼仪、待客礼仪、做客礼仪等。</p>
+                    <h3>问候礼仪</h3>
+                    <p>瑶族人民见面时，会互相问候，表达友好之情。瑶族的问候礼仪主要包括：</p>
+                    <ul>
+                        <li><strong>语言问候：</strong>瑶族人民见面时，会说一些问候语，如“你好”、“吃饭了吗”、“去哪里”等。</li>
+                        <li><strong>动作问候：</strong>瑶族人民见面时，会互相握手、拥抱，或者点头示意。</li>
+                        <li><strong>节日问候：</strong>在节日期间，瑶族人民会互相拜年、祝福，表达节日的喜悦之情。</li>
+                    </ul>
+                    <h3>待客礼仪</h3>
+                    <p>瑶族人民热情好客，对待客人非常热情。瑶族的待客礼仪主要包括：</p>
+                    <ul>
+                        <li><strong>迎客：</strong>当客人到来时，瑶族人民会出门迎接，热情地打招呼。</li>
+                        <li><strong>让座：</strong>客人进屋后，瑶族人民会请客人坐下，并给客人倒茶。</li>
+                        <li><strong>敬烟敬酒：</strong>瑶族人民会给客人敬烟敬酒，表达对客人的尊重。</li>
+                        <li><strong>准备美食：</strong>瑶族人民会准备各种美食，如糯米饭、腊肉、米酒等，招待客人。</li>
+                        <li><strong>送客：</strong>客人离开时，瑶族人民会出门相送，直到客人走远。</li>
+                    </ul>
+                    <h3>做客礼仪</h3>
+                    <p>瑶族人民做客时，也有一些礼仪要求：</p>
+                    <ul>
+                        <li><strong>准时到达：</strong>做客时，要准时到达，不要迟到。</li>
+                        <li><strong>带礼物：</strong>做客时，要带一些礼物，如水果、糖果等，表达对主人的尊重。</li>
+                        <li><strong>注意礼貌：</strong>做客时，要注意礼貌，不要随便翻动主人的东西，不要大声喧哗。</li>
+                        <li><strong>感谢主人：</strong>离开时，要感谢主人的热情招待，并邀请主人到自己家做客。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="custom-section">
+                    <h2>饮食习俗</h2>
+                    <p>瑶族的饮食习俗独特，反映了瑶族人民的生活方式和文化传统。瑶族的饮食习俗主要包括饮食习惯、饮食禁忌、特色美食等。</p>
+                    <h3>饮食习惯</h3>
+                    <p>瑶族人民的饮食习惯主要包括：</p>
+                    <ul>
+                        <li><strong>以大米为主食：</strong>瑶族人民以大米为主食，喜欢吃糯米饭、竹筒饭等。</li>
+                        <li><strong>喜欢酸辣口味：</strong>瑶族人民喜欢吃酸辣食物，如酸肉、酸鱼、酸辣汤等。</li>
+                        <li><strong>擅长腌制食品：</strong>瑶族人民擅长腌制各种食品，如腊肉、腊肠、酸肉、酸鱼等。</li>
+                        <li><strong>喜欢饮酒：</strong>瑶族人民喜欢喝自酿的米酒，是重要的社交活动之一。</li>
+                        <li><strong>重视山珍野味：</strong>瑶族人民生活在山区，喜欢吃各种山珍野味，如香菇、木耳、竹笋、野果等。</li>
+                    </ul>
+                    <h3>饮食禁忌</h3>
+                    <p>瑶族人民有一些饮食禁忌，主要包括：</p>
+                    <ul>
+                        <li><strong>禁食狗肉：</strong>瑶族人民禁食狗肉，认为狗是人类的朋友，吃狗肉不吉利。</li>
+                        <li><strong>禁食猫肉：</strong>瑶族人民禁食猫肉，认为猫是家神，吃猫肉会带来灾难。</li>
+                        <li><strong>禁食蛇肉：</strong>有些瑶族分支禁食蛇肉，认为蛇是神灵的化身。</li>
+                        <li><strong>饮食礼仪：</strong>吃饭时，要等长辈先动筷子，不要把筷子插在饭里，不要用筷子指着别人。</li>
+                    </ul>
+                    <h3>特色美食</h3>
+                    <div class="custom-areas">
+                        <div class="custom-item">
+                            <h4>瑶家油茶</h4>
+                            <p>瑶家油茶是瑶族的传统饮品，用茶叶、花生、芝麻、姜等食材制作而成。瑶家油茶香气扑鼻，味道醇厚，是瑶族人民日常生活中不可或缺的饮品。</p>
+                            <p>瑶家油茶的制作过程：将茶叶、花生、芝麻、姜等食材放入锅中炒香，然后加入适量的水，煮成茶汤，最后加入盐、油等调料即可。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>竹筒饭</h4>
+                            <p>竹筒饭是瑶族的传统美食，用新鲜的竹筒和糯米制作而成。竹筒饭香气扑鼻，味道鲜美，是瑶族人民喜爱的传统美食。</p>
+                            <p>竹筒饭的制作过程：将糯米洗净，放入竹筒中，加入适量的水和调料，然后用竹叶封口，放入火中烤熟即可。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>酸肉</h4>
+                            <p>酸肉是瑶族的传统美食，用猪肉腌制而成。酸肉味道酸辣可口，是瑶族人民喜爱的传统美食。</p>
+                            <p>酸肉的制作过程：将猪肉切成小块，加入盐、辣椒、花椒等调料，腌制一段时间后，放入坛中密封发酵，一段时间后即可食用。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="custom-section">
+                    <h2>婚姻习俗</h2>
+                    <p>瑶族的婚姻习俗独特，反映了瑶族人民的婚姻观念和文化传统。瑶族的婚姻习俗主要包括择偶方式、订婚仪式、结婚仪式、婚后习俗等。</p>
+                    <h3>择偶方式</h3>
+                    <p>瑶族的择偶方式主要包括：</p>
+                    <ul>
+                        <li><strong>自由恋爱：</strong>瑶族青年男女可以自由恋爱，通过对歌、聚会等方式相识、相恋。</li>
+                        <li><strong>父母包办：</strong>在一些传统的瑶族地区，婚姻仍然由父母包办，但青年男女有一定的选择权。</li>
+                        <li><strong>媒人介绍：</strong>通过媒人介绍，青年男女相识、相恋。</li>
+                    </ul>
+                    <h3>订婚仪式</h3>
+                    <p>瑶族的订婚仪式主要包括：</p>
+                    <ul>
+                        <li><strong>送聘礼：</strong>男方要向女方送聘礼，如猪肉、米酒、糍粑、银饰等。</li>
+                        <li><strong>订婚宴：</strong>双方家庭会举行订婚宴，邀请亲朋好友参加，宣布订婚的消息。</li>
+                        <li><strong>交换信物：</strong>青年男女会交换信物，如银饰、手镯等，表达彼此的爱意。</li>
+                    </ul>
+                    <h3>结婚仪式</h3>
+                    <p>瑶族的结婚仪式丰富多彩，主要包括：</p>
+                    <ul>
+                        <li><strong>接亲：</strong>男方要组织接亲队伍，到女方家接亲。</li>
+                        <li><strong>拦门酒：</strong>女方家会在门口设置拦门酒，接亲队伍要喝完酒才能进入女方家。</li>
+                        <li><strong>拜堂：</strong>新人要在堂屋拜天地、拜父母、夫妻对拜。</li>
+                        <li><strong>婚宴：</strong>双方家庭会举行婚宴，邀请亲朋好友参加，庆祝新人的婚礼。</li>
+                        <li><strong>闹洞房：</strong>晚上，亲朋好友会闹洞房，增加婚礼的喜庆气氛。</li>
+                    </ul>
+                    <h3>婚后习俗</h3>
+                    <p>瑶族的婚后习俗主要包括：</p>
+                    <ul>
+                        <li><strong>回门：</strong>婚后第二天，新人要回女方家，拜见女方的父母和亲戚。</li>
+                        <li><strong>生育习俗：</strong>瑶族人民重视生育，有一些生育习俗，如催生、坐月子、满月酒等。</li>
+                        <li><strong>家庭观念：</strong>瑶族人民重视家庭观念，夫妻之间要互相尊重、互相爱护，共同经营家庭。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="custom-section">
+                    <h2>丧葬习俗</h2>
+                    <p>瑶族的丧葬习俗独特，反映了瑶族人民的生死观念和文化传统。瑶族的丧葬习俗主要包括报丧、停灵、出殡、安葬、守孝等。</p>
+                    <h3>报丧</h3>
+                    <p>当有人去世时，家人会立即向亲朋好友报丧，通知他们前来吊唁。报丧的方式主要包括：</p>
+                    <ul>
+                        <li><strong>口头报丧：</strong>派人到亲朋好友家口头通知。</li>
+                        <li><strong>鸣炮报丧：</strong>鸣放鞭炮，通知附近的邻居。</li>
+                        <li><strong>讣告报丧：</strong>在一些瑶族地区，会张贴讣告，通知亲朋好友。</li>
+                    </ul>
+                    <h3>停灵</h3>
+                    <p>去世后，家人会将死者的遗体停放在堂屋中，供亲朋好友吊唁。停灵的时间一般为3-7天，具体时间根据死者的年龄、身份和家庭情况而定。</p>
+                    <h3>出殡</h3>
+                    <p>出殡是丧葬仪式的重要环节，主要包括：</p>
+                    <ul>
+                        <li><strong>祭祀：</strong>出殡前，家人会举行祭祀仪式，祈求死者的灵魂安息。</li>
+                        <li><strong>哭灵：</strong>亲朋好友会哭灵，表达对死者的哀悼之情。</li>
+                        <li><strong>抬棺：</strong>由青壮年男子抬着棺材，前往墓地。</li>
+                        <li><strong>送葬：</strong>亲朋好友会跟随棺材，前往墓地送葬。</li>
+                    </ul>
+                    <h3>安葬</h3>
+                    <p>瑶族的安葬方式主要包括土葬、火葬、岩葬等，其中土葬是最常见的安葬方式。安葬的过程主要包括：</p>
+                    <ul>
+                        <li><strong>选墓地：</strong>选择一块风水好的墓地，作为死者的安息之地。</li>
+                        <li><strong>挖墓穴：</strong>在墓地上挖一个墓穴，准备安葬死者。</li>
+                        <li><strong>下葬：</strong>将棺材放入墓穴中，然后填土掩埋。</li>
+                        <li><strong>立墓碑：</strong>在墓地上立一块墓碑，刻上死者的姓名、生卒年月等信息。</li>
+                    </ul>
+                    <h3>守孝</h3>
+                    <p>安葬后，家人要守孝一段时间，表达对死者的哀悼之情。守孝的时间一般为3个月到3年，具体时间根据死者的身份和家庭情况而定。守孝期间，家人要穿孝服，不参加娱乐活动，不结婚、不办喜事等。</p>
+                </section>
+
+                <!-- 禁忌习俗 -->
+                <section class="custom-section">
+                    <h2>禁忌习俗</h2>
+                    <p>瑶族人民有一些禁忌习俗，这些禁忌习俗反映了瑶族人民的思想观念和文化传统。瑶族的禁忌习俗主要包括日常生活禁忌、宗教禁忌、节日禁忌等。</p>
+                    <h3>日常生活禁忌</h3>
+                    <ul>
+                        <li><strong>饮食禁忌：</strong>如禁食狗肉、猫肉、蛇肉等。</li>
+                        <li><strong>行为禁忌：</strong>如不要在屋里吹口哨，不要在屋里打伞，不要把筷子插在饭里等。</li>
+                        <li><strong>语言禁忌：</strong>如不要说不吉利的话，不要骂人，不要说谎等。</li>
+                        <li><strong>社交禁忌：</strong>如不要随便进入别人的房间，不要随便翻动别人的东西等。</li>
+                    </ul>
+                    <h3>宗教禁忌</h3>
+                    <ul>
+                        <li><strong>祭祀禁忌：</strong>如祭祀时要保持虔诚，不要说不吉利的话，不要穿鲜艳的衣服等。</li>
+                        <li><strong>宗教场所禁忌：</strong>如不要在宗教场所大声喧哗，不要在宗教场所随地吐痰等。</li>
+                        <li><strong>宗教用品禁忌：</strong>如不要随便触摸宗教用品，不要亵渎宗教用品等。</li>
+                    </ul>
+                    <h3>节日禁忌</h3>
+                    <ul>
+                        <li><strong>春节禁忌：</strong>如春节期间不要说不吉利的话，不要骂人，不要打碎东西等。</li>
+                        <li><strong>清明节禁忌：</strong>如清明节期间不要穿鲜艳的衣服，不要参加娱乐活动等。</li>
+                        <li><strong>中元节禁忌：</strong>如中元节期间不要晚上出门，不要说不吉利的话等。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的传承与发展 -->
+                <section class="custom-section">
+                    <h2>风俗习惯的传承与发展</h2>
+                    <p>随着社会的发展和进步，瑶族的风俗习惯面临着一些挑战，如年轻一代对传统风俗习惯的兴趣降低、传统习俗的简化等。为了传承和发展瑶族的风俗习惯，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>加强教育：</strong>加强对瑶族青少年的风俗习惯教育，使他们了解瑶族风俗习惯的内涵和意义。</li>
+                        <li><strong>保护传统习俗：</strong>保护和传承瑶族的传统习俗，确保传统习俗的完整性和真实性。</li>
+                        <li><strong>创新习俗形式：</strong>在保持传统风俗习惯核心内容的基础上，创新习俗形式，适应现代社会的发展。</li>
+                        <li><strong>举办文化活动：</strong>举办各种瑶族风俗习惯文化活动，如民俗展览、传统婚礼表演、美食节等，激发瑶族人民对传统风俗习惯的兴趣。</li>
+                        <li><strong>政策支持：</strong>政府应出台相关政策，支持瑶族风俗习惯的传承和发展，如将瑶族的传统习俗列为非物质文化遗产等。</li>
+                    </ul>
+                    <div class="custom-features">
+                        <h4>瑶族风俗习惯的价值</h4>
+                        <ul>
+                            <li><strong>文化传承：</strong>瑶族的风俗习惯是瑶族文化传承的重要载体，通过风俗习惯，瑶族的历史、文化和传统得到了传承和发展。</li>
+                            <li><strong>民族认同：</strong>瑶族的风俗习惯是瑶族民族认同的重要标志，通过风俗习惯，瑶族人民增强了民族凝聚力和认同感。</li>
+                            <li><strong>社会和谐：</strong>瑶族的风俗习惯有助于维护社会和谐，促进人与人之间的交流和理解。</li>
+                            <li><strong>文化多样性：</strong>瑶族的风俗习惯是中华民族文化多样性的重要组成部分，丰富了中华民族的文化宝库。</li>
+                        </ul>
+                    </div>
+                    <p>瑶族的风俗习惯是瑶族文化的重要组成部分，是瑶族人民智慧的结晶。传承和发展瑶族的风俗习惯，不仅是对瑶族文化的保护，也是对中华民族文化多样性的保护。我们应该共同努力，让瑶族的风俗习惯在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.custom-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

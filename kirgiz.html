@@ -1,0 +1,577 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯尔克孜族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 柯尔克孜族页面特定样式 */
+        .kirgiz-header {
+            background-image: url('images/kirgiz-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .kirgiz-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .kirgiz-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .kirgiz-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kirgiz-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kirgiz-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .kirgiz-section {
+            margin-bottom: 60px;
+        }
+        
+        .kirgiz-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kirgiz-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kirgiz-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .kirgiz-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .kirgiz-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .kirgiz-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .kirgiz-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 节日庆典样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 返回文化区别按钮样式 */
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .kirgiz-header h1 {
+                font-size: 36px;
+            }
+            
+            .kirgiz-header p {
+                font-size: 18px;
+            }
+            
+            .kirgiz-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .kirgiz-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .kirgiz-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .kirgiz-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .kirgiz-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .kirgiz-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .food-culture {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .food-culture.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-celebration {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .festival-celebration.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="kirgiz-header">
+        <div class="container">
+            <div class="kirgiz-header-content">
+                <h1>柯尔克孜族文化</h1>
+                <p>悠久历史传说的传承者与草原文化的守护者</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="kirgiz-main">
+        <div class="container">
+            <div class="kirgiz-content">
+                <!-- 柯尔克孜族文化概览 -->
+                <section class="kirgiz-section">
+                    <h2>柯尔克孜族文化概览</h2>
+                    <p>柯尔克孜族是中国的一个少数民族，主要分布在新疆维吾尔自治区克孜勒苏柯尔克孜自治州，少数分布在新疆维吾尔自治区的乌什、阿克苏、莎车、英吉沙、塔什库尔干、皮山、和田、于田、且末、若羌等县市以及黑龙江省富裕县。柯尔克孜族自称"柯尔克孜"，意为"四十个部落"或"四十个姑娘"。</p>
+                    <p>柯尔克孜族有自己的语言——柯尔克孜语，属于阿尔泰语系突厥语族东匈语支。柯尔克孜族有自己的文字——柯尔克孜文，柯尔克孜文是一种以阿拉伯字母为基础的拼音文字，主要用于记载柯尔克孜族的历史、文化、宗教等内容。</p>
+                    <p>柯尔克孜族文化具有悠久的历史和丰富的内涵，包括语言文字、宗教信仰、文学艺术、建筑风格等多个方面。柯尔克孜族人民热情好客、勇敢善良，在长期的历史发展过程中，创造了灿烂的民族文化，尤其是英雄史诗《玛纳斯》，被誉为"东方的伊利亚特"，是柯尔克孜族文化的重要瑰宝。</p>
+                </section>
+                
+                <!-- 历史与起源 -->
+                <section class="kirgiz-section">
+                    <h2>历史与起源</h2>
+                    <p>关于柯尔克孜族的起源，学术界有多种说法，主要有以下几种：</p>
+                    <ul>
+                        <li><strong>塞种说：</strong>认为柯尔克孜族是古代塞种人的后裔。据考古资料，古代塞种人主要分布在中国北方草原地区，后来由于战争等原因，逐渐西迁，经过中亚地区，最终到达新疆克孜勒苏地区定居，并与当地的少数民族融合，形成了柯尔克孜族。</li>
+                        <li><strong>乌孙说：</strong>认为柯尔克孜族是古代乌孙人的后裔。乌孙是中国古代北方的一个少数民族，最早见于《史记》，主要分布在伊犁河流域。后来，乌孙人逐渐西迁，经过中亚地区，最终到达新疆克孜勒苏地区定居，形成了柯尔克孜族。</li>
+                        <li><strong>匈奴说：</strong>认为柯尔克孜族是古代匈奴人的后裔。匈奴是中国古代北方的一个强大的游牧民族，其统治范围曾包括整个蒙古高原和部分中亚地区。后来，匈奴帝国崩溃，其部分后裔西迁，经过中亚地区，最终到达新疆克孜勒苏地区定居，形成了柯尔克孜族。</li>
+                    </ul>
+                    <p>无论柯尔克孜族的起源如何，有一点是确定的，那就是柯尔克孜族是一个具有悠久历史的民族，其文化传承已有数千年的历史。在长期的历史发展过程中，柯尔克孜族人民与其他少数民族相互交流、融合，共同创造了灿烂的中华文化。</p>
+                </section>
+                
+                <!-- 文化方面 -->
+                <section class="kirgiz-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="kirgiz-religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>柯尔克孜族的宗教信仰主要包括伊斯兰教和原始宗教。伊斯兰教是柯尔克孜族的主要宗教，属于逊尼派，对柯尔克孜族的文化、宗教信仰、生活方式等产生了深远的影响。原始宗教在柯尔克孜族地区也有一定的影响，特别是在一些偏远地区，柯尔克孜族人民仍然保留着对自然神、祖先神的崇拜。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="kirgiz-epic.html" style="color: #c0392b; text-decoration: none;">英雄史诗</a></h5>
+                            <p>《玛纳斯》是柯尔克孜族的英雄史诗，也是世界上最长的英雄史诗之一，被誉为"东方的伊利亚特"。《玛纳斯》讲述了柯尔克孜族英雄玛纳斯及其子孙八代人抗击外来侵略、保卫家园的英雄事迹，内容包括柯尔克孜族的历史、文化、宗教信仰等多个方面。《玛纳斯》以口头传承为主，经过数百年的发展，已经成为柯尔克孜族文化的重要瑰宝。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="kirgiz-language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>柯尔克孜族有自己的语言——柯尔克孜语，属于阿尔泰语系突厥语族东匈语支。柯尔克孜族有自己的文字——柯尔克孜文，柯尔克孜文是一种以阿拉伯字母为基础的拼音文字，创制于20世纪初，主要用于记载柯尔克孜族的历史、文化、宗教等内容。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="kirgiz-music.html" style="color: #c0392b; text-decoration: none;">音乐舞蹈</a></h5>
+                            <p>柯尔克孜族的音乐舞蹈具有独特的民族风格。柯尔克孜族的民间音乐主要有民歌、器乐等，其中民歌包括叙事歌、情歌、劳动歌等多种类型。柯尔克孜族的民间舞蹈主要有《玛纳斯》舞、《熊舞》、《鹰舞》等，动作刚健有力、节奏明快，充满了民族特色。</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 服装文化 -->
+                <section class="kirgiz-section">
+                    <h2>服装文化</h2>
+                    <p>柯尔克孜族的传统服装具有鲜明的民族特色，以红、蓝、白为主色调，面料多为自制的土布或购买的棉布、丝绸。柯尔克孜族服装的款式和装饰因性别、年龄、地区等因素而有所不同。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/柯尔克孜族女装.jpg" alt="柯尔克孜族女装">
+                            <p>柯尔克孜族女装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/柯尔克孜族男装.jpg" alt="柯尔克孜族男装">
+                            <p>柯尔克孜族男装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/柯尔克孜族饰品.jpg" alt="柯尔克孜族饰品">
+                            <p>柯尔克孜族饰品</p>
+                        </div>
+                    </div>
+                    <h3>女装特点</h3>
+                    <p>柯尔克孜族妇女的传统服装主要包括连衣裙、坎肩、头巾、鞋子等。连衣裙是柯尔克孜族妇女服装的核心，颜色以红、蓝、白为主，上面绣有精美的花纹图案。坎肩是柯尔克孜族妇女服装的重要组成部分，颜色以棕色或红色为主，上面绣有各种花纹。头巾和鞋子是柯尔克孜族妇女服装的重要装饰，头巾多为白色或浅色，鞋子多为红色或黑色，上面绣有各种花纹和装饰。</p>
+                    <h3>男装特点</h3>
+                    <p>柯尔克孜族男子的传统服装相对简单，主要包括长袍、坎肩、裤子、鞋子、皮帽等。长袍是柯尔克孜族男子服装的核心，颜色以棕色或黑色为主，上面绣有简单的花纹。坎肩是柯尔克孜族男子服装的重要组成部分，颜色以红色或黑色为主，上面绣有各种花纹。裤子多为长裤，裤脚较宽。鞋子是柯尔克孜族男子服装的重要组成部分，主要有白色的布靴和黑色的皮靴。皮帽是柯尔克孜族男子服装的重要配饰，上面通常装饰有小鹰、火镰等物品。</p>
+                    <h3>服装的文化内涵</h3>
+                    <p>柯尔克孜族服装不仅是一种实用的生活用品，更是柯尔克孜族文化的重要载体。柯尔克孜族服装的颜色、图案、款式等都蕴含着丰富的文化内涵，反映了柯尔克孜族人民的审美观、宗教信仰、生活方式等。例如，柯尔克孜族服装中常用的红色和金色，象征着热情和智慧，反映了柯尔克孜族人民的民族性格；服装上绣的花、草、动物等图案，象征着生命力和自由，反映了柯尔克孜族人民对自然的崇拜和向往。</p>
+                </section>
+                
+                <!-- 饮食文化 -->
+                <section class="kirgiz-section">
+                    <h2>饮食文化</h2>
+                    <div class="food-culture">
+                        <h3>饮食习俗</h3>
+                        <p>柯尔克孜族的饮食习俗以肉、奶、面为主，辅以蔬菜、水果等。柯尔克孜族人民喜欢吃牛、羊、马的食物，其中手抓肉、马肠子、酸奶疙瘩、馕等是柯尔克孜族饮食中的重要组成部分。</p>
+                        <h3>特色美食</h3>
+                        <ul>
+                            <li><strong>手抓肉：</strong>是柯尔克孜族最著名的特色美食之一。以羊肉、牛肉为主要原料，加入各种调料烹制而成。手抓肉做法简单、肉质鲜嫩，是柯尔克孜族人民招待客人的必备美食。</li>
+                            <li><strong>马肠子：</strong>是柯尔克孜族的传统名吃，以马肉为主要原料，经过腌制、熏制等工序制作而成。马肠子做法独特、风味独特，是柯尔克孜族人民喜爱的传统美食。</li>
+                            <li><strong>酸奶疙瘩：</strong>是柯尔克孜族的传统名吃，以牛奶、羊奶为主要原料，经过发酵、晾干等工序制作而成。酸奶疙瘩酸甜可口、营养丰富，是柯尔克孜族人民喜爱的传统美食。</li>
+                            <li><strong>馕：</strong>是柯尔克孜族的传统主食，以面粉、水、盐为主要原料，经过烤制等工序制作而成。馕做法简单、口感香脆，是柯尔克孜族人民喜爱的传统美食。</li>
+                        </ul>
+                        <h3>饮食礼仪</h3>
+                        <p>柯尔克孜族人民非常注重饮食礼仪，在饮食过程中有很多禁忌和讲究。例如，在吃饭时，长辈要先入席，晚辈要后入中；长辈动筷后，晚辈才能动筷；吃饭时不能说话、不能狼吞虎咽；饭后要向长辈表示感谢等。此外，柯尔克孜族人民在招待客人时，会准备丰盛的食物，并让客人坐在上首，体现了柯尔克孜族人民热情好客、尊老爱幼的传统美德。</p>
+                    </div>
+                </section>
+                
+                <!-- 节日庆典 -->
+                <section class="kirgiz-section">
+                    <h2>节日庆典</h2>
+                    <div class="festival-celebration">
+                        <h3>诺鲁孜节</h3>
+                        <p>诺鲁孜节是柯尔克孜族最重要的传统节日，也是柯尔克孜族文化的重要瑰宝。诺鲁孜节的日期根据柯尔克孜族的传统历法计算，在每年的春分日举行，为期三天。诺鲁孜节是为了庆祝春天的到来，祈求来年风调雨顺、五谷丰登、人畜兴旺。</p>
+                        <p>诺鲁孜节期间，柯尔克孜族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀活动：</strong>诺鲁孜节的第一天，柯尔克孜族人民会举行祭祀活动，祭祀祖先和神灵，祈求来年风调雨顺、五谷丰登、人畜兴旺。</li>
+                            <li><strong>歌舞活动：</strong>诺鲁孜节期间，柯尔克孜族人民会聚集在一起，唱歌跳舞，欢度节日。他们演唱的歌曲主要有《玛纳斯》、叙事歌、情歌等，跳的舞蹈主要有《玛纳斯》舞、《熊舞》、《鹰舞》等。</li>
+                            <li><strong>体育活动：</strong>诺鲁孜节期间，柯尔克孜族人民会举行各种体育活动，如赛马、叼羊、射箭、摔跤等，展示柯尔克孜族人民的勇敢和力量。</li>
+                            <li><strong>聚餐：</strong>诺鲁孜节期间，柯尔克孜族人民会准备丰盛的食物，邀请亲朋好友一起做巴扎，共同欢度节日。</li>
+                        </ul>
+                        
+                        <h3>古尔邦节</h3>
+                        <p>古尔邦节是柯尔克孜族的传统节日，也是伊斯兰教的三大节日之一。古尔邦节的日期根据伊斯兰历计算，在开斋节后70天举行。古尔邦节是为了纪念先知易卜拉欣为了信仰而愿意牺牲自己的儿子，后真主派天使送来一只羊代替的故事而设立的。</p>
+                        <p>古尔邦节期间，柯尔克孜族人民会举行集体会礼、宰牲、聚餐、走亲访友等活动。宰牲是古尔邦节的重要仪式之一，柯尔克孜族人民会宰杀牛、羊、骆驼等牲畜，将肉分为三份，一份自己食用，一份馈赠亲友，一份施舍给穷人。</p>
+                        
+                        <h3>开斋节</h3>
+                        <p>开斋节是柯尔克孜族的传统节日，也是伊斯兰教的三大节日之一。开斋节的日期根据伊斯兰历计算，在斋月结束后举行。斋月是伊斯兰历的9月，柯尔克孜族人民在斋月期间白天禁食，晚上进食，持续一个月。</p>
+                        <p>开斋节期间，柯尔克孜族人民会举行集体会礼、聚餐、走亲访友等活动，欢度斋月的结束。</p>
+                    </div>
+                </section>
+                
+                <!-- 文学与艺术 -->
+                <section class="kirgiz-section">
+                    <h2>文学与艺术</h2>
+                    <h3>民间文学</h3>
+                    <p>柯尔克孜族的民间文学非常丰富，包括神话传说、民间故事、诗歌谚语等多种类型。这些民间文学作品反映了柯尔克孜族人民的历史、文化、宗教信仰和生活情感，是柯尔克孜族文化的重要组成部分。</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>柯尔克孜族的神话传说主要包括创世神话、人类起源神话、自然神话等。例如，《创世纪》是柯尔克孜族最著名的创世神话，讲述了柯尔克孜族的祖先从混沌中诞生，创造天地万物的故事。</li>
+                        <li><strong>民间故事：</strong>柯尔克孜族的民间故事题材广泛，包括爱情故事、生活故事、动物故事等。这些故事情节生动、语言朴实，充满了民族特色和生活气息。</li>
+                        <li><strong>诗歌谚语：</strong>柯尔克孜族的诗歌谚语数量众多，内容丰富。诗歌包括叙事诗、情歌、劳动歌等多种类型，诗句优美、韵律动人。谚语则是柯尔克孜族人民在长期的生产生活实践中总结出来的经验和智慧，语言简练、寓意深刻。</li>
+                    </ul>
+                    
+                    <h3>传统艺术</h3>
+                    <p>柯尔克孜族的传统艺术形式多样，包括音乐、舞蹈、绘画、雕刻、编织等。</p>
+                    <ul>
+                        <li><strong>音乐：</strong>柯尔克孜族的传统音乐主要包括民歌和器乐。民歌有多种类型，如叙事歌、情歌、劳动歌、仪式歌等。器乐主要有库姆孜、冬不拉、手鼓等，其中库姆孜是柯尔克孜族最具代表性的乐器之一。</li>
+                        <li><strong>舞蹈：</strong>柯尔克孜族的传统舞蹈主要包括《玛纳斯》舞、《熊舞》、《鹰舞》等。《玛纳斯》舞是柯尔克孜族的大型集体舞蹈，以英雄史诗《玛纳斯》为主题；《熊舞》和《鹰舞》是柯尔克孜族的动物舞蹈，动作模仿熊和鹰的姿态，充满了力量感和美感。</li>
+                        <li><strong>绘画：</strong>柯尔克孜族的传统绘画主要包括壁画、刺绣等。壁画主要用于装饰房屋和宗教场所，内容包括宗教故事、历史传说、生活场景等。刺绣主要用于装饰服装、手帕、钱包等物品，图案多为花草树木、动物、几何图形等。</li>
+                        <li><strong>雕刻：</strong>柯尔克孜族的传统雕刻主要包括木雕、骨雕等。木雕主要用于装饰房屋、家具等，内容包括花草树木、动物、几何图形等。骨雕主要用于制作装饰品，如刀柄、刀柄、乐器配件等。</li>
+                        <li><strong>编织：</strong>柯尔克孜族的传统编织主要包括毛织、棉织等。毛织主要用于制作地毯、挂毯、坐垫等物品，棉织主要用于制作衣物、床单、被罩等物品，图案多为花草树木、动物、几何图形等。</li>
+                    </ul>
+                </section>
+                
+                <!-- 对中华文化的影响 -->
+                <section class="kirgiz-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>柯尔克孜族作为中华民族大家庭的一员，其文化对中华文化的发展和繁荣做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>文学艺术：</strong>柯尔克孜族的英雄史诗《玛纳斯》是世界上最长的英雄史诗之一，被誉为"东方的伊利亚特"，丰富了中华文化的文学宝库。柯尔克孜族的音乐舞蹈、绘画雕刻、编织等传统艺术，也为中华文化的艺术宝库增添了新的内容。</li>
+                        <li><strong>语言文字：</strong>柯尔克孜族的语言文字是中华文化语言文字宝库的重要组成部分。柯尔克孜语属于阿尔泰语系突厥语族，对研究中国古代北方少数民族的语言文字具有重要意义。</li>
+                        <li><strong>宗教文化：</strong>柯尔克孜族的宗教信仰主要是伊斯兰教，其宗教文化是中华文化宗教文化宝库的重要组成部分。柯尔克孜族的宗教建筑、宗教仪式、宗教节日等，丰富了中华文化的宗教文化内涵。</li>
+                        <li><strong>民族团结：</strong>柯尔克孜族人民与其他民族在长期的历史发展过程中，相互交流、融合，形成了团结互助、和睦相处的良好关系。这种民族间的情谊，是中华文化的重要组成部分，也是中华民族凝聚力的重要来源。</li>
+                    </ul>
+                    <p>总之，柯尔克孜族文化是中华文化的重要组成部分，其独特的英雄史诗《玛纳斯》、音乐舞蹈、饮食文化等，丰富了中华文化的内涵，促进了中华文化的多元性和繁荣。我们应该珍惜和保护柯尔克孜族文化，促进柯尔克孜族文化的传承和发展，共同推动中华文化的繁荣和进步。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

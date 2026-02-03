@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黎族传统工艺 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 传统工艺页面特定样式 */
+        .craft-header {
+            background-image: url('images/li_culture.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .craft-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .craft-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .craft-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .craft-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-li {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-li:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .craft-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .craft-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .craft-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .craft-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .craft-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .craft-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .craft-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .craft-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .craft-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .craft-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 传统工艺样式 */
+        .craft-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .craft-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .craft-section.visible .craft-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .craft-section.visible .craft-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .craft-section.visible .craft-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .craft-section.visible .craft-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .craft-section.visible .craft-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .craft-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .craft-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .craft-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .craft-header h1 {
+                font-size: 36px;
+            }
+            
+            .craft-header p {
+                font-size: 18px;
+            }
+            
+            .craft-section h2 {
+                font-size: 28px;
+            }
+            
+            .craft-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="craft-header">
+        <div class="container">
+            <div class="craft-header-content">
+                <h1>黎族传统工艺</h1>
+                <p>精湛技艺与文化传承的结晶</p>
+                <a href="li.html" class="back-li">返回黎族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="craft-main">
+        <div class="container">
+            <div class="craft-content">
+                <!-- 传统工艺概述 -->
+                <section class="craft-section">
+                    <h2>传统工艺概述</h2>
+                    <p>黎族的传统工艺历史悠久，种类繁多，包括织锦、制陶、竹编、木雕等多个方面。这些传统工艺是黎族人民智慧的结晶，是黎族文化的重要组成部分，也是中华文化的瑰宝。</p>
+                    <p>黎族的传统工艺深受黎族人民的生活环境、生产方式、宗教信仰等因素的影响，展现了黎族人民的创造力和审美情趣。它们不仅具有实用价值，还具有很高的艺术价值和文化价值。</p>
+                </section>
+
+                <!-- 主要传统工艺 -->
+                <section class="craft-section">
+                    <h2>主要传统工艺</h2>
+                    
+                    <div class="craft-aspects">
+                        <div class="craft-item">
+                            <h5>黎锦</h5>
+                            <p>黎锦是黎族最著名的传统工艺，以其精湛的技艺和精美的图案而闻名于世。黎锦的制作工艺复杂，需要经过纺线、染色、织布、刺绣等多个工序。黎锦的图案精美，色彩鲜艳，多以几何图形、动植物、人物等为主题，寓意吉祥如意。黎锦已被列入国家级非物质文化遗产名录。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h5>制陶</h5>
+                            <p>制陶是黎族的传统工艺之一，历史悠久。黎族的陶器制作工艺简单但实用，主要包括选土、制坯、烧制等工序。黎族的陶器造型独特，图案简单，多为日常生活用品，如碗、盆、罐等。黎族的制陶工艺已被列入省级非物质文化遗产名录。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h5>竹编</h5>
+                            <p>竹编是黎族的传统工艺之一，主要利用海南岛丰富的竹资源制作各种生活用品。黎族的竹编品造型美观，工艺精湛，多为日常生活用品，如竹篮、竹席、竹凳等。黎族的竹编工艺不仅实用，还具有很高的艺术价值。</p>
+                        </div>
+                        <div class="craft-item">
+                            <h5>木雕</h5>
+                            <p>木雕是黎族的传统工艺之一，主要利用海南岛丰富的木材资源制作各种生活用品和装饰品。黎族的木雕品造型生动，工艺精湛，多为日常生活用品和宗教用品，如木碗、木勺、神像等。黎族的木雕工艺展现了黎族人民的创造力和审美情趣。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 工艺特点 -->
+                <section class="craft-section">
+                    <h2>工艺特点</h2>
+                    <ul>
+                        <li><strong>原料就地取材：</strong>黎族的传统工艺多使用当地的自然资源，如棉花、麻、竹子、木材、泥土等，体现了黎族人民对自然的利用和尊重。</li>
+                        <li><strong>工艺精湛：</strong>黎族的传统工艺制作工艺复杂，需要经过多道工序，展现了黎族人民的精湛技艺和耐心。</li>
+                        <li><strong>图案精美：</strong>黎族的传统工艺作品图案精美，色彩鲜艳，多以几何图形、动植物、人物等为主题，寓意吉祥如意。</li>
+                        <li><strong>实用性强：</strong>黎族的传统工艺作品多为日常生活用品，如衣服、碗、盆、篮等，具有很强的实用性。</li>
+                        <li><strong>文化内涵丰富：</strong>黎族的传统工艺作品蕴含着丰富的文化内涵，反映了黎族人民的生活方式、宗教信仰、审美情趣等。</li>
+                    </ul>
+                </section>
+
+                <!-- 工艺传承与保护 -->
+                <section class="craft-section">
+                    <h2>工艺传承与保护</h2>
+                    <p>随着社会的发展和变迁，黎族的传统工艺面临着一些挑战，如传统技艺失传、年轻一代对传统工艺的兴趣下降等。为了保护和传承黎族的传统工艺，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>非物质文化遗产保护：</strong>将黎族的织锦、制陶等传统工艺纳入非物质文化遗产保护名录，给予法律保护。</li>
+                        <li><strong>传统技艺传承：</strong>通过举办培训班、师徒传承等方式，培养年轻一代的传统工艺传承人。</li>
+                        <li><strong>工艺展示与推广：</strong>通过举办展览、文化节等活动，展示黎族传统工艺的魅力，提高其知名度和影响力。</li>
+                        <li><strong>工艺创新：</strong>在保留传统工艺精髓的基础上，进行工艺创新，开发适合现代市场需求的产品。</li>
+                        <li><strong>教育与宣传：</strong>将黎族传统工艺纳入学校教育内容，通过媒体、网络等方式宣传黎族传统工艺，提高年轻一代对传统工艺的认识和兴趣。</li>
+                    </ul>
+                    <p>通过这些措施，黎族的传统工艺得到了有效的保护和传承，在现代社会中继续发挥着重要的作用。黎族的传统工艺不仅是黎族人民的精神财富，也是中华民族文化宝库中的重要组成部分，为中华文化的多样性和丰富性做出了重要贡献。</p>
+                </section>
+
+                <!-- 工艺的现代价值 -->
+                <section class="craft-section">
+                    <h2>工艺的现代价值</h2>
+                    <p>黎族的传统工艺在现代社会中仍然具有重要的价值，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化价值：</strong>黎族的传统工艺是黎族文化的重要组成部分，是黎族人民智慧的结晶，具有很高的文化价值。</li>
+                        <li><strong>艺术价值：</strong>黎族的传统工艺作品图案精美，色彩鲜艳，工艺精湛，具有很高的艺术价值。</li>
+                        <li><strong>经济价值：</strong>黎族的传统工艺作品可以开发成旅游产品和文化产品，为黎族人民带来经济收入，促进当地经济的发展。</li>
+                        <li><strong>社会价值：</strong>黎族的传统工艺可以增强黎族人民的文化认同感和自豪感，促进民族团结和社会和谐。</li>
+                        <li><strong>生态价值：</strong>黎族的传统工艺多使用当地的自然资源，体现了黎族人民对自然的利用和尊重，具有一定的生态价值。</li>
+                    </ul>
+                    <p>黎族的传统工艺是黎族人民的宝贵财富，也是中华民族的宝贵财富。我们应该珍惜和保护这些传统工艺，让它们在现代社会中继续发挥重要的作用，为中华文化的发展和繁荣做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.craft-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+                    
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

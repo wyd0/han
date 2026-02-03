@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高山族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 动画关键帧定义 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top center;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top center;
+            }
+        }
+        
+        /* 高山族文学艺术页面特定样式 */
+        .gaoshan-header {
+            background-image: url('images/gaoshan-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .gaoshan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .gaoshan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gaoshan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .gaoshan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .gaoshan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .gaoshan-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .gaoshan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .gaoshan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .gaoshan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gaoshan-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .gaoshan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .gaoshan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .gaoshan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .gaoshan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .gaoshan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .gaoshan-header h1 {
+                font-size: 36px;
+            }
+            
+            .gaoshan-header p {
+                font-size: 18px;
+            }
+            
+            .gaoshan-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="gaoshan-header">
+        <div class="container">
+            <div class="gaoshan-header-content">
+                <h1>高山族文学艺术</h1>
+                <p>丰富多彩的民间文艺遗产</p>
+                <a href="gaoshan.html" class="back-difference">返回高山族</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="gaoshan-main">
+        <div class="container">
+            <div class="gaoshan-content">
+                <!-- 文学艺术概览 -->
+                <section class="gaoshan-section">
+                    <h2>文学艺术概览</h2>
+                    <p>高山族是台湾的原住民，拥有丰富多彩的文学艺术遗产。这些文学艺术作品反映了高山族人民的生活、信仰、情感和智慧，是台湾原住民文化的重要组成部分。</p>
+                    <p>高山族的文学艺术形式多样，包括民间文学、音乐、舞蹈、手工艺等。这些艺术形式不仅展现了高山族人民的创造力和艺术才华，也反映了他们的文化特色和民族精神。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="gaoshan-section">
+                    <h2>民间文学</h2>
+                    <p>高山族的民间文学是其文学艺术的重要组成部分，反映了他们的生活、信仰、情感和智慧。</p>
+                    
+                    <h3>神话传说</h3>
+                    <p>高山族的神话传说内容丰富，主要包括：</p>
+                    <ul>
+                        <li><strong>创世神话：</strong>如《太阳和月亮的起源》、《人类的起源》、《天地的形成》等，讲述了世界和人类的起源。</li>
+                        <li><strong>英雄传说：</strong>如《勇士杀蟒》、《猎神的故事》、《部落英雄传》等，讲述了英雄人物的勇敢事迹。</li>
+                        <li><strong>自然神话：</strong>如《山神的故事》、《水神的传说》、《动物的起源》等，讲述了自然现象和动植物的起源。</li>
+                        <li><strong>爱情传说：</strong>如《彩虹姑娘》、《蝴蝶泉的故事》、《青年男女的爱情》等，讲述了青年男女的爱情故事。</li>
+                    </ul>
+                    
+                    <h3>民间故事</h3>
+                    <p>高山族的民间故事内容广泛，主要包括：</p>
+                    <ul>
+                        <li><strong>生活故事：</strong>如《聪明的猎人》、《勤劳的妇女》、《懒惰的儿子》等，讲述了人们的日常生活故事。</li>
+                        <li><strong>动物故事：</strong>如《狐狸和兔子》、《老虎和猴子》、《乌鸦和喜鹊》等，通过动物的形象讲述人生道理。</li>
+                        <li><strong>幽默故事：</strong>如《笨贼偷东西》、《贪心的人》、《聪明的孩子》等，通过幽默的情节逗人发笑，同时寓教于乐。</li>
+                        <li><strong>哲理故事：</strong>如《团结的力量》、《诚实的重要性》、《善良的回报》等，通过故事讲述人生哲理。</li>
+                    </ul>
+                    
+                    <h3>歌谣谚语</h3>
+                    <p>高山族的歌谣谚语语言简练，寓意深刻，主要包括：</p>
+                    <ul>
+                        <li><strong>劳动歌谣：</strong>如《插秧歌》、《收割歌》、《狩猎歌》等，反映了人们的劳动生活和情感。</li>
+                        <li><strong>爱情歌谣：</strong>如《情歌》、《求婚歌》、《婚礼歌》等，表达了青年男女的爱情和婚姻。</li>
+                        <li><strong>祭祀歌谣：</strong>如《祭神歌》、《祭祖歌》、《丰收歌》等，用于各种宗教仪式和祭祀活动。</li>
+                        <li><strong>谚语格言：</strong>如《团结就是力量》、《勤劳致富》、《诚实为本》等，总结了人们的生活经验和智慧。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐 -->
+                <section class="gaoshan-section">
+                    <h2>音乐</h2>
+                    <p>高山族的音乐是其文学艺术的重要组成部分，具有浓郁的民族特色和地方风格。</p>
+                    
+                    <h3>音乐类型</h3>
+                    <p>高山族的音乐类型多样，主要包括：</p>
+                    <ul>
+                        <li><strong>劳动音乐：</strong>如《插秧歌》、《收割歌》、《狩猎歌》等，用于劳动过程中，提高劳动效率，表达劳动情感。</li>
+                        <li><strong>爱情音乐：</strong>如《情歌》、《求婚歌》、《婚礼歌》等，表达青年男女的爱情和婚姻。</li>
+                        <li><strong>祭祀音乐：</strong>如《祭神歌》、《祭祖歌》、《丰收歌》等，用于各种宗教仪式和祭祀活动。</li>
+                        <li><strong>节日音乐：</strong>如《新年歌》、《丰年歌》、《节日庆典歌》等，用于各种节日和庆典活动。</li>
+                        <li><strong>叙事音乐：</strong>如《英雄歌》、《历史歌》、《传说歌》等，用于讲述英雄事迹、历史事件和传说故事。</li>
+                    </ul>
+                    
+                    <h3>音乐特点</h3>
+                    <p>高山族的音乐具有以下特点：</p>
+                    <ul>
+                        <li><strong>旋律优美：</strong>高山族的音乐旋律优美动听，节奏明快，富有感染力。</li>
+                        <li><strong>歌词生动：</strong>高山族的音乐歌词生动形象，富有生活气息和民族特色。</li>
+                        <li><strong>演唱形式多样：</strong>高山族的音乐演唱形式多样，如独唱、对唱、合唱等。</li>
+                        <li><strong>伴奏简单：</strong>高山族的音乐伴奏通常比较简单，主要使用传统乐器，如口琴、笛子、木鼓等。</li>
+                        <li><strong>民族特色鲜明：</strong>高山族的音乐具有鲜明的民族特色，是高山族文化的重要标志。</li>
+                    </ul>
+                    
+                    <h3>传统乐器</h3>
+                    <p>高山族的传统乐器种类繁多，主要包括：</p>
+                    <ul>
+                        <li><strong>吹奏乐器：</strong>如口琴、笛子、芦笙、哨子等，通过吹气发声。</li>
+                        <li><strong>打击乐器：</strong>如木鼓、铜锣、铜铃、竹板等，通过敲击发声。</li>
+                        <li><strong>弦乐器：</strong>如弓琴、三弦、月琴等，通过琴弦振动发声。</li>
+                        <li><strong>弹拨乐器：</strong>如吉他、曼陀林等，通过弹拨琴弦发声。</li>
+                    </ul>
+                </section>
+
+                <!-- 舞蹈 -->
+                <section class="gaoshan-section">
+                    <h2>舞蹈</h2>
+                    <p>高山族的舞蹈是其文学艺术的重要组成部分，具有浓郁的民族特色和地方风格。</p>
+                    
+                    <h3>舞蹈类型</h3>
+                    <p>高山族的舞蹈类型多样，主要包括：</p>
+                    <ul>
+                        <li><strong>劳动舞蹈：</strong>如《插秧舞》、《收割舞》、《狩猎舞》等，模拟劳动动作，表达劳动情感。</li>
+                        <li><strong>爱情舞蹈：</strong>如《情歌对舞》、《求婚舞》、《婚礼舞》等，表达青年男女的爱情和婚姻。</li>
+                        <li><strong>祭祀舞蹈：</strong>如《祭神舞》、《祭祖舞》、《丰收舞》等，用于各种宗教仪式和祭祀活动。</li>
+                        <li><strong>节日舞蹈：</strong>如《新年舞》、《丰年舞》、《节日庆典舞》等，用于各种节日和庆典活动。</li>
+                        <li><strong>竞技舞蹈：</strong>如《射箭舞》、《摔跤舞》、《赛跑舞》等，模拟竞技动作，展示力量和技巧。</li>
+                    </ul>
+                    
+                    <h3>舞蹈特点</h3>
+                    <p>高山族的舞蹈具有以下特点：</p>
+                    <ul>
+                        <li><strong>动作粗犷：</strong>高山族的舞蹈动作粗犷有力，充满阳刚之气，展现了高山族人民的豪放性格。</li>
+                        <li><strong>节奏明快：</strong>高山族的舞蹈节奏明快，富有活力，能够激发人们的热情。</li>
+                        <li><strong>道具丰富：</strong>高山族的舞蹈使用各种道具，如弓箭、盾牌、羽毛、花环等，增加了舞蹈的观赏性。</li>
+                        <li><strong>服装华丽：</strong>高山族的舞蹈服装华丽多彩，装饰有各种图案和饰品，展现了高山族的服饰文化。</li>
+                        <li><strong>民族特色鲜明：</strong>高山族的舞蹈具有鲜明的民族特色，是高山族文化的重要标志。</li>
+                    </ul>
+                    
+                    <h3>著名舞蹈</h3>
+                    <p>高山族的著名舞蹈主要包括：</p>
+                    <ul>
+                        <li><strong>丰年舞：</strong>高山族最著名的舞蹈之一，通常在丰收季节或节日庆典时表演，表达丰收的喜悦和对神灵的感谢。</li>
+                        <li><strong>播种舞：</strong>模拟播种动作的舞蹈，通常在播种季节表演，祈求农作物茁壮成长，获得丰收。</li>
+                        <li><strong>收获舞：</strong>模拟收获动作的舞蹈，通常在收获季节表演，庆祝收获的喜悦。</li>
+                        <li><strong>狩猎舞：</strong>模拟狩猎动作的舞蹈，通常在狩猎前或狩猎后表演，祈求狩猎顺利或庆祝狩猎成功。</li>
+                        <li><strong>婚礼舞：</strong>在婚礼上表演的舞蹈，表达对新人的祝福和对美好生活的向往。</li>
+                    </ul>
+                </section>
+
+                <!-- 手工艺 -->
+                <section class="gaoshan-section">
+                    <h2>手工艺</h2>
+                    <p>高山族的手工艺是其文学艺术的重要组成部分，反映了他们的生活、审美和智慧。</p>
+                    
+                    <h3>编织工艺</h3>
+                    <p>高山族的编织工艺历史悠久，主要包括：</p>
+                    <ul>
+                        <li><strong>竹编：</strong>使用竹子编织各种物品，如竹篮、竹筐、竹席、竹帽等，工艺精湛，造型美观。</li>
+                        <li><strong>藤编：</strong>使用藤条编织各种物品，如藤篮、藤筐、藤席、藤椅等，坚固耐用，透气性好。</li>
+                        <li><strong>麻编：</strong>使用麻线编织各种物品，如麻袋、麻绳、麻毯、麻衣等，结实耐用，保暖性好。</li>
+                        <li><strong>草编：</strong>使用稻草、茅草等编织各种物品，如草席、草袋、草帽、草鞋等，经济实惠，环保美观。</li>
+                    </ul>
+                    
+                    <h3>刺绣工艺</h3>
+                    <p>高山族的刺绣工艺精美绝伦，主要包括：</p>
+                    <ul>
+                        <li><strong>服饰刺绣：</strong>在服装上刺绣各种图案，如花卉、动物、几何图形等，色彩鲜艳，图案精美。</li>
+                        <li><strong>饰品刺绣：</strong>在饰品上刺绣各种图案，如项链、手镯、脚镯等，工艺精湛，造型美观。</li>
+                        <li><strong>生活用品刺绣：</strong>在生活用品上刺绣各种图案，如枕头、被子、桌布等，美观实用，富有生活气息。</li>
+                    </ul>
+                    
+                    <h3>雕刻工艺</h3>
+                    <p>高山族的雕刻工艺历史悠久，主要包括：</p>
+                    <ul>
+                        <li><strong>木雕：</strong>使用木材雕刻各种物品，如神像、祖先像、面具、装饰品等，工艺精湛，造型美观。</li>
+                        <li><strong>竹雕：</strong>使用竹子雕刻各种物品，如竹笛、竹箫、竹盒、竹装饰品等，工艺精湛，造型美观。</li>
+                        <li><strong>骨雕：</strong>使用骨头雕刻各种物品，如项链、手镯、脚镯、装饰品等，工艺精湛，造型美观。</li>
+                        <li><strong>石雕：</strong>使用石头雕刻各种物品，如神像、祖先像、装饰品等，工艺精湛，造型美观。</li>
+                    </ul>
+                    
+                    <h3>陶艺工艺</h3>
+                    <p>高山族的陶艺工艺历史悠久，主要包括：</p>
+                    <ul>
+                        <li><strong>日常用品：</strong>如碗、盘、盆、罐等，造型简单实用，富有生活气息。</li>
+                        <li><strong>祭祀用品：</strong>如神像、祖先像、祭品容器等，造型庄重神圣，用于宗教仪式和祭祀活动。</li>
+                        <li><strong>装饰品：</strong>如花瓶、摆件、挂饰等，造型美观，富有艺术气息。</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术特色 -->
+                <section class="gaoshan-section">
+                    <h2>艺术特色</h2>
+                    <p>高山族的文学艺术具有独特的特色，反映了他们的文化传统和民族精神。</p>
+                    
+                    <h3>民族特色</h3>
+                    <p>高山族的文学艺术具有鲜明的民族特色，主要表现在：</p>
+                    <ul>
+                        <li><strong>题材独特：</strong>高山族的文学艺术题材主要来自他们的生活、信仰、情感和智慧，反映了高山族的文化传统和民族精神。</li>
+                        <li><strong>形式多样：</strong>高山族的文学艺术形式多样，包括民间文学、音乐、舞蹈、手工艺等，展现了高山族人民的创造力和艺术才华。</li>
+                        <li><strong>风格粗犷：</strong>高山族的文学艺术风格粗犷有力，充满阳刚之气，展现了高山族人民的豪放性格。</li>
+                        <li><strong>色彩鲜艳：</strong>高山族的文学艺术色彩鲜艳，富有活力，展现了高山族人民的乐观向上精神。</li>
+                    </ul>
+                    
+                    <h3>文化价值</h3>
+                    <p>高山族的文学艺术具有重要的文化价值，主要表现在：</p>
+                    <ul>
+                        <li><strong>历史价值：</strong>高山族的文学艺术记录了他们的历史、文化和社会发展，是研究高山族历史的重要资料。</li>
+                        <li><strong>文化价值：</strong>高山族的文学艺术是其文化的重要组成部分，反映了他们的文化传统和民族精神，是高山族文化的重要标志。</li>
+                        <li><strong>艺术价值：</strong>高山族的文学艺术具有独特的艺术风格和审美价值，是中国文学艺术宝库的重要组成部分。</li>
+                        <li><strong>社会价值：</strong>高山族的文学艺术是其社会生活的重要组成部分，能够凝聚人心，增强族群的凝聚力和向心力。</li>
+                    </ul>
+                    
+                    <h3>传承发展</h3>
+                    <p>高山族的文学艺术在现代社会面临着传承和发展的挑战，主要采取了以下措施：</p>
+                    <ul>
+                        <li><strong>教育传承：</strong>在学校开设高山族文学艺术课程，培养年轻一代的兴趣和能力。</li>
+                        <li><strong>文化活动：</strong>举办各种高山族文学艺术活动，如文艺演出、展览、比赛等，提高知名度和影响力。</li>
+                        <li><strong>媒体宣传：</strong>通过电视、广播、报纸、网络等媒体宣传高山族文学艺术，扩大影响力。</li>
+                        <li><strong>创新发展：</strong>在保持传统特色的基础上，对高山族文学艺术进行创新和发展，适应现代社会的需求。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

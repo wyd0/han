@@ -1,0 +1,372 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布朗族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布朗族语言文字页面特定样式 */
+        .blang-header {
+            background-image: url('images/布朗族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .blang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .blang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .blang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .blang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-blang {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-blang:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .blang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .blang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .blang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .blang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .blang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .blang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .blang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .blang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .blang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .blang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 文字使用样式 */
+        .writing-usage {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .usage-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .usage-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .usage-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .blang-header h1 {
+                font-size: 36px;
+            }
+            
+            .blang-header p {
+                font-size: 18px;
+            }
+            
+            .blang-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features,
+            .writing-usage {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="blang-header">
+        <div class="container">
+            <div class="blang-header-content">
+                <h1>布朗族语言文字</h1>
+                <p>南亚语系的独特分支</p>
+                <a href="blang.html" class="back-blang">返回布朗族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="blang-main">
+        <div class="container">
+            <div class="blang-content">
+                <!-- 语言文字概述 -->
+                <section class="blang-section">
+                    <h2>语言文字概述</h2>
+                    <p>布朗族是一个有着自己独特语言的民族，其语言属于南亚语系孟高棉语族布朗语支。布朗族没有本民族的文字，历史上主要使用傣文，现在普遍使用汉文。布朗语是布朗族人民交流的重要工具，也是布朗族文化的重要载体。</p>
+                    <p>布朗语在长期的发展过程中，吸收了许多汉语、傣语等其他语言的词汇，同时也保留了许多古老的语言成分，具有重要的语言学研究价值。布朗语的分布范围主要集中在云南省西双版纳傣族自治州、临沧市、普洱市等地的布朗族聚居区。</p>
+                </section>
+
+                <!-- 布朗语的特点 -->
+                <section class="blang-section">
+                    <h3>布朗语的特点</h3>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>布朗语的语音系统较为复杂，有较多的辅音和元音。布朗语的辅音包括清辅音、浊辅音、送气音、不送气音等多种类型。布朗语的元音系统也比较丰富，包括单元音和复元音。布朗语的声调系统相对简单，一般有3-4个声调。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>布朗语的词汇丰富，包括名词、动词、形容词、副词、代词、数词、量词等多种词类。布朗语的词汇中，有许多与农业、狩猎、采集、宗教等相关的词汇，反映了布朗族的传统生产生活方式。布朗语在长期的发展过程中，吸收了许多汉语、傣语等其他语言的词汇。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>布朗语的语法属于分析型语言，主要通过词序和虚词来表达语法意义。布朗语的基本语序是主语-谓语-宾语。布朗语的名词有单复数之分，动词有时态、体貌等语法范畴。布朗语的虚词包括介词、连词、助词等，在语法表达中起着重要作用。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>方言差异</h4>
+                            <p>布朗语由于分布地域不同，存在一定的方言差异。根据语言特点和地理分布，布朗语可以分为西双版纳方言、临沧方言、普洱方言等几个主要方言。这些方言在语音、词汇、语法等方面存在一定的差异，但相互之间可以基本通话。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用情况 -->
+                <section class="blang-section">
+                    <h3>文字使用情况</h3>
+                    <p>布朗族没有本民族的文字，历史上主要使用傣文，现在普遍使用汉文。在长期的历史发展过程中，布朗族人民通过口头传承的方式，保存和传播了本民族的文化。</p>
+                    <div class="writing-usage">
+                        <div class="usage-item">
+                            <h4>历史上的文字使用</h4>
+                            <p>历史上，布朗族主要使用傣文。傣文是傣族使用的文字，属于拼音文字，有悠久的历史。布朗族人民通过学习傣文，记录了许多本民族的历史、文化、宗教等方面的内容。傣文在布朗族的宗教活动、文化传承等方面发挥了重要作用。</p>
+                        </div>
+                        <div class="usage-item">
+                            <h4>现代的文字使用</h4>
+                            <p>现代社会，随着教育的普及和经济的发展，布朗族人民普遍使用汉文。汉文已经成为布朗族人民学习、工作、生活的重要工具。布朗族的青少年在学校接受汉语文教育，成年人也普遍能够使用汉文进行交流。</p>
+                        </div>
+                        <div class="usage-item">
+                            <h4>口头传承</h4>
+                            <p>由于没有本民族的文字，布朗族的许多文化内容都是通过口头传承的方式保存下来的。布朗族的民间故事、传说、民歌、谚语等，都是通过口耳相传的方式代代传承。这种口头传承的方式，是布朗族文化得以保存和发展的重要途径。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 语言的保护与传承 -->
+                <section class="blang-section">
+                    <h3>语言的保护与传承</h3>
+                    <p>随着社会的发展和现代化进程的加快，布朗语面临着一些挑战，如使用范围缩小、年轻人使用频率降低等。为了保护和传承布朗语，布朗族人民和政府采取了一系列措施。</p>
+                    <ul>
+                        <li><strong>语言教育：</strong>在布朗族聚居区的学校，开设布朗语课程，教授布朗族青少年学习本民族语言。通过学校教育，使布朗族青少年了解和掌握本民族语言，增强民族认同感。</li>
+                        <li><strong>文化活动：</strong>举办各种布朗族文化活动，如布朗语演讲比赛、布朗族民歌比赛等，鼓励布朗族人民使用本民族语言，增强布朗语的活力。</li>
+                        <li><strong>语言研究：</strong>组织专家学者对布朗语进行研究，记录布朗语的词汇、语法等语言资料，为布朗语的保护和传承提供科学依据。</li>
+                        <li><strong>媒体传播：</strong>利用广播、电视、互联网等现代媒体，传播布朗族语言和文化。通过媒体传播，扩大布朗语的影响范围，增强布朗语的生命力。</li>
+                    </ul>
+                    <p>这些措施的实施，对于保护和传承布朗语，促进布朗族文化的发展，起到了重要作用。布朗族人民也在积极努力，使布朗语在现代社会中继续发挥重要作用。</p>
+                </section>
+
+                <!-- 语言与文化的关系 -->
+                <section class="blang-section">
+                    <h3>语言与文化的关系</h3>
+                    <p>语言是文化的重要载体，布朗语与布朗族文化之间有着密切的关系。布朗语不仅是布朗族人民交流的工具，也是布朗族文化的重要组成部分。</p>
+                    <ul>
+                        <li><strong>文化的载体：</strong>布朗语承载着布朗族的历史、文化、宗教、艺术等各个方面的内容。布朗族的民间故事、传说、民歌、谚语等，都是通过布朗语表达和传承的。</li>
+                        <li><strong>民族身份的象征：</strong>布朗语是布朗族民族身份的重要象征。使用布朗语，不仅是布朗族人民交流的需要，也是表达民族认同感和归属感的重要方式。</li>
+                        <li><strong>文化多样性的体现：</strong>布朗语的存在，丰富了中国的语言多样性，也丰富了世界的语言多样性。布朗语的独特性，是布朗族文化多样性的重要体现。</li>
+                        <li><strong>文化交流的桥梁：</strong>布朗语在布朗族与其他民族的文化交流中发挥着重要作用。通过布朗语，布朗族人民可以与其他民族人民进行交流，分享彼此的文化成果。</li>
+                    </ul>
+                    <p>总之，布朗语是布朗族文化的重要组成部分，保护和传承布朗语，对于促进布朗族文化的发展，维护文化多样性，具有重要意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

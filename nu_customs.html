@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怒族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 通用样式 */
+        .nu-detail-header {
+            background-image: url('images/怒族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nu-detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .nu-detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nu-detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-nu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-nu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .nu-detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .nu-detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .nu-detail-section {
+            margin-bottom: 60px;
+        }
+        
+        .nu-detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .nu-detail-section p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .nu-detail-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .nu-detail-section li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .nu-detail-section li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯特点 */
+        .customs-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .customs-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .customs-feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .customs-feature-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .customs-feature-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 民居特点 */
+        .housing-features {
+            margin: 30px 0;
+        }
+        
+        .housing-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        
+        .housing-feature-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .housing-feature-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nu-detail-header h1 {
+                font-size: 36px;
+            }
+            
+            .nu-detail-header p {
+                font-size: 18px;
+            }
+            
+            .nu-detail-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="nu-detail-header">
+        <div class="container">
+            <div class="nu-detail-header-content">
+                <h1>怒族风俗习惯</h1>
+                <p>独特的生活方式与文化传统</p>
+                <a href="nu.html" class="back-nu">返回怒族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="nu-detail-main">
+        <div class="container">
+            <div class="nu-detail-content">
+                <!-- 风俗习惯概述 -->
+                <section class="nu-detail-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>怒族是一个有着独特风俗习惯的民族，其风俗习惯反映了怒族人民的生活方式、价值观念和文化传统。怒族的风俗习惯与其所处的自然环境、历史背景和生产方式密切相关，是怒族文化的重要组成部分。</p>
+                    <p>怒族的风俗习惯涵盖了居住、饮食、婚姻、丧葬、节日等各个方面，这些风俗习惯不仅是怒族人民日常生活的重要内容，也是怒族文化传承和发展的重要载体。</p>
+                </section>
+
+                <!-- 居住习惯 -->
+                <section class="nu-detail-section">
+                    <h2>居住习惯</h2>
+                    <p>怒族的居住习惯与其所处的自然环境密切相关。怒族主要分布在云南省怒江傈僳族自治州的山区和半山区，这里山高谷深，气候湿润，因此怒族的传统民居具有独特的特点：</p>
+                    
+                    <div class="housing-features">
+                        <div class="housing-feature-item">
+                            <h4>干栏式竹楼</h4>
+                            <p>怒族的传统民居主要是干栏式竹楼，这种建筑形式适合山区的地形和气候。竹楼一般分为上下两层，上层住人，下层饲养家畜和存放杂物。竹楼的屋顶用茅草或木板覆盖，墙壁用竹子编织而成，通风透气，适合炎热潮湿的气候。</p>
+                        </div>
+                        <div class="housing-feature-item">
+                            <h4>建筑材料</h4>
+                            <p>怒族传统民居的建筑材料主要是当地丰富的竹子、木材和茅草。这些材料取材方便，成本低廉，适合山区的建筑需要。随着社会的发展，现代怒族民居逐渐采用了砖瓦、水泥等现代建筑材料，但传统的建筑风格仍然保留。</p>
+                        </div>
+                        <div class="housing-feature-item">
+                            <h4>村落布局</h4>
+                            <p>怒族的村落一般建在山坡上，依山傍水，视野开阔。村落的布局比较分散，每户人家都有自己的院落。村落周围种植着各种树木和农作物，环境优美。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食习惯 -->
+                <section class="nu-detail-section">
+                    <h2>饮食习惯</h2>
+                    <p>怒族的饮食习惯与其所处的自然环境和生产方式密切相关。怒族主要从事农业生产，种植玉米、荞麦、小米、青稞等谷物，同时也饲养家畜和从事狩猎、采集等活动，因此怒族的饮食具有以下特点：</p>
+                    
+                    <div class="customs-features">
+                        <div class="customs-feature-item">
+                            <h4>主食</h4>
+                            <p>怒族的主食主要是玉米、荞麦、小米、青稞等谷物。这些谷物通过磨粉、蒸煮等方式制作成各种食品，如玉米饭、荞麦饼、小米粥等。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>副食</h4>
+                            <p>怒族的副食主要包括各种蔬菜、肉类和豆制品。蔬菜主要有土豆、萝卜、白菜等；肉类主要有猪肉、牛肉、羊肉、鸡肉等；豆制品主要有豆腐、豆浆等。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>特色食品</h4>
+                            <p>怒族有许多特色食品，如烤全羊、漆油鸡、石板粑粑等。其中，漆油鸡是怒族人民最喜爱的食品之一，具有浓郁的民族特色。漆油是从漆树籽中提取的油脂，具有独特的香味和营养价值。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>饮酒习惯</h4>
+                            <p>怒族人民喜欢饮酒，尤其是自酿的水酒和烧酒。水酒是用玉米、荞麦等谷物发酵而成的，度数较低，味道甜美；烧酒是用蒸馏法制作的，度数较高，味道浓烈。在怒族的节日和喜庆场合，饮酒是必不可少的活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="nu-detail-section">
+                    <h2>婚姻习俗</h2>
+                    <p>怒族的婚姻习俗具有独特的民族特色，反映了怒族人民的婚姻观念和社会关系：</p>
+                    <ul>
+                        <li><strong>婚姻制度</strong>：怒族实行一夫一妻制，禁止同姓通婚。婚姻一般由父母包办，但也尊重男女双方的意愿。</li>
+                        <li><strong>订婚仪式</strong>：怒族的订婚仪式比较简单，一般由男方父母带着礼物到女方家求婚，如果女方家同意，就会举行简单的订婚仪式，确定婚姻关系。</li>
+                        <li><strong>结婚仪式</strong>：怒族的结婚仪式比较隆重，一般持续三天。第一天，男方家准备彩礼和婚礼用品；第二天，男方家派人到女方家接新娘，新娘在亲友的陪同下到男方家；第三天，举行正式的结婚仪式，包括拜天地、拜父母、夫妻对拜等环节，然后宴请宾客。</li>
+                        <li><strong>婚后生活</strong>：怒族的婚后生活比较自由，夫妻双方共同承担家庭责任。在家庭中，男女地位平等，共同决策家庭事务。</li>
+                    </ul>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="nu-detail-section">
+                    <h2>丧葬习俗</h2>
+                    <p>怒族的丧葬习俗反映了怒族人民对死亡的认识和对祖先的敬意：</p>
+                    <ul>
+                        <li><strong>丧葬方式</strong>：怒族的传统丧葬方式主要是土葬，部分地区也实行火葬。土葬一般选择在山坡上，按照风水先生的指导选择墓地。</li>
+                        <li><strong>丧葬仪式</strong>：怒族的丧葬仪式比较隆重，一般持续三天。第一天，家人为死者清洗身体，穿上新衣服，放入棺材；第二天，亲友前来吊唁，家人设宴款待；第三天，举行出殡仪式，将棺材抬到墓地埋葬，然后返回死者家中举行祭祀仪式。</li>
+                        <li><strong>服丧制度</strong>：怒族的服丧期一般为三年，在服丧期间，家人要穿孝服，避免参加喜庆活动，以示对死者的哀悼。</li>
+                        <li><strong>祭祀活动</strong>：怒族人民会在每年的清明节和死者的忌日举行祭祀活动，向死者敬献祭品，表达对死者的敬意和怀念之情。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="nu-detail-section">
+                    <h2>节日习俗</h2>
+                    <p>怒族有许多传统节日，这些节日反映了怒族人民的生产生活和宗教信仰：</p>
+                    
+                    <div class="customs-features">
+                        <div class="customs-feature-item">
+                            <h4>春节</h4>
+                            <p>春节是怒族最隆重的传统节日之一，一般在农历正月初一举行。在春节期间，怒族人民会穿上盛装，举行各种庆祝活动，如唱歌跳舞、体育比赛、物资交流等。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>祭谷神节</h4>
+                            <p>祭谷神节是怒族在农业生产中举行的重要节日，一般在农历三月举行。在节日期间，怒族人民会举行祭祀活动，祈求谷神保佑农作物茁壮成长，获得丰收。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>祭山林节</h4>
+                            <p>祭山林节是怒族在保护森林资源方面举行的重要节日，一般在农历五月举行。在节日期间，怒族人民会举行祭祀活动，祈求山林神保佑森林资源丰富，生态平衡。</p>
+                        </div>
+                        <div class="customs-feature-item">
+                            <h4>仙女节</h4>
+                            <p>仙女节是怒族最盛大的传统节日之一，每年农历三月十六举行。仙女节又称"鲜花节"，是为了纪念传说中的仙女阿茸。在节日期间，怒族人民会穿上盛装，举行各种庆祝活动，如唱歌跳舞、祭祀仙女、品尝美食等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 风俗习惯的传承与发展 -->
+                <section class="nu-detail-section">
+                    <h2>风俗习惯的传承与发展</h2>
+                    <p>在现代社会的发展过程中，怒族的风俗习惯面临着传承和发展的挑战。为了保护和传承怒族的风俗习惯，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li>加强对怒族风俗习惯的调查和研究，建立风俗习惯档案。</li>
+                        <li>通过民间文化活动、广播电视等媒体，推广和宣传怒族的风俗习惯。</li>
+                        <li>鼓励年轻一代学习和传承怒族的风俗习惯，增强民族文化意识。</li>
+                        <li>在怒族聚居区的学校中开展民族文化教育，将怒族的风俗习惯纳入教学内容。</li>
+                    </ul>
+                    <p>这些措施对于怒族风俗习惯的传承和发展起到了积极的作用，使得怒族的风俗习惯在现代社会中依然保持着活力。同时，怒族的风俗习惯也在不断吸收现代文化的元素，适应现代社会的发展需要，展现出新时代的特点。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

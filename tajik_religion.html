@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔吉克族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔吉克族文化详细页面特定样式 */
+        .detail-header {
+            background-image: url('images/塔吉克族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .detail-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="detail-header">
+        <div class="container">
+            <div class="detail-header-content">
+                <h1>塔吉克族宗教信仰</h1>
+                <p>伊斯兰教什叶派的独特实践</p>
+                <a href="tajik.html" class="back-link">返回塔吉克族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-content">
+                <!-- 宗教概述 -->
+                <section class="detail-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>塔吉克族是中国唯一操伊朗语族语言的少数民族，主要分布在新疆维吾尔自治区塔什库尔干塔吉克自治县以及莎车、泽普、叶城、皮山等县。塔吉克族人民信仰伊斯兰教什叶派伊斯玛仪派，这是他们文化的重要组成部分。</p>
+                    <p>伊斯兰教什叶派伊斯玛仪派在塔吉克族中的传播已有数百年历史，对塔吉克族的社会结构、风俗习惯、文化艺术等方面产生了深远的影响。塔吉克族的宗教活动主要在清真寺进行，由伊玛目主持。</p>
+                </section>
+
+                <!-- 宗教实践 -->
+                <section class="detail-section">
+                    <h3>宗教实践</h3>
+                    <p>塔吉克族人民严格遵守伊斯兰教的教义和教规，主要宗教实践包括：</p>
+                    <ul>
+                        <li><strong>每日五次礼拜：</strong>塔吉克族穆斯林每天要进行五次礼拜，分别是晨礼、晌礼、晡礼、昏礼和宵礼。这些礼拜时间根据太阳的位置确定，是塔吉克族穆斯林日常生活的重要组成部分。</li>
+                        <li><strong>禁食猪肉：</strong>塔吉克族严格遵守伊斯兰教的饮食规定，禁食猪肉、血液和自死物等。这一规定对塔吉克族的饮食文化产生了深远的影响。</li>
+                        <li><strong>禁酒：</strong>塔吉克族禁止饮酒，认为酒精会影响人的理智和行为，违背伊斯兰教的教义。</li>
+                        <li><strong>斋月：</strong>每年伊斯兰教历九月是斋月，塔吉克族穆斯林在这个月内从黎明到黄昏禁食、禁饮、禁房事等，以净化心灵、反思自我。</li>
+                        <li><strong>朝觐：</strong>有经济能力和身体条件允许的塔吉克族穆斯林，会前往沙特阿拉伯的麦加进行朝觐，这是伊斯兰教的五大功课之一。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教节日 -->
+                <section class="detail-section">
+                    <h3>宗教节日</h3>
+                    <p>塔吉克族的宗教节日主要包括：</p>
+                    <ul>
+                        <li><strong>古尔邦节：</strong>又称宰牲节，是伊斯兰教的重要节日，通常在伊斯兰教历十二月十日举行。塔吉克族人民会举行会礼、宰牲、聚餐等活动，表达对真主的感恩和对他人的关爱。</li>
+                        <li><strong>肉孜节：</strong>又称开斋节，标志着斋月的结束，通常在伊斯兰教历十月一日举行。塔吉克族人民会穿上盛装，举行会礼，走亲访友，互相祝福。</li>
+                        <li><strong>圣纪节：</strong>纪念穆罕默德诞辰的节日，通常在伊斯兰教历三月十二日举行。塔吉克族人民会举行诵经、聚餐等活动，缅怀穆罕默德的功绩。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教对文化的影响 -->
+                <section class="detail-section">
+                    <h3>宗教对塔吉克族文化的影响</h3>
+                    <p>伊斯兰教什叶派伊斯玛仪派对塔吉克族文化的影响体现在多个方面：</p>
+                    <ul>
+                        <li><strong>建筑：</strong>塔吉克族的清真寺建筑具有独特的风格，融合了波斯文化和伊斯兰建筑的特点，是塔吉克族建筑艺术的重要代表。</li>
+                        <li><strong>艺术：</strong>塔吉克族的音乐、舞蹈、绘画等艺术形式，都受到了伊斯兰教的影响，体现了宗教文化的内涵。</li>
+                        <li><strong>风俗习惯：</strong>塔吉克族的婚丧嫁娶、礼仪禁忌等风俗习惯，都与伊斯兰教的教义和教规密切相关。</li>
+                        <li><strong>道德观念：</strong>伊斯兰教的教义对塔吉克族的道德观念产生了深远的影响，如强调诚实、善良、互助等美德。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教现状 -->
+                <section class="detail-section">
+                    <h3>宗教现状</h3>
+                    <p>随着社会的发展和进步，塔吉克族的宗教信仰也在不断适应现代社会的变化。一方面，塔吉克族人民仍然保持着对伊斯兰教的虔诚信仰，严格遵守宗教教义和教规；另一方面，他们也积极接受现代科学文化知识，努力适应现代社会的发展需求。</p>
+                    <p>塔吉克族的宗教活动得到了国家法律的保护和尊重，政府积极维护塔吉克族人民的宗教信仰自由权利，为塔吉克族的宗教活动提供必要的场所和条件。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

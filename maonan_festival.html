@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毛南族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 毛南族文化页面特定样式 */
+        .maonan-header {
+            background-image: url('images/毛南族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .maonan-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .maonan-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .maonan-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .maonan-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .maonan-section {
+            margin-bottom: 80px;
+        }
+        
+        .maonan-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .maonan-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .maonan-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .maonan-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .maonan-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .maonan-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 传统节日样式 */
+        .traditional-festivals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .maonan-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .maonan-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .maonan-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .maonan-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .maonan-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="maonan-header">
+        <div class="container">
+            <div class="maonan-header-content">
+                <h1>毛南族传统节日</h1>
+                <p>丰富多彩的节日庆典与文化传承</p>
+                <a href="maonan.html" class="back-difference">返回毛南族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="maonan-main">
+        <div class="container">
+            <div class="maonan-content">
+                <!-- 传统节日概述 -->
+                <section class="maonan-section">
+                    <h2>传统节日概述</h2>
+                    <p>毛南族有着丰富多彩的传统节日，这些节日是毛南族文化的重要组成部分。毛南族的传统节日反映了毛南族人民的生产生活、宗教信仰、风俗习惯等各个方面，是毛南族人民表达喜怒哀乐、祈求平安幸福的重要方式。</p>
+                    <p>毛南族的传统节日历史悠久，形式多样，内容丰富。它们不仅是毛南族人民的精神食粮，也是中华民族文化宝库中的重要组成部分。</p>
+                </section>
+
+                <!-- 主要传统节日 -->
+                <section class="maonan-section">
+                    <h3>主要传统节日</h3>
+                    <div class="traditional-festivals">
+                        <div class="festival-item">
+                            <h4>分龙节</h4>
+                            <p>分龙节是毛南族最重要的传统节日，通常在农历五月举行。分龙节的主要活动是祭祀龙母，祈求风调雨顺、五谷丰登。在分龙节期间，毛南族人民会举行各种庆祝活动，包括祭祀、唱歌、舞蹈、体育比赛等。分龙节是毛南族文化的重要象征，已被列入国家级非物质文化遗产名录。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>春节</h4>
+                            <p>春节是毛南族的传统节日，与汉族春节类似。在春节期间，毛南族人民会举行各种庆祝活动，包括贴春联、放鞭炮、走亲访友、设宴聚餐等。毛南族的春节有一些独特的习俗，如在除夕之夜，毛南族人民会举行守岁活动，祈求新年平安幸福。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>清明节</h4>
+                            <p>清明节是毛南族的传统节日，通常在公历4月4日或5日举行。在清明节期间，毛南族人民会前往祖先墓地扫墓，清理墓地、献上祭品、焚烧纸钱，表达对祖先的敬意和思念。毛南族的清明节还有一些独特的习俗，如在扫墓时，毛南族人民会在墓地周围种植树木，寓意祖先的精神像树木一样长存。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>中元节</h4>
+                            <p>中元节是毛南族的传统节日，通常在农历七月举行。在中元节期间，毛南族人民会举行各种祭祀活动，祭祀祖先和孤魂野鬼，祈求平安。毛南族的中元节有一些独特的习俗，如在祭祀时，毛南族人民会准备丰盛的祭品，包括鸡、鸭、鱼、肉等，以及各种水果和糕点。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 分龙节详解 -->
+                <section class="maonan-section">
+                    <h3>分龙节详解</h3>
+                    <p>分龙节是毛南族最重要的传统节日，也是毛南族文化的重要象征。分龙节的起源可以追溯到古代，据说是为了纪念毛南族的祖先龙母。</p>
+                    <p>分龙节通常在农历五月举行，具体日期根据当地的习俗和气候条件而定。在分龙节期间，毛南族人民会举行一系列的庆祝活动：</p>
+                    <ul>
+                        <li><strong>祭祀龙母：</strong>分龙节的核心活动是祭祀龙母。毛南族人民认为龙母是掌管雨水的神灵，祭祀龙母可以祈求风调雨顺、五谷丰登。祭祀仪式通常在龙母庙举行，由师公主持，包括准备祭品、设置祭坛、烧香祭拜、念诵经文等环节。</li>
+                        <li><strong>唱歌舞蹈：</strong>在分龙节期间，毛南族人民会举行各种唱歌舞蹈活动，表达对龙母的敬意和对美好生活的向往。这些活动包括山歌比赛、师公舞表演、集体舞蹈等。</li>
+                        <li><strong>体育比赛：</strong>在分龙节期间，毛南族人民会举行各种体育比赛，如拔河、射箭、摔跤等，增强体质，增进友谊。</li>
+                        <li><strong>美食分享：</strong>在分龙节期间，毛南族人民会准备各种美食，如糯米粑粑、酸肉、烤香猪等，与亲朋好友分享，增进感情。</li>
+                    </ul>
+                    <p>分龙节是毛南族人民的盛大节日，也是毛南族文化的重要载体。通过分龙节，毛南族人民传承着自己的历史、文化、信仰和价值观，增强了民族凝聚力和认同感。</p>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="maonan-section">
+                    <h3>节日习俗</h3>
+                    <p>毛南族的传统节日有着丰富的习俗，这些习俗反映了毛南族人民的生活方式和文化特色。以下是毛南族主要传统节日的一些习俗：</p>
+                    <ul>
+                        <li><strong>分龙节习俗：</strong>
+                            <ul>
+                                <li>祭祀龙母，祈求风调雨顺、五谷丰登</li>
+                                <li>制作和佩戴花竹帽，象征吉祥如意</li>
+                                <li>举行山歌比赛，表达对美好生活的向往</li>
+                                <li>分享美食，如糯米粑粑、酸肉、烤香猪等</li>
+                            </ul>
+                        </li>
+                        <li><strong>春节习俗：</strong>
+                            <ul>
+                                <li>贴春联、放鞭炮，营造喜庆氛围</li>
+                                <li>走亲访友，互相拜年，增进感情</li>
+                                <li>设宴聚餐，共享团圆之乐</li>
+                                <li>守岁，祈求新年平安幸福</li>
+                            </ul>
+                        </li>
+                        <li><strong>清明节习俗：</strong>
+                            <ul>
+                                <li>前往祖先墓地扫墓，清理墓地</li>
+                                <li>献上祭品，焚烧纸钱，表达对祖先的敬意和思念</li>
+                                <li>在墓地周围种植树木，寓意祖先的精神长存</li>
+                                <li>家族聚餐，增进亲情</li>
+                            </ul>
+                        </li>
+                        <li><strong>中元节习俗：</strong>
+                            <ul>
+                                <li>举行祭祀活动，祭祀祖先和孤魂野鬼</li>
+                                <li>准备丰盛的祭品，包括鸡、鸭、鱼、肉等</li>
+                                <li>焚烧纸钱，祈求平安</li>
+                                <li>家族聚餐，增进亲情</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- 节日的文化意义 -->
+                <section class="maonan-section">
+                    <h3>节日的文化意义</h3>
+                    <p>毛南族的传统节日具有重要的文化意义，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>毛南族的传统节日是毛南族文化的重要载体，通过节日活动，毛南族人民传承着自己的历史、文化、信仰和价值观。</li>
+                        <li><strong>社会凝聚：</strong>毛南族的传统节日是毛南族人民社会生活的重要组成部分，它们能够增强毛南族人民的凝聚力和认同感。</li>
+                        <li><strong>宗教信仰：</strong>毛南族的传统节日与毛南族的宗教信仰密切相关，是毛南族人民表达宗教信仰、祈求平安幸福的重要方式。</li>
+                        <li><strong>生活调剂：</strong>毛南族的传统节日是毛南族人民生活的重要调剂，它们能够带给毛南族人民快乐和安慰，增强毛南族人民的生活信心和勇气。</li>
+                        <li><strong>文化交流：</strong>毛南族的传统节日是毛南族与其他民族文化交流的重要桥梁，它们向外界展示了毛南族的文化特色和魅力。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的现代变迁 -->
+                <section class="maonan-section">
+                    <h3>节日的现代变迁</h3>
+                    <p>随着社会的发展和进步，毛南族的传统节日也发生了一些变化。在现代社会中，毛南族的传统节日既保留了传统特色，又融入了现代元素，展现出新时代的活力。</p>
+                    <p>毛南族传统节日的现代变迁主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>庆祝方式的变化：</strong>在现代社会中，毛南族的传统节日庆祝方式更加多样化，除了传统的祭祀、唱歌、舞蹈等活动外，还增加了一些现代元素，如文艺演出、体育比赛、商品展销等。</li>
+                        <li><strong>节日功能的变化：</strong>在现代社会中，毛南族的传统节日除了具有传统的宗教信仰、文化传承等功能外，还增加了经济交流、旅游观光等功能。例如，分龙节已经成为毛南族地区的重要旅游品牌，吸引了大量国内外游客前来观光旅游。</li>
+                        <li><strong>节日观念的变化：</strong>在现代社会中，毛南族人民的节日观念更加开放和包容，他们既尊重传统节日的文化内涵，又积极适应现代社会的发展需求，使传统节日在现代社会中焕发出新的活力。</li>
+                    </ul>
+                    <p>毛南族的传统节日是毛南族文化的重要组成部分，它们不仅是毛南族人民的精神食粮，也是中华民族文化宝库中的重要组成部分。在现代社会中，毛南族人民正在努力保护和传承传统节日，使它们在新时代中继续发挥重要的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

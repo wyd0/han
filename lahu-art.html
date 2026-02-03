@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉祜族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 拉祜族文学艺术页面特定样式 */
+        .lahu-art-header {
+            background-image: url('images/lahu-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lahu-art-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lahu-art-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lahu-art-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-art-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lahu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lahu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lahu-art-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lahu-art-section {
+            margin-bottom: 80px;
+        }
+        
+        .lahu-art-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-art-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-art-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lahu-art-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lahu-art-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lahu-art-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lahu-art-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术类型样式 */
+        .art-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .art-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .art-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 民间文学样式 */
+        .folk-literature {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .folk-literature h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .literature-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .literature-type {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .literature-type h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        /* 音乐舞蹈样式 */
+        .music-dance {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .music-item,
+        .dance-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .music-item h4,
+        .dance-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 手工艺样式 */
+        .handicraft {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .handicraft-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .handicraft-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 艺术作品样式 */
+        .artworks {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .artworks h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .artwork-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .artwork-example {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .artwork-example h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lahu-art-header h1 {
+                font-size: 36px;
+            }
+            
+            .lahu-art-header p {
+                font-size: 18px;
+            }
+            
+            .lahu-art-section h2 {
+                font-size: 28px;
+            }
+            
+            .art-types,
+            .literature-types,
+            .music-dance,
+            .handicraft,
+            .artwork-examples {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .lahu-art-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .lahu-art-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lahu-art-header">
+        <div class="container">
+            <div class="lahu-art-header-content">
+                <h1>拉祜族文学艺术</h1>
+                <p>民族智慧的结晶，文化传承的瑰宝</p>
+                <a href="lahu.html" class="back-lahu">返回拉祜族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lahu-art-main">
+        <div class="container">
+            <div class="lahu-art-content">
+                <!-- 文学艺术概况 -->
+                <section class="lahu-art-section">
+                    <h2>拉祜族文学艺术概况</h2>
+                    <p>拉祜族有着丰富多彩的文学艺术遗产，这些遗产是拉祜族文化的重要组成部分，反映了拉祜族人民的智慧、情感和审美情趣。拉祜族的文学艺术涵盖了民间文学、音乐、舞蹈、手工艺等多个方面，具有鲜明的民族特色。</p>
+                    <p>拉祜族的文学艺术是在长期的历史发展过程中形成的，与拉祜族的自然环境、生产方式、宗教信仰等密切相关。这些文学艺术不仅是拉祜族人民精神生活的重要内容，也是拉祜族文化传承的重要载体。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="lahu-art-section">
+                    <h2>民间文学</h2>
+                    <p>拉祜族有着丰富的民间文学遗产，这些遗产是拉祜族人民智慧的结晶，反映了拉祜族的历史、文化和价值观。</p>
+                    
+                    <div class="folk-literature">
+                        <h4>民间文学类型</h4>
+                        <div class="literature-types">
+                            <div class="literature-type">
+                                <h5>创世传说</h5>
+                                <p>拉祜族的创世传说主要讲述了世界的起源、人类的诞生等内容。其中，《牡帕密帕》是拉祜族最著名的创世传说，讲述了拉祜族人民起源于葫芦，以及人类的发展过程，充满了传奇色彩。</p>
+                            </div>
+                            <div class="literature-type">
+                                <h5>民间故事</h5>
+                                <p>拉祜族的民间故事内容丰富，题材广泛，包括神话故事、传说故事、生活故事、寓言故事等。这些故事生动有趣，寓教于乐，反映了拉祜族人民的生活智慧和价值观念。</p>
+                            </div>
+                            <div class="literature-type">
+                                <h5>民间诗歌</h5>
+                                <p>拉祜族的民间诗歌形式多样，包括叙事诗、抒情诗、劳动歌、情歌等。这些诗歌语言优美，节奏明快，表达了拉祜族人民的情感和愿望。</p>
+                            </div>
+                            <div class="literature-type">
+                                <h5>谚语谜语</h5>
+                                <p>拉祜族的谚语和谜语简洁明了，富有哲理，反映了拉祜族人民的生活经验和智慧。这些谚语和谜语是拉祜族人民口头文学的重要组成部分。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>民间文学的特点</h3>
+                    <ul>
+                        <li><strong>口头传承：</strong>拉祜族的民间文学主要通过口头传承的方式流传下来，是拉祜族人民集体智慧的结晶。</li>
+                        <li><strong>内容丰富：</strong>拉祜族的民间文学内容丰富，题材广泛，涵盖了拉祜族的历史、文化、生活等各个方面。</li>
+                        <li><strong>形式多样：</strong>拉祜族的民间文学形式多样，包括传说、故事、诗歌、谚语、谜语等。</li>
+                        <li><strong>民族特色：</strong>拉祜族的民间文学具有鲜明的民族特色，反映了拉祜族的文化传统和价值观念。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐与舞蹈 -->
+                <section class="lahu-art-section">
+                    <h2>音乐与舞蹈</h2>
+                    <p>拉祜族的音乐和舞蹈是拉祜族文化的重要组成部分，具有浓郁的民族特色和艺术魅力。</p>
+                    
+                    <div class="music-dance">
+                        <div class="music-item">
+                            <h4>传统音乐</h4>
+                            <h5>乐器</h5>
+                            <ul>
+                                <li><strong>葫芦笙：</strong>拉祜族最具代表性的乐器，由葫芦和竹管制成，音色优美，表现力丰富。</li>
+                                <li><strong>巴乌：</strong>一种竹制吹管乐器，音色低沉浑厚，富有表现力。</li>
+                                <li><strong>三弦：</strong>一种弹拨乐器，音色清脆悦耳，常用于伴奏。</li>
+                                <li><strong>鼓：</strong>包括木鼓、铜鼓等，是拉祜族音乐的重要打击乐器。</li>
+                                <li><strong>镲：</strong>一种打击乐器，常用于宗教仪式和节日庆典。</li>
+                            </ul>
+                            <h5>音乐类型</h5>
+                            <ul>
+                                <li><strong>叙事歌：</strong>讲述历史故事、传说等内容的歌曲。</li>
+                                <li><strong>抒情歌：</strong>表达情感、愿望等内容的歌曲。</li>
+                                <li><strong>劳动歌：</strong>与生产劳动相关的歌曲，如插秧歌、收割歌等。</li>
+                                <li><strong>情歌：</strong>表达爱情、婚姻等内容的歌曲。</li>
+                                <li><strong>宗教歌：</strong>与宗教仪式相关的歌曲，如祭歌、祈祷歌等。</li>
+                            </ul>
+                        </div>
+                        <div class="dance-item">
+                            <h4>传统舞蹈</h4>
+                            <h5>舞蹈类型</h5>
+                            <ul>
+                                <li><strong>葫芦笙舞：</strong>拉祜族最著名的舞蹈，以葫芦笙为伴奏，舞步轻盈，节奏明快，表达了拉祜族人民对生活的热爱和对美好生活的向往。</li>
+                                <li><strong>摆舞：</strong>一种集体舞蹈，舞者手拉手，围成圆圈，边唱边跳，节奏欢快，气氛热烈。</li>
+                                <li><strong>跺脚舞：</strong>一种以跺脚为主要动作的舞蹈，节奏强烈，表现力丰富，表达了拉祜族人民的粗犷豪放性格。</li>
+                                <li><strong>祭祀舞：</strong>与宗教仪式相关的舞蹈，如祭天舞、祭祖舞等，动作庄重，仪式感强。</li>
+                                <li><strong>婚礼舞：</strong>与婚礼相关的舞蹈，表达了对新人的祝福和对婚姻的美好祝愿。</li>
+                            </ul>
+                            <h5>舞蹈特点</h5>
+                            <ul>
+                                <li>动作粗犷豪放，富有表现力。</li>
+                                <li>节奏明快，气氛热烈。</li>
+                                <li>集体性强，注重参与者的互动。</li>
+                                <li>与音乐、诗歌等艺术形式相结合。</li>
+                                <li>具有鲜明的民族特色和地域特色。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 手工艺 -->
+                <section class="lahu-art-section">
+                    <h2>手工艺</h2>
+                    <p>拉祜族的手工艺历史悠久，技艺精湛，是拉祜族文化的重要组成部分。</p>
+                    
+                    <div class="handicraft">
+                        <div class="handicraft-item">
+                            <h4>纺织工艺</h4>
+                            <p>拉祜族的纺织工艺历史悠久，擅长用棉、麻等原料纺织各种布匹。拉祜族的传统纺织工具包括纺车、织布机等，纺织工艺包括纺纱、织布、染色等环节。</p>
+                            <p>拉祜族的纺织产品主要包括：</p>
+                            <ul>
+                                <li><strong>土布：</strong>用棉花纺织而成的布匹，质地厚实，耐用性强。</li>
+                                <li><strong>麻布：</strong>用麻纤维纺织而成的布匹，质地凉爽，适合夏季穿着。</li>
+                                <li><strong>彩布：</strong>经过染色处理的布匹，色彩鲜艳，图案精美。</li>
+                            </ul>
+                        </div>
+                        <div class="handicraft-item">
+                            <h4>刺绣工艺</h4>
+                            <p>拉祜族的刺绣工艺精湛，图案精美，色彩鲜艳。拉祜族的刺绣主要用于装饰服饰、背包、钱包、帽子等物品。</p>
+                            <p>拉祜族刺绣的特点：</p>
+                            <ul>
+                                <li>图案丰富，包括花鸟、动物、几何图形等。</li>
+                                <li>色彩鲜艳，对比强烈，富有民族特色。</li>
+                                <li>针法多样，包括平绣、挑绣、贴绣等。</li>
+                                <li>做工精细，立体感强。</li>
+                            </ul>
+                        </div>
+                        <div class="handicraft-item">
+                            <h4>竹编工艺</h4>
+                            <p>拉祜族的竹编工艺历史悠久，技艺精湛，是拉祜族人民日常生活中不可或缺的一部分。拉祜族的竹编产品主要包括竹席、竹篮、竹帽、竹篓等。</p>
+                            <p>拉祜族竹编的特点：</p>
+                            <ul>
+                                <li>原料丰富，主要使用当地生长的竹子。</li>
+                                <li>工艺精湛，编织紧密，耐用性强。</li>
+                                <li>造型美观，实用与美观相结合。</li>
+                                <li>品种多样，满足不同的生活需求。</li>
+                            </ul>
+                        </div>
+                        <div class="handicraft-item">
+                            <h4>木雕工艺</h4>
+                            <p>拉祜族的木雕工艺历史悠久，技艺精湛，主要用于制作宗教用品、装饰品等。拉祜族的木雕产品主要包括佛像、人物、动物、乐器等。</p>
+                            <p>拉祜族木雕的特点：</p>
+                            <ul>
+                                <li>原料丰富，主要使用当地生长的木材。</li>
+                                <li>工艺精湛，雕刻细腻，立体感强。</li>
+                                <li>造型美观，富有民族特色。</li>
+                                <li>题材广泛，包括宗教题材、生活题材等。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 艺术作品 -->
+                <section class="lahu-art-section">
+                    <h2>艺术作品</h2>
+                    <p>拉祜族的艺术作品是拉祜族文化的重要组成部分，反映了拉祜族人民的智慧和审美情趣。</p>
+                    
+                    <div class="artworks">
+                        <h4>代表作品</h4>
+                        <div class="artwork-examples">
+                            <div class="artwork-example">
+                                <h5>《牡帕密帕》</h5>
+                                <p>拉祜族最著名的创世传说，讲述了拉祜族人民起源于葫芦，以及人类的发展过程，是拉祜族民间文学的瑰宝。</p>
+                            </div>
+                            <div class="artwork-example">
+                                <h5>葫芦笙舞</h5>
+                                <p>拉祜族最著名的舞蹈，以葫芦笙为伴奏，舞步轻盈，节奏明快，是拉祜族音乐舞蹈的代表作品。</p>
+                            </div>
+                            <div class="artwork-example">
+                                <h5>拉祜族服饰</h5>
+                                <p>拉祜族的服饰以黑色为主色调，装饰有精美的刺绣图案，是拉祜族手工艺的代表作品。</p>
+                            </div>
+                            <div class="artwork-example">
+                                <h5>葫芦笙</h5>
+                                <p>拉祜族最具代表性的乐器，由葫芦和竹管制成，音色优美，表现力丰富，是拉祜族音乐的代表作品。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的传承与发展 -->
+                <section class="lahu-art-section">
+                    <h2>文学艺术的传承与发展</h2>
+                    <p>拉祜族的文学艺术是拉祜族文化的瑰宝，需要得到保护和传承。为了保护和发展拉祜族的文学艺术，拉祜族人民和中国政府采取了一系列措施：</p>
+                    
+                    <ul>
+                        <li><strong>收集整理：</strong>组织专人收集、整理拉祜族的民间文学、音乐、舞蹈、手工艺等资料，建立数据库，为后续的保护和传承工作提供基础。</li>
+                        <li><strong>抢救保护：</strong>对濒危的拉祜族文学艺术形式进行抢救性保护，如记录老艺人的技艺、收集传统乐器等。</li>
+                        <li><strong>教育传承：</strong>在拉祜族地区的学校中开设相关课程，教授拉祜族的文学艺术知识和技艺，培养年轻一代的传承人。</li>
+                        <li><strong>文化活动：</strong>举办各种文化活动，如民间文学讲座、音乐舞蹈表演、手工艺展示等，提高拉祜族文学艺术的知名度和影响力。</li>
+                        <li><strong>产业发展：</strong>将拉祜族的手工艺与现代产业相结合，发展文化产业，如开发手工艺品旅游纪念品等，为拉祜族文学艺术的传承和发展提供经济支持。</li>
+                    </ul>
+                    
+                    <h3>现代发展</h3>
+                    <p>在现代社会中，拉祜族的文学艺术也在不断发展和创新：</p>
+                    
+                    <ul>
+                        <li><strong>形式创新：</strong>拉祜族的文学艺术在保留传统特色的基础上，不断创新形式，如将传统音乐与现代音乐元素相结合，创作出新的音乐作品。</li>
+                        <li><strong>内容创新：</strong>拉祜族的文学艺术在保留传统内容的基础上，不断创新内容，如将现代生活元素融入到传统艺术形式中，创作出反映现代生活的艺术作品。</li>
+                        <li><strong>传播创新：</strong>利用现代媒体技术，如电视、广播、互联网等，传播拉祜族的文学艺术，扩大其影响力。</li>
+                        <li><strong>交流融合：</strong>与其他民族的文学艺术进行交流和融合，吸收其他民族文学艺术的精华，丰富拉祜族文学艺术的内涵。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的价值 -->
+                <section class="lahu-art-section">
+                    <h2>文学艺术的价值</h2>
+                    <p>拉祜族的文学艺术具有重要的历史、文化和艺术价值：</p>
+                    
+                    <div class="art-types">
+                        <div class="art-item">
+                            <h4>历史价值</h4>
+                            <p>拉祜族的文学艺术是拉祜族历史的重要载体，通过民间文学、音乐、舞蹈等形式，记录了拉祜族的历史发展过程，为研究拉祜族的历史提供了重要的资料。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>文化价值</h4>
+                            <p>拉祜族的文学艺术是拉祜族文化的重要组成部分，反映了拉祜族的文化传统、价值观念和审美情趣，是拉祜族文化传承的重要载体。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>艺术价值</h4>
+                            <p>拉祜族的文学艺术具有独特的艺术魅力，如民间文学的生动有趣、音乐舞蹈的优美动人、手工艺的精湛绝伦等，为中国乃至世界的艺术宝库增添了珍贵的财富。</p>
+                        </div>
+                        <div class="art-item">
+                            <h4>社会价值</h4>
+                            <p>拉祜族的文学艺术是拉祜族人民精神生活的重要内容，通过文学艺术活动，增强了拉祜族人民的凝聚力和向心力，促进了社会的和谐与稳定。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.lahu-art-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回族饮食文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 回族饮食文化页面特定样式 */
+        .hui-food-header {
+            background-image: url('images/文学艺术.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hui-food-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hui-food-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hui-food-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-food-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hui {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hui:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hui-food-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hui-food-section {
+            margin-bottom: 80px;
+        }
+        
+        .hui-food-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-food-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-food-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-food-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hui-food-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hui-food-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hui-food-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hui-food-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 饮食文化特点网格 */
+        .food-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .food-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .food-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .food-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 传统食品展示 */
+        .food-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .food-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .food-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .food-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+        
+        .food-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hui-food-header h1 {
+                font-size: 36px;
+            }
+            
+            .hui-food-header p {
+                font-size: 18px;
+            }
+            
+            .hui-food-section h2 {
+                font-size: 28px;
+            }
+            
+            .food-features-grid,
+            .food-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .hui-food-main {
+            opacity: 1 !important;
+        }
+        
+        .hui-food-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .food-feature-item,
+        .food-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="hui-food-header">
+        <div class="container">
+            <div class="hui-food-header-content">
+                <h1>回族饮食文化</h1>
+                <p>清真美食的独特魅力，展现回族的饮食智慧与文化传统</p>
+                <a href="hui.html" class="back-hui">返回回族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hui-food-main">
+        <div class="container">
+            <div class="hui-food-content">
+                <!-- 饮食文化概述 -->
+                <section class="hui-food-section">
+                    <h2>回族饮食文化概述</h2>
+                    <p>回族饮食文化是回族文化的重要组成部分，它融合了伊斯兰文化和中国传统文化的元素，形成了独特的饮食风格和文化特色。回族饮食文化不仅反映了回族的宗教信仰和生活方式，也展现了回族的饮食智慧和文化传统。</p>
+                    <p>回族饮食文化的核心是清真食品，它以伊斯兰教的教义和教规为基础，强调饮食的清洁、卫生和营养。回族饮食文化的发展经历了漫长的历史过程，从唐宋时期的初步形成，到元明清时期的繁荣发展，再到近现代的创新变革，回族饮食文化不断丰富和发展，成为中华文化宝库中的重要组成部分。</p>
+                </section>
+
+                <!-- 饮食特点 -->
+                <section class="hui-food-section">
+                    <h2>饮食特点</h2>
+                    <div class="food-features-grid">
+                        <div class="food-feature-item">
+                            <h5>清真为本</h5>
+                            <p>回族饮食以清真为本，严格遵守伊斯兰教的饮食规定，禁食猪肉、血液、自死物和非诵真主之名而宰杀的动物，确保食品的清洁和卫生。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>注重卫生</h5>
+                            <p>回族饮食注重卫生，强调食品的清洁和新鲜，制作过程严格遵守卫生规范，确保食品的安全和健康。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>营养丰富</h5>
+                            <p>回族饮食营养丰富，注重荤素搭配，合理膳食，如清真糕点、清真菜肴等，不仅美味可口，而且营养均衡。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>品种多样</h5>
+                            <p>回族饮食品种多样，包括面食、肉食、素食、糕点等，如兰州拉面、西安肉夹馍、新疆手抓羊肉、清真糕点等，满足不同人的口味需求。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>工艺独特</h5>
+                            <p>回族饮食工艺独特，如拉面的制作、糕点的烘焙、肉食的烹饪等，都有其独特的制作工艺和技巧，保证了食品的质量和口感。</p>
+                        </div>
+                        <div class="food-feature-item">
+                            <h5>文化融合</h5>
+                            <p>回族饮食文化融合了伊斯兰文化和中国传统文化的元素，如清真食品的制作工艺吸收了中国传统烹饪技术，形成了独特的饮食文化。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统食品 -->
+                <section class="hui-food-section">
+                    <h2>传统食品</h2>
+                    
+                    <h3>面食类</h3>
+                    <div class="food-showcase">
+                        <div class="food-item">
+                            <h5>兰州拉面</h5>
+                            <p>兰州拉面是回族的传统面食，以面条细、汤汁鲜、肉质嫩、味道香等特点而闻名，是中国著名的面食之一。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>西安肉夹馍</h5>
+                            <p>西安肉夹馍是回族的传统小吃，以馍脆、肉香等特点而闻名，是中国著名的小吃之一。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>油香</h5>
+                            <p>油香是回族的传统糕点，以面粉、油、糖等为原料制作而成，味道香甜可口，是回族节日和喜庆场合的必备食品。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>馓子</h5>
+                            <p>馓子是回族的传统糕点，以面粉、油等为原料制作而成，形状如细面条，味道香脆可口，是回族节日和喜庆场合的必备食品。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>肉食类</h3>
+                    <div class="food-showcase">
+                        <div class="food-item">
+                            <h5>新疆手抓羊肉</h5>
+                            <p>新疆手抓羊肉是回族的传统名菜，以羊肉鲜嫩、味道香等特点而闻名，是中国著名的肉食之一。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>清真牛肉</h5>
+                            <p>清真牛肉是回族的传统肉食，以牛肉鲜嫩、味道香等特点而闻名，是回族饮食中的重要组成部分。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>烤全羊</h5>
+                            <p>烤全羊是回族的传统名菜，以羊肉鲜嫩、味道香等特点而闻名，是回族节日和喜庆场合的必备食品。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>清真烧鸡</h5>
+                            <p>清真烧鸡是回族的传统肉食，以鸡肉鲜嫩、味道香等特点而闻名，是回族饮食中的重要组成部分。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>糕点类</h3>
+                    <div class="food-showcase">
+                        <div class="food-item">
+                            <h5>清真月饼</h5>
+                            <p>清真月饼是回族的传统糕点，以面粉、油、糖、芝麻等为原料制作而成，味道香甜可口，是回族中秋节的必备食品。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>清真蛋糕</h5>
+                            <p>清真蛋糕是回族的传统糕点，以面粉、鸡蛋、油、糖等为原料制作而成，味道香甜可口，是回族节日和喜庆场合的必备食品。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>麻花</h5>
+                            <p>麻花是回族的传统糕点，以面粉、油、糖等为原料制作而成，形状如麻绳，味道香脆可口，是回族饮食中的重要组成部分。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>清真饼干</h5>
+                            <p>清真饼干是回族的传统糕点，以面粉、油、糖等为原料制作而成，味道香甜可口，是回族饮食中的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食禁忌 -->
+                <section class="hui-food-section">
+                    <h2>饮食禁忌</h2>
+                    <p>回族的饮食禁忌是回族饮食文化的重要组成部分，它以伊斯兰教的教义和教规为基础，主要包括：</p>
+                    
+                    <h3>禁食猪肉</h3>
+                    <p>回族禁食猪肉，这是伊斯兰教的明确规定，也是回族饮食禁忌的核心内容。回族认为猪肉是不洁的，食用猪肉会污染人的身体和灵魂。</p>
+                    
+                    <h3>禁食血液</h3>
+                    <p>回族禁食血液，认为血液是动物的灵魂所在，食用血液会污染人的身体和灵魂。</p>
+                    
+                    <h3>禁食自死物</h3>
+                    <p>回族禁食自死物，认为自死物是不洁净的，食用自死物会污染人的身体和灵魂。</p>
+                    
+                    <h3>禁食非诵真主之名而宰杀的动物</h3>
+                    <p>回族禁食非诵真主之名而宰杀的动物，认为只有诵真主之名而宰杀的动物才是洁净的，才能食用。</p>
+                    
+                    <h3>禁食酒类</h3>
+                    <p>回族禁食酒类，认为酒类会麻醉人的神经，使人失去理智，违反伊斯兰教的教义和教规。</p>
+                </section>
+
+                <!-- 饮食文化的社会功能 -->
+                <section class="hui-food-section">
+                    <h2>饮食文化的社会功能</h2>
+                    
+                    <h3>宗教功能</h3>
+                    <p>回族饮食文化具有重要的宗教功能，它是回族宗教信仰的重要体现，通过饮食禁忌和清真食品的制作，回族表达了对伊斯兰教的信仰和对安拉的敬畏。</p>
+                    
+                    <h3>文化功能</h3>
+                    <p>回族饮食文化具有重要的文化功能，它是回族文化传承的重要载体，通过饮食习俗的实践，回族将自己的文化传统传递给下一代。</p>
+                    
+                    <h3>社交功能</h3>
+                    <p>回族饮食文化具有重要的社交功能，它是回族社会交往的重要手段，通过聚餐、宴请等活动，回族增强了内部的团结和凝聚力，促进了与其他民族的交流和理解。</p>
+                    
+                    <h3>经济功能</h3>
+                    <p>回族饮食文化具有重要的经济功能，它是回族经济发展的重要组成部分，清真食品产业的发展为回族提供了就业机会，促进了回族经济的繁荣。</p>
+                </section>
+
+                <!-- 饮食文化的传承与发展 -->
+                <section class="hui-food-section">
+                    <h2>饮食文化的传承与发展</h2>
+                    
+                    <h3>历史传承</h3>
+                    <p>回族饮食文化的传承主要通过以下方式：</p>
+                    <ul>
+                        <li><strong>家庭传承：</strong> 回族饮食文化主要通过家庭传承的方式传递给下一代，家长通过言传身教，将饮食习俗和制作工艺传授给子女。</li>
+                        <li><strong>社区传承：</strong> 回族饮食文化通过社区传承的方式传递，清真寺和回族社区组织通过举办各种活动，促进饮食文化的传承。</li>
+                        <li><strong>行业传承：</strong> 回族饮食文化通过行业传承的方式传递，清真食品企业和从业者通过师徒传承、技术培训等方式，促进饮食文化的传承。</li>
+                    </ul>
+                    
+                    <h3>现代发展</h3>
+                    <p>近现代以来，回族饮食文化在传承传统的基础上，不断创新和发展：</p>
+                    <ul>
+                        <li><strong>品种创新：</strong> 回族饮食文化不断创新，开发出许多新的清真食品品种，如清真快餐、清真方便食品等，满足现代社会的需求。</li>
+                        <li><strong>工艺创新：</strong> 回族饮食文化在制作工艺上不断创新，采用现代科技手段，提高食品的质量和口感。</li>
+                        <li><strong>产业发展：</strong> 回族饮食文化的产业发展迅速，清真食品企业不断壮大，清真食品市场不断扩大，成为回族经济的重要支柱。</li>
+                        <li><strong>文化传播：</strong> 回族饮食文化的传播范围不断扩大，通过媒体、旅游等方式，向国内外介绍回族饮食文化，提高了回族饮食文化的知名度和影响力。</li>
+                    </ul>
+                    
+                    <h3>当代挑战与机遇</h3>
+                    <p>当代回族饮食文化面临着一些挑战，同时也迎来了新的机遇：</p>
+                    <ul>
+                        <li><strong>挑战：</strong> 现代化、全球化的发展对回族传统饮食文化产生了冲击，一些传统食品制作工艺面临失传的危险；市场经济的发展对回族饮食文化的传承产生了影响，一些企业过于追求经济效益，忽视了饮食文化的内涵。</li>
+                        <li><strong>机遇：</strong> 国家对非物质文化遗产的保护为回族传统饮食文化的传承和发展提供了新的机遇；现代科技的发展为回族饮食文化的创新和传播提供了新的手段；文化交流的扩大为回族饮食文化的发展提供了新的空间。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化的文化意义 -->
+                <section class="hui-food-section">
+                    <h2>饮食文化的文化意义</h2>
+                    
+                    <h3>民族认同</h3>
+                    <p>回族饮食文化是回族民族认同的重要标志，通过共同的饮食习俗和饮食禁忌，回族增强了对自己民族的认同感和归属感。</p>
+                    
+                    <h3>文化融合</h3>
+                    <p>回族饮食文化体现了文化融合的特点，它融合了伊斯兰文化和中国传统文化的元素，形成了独特的饮食文化，展现了中华文化的多元性和包容性。</p>
+                    
+                    <h3>文化交流</h3>
+                    <p>回族饮食文化是回族与其他民族文化交流的重要桥梁，通过饮食文化的交流，回族向其他民族展示了自己的文化特色和魅力，同时也吸收了其他民族饮食文化的精华。</p>
+                    
+                    <h3>文化传承</h3>
+                    <p>回族饮食文化是回族文化传承的重要载体，通过饮食习俗的实践和传统食品的制作，回族将自己的文化传统传递给下一代，确保文化的延续和发展。</p>
+                    
+                    <h3>文化创新</h3>
+                    <p>回族饮食文化是回族文化创新的重要动力，通过不断的饮食实践和创新，回族文化不断丰富和发展，展现了时代精神和民族特色。</p>
+                </section>
+
+                <!-- 著名清真食品品牌 -->
+                <section class="hui-food-section">
+                    <h2>著名清真食品品牌</h2>
+                    <p>回族饮食文化的发展催生了许多著名的清真食品品牌，这些品牌不仅在国内享有盛誉，也在国际上具有一定的影响力：</p>
+                    
+                    <h3>国内品牌</h3>
+                    <ul>
+                        <li><strong>兰州拉面：</strong> 兰州拉面是中国著名的清真面食品牌，以其独特的制作工艺和美味的口感而闻名全国。</li>
+                        <li><strong>西安肉夹馍：</strong> 西安肉夹馍是中国著名的清真小吃品牌，以其馍脆肉香的特点而闻名全国。</li>
+                        <li><strong>新疆手抓羊肉：</strong> 新疆手抓羊肉是中国著名的清真肉食品牌，以其鲜嫩可口的特点而闻名全国。</li>
+                        <li><strong>清真糕点：</strong> 清真糕点是中国著名的清真食品品牌，以其香甜可口的特点而闻名全国。</li>
+                    </ul>
+                    
+                    <h3>国际品牌</h3>
+                    <ul>
+                        <li><strong>清真食品出口：</strong> 中国的清真食品已经出口到世界许多国家和地区，如中东、东南亚、欧洲等，受到当地消费者的喜爱。</li>
+                        <li><strong>国际认证：</strong> 中国的一些清真食品企业已经获得了国际清真食品认证，如HALAL认证，为清真食品的国际市场开拓奠定了基础。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

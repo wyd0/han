@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傈僳族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傈僳族宗教信仰页面特定样式 */
+        .lisu-religion-header {
+            background-image: url('images/傈僳族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lisu-religion-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lisu-religion-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lisu-religion-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-religion-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lisu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lisu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lisu-religion-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lisu-religion-section {
+            margin-bottom: 80px;
+        }
+        
+        .lisu-religion-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-religion-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-religion-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lisu-religion-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lisu-religion-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lisu-religion-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lisu-religion-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教信仰特点样式 */
+        .religion-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .religion-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .religion-feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .religion-feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 宗教仪式样式 */
+        .religion-rituals {
+            margin: 25px 0;
+        }
+        
+        .ritual-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        
+        .ritual-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lisu-religion-header h1 {
+                font-size: 36px;
+            }
+            
+            .lisu-religion-header p {
+                font-size: 18px;
+            }
+            
+            .lisu-religion-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lisu-religion-header">
+        <div class="container">
+            <div class="lisu-religion-header-content">
+                <h1>傈僳族宗教信仰</h1>
+                <p>自然与祖先的精神世界</p>
+                <a href="lisu.html" class="back-lisu">返回傈僳族</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lisu-religion-main">
+        <div class="container">
+            <div class="lisu-religion-content">
+                <!-- 宗教信仰概述 -->
+                <section class="lisu-religion-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>傈僳族的宗教信仰是傈僳族文化的重要组成部分，主要包括原始宗教、基督教和天主教。其中，原始宗教是傈僳族最传统、最广泛的信仰形式，对傈僳族的社会生活、文化习俗产生了深远的影响。</p>
+                </section>
+
+                <!-- 原始宗教 -->
+                <section class="lisu-religion-section">
+                    <h2>原始宗教</h2>
+                    <p>傈僳族的原始宗教是一种多神信仰，崇拜自然，信仰万物有灵，主要包括以下几个方面：</p>
+                    
+                    <div class="religion-features">
+                        <div class="religion-feature-item">
+                            <h4>自然崇拜</h4>
+                            <p>傈僳族崇拜自然，认为自然界的一切事物都有神灵存在，如天神、地神、山神、水神、树神等。他们对这些自然神灵充满敬畏，认为神灵可以保佑他们平安幸福，也可以惩罚他们的过错。</p>
+                        </div>
+                        <div class="religion-feature-item">
+                            <h4>祖先崇拜</h4>
+                            <p>傈僳族信仰祖先崇拜，认为祖先的灵魂会保护后代。他们会在特定的时间举行祭祖仪式，向祖先祈求保佑，表达对祖先的敬意和思念。</p>
+                        </div>
+                        <div class="religion-feature-item">
+                            <h4>图腾崇拜</h4>
+                            <p>部分傈僳族地区还保留着图腾崇拜的痕迹，如崇拜虎、熊、鹰等动物，认为这些动物是他们的祖先或保护神。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 宗教仪式 -->
+                <section class="lisu-religion-section">
+                    <h2>宗教仪式</h2>
+                    <p>傈僳族的原始宗教有丰富的仪式活动，这些仪式是傈僳族宗教信仰的重要表现形式：</p>
+                    
+                    <div class="religion-rituals">
+                        <div class="ritual-item">
+                            <h4>祭天仪式</h4>
+                            <p>祭天是傈僳族最重要的宗教仪式之一，通常在每年的农历正月或二月举行。在仪式中，傈僳族人民会宰杀牲畜，向天神献祭，祈求天神保佑风调雨顺、五谷丰登、人畜平安。</p>
+                        </div>
+                        
+                        <div class="ritual-item">
+                            <h4>祭山仪式</h4>
+                            <p>祭山仪式通常在每年的春耕前举行，是傈僳族祈求山神保佑农业丰收的重要仪式。在仪式中，傈僳族人民会在山上设置祭坛，宰杀牲畜，向山神献祭。</p>
+                        </div>
+                        
+                        <div class="ritual-item">
+                            <h4>祭祖仪式</h4>
+                            <p>祭祖仪式是傈僳族表达对祖先敬意和思念的重要仪式，通常在每年的农历七月或八月举行。在仪式中，傈僳族人民会准备丰盛的食物，向祖先的牌位或灵位献祭，祈求祖先的保佑。</p>
+                        </div>
+                        
+                        <div class="ritual-item">
+                            <h4>驱鬼仪式</h4>
+                            <p>驱鬼仪式是傈僳族用来驱赶疾病、灾难和不幸的仪式。当有人生病或遇到不幸时，傈僳族人民会请巫师举行驱鬼仪式，驱赶附在人身上的恶鬼。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 巫师与宗教活动 -->
+                <section class="lisu-religion-section">
+                    <h2>巫师与宗教活动</h2>
+                    
+                    <h3>巫师</h3>
+                    <p>在傈僳族的原始宗教中，巫师（傈僳语称为“尼玛”或“尼古扒”）是沟通人与神灵的桥梁，具有重要的社会地位：</p>
+                    <ul>
+                        <li><strong>职责：</strong>巫师负责主持各种宗教仪式，如祭天、祭山、祭祖、驱鬼等，同时也是傈僳族的医生，用草药和咒语治疗疾病。</li>
+                        <li><strong>传承：</strong>巫师的传承通常是通过师徒传承或家族传承的方式，需要经过长期的学习和实践才能成为合格的巫师。</li>
+                        <li><strong>地位：</strong>巫师在傈僳族社会中享有很高的地位，受到人们的尊敬和信任。</li>
+                    </ul>
+                    
+                    <h3>宗教活动</h3>
+                    <p>傈僳族的宗教活动贯穿于他们的日常生活和重要节日中：</p>
+                    <ul>
+                        <li><strong>日常宗教活动：</strong>傈僳族在日常生活中会进行一些简单的宗教活动，如饭前祈祷、出门前占卜等。</li>
+                        <li><strong>节日宗教活动：</strong>在重要的节日如刀杆节、新米节等，傈僳族会举行盛大的宗教仪式，庆祝节日，祈求神灵的保佑。</li>
+                        <li><strong>人生礼仪宗教活动：</strong>在出生、成年、结婚、死亡等人生重要阶段，傈僳族会举行相应的宗教仪式，祈求神灵的保佑和指引。</li>
+                    </ul>
+                </section>
+
+                <!-- 基督教与天主教 -->
+                <section class="lisu-religion-section">
+                    <h2>基督教与天主教</h2>
+                    <p>19世纪末20世纪初，基督教和天主教传入傈僳族地区，对傈僳族的宗教信仰产生了一定的影响：</p>
+                    
+                    <h3>基督教</h3>
+                    <ul>
+                        <li><strong>传入时间：</strong>19世纪末20世纪初，由英国、美国等国家的传教士传入傈僳族地区。</li>
+                        <li><strong>传播情况：</strong>基督教在傈僳族地区得到了广泛的传播，特别是在怒江、德宏等地区，有大量的傈僳族群众信仰基督教。</li>
+                        <li><strong>影响：</strong>基督教的传入对傈僳族的文化产生了一定的影响，如创制了傈僳文，翻译了《圣经》等。</li>
+                    </ul>
+                    
+                    <h3>天主教</h3>
+                    <ul>
+                        <li><strong>传入时间：</strong>20世纪初，由法国等国家的传教士传入傈僳族地区。</li>
+                        <li><strong>传播情况：</strong>天主教在傈僳族地区的传播范围相对较小，主要集中在一些特定的地区。</li>
+                        <li><strong>影响：</strong>天主教的传入也对傈僳族的文化产生了一定的影响，如建立了教堂，开展了一些慈善活动等。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教信仰的影响 -->
+                <section class="lisu-religion-section">
+                    <h2>宗教信仰的影响</h2>
+                    <p>傈僳族的宗教信仰对傈僳族的文化、社会生活产生了深远的影响：</p>
+                    
+                    <div class="religion-features">
+                        <div class="religion-feature-item">
+                            <h4>对文化的影响</h4>
+                            <p>傈僳族的宗教信仰是傈僳族文化的重要组成部分，影响了傈僳族的文学、艺术、音乐、舞蹈等方面。例如，傈僳族的民间故事、神话传说很多都与宗教信仰有关。</p>
+                        </div>
+                        <div class="religion-feature-item">
+                            <h4>对社会生活的影响</h4>
+                            <p>傈僳族的宗教信仰影响了傈僳族的社会生活，如婚姻、家庭、丧葬等方面都有宗教仪式的参与。宗教信仰也对傈僳族的道德观念、价值观念产生了一定的影响。</p>
+                        </div>
+                        <div class="religion-feature-item">
+                            <h4>对生态环境的影响</h4>
+                            <p>傈僳族的原始宗教信仰强调人与自然的和谐相处，对傈僳族的生态环境保护意识产生了积极的影响。他们尊重自然，爱护环境，有着朴素的环保观念。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

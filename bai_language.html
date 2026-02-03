@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 白族语言文字页面特定样式 */
+        .bai-header {
+            background-image: url('images/白族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .bai-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .bai-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .bai-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .bai-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-bai {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-bai:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .bai-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .bai-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .bai-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .bai-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .bai-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .bai-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .bai-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .bai-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .bai-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .bai-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .bai-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言文字展示 */
+        .language-showcase {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .language-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .language-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+        
+        .language-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* 白文示例 */
+        .baiwen-example {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .baiwen-example h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .baiwen-example p {
+            font-size: 16px;
+            color: #555;
+            margin: 0 0 10px;
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .bai-header h1 {
+                font-size: 36px;
+            }
+            
+            .bai-header p {
+                font-size: 18px;
+            }
+            
+            .bai-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-showcase {
+                flex-direction: column;
+            }
+            
+            .language-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="bai-header">
+        <div class="container">
+            <div class="bai-header-content">
+                <h1>白族语言文字</h1>
+                <p>白语与方块白文的传承与发展</p>
+                <a href="bai.html" class="back-bai">返回白族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="bai-main">
+        <div class="container">
+            <div class="bai-content">
+                <!-- 语言文字概述 -->
+                <section class="bai-section">
+                    <h2>语言文字概述</h2>
+                    <p>白族是一个拥有自己语言和文字的民族。白语是白族人民的母语，属汉藏语系藏缅语族白语支。白族历史上曾经创制过自己的文字，称为白文，也称为"方块白文"，是一种以汉字为基础创制的文字。</p>
+                    <p>白语在白族地区有着广泛的使用，是白族人民日常交流的重要工具。虽然现在白族人民普遍使用汉文，但白语仍然在白族的家庭生活、民间活动、传统节日等场合中被广泛使用，是白族文化传承的重要载体。</p>
+                    <p>白文作为白族的传统文字，虽然在历史上曾经一度衰落，但近年来随着白族文化的复兴，白文的研究、整理和推广工作也取得了显著的成效，为白族文化的传承和发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 白语 -->
+                <section class="bai-section">
+                    <h3>白语</h3>
+                    <p>白语是白族人民的母语，属汉藏语系藏缅语族白语支。白语的使用范围主要集中在云南省大理白族自治州，以及云南省的丽江、保山、怒江、昆明等地的白族聚居区。</p>
+                    <h4>白语的方言</h4>
+                    <p>白语根据语音、词汇、语法等方面的差异，可以分为三个主要方言：</p>
+                    <ul>
+                        <li><strong>南部方言：</strong>主要分布在大理白族自治州的大理市、洱源县、宾川县、祥云县、弥渡县、巍山彝族回族自治县等地，是白语的主要方言，也是白语的标准语基础。</li>
+                        <li><strong>中部方言：</strong>主要分布在大理白族自治州的剑川县、鹤庆县等地，与南部方言有一定的差异。</li>
+                        <li><strong>北部方言：</strong>主要分布在丽江市的宁蒗彝族自治县、玉龙纳西族自治县，以及怒江傈僳族自治州的兰坪白族普米族自治县等地，与南部方言的差异较大。</li>
+                    </ul>
+                    <h4>白语的特点</h4>
+                    <p>白语具有以下主要特点：</p>
+                    <ul>
+                        <li><strong>语音：</strong>白语的语音系统较为复杂，有20多个辅音和10多个元音，还有丰富的声调变化。白语的声调一般分为高平、高降、中平、低降四个声调，部分方言还有第五个声调。</li>
+                        <li><strong>词汇：</strong>白语的词汇丰富，包括大量的固有词汇和借词。固有词汇是白语的核心词汇，反映了白族人民的生产生活、风俗习惯、宗教信仰等。借词主要来自汉语，还有少量来自其他民族语言。</li>
+                        <li><strong>语法：</strong>白语的语法结构属于粘着语类型，主要通过词缀和助词来表示语法意义。白语的语序一般为"主语-谓语-宾语"，但在某些情况下也会有所变化。</li>
+                        <li><strong>词汇：</strong>白语中有大量的四音格词，这是白语词汇的一个重要特点。四音格词结构整齐，韵律和谐，表现力强，是白语词汇的精华。</li>
+                    </ul>
+                </section>
+
+                <!-- 白文 -->
+                <section class="bai-section">
+                    <h3>白文</h3>
+                    <p>白文是白族历史上创制的文字，也称为"方块白文"、"汉字白文"或"白族古文字"。白文是以汉字为基础，根据白语的语音和语法特点创制的一种文字。</p>
+                    <h4>白文的历史发展</h4>
+                    <p>白文的历史可以追溯到南诏时期（公元738-902年）。据史书记载，南诏时期的白族人民就已经开始使用白文来记录历史、文学作品等。到了大理国时期（公元937-1253年），白文的使用更加广泛，出现了大量用白文写成的文献资料。</p>
+                    <p>元明清时期，由于中央政府推行汉文教育，白文的使用逐渐衰落，但在民间仍然有一定的使用。近现代以来，随着白族文化的复兴，白文的研究、整理和推广工作也取得了显著的成效。</p>
+                    <h4>白文的特点</h4>
+                    <p>白文具有以下主要特点：</p>
+                    <ul>
+                        <li><strong>以汉字为基础：</strong>白文是在汉字的基础上创制的，借用了大量的汉字字形和字义。</li>
+                        <li><strong>记录白语：</strong>白文是专门用来记录白语的，能够准确反映白语的语音、词汇和语法特点。</li>
+                        <li><strong>多体并用：</strong>白文有多种书写形式，包括借用汉字、改造汉字、自造新字等。</li>
+                        <li><strong>历史悠久：</strong>白文的历史悠久，是中国少数民族文字中历史较为悠久的一种。</li>
+                    </ul>
+                    <div class="baiwen-example">
+                        <h5>白文示例</h5>
+                        <p><strong>白文：</strong>阿吒力教是白族的传统宗教</p>
+                        <p><strong>发音：</strong>A zha li jiao ssi be zix hol yind zong jiao</p>
+                        <p><strong>汉文：</strong>阿吒力教是白族的传统宗教</p>
+                    </div>
+                </section>
+
+                <!-- 白语白文的传承与发展 -->
+                <section class="bai-section">
+                    <h3>白语白文的传承与发展</h3>
+                    <p>白语白文是白族文化的重要组成部分，是白族人民智慧的结晶。近年来，随着白族文化的复兴，白语白文的传承与发展工作也受到了越来越多的关注和重视。</p>
+                    <h4>白语的传承与保护</h4>
+                    <ul>
+                        <li><strong>语言教育：</strong>在白族地区的学校中，开设白语课程，教授白语知识，培养白族青少年的白语能力。</li>
+                        <li><strong>媒体传播：</strong>利用广播、电视、报纸、网络等媒体，传播白语节目和白语内容，扩大白语的影响。</li>
+                        <li><strong>民间活动：</strong>在白族的传统节日、民间活动中，鼓励使用白语，营造白语使用的良好氛围。</li>
+                        <li><strong>语言研究：</strong>加强白语的研究工作，建立白语语料库，编写白语词典、语法书等，为白语的传承和发展提供理论支持。</li>
+                    </ul>
+                    <h4>白文的整理与推广</h4>
+                    <ul>
+                        <li><strong>文献整理：</strong>收集、整理、研究白文历史文献，抢救和保护白文文化遗产。</li>
+                        <li><strong>规范制定：</strong>制定白文的书写规范和标准，为白文的推广使用提供依据。</li>
+                        <li><strong>教材编写：</strong>编写白文教材，在白族地区的学校中试用，培养白文的读写能力。</li>
+                        <li><strong>文化产品：</strong>利用白文创作文学作品、歌曲、戏曲等文化产品，丰富白文的使用场景。</li>
+                    </ul>
+                </section>
+
+                <!-- 白语白文与文化传承 -->
+                <section class="bai-section">
+                    <h3>白语白文与文化传承</h3>
+                    <p>白语白文是白族文化传承的重要载体，对白族文化的传承和发展起到了至关重要的作用。</p>
+                    <h4>白语与文化传承</h4>
+                    <ul>
+                        <li><strong>民间文学：</strong>白族的民间故事、传说、谚语、谜语等，都是通过白语口口相传的，白语是白族民间文学传承的重要工具。</li>
+                        <li><strong>音乐舞蹈：</strong>白族的民间歌曲、舞蹈等，都是用白语演唱和表达的，白语是白族音乐舞蹈传承的重要载体。</li>
+                        <li><strong>宗教信仰：</strong>白族的本主崇拜、佛教、道教等宗教活动中，白语是重要的宗教语言，许多宗教仪式和经文都是用白语进行的。</li>
+                        <li><strong>风俗习惯：</strong>白族的婚丧嫁娶、节日庆典等风俗习惯中，白语是重要的交流工具，许多传统习俗都是通过白语来传承的。</li>
+                    </ul>
+                    <h4>白文与文化传承</h4>
+                    <ul>
+                        <li><strong>历史文献：</strong>白文历史文献是白族历史文化的重要记录，包括历史记载、文学作品、宗教经典等，为我们了解白族的历史文化提供了重要的资料。</li>
+                        <li><strong>文学创作：</strong>白文是白族文学创作的重要工具，历史上许多白族文人用白文创作了大量的文学作品，如诗歌、散文、小说等。</li>
+                        <li><strong>宗教经典：</strong>白文是白族宗教经典的重要载体，许多本主崇拜、佛教、道教的经典都是用白文写成的。</li>
+                        <li><strong>文化认同：</strong>白文是白族文化认同的重要标志，使用白文有助于增强白族人民的民族自豪感和文化认同感。</li>
+                    </ul>
+                    <div class="language-showcase">
+                        <div class="language-item">
+                            <h5>白语口头传统</h5>
+                            <p>白族的民间故事、传说、谚语等口头传统，通过白语口口相传，传承了白族的历史文化和智慧。</p>
+                        </div>
+                        <div class="language-item">
+                            <h5>白文文献</h5>
+                            <p>白文历史文献记录了白族的历史、文化、宗教等方面的内容，是白族文化的重要遗产。</p>
+                        </div>
+                        <div class="language-item">
+                            <h5>白语教育</h5>
+                            <p>在白族地区的学校中开设白语课程，培养白族青少年的白语能力，促进白语的传承和发展。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 白语白文的现状与未来 -->
+                <section class="bai-section">
+                    <h3>白语白文的现状与未来</h3>
+                    <p>随着社会的发展和变迁，白语白文的传承与发展面临着一些挑战，同时也迎来了新的机遇。</p>
+                    <h4>现状</h4>
+                    <ul>
+                        <li><strong>白语的使用：</strong>在白族地区，特别是在农村地区，白语仍然是白族人民日常交流的主要语言。但在城市地区，由于受汉语的影响，白语的使用范围逐渐缩小，许多年轻的白族人口语能力下降。</li>
+                        <li><strong>白文的使用：</strong>白文的使用范围相对较小，主要用于宗教活动、民间文学创作等方面。但近年来，随着白族文化的复兴，白文的研究、整理和推广工作取得了显著的成效。</li>
+                        <li><strong>传承与保护：</strong>政府和社会各界对以白语白文的传承与保护工作越来越重视，采取了一系列措施，如开设白语课程、建立白语语料库、整理白文文献等。</li>
+                    </ul>
+                    <h4>未来</h4>
+                    <ul>
+                        <li><strong>语言教育：</strong>进一步加强白语教育，在白族地区的学校中普遍开设白语课程，培养白族青少年的白语能力。</li>
+                        <li><strong>媒体传播：</strong>利用现代媒体技术，如广播、电视、网络、手机应用等，传播白语白文内容，扩大白语白文的影响。</li>
+                        <li><strong>文化创新：</strong>在保持白语白文传统特色的基础上，进行文化创新，创作符合时代需求的白语白文文化产品，如歌曲、电影、电视剧等。</li>
+                        <li><strong>国际交流：</strong>加强与其他国家和民族的语言文化交流，吸收先进的语言文化保护经验，促进白语白文的传承与发展。</li>
+                    </ul>
+                    <p>白语白文是白族文化的瑰宝，是中华民族语言文化宝库中的重要组成部分。我们相信，在政府和社会各界的共同努力下，白语白文一定能够得到更好的传承和发展，为白族文化的繁荣和中华民族文化的多样性做出更大的贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

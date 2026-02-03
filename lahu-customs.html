@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉祜族传统习俗 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 拉祜族传统习俗页面特定样式 */
+        .lahu-customs-header {
+            background-image: url('images/lahu-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lahu-customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lahu-customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lahu-customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-lahu {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-lahu:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lahu-customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lahu-customs-section {
+            margin-bottom: 80px;
+        }
+        
+        .lahu-customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lahu-customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lahu-customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lahu-customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lahu-customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 习俗类型样式 */
+        .customs-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .customs-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .customs-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 婚礼习俗样式 */
+        .wedding-customs {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .wedding-customs h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .wedding-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .wedding-step {
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .wedding-step h5 {
+            color: #c0392b;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+        
+        /* 葬礼习俗样式 */
+        .funeral-customs {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .funeral-customs h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 节日习俗样式 */
+        .festival-customs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 日常习俗样式 */
+        .daily-customs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .daily-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .daily-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lahu-customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .lahu-customs-header p {
+                font-size: 18px;
+            }
+            
+            .lahu-customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-types,
+            .wedding-steps,
+            .festival-customs,
+            .daily-customs {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        .lahu-customs-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .lahu-customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lahu-customs-header">
+        <div class="container">
+            <div class="lahu-customs-header-content">
+                <h1>拉祜族传统习俗</h1>
+                <p>民族文化的瑰宝，生活智慧的结晶</p>
+                <a href="lahu.html" class="back-lahu">返回拉祜族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lahu-customs-main">
+        <div class="container">
+            <div class="lahu-customs-content">
+                <!-- 传统习俗概况 -->
+                <section class="lahu-customs-section">
+                    <h2>拉祜族传统习俗概况</h2>
+                    <p>拉祜族有着丰富多彩的传统习俗，这些习俗是拉祜族文化的重要组成部分，反映了拉祜族人民的生活方式、价值观念和审美情趣。拉祜族的传统习俗涵盖了生产、生活、婚姻、家庭、节日等各个方面，具有鲜明的民族特色。</p>
+                    <p>拉祜族的传统习俗是在长期的历史发展过程中形成的，与拉祜族的自然环境、生产方式、宗教信仰等密切相关。这些习俗不仅是拉祜族人民生活的重要内容，也是拉祜族文化传承的重要载体。</p>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="lahu-customs-section">
+                    <h2>婚姻习俗</h2>
+                    <p>拉祜族的婚姻习俗具有独特的民族特色，反映了拉祜族人民对婚姻和家庭的重视。</p>
+                    
+                    <h3>婚姻形式</h3>
+                    <div class="customs-types">
+                        <div class="customs-item">
+                            <h4>自由恋爱</h4>
+                            <p>拉祜族青年男女享有婚姻自由，他们通常通过唱歌、跳舞等方式相互认识和表达爱意。在节日或集会时，青年男女会聚集在一起，通过对歌、跳舞等活动增进了解，建立感情。</p>
+                        </div>
+                        <div class="customs-item">
+                            <h4>父母包办</h4>
+                            <p>虽然拉祜族青年男女享有婚姻自由，但在一些传统的拉祜族社区中，父母包办婚姻的现象仍然存在。不过，这种包办婚姻通常也会尊重男女双方的意愿。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>婚礼仪式</h3>
+                    <div class="wedding-customs">
+                        <h4>传统婚礼仪式</h4>
+                        <div class="wedding-steps">
+                            <div class="wedding-step">
+                                <h5>提亲</h5>
+                                <p>男方父母或长辈带着礼物到女方家提亲，表达男方的诚意和对女方的尊重。</p>
+                            </div>
+                            <div class="wedding-step">
+                                <h5>订婚</h5>
+                                <p>双方家长商定婚期和彩礼等事项，举行订婚仪式，确认婚姻关系。</p>
+                            </div>
+                            <div class="wedding-step">
+                                <h5>迎亲</h5>
+                                <p>结婚当天，男方带着迎亲队伍到女方家迎娶新娘。迎亲队伍通常由男方的亲友组成，他们会唱歌、跳舞，热闹非凡。</p>
+                            </div>
+                            <div class="wedding-step">
+                                <h5>拜堂</h5>
+                                <p>新娘到达男方家后，举行拜堂仪式，拜天地、拜祖先、拜父母，然后夫妻对拜。</p>
+                            </div>
+                            <div class="wedding-step">
+                                <h5>婚宴</h5>
+                                <p>拜堂后，举行婚宴，宴请亲友。婚宴上，大家会唱歌、跳舞，祝福新人。</p>
+                            </div>
+                            <div class="wedding-step">
+                                <h5>闹洞房</h5>
+                                <p>婚宴后，亲友会闹洞房，为新人增添喜庆气氛。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>婚姻禁忌</h3>
+                    <ul>
+                        <li>禁止同姓通婚。</li>
+                        <li>禁止近亲通婚。</li>
+                        <li>禁止在重要的宗教节日或仪式期间结婚。</li>
+                        <li>禁止在父母去世后的守孝期间结婚。</li>
+                    </ul>
+                </section>
+
+                <!-- 家庭习俗 -->
+                <section class="lahu-customs-section">
+                    <h2>家庭习俗</h2>
+                    <p>拉祜族的家庭习俗反映了拉祜族的家庭观念和伦理道德。</p>
+                    
+                    <div class="customs-types">
+                        <div class="customs-item">
+                            <h4>家庭结构</h4>
+                            <p>拉祜族的家庭结构以核心家庭为主，即由父母和子女组成的家庭。在一些传统的拉祜族社区中，也存在大家庭的形式，即由祖父母、父母、子女等多代人组成的家庭。</p>
+                        </div>
+                        <div class="customs-item">
+                            <h4>家庭观念</h4>
+                            <p>拉祜族非常重视家庭，认为家庭是社会的基本单位。拉祜族人民注重家庭团结，尊重长辈，爱护晚辈，家庭关系和谐。</p>
+                        </div>
+                        <div class="customs-item">
+                            <h4>财产继承</h4>
+                            <p>拉祜族的财产继承通常采用诸子均分的方式，即父母的财产由儿子们平均分配。女儿在出嫁时会得到一定的嫁妆，但一般不参与父母财产的分配。</p>
+                        </div>
+                        <div class="customs-item">
+                            <h4>家庭责任</h4>
+                            <p>拉祜族家庭成员之间有着明确的责任分工。男性主要负责外出劳动，如种地、狩猎等；女性主要负责家务劳动，如做饭、织布、照顾孩子等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 葬礼习俗 -->
+                <section class="lahu-customs-section">
+                    <h2>葬礼习俗</h2>
+                    <p>拉祜族的葬礼习俗反映了拉祜族对生命和死亡的认识，是拉祜族文化的重要组成部分。</p>
+                    
+                    <div class="funeral-customs">
+                        <h4>传统葬礼仪式</h4>
+                        <ul>
+                            <li><strong>报丧：</strong>人去世后，家属会立即通知亲友，亲友会前来吊唁。</li>
+                            <li><strong>停灵：</strong>死者的遗体在家中停放几天，期间亲友会前来吊唁，家属会为死者准备后事。</li>
+                            <li><strong>出殡：</strong>停灵结束后，举行出殡仪式，将死者的遗体送往墓地安葬。出殡队伍通常由死者的亲友组成，他们会唱歌、跳舞，为死者送行。</li>
+                            <li><strong>安葬：</strong>死者的遗体被安葬在事先选定的墓地中，家属会为死者修建坟墓。</li>
+                            <li><strong>守孝：</strong>死者的家属会为死者守孝一段时间，期间要遵守一定的禁忌，如不穿鲜艳的衣服、不参加娱乐活动等。</li>
+                            <li><strong>祭祀：</strong>死者去世后，家属会定期为死者举行祭祀仪式，缅怀死者，祈求死者的灵魂保佑家人平安。</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>葬礼禁忌</h3>
+                    <ul>
+                        <li>禁止在死者去世后的三天内打扫房屋。</li>
+                        <li>禁止在葬礼期间说不吉利的话。</li>
+                        <li>禁止在墓地附近大小便。</li>
+                        <li>禁止在守孝期间参加娱乐活动或举办喜庆的事情。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="lahu-customs-section">
+                    <h2>节日习俗</h2>
+                    <p>拉祜族有许多传统节日，这些节日是拉祜族文化的重要组成部分，反映了拉祜族的生产生活和宗教信仰。</p>
+                    
+                    <div class="festival-customs">
+                        <div class="festival-item">
+                            <h4>葫芦节</h4>
+                            <p>葫芦节是拉祜族最重要的传统节日，通常在农历十月十六举行。在节日期间，拉祜族人民会穿上盛装，举行跳舞、唱歌、演戏、斗牛等庆祝活动，祈求来年风调雨顺，五谷丰登。葫芦节是拉祜族庆典丰收和生命的节日，葫芦是拉祜族的图腾之一，象征着生命和繁衍。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>春节</h4>
+                            <p>春节是拉祜族的传统节日之一，通常在农历正月初一举行。在节日期间，拉祜族人民会打扫房屋，贴春联，放鞭炮，吃团圆饭。他们也会举行各种庆祝活动，如唱歌、跳舞、打陀螺、荡秋千等，祈求新年平安幸福。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>清明节</h4>
+                            <p>清明节是拉祜族的传统节日之一，通常在公历四月五日前后举行。在节日期间，拉祜族人民会扫墓祭祖，缅怀祖先。他们会准备丰富的食品，如烤肉、水果、米饭等，供奉给祖先，祈求祖先保佑后代平安健康。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>端午节</h4>
+                            <p>端午节是拉祜族的传统节日之一，通常在农历五月初五举行。在节日期间，拉祜族人民会吃粽子、喝雄黄酒，举行各种庆祝活动，如划龙舟、荡秋千等，祈求平安健康。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>中秋节</h4>
+                            <p>中秋节是拉祜族的传统节日之一，通常在农历八月十五举行。在节日期间，拉祜族人民会赏月、吃月饼，举行各种庆祝活动，如唱歌、跳舞等，祈求家庭团圆、幸福美满。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>火把节</h4>
+                            <p>火把节是拉祜族的传统节日之一，通常在农历六月二十四举行。在节日期间，拉祜族人民会点燃火把，举行跳舞、唱歌、斗牛等庆祝活动，祈求平安健康、五谷丰登。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 日常习俗 -->
+                <section class="lahu-customs-section">
+                    <h2>日常习俗</h2>
+                    <p>拉祜族的日常习俗反映了拉祜族人民的生活方式和价值观念，是拉祜族文化的重要组成部分。</p>
+                    
+                    <div class="daily-customs">
+                        <div class="daily-item">
+                            <h4>饮食习俗</h4>
+                            <ul>
+                                <li>拉祜族以米饭为主食，喜欢吃干米饭，如糯米饭、紫米饭、红米等。</li>
+                                <li>拉祜族喜欢吃肉类、豆类、水果等食物，擅长制作各种腌制食品和酒类。</li>
+                                <li>拉祜族热情好客，客人来访时，会拿出最好的食物款待，如烤肉、酸肉、酸鱼、米酒等。</li>
+                                <li>拉祜族人民注重饮食卫生，讲究饮食礼仪，有着悠久的饮食文化传统。</li>
+                            </ul>
+                        </div>
+                        <div class="daily-item">
+                            <h4>服饰习俗</h4>
+                            <ul>
+                                <li>拉祜族的服饰以黑色为主色调，认为黑色是吉祥、勇敢、诚实的象征。</li>
+                                <li>拉祜族男子通常穿着黑色的对襟短衫，下着黑色的长裤，用黑色的头巾包头。</li>
+                                <li>拉祜族女子的服饰更加华丽多彩，通常穿着黑色的上衣，下着黑色的筒裙，用黑色的头巾包头。</li>
+                                <li>拉祜族人民喜欢在衣服上装饰银器或彩布，显得剽悍威武或美丽多姿。</li>
+                            </ul>
+                        </div>
+                        <div class="daily-item">
+                            <h4>居住习俗</h4>
+                            <ul>
+                                <li>拉祜族传统的住房是干栏式建筑，通常由木头、竹子等材料建造而成。</li>
+                                <li>拉祜族的住房一般分为上下两层，上层住人，下层养牲畜或存放杂物。</li>
+                                <li>拉祜族的住房通常建在山坡上，周围种有树木和竹子，环境优美。</li>
+                                <li>拉祜族人民注重房屋的整洁和美观，喜欢在房屋周围种植花草树木。</li>
+                            </ul>
+                        </div>
+                        <div class="daily-item">
+                            <h4>礼仪习俗</h4>
+                            <ul>
+                                <li>拉祜族人民热情好客，崇尚礼仪，重视家庭和社区的团结。</li>
+                                <li>拉祜族人民见面时会互相问候，行握手礼或拥抱礼。</li>
+                                <li>拉祜族人民尊重长辈，晚辈见到长辈时会主动打招呼，让座，敬酒。</li>
+                                <li>拉祜族人民注重礼节，在重要的场合或节日时，会穿上盛装，举行隆重的仪式。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 传统习俗的现代发展 -->
+                <section class="lahu-customs-section">
+                    <h2>传统习俗的现代发展</h2>
+                    <p>随着社会的发展和变迁，拉祜族的传统习俗也在不断发展和变化。主要表现在以下几个方面：</p>
+                    
+                    <ul>
+                        <li><strong>习俗的简化：</strong>随着生活节奏的加快，一些传统的习俗逐渐简化，更加适应现代生活的需要。</li>
+                        <li><strong>习俗的融合：</strong>拉祜族的传统习俗与现代生活逐渐融合，形成了新的习俗形式。</li>
+                        <li><strong>习俗的保护：</strong>在现代社会中，拉祜族人民更加重视对传统习俗的保护和传承，通过各种方式保存和弘扬传统习俗。</li>
+                        <li><strong>习俗的创新：</strong>拉祜族人民在保留传统习俗核心内容的基础上，对传统习俗进行创新，使其更加适应现代社会的需要。</li>
+                    </ul>
+                    
+                    <p>拉祜族的传统习俗是拉祜族文化的瑰宝，是拉祜族人民智慧的结晶。在现代社会中，拉祜族人民将继续传承和发展传统习俗，使其在新的时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.lahu-customs-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

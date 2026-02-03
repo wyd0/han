@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈萨克族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 哈萨克族文学艺术页面特定样式 */
+        .kazak-literature-header {
+            background-image: url('images/哈萨克族男子传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .kazak-literature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .kazak-literature-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .kazak-literature-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kazak-literature-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-kazak {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-kazak:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .kazak-literature-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .kazak-literature-section {
+            margin-bottom: 80px;
+        }
+        
+        .kazak-literature-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kazak-literature-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .kazak-literature-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .kazak-literature-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .kazak-literature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .kazak-literature-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .kazak-literature-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术特点样式 */
+        .literature-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .kazak-literature-header h1 {
+                font-size: 36px;
+            }
+            
+            .kazak-literature-header p {
+                font-size: 18px;
+            }
+            
+            .kazak-literature-section h2 {
+                font-size: 28px;
+            }
+            
+            .literature-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="kazak-literature-header">
+        <div class="container">
+            <div class="kazak-literature-header-content">
+                <h1>哈萨克族文学艺术</h1>
+                <p>草原民族的艺术瑰宝与文化传承</p>
+                <a href="kazak.html" class="back-kazak">返回哈萨克族</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="kazak-literature-main">
+        <div class="container">
+            <div class="kazak-literature-content">
+                <!-- 文学艺术概述 -->
+                <section class="kazak-literature-section">
+                    <h2>文学艺术概述</h2>
+                    <p>哈萨克族是一个有着悠久文学艺术传统的民族，其文学艺术作品丰富多彩，反映了哈萨克族人民的生活、思想和情感。哈萨克族的文学艺术与游牧生活方式密切相关，体现了草原民族的豪放、热情、勇敢和智慧。</p>
+                    <p>哈萨克族的文学艺术包括民间文学、音乐、舞蹈、手工艺等多个方面，形成了独特的艺术体系。这些文学艺术作品不仅是哈萨克族文化的重要组成部分，也是中华民族传统文化的宝贵财富。</p>
+                </section>
+
+                <!-- 民间文学 -->
+                <section class="kazak-literature-section">
+                    <h2>民间文学</h2>
+                    
+                    <h3>民间故事</h3>
+                    <p>哈萨克族的民间故事丰富多彩，反映了哈萨克族人民的生活、思想和情感：</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>哈萨克族的神话传说讲述了宇宙的起源、人类的诞生、自然现象的形成等，如《创世神话》、《人类起源传说》等。这些神话传说反映了哈萨克族人民对自然、生命和宇宙的认识与理解。</li>
+                        <li><strong>英雄故事：</strong>哈萨克族的英雄故事讲述了英雄人物的事迹和传说，如《阿勒帕米斯》、《阔布兰德》等。这些英雄故事反映了哈萨克族人民对勇敢、正义、智慧的崇尚和追求。</li>
+                        <li><strong>爱情故事：</strong>哈萨克族的爱情故事讲述了青年男女之间的爱情经历和感人故事，如《吉别克姑娘》、《萨里哈与萨曼》等。这些爱情故事反映了哈萨克族人民对纯真爱情的向往和追求。</li>
+                        <li><strong>动物故事：</strong>哈萨克族的动物故事讲述了动物之间的关系和故事，如《狐狸与兔子》、《狼与羊》等。这些动物故事反映了哈萨克族人民的生活智慧和道德观念。</li>
+                    </ul>
+
+                    <h3>民间诗歌</h3>
+                    <div class="literature-features">
+                        <div class="feature-item">
+                            <h4>史诗</h4>
+                            <p>哈萨克族的史诗是民间文学的瑰宝，如《哈萨克族英雄史诗》、《江格尔》等。这些史诗篇幅宏大，内容丰富，讲述了哈萨克族祖先的英雄事迹和传说故事，反映了哈萨克族的历史、文化和社会生活。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>民歌</h4>
+                            <p>哈萨克族的民歌丰富多彩，包括劳动歌、爱情歌、叙事歌、仪式歌等。这些民歌旋律优美，歌词生动，反映了哈萨克族人民的生活、思想和情感。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>谚语格言</h4>
+                            <p>哈萨克族的谚语格言是民间智慧的结晶，如“团结就是力量”、“知识是最宝贵的财富”等。这些谚语格言简洁明了，寓意深刻，反映了哈萨克族人民的生活智慧和道德观念。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>阿肯弹唱</h4>
+                            <p>阿肯弹唱是哈萨克族的传统艺术形式，阿肯是哈萨克族的民间歌手和诗人。阿肯弹唱通常在节日、庆典等场合举行，阿肯们会即兴创作诗歌，弹唱冬不拉，表达对生活的热爱和对美好未来的向往。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈 -->
+                <section class="kazak-literature-section">
+                    <h2>音乐舞蹈</h2>
+                    
+                    <h3>音乐</h3>
+                    <p>哈萨克族的音乐丰富多彩，具有独特的风格和特点：</p>
+                    <ul>
+                        <li><strong>乐器：</strong>哈萨克族的传统乐器有冬不拉、库布孜、斯布孜额等。冬不拉是哈萨克族最具代表性的乐器，它是一种弹拨乐器，音色优美，表现力丰富。库布孜是一种弓弦乐器，音色深沉，适合演奏抒情的乐曲。斯布孜额是一种吹奏乐器，音色清脆，适合演奏欢快的乐曲。</li>
+                        <li><strong>音乐体裁：</strong>哈萨克族的音乐体裁包括民间歌曲、器乐曲、说唱音乐等。民间歌曲是哈萨克族音乐的重要组成部分，包括劳动歌、爱情歌、叙事歌、仪式歌等。器乐曲主要是冬不拉独奏、合奏等。说唱音乐主要是阿肯弹唱。</li>
+                        <li><strong>音乐特点：</strong>哈萨克族的音乐具有独特的风格和特点，如旋律优美、节奏明快、情感真挚等。哈萨克族的音乐通常采用五声音阶，调式以羽调式和徵调式为主，节奏以2/4拍和4/4拍为主。</li>
+                    </ul>
+
+                    <h3>舞蹈</h3>
+                    <p>哈萨克族的舞蹈丰富多彩，具有独特的风格和特点：</p>
+                    <div class="literature-features">
+                        <div class="feature-item">
+                            <h4>黑走马</h4>
+                            <p>黑走马是哈萨克族最具代表性的舞蹈之一，它模仿了黑马的动作和姿态，如奔跑、跳跃、踢腿等。黑走马的节奏明快，动作刚健有力，表现了哈萨克族人民的豪放性格和对生活的热爱。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>天鹅舞</h4>
+                            <p>天鹅舞是哈萨克族的传统舞蹈之一，它模仿了天鹅的动作和姿态，如飞翔、游动、梳理羽毛等。天鹅舞的节奏舒缓，动作优美轻盈，表现了哈萨克族人民对美好事物的向往和追求。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>熊舞</h4>
+                            <p>熊舞是哈萨克族的传统舞蹈之一，它模仿了熊的动作和姿态，如行走、觅食、玩耍等。熊舞的节奏缓慢，动作笨拙可爱，表现了哈萨克族人民的幽默和乐观。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>其他舞蹈</h4>
+                            <p>除了上述主要舞蹈外，哈萨克族还有一些其他舞蹈，如鹰舞、马舞、牧羊舞等。这些舞蹈都有着独特的风格和特点，反映了哈萨克族的生活方式、文化传统和审美情趣。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 手工艺 -->
+                <section class="kazak-literature-section">
+                    <h2>手工艺</h2>
+                    
+                    <h3>刺绣</h3>
+                    <p>哈萨克族的刺绣工艺历史悠久，技艺精湛：</p>
+                    <ul>
+                        <li><strong>刺绣材料：</strong>哈萨克族的刺绣材料主要有丝绸、棉布、羊毛等。他们喜欢使用鲜艳的丝线，如红色、蓝色、绿色等，使刺绣作品色彩鲜艳，富有活力。</li>
+                        <li><strong>刺绣图案：</strong>哈萨克族的刺绣图案丰富多彩，包括花卉、动物、几何图形等。这些图案寓意吉祥如意，反映了哈萨克族人民对美好生活的向往和追求。</li>
+                        <li><strong>刺绣应用：</strong>哈萨克族的刺绣作品广泛应用于服装、饰品、家居用品等，如连衣裙、坎肩、头巾、手套、袜子、地毯、挂毯等。刺绣作品不仅实用，而且具有很高的艺术价值。</li>
+                    </ul>
+
+                    <h3>编织</h3>
+                    <div class="literature-features">
+                        <div class="feature-item">
+                            <h4>地毯编织</h4>
+                            <p>哈萨克族的地毯编织工艺历史悠久，技艺精湛。他们使用羊毛、驼毛等材料编织地毯，地毯图案丰富多彩，包括花卉、动物、几何图形等。地毯不仅实用，而且具有很高的艺术价值，是哈萨克族家居装饰的重要组成部分。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>挂毯编织</h4>
+                            <p>哈萨克族的挂毯编织工艺历史悠久，技艺精湛。他们使用羊毛、驼毛等材料编织挂毯，挂毯图案丰富多彩，包括花卉、动物、几何图形等。挂毯不仅实用，而且具有很高的艺术价值，是哈萨克族家居装饰的重要组成部分。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>坐垫编织</h4>
+                            <p>哈萨克族的坐垫编织工艺历史悠久，技艺精湛。他们使用羊毛、驼毛等材料编织坐垫，坐垫图案丰富多彩，包括花卉、动物、几何图形等。坐垫不仅实用，而且具有很高的艺术价值，是哈萨克族家居装饰的重要组成部分。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>其他编织品</h4>
+                            <p>除了上述主要编织品外，哈萨克族还有一些其他编织品，如篮子、筐子、袋子等。这些编织品不仅实用，而且具有很高的艺术价值，反映了哈萨克族人民的生活智慧和审美情趣。</p>
+                        </div>
+                    </div>
+
+                    <h3>皮毛加工</h3>
+                    <p>哈萨克族的皮毛加工工艺历史悠久，技艺精湛：</p>
+                    <ul>
+                        <li><strong>加工材料：</strong>哈萨克族的皮毛加工材料主要有羊皮、牛皮、马皮、狐皮、狼皮等。他们使用这些材料制作皮衣、皮帽、皮靴、皮褥子等。</li>
+                        <li><strong>加工工艺：</strong>哈萨克族的皮毛加工工艺包括鞣制、裁剪、缝制等环节。他们使用传统的方法和工具进行加工，如使用酸奶、盐等进行鞣制，使用剪刀、针线等进行裁剪和缝制。</li>
+                        <li><strong>产品特点：</strong>哈萨克族的皮毛制品具有保暖性强、耐用性好、美观大方等特点，适合草原游牧生活的需要。同时，皮毛制品也是哈萨克族文化的重要象征，反映了哈萨克族的生活方式和文化传统。</li>
+                    </ul>
+
+                    <h3>金属工艺</h3>
+                    <p>哈萨克族的金属工艺历史悠久，技艺精湛：</p>
+                    <ul>
+                        <li><strong>加工材料：</strong>哈萨克族的金属加工材料主要有金、银、铜、铁等。他们使用这些材料制作饰品、工具、器皿等。</li>
+                        <li><strong>加工工艺：</strong>哈萨克族的金属加工工艺包括铸造、锻造、雕刻、焊接等环节。他们使用传统的方法和工具进行加工，如使用熔炉、锤子、凿子等进行铸造和锻造，使用刻刀等进行雕刻。</li>
+                        <li><strong>产品特点：</strong>哈萨克族的金属制品具有造型美观、工艺精湛、寓意吉祥等特点，如银饰、铜壶、铁马具等。金属制品不仅实用，而且具有很高的艺术价值，是哈萨克族文化的重要象征。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的现代发展 -->
+                <section class="kazak-literature-section">
+                    <h2>文学艺术的现代发展</h2>
+                    
+                    <h3>现代文学</h3>
+                    <p>随着社会的发展和现代化进程的加快，哈萨克族的文学艺术也在不断发展和创新：</p>
+                    <ul>
+                        <li><strong>文学体裁的多样化：</strong>现代哈萨克族文学体裁更加多样化，除了传统的民间文学外，还出现了小说、散文、戏剧、影视文学等新的文学体裁。</li>
+                        <li><strong>文学主题的现代化：</strong>现代哈萨克族文学主题更加现代化，反映了现代社会的变化和哈萨克族人民的新生活、新思想、新情感。</li>
+                        <li><strong>文学形式的创新：</strong>现代哈萨克族文学形式更加创新，吸收了现代文学的表现手法和技巧，如象征、隐喻、意识流等。</li>
+                        <li><strong>文学媒介的多样化：</strong>现代哈萨克族文学媒介更加多样化，除了传统的口头传播和书面出版外，还通过电视、广播、互联网等现代媒体进行传播。</li>
+                    </ul>
+
+                    <h3>现代音乐舞蹈</h3>
+                    <p>现代哈萨克族的音乐舞蹈在保持传统特色的同时，也在不断发展和创新：</p>
+                    <ul>
+                        <li><strong>音乐的现代化：</strong>现代哈萨克族音乐在保持传统特色的同时，也吸收了现代音乐的元素和技巧，如和声、复调、配器等。现代哈萨克族音乐体裁更加多样化，除了传统的民间音乐外，还出现了流行音乐、摇滚音乐、 jazz音乐等新的音乐体裁。</li>
+                        <li><strong>舞蹈的现代化：</strong>现代哈萨克族舞蹈在保持传统特色的同时，也吸收了现代舞蹈的元素和技巧，如现代舞、芭蕾舞等。现代哈萨克族舞蹈体裁更加多样化，除了传统的民间舞蹈外，还出现了舞台舞蹈、影视舞蹈等新的舞蹈体裁。</li>
+                    </ul>
+
+                    <h3>现代手工艺</h3>
+                    <p>现代哈萨克族的手工艺在保持传统特色的同时，也在不断发展和创新：</p>
+                    <ul>
+                        <li><strong>工艺的现代化：</strong>现代哈萨克族手工艺在保持传统特色的同时，也吸收了现代工艺的元素和技巧，如机械加工、化学处理等。现代哈萨克族手工艺工具更加先进，如使用电动缝纫机、电动裁剪机等。</li>
+                        <li><strong>产品的现代化：</strong>现代哈萨克族手工艺产品更加现代化，除了传统的产品外，还出现了一些适应现代生活需要的新产品，如现代服装、现代饰品、现代家居用品等。</li>
+                        <li><strong>市场的扩大：</strong>现代哈萨克族手工艺产品的市场更加扩大，除了在本民族内部销售外，还远销国内外，成为哈萨克族文化的重要名片。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的意义 -->
+                <section class="kazak-literature-section">
+                    <h2>文学艺术的意义</h2>
+                    <p>哈萨克族的文学艺术具有重要的意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>文学艺术是哈萨克族文化的重要组成部分，承载着哈萨克族的历史、传统和价值观，是哈萨克族文化传承的重要载体。</li>
+                        <li><strong>精神寄托：</strong>文学艺术是哈萨克族人民的精神寄托，为他们提供了精神上的安慰和支持，帮助他们面对生活中的困难和挑战。</li>
+                        <li><strong>社会凝聚：</strong>文学艺术是哈萨克族社会凝聚的重要力量，通过文学艺术活动，加强了哈萨克族内部的团结和凝聚力。</li>
+                        <li><strong>文化交流：</strong>文学艺术是哈萨克族与其他民族文化交流的重要桥梁，通过文学艺术的展示和交流，促进了各民族之间的相互了解和友谊。</li>
+                        <li><strong>经济发展：</strong>文学艺术也是哈萨克族经济发展的重要资源，如手工艺品、音乐舞蹈表演等都可以成为经济收入的来源，促进哈萨克族的经济发展。</li>
+                    </ul>
+                    <p>总之，哈萨克族的文学艺术是其文化的瑰宝，是其精神世界的结晶。它不仅影响着哈萨克族的过去和现在，也将继续影响着哈萨克族的未来。在现代社会中，哈萨克族的文学艺术将继续发展和创新，为哈萨克族的发展和繁荣做出贡献，同时也为中华民族的文化多样性增添独特的魅力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

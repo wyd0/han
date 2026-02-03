@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔吉克族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔吉克族文化页面特定样式 */
+        .tajik-header {
+            background-image: url('images/塔吉克族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .tajik-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tajik-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tajik-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .tajik-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tajik-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tajik-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .tajik-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tajik-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .tajik-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tajik-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tajik-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tajik-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tajik-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tajik-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tajik-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .tajik-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .tajik-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tajik-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .tajik-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .tajik-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .tajik-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tajik-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tajik-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tajik-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tajik-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tajik-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .tajik-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .tajik-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .tajik-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tajik-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tajik-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .tajik-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .tajik-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="tajik-header">
+        <div class="container">
+            <div class="tajik-header-content">
+                <h1>塔吉克族文化</h1>
+                <p>帕米尔高原的雄鹰，独特的服饰文化</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="tajik-main">
+        <div class="container">
+            <div class="tajik-content">
+                <!-- 文化概览 -->
+                <section class="tajik-section">
+                    <h2>塔吉克族文化概览</h2>
+                    <p>塔吉克族是中国的一个少数民族，主要分布在新疆维吾尔自治区塔什库尔干塔吉克自治县以及莎车、泽普、叶城、皮山等县。塔吉克族有着悠久的历史和丰富的文化遗产，是中国唯一操伊朗语族语言的少数民族。</p>
+                    <p>塔吉克族文化具有独特的地域特色和民族风格，包括语言、宗教、建筑、服饰、音乐、舞蹈等多个方面。塔吉克族人民信仰伊斯兰教什叶派，保留了许多波斯文化的传统和习俗。</p>
+                    <p>塔吉克族的传统经济以畜牧业为主，同时也从事农业。塔吉克族人民勤劳勇敢，在长期的生产生活中创造了丰富多彩的文化，为中华文化的发展做出了重要贡献。</p>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="tajik-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>塔吉克族的先民在古代时期就在帕米尔高原地区活动。据史籍记载，塔吉克族的祖先被称为"粟特"、"塞种"等，是中国古代西域的重要民族之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>秦汉时期</h5>
+                            <p>秦汉时期，塔吉克族地区属西域都护府和安西都护府管辖。这一时期，塔吉克族与中原地区有着密切的政治、经济和文化联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>宋元明清时期</h5>
+                            <p>宋元明清时期，中央政府对塔吉克族地区实行了有效的管辖。清朝时期，设立了叶尔羌办事大臣，加强了对塔吉克族地区的管理。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代时期</h5>
+                            <p>近现代以来，塔吉克族人民积极参与国家建设，为国家的统一和发展做出了重要贡献。1954年，塔什库尔干塔吉克自治县成立，塔吉克族人民实现了民族区域自治。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="tajik-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="tajik_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>塔吉克族主要信仰伊斯兰教什叶派伊斯玛仪派。塔吉克族的宗教活动主要在清真寺进行，由伊玛目主持。塔吉克族人民严格遵守伊斯兰教的教义和教规，如每日五次礼拜、禁食猪肉、禁酒等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tajik_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>塔吉克族有自己的语言，属印欧语系伊朗语族帕米尔语支。塔吉克族没有本民族的文字，历史上主要使用波斯文和维吾尔文。现在，塔吉克族人民普遍使用维吾尔文和汉文。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tajik_music.html" style="color: #c0392b; text-decoration: none;">音乐舞蹈</a></h5>
+                            <p>塔吉克族的音乐舞蹈具有独特的民族风格和波斯文化的影响。塔吉克族的民间歌谣主要包括劳动歌、情歌、叙事歌等，旋律优美，节奏明快。塔吉克族的舞蹈以"鹰舞"最负盛名，动作矫健有力，充满生命力。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tajik_festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>塔吉克族的传统节日主要有诺鲁孜节、古尔邦节、肉孜节等，这些节日都与伊斯兰教有关。此外，塔吉克族还有自己的传统节日，如迎接春天的"肖公巴哈尔节"等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服饰特点 -->
+                <section class="tajik-section">
+                    <h2>服饰特点</h2>
+                    <p>塔吉克族服饰具有鲜明的民族特色和波斯文化的影响，色彩鲜艳，图案精美。塔吉克族男子一般穿无领对襟长外套、长裤，头戴黑色或白色的高筒帽。女子则穿连衣裙、长裤，头戴花帽，脚穿皮靴。</p>
+                    <p>塔吉克族服饰的主要特点包括：</p>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>塔吉克族服饰以红、蓝、绿为主色调，搭配以鲜艳的图案，给人以热情的视觉感受。</li>
+                        <li><strong>高筒帽：</strong>塔吉克族男子的标志性头饰，高筒帽象征着帕米尔高原的豪迈，是塔吉克族文化的重要象征。</li>
+                        <li><strong>工艺精湛：</strong>塔吉克族服饰的制作工艺非常精湛，包括刺绣、编织等多种技艺。这些技艺世代相传，是塔吉克族文化的重要组成部分。</li>
+                        <li><strong>实用性强：</strong>塔吉克族服饰的设计考虑了帕米尔高原的自然环境和生活方式，具有很强的实用性。例如，长外套可以保暖，高筒帽可以防晒防风等。</li>
+                    </ul>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/塔吉克族传统服饰.jpg" alt="塔吉克族传统服饰">
+                            <p>塔吉克族传统服饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/塔吉克族女子服饰.jpg" alt="塔吉克族女子服饰">
+                            <p>塔吉克族女子服饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/塔吉克族男子服饰.jpg" alt="塔吉克族男子服饰">
+                            <p>塔吉克族男子服饰</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="tajik-section">
+                    <h2>饮食文化</h2>
+                    <p>塔吉克族的饮食文化具有鲜明的地域特色和宗教特色，以面食、牛羊肉为主，辅以各种蔬菜和水果。塔吉克族人民严格遵守伊斯兰教的饮食规定，禁食猪肉、禁酒。</p>
+                    <p>塔吉克族的主要传统美食包括：</p>
+                    <ul>
+                        <li><strong>抓饭：</strong>塔吉克族的传统主食，以大米、羊肉、胡萝卜、洋葱等为原料制作而成，味道鲜美，营养丰富。</li>
+                        <li><strong>烤包子：</strong>塔吉克族的传统面食，以面粉、羊肉、洋葱等为原料制作而成，味道香美，是塔吉克族人民喜爱的传统食品。</li>
+                        <li><strong>奶制品：</strong>塔吉克族的传统食品，以牛奶为原料制作而成，味道鲜美，营养丰富。</li>
+                        <li><strong>奶茶：</strong>塔吉克族的传统饮品，以茶叶、牛奶、盐等为原料沏制而成，味道香浓，具有保暖作用。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="tajik-section">
+                    <h2>传统节日</h2>
+                    <p>塔吉克族有着丰富多彩的传统节日，这些节日不仅是塔吉克族人民庆祝丰收、祭祀祖先的重要方式，也是传承和弘扬塔吉克族文化的重要载体。</p>
+                    <p>塔吉克族的主要传统节日包括：</p>
+                    <ul>
+                        <li><strong>肖公巴哈尔节：</strong>塔吉克族最重要的传统节日之一，通常在春分时节举行，标志着春天的到来。人们会举行各种庆祝活动，包括祭祀、对歌、跳舞、体育比赛等。肖公巴哈尔节的主要活动是迎接春天的到来，祈求来年风调雨顺、五谷丰登。</li>
+                        <li><strong>古尔邦节：</strong>塔吉克族的传统节日，通常在伊斯兰教历十二月十日举行，人们会举行会礼、宰牲、聚餐等活动。</li>
+                        <li><strong>肉孜节：</strong>塔吉克族的传统节日，通常在伊斯兰教历十月一日举行，标志着斋月结束。人们会举行各种庆祝活动，包括会礼、走亲访友、家庭聚餐等。</li>
+                        <li><strong>铁合木祖瓦斯节：</strong>塔吉克族的传统节日，通常在伊斯兰教历八月十五日举行，纪念着穆罕默德的诞辰。人们会举行各种庆祝活动，包括会礼、聚餐等。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="tajik-section">
+                    <h2>文学艺术</h2>
+                    <p>塔吉克族有着丰富的民间文学和艺术遗产，包括神话传说、民间故事、诗歌、谚语等。这些文学作品反映了塔吉克族人民的生活、思想和价值观，是塔吉克族文化的重要组成部分。</p>
+                    <p>塔吉克族的民间艺术主要包括：</p>
+                    <ul>
+                        <li><strong>刺绣：</strong>塔吉克族刺绣是塔吉克族传统的手工艺品，图案精美，色彩鲜艳，主要用于装饰服饰、头巾、枕头等。</li>
+                        <li><strong>鹰舞：</strong>塔吉克族的传统舞蹈，以模仿鹰的动作为主要特点，动作矫健有力，充满生命力，是塔吉克族文化的重要象征。</li>
+                        <li><strong>音乐：</strong>塔吉克族的音乐以民间歌谣为主，旋律优美，节奏明快，反映了塔吉克族人民的生活和情感。</li>
+                        <li><strong>建筑：</strong>塔吉克族的传统建筑以石和土为原料，造型独特，具有浓厚的波斯文化风格。</li>
+                    </ul>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="tajik-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>塔吉克族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。塔吉克族文化与汉族文化、维吾尔族文化等相互交流、融合，形成了独特的文化景观。</p>
+                    <p>塔吉克族文化对中华文化的影响主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>中西文化交流：</strong>塔吉克族地区是古代丝绸之路的重要通道，塔吉克族人民在中西文化交流中发挥了重要作用，促进了中华文化与西方文化的交流和融合。</li>
+                        <li><strong>文化多样性：</strong>塔吉克族文化的独特性和丰富性，为中华文化的多样性和丰富性做出了重要贡献，推动了中华文化的发展和繁荣。</li>
+                        <li><strong>民族团结：</strong>塔吉克族文化与汉族文化、维吾尔族文化等相互交流、融合，促进了各民族之间的相互理解和团结，为中华民族的形成和发展做出了重要贡献。</li>
+                        <li><strong>边疆稳定：</strong>塔吉克族人民世代居住在帕米尔高原地区，为维护祖国的边疆稳定做出了重要贡献，是中华民族的重要戍边力量。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

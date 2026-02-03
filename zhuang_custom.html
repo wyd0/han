@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壮族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 壮族风俗习惯页面特定样式 */
+        .zhuang-custom-header {
+            background-image: url('images/zhuang-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .zhuang-custom-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .zhuang-custom-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .zhuang-custom-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .zhuang-custom-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .zhuang-custom-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .zhuang-custom-section {
+            margin-bottom: 80px;
+        }
+        
+        .zhuang-custom-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-custom-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-custom-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-custom-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .zhuang-custom-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .zhuang-custom-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .zhuang-custom-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .zhuang-custom-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯展示 */
+        .custom-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .custom-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .custom-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .zhuang-custom-header h1 {
+                font-size: 36px;
+            }
+            
+            .zhuang-custom-header p {
+                font-size: 18px;
+            }
+            
+            .zhuang-custom-section h2 {
+                font-size: 28px;
+            }
+            
+            .custom-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="zhuang-custom-header">
+        <div class="container">
+            <div class="zhuang-custom-header-content">
+                <h1>壮族风俗习惯</h1>
+                <p>独特多样的壮族传统习俗与生活方式</p>
+                <a href="zhuang.html" class="back-link">返回壮族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="zhuang-custom-main">
+        <div class="container">
+            <div class="zhuang-custom-content">
+                <!-- 风俗习惯概述 -->
+                <section class="zhuang-custom-section">
+                    <h2>风俗习惯概述</h2>
+                    <p>壮族有着独特的风俗习惯，这些习俗反映了壮族人民的生活方式、价值观念和文化传统。壮族的风俗习惯涵盖了日常生活、社交礼仪、婚姻家庭、节日庆典等各个方面，形成了一套完整的文化体系。</p>
+                    <p>壮族人民热情好客，崇尚自然，热爱唱歌，这些特点在他们的风俗习惯中得到了充分体现。壮族的传统节日、婚姻习俗、饮食习惯等都具有鲜明的民族特色，是壮族文化的重要组成部分。</p>
+                </section>
+
+                <!-- 日常生活习俗 -->
+                <section class="zhuang-custom-section">
+                    <h3>日常生活习俗</h3>
+                    <p>壮族的日常生活习俗丰富多彩，反映了壮族人民的生活方式和文化传统。</p>
+                    
+                    <h4>饮食习俗</h4>
+                    <p>壮族的饮食以稻米为主，喜欢酸味食物，善于制作各种酸品。壮族人民热情好客，喜欢聚众饮酒，有"喝交杯酒"的习俗。</p>
+                    <ul>
+                        <li><strong>主食：</strong>以稻米为主，包括米饭、糯米饭、竹筒饭等。</li>
+                        <li><strong>菜肴：</strong>喜欢酸味食物，如酸笋、酸鱼、酸肉等。</li>
+                        <li><strong>饮品：</strong>喜欢饮酒，尤其是自酿的米酒。</li>
+                        <li><strong>待客：</strong>热情好客，有"无酒不成席"的说法。</li>
+                    </ul>
+                    
+                    <h4>居住习俗</h4>
+                    <p>壮族传统民居多为干栏式建筑，适应南方地区的气候和地形条件。</p>
+                    <ul>
+                        <li><strong>建筑形式：</strong>干栏式建筑，底层架空，用于饲养牲畜和存放杂物，上层用于居住。</li>
+                        <li><strong>建筑材料：</strong>以木材、竹子、茅草等为主要建筑材料。</li>
+                        <li><strong>房屋布局：</strong>一般为三开间或五开间，中间为堂屋，两侧为卧室。</li>
+                        <li><strong>装饰特色：</strong>喜欢在房屋上雕刻或绘画各种图案，如花卉、动物等。</li>
+                    </ul>
+                </section>
+
+                <!-- 社交礼仪 -->
+                <section class="zhuang-custom-section">
+                    <h3>社交礼仪</h3>
+                    <p>壮族的社交礼仪丰富多彩，反映了壮族人民的价值观念和道德规范。</p>
+                    
+                    <div class="custom-showcase">
+                        <div class="custom-item">
+                            <h4>称呼礼仪</h4>
+                            <p>壮族人民在称呼他人时，注重辈分和身份，使用不同的称呼方式。例如，对长辈要使用尊称，对平辈要使用亲切的称呼，对晚辈要使用爱护的称呼。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>见面礼仪</h4>
+                            <p>壮族人民在见面时，有一套独特的礼仪。例如，握手、拥抱、递烟、敬酒等。在一些地区，壮族人民还有"碰额礼"的习俗，即两人额头相碰，表示亲密和友好。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>待客礼仪</h4>
+                            <p>壮族人民热情好客，有一套完整的待客礼仪。例如，客人到来时，要出门迎接，给客人递烟、倒茶、敬酒；客人离开时，要送到门外，甚至更远的地方。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚姻家庭习俗 -->
+                <section class="zhuang-custom-section">
+                    <h3>婚姻家庭习俗</h3>
+                    <p>壮族的婚姻家庭习俗独特多样，反映了壮族人民的婚姻观念和家庭伦理。</p>
+                    
+                    <h4>婚姻习俗</h4>
+                    <p>壮族实行一夫一妻制，婚姻自由，青年男女通过对歌等方式自由恋爱。壮族的婚姻习俗包括说亲、订婚、结婚等程序，婚礼隆重热闹，充满民族特色。</p>
+                    <ul>
+                        <li><strong>恋爱方式：</strong>青年男女通过歌圩、对歌等方式自由恋爱。</li>
+                        <li><strong>说亲：</strong>由男方家长或媒人到女方家说亲。</li>
+                        <li><strong>订婚：</strong>双方确定婚姻关系，交换聘礼。</li>
+                        <li><strong>结婚：</strong>举行隆重的婚礼，包括接亲、拜堂、婚宴等程序。</li>
+                    </ul>
+                    
+                    <h4>家庭习俗</h4>
+                    <p>壮族传统上以大家庭为单位，注重家庭伦理和宗族观念。家庭中父亲是一家之主，负责家庭的经济和决策，母亲则负责家务和子女教育。</p>
+                    <ul>
+                        <li><strong>家庭结构：</strong>传统上以大家庭为单位，现在多为核心家庭。</li>
+                        <li><strong>家庭伦理：</strong>注重孝道，尊重长辈，爱护晚辈。</li>
+                        <li><strong>宗族观念：</strong>重视宗族关系，有宗族祠堂和族谱。</li>
+                        <li><strong>财产继承：</strong>一般由儿子继承财产，女儿也有一定的继承权。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="zhuang-custom-section">
+                    <h3>节日习俗</h3>
+                    <p>壮族的传统节日丰富多彩，每个节日都有独特的庆祝方式和文化内涵。</p>
+                    
+                    <div class="custom-showcase">
+                        <div class="custom-item">
+                            <h4>三月三歌圩</h4>
+                            <p>三月三歌圩是壮族最重要的传统节日，每年农历三月初三举行。这个节日起源于壮族人民对歌仙刘三姐的纪念，现在已经成为壮族人民的狂欢节。节日期间，壮族人民会举行对歌、抛绣球、碰彩蛋、抢花炮等活动，共度欢乐时光。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>牛魂节</h4>
+                            <p>牛魂节是壮族的传统节日，每年农历四月初八举行。这个节日是壮族人民祭祀牛神、感谢牛的辛勤劳动的重要节日。节日期间，壮族人民会给牛洗澡、喂好吃的、给牛戴花等，表达对牛的感激之情。</p>
+                        </div>
+                        
+                        <div class="custom-item">
+                            <h4>中元节</h4>
+                            <p>中元节是壮族的传统节日，每年农历七月十五日举行。这个节日是壮族人民祭祀祖先、超度亡灵的重要节日。节日期间，壮族人民会举行祭祖、烧纸钱、放河灯等活动。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 风俗习惯的特点 -->
+                <section class="zhuang-custom-section">
+                    <h3>风俗习惯的特点</h3>
+                    <ul>
+                        <li><strong>民族性：</strong>壮族的风俗习惯具有鲜明的民族特色，反映了壮族的文化传统和民族精神。</li>
+                        <li><strong>地域性：</strong>壮族的风俗习惯因地区而异，不同地区的壮族有着不同的习俗。</li>
+                        <li><strong>传承性：</strong>壮族的风俗习惯通过世代相传，保存了壮族的历史记忆和文化传统。</li>
+                        <li><strong>融合性：</strong>壮族的风俗习惯吸收了汉族和其他民族的文化元素，体现了文化的融合与交流。</li>
+                        <li><strong>适应性：</strong>壮族的风俗习惯随着社会的发展而不断变化，适应了现代社会的需要。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的传承与发展 -->
+                <section class="zhuang-custom-section">
+                    <h3>风俗习惯的传承与发展</h3>
+                    <p>新中国成立以来，壮族的风俗习惯得到了前所未有的重视和保护。政府采取了一系列措施，保护和传承壮族的风俗习惯，如建立文化保护区、举办传统节日活动、加强文化教育等。</p>
+                    <p>同时，壮族的风俗习惯也在不断创新和发展。现代壮族人民在继承传统的基础上，吸收现代文化元素，对传统风俗习惯进行了适当的调整和创新，使其更加适应现代社会的需要。</p>
+                    <p>如今，壮族的风俗习惯已经成为中华文化的重要组成部分，得到了越来越多的关注和认可。壮族的歌圩、牛魂节、中元节等传统节日已经成为中国非物质文化遗产的重要组成部分，展现了壮族文化的独特魅力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

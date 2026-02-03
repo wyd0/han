@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>撒拉族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 撒拉族传统节日页面特定样式 */
+        .salar-festival-header {
+            background-image: url('images/撒拉族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .salar-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .salar-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .salar-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .salar-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .salar-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .salar-festival-section {
+            margin-bottom: 60px;
+        }
+        
+        .salar-festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .salar-festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .salar-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .salar-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .salar-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .salar-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .salar-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日类型样式 */
+        .festival-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .festival-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .festival-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 节日习俗样式 */
+        .festival-customs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .custom-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        .custom-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .salar-festival-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .salar-festival-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .salar-festival-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .salar-festival-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .salar-festival-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .salar-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .salar-festival-header p {
+                font-size: 18px;
+            }
+            
+            .salar-festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .festival-customs {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="salar-festival-header">
+        <div class="container">
+            <div class="salar-festival-header-content">
+                <h1>撒拉族传统节日</h1>
+                <p>丰富多彩的节日文化，浓厚的民族氛围</p>
+                <a href="salar.html" class="back-link">返回撒拉族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="salar-festival-main">
+        <div class="container">
+            <div class="salar-festival-content">
+                <!-- 节日概况 -->
+                <section class="salar-festival-section">
+                    <h2>传统节日概况</h2>
+                    <p>撒拉族有着丰富多彩的传统节日，这些节日不仅是撒拉族人民庆祝丰收、祭祀祖先的重要方式，也是传承和弘扬撒拉族文化的重要载体。撒拉族的传统节日主要包括宗教节日和民族特色节日两大类，反映了撒拉族的宗教信仰、历史文化和生活方式。</p>
+                    <p>撒拉族的传统节日具有浓厚的民族特色和宗教色彩，节日期间，撒拉族人民会举行各种庆祝活动，如会礼、聚餐、歌舞表演等，表达对美好生活的向往和追求。这些传统节日是撒拉族文化的重要组成部分，也是撒拉族人民凝聚力和认同感的重要体现。</p>
+                </section>
+
+                <!-- 宗教节日 -->
+                <section class="salar-festival-section">
+                    <h3>宗教节日</h3>
+                    <div class="festival-types">
+                        <div class="festival-item">
+                            <h4>开斋节</h4>
+                            <p>开斋节是撒拉族最重要的传统节日之一，通常在伊斯兰教历十月一日举行，标志着斋月结束。开斋节的准备工作从斋月最后几天就开始了，撒拉族人民会打扫房屋、准备节日食品、缝制新衣服等。节日当天，撒拉族穆斯林会早早起床，沐浴更衣，穿上节日盛装，前往清真寺参加会礼。会礼结束后，人们会走亲访友，互致节日问候，品尝节日食品，如油香、馓子、手抓羊肉等。开斋节是撒拉族人民喜庆团圆的日子，充满了欢乐祥和的氛围。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>古尔邦节</h4>
+                            <p>古尔邦节是撒拉族的传统节日，通常在伊斯兰教历十二月十日举行，也被称为"宰牲节"。古尔邦节的主要活动包括会礼、宰牲、聚餐等。节日当天，撒拉族穆斯林会前往清真寺参加会礼，聆听阿訇讲经。会礼结束后，有经济能力的家庭会宰杀牛羊，将肉分为三份，一份留给自己，一份送给亲友，一份赈济穷人。古尔邦节是撒拉族人民表达感恩、团结互助的重要节日，体现了撒拉族的慈善精神和社会责任感。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>圣纪节</h4>
+                            <p>圣纪节是撒拉族的传统节日，通常在伊斯兰教历三月十二日举行，纪念伊斯兰教创始人穆罕默德的诞辰和逝世。圣纪节的主要活动包括会礼、诵经、聚餐等。节日当天，撒拉族穆斯林会前往清真寺参加会礼，聆听阿訇讲述穆罕默德的生平事迹和教诲。清真寺会准备丰盛的聚餐，供参加会礼的人们享用。圣纪节是撒拉族人民缅怀先贤、加强宗教信仰的重要节日，体现了撒拉族对伊斯兰教的虔诚和敬仰。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 民族特色节日 -->
+                <section class="salar-festival-section">
+                    <h3>民族特色节日</h3>
+                    <div class="festival-types">
+                        <div class="festival-item">
+                            <h4>尕勒莽节</h4>
+                            <p>尕勒莽节是撒拉族的传统节日，通常在农历三月举行，纪念撒拉族祖先尕勒莽从中央亚细亚迁徙到中国的历史。尕勒莽节的主要活动包括祭祀祖先、讲述历史、歌舞表演等。节日当天，撒拉族人民会聚集在尕勒莽的陵墓前，举行祭祀仪式，表达对祖先的敬仰和缅怀之情。同时，人们会讲述撒拉族的迁徙历史，演唱撒拉族的传统歌谣，表演撒拉族的传统舞蹈，如骆驼舞等。尕勒莽节是撒拉族人民传承历史、增强民族认同感的重要节日，体现了撒拉族对祖先的尊重和对民族历史的重视。</p>
+                        </div>
+                        <div class="festival-item">
+                            <h4>丰收节</h4>
+                            <p>丰收节是撒拉族人民庆祝丰收的传统节日，通常在秋季农作物收获后举行。丰收节的主要活动包括聚餐、歌舞表演、体育比赛等。节日当天，撒拉族人民会穿上节日盛装，聚集在一起，品尝丰收的果实，分享丰收的喜悦。同时，人们会举行各种娱乐活动，如唱歌、跳舞、赛马、摔跤等，表达对美好生活的向往和追求。丰收节是撒拉族人民庆祝劳动成果、增强社区凝聚力的重要节日，体现了撒拉族的勤劳精神和乐观态度。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="salar-festival-section">
+                    <h3>节日习俗</h3>
+                    <div class="festival-customs">
+                        <div class="custom-item">
+                            <h4>饮食习俗</h4>
+                            <p>撒拉族的节日饮食非常丰富，具有鲜明的民族特色和宗教色彩。节日期间，撒拉族人民会准备各种传统美食，如油香、馓子、手抓羊肉、盖碗茶等。油香是撒拉族的传统面食，以面粉、油、糖等为原料制作而成，味道香甜，是撒拉族人民在节日和喜庆场合必备的食品。馓子是撒拉族的传统油炸食品，以面粉、油等为原料制作而成，形状细长，口感酥脆。手抓羊肉是撒拉族的传统名菜，以羊肉为原料，经过煮制而成，味道鲜美，营养丰富。盖碗茶是撒拉族的传统饮品，以茶叶、冰糖、枸杞、桂圆等为原料沏制而成，味道香甜，具有保健作用。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>服饰习俗</h4>
+                            <p>节日期间，撒拉族人民会穿上节日盛装，展现撒拉族的服饰文化。撒拉族男子通常穿白色或黑色的对襟长袍，头戴白色或黑色的圆顶帽，显得庄重得体。撒拉族女子则穿颜色鲜艳的长袍，头戴盖头，盖头的颜色根据年龄和婚姻状况有所不同。年轻女子的盖头通常是绿色的，已婚女子的盖头通常是黑色的，老年女子的盖头通常是白色的。撒拉族的节日服饰色彩鲜艳，图案精美，体现了撒拉族的审美观念和文化特色。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>礼仪习俗</h4>
+                            <p>撒拉族的节日礼仪非常注重传统和礼貌，体现了撒拉族的道德观念和社会规范。节日期间，撒拉族人民会走亲访友，互致节日问候，送上节日礼物。晚辈会向长辈请安，表达对长辈的尊重和祝福。朋友之间会相互拜访，增进友谊和感情。撒拉族的节日礼仪强调团结互助、尊老爱幼，体现了撒拉族的传统美德和社会和谐。</p>
+                        </div>
+                        <div class="custom-item">
+                            <h4>娱乐习俗</h4>
+                            <p>撒拉族的节日娱乐活动丰富多彩，充满了民族特色。节日期间，撒拉族人民会举行各种娱乐活动，如歌舞表演、体育比赛等。歌舞表演是撒拉族节日娱乐的重要组成部分，包括演唱撒拉族的传统歌谣、表演撒拉族的传统舞蹈等。体育比赛也是撒拉族节日娱乐的重要内容，包括赛马、摔跤、射箭等。这些娱乐活动不仅丰富了撒拉族人民的精神生活，也增强了撒拉族的凝聚力和认同感。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日的意义 -->
+                <section class="salar-festival-section">
+                    <h3>节日的意义</h3>
+                    <p>撒拉族的传统节日具有重要的意义，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>撒拉族的传统节日是撒拉族文化的重要载体，通过节日活动，撒拉族的历史、传统、价值观等得以传承和弘扬。例如，尕勒莽节通过纪念撒拉族祖先的迁徙历史，传承了撒拉族的历史记忆和民族精神。</li>
+                        <li><strong>宗教信仰：</strong>撒拉族的宗教节日是撒拉族宗教生活的重要组成部分，通过节日活动，撒拉族的宗教信仰得以加强和巩固。例如，开斋节、古尔邦节和圣纪节等宗教节日，是撒拉族穆斯林表达对真主的信仰和敬畏的重要方式。</li>
+                        <li><strong>社会凝聚：</strong>撒拉族的传统节日是撒拉族人民凝聚力量、加强团结的重要契机。节日期间，撒拉族人民会聚集在一起，共同参与各种活动，增进彼此之间的了解和友谊，加强社区的凝聚力。</li>
+                        <li><strong>道德教育：</strong>撒拉族的传统节日是撒拉族人民进行道德教育的重要课堂。通过节日活动，撒拉族的传统美德如尊老爱幼、团结互助、慈善济贫等得以传承和弘扬，引导撒拉族人民树立正确的价值观和道德观。</li>
+                        <li><strong>生活调剂：</strong>撒拉族的传统节日是撒拉族人民调剂生活、放松身心的重要方式。节日期间，撒拉族人民会暂时放下繁忙的生产劳动，享受节日的欢乐和祥和，丰富精神生活，增强生活乐趣。</li>
+                    </ul>
+                </section>
+
+                <!-- 节日的保护与传承 -->
+                <section class="salar-festival-section">
+                    <h3>节日的保护与传承</h3>
+                    <p>随着社会的发展和现代化的进程，撒拉族的传统节日面临着一些挑战，如节日氛围淡化、传统习俗流失、年轻一代参与度下降等。为了保护和传承撒拉族的传统节日，撒拉族地区采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>加强宣传教育：</strong>通过各种媒体和渠道，加强对撒拉族传统节日的宣传教育，让更多的人了解和认识撒拉族的传统节日，增强对传统节日的认同感和自豪感。</li>
+                        <li><strong>恢复传统习俗：</strong>积极恢复和弘扬撒拉族传统节日的习俗，如传统饮食、传统服饰、传统礼仪等，保持传统节日的民族特色和文化内涵。</li>
+                        <li><strong>创新节日形式：</strong>在保持传统节日特色的基础上，创新节日的表现形式和内容，增加现代元素，吸引年轻一代的参与和兴趣。</li>
+                        <li><strong>纳入非物质文化遗产保护：</strong>将撒拉族的传统节日纳入非物质文化遗产保护名录，通过法律手段和政策支持，加强对传统节日的保护和传承。</li>
+                        <li><strong>举办节日活动：</strong>定期举办撒拉族传统节日的庆祝活动，如节日文化节、传统歌舞表演等，营造浓厚的节日氛围，增强传统节日的影响力和吸引力。</li>
+                    </ul>
+                    <p>保护和传承撒拉族的传统节日，不仅是保护撒拉族的文化遗产，也是保护中华文化的多样性。撒拉族人民将继续努力，让撒拉族的传统节日在新时代焕发出新的活力。</p>
+                </section>
+
+                <!-- 节日的未来发展 -->
+                <section class="salar-festival-section">
+                    <h3>节日的未来发展</h3>
+                    <p>面对新时代的机遇和挑战，撒拉族的传统节日需要在保持传统特色的基础上，不断创新和发展，以适应现代社会的需要。</p>
+                    <ul>
+                        <li><strong>传统与现代结合：</strong>在保持撒拉族传统节日传统特色的同时，吸收现代元素，创新节日的表现形式和内容，使其更加符合现代社会的审美需求和生活方式。</li>
+                        <li><strong>加强文化交流：</strong>加强与其他民族的节日文化交流，吸收其他民族节日文化的优秀元素，丰富撒拉族传统节日的内涵和形式。</li>
+                        <li><strong>融入旅游产业：</strong>将撒拉族的传统节日融入旅游产业，通过旅游观光、文化体验等方式，让更多的人了解和体验撒拉族的传统节日，同时也为传统节日的传承和发展提供经济支持。</li>
+                        <li><strong>培养年轻一代：</strong>加强对年轻一代的教育和引导，培养他们对撒拉族传统节日的兴趣和认同感，让年轻一代成为传统节日的传承者和弘扬者。</li>
+                        <li><strong>加强理论研究：</strong>加强对撒拉族传统节日的理论研究，探索传统节日的特点、发展规律和保护策略，为传统节日的传承和发展提供理论支持。</li>
+                    </ul>
+                    <p>撒拉族的传统节日是撒拉族人民的宝贵财富，是中华文化宝库中的重要组成部分。相信在撒拉族人民的共同努力下，撒拉族的传统节日将会在新时代继续发挥重要作用，为撒拉族文化的繁荣和中华文化的发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 确保撒拉族传统节日页面元素显示
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为所有salar-festival-section元素添加visible类
+            const sections = document.querySelectorAll('.salar-festival-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+            console.log('撒拉族传统节日页面元素已添加visible类');
+        });
+        
+        // 页面加载完成后再次确保元素显示
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.salar-festival-section');
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+            console.log('撒拉族传统节日页面元素在页面加载完成后已添加visible类');
+        });
+    </script>
+</body>
+</html>

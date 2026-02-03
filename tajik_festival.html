@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔吉克族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 塔吉克族文化详细页面特定样式 */
+        .detail-header {
+            background-image: url('images/塔吉克族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .detail-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .detail-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .detail-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .detail-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .detail-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .detail-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .detail-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .detail-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .detail-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .detail-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .detail-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="detail-header">
+        <div class="container">
+            <div class="detail-header-content">
+                <h1>塔吉克族传统节日</h1>
+                <p>帕米尔高原上的节日庆典</p>
+                <a href="tajik.html" class="back-link">返回塔吉克族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-content">
+                <!-- 传统节日概述 -->
+                <section class="detail-section">
+                    <h2>传统节日概述</h2>
+                    <p>塔吉克族有着丰富多彩的传统节日，这些节日不仅是塔吉克族人民庆祝丰收、祭祀祖先的重要方式，也是传承和弘扬塔吉克族文化的重要载体。塔吉克族的传统节日主要包括宗教节日和民族特色节日两大类，这些节日反映了塔吉克族的历史、文化、宗教信仰和生活方式。</p>
+                    <p>塔吉克族的传统节日通常伴有丰富多彩的庆祝活动，如歌舞表演、体育比赛、聚餐等，这些活动不仅丰富了塔吉克族人民的精神生活，也增强了民族凝聚力和认同感。</p>
+                </section>
+
+                <!-- 肖公巴哈尔节 -->
+                <section class="detail-section">
+                    <h3>肖公巴哈尔节</h3>
+                    <p>肖公巴哈尔节是塔吉克族最重要的传统节日之一，通常在春分时节举行，标志着春天的到来。肖公巴哈尔节在塔吉克语中意为"迎春节"，是塔吉克族人民迎接春天、祈求丰收的重要节日。</p>
+                    <p>肖公巴哈尔节的庆祝活动通常持续3-5天，主要包括以下内容：</p>
+                    <ul>
+                        <li><strong>打扫房屋：</strong>节日前，塔吉克族人民会彻底打扫房屋，清理庭院，以迎接春天的到来。</li>
+                        <li><strong>制作节日食品：</strong>塔吉克族人民会制作各种传统食品，如馕、抓饭、烤包子等，为节日做准备。</li>
+                        <li><strong>互赠礼物：</strong>节日期间，塔吉克族人民会互相赠送礼物，如糖果、干果、茶叶等，表达对彼此的祝福。</li>
+                        <li><strong>走亲访友：</strong>节日期间，塔吉克族人民会走亲访友，互相拜年，增进感情。</li>
+                        <li><strong>歌舞表演：</strong>节日期间，塔吉克族人民会举行歌舞表演，如鹰舞、集体舞等，表达对春天的喜悦和对美好生活的向往。</li>
+                        <li><strong>体育比赛：</strong>节日期间，塔吉克族人民会举行各种体育比赛，如赛马、叼羊、摔跤等，展示塔吉克族人民的勇敢和力量。</li>
+                        <li><strong>祭祀活动：</strong>节日期间，塔吉克族人民会举行祭祀活动，祈求来年风调雨顺、五谷丰登、人畜兴旺。</li>
+                    </ul>
+                    <p>肖公巴哈尔节是塔吉克族文化的重要组成部分，体现了塔吉克族人民对自然的敬畏和对美好生活的向往。</p>
+                </section>
+
+                <!-- 古尔邦节 -->
+                <section class="detail-section">
+                    <h3>古尔邦节</h3>
+                    <p>古尔邦节是伊斯兰教的重要节日，也是塔吉克族的传统节日之一，通常在伊斯兰教历十二月十日举行。古尔邦节在阿拉伯语中意为"牺牲节"，是为了纪念先知易卜拉欣服从真主命令，准备牺牲自己的儿子伊斯玛仪，后被真主以羊代替的故事。</p>
+                    <p>古尔邦节的庆祝活动主要包括以下内容：</p>
+                    <ul>
+                        <li><strong>会礼：</strong>节日清晨，塔吉克族穆斯林会前往清真寺参加会礼，聆听伊玛目讲解教义。</li>
+                        <li><strong>宰牲：</strong>节日期间，有经济能力的塔吉克族家庭会宰杀牛羊，将肉分成三份，一份自用，一份赠送亲友，一份施舍给穷人。</li>
+                        <li><strong>聚餐：</strong>节日期间，塔吉克族家庭会举行聚餐，享用宰牲的肉和其他传统食品。</li>
+                        <li><strong>走亲访友：</strong>节日期间，塔吉克族人民会走亲访友，互相拜年，增进感情。</li>
+                        <li><strong>歌舞表演：</strong>节日期间，塔吉克族人民会举行歌舞表演，表达对真主的感恩和对美好生活的向往。</li>
+                    </ul>
+                    <p>古尔邦节是塔吉克族宗教文化的重要组成部分，体现了塔吉克族人民的宗教信仰和慈善精神。</p>
+                </section>
+
+                <!-- 肉孜节 -->
+                <section class="detail-section">
+                    <h3>肉孜节</h3>
+                    <p>肉孜节是伊斯兰教的重要节日，也是塔吉克族的传统节日之一，通常在伊斯兰教历十月一日举行，标志着斋月的结束。肉孜节在阿拉伯语中意为"开斋节"，是塔吉克族人民庆祝斋月结束的重要节日。</p>
+                    <p>肉孜节的庆祝活动主要包括以下内容：</p>
+                    <ul>
+                        <li><strong>会礼：</strong>节日清晨，塔吉克族穆斯林会前往清真寺参加会礼，聆听伊玛目讲解教义。</li>
+                        <li><strong>享用早餐：</strong>会礼后，塔吉克族人民会回家享用早餐，通常包括馕、奶茶、干果等。</li>
+                        <li><strong>走亲访友：</strong>节日期间，塔吉克族人民会走亲访友，互相拜年，增进感情。</li>
+                        <li><strong>聚餐：</strong>节日期间，塔吉克族家庭会举行聚餐，享用各种传统食品。</li>
+                        <li><strong>歌舞表演：</strong>节日期间，塔吉克族人民会举行歌舞表演，表达对斋月结束的喜悦和对美好生活的向往。</li>
+                    </ul>
+                    <p>肉孜节是塔吉克族宗教文化的重要组成部分，体现了塔吉克族人民的宗教信仰和对美好生活的向往。</p>
+                </section>
+
+                <!-- 铁合木祖瓦斯节 -->
+                <section class="detail-section">
+                    <h3>铁合木祖瓦斯节</h3>
+                    <p>铁合木祖瓦斯节是塔吉克族的传统节日之一，通常在伊斯兰教历八月十五日举行，纪念着穆罕默德的诞辰。铁合木祖瓦斯节在塔吉克语中意为"圣纪节"，是塔吉克族人民纪念穆罕默德的重要节日。</p>
+                    <p>铁合木祖瓦斯节的庆祝活动主要包括以下内容：</p>
+                    <ul>
+                        <li><strong>会礼：</strong>节日期间，塔吉克族穆斯林会前往清真寺参加会礼，聆听伊玛目讲解穆罕默德的生平事迹和教义。</li>
+                        <li><strong>诵经：</strong>节日期间，塔吉克族穆斯林会集体诵经，缅怀穆罕默德的功绩。</li>
+                        <li><strong>聚餐：</strong>节日期间，塔吉克族家庭会举行聚餐，享用各种传统食品。</li>
+                        <li><strong>施舍：</strong>节日期间，塔吉克族人民会向穷人施舍食品和财物，表达对弱势群体的关爱。</li>
+                    </ul>
+                    <p>铁合木祖瓦斯节是塔吉克族宗教文化的重要组成部分，体现了塔吉克族人民的宗教信仰和对穆罕默德的敬仰。</p>
+                </section>
+
+                <!-- 其他传统节日 -->
+                <section class="detail-section">
+                    <h3>其他传统节日</h3>
+                    <p>除了上述主要传统节日外，塔吉克族还有一些其他的传统节日，如：</p>
+                    <ul>
+                        <li><strong>播种节：</strong>塔吉克族人民在春季播种前举行的节日，祈求播种顺利、丰收在望。</li>
+                        <li><strong>收割节：</strong>塔吉克族人民在秋季收割后举行的节日，庆祝丰收、感谢自然。</li>
+                        <li><strong>婚礼节：</strong>塔吉克族人民在婚礼仪式上举行的节日，庆祝新人的结合、祝福新人幸福美满。</li>
+                        <li><strong>命名节：</strong>塔吉克族人民为新生儿举行的命名仪式，祈求新生儿健康成长、吉祥如意。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日的意义 -->
+                <section class="detail-section">
+                    <h3>传统节日的意义</h3>
+                    <p>塔吉克族的传统节日对塔吉克族来说具有重要的意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>塔吉克族的传统节日是塔吉克族文化的重要组成部分，承载着塔吉克族的历史、文化、宗教信仰和生活方式。通过传统节日，塔吉克族的文化得以传承和发扬。</li>
+                        <li><strong>社会交流：</strong>塔吉克族的传统节日是塔吉克族人民社会交流的重要方式，在节日期间，人们走亲访友、互相拜年，增进了感情，加强了联系。</li>
+                        <li><strong>情感表达：</strong>塔吉克族的传统节日是塔吉克族人民情感表达的重要方式，通过节日活动，人们表达了对自然的敬畏、对真主的感恩、对亲人的关爱和对美好生活的向往。</li>
+                        <li><strong>民族认同：</strong>塔吉克族的传统节日是塔吉克族人民身份认同的重要标志，通过参与传统节日活动，塔吉克族人民保持了对本民族文化的认同和自豪感。</li>
+                        <li><strong>文化多样性：</strong>塔吉克族的传统节日是中国节日文化多样性的重要组成部分，为中国的节日文化宝库增添了独特的色彩。保护和发展塔吉克族的传统节日，有助于维护中国的节日文化多样性。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日的保护与发展 -->
+                <section class="detail-section">
+                    <h3>传统节日的保护与发展</h3>
+                    <p>随着社会的发展和进步，塔吉克族的传统节日面临着一些挑战，如现代生活方式的冲击、年轻人参与热情降低等。为了保护和发展塔吉克族的传统节日，政府和社会采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>文化保护政策：</strong>国家制定了相关的文化保护政策，将塔吉克族的传统节日列入非物质文化遗产保护名录，保障塔吉克族传统节日的传承和发展。</li>
+                        <li><strong>节日活动的组织：</strong>政府和社会组织定期组织塔吉克族传统节日活动，如肖公巴哈尔节庆典、古尔邦节会礼等，提高塔吉克族传统节日的知名度和影响力。</li>
+                        <li><strong>教育宣传：</strong>通过学校教育、媒体宣传等方式，向年轻人普及塔吉克族传统节日的知识和意义，培养年轻人对传统节日的兴趣和认同感。</li>
+                        <li><strong>文化产业的发展：</strong>通过发展文化旅游、文化演艺等产业，为塔吉克族传统节日的传承和发展提供经济支持，促进塔吉克族传统节日的市场化和产业化。</li>
+                        <li><strong>国际交流：</strong>通过国际文化交流活动，向世界展示塔吉克族的传统节日文化，提高塔吉克族传统节日的国际知名度和影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

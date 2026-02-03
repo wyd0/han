@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景颇族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 景颇族宗教信仰页面特定样式 */
+        .jingpo-header {
+            background-image: url('images/景颇族女装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jingpo-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jingpo-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jingpo-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jingpo-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jingpo-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jingpo-section {
+            margin-bottom: 60px;
+        }
+        
+        .jingpo-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jingpo-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jingpo-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jingpo-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jingpo-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jingpo-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jingpo-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教信仰特色样式 */
+        .religion-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .religion-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .religion-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .religion-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .jingpo-header h1 {
+                font-size: 36px;
+            }
+            
+            .jingpo-header p {
+                font-size: 18px;
+            }
+            
+            .jingpo-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="jingpo-header">
+        <div class="container">
+            <div class="jingpo-header-content">
+                <h1>景颇族宗教信仰</h1>
+                <p>多元信仰的融合与传承</p>
+                <a href="jingpo.html" class="back-difference">返回景颇族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="jingpo-main">
+        <div class="container">
+            <div class="jingpo-content">
+                <!-- 宗教信仰概览 -->
+                <section class="jingpo-section">
+                    <h2>宗教信仰概览</h2>
+                    <p>景颇族的宗教信仰具有多元性特征，主要包括原始宗教和基督教两大体系。这种多元信仰的格局是景颇族在长期的历史发展过程中，与自然环境、社会变迁以及外部文化交流互动的结果。</p>
+                    <p>原始宗教是景颇族的传统宗教，有着悠久的历史和深厚的文化底蕴。它是景颇族先民对自然、社会和人类自身认识的结晶，也是景颇族文化的重要组成部分。基督教则是近代以来传入景颇族地区的外来宗教，经过与景颇族传统文化的融合，逐渐成为景颇族宗教生活的重要组成部分。</p>
+                </section>
+                
+                <!-- 原始宗教 -->
+                <section class="jingpo-section">
+                    <h2>原始宗教</h2>
+                    <p>景颇族的原始宗教是一种多神信仰，相信万物有灵，认为自然界的一切事物都有神灵主宰。这种信仰体系与景颇族的生产生活密切相关，渗透到景颇族社会的各个方面。</p>
+                    
+                    <h3>神灵体系</h3>
+                    <div class="religion-features">
+                        <div class="religion-item">
+                            <h4>自然神</h4>
+                            <p>景颇族信仰的自然神包括天地、日月、星辰、山川、河流、动植物等。他们认为这些自然现象和物体都有神灵主宰，需要定期祭祀，以求得神灵的保佑。</p>
+                        </div>
+                        <div class="religion-item">
+                            <h4>祖先神</h4>
+                            <p>景颇族非常重视祖先崇拜，认为祖先的灵魂会继续存在，并影响着后代的生活。他们会在特定的时间和场合祭祀祖先，祈求祖先的保佑和庇护。</p>
+                        </div>
+                        <div class="religion-item">
+                            <h4>神灵</h4>
+                            <p>景颇族信仰的神灵还包括各种功能性神灵，如狩猎神、农业神、生育神等。这些神灵各司其职，掌管着人类生活的不同领域。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>宗教仪式</h3>
+                    <p>景颇族的原始宗教仪式丰富多彩，主要包括以下几种：</p>
+                    <ul>
+                        <li><strong>祭祀仪式：</strong>景颇族会定期举行各种祭祀仪式，如祭天、祭地、祭山、祭水、祭树等，以求得神灵的保佑。</li>
+                        <li><strong>丧葬仪式：</strong>景颇族的丧葬仪式非常隆重，包括停尸、守灵、出殡、下葬等环节，每个环节都有特定的宗教仪式和禁忌。</li>
+                        <li><strong>节日仪式：</strong>景颇族的传统节日如目瑙纵歌节、新米节等，都有丰富的宗教仪式内容。</li>
+                        <li><strong>驱邪仪式：</strong>当遇到疾病、灾难等不幸事件时，景颇族会举行驱邪仪式，祈求神灵驱走邪恶，带来平安。</li>
+                    </ul>
+                    
+                    <h3>宗教职业者</h3>
+                    <p>景颇族的原始宗教有专门的宗教职业者，称为"董萨"。董萨是景颇族社会中的重要角色，负责主持各种宗教仪式，解释宗教教义，为人们占卜、治病等。董萨通常是世袭的，或者由有特殊能力和知识的人担任。</p>
+                </section>
+                
+                <!-- 基督教 -->
+                <section class="jingpo-section">
+                    <h2>基督教</h2>
+                    <p>基督教传入景颇族地区始于19世纪末20世纪初，主要由西方传教士传入。经过百余年的发展，基督教已经成为景颇族宗教生活的重要组成部分，特别是在一些地区，基督教信仰的人数甚至超过了原始宗教信仰的人数。</p>
+                    
+                    <h3>传入与发展</h3>
+                    <p>基督教传入景颇族地区的历史可以分为以下几个阶段：</p>
+                    <ul>
+                        <li><strong>初始传入期（19世纪末-20世纪初）：</strong>西方传教士开始进入景颇族地区，建立教堂，翻译圣经，传播基督教教义。</li>
+                        <li><strong>发展期（20世纪初-中华人民共和国成立前）：</strong>基督教在景颇族地区得到较快发展，建立了更多的教堂和教会组织，信仰人数不断增加。</li>
+                        <li><strong>调整期（中华人民共和国成立后-改革开放前）：</strong>基督教在景颇族地区的发展受到一定限制，教会组织进行了调整。</li>
+                        <li><strong>复兴期（改革开放后至今）：</strong>基督教在景颇族地区重新得到发展，信仰人数持续增加，教会活动日益活跃。</li>
+                    </ul>
+                    
+                    <h3>与传统文化的融合</h3>
+                    <p>基督教传入景颇族地区后，与景颇族的传统文化进行了一定程度的融合，形成了具有景颇族特色的基督教信仰。这种融合主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>仪式融合：</strong>景颇族的基督教仪式中融入了一些传统的宗教仪式元素，如音乐、舞蹈等。</li>
+                        <li><strong>教义融合：</strong>景颇族的基督教教义解释中融入了一些传统的道德观念和价值观念。</li>
+                        <li><strong>组织融合：</strong>景颇族的基督教教会组织中保留了一些传统的社会组织形式和管理方式。</li>
+                    </ul>
+                    
+                    <h3>社会影响</h3>
+                    <p>基督教对景颇族社会产生了深远的影响，主要表现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>文化教育：</strong>基督教传教士在景颇族地区开办学校，推广文化教育，提高了景颇族的文化水平。</li>
+                        <li><strong>医疗卫生：</strong>基督教传教士在景颇族地区开办医院和诊所，推广现代医疗卫生知识，改善了景颇族的健康状况。</li>
+                        <li><strong>社会风俗：</strong>基督教的传入对景颇族的一些传统社会风俗产生了影响，如婚姻习俗、丧葬习俗等。</li>
+                        <li><strong>价值观念：</strong>基督教的教义对景颇族的价值观念产生了一定的影响，如强调博爱、平等、互助等。</li>
+                    </ul>
+                </section>
+                
+                <!-- 宗教信仰的文化意义 -->
+                <section class="jingpo-section">
+                    <h2>宗教信仰的文化意义</h2>
+                    <p>景颇族的宗教信仰不仅是一种精神寄托，更是景颇族文化的重要组成部分，具有深刻的文化意义。</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>宗教信仰是景颇族文化传承的重要载体，通过宗教仪式、神话传说等形式，景颇族的历史、文化、价值观等得以传承和延续。</li>
+                        <li><strong>社会凝聚：</strong>宗教信仰是景颇族社会凝聚的重要力量，通过共同的宗教信仰和宗教活动，景颇族人民增强了群体意识和民族认同。</li>
+                        <li><strong>心理调适：</strong>宗教信仰为景颇族人民提供了心理调适的方式，在面对困难和挫折时，宗教信仰可以给人们带来精神安慰和力量。</li>
+                        <li><strong>生态保护：</strong>景颇族的原始宗教信仰中蕴含着丰富的生态保护思想，如对自然神灵的敬畏、对自然资源的合理利用等，这些思想对保护生态环境具有积极意义。</li>
+                    </ul>
+                    <p>总之，景颇族的宗教信仰是景颇族文化的重要组成部分，它不仅反映了景颇族人民的精神世界，也对景颇族社会的发展和文化的传承产生了深远的影响。我们应该尊重和保护景颇族的宗教信仰自由，促进景颇族宗教文化的健康发展。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

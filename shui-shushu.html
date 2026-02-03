@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水书文化 - 水族文化</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 水书文化页面特定样式 */
+        .shushu-header {
+            background-image: url('images/水族女装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .shushu-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .shushu-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .shushu-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .shushu-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-shui {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-shui:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .shushu-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .shushu-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .shushu-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .shushu-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .shushu-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .shushu-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .shushu-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .shushu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .shushu-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .shushu-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 水书特点样式 */
+        .shushu-features {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 水书用途样式 */
+        .shushu-usage {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .shushu-header h1 {
+                font-size: 36px;
+            }
+            
+            .shushu-header p {
+                font-size: 18px;
+            }
+            
+            .shushu-section h2 {
+                font-size: 28px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="shushu-header">
+        <div class="container">
+            <div class="shushu-header-content">
+                <h1>水书文化</h1>
+                <p>活着的象形文字</p>
+                <a href="shui.html" class="back-shui">返回水族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="shushu-main">
+        <div class="container">
+            <div class="shushu-content">
+                <!-- 水书概述 -->
+                <section class="shushu-section">
+                    <h2>水书概述</h2>
+                    <p>水书是水族的独特文字，被称为“活着的象形文字”，是水族文化的重要组成部分。水书主要用于记录水族的宗教信仰、天文历法、历史传说、医学知识等内容，是水族人民智慧的结晶。</p>
+                    <p>水书的历史悠久，据考证，水书的起源可以追溯到殷商时期，与甲骨文、金文等古文字有着密切的联系。水书的文字结构独特，多以象形、会意、指事等方式构成，具有很高的历史价值和文化价值。</p>
+                </section>
+                
+                <!-- 水书特点 -->
+                <section class="shushu-section">
+                    <h2>水书特点</h2>
+                    <div class="shushu-features">
+                        <h3>文字特点</h3>
+                        <ul>
+                            <li><strong>象形性：</strong>水书的文字多以象形为主，通过描绘事物的形状来表达意义，如日、月、山、水等字都保留了原始的象形特征。</li>
+                            <li><strong>会意性：</strong>水书的文字也有不少会意字，通过组合两个或多个独体字来表达新的意义，如“明”字由“日”和“月”组合而成，意为光明。</li>
+                            <li><strong>指事性：</strong>水书的文字中还有一些指事字，通过在独体字上添加指示符号来表达特定的意义，如上、下、本、末等字。</li>
+                            <li><strong>独特性：</strong>水书的文字结构和书写方式与其他文字体系有很大的不同，具有独特的民族特色。</li>
+                        </ul>
+                        
+                        <h3>书写特点</h3>
+                        <ul>
+                            <li><strong>书写方向：</strong>水书的书写方向为从右到左，从上到下，与汉字的书写方向相反。</li>
+                            <li><strong>书写材料：</strong>传统上，水书多写在树皮、竹片、纸张等材料上。</li>
+                            <li><strong>书写工具：</strong>水书的书写工具多为毛笔或竹笔。</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <!-- 水书用途 -->
+                <section class="shushu-section">
+                    <h2>水书用途</h2>
+                    <div class="shushu-usage">
+                        <h3>宗教信仰</h3>
+                        <p>水书在水族的宗教信仰中占有重要地位，是水族巫师（称为“水书先生”）进行宗教活动的重要工具。水书先生通过阅读水书，为水族人民占卜吉凶、驱邪避灾、祈福纳祥。</p>
+                        
+                        <h3>天文历法</h3>
+                        <p>水书记录了水族的天文历法知识，包括日月星辰的运行规律、节气的变化、年月日的计算等。水族人民根据水书中的天文历法知识，安排农业生产、宗教活动和日常生活。</p>
+                        
+                        <h3>历史传说</h3>
+                        <p>水书记录了水族的历史传说，包括水族的起源、迁徙、发展等内容。这些历史传说通过水书传承下来，成为水族人民了解自己民族历史的重要途径。</p>
+                        
+                        <h3>医学知识</h3>
+                        <p>水书还记录了水族的医学知识，包括疾病的诊断、治疗方法、药物的使用等。这些医学知识是水族人民在长期的生产生活实践中总结出来的，对保障水族人民的健康发挥了重要作用。</p>
+                    </div>
+                </section>
+                
+                <!-- 水书传承 -->
+                <section class="shushu-section">
+                    <h2>水书传承</h2>
+                    <p>水书的传承主要依靠水书先生口传心授，通过家族世袭或师徒相传的方式进行。由于水书的内容深奥难懂，学习水书需要很长的时间和精力，因此能够掌握水书的人很少。</p>
+                    <p>近年来，随着社会的发展和科技的进步，水书的传承面临着严峻的挑战。为了保护和传承水书文化，中国政府采取了一系列措施，如建立水书档案馆、培养水书传承人才、开展水书研究等。同时，水族人民也积极参与水书的保护和传承工作，为水书文化的延续做出了贡献。</p>
+                </section>
+                
+                <!-- 水书的价值 -->
+                <section class="shushu-section">
+                    <h2>水书的价值</h2>
+                    <h3>历史价值</h3>
+                    <p>水书是一种古老的象形文字，对研究中国古代文字的演变和发展具有重要意义。水书中保存了许多古代文化信息，为研究中国古代文化提供了珍贵的资料。</p>
+                    
+                    <h3>文化价值</h3>
+                    <p>水书是水族文化的重要载体，记录了水族的宗教信仰、天文历法、历史传说、医学知识等内容，是水族文化的百科全书。水书的存在和传承，丰富了中华文化的内涵，促进了中华文化的多元化和繁荣。</p>
+                    
+                    <h3>科学价值</h3>
+                    <p>水书中包含了丰富的天文历法知识和医学知识，对研究古代天文学、历法和医学具有重要价值。</p>
+                    
+                    <h3>艺术价值</h3>
+                    <p>水书的文字结构独特，书写方式优美，具有很高的艺术价值。水书的书法艺术是水族传统艺术的重要组成部分，展现了水族人民的审美观念和艺术才华。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

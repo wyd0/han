@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑶族建筑风格 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 瑶族建筑风格页面特定样式 */
+        .architecture-header {
+            background-image: url('images/瑶族刺绣.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .architecture-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .architecture-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .architecture-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .architecture-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-yao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-yao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .architecture-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .architecture-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .architecture-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .architecture-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .architecture-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .architecture-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .architecture-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .architecture-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .architecture-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .architecture-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .architecture-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 建筑类型样式 */
+        .architecture-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .architecture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .architecture-section.visible .architecture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .architecture-section.visible .architecture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .architecture-section.visible .architecture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .architecture-section.visible .architecture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .architecture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .architecture-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .architecture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 建筑特点样式 */
+        .architecture-features {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 30px 0;
+        }
+        
+        .architecture-features h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .architecture-header h1 {
+                font-size: 36px;
+            }
+            
+            .architecture-header p {
+                font-size: 18px;
+            }
+            
+            .architecture-section h2 {
+                font-size: 28px;
+            }
+            
+            .architecture-types {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="architecture-header">
+        <div class="container">
+            <div class="architecture-header-content">
+                <h1>瑶族建筑风格</h1>
+                <p>独特的瑶族建筑特色与文化内涵</p>
+                <a href="yao.html" class="back-yao">返回瑶族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="architecture-main">
+        <div class="container">
+            <div class="architecture-content">
+                <!-- 建筑风格概述 -->
+                <section class="architecture-section">
+                    <h2>建筑风格概述</h2>
+                    <p>瑶族是一个有着独特建筑风格的民族，瑶族的建筑风格是瑶族文化的重要组成部分，反映了瑶族人民的生活方式、审美情趣和文化传统。瑶族的建筑主要分布在南方山区，适应山区的自然环境和气候特点，具有鲜明的民族特色。</p>
+                    <p>瑶族的建筑类型多样，主要包括干栏式建筑、吊脚楼、竹楼、蘑菇房等。每种建筑类型都有其独特的结构特点和文化内涵，是瑶族人民智慧的结晶。</p>
+                </section>
+
+                <!-- 建筑类型 -->
+                <section class="architecture-section">
+                    <h2>建筑类型</h2>
+                    <p>瑶族的建筑类型多样，主要包括以下几种：</p>
+                    <div class="architecture-types">
+                        <div class="architecture-item">
+                            <h4>干栏式建筑</h4>
+                            <p>干栏式建筑是瑶族最常见的建筑类型之一，主要分布在广西、湖南、云南等瑶族聚居区。干栏式建筑的特点是：</p>
+                            <ul>
+                                <li><strong>结构特点：</strong>干栏式建筑分为上下两层，上层住人，下层圈养牲畜或存放杂物。</li>
+                                <li><strong>建筑材料：</strong>主要使用木材、竹子、茅草等天然材料。</li>
+                                <li><strong>适应环境：</strong>适应南方山区潮湿多雨的气候特点，避免潮湿和野兽的侵害。</li>
+                                <li><strong>文化内涵：</strong>体现了瑶族人民与自然和谐相处的理念。</li>
+                            </ul>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>吊脚楼</h4>
+                            <p>吊脚楼是瑶族的传统建筑类型之一，主要分布在湖南、贵州等瑶族聚居区。吊脚楼的特点是：</p>
+                            <ul>
+                                <li><strong>结构特点：</strong>吊脚楼的一部分悬空，用木柱支撑，另一部分建在地面上。</li>
+                                <li><strong>建筑材料：</strong>主要使用木材、竹子、瓦片等材料。</li>
+                                <li><strong>适应环境：</strong>适应山区地形崎岖的特点，充分利用有限的平地。</li>
+                                <li><strong>文化内涵：</strong>体现了瑶族人民因地制宜、适应自然的智慧。</li>
+                            </ul>
+                        </div>
+                        <div class="architecture-item">
+                            <h4>竹楼</h4>
+                            <p>竹楼是瑶族的传统建筑类型之一，主要分布在云南、广东等瑶族聚居区。竹楼的特点是：</p>
+                            <ul>
+                                <li><strong>结构特点：</strong>竹楼全部用竹子建造，分为上下两层，上层住人，下层圈养牲畜或存放杂物。</li>
+                                <li><strong>建筑材料：</strong>主要使用竹子、茅草等天然材料。</li>
+                                <li><strong>适应环境：</strong>适应南方炎热潮湿的气候特点，通风透气。</li>
+                                <li><strong>文化内涵：</strong>体现了瑶族人民利用自然资源、与自然和谐相处的理念。</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3>其他建筑类型</h3>
+                    <ul>
+                        <li><strong>蘑菇房：</strong>主要分布在云南瑶族聚居区，屋顶呈圆形，像蘑菇一样，因此得名。蘑菇房的特点是冬暖夏凉，适应云南的气候特点。</li>
+                        <li><strong>土坯房：</strong>主要分布在北方瑶族聚居区，使用土坯建造，屋顶用茅草或瓦片覆盖。土坯房的特点是保暖性好，适应北方的气候特点。</li>
+                        <li><strong>砖瓦结构房屋：</strong>随着社会的发展和进步，瑶族人民逐渐建造了砖瓦结构的房屋，这些房屋既保留了传统建筑的特点，又融入了现代建筑的元素。</li>
+                    </ul>
+                </section>
+
+                <!-- 建筑特点 -->
+                <section class="architecture-section">
+                    <h2>建筑特点</h2>
+                    <p>瑶族的建筑具有以下特点：</p>
+                    <div class="architecture-features">
+                        <h4>瑶族建筑的主要特点</h4>
+                        <ul>
+                            <li><strong>适应自然环境：</strong>瑶族的建筑适应山区的自然环境和气候特点，如干栏式建筑适应潮湿多雨的气候，吊脚楼适应地形崎岖的特点。</li>
+                            <li><strong>利用天然材料：</strong>瑶族的建筑主要使用木材、竹子、茅草等天然材料，体现了瑶族人民利用自然资源、与自然和谐相处的理念。</li>
+                            <li><strong>结构合理：</strong>瑶族的建筑结构合理，如干栏式建筑分为上下两层，上层住人，下层圈养牲畜或存放杂物，充分利用空间。</li>
+                            <li><strong>民族特色鲜明：</strong>瑶族的建筑具有鲜明的民族特色，如建筑的形状、装饰、色彩等都体现了瑶族的文化传统和审美情趣。</li>
+                            <li><strong>功能齐全：</strong>瑶族的建筑功能齐全，不仅满足居住的需要，还满足宗教、社交等方面的需要。</li>
+                        </ul>
+                    </div>
+                    <h3>建筑装饰</h3>
+                    <p>瑶族的建筑装饰精美，体现了瑶族人民的审美情趣和文化传统。瑶族的建筑装饰主要包括：</p>
+                    <ul>
+                        <li><strong>木雕：</strong>瑶族的建筑中，木雕是常见的装饰形式，主要用于门窗、梁柱等部位，图案包括花卉、动物、几何图形等，寓意吉祥如意。</li>
+                        <li><strong>绘画：</strong>瑶族的建筑中，绘画也是常见的装饰形式，主要用于墙壁、天花板等部位，内容包括瑶族的历史、文化、神话传说等。</li>
+                        <li><strong>编织：</strong>瑶族的建筑中，编织是常见的装饰形式，主要用于门窗、墙壁等部位，使用竹子、藤条等材料编织成各种图案。</li>
+                        <li><strong>色彩：</strong>瑶族的建筑喜欢使用鲜艳的颜色，如红、蓝、绿、紫等，体现了瑶族人民开朗活泼的性格。</li>
+                    </ul>
+                </section>
+
+                <!-- 建筑与文化 -->
+                <section class="architecture-section">
+                    <h2>建筑与文化</h2>
+                    <p>瑶族的建筑与瑶族的文化密切相关，是瑶族文化的重要载体。瑶族的建筑体现了瑶族的以下文化内涵：</p>
+                    <h3>宗教信仰</h3>
+                    <p>瑶族的建筑体现了瑶族的宗教信仰，主要表现在：</p>
+                    <ul>
+                        <li><strong>神龛：</strong>瑶族的房屋中，通常在堂屋的正中间设有神龛，供奉祖先牌位和神灵，体现了瑶族的祖先崇拜和神灵崇拜。</li>
+                        <li><strong>宗教场所：</strong>瑶族的村寨中，通常设有盘王庙、土地庙等宗教场所，用于举行宗教仪式和活动。</li>
+                        <li><strong>建筑方位：</strong>瑶族的建筑方位通常按照风水观念确定，体现了瑶族的宗教信仰和世界观。</li>
+                    </ul>
+                    <h3>家庭观念</h3>
+                    <p>瑶族的建筑体现了瑶族的家庭观念，主要表现在：</p>
+                    <ul>
+                        <li><strong>建筑布局：</strong>瑶族的建筑布局通常以家庭为单位，体现了瑶族的家庭观念和血缘关系。</li>
+                        <li><strong>房间分配：</strong>瑶族的房屋中，房间的分配通常按照家庭成员的身份和地位确定，体现了瑶族的家庭伦理观念。</li>
+                        <li><strong>家族聚居：</strong>瑶族的村寨通常是家族聚居，房屋排列整齐，体现了瑶族的家族观念和凝聚力。</li>
+                    </ul>
+                    <h3>社会结构</h3>
+                    <p>瑶族的建筑体现了瑶族的社会结构，主要表现在：</p>
+                    <ul>
+                        <li><strong>村寨布局：</strong>瑶族的村寨布局通常按照社会地位和职业分工确定，体现了瑶族的社会结构和组织形式。</li>
+                        <li><strong>公共建筑：</strong>瑶族的村寨中，通常设有公共建筑，如鼓楼、戏台等，用于举行公共活动和社交活动，体现了瑶族的社会生活和组织形式。</li>
+                        <li><strong>建筑规模：</strong>瑶族的建筑规模通常与家庭的社会地位和经济状况有关，体现了瑶族的社会分层和经济状况。</li>
+                    </ul>
+                </section>
+
+                <!-- 建筑的传承与发展 -->
+                <section class="architecture-section">
+                    <h2>建筑的传承与发展</h2>
+                    <p>随着社会的发展和进步，瑶族的建筑面临着一些挑战，如传统建筑材料的短缺、传统建筑工艺的传承后继乏人、现代建筑的冲击等。为了传承和发展瑶族的建筑，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>保护传统建筑：</strong>保护和维修瑶族的传统建筑，确保传统建筑的完整性和真实性。</li>
+                        <li><strong>传承建筑工艺：</strong>培养年轻的建筑工艺人才，传承瑶族的传统建筑工艺。</li>
+                        <li><strong>创新建筑形式：</strong>在保持传统建筑核心特点的基础上，创新建筑形式，适应现代社会的发展。</li>
+                        <li><strong>加强教育：</strong>加强对瑶族青少年的建筑文化教育，使他们了解瑶族建筑的内涵和意义。</li>
+                        <li><strong>政策支持：</strong>政府应出台相关政策，支持瑶族建筑的传承和发展，如将瑶族的传统建筑列为文物保护单位等。</li>
+                    </ul>
+                    <h3>现代瑶族建筑</h3>
+                    <p>现代瑶族建筑在保留传统建筑特点的基础上，融入了现代建筑的元素，主要表现在：</p>
+                    <ul>
+                        <li><strong>建筑材料：</strong>现代瑶族建筑使用了更多的现代建筑材料，如砖瓦、水泥、钢筋等，提高了建筑的安全性和耐久性。</li>
+                        <li><strong>建筑结构：</strong>现代瑶族建筑采用了更多的现代建筑结构，如框架结构、砖混结构等，提高了建筑的稳定性和舒适性。</li>
+                        <li><strong>建筑功能：</strong>现代瑶族建筑的功能更加齐全，如增加了卫生间、厨房、客厅等功能空间，提高了居住的舒适性。</li>
+                        <li><strong>建筑装饰：</strong>现代瑶族建筑的装饰更加多样化，既保留了传统装饰的特点，又融入了现代装饰的元素，体现了瑶族文化的传承和发展。</li>
+                    </ul>
+                    <p>现代瑶族建筑的发展，既保留了传统建筑的特点，又融入了现代建筑的元素，体现了瑶族文化的传承和发展，是瑶族人民适应现代社会发展的体现。</p>
+                </section>
+
+                <!-- 建筑的价值 -->
+                <section class="architecture-section">
+                    <h2>建筑的价值</h2>
+                    <p>瑶族的建筑具有以下价值：</p>
+                    <ul>
+                        <li><strong>文化价值：</strong>瑶族的建筑是瑶族文化的重要载体，体现了瑶族的历史、文化、宗教信仰、生活方式等，具有重要的文化价值。</li>
+                        <li><strong>艺术价值：</strong>瑶族的建筑具有独特的艺术风格，如建筑的形状、结构、装饰等都体现了瑶族的审美情趣和艺术才华，具有重要的艺术价值。</li>
+                        <li><strong>科学价值：</strong>瑶族的建筑适应山区的自然环境和气候特点，体现了瑶族人民的智慧和科学知识，具有重要的科学价值。</li>
+                        <li><strong>旅游价值：</strong>瑶族的建筑具有独特的民族特色，吸引了众多游客前来参观，具有重要的旅游价值。</li>
+                        <li><strong>社会价值：</strong>瑶族的建筑体现了瑶族的社会结构和组织形式，是瑶族社会的重要组成部分，具有重要的社会价值。</li>
+                    </ul>
+                    <p>瑶族的建筑是瑶族文化的重要组成部分，是瑶族人民智慧的结晶。传承和发展瑶族的建筑，不仅是对瑶族文化的保护，也是对中华民族文化多样性的保护。我们应该共同努力，让瑶族的建筑在新时代焕发出新的活力。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.architecture-section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    if (isVisible) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // 初始检查
+            checkVisibility();
+            
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

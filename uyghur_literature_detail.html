@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维吾尔族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 维吾尔族文学艺术页面特定样式 */
+        .uyghur-header {
+            background-image: url('images/uyghur-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .uyghur-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .uyghur-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .uyghur-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .uyghur-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-uyghur {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-uyghur:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .uyghur-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .uyghur-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .uyghur-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uyghur-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .uyghur-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .uyghur-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .uyghur-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .uyghur-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .uyghur-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .uyghur-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .uyghur-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术特色网格 */
+        .literature-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .literature-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .uyghur-section.visible .literature-feature-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .uyghur-section.visible .literature-feature-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .uyghur-section.visible .literature-feature-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .uyghur-section.visible .literature-feature-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .literature-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .literature-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .uyghur-header h1 {
+                font-size: 36px;
+            }
+            
+            .uyghur-header p {
+                font-size: 18px;
+            }
+            
+            .uyghur-section h2 {
+                font-size: 28px;
+            }
+            
+            .literature-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="uyghur-header">
+        <div class="container">
+            <div class="uyghur-header-content">
+                <h1>维吾尔族文学艺术</h1>
+                <p>丰富多彩的文学遗产与艺术瑰宝</p>
+                <a href="uyghur.html" class="back-uyghur">返回维吾尔族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="uyghur-main">
+        <div class="container">
+            <div class="uyghur-content">
+                <!-- 介绍部分 -->
+                <section class="uyghur-section">
+                    <h2>文学艺术概述</h2>
+                    <p>维吾尔族是一个有着悠久历史和灿烂文化的民族，其文学艺术丰富多彩，是中华民族文化宝库中的重要组成部分。维吾尔族的文学艺术包括文学、音乐、舞蹈、绘画、雕塑等多个领域，具有独特的民族特色和艺术风格。</p>
+                    <p>维吾尔族的文学艺术历史悠久，从古代的口头文学到现代的书面文学，从传统的音乐舞蹈到现代的艺术形式，都体现了维吾尔族人民的智慧和创造力。维吾尔族的文学艺术不仅是维吾尔族文化的重要载体，也是中华民族文化的重要组成部分。</p>
+                </section>
+
+                <!-- 文学成就 -->
+                <section class="uyghur-section">
+                    <h2>文学成就</h2>
+                    <p>维吾尔族有着丰富的文学遗产，包括口头文学和书面文学，这些文学作品反映了维吾尔族的历史、文化和生活，是维吾尔族文学艺术的重要组成部分。</p>
+                    
+                    <h3>口头文学</h3>
+                    <ul>
+                        <li><strong>神话传说：</strong>维吾尔族的神话传说丰富多彩，如《阿凡提的故事》、《突厥起源传说》等，这些传说反映了维吾尔族的历史、文化和生活，具有浓厚的民族特色。</li>
+                        <li><strong>民间故事：</strong>维吾尔族的民间故事内容丰富，形式多样，如爱情故事、智慧故事、动物故事等，这些故事反映了维吾尔族人民的生活和思想，具有深刻的教育意义。</li>
+                        <li><strong>民间诗歌：</strong>维吾尔族的民间诗歌历史悠久，形式多样，如民歌、民谣、谚语等，这些诗歌反映了维吾尔族人民的情感和思想，具有强烈的艺术感染力。</li>
+                        <li><strong>民间说唱：</strong>维吾尔族的民间说唱艺术形式多样，如阿肯弹唱、达斯坦等，这些说唱艺术反映了维吾尔族人民的生活和思想，具有浓厚的民族特色。</li>
+                    </ul>
+                    
+                    <h3>书面文学</h3>
+                    <ul>
+                        <li><strong>古典文学：</strong>维吾尔族的古典文学历史悠久，成就辉煌，如《福乐智慧》、《突厥语大词典》、《真理的入门》等，这些作品是维吾尔族文学的瑰宝，也是中华民族文学的重要组成部分。</li>
+                        <li><strong>现代文学：</strong>维吾尔族的现代文学在继承传统的基础上，吸收了现代文学的元素，产生了许多优秀的作品，如小说、散文、诗歌等。</li>
+                        <li><strong>文学理论：</strong>维吾尔族的文学理论历史悠久，成就辉煌，如《诗学》、《文学批评》等，这些理论作品对维吾尔族文学的发展产生了深远的影响。</li>
+                    </ul>
+                    
+                    <h3>著名文学家</h3>
+                    <ul>
+                        <li><strong>玉素甫·哈斯·哈吉甫：</strong>11世纪维吾尔族著名文学家，著有《福乐智慧》，这是维吾尔族古典文学的代表作，也是中华民族文学的重要组成部分。</li>
+                        <li><strong>马赫穆德·喀什噶里：</strong>11世纪维吾尔族著名语言学家、文学家，著有《突厥语大词典》，这是一部重要的语言学著作，也是一部重要的文学作品。</li>
+                        <li><strong>艾合买提·孜亚依：</strong>现代维吾尔族著名文学家，著有《绿洲》、《故乡》等作品，这些作品反映了维吾尔族人民的生活和思想，具有深刻的社会意义。</li>
+                        <li><strong>铁依甫江·艾力尤夫：</strong>现代维吾尔族著名诗人，著有《天山的诗》、《时代的召唤》等作品，这些作品反映了维吾尔族人民的情感和思想，具有强烈的艺术感染力。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐成就 -->
+                <section class="uyghur-section">
+                    <h2>音乐成就</h2>
+                    <p>维吾尔族是一个能歌善舞的民族，其音乐艺术历史悠久，成就辉煌，具有独特的民族特色和艺术风格。</p>
+                    
+                    <h3>传统音乐</h3>
+                    <ul>
+                        <li><strong>十二木卡姆：</strong>十二木卡姆是维吾尔族古典音乐的代表，被誉为"东方音乐的瑰宝"。它是一套大型古典音乐套曲，由十二部木卡姆组成，每部木卡姆包括多个乐章，内容丰富，形式多样。</li>
+                        <li><strong>民间音乐：</strong>维吾尔族的民间音乐丰富多彩，形式多样，如民歌、民谣、舞曲等，这些音乐反映了维吾尔族人民的生活和思想，具有浓厚的民族特色。</li>
+                        <li><strong>宗教音乐：</strong>维吾尔族的宗教音乐主要是伊斯兰教的宗教音乐，如诵经调、赞词等，这些音乐具有浓厚的宗教色彩。</li>
+                    </ul>
+                    
+                    <h3>乐器</h3>
+                    <ul>
+                        <li><strong>弹拨乐器：</strong>维吾尔族的弹拨乐器主要有热瓦甫、弹布尔、卡龙等，这些乐器音色优美，表现力丰富。</li>
+                        <li><strong>弓弦乐器：</strong>维吾尔族的弓弦乐器主要有艾捷克、胡西塔尔等，这些乐器音色柔和，表现力丰富。</li>
+                        <li><strong>吹管乐器：</strong>维吾尔族的吹管乐器主要有唢呐、笛子等，这些乐器音色明亮，表现力丰富。</li>
+                        <li><strong>打击乐器：</strong>维吾尔族的打击乐器主要有手鼓、纳格拉等，这些乐器节奏明快，表现力丰富。</li>
+                    </ul>
+                    
+                    <h3>著名音乐家</h3>
+                    <ul>
+                        <li><strong>阿曼尼莎汗：</strong>16世纪维吾尔族著名女音乐家，对十二木卡姆的整理和发展做出了重要贡献。</li>
+                        <li><strong>买买提明·艾力：</strong>现代维吾尔族著名音乐家，著有《十二木卡姆研究》等作品，对维吾尔族音乐的研究和发展做出了重要贡献。</li>
+                        <li><strong>乌斯满江：</strong>现代维吾尔族著名音乐家，著有《天山之歌》等作品，这些作品反映了维吾尔族人民的生活和思想，具有强烈的艺术感染力。</li>
+                    </ul>
+                </section>
+
+                <!-- 舞蹈成就 -->
+                <section class="uyghur-section">
+                    <h2>舞蹈成就</h2>
+                    <p>维吾尔族是一个能歌善舞的民族，其舞蹈艺术历史悠久，成就辉煌，具有独特的民族特色和艺术风格。</p>
+                    
+                    <h3>传统舞蹈</h3>
+                    <ul>
+                        <li><strong>麦西热甫：</strong>麦西热甫是维吾尔族的传统歌舞集会，也是维吾尔族的传统舞蹈形式，它集歌、舞、乐、戏于一体，内容丰富，形式多样。</li>
+                        <li><strong>萨玛舞：</strong>萨玛舞是维吾尔族的传统宗教舞蹈，也是维吾尔族的传统舞蹈形式，它动作粗犷，节奏明快，具有浓厚的宗教色彩。</li>
+                        <li><strong>手鼓舞：</strong>手鼓舞是维吾尔族的传统舞蹈形式，它以手鼓为伴奏，动作优美，节奏明快，具有强烈的艺术感染力。</li>
+                        <li><strong>盘子舞：</strong>盘子舞是维吾尔族的传统舞蹈形式，它以盘子为道具，动作优美，节奏明快，具有浓厚的民族特色。</li>
+                    </ul>
+                    
+                    <h3>舞蹈特点</h3>
+                    <ul>
+                        <li><strong>动作特点：</strong>维吾尔族的舞蹈动作优美，节奏明快，注重手腕和脚部的动作，具有强烈的艺术感染力。</li>
+                        <li><strong>音乐特点：</strong>维吾尔族的舞蹈音乐节奏明快，旋律优美，具有浓厚的民族特色。</li>
+                        <li><strong>服饰特点：</strong>维吾尔族的舞蹈服饰色彩鲜艳，款式多样，具有浓厚的民族特色。</li>
+                        <li><strong>表演特点：</strong>维吾尔族的舞蹈表演形式多样，内容丰富，具有强烈的艺术感染力。</li>
+                    </ul>
+                    
+                    <h3>著名舞蹈家</h3>
+                    <ul>
+                        <li><strong>康巴尔汗·艾买提：</strong>现代维吾尔族著名舞蹈家，被誉为"维吾尔族舞蹈之母"，她的舞蹈作品《摘葡萄》、《盘子舞》等深受观众喜爱。</li>
+                        <li><strong>迪丽娜尔·阿布拉：</strong>现代维吾尔族著名舞蹈家，她的舞蹈作品《天山雪莲》、《阿拉木汗》等深受观众喜爱。</li>
+                        <li><strong>阿依吐拉：</strong>现代维吾尔族著名舞蹈家，她的舞蹈作品《赛乃姆》、《维吾尔族姑娘》等深受观众喜爱。</li>
+                    </ul>
+                </section>
+
+                <!-- 美术成就 -->
+                <section class="uyghur-section">
+                    <h2>美术成就</h2>
+                    <p>维吾尔族的美术艺术历史悠久，成就辉煌，包括绘画、雕塑、工艺等多个领域，具有独特的民族特色和艺术风格。</p>
+                    
+                    <h3>绘画</h3>
+                    <ul>
+                        <li><strong>壁画：</strong>维吾尔族的壁画历史悠久，成就辉煌，如吐鲁番的柏孜克里克千佛洞壁画、库车的克孜尔千佛洞壁画等，这些壁画内容丰富，形式多样，具有浓厚的民族特色。</li>
+                        <li><strong>装饰画：</strong>维吾尔族的装饰画丰富多彩，形式多样，如建筑装饰画、器物装饰画等，这些装饰画内容丰富，形式多样，具有浓厚的民族特色。</li>
+                        <li><strong>现代绘画：</strong>维吾尔族的现代绘画在继承传统的基础上，吸收了现代绘画的元素，产生了许多优秀的作品，如油画、水彩画、版画等。</li>
+                    </ul>
+                    
+                    <h3>雕塑</h3>
+                    <ul>
+                        <li><strong>传统雕塑：</strong>维吾尔族的传统雕塑主要是宗教雕塑，如佛像、菩萨像等，这些雕塑造型优美，工艺精湛。</li>
+                        <li><strong>现代雕塑：</strong>维吾尔族的现代雕塑在继承传统的基础上，吸收了现代雕塑的元素，产生了许多优秀的作品，如人物雕塑、动物雕塑等。</li>
+                    </ul>
+                    
+                    <h3>工艺</h3>
+                    <ul>
+                        <li><strong>地毯编织：</strong>维吾尔族的地毯编织历史悠久，工艺精湛，图案精美，色彩鲜艳，是中国传统手工艺品中的珍品。</li>
+                        <li><strong>刺绣：</strong>维吾尔族的刺绣历史悠久，工艺精湛，图案精美，色彩鲜艳，是中国传统手工艺品中的珍品。</li>
+                        <li><strong>木雕：</strong>维吾尔族的木雕历史悠久，工艺精湛，图案精美，是中国传统手工艺品中的珍品。</li>
+                        <li><strong>金属工艺：</strong>维吾尔族的金属工艺历史悠久，工艺精湛，图案精美，是中国传统手工艺品中的珍品。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的现代发展 -->
+                <section class="uyghur-section">
+                    <h2>文学艺术的现代发展</h2>
+                    <p>随着社会的发展和科技的进步，维吾尔族的文学艺术也在不断发展和变化，吸收了现代文化元素，同时也保持了传统特色。</p>
+                    
+                    <h3>现代文学</h3>
+                    <ul>
+                        <li><strong>小说：</strong>维吾尔族的现代小说在继承传统的基础上，吸收了现代小说的元素，产生了许多优秀的作品，如长篇小说、中篇小说、短篇小说等。</li>
+                        <li><strong>散文：</strong>维吾尔族的现代散文在继承传统的基础上，吸收了现代散文的元素，产生了许多优秀的作品，如抒情散文、叙事散文、议论散文等。</li>
+                        <li><strong>诗歌：</strong>维吾尔族的现代诗歌在继承传统的基础上，吸收了现代诗歌的元素，产生了许多优秀的作品，如抒情诗、叙事诗、哲理诗等。</li>
+                        <li><strong>戏剧：</strong>维吾尔族的现代戏剧在继承传统的基础上，吸收了现代戏剧的元素，产生了许多优秀的作品，如话剧、歌剧、舞剧等。</li>
+                    </ul>
+                    
+                    <h3>现代音乐</h3>
+                    <ul>
+                        <li><strong>现代歌曲：</strong>维吾尔族的现代歌曲在继承传统的基础上，吸收了现代音乐的元素，产生了许多优秀的作品，如流行歌曲、民族歌曲等。</li>
+                        <li><strong>现代器乐：</strong>维吾尔族的现代器乐在继承传统的基础上，吸收了现代器乐的元素，产生了许多优秀的作品，如协奏曲、交响曲等。</li>
+                        <li><strong>现代乐队：</strong>维吾尔族的现代乐队在继承传统的基础上，吸收了现代乐队的元素，产生了许多优秀的乐队，如民族乐队、摇滚乐队等。</li>
+                    </ul>
+                    
+                    <h3>现代舞蹈</h3>
+                    <ul>
+                        <li><strong>现代舞：</strong>维吾尔族的现代舞在继承传统的基础上，吸收了现代舞的元素，产生了许多优秀的作品，如现代民族舞、现代舞剧等。</li>
+                        <li><strong>舞蹈剧：</strong>维吾尔族的舞蹈剧在继承传统的基础上，吸收了现代舞蹈剧的元素，产生了许多优秀的作品，如《十二木卡姆》、《天山雪莲》等。</li>
+                        <li><strong>舞蹈编排：</strong>维吾尔族的舞蹈编排在继承传统的基础上，吸收了现代舞蹈编排的元素，产生了许多优秀的舞蹈作品。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的文化意义 -->
+                <section class="uyghur-section">
+                    <h2>文学艺术的文化意义</h2>
+                    <p>维吾尔族的文学艺术不仅是一种艺术形式，也是维吾尔族文化的重要组成部分，具有深远的文化意义。</p>
+                    
+                    <div class="literature-features-grid">
+                        <div class="literature-feature-item">
+                            <h5>文化传承</h5>
+                            <p>维吾尔族的文学艺术是维吾尔族文化的重要载体，通过文学艺术，维吾尔族的历史、文化和生活得以传承和发展。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>民族认同</h5>
+                            <p>维吾尔族的文学艺术是维吾尔族民族认同的重要标志，体现了维吾尔族的共同文化特征和民族精神。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>文化交流</h5>
+                            <p>维吾尔族的文学艺术是维吾尔族与其他民族文化交流的重要桥梁，促进了各民族之间的相互了解和友谊。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>文学艺术与民族精神</h3>
+                    <p>维吾尔族的文学艺术体现了维吾尔族的民族精神，塑造了维吾尔族的民族性格。</p>
+                    <ul>
+                        <li><strong>爱国主义：</strong>维吾尔族的文学艺术作品中充满了爱国主义精神，如《祖国颂》、《天山之歌》等，这些作品表达了维吾尔族人民对祖国的热爱之情。</li>
+                        <li><strong>团结互助：</strong>维吾尔族的文学艺术作品中充满了团结互助精神，如《民族团结之歌》、《兄弟情深》等，这些作品表达了维吾尔族人民对民族团结的珍视之情。</li>
+                        <li><strong>勤劳勇敢：</strong>维吾尔族的文学艺术作品中充满了勤劳勇敢精神，如《勤劳的维吾尔族人民》、《勇敢的牧羊人》等，这些作品表达了维吾尔族人民对勤劳勇敢的赞美之情。</li>
+                        <li><strong>乐观向上：</strong>维吾尔族的文学艺术作品中充满了乐观向上精神，如《快乐的维吾尔族姑娘》、《幸福的生活》等，这些作品表达了维吾尔族人民对美好生活的向往之情。</li>
+                    </ul>
+                    
+                    <h3>文学艺术与中华文化</h3>
+                    <p>维吾尔族的文学艺术是中华文化的重要组成部分，为中华文化的繁荣和发展做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>丰富了中华文化：</strong>维吾尔族的文学艺术丰富了中华文化的内涵，为中华文化的繁荣和发展做出了重要贡献。</li>
+                        <li><strong>促进了文化交流：</strong>维吾尔族的文学艺术促进了各民族之间的文化交流，增强了各民族之间的相互了解和友谊。</li>
+                        <li><strong>体现了中华文化的多样性：</strong>维吾尔族的文学艺术体现了中华文化的多样性，展示了中华文化的魅力。</li>
+                        <li><strong>为世界文化做出了贡献：</strong>维吾尔族的文学艺术不仅是中华文化的重要组成部分，也是世界文化的重要组成部分，为世界文化的繁荣和发展做出了重要贡献。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

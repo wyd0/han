@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 土族页面特定样式 */
+        .tu-header {
+            background-image: url('images/tu-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .tu-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tu-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tu-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .tu-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .tu-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tu-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .tu-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tu-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .tu-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tu-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tu-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tu-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tu-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tu-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tu-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tu-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tu-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tu-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .tu-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .tu-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .tu-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tu-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tu-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .tu-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .tu-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 节日庆祝样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 返回文化区别按钮样式 */
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tu-header h1 {
+                font-size: 36px;
+            }
+            
+            .tu-header p {
+                font-size: 18px;
+            }
+            
+            .tu-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+            
+            .clothing-item img {
+                height: 300px;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="tu-header">
+        <div class="container">
+            <div class="tu-header-content">
+                <h1>土族文化</h1>
+                <p>绚烂多彩的民族服饰与传统节日文化</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="tu-main">
+        <div class="container">
+            <div class="tu-content">
+                <!-- 土族文化概述 -->
+                <section class="tu-section">
+                    <h2>土族文化概述</h2>
+                    <p>土族是中国的一个少数民族，主要分布在青海省互助土族自治县、大通回族土族自治县、民和回族土族自治县、同仁县和甘肃省天祝藏族自治县、永登县、肃南裕固族自治县等地。土族自称"蒙古尔"、"察罕蒙古"等，汉语称为"土族"。</p>
+                    <p>土族有自己的语言——土语，属于阿尔泰语系蒙古语族。土族没有自己的文字，通用汉字。土族文化具有悠久的历史和丰富的内涵，包括语言文字、宗教信仰、风俗习惯、文学艺术、建筑风格等多个方面。土族人民勤劳勇敢、热情好客，在长期的历史发展过程中，创造了灿烂的民族文化，尤其是土族的传统服饰和节日，被誉为"土族文化的两颗明珠"。</p>
+                </section>
+                
+                <!-- 历史与来源 -->
+                <section class="tu-section">
+                    <h2>历史与来源</h2>
+                    <p>关于土族的来源，学术界有多种说法，主要有以下几种：</p>
+                    <ul>
+                        <li><strong>蒙古说：</strong>认为土族是蒙古族的后裔。据史料记载，13世纪初，成吉思汗西征时，将一批蒙古族士兵留在互助地区，后来这些蒙古族与当地的民族融合，逐渐形成了土族。</li>
+                        <li><strong>吐谷浑说：</strong>认为土族是古代吐谷浑人的后裔。吐谷浑是中国古代西北的一个少数民族，最早是鲜卑族的一支，后来建立了吐谷浑王国。吐谷浑王国灭亡后，其部分后裔逐渐与当地的民族融合，形成了土族。</li>
+                        <li><strong>多源融合说：</strong>认为土族是由多个民族融合而成的。历史上，互助地区曾经有蒙古族、汉族、藏族等多个民族居住，这些民族相互融合，逐渐形成了土族。</li>
+                    </ul>
+                    <p>无论土族的来源如何，有一点是确定的，那就是土族是一个具有悠久历史的民族，其文化传承已有数百年的历史。在长期的历史发展过程中，土族人民与其他民族相互交流、融合，共同创造了灿烂的中华文化。</p>
+                </section>
+                
+                <!-- 文化方面 -->
+                <section class="tu-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="tu-religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>土族的宗教信仰主要包括藏传佛教和原始宗教。藏传佛教是土族的主要宗教，属于格鲁派，对土族的文化、风俗习惯等产生了深远的影响。原始宗教在土族地区也有一定的影响，特别是在一些偏远地区，土族人民仍然保持着对自然和祖先的崇拜。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tu-language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>土族有自己的语言——土语，属于阿尔泰语系蒙古语族。土语分为互助、民和、同仁等三个方言。土族没有自己的文字，通用汉字。在历史上，土族曾经使用过藏文和蒙古文，但都没有广泛流传。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tu-festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>土族的传统节日主要有春节、清明节、端午节、中秋节、中元节等。其中，春节是土族最隆重的传统节日，被称为"世界上最长的狂欢节"。节日的日期根据土族的传统历法计算，一般在每年的农历正月十二日开始，延续两个月左右，直到农历三月初三结束。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tu-music.html" style="color: #c0392b; text-decoration: none;">音乐舞蹈</a></h5>
+                            <p>土族的音乐舞蹈具有独特的民族风格。土族的民间音乐主要有民歌、器乐等，其中民歌包括叙事歌、情歌、劳动歌等多种类型。土族的民间舞蹈主要有安昭舞、轮子秋、於菟舞等，动作优美、节奏明快，充满了民族特色。</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 服装文化 -->
+                <section class="tu-section">
+                    <h2>服装文化</h2>
+                    <p>土族的传统服装以其鲜艳的色彩、独特的款式和精美的装饰而闻名。男子一般穿长袍、短褂、长裤，系腰带，戴毡帽或礼帽。女子则穿鲜艳的花袖衫、长裤，系花围裙，佩戴耳环、项链、手镯等装饰品。土族女子的服装以其独特的彩虹袖而受到人们的喜爱。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/土族女装.jpg" alt="土族女装">
+                            <p>土族女装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/土族男装.jpg" alt="土族男装">
+                            <p>土族男装</p>
+                        </div>
+
+                    </div>
+                    <h3>女装特色</h3>
+                    <p>土族妇女的传统服装主要包括花袖衫、长裤、花围裙等。花袖衫是土族妇女服装的核心，颜色以红、绿、蓝、黄等多种颜色为主，上面绣有精美的图案。长裤多为黑色或蓝色，裤脚宽大。花围裙是土族妇女服装的重要组成部分，颜色以红、绿、蓝等多种颜色为主，上面绣有各种花纹。</p>
+                    <h3>男装特色</h3>
+                    <p>土族男子的传统服装相对简单，主要包括长袍、短褂、长裤、腰带、帽子等。长袍是土族男子服装的核心，颜色以黑、蓝、灰等颜色为主，上面绣有简单的图案。短褂是土族男子服装的重要组成部分，颜色以红、蓝、绿等颜色为主，上面绣有各种花纹。长裤多为黑色或蓝色，裤脚较窄。腰带是土族男子服装的重要组成部分，主要有红色的绸腰带和白色的布腰带。帽子是土族男子服装的重要配饰，主要有毡帽和礼帽。</p>
+                    <h3>服装的文化内涵</h3>
+                    <p>土族服装不仅是一种实用的生活用品，更是土族文化的重要载体。土族服装的颜色、图案、款式等都蕴含着丰富的文化内涵，反映了土族人民的审美观念、宗教信仰、生活方式等。例如，土族妇女的彩虹袖，象征着土族人民对美好生活的向往和追求；服装上绣的各种花纹和图案，寓意着吉祥、幸福和团圆；帽子上的各种装饰，象征着土族人民的智慧和创造力。</p>
+                </section>
+                
+                <!-- 饮食文化 -->
+                <section class="tu-section">
+                    <h2>饮食文化</h2>
+                    <div class="food-culture">
+                        <h3>饮食习俗</h3>
+                        <p>土族的饮食习惯以面食、肉类、奶制品为主，辅以蔬菜、水果等。土族人民喜欢吃酥油、奶酪、手抓肉、面片等食物，其中青稞酒、奶茶和锟锅馍是土族饮食中的重要组成部分。</p>
+                        <h3>特色美食</h3>
+                        <div class="clothing-details">
+                            <div class="clothing-item">
+                                <img src="images/传统工艺.jpg" alt="锟锅馍">
+                                <p>锟锅馍</p>
+                            </div>
+                            <div class="clothing-item">
+                                <img src="images/传统节日.jpg" alt="手抓肉">
+                                <p>手抓肉</p>
+                            </div>
+                        </div>
+                        <ul>
+                            <li><strong>锟锅馍：</strong>是土族的传统名点，以青稞面、小麦面、酥油、牛奶等为主要原料，经发酵、烘烤等工序制作而成。锟锅馍外酥内软、香气扑鼻，是土族人民喜爱的传统食品。</li>
+                            <li><strong>手抓肉：</strong>是土族最有名的特色美食之一。以羊肉、牛肉为主要原料，加入各种调料煮制而成。手抓肉肉质鲜嫩、味道醇香，是土族人民款待客人的必备美食。</li>
+                            <li><strong>青稞酒：</strong>是土族的传统酒类，以青稞为主要原料，经发酵、蒸馏等工序制作而成。青稞酒清香醇厚、口感独特，是土族人民喜爱的传统饮品。</li>
+                            <li><strong>奶茶：</strong>是土族的传统饮品，以牛奶、茶叶、盐等为主要原料制作而成。奶茶清香可口、营养丰富，是土族人民日常生活中不可或缺的饮品。</li>
+                        </ul>
+                        <h3>饮食礼仪</h3>
+                        <p>土族人民非常注重饮食礼仪，在饮食过程中有许多规矩和禁忌。例如，在吃饭时，长辈要先入席，晚辈要后入中；长辈动筷后，晚辈才能动筷；吃饭时不能说话、不能敲碗打盆；饭后要向长辈表示感谢等。此外，土族人民在款待客人时，会准备丰盛的饭菜，并让客人坐在上席，体现了土族人民热情好客、尊老爱幼的传统美德。</p>
+                    </div>
+                </section>
+                
+                <!-- 传统节日 -->
+                <section class="tu-section">
+                    <h2>传统节日</h2>
+                    <div class="festival-celebration">
+                        <h3>春节</h3>
+                        <div class="clothing-details">
+                            <div class="clothing-item">
+                                <img src="images/传统节日.jpg" alt="土族春节">
+                                <p>土族春节</p>
+                            </div>
+                            <div class="clothing-item">
+                                <img src="images/传统音乐.jpg" alt="土族歌舞">
+                                <p>土族歌舞</p>
+                            </div>
+                        </div>
+                        <p>春节是土族最隆重的传统节日，被称为"世界上最长的狂欢节"。春节的日期根据土族的传统历法计算，一般在每年的农历正月十二日开始，延续两个月左右，直到农历三月初三结束。春节是为了辞旧迎新，感谢祖先和神灵的保佑。</p>
+                        <p>春节期间，土族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀活动：</strong>春节的第一天，土族人民会举行祭祀活动，祭祀祖先和神灵，祈求来年风调雨顺、五谷丰登、人畜平安。</li>
+                            <li><strong>歌舞表演：</strong>春节期间，土族人民会聚集在一起，跳安昭舞、轮子秋等传统舞蹈，演唱传统民歌，庆祝节日的到来。</li>
+                            <li><strong>体育活动：</strong>春节期间，土族人民会举行各种体育活动，如赛马、射箭、摔跤等，展示土族人民的勇敢和力量。</li>
+                            <li><strong>走亲访友：</strong>春节期间，土族人民会走亲访友，互相拜年，赠送礼物，增进感情。</li>
+                        </ul>
+                        
+                        <h3>清明节</h3>
+                        <p>清明节是土族的传统节日，日期为每年的农历三月初三。清明节期间，土族人民会举行各种庆祝活动，如扫墓、祭祀祖先、插柳等。</p>
+                        
+                        <h3>端午节</h3>
+                        <p>端午节是土族的传统节日，日期为每年的农历五月初五。端午节期间，土族人民会举行各种庆祝活动，如吃粽子、挂菖蒲、喝雄黄酒等，以驱邪避灾。</p>
+                    </div>
+                </section>
+                
+                <!-- 文学与艺术 -->
+                <section class="tu-section">
+                    <h2>文学与艺术</h2>
+                    <h3>民间文学</h3>
+                    <p>土族的民间文学非常丰富，包括神话传说、民间故事、诗歌谚语等多种类型。这些民间文学作品反映了土族人民的历史、文化、生活和思想感情，是土族文化的重要组成部分。</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>土族的神话传说主要包括创世神话、人类起源神话、自然神话等。例如，《创世纪》是土族最著名的创世神话，讲述了土族的祖先从混沌中诞生，创造天地万物的故事。</li>
+                        <li><strong>民间故事：</strong>土族的民间故事题材广泛，包括爱情故事、生活故事、动物故事等。这些故事情节生动、语言朴实，充满了民族特色和生活气息。</li>
+                        <li><strong>诗歌谚语：</strong>土族的诗歌数量众多，内容丰富。诗歌包括叙事诗、情歌、劳动歌、仪式诗等多种类型，诗句优美、节奏明快。谚语则是土族人民在长期的生产生活实践中总结出来的经验和智慧，语言简洁、寓意深刻。</li>
+                    </ul>
+                    
+                    <h3>传统艺术</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/传统音乐.jpg" alt="土族音乐">
+                            <p>土族音乐</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/书法艺术.jpg" alt="土族刺绣">
+                            <p>土族刺绣</p>
+                        </div>
+                    </div>
+                    <p>土族的传统艺术形式多样，包括音乐、舞蹈、绘画、雕刻、刺绣等。</p>
+                    <ul>
+                        <li><strong>音乐：</strong>土族的传统音乐主要包括民歌和器乐。民歌有多种类型，如叙事歌、情歌、劳动歌、仪式歌等。器乐主要有笛子、二胡、四胡等，其中笛子是土族最具代表性的乐器之一。</li>
+                        <li><strong>舞蹈：</strong>土族的传统舞蹈主要有安昭舞、轮子秋、於菟舞等。安昭舞是土族的民间舞蹈，主要用于庆祝节日和丰收；轮子秋是土族的传统体育舞蹈，表演者站在特制的轮子上旋转，动作惊险刺激；於菟舞是土族的传统祭祀舞蹈，用于驱邪避灾。</li>
+                        <li><strong>刺绣：</strong>土族的传统刺绣工艺历史悠久，技艺精湛。刺绣品如服装、鞋帽、枕套、挂毯等，图案精美、色彩鲜艳，是土族文化的重要组成部分。</li>
+                        <li><strong>雕刻：</strong>土族的传统雕刻工艺主要包括木雕、石雕、砖雕等。雕刻品如门窗、家具、墓碑、建筑装饰等，工艺精湛、造型美观，是土族文化的重要组成部分。</li>
+                    </ul>
+                </section>
+                
+                <!-- 对中华文化的影响 -->
+                <section class="tu-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>土族作为中华民族大家庭的一员，其文化对中华文化的发展和繁荣做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>文学艺术：</strong>土族的民间文学、音乐舞蹈、刺绣雕刻等传统艺术，丰富了中华文化的艺术宝库。例如，土族的安昭舞、轮子秋等传统舞蹈，被列入国家级非物质文化遗产名录，成为中华文化的重要组成部分。</li>
+                        <li><strong>宗教文化：</strong>土族的宗教文化主要是藏传佛教，其宗教文化是中华文化宗教文化的重要组成部分。土族的宗教建筑、宗教仪式、宗教艺术等，丰富了中华文化的宗教文化内涵。</li>
+                        <li><strong>饮食文化：</strong>土族的饮食文化具有独特的民族特色，如锟锅馍、手抓肉、青稞酒等，这些美食已经成为中华文化饮食宝库中的重要组成部分，深受广大人民群众的喜爱。</li>
+                        <li><strong>民族团结：</strong>土族人民与其他民族在长期的历史发展过程中，相互交流、融合，形成了团结互助、和谐共处的良好关系。这种民族团结的精神，是中华文化的重要组成部分，也是中华民族凝聚力的重要来源。</li>
+                    </ul>
+                    <p>总之，土族文化是中华文化的重要组成部分，其独特的传统服饰、节日文化、文学艺术、饮食文化等，丰富了中华文化的内涵，促进了中华文化的多样性和繁荣。我们应该珍惜和保护土族的文化传统，促进土族文化的传承和发展，共同推动中华文化的繁荣和进步。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

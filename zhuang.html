@@ -1,0 +1,456 @@
+﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壮族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 壮族页面特定样式 */
+        .zhuang-header {
+            background-image: url('images/zhuang-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .zhuang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .zhuang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .zhuang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .zhuang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .zhuang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .zhuang-section {
+            margin-bottom: 80px;
+        }
+        
+        .zhuang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .zhuang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .zhuang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .zhuang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .zhuang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .zhuang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item h4 a {
+            color: #c0392b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .culture-item h4 a:hover {
+            color: #e74c3c;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .grow-down {
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            animation: growDown 0.8s ease forwards;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .zhuang-header h1 {
+                font-size: 36px;
+            }
+            
+            .zhuang-header p {
+                font-size: 18px;
+            }
+            
+            .zhuang-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="zhuang-header">
+        <div class="container">
+            <div class="zhuang-header-content">
+                <h1>壮族文化</h1>
+                <p>独具特色的壮族风情与歌圩文化传承</p>
+                <a href="difference.html" class="back-link">返回民族入口</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="zhuang-main">
+        <div class="container">
+            <div class="zhuang-content">
+                <!-- 壮族介绍 -->
+                <section class="zhuang-section">
+                    <h2>壮族介绍</h2>
+                    <p>壮族是中国人口最多的少数民族，主要分布在广西壮族自治区、云南、贵州、广东、湖南等省区，人口约1957万（2020年）。壮族有着悠久的历史和丰富的文化，是中国南方的古老民族之一。</p>
+                    <p>壮族的语言属于汉藏语系壮侗语族壮傣语支，有南北两大方言。壮族有自己的文字，即壮文，是一种以拉丁字母为基础的拼音文字，于1957年创建。</p>
+                </section>
+
+                <!-- 壮族的起源 -->
+                <section class="zhuang-section">
+                    <h2>壮族的起源</h2>
+                    <p>壮族的历史可以追溯到古代的百越族。根据历史记载，百越族是中国南方地区的古老民族，包括壮族、傣族、侗族、水族等多个民族。在长期的历史发展过程中，百越族逐渐分化，形成了壮族等多个民族。</p>
+                    <p>壮族的祖先在长期的历史发展过程中，与中原地区的汉族和其他少数民族进行了频繁的交流和融合，形成了独特的民族文化。壮族的历史可以分为远古时期、古代时期、近现代时期和当代时期四个阶段。</p>
+                </section>
+
+                <!-- 壮族的历史发展 -->
+                <section class="zhuang-section">
+                    <h2>壮族的历史发展</h2>
+                    <h3>远古时期</h3>
+                    <p>壮族的远古历史可以追溯到距今约7000年前的新石器时代。根据考古发现，壮族的祖先在广西、云南等地区创造了灿烂的新石器文化，如甑皮岩洞穴遗址、柳江人遗址等。</p>
+                    <h3>古代时期</h3>
+                    <p>春秋战国时期，壮族的祖先已经在南方地区建立了多个方国，如瓯骆国、夜郎国等。秦汉时期，中央政府开始在南方地区设置郡县，加强对壮族地区的统治。隋唐时期，壮族地区先后出现了南诏国和大理国等地方政权，对南方地区的发展做出了重要贡献。</p>
+                    <h3>近现代时期</h3>
+                    <p>明清时期，中央政府在壮族地区实行改土归流政策，加强了对壮族地区的直接统治。同时，壮族人民也多次举行反抗封建统治的起义，如明清之际的大藤峡农民起义等。</p>
+                    <h3>新中国成立后</h3>
+                    <p>1949年新中国成立后，壮族人民获得了翻身解放，1958年成立了广西壮族自治区。在党的民族政策指引下，壮族地区的基础设施建设不断完善，教育、医疗、文化等社会事业蓬勃发展。</p>
+                </section>
+
+                <!-- 壮族的文化特色 -->
+                <section class="zhuang-section">
+                    <h2>壮族的文化特色</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h4><a href="zhuang_language.html">语言文字</a></h4>
+                            <p>壮族语言属于汉藏语系壮侗语族壮傣语支，有南北两大方言。壮族有自己的文字，即壮文，是一种以拉丁字母为基础的拼音文字，于1957年创建。壮文在壮族地区广泛使用，是壮族人民重要的文化载体。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4><a href="zhuang_religion.html">宗教信仰</a></h4>
+                            <p>壮族主要信仰原始宗教，崇拜自然、祖先和神灵。壮族的宗教活动包括祭祀、祈年、驱鬼等，具有浓厚的原始宗教色彩。此外，部分壮族群众也信仰佛教、道教和基督教。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4><a href="zhuang_literature.html">文学艺术</a></h4>
+                            <p>壮族有着丰富的口头文学和书面文学，如神话、传说、故事、诗歌等。《布洛陀经诗》是壮族文学的代表作，记载了壮族的起源、迁徙和发展历史。此外，壮族还有许多爱情故事、民间传说等，深受人们喜爱。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h4><a href="zhuang_custom.html">风俗习惯</a></h4>
+                            <p>壮族有着独特的风俗习惯，如热情好客、崇拜自然、热爱唱歌等。壮族的传统节日有三月三歌圩、牛魂节、中元节等，每个节日都有独特的庆祝方式。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 壮族的服饰 -->
+                <section class="zhuang-section">
+                    <h2>壮族的服饰</h2>
+                    <p>壮族的服饰色彩斑斓，款式多样，具有独特的民族特色。壮族传统服饰以黑、蓝、红为主色调，象征着壮族人民对自然的崇拜和对生活的热爱。</p>
+                    <h3>女子服饰</h3>
+                    <p>壮族女子的服饰最为华丽，通常包括头帕、上衣、裙子和腰带。头帕有黑帕、头箍等，造型精美；上衣多为刺绣或挑花的对襟或右衽；裙子有百褶裙、筒裙等，长度不一。腰带是壮族女子服饰的重要组成部分，通常用彩色丝线编织而成，上面绣有精美的图案。</p>
+                    <h3>男子服饰</h3>
+                    <p>壮族男子的服饰相对简单，通常包括对襟上衣、长裤和头巾。上衣多为青布或黑布制成，无领或立领；长裤宽大，便于活动；头巾多为青布或黑布，传统上缠在头上，上面绣有简单的图案。</p>
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li>色彩鲜艳，喜欢蓝、黑、红等对比强烈的颜色</li>
+                        <li>图案复杂，多为几何图形、花卉、动物等，具有浓厚的民族特色</li>
+                        <li>刺绣精美，工艺精湛，是壮族服饰的重要标志</li>
+                        <li>不同地区、不同支系的壮族服饰有着明显的差异，反映了壮族文化的多样性</li>
+                    </ul>
+                </section>
+
+                <!-- 壮族的传统节日 -->
+                <section class="zhuang-section">
+                    <h2>壮族的传统节日</h2>
+                    <h3>三月三歌圩</h3>
+                    <p>三月三歌圩是壮族最重要的传统节日，每年农历三月初三举行。这个节日起源于壮族人民对歌仙刘三姐的纪念，现在已经成为壮族人民的狂欢节。节日期间，壮族人民会举行对歌、抛绣球、碰彩蛋、抢花炮等活动，共度欢乐时光。</p>
+                    <h3>牛魂节</h3>
+                    <p>牛魂节是壮族的传统节日，每年农历四月初八举行。这个节日是壮族人民祭祀牛神、感谢牛的辛勤劳动的重要节日。节日期间，壮族人民会给牛洗澡、喂好吃的、给牛戴花等，表达对牛的感激之情。</p>
+                    <h3>中元节</h3>
+                    <p>中元节是壮族的传统节日，每年农历七月十五日举行。这个节日是壮族人民祭祀祖先、超度亡灵的重要节日。节日期间，壮族人民会举行祭祖、烧纸钱、放河灯等活动。</p>
+                    <h3>铜鼓节</h3>
+                    <p>铜鼓节是壮族的传统节日，每年农历正月初一至二月初二举行。这个节日是壮族人民展示铜鼓文化的重要聚会，也是展示壮族文化的重要窗口。节日期间，人们会举行铜鼓舞表演、对歌、斗牛等活动。</p>
+                </section>
+
+                <!-- 壮族的文学与艺术 -->
+                <section class="zhuang-section">
+                    <h2>壮族的文学与艺术</h2>
+                    <h3>口头文学</h3>
+                    <p>壮族有着丰富的口头文学，包括神话、传说、故事、诗歌等。《布洛陀经诗》是壮族文学的代表作，记载了壮族的起源、迁徙和发展历史。此外，壮族还有许多爱情故事、民间传说等，深受人们喜爱。</p>
+                    <h3>音乐舞蹈</h3>
+                    <p>壮族是一个能歌善舞的民族，其音乐舞蹈具有独特的风格。铜鼓舞是壮族最具代表性的舞蹈，通常在节日或集会时集体表演。此外，壮族还有许多其他舞蹈，如扁担舞、绣球舞等。壮族的音乐以铜鼓、马骨胡、天琴等为主要乐器，旋律优美，节奏明快。</p>
+                    <h3>工艺美术</h3>
+                    <p>壮族的工艺美术以壮锦、铜鼓、银饰等闻名。壮锦工艺精湛，图案精美，被誉为"东方工艺奇葩"。铜鼓是壮族的传统乐器和礼器，具有重要的历史和文化价值。此外，壮族的银饰、刺绣等也非常精美，是壮族女子服饰的重要组成部分。</p>
+                </section>
+
+                <!-- 壮族的饮食文化 -->
+                <section class="zhuang-section">
+                    <h2>壮族的饮食文化</h2>
+                    <p>壮族的饮食文化以稻米为主，注重原汁原味，具有独特的民族特色。壮族的传统食物包括五色糯米饭、酸汤鱼、竹筒饭、烤乳猪等。</p>
+                    <h3>主要食物</h3>
+                    <ul>
+                        <li><strong>五色糯米饭</strong>壮族的传统美食，以糯米为原料，用不同颜色的植物汁液染成五种颜色，味道香甜，营养丰富。</li>
+                        <li><strong>酸汤鱼</strong>壮族的传统名菜，以鲜鱼、酸笋、辣椒等为原料，味道酸辣可口，有助于消化。</li>
+                        <li><strong>竹筒饭</strong>壮族的传统美食，以糯米、腊肉、香菇等为原料，放入竹筒中蒸煮而成，味道清香，营养丰富。</li>
+                        <li><strong>烤乳猪</strong>壮族的传统名菜，以乳猪为原料，用炭火烤制而成，皮脆肉嫩，味道鲜美。</li>
+                        <li><strong>壮家酸肉</strong>壮族的传统肉品，是一种用猪肉发酵而成的腌肉，味道酸辣可口，是壮族人民喜爱的下酒菜。</li>
+                    </ul>
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li>以稻米为主，注重原汁原味</li>
+                        <li>喜欢酸味食物，善于制作各种酸品</li>
+                        <li>善于制作各种糯米饭和竹筒饭</li>
+                        <li>热情好客，喜欢聚众饮酒，有"喝交杯酒"的习俗</li>
+                    </ul>
+                </section>
+
+                <!-- 壮族的社会结构与生活方式 -->
+                <section class="zhuang-section">
+                    <h2>壮族的社会结构与生活方式</h2>
+                    <h3>家庭结构</h3>
+                    <p>壮族传统上以大家庭为单位，注重家庭伦理和宗族观念。家庭中父亲是一家之主，负责家庭的经济和决策，母亲则负责家务和子女教育。壮族实行一夫一妻制，婚姻自由，青年男女通过对歌等方式自由恋爱。</p>
+                    <h3>婚姻习俗</h3>
+                    <p>壮族的婚姻习俗非常独特，包括说亲、订婚、结婚等程序。婚礼隆重热闹，充满民族特色。在一些地区，壮族还保留着"抢婚"的习俗，这是一种古老的婚姻形式，现在已经演变为一种象征性的仪式。</p>
+                    <h3>居住特点</h3>
+                    <p>壮族传统民居多为干栏式建筑，适应南方地区的气候和地形条件。干栏式建筑是一种以木材为主要建筑材料的高脚屋，底层架空，用于饲养牲畜和存放杂物，上层用于居住，冬暖夏凉，便于居住。</p>
+                    <h3>生活方式</h3>
+                    <p>壮族人民以农业为主，兼营渔业和手工业。在历史上，壮族人民过着自给自足的生活，现在随着市场经济的发展，壮族人民的生活方式发生了很大变化，越来越多的壮族青年外出打工，融入现代社会。</p>
+                </section>
+
+                <!-- 壮族的现代发展 -->
+                <section class="zhuang-section">
+                    <h2>壮族的现代发展</h2>
+                    <p>新中国成立以来，特别是改革开放后，壮族地区的经济社会发展取得了显著成就。在党的民族政策指引下，壮族地区的基础设施建设不断完善，教育、医疗、文化等社会事业蓬勃发展。</p>
+                    <h3>经济发展</h3>
+                    <p>壮族地区的经济以农业为主，近年来旅游业也得到了快速发展。广西、云南等省区的壮族地区拥有丰富的自然景观和人文景观，如桂林山水、阳朔、德天瀑布等，吸引了大量国内外游客。</p>
+                    <h3>教育事业</h3>
+                    <p>壮族的教育事业得到了很大发展，普及了九年义务教育，建立了从小学到大学的完整教育体系。越来越多的壮族青年接受高等教育，成为各行各业的专业人才。</p>
+                    <h3>文化传承</h3>
+                    <p>政府重视壮族文化的保护和传承，建立了多个文化保护区和博物馆，壮族的传统音乐、舞蹈、工艺等艺术形式得到了有效的保护和发展。壮族的传统节日和习俗也得到了传承和发展。</p>
+                </section>
+
+                <!-- 壮族对中华文化的贡献 -->
+                <section class="zhuang-section">
+                    <h2>壮族对中华文化的贡献</h2>
+                    <p>壮族作为中华民族大家庭的一员，在历史上对中华文化的发展做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>历史贡献：</strong>壮族先民在南方地区创造了灿烂的古代文明，如甑皮岩文化、柳江文化等，对中国古代文明的发展做出了重要贡献。</li>
+                        <li><strong>文化贡献：</strong>壮族的音乐、舞蹈、工艺等艺术形式，丰富了中华文化的艺术宝库。壮族的壮锦、铜鼓等手工艺品，是中国传统手工艺品中的精品。</li>
+                        <li><strong>经济贡献：</strong>壮族人民在农业、渔业和手工业方面的经验，对中国南方地区的经济发展做出了贡献。</li>
+                        <li><strong>民族精神：</strong>壮族人民的团结互助精神和乐观向上的生活态度，是中华民族精神的重要组成部分。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

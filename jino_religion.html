@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基诺族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 基诺族宗教信仰页面特定样式 */
+        .jino-header {
+            background-image: url('images/基诺族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jino-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jino-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jino-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-jino {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-jino:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jino-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jino-section {
+            margin-bottom: 80px;
+        }
+        
+        .jino-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jino-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jino-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jino-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jino-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jino-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jino-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jino-header-content .back-jino {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jino-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .jino-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jino-header">
+        <div class="container">
+            <div class="jino-header-content">
+                <h1>基诺族宗教信仰</h1>
+                <p>深入了解基诺族的宗教观念和祭祀仪式</p>
+                <a href="jino.html" class="back-jino">返回基诺族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="jino-main">
+        <div class="container">
+            <div class="jino-content">
+                <!-- 宗教概述 -->
+                <section class="jino-section">
+                    <h2>宗教概述</h2>
+                    <p>基诺族主要信仰原始宗教，包括祖先崇拜、自然崇拜、图腾崇拜等。基诺族人民相信万物有灵，认为自然界的一切事物都有神灵主宰，因此对自然怀有敬畏之心。</p>
+                    <p>基诺族的宗教信仰与他们的生产生活密切相关，反映了他们对自然的认识和对美好生活的向往。宗教活动贯穿于基诺族的日常生活、节日庆典和重要人生仪式中。</p>
+                </section>
+
+                <!-- 祖先崇拜 -->
+                <section class="jino-section">
+                    <h3>祖先崇拜</h3>
+                    <p>祖先崇拜是基诺族宗教信仰的重要组成部分。基诺族人民认为祖先的灵魂仍然存在，并且能够影响后代的生活。因此，他们非常重视对祖先的祭祀和纪念。</p>
+                    <ul>
+                        <li><strong>祖先神灵：</strong>基诺族相信祖先的灵魂会成为神灵，保佑子孙后代的平安和幸福。</li>
+                        <li><strong>祭祀仪式：</strong>在重要节日和家庭重大事件时，基诺族会举行隆重的祖先祭祀仪式，献上祭品，祈求祖先的保佑。</li>
+                        <li><strong>祖灵屋：</strong>一些基诺族村寨会设立祖灵屋，作为供奉祖先神灵的场所。</li>
+                        <li><strong>禁忌习俗：</strong>基诺族有许多与祖先崇拜相关的禁忌，如在祖先忌日不进行娱乐活动，不在祖先灵位前说不吉利的话等。</li>
+                    </ul>
+                </section>
+
+                <!-- 自然崇拜 -->
+                <section class="jino-section">
+                    <h3>自然崇拜</h3>
+                    <p>基诺族生活在美丽的西双版纳地区，周围环绕着茂密的森林和丰富的自然资源。他们对自然充满敬畏，认为自然界的各种事物都有神灵主宰。</p>
+                    <ul>
+                        <li><strong>山神崇拜：</strong>基诺族崇拜山神，认为山神是山林的保护神，掌管着山林中的动植物资源。</li>
+                        <li><strong>水神崇拜：</strong>水神被认为是掌管水源的神灵，基诺族会举行祭祀活动祈求水源充足。</li>
+                        <li><strong>树神崇拜：</strong>基诺族对大树怀有特殊的敬意，认为大树是神灵的住所。</li>
+                        <li><strong>土地神崇拜：</strong>土地神被认为是掌管土地肥沃程度的神灵，基诺族会在播种和收获时祭祀土地神。</li>
+                    </ul>
+                    <p>自然崇拜体现了基诺族与自然和谐相处的理念，他们通过祭祀活动表达对自然的感激之情，同时也强调了保护自然环境的重要性。</p>
+                </section>
+
+                <!-- 图腾崇拜 -->
+                <section class="jino-section">
+                    <h3>图腾崇拜</h3>
+                    <p>图腾崇拜是基诺族宗教信仰的另一个重要方面。基诺族有自己的图腾，认为图腾是氏族的祖先和保护神。</p>
+                    <p>基诺族的图腾主要与动物有关，不同的氏族可能有不同的图腾。例如，有的氏族以龙为图腾，有的以虎为图腾，还有的以竹鼠为图腾等。</p>
+                    <ul>
+                        <li><strong>图腾象征：</strong>图腾被视为氏族的象征，是氏族成员的共同祖先。</li>
+                        <li><strong>图腾禁忌：</strong>基诺族对图腾动物有特殊的禁忌，如不食用图腾动物的肉，不伤害图腾动物等。</li>
+                        <li><strong>图腾仪式：</strong>在重要的氏族活动中，基诺族会举行与图腾相关的仪式，表达对图腾的敬意。</li>
+                        <li><strong>图腾艺术：</strong>图腾图案常常出现在基诺族的服装、饰品和建筑上，成为基诺族文化的重要符号。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教仪式 -->
+                <section class="jino-section">
+                    <h3>宗教仪式</h3>
+                    <p>基诺族的宗教仪式丰富多彩，贯穿于他们的日常生活和重要节日中。这些仪式通常由专门的祭司或巫师主持，具有浓厚的民族特色。</p>
+                    <ul>
+                        <li><strong>祭寨神：</strong>这是基诺族最重要的宗教仪式之一，通常在每年的农历正月举行。全寨男女老少都会参加，祭祀寨神，祈求寨子的平安和丰收。</li>
+                        <li><strong>祭龙：</strong>基诺族认为龙是掌管雨水的神灵，祭龙仪式旨在祈求风调雨顺，农作物丰收。</li>
+                        <li><strong>祭祖：</strong>在重要节日和家庭重大事件时举行，祭祀祖先的灵魂，祈求祖先的保佑。</li>
+                        <li><strong>成年礼：</strong>基诺族青少年在成年时要举行隆重的成年礼仪式，标志着他们正式成为氏族的一员。</li>
+                        <li><strong>婚礼仪式：</strong>基诺族的婚礼包含许多宗教仪式环节，如祈求神灵保佑新人幸福美满。</li>
+                        <li><strong>葬礼仪式：</strong>基诺族的葬礼仪式非常隆重，旨在引导死者的灵魂回到祖先的居住地。</li>
+                    </ul>
+                </section>
+
+                <!-- 宗教与文化 -->
+                <section class="jino-section">
+                    <h3>宗教与文化</h3>
+                    <p>基诺族的宗教信仰与他们的文化生活密切相关，对基诺族的艺术、文学、习俗等方面产生了深远的影响。</p>
+                    <ul>
+                        <li><strong>民间文学：</strong>基诺族的神话、传说、故事等民间文学作品中，有许多与宗教信仰相关的内容，如创世神话、祖先传说等。</li>
+                        <li><strong>艺术创作：</strong>基诺族的绘画、雕刻、刺绣等艺术作品中，常常融入宗教元素和图腾图案。</li>
+                        <li><strong>节日庆典：</strong>基诺族的许多节日都与宗教信仰有关，如特懋克节、新米节等。</li>
+                        <li><strong>道德规范：</strong>基诺族的宗教信仰中包含了许多道德规范，如尊重长辈、团结互助、保护环境等，这些规范成为基诺族社会的重要行为准则。</li>
+                    </ul>
+                    <p>基诺族的宗教信仰是他们文化的重要组成部分，体现了他们对自然、对祖先、对生命的敬畏和尊重。虽然随着社会的发展，基诺族的宗教信仰有所变化，但其中的核心价值观仍然影响着基诺族人民的生活。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

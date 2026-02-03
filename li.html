@@ -1,0 +1,531 @@
+﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黎族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 黎族文化页面特定样式 */
+        .li-header {
+            background-image: url('images/li_culture.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .li-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .li-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .li-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .li-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .li-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .li-section {
+            margin-bottom: 80px;
+        }
+        
+        .li-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .li-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .li-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .li-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .li-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .li-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .li-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面网格 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .culture-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .culture-item-link:hover .culture-item {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 服饰特点 */
+        .clothing-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .clothing-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .clothing-item h6 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .clothing-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .li-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .li-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .li-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .li-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .li-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .clothing-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .li-header h1 {
+                font-size: 36px;
+            }
+            
+            .li-header p {
+                font-size: 18px;
+            }
+            
+            .li-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="li-header">
+        <div class="container">
+            <div class="li-header-content">
+                <h1>黎族文化</h1>
+                <p>海南岛的原住民，独特的船形屋与织锦艺术</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="li-main">
+        <div class="container">
+            <div class="li-content">
+                <!-- 黎族文化概述 -->
+                <section class="li-section">
+                    <h2>黎族文化概述</h2>
+                    <p>黎族是中国55个少数民族之一，主要分布在海南省中南部地区，是海南岛的原住民。黎族有着悠久的历史和独特的文化，是中华民族大家庭中的重要成员。</p>
+                    <p>黎族文化以其独特的船形屋、织锦艺术、传统节日等而闻名，这些文化元素不仅是黎族人民的精神财富，也是中华文化的重要组成部分。</p>
+                </section>
+
+                <!-- 历史与起源 -->
+                <section class="li-section">
+                    <h2>历史与起源</h2>
+                    <p>黎族的历史可以追溯到新石器时代晚期，是华南地区最古老的民族之一。根据考古发现和历史文献记载，黎族的先民可能是从中国大陆南方地区迁移到海南岛的。</p>
+                    
+                    <h3>历史发展</h3>
+                    <ul>
+                        <li><strong>原始社会时期：</strong>黎族的先民在海南岛繁衍生息，过着采集、狩猎和原始农业的生活。</li>
+                        <li><strong>封建社会时期：</strong>随着汉族移民的不断迁入，黎族与汉族的交流逐渐增多，社会形态逐渐从原始社会向封建社会过渡。</li>
+                        <li><strong>近现代时期：</strong>在近现代历史中，黎族人民积极参与反侵略、反压迫的斗争，为中国的民族解放事业做出了重要贡献。</li>
+                        <li><strong>新中国成立后：</strong>黎族地区实行了民族区域自治，经济社会得到了快速发展，文化传统得到了保护和传承。</li>
+                    </ul>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="li-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <a href="li-language.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>语言文字</h5>
+                                <p>黎族有自己的语言，属于汉藏语系壮侗语族黎语支，与壮语、布依语等语言比较接近。历史上黎族没有本民族文字，通用汉字。</p>
+                            </div>
+                        </a>
+                        <a href="li-religion.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>宗教信仰</h5>
+                                <p>黎族主要信仰原始宗教，包括祖先崇拜、自然崇拜、图腾崇拜等。黎族人民信仰万物有灵，每年都会举行各种宗教仪式和祭祀活动。</p>
+                            </div>
+                        </a>
+                        <a href="li-art.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>文学艺术</h5>
+                                <p>黎族的民间文学非常丰富，包括神话、传说、故事、民歌等。其中，民歌是黎族文学的重要组成部分，分为山歌、小调、劳动歌等多种类型。</p>
+                            </div>
+                        </a>
+                        <a href="li-craft.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>传统工艺</h5>
+                                <p>黎族的传统工艺主要有织锦、制陶、竹编、木雕等。其中，黎锦是黎族最著名的传统工艺，以其精湛的技艺和精美的图案而闻名于世。</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 黎族服饰 -->
+                <section class="li-section">
+                    <h2>黎族服饰</h2>
+                    <p>黎族的传统服饰具有鲜明的民族特色，反映了他们的生活环境、生活方式和审美观念。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>色彩斑斓：</strong>喜欢使用红、蓝、绿、黄等鲜艳的颜色，体现了黎族人民开朗活泼的性格。</li>
+                        <li><strong>图案精美：</strong>服饰上绣有各种精美的图案，如花鸟、动物、几何图形等，寓意吉祥如意。</li>
+                        <li><strong>款式多样：</strong>不同地区、不同支系的黎族服饰款式有所不同，体现了黎族文化的多样性。</li>
+                        <li><strong>黎锦装饰：</strong>黎族服饰上大量使用黎锦作为装饰，展现了黎族人民对美的追求。</li>
+                        <li><strong>实用性强：</strong>服饰设计考虑了华南地区的气候特点，轻薄透气，适合热带气候。</li>
+                    </ul>
+                    
+
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="li-section">
+                    <h2>传统节日</h2>
+                    <p>黎族的传统节日主要有三月三、春节、端午节等。其中，三月三是黎族最盛大的传统节日，每年农历三月初三举行，人们通过庆祝活动祈求丰收和平安。</p>
+                    
+                    <h3>三月三节日特色</h3>
+                    <ul>
+                        <li><strong>庆祝活动：</strong>人们会在节日期间举行隆重的祭祀仪式，祭祀祖先和神灵。</li>
+                        <li><strong>歌舞表演：</strong>黎族人民会穿上盛装，举行盛大的歌舞表演，如竹竿舞、织锦舞等。</li>
+                        <li><strong>传统体育：</strong>会举行各种传统体育活动，如射箭、爬竿、摔跤等。</li>
+                        <li><strong>美食分享：</strong>人们会准备各种传统美食，如竹筒饭、糯米酒、黎族粽子等，与亲朋好友分享。</li>
+                        <li><strong>青年交友：</strong>三月三也是黎族青年男女交友的重要节日，通过对歌、跳舞等活动寻找意中人。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统建筑 -->
+                <section class="li-section">
+                    <h2>传统建筑</h2>
+                    <p>黎族的传统建筑以船形屋最为著名，这是黎族人民适应海南岛自然环境的智慧结晶。</p>
+                    
+                    <h3>船形屋特点</h3>
+                    <ul>
+                        <li><strong>造型独特：</strong>船形屋的造型像一艘倒扣的船，具有独特的民族特色。</li>
+                        <li><strong>材料自然：</strong>主要使用竹子、木材、茅草等天然材料建造，节能环保。</li>
+                        <li><strong>适应环境：</strong>船形屋的设计考虑了华南地区的气候特点，通风透气，防雨防晒。</li>
+                        <li><strong>结构合理：</strong>虽然使用天然材料，但结构设计合理，坚固耐用。</li>
+                        <li><strong>文化内涵：</strong>船形屋不仅是黎族人民的居住场所，也是黎族文化的重要象征。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="li-section">
+                    <h2>饮食文化</h2>
+                    <p>黎族的饮食文化具有鲜明的民族特色和地方特色，以热带作物和海鲜为主要原料。</p>
+                    
+                    <h3>特色美食</h3>
+                    <ul>
+                        <li><strong>竹筒饭：</strong>将米饭和各种配料放入新鲜的竹筒中烤制，香气扑鼻，味道独特。</li>
+                        <li><strong>糯米酒：</strong>黎族的传统酒类，以糯米为原料酿造而成，口感香甜。</li>
+                        <li><strong>黎族粽子：</strong>用芭蕉叶包裹糯米和各种馅料蒸煮而成，风味独特。</li>
+                        <li><strong>黎族酸菜：</strong>黎族的传统腌制食品，以各种蔬菜为原料，酸中带辣，开胃消食。</li>
+                        <li><strong>海鲜美食：</strong>利用海南岛丰富的海鲜资源，制作各种美味的海鲜菜肴。</li>
+                    </ul>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="li-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>黎族文化是中华文化的重要组成部分，对中华文化的发展和传承做出了重要贡献。</p>
+                    
+                    <ul>
+                        <li><strong>织锦艺术：</strong>黎族的织锦工艺历史悠久，工艺精湛，图案精美，对中国的纺织工艺产生了重要影响。黎锦已被列入国家级非物质文化遗产名录。</li>
+                        <li><strong>建筑风格：</strong>黎族的船形屋建筑风格独特，是中国传统建筑的重要组成部分，对研究中国南方少数民族的建筑艺术具有重要价值。</li>
+                        <li><strong>饮食文化：</strong>黎族的饮食文化丰富了中国的饮食文化，如竹筒饭、糯米酒等已成为中国饮食文化的重要组成部分。</li>
+                        <li><strong>文学艺术：</strong>黎族的民间文学和艺术丰富了中华文化的内涵，为中华文化的发展做出了重要贡献。</li>
+                        <li><strong>民族团结：</strong>黎族人民与其他民族在长期的历史发展过程中，相互交流、融合，形成了团结互助、和谐共处的良好关系。这种民族团结的精神，是中华文化的重要组成部分，也是中华民族凝聚力的重要来源。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

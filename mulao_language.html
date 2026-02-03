@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仫佬族语言文字 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 仫佬族语言文字页面特定样式 */
+        .mulao-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mulao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mulao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mulao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-mulao {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-mulao:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mulao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mulao-section {
+            margin-bottom: 80px;
+        }
+        
+        .mulao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mulao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mulao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mulao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mulao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mulao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 语言特点样式 */
+        .language-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 动画类 */
+        .mulao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .mulao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .mulao-header h1 {
+                font-size: 36px;
+            }
+            
+            .mulao-header p {
+                font-size: 18px;
+            }
+            
+            .mulao-section h2 {
+                font-size: 28px;
+            }
+            
+            .language-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="mulao-header">
+        <div class="container">
+            <div class="mulao-header-content">
+                <h1>仫佬族语言文字</h1>
+                <p>独特的语言体系，丰富的文化内涵</p>
+                <a href="mulao.html" class="back-mulao">返回仫佬族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mulao-main">
+        <div class="container">
+            <div class="mulao-content">
+                <!-- 语言概述 -->
+                <section class="mulao-section">
+                    <h2>语言概述</h2>
+                    <p>仫佬族有自己的语言，属于汉藏语系壮侗语族侗水语支。仫佬语与毛南语、侗语、水语等语言比较接近，是仫佬族人民在长期的生产生活中形成的独特语言体系。</p>
+                    <p>仫佬语是仫佬族文化的重要组成部分，它承载着仫佬族的历史、文化、传统和智慧，是仫佬族人民之间交流思想、传递信息的重要工具。</p>
+                </section>
+
+                <!-- 语言特点 -->
+                <section class="mulao-section">
+                    <h3>语言特点</h3>
+                    <div class="language-features">
+                        <div class="feature-item">
+                            <h4>语音特点</h4>
+                            <p>仫佬语的语音系统比较复杂，包括声母、韵母和声调。声母有塞音、塞擦音、擦音、鼻音、边音等多种类型，韵母有单元音韵母、复元音韵母和带鼻音韵母等。声调方面，仫佬语有6个声调，分别是阴平、阳平、阴上、阳上、阴去、阳去。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>词汇特点</h4>
+                            <p>仫佬语的词汇丰富多样，包括基本词汇和借词。基本词汇是仫佬语固有的词汇，反映了仫佬族的生产生活、自然环境、社会关系等方面的内容。借词主要来自汉语，也有少量来自壮语等其他民族语言。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>语法特点</h4>
+                            <p>仫佬语的语法结构与汉语有一定的差异。在词序方面，仫佬语通常是主语-谓语-宾语的顺序，但在某些情况下也会有所不同。仫佬语的量词比较丰富，名词通常需要与量词搭配使用。此外，仫佬语还有一些特殊的语法现象，如重叠、变调等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文字使用 -->
+                <section class="mulao-section">
+                    <h3>文字使用</h3>
+                    <p>历史上仫佬族没有本民族文字，通用汉字。仫佬族人民使用汉字来记录历史、传承文化、交流信息。在长期的使用过程中，仫佬族人民逐渐形成了自己的汉字使用习惯和特点。</p>
+                    <p>随着社会的发展和教育的普及，越来越多的仫佬族人民开始学习和使用汉语文，汉语文已经成为仫佬族人民与其他民族交流的重要工具。同时，仫佬族人民也在积极保护和传承自己的语言文化，努力让仫佬语在现代社会中继续发挥作用。</p>
+                </section>
+
+                <!-- 语言保护 -->
+                <section class="mulao-section">
+                    <h3>语言保护</h3>
+                    <p>近年来，随着社会的快速发展和城市化进程的加速，仫佬语面临着一些挑战，如使用人口减少、使用范围缩小等。为了保护和传承仫佬语，仫佬族人民采取了一系列措施：</p>
+                    <ul>
+                        <li>在学校教育中开设仫佬语课程，让年轻一代学习和掌握自己的民族语言</li>
+                        <li>组织语言专家对仫佬语进行调查、研究和整理，建立仫佬语语料库</li>
+                        <li>开展仫佬语文学创作和文艺活动，丰富仫佬语的表达形式</li>
+                        <li>利用现代信息技术，如录音、录像、数字化等手段，记录和保存仫佬语资料</li>
+                        <li>加强与其他民族的语言交流与合作，促进仫佬语的发展和创新</li>
+                    </ul>
+                    <p>通过这些措施，仫佬语的保护和传承工作取得了一定的成效，仫佬语在仫佬族人民的日常生活中仍然发挥着重要作用。</p>
+                </section>
+
+                <!-- 语言的文化价值 -->
+                <section class="mulao-section">
+                    <h3>语言的文化价值</h3>
+                    <p>仫佬语不仅是一种交流工具，也是仫佬族文化的重要载体，具有重要的文化价值：</p>
+                    <ul>
+                        <li>仫佬语承载着仫佬族的历史记忆和文化传统，是研究仫佬族历史文化的重要资料</li>
+                        <li>仫佬语反映了仫佬族人民的思维方式、价值观念和审美情趣，是仫佬族民族特性的重要体现</li>
+                        <li>仫佬语是仫佬族文学艺术的重要表现形式，如民歌、民间故事等都需要通过仫佬语来表达和传承</li>
+                        <li>仫佬语是仫佬族人民民族认同的重要标志，使用仫佬语可以增强仫佬族人民的民族凝聚力和自豪感</li>
+                    </ul>
+                    <p>总之，仫佬族语言文字是仫佬族文化的重要组成部分，对于研究和了解仫佬族的历史、文化、社会等方面具有重要意义。我们应该重视和保护仫佬族语言文字，让它在新时代继续发扬光大。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

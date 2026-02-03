@@ -1,0 +1,418 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>布朗族音乐舞蹈 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 布朗族音乐舞蹈页面特定样式 */
+        .blang-header {
+            background-image: url('images/布朗族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .blang-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .blang-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .blang-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .blang-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-blang {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-blang:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .blang-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .blang-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .blang-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .blang-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .blang-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .blang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .blang-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .blang-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .blang-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .blang-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 音乐类型样式 */
+        .music-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .music-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .music-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .music-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 舞蹈类型样式 */
+        .dance-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .dance-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .dance-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dance-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 特点样式 */
+        .music-dance-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .blang-header h1 {
+                font-size: 36px;
+            }
+            
+            .blang-header p {
+                font-size: 18px;
+            }
+            
+            .blang-section h2 {
+                font-size: 28px;
+            }
+            
+            .music-types,
+            .dance-types,
+            .music-dance-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="blang-header">
+        <div class="container">
+            <div class="blang-header-content">
+                <h1>布朗族音乐舞蹈</h1>
+                <p>民族文化的艺术瑰宝</p>
+                <a href="blang.html" class="back-blang">返回布朗族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="blang-main">
+        <div class="container">
+            <div class="blang-content">
+                <!-- 音乐舞蹈概述 -->
+                <section class="blang-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>布朗族是一个能歌善舞的民族，拥有丰富多样的音乐舞蹈文化。布朗族的音乐舞蹈具有独特的民族风格，反映了布朗族人民的生产生活、宗教信仰、情感表达等各个方面。这些音乐舞蹈不仅是布朗族人民娱乐的重要方式，也是传承和弘扬布朗族文化的重要载体。</p>
+                    <p>布朗族的音乐包括民间歌曲、器乐等多种形式，内容丰富，旋律优美。布朗族的舞蹈以圆圈舞、象脚鼓舞最为著名，动作矫健有力，充满活力。布朗族的音乐舞蹈与其他民族的音乐舞蹈相互交流、融合，形成了独特的艺术风格。</p>
+                </section>
+
+                <!-- 民间音乐 -->
+                <section class="blang-section">
+                    <h3>民间音乐</h3>
+                    <p>布朗族的民间音乐是布朗族音乐文化的重要组成部分，包括劳动歌、情歌、叙事歌等多种类型。这些民间歌曲反映了布朗族人民的生产生活、情感世界和社会交往，具有浓郁的民族特色。</p>
+                    <div class="music-types">
+                        <div class="music-item">
+                            <h4>劳动歌</h4>
+                            <p>劳动歌是布朗族人民在劳动过程中创作和传唱的歌曲，包括插秧歌、收割歌、采茶歌等。这些歌曲节奏明快，旋律简洁，能够激发人们的劳动热情，提高劳动效率。劳动歌的内容主要是描述劳动过程、表达劳动感受、祈求丰收等。</p>
+                        </div>
+                        <div class="music-item">
+                            <h4>情歌</h4>
+                            <p>情歌是布朗族青年男女表达爱情、传递情感的重要方式，包括相恋歌、相思歌、求婚歌等。这些歌曲旋律优美，情感真挚，歌词含蓄委婉，富有诗意。布朗族的情歌通常在节日、聚会等场合演唱，是布朗族青年男女交往的重要媒介。</p>
+                        </div>
+                        <div class="music-item">
+                            <h4>叙事歌</h4>
+                            <p>叙事歌是布朗族人民讲述历史、传说、故事的歌曲，包括创世歌、英雄歌、传说歌等。这些歌曲篇幅较长，内容丰富，旋律起伏较大，具有较强的叙事性。叙事歌是布朗族人民传承历史文化、教育后代的重要方式。</p>
+                        </div>
+                        <div class="music-item">
+                            <h4>宗教歌</h4>
+                            <p>宗教歌是布朗族人民在宗教活动中演唱的歌曲，包括念经调、祭祀歌等。这些歌曲旋律庄重肃穆，歌词多为宗教内容，是布朗族宗教活动的重要组成部分。宗教歌反映了布朗族人民的宗教信仰和精神世界。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 民间舞蹈 -->
+                <section class="blang-section">
+                    <h3>民间舞蹈</h3>
+                    <p>布朗族的民间舞蹈是布朗族舞蹈文化的重要组成部分，包括圆圈舞、象脚鼓舞、刀舞等多种类型。这些舞蹈动作矫健有力，充满活力，反映了布朗族人民的生产生活、宗教信仰和情感表达。</p>
+                    <div class="dance-types">
+                        <div class="dance-item">
+                            <h4>圆圈舞</h4>
+                            <p>圆圈舞是布朗族最具代表性的舞蹈之一，通常在节日、聚会等场合表演。跳舞时，人们围成一个圆圈，手拉手，踏着节拍，边唱边跳。圆圈舞的动作简单明快，节奏欢快，能够营造出热闹喜庆的氛围。圆圈舞是布朗族人民团结协作、共同欢乐的象征。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>象脚鼓舞</h4>
+                            <p>象脚鼓舞是布朗族的传统舞蹈之一，通常在宗教活动、节日庆典等场合表演。跳舞时，表演者手持象脚鼓，边敲边跳。象脚鼓舞的动作矫健有力，节奏明快，能够展现出布朗族人民的阳刚之气。象脚鼓舞是布朗族人民祈求吉祥、驱邪避灾的重要方式。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>刀舞</h4>
+                            <p>刀舞是布朗族的传统舞蹈之一，通常由男子表演。跳舞时，表演者手持长刀，做出各种武术动作，如劈、砍、刺等。刀舞的动作刚劲有力，节奏明快，能够展现出布朗族男子的勇敢和英武。刀舞是布朗族人民尚武精神的体现。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>丰收舞</h4>
+                            <p>丰收舞是布朗族人民在丰收季节表演的舞蹈，通常在新米节等节日中表演。跳舞时，人们模仿收割、打谷等劳动动作，表达对丰收的喜悦和对神灵的感恩。丰收舞的动作生动形象，节奏明快，能够展现出布朗族人民勤劳朴实的品质。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈的特点 -->
+                <section class="blang-section">
+                    <h3>音乐舞蹈的特点</h3>
+                    <p>布朗族的音乐舞蹈具有独特的民族风格，融合了布朗族的历史文化、宗教信仰、生产生活等多个方面的元素，形成了以下特点：</p>
+                    <div class="music-dance-features">
+                        <div class="feature-item">
+                            <h4>民族特色鲜明</h4>
+                            <p>布朗族的音乐舞蹈具有鲜明的民族特色，反映了布朗族人民的生产生活、宗教信仰、情感表达等各个方面。布朗族的音乐旋律优美，节奏明快；舞蹈动作矫健有力，充满活力，展现了布朗族人民的精神风貌和文化内涵。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>与生产生活密切相关</h4>
+                            <p>布朗族的音乐舞蹈与生产生活密切相关，许多音乐舞蹈都是在劳动过程中创作和发展起来的。例如，劳动歌是在劳动过程中创作的，丰收舞是在丰收季节表演的，这些音乐舞蹈反映了布朗族人民的生产生活状况和情感体验。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>与宗教信仰相互融合</h4>
+                            <p>布朗族的音乐舞蹈与宗教信仰相互融合，许多音乐舞蹈都与宗教活动有关。例如，宗教歌是在宗教活动中演唱的，象脚鼓舞是在宗教庆典中表演的，这些音乐舞蹈反映了布朗族人民的宗教信仰和精神世界。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>形式多样，内容丰富</h4>
+                            <p>布朗族的音乐舞蹈形式多样，内容丰富，包括民间歌曲、器乐、圆圈舞、象脚鼓舞等多种类型。这些音乐舞蹈涵盖了布朗族人民生活的各个方面，反映了布朗族文化的多样性和丰富性。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈的传承与发展 -->
+                <section class="blang-section">
+                    <h3>音乐舞蹈的传承与发展</h3>
+                    <p>布朗族的音乐舞蹈是布朗族文化的重要组成部分，对于传承和弘扬布朗族文化具有重要意义。在长期的历史发展过程中，布朗族的音乐舞蹈通过口耳相传、师徒传承等方式得以保存和发展。</p>
+                    <p>然而，随着社会的发展和现代化进程的加快，布朗族的音乐舞蹈面临着一些挑战，如年轻人对传统音乐舞蹈的兴趣降低、传统音乐舞蹈的传承后继无人等。为了保护和传承布朗族的音乐舞蹈，布朗族人民和政府采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>加强教育传承：</strong>在布朗族聚居区的学校，开设布朗族音乐舞蹈课程，教授布朗族青少年学习本民族的音乐舞蹈。通过学校教育，使布朗族青少年了解和掌握本民族的音乐舞蹈，增强民族认同感。</li>
+                        <li><strong>举办文化活动：</strong>举办各种布朗族音乐舞蹈活动，如布朗族民歌比赛、布朗族舞蹈表演等，鼓励布朗族人民参与和传承传统音乐舞蹈。通过文化活动，提高布朗族音乐舞蹈的知名度和影响力。</li>
+                        <li><strong>保护传承人才：</strong>对布朗族音乐舞蹈的传承人进行保护和扶持，为他们提供必要的资金和条件，鼓励他们收徒传艺，培养新一代的传承人才。</li>
+                        <li><strong>创新发展：</strong>在保持传统音乐舞蹈特色的基础上，对布朗族的音乐舞蹈进行创新和发展，使其适应现代社会的需求。例如，将传统音乐舞蹈与现代音乐舞蹈元素相结合，创作新的音乐舞蹈作品。</li>
+                    </ul>
+                    <p>这些措施的实施，对于保护和传承布朗族的音乐舞蹈，促进布朗族文化的发展，起到了重要作用。布朗族的音乐舞蹈在现代社会中继续焕发出新的活力，成为布朗族文化的重要象征。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

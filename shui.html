@@ -1,0 +1,545 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 水族文化页面特定样式 */
+        .shui-header {
+            background-image: url('images/水族女装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .shui-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .shui-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .shui-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .shui-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .shui-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .shui-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .shui-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .shui-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .shui-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .shui-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .shui-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .shui-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .shui-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .shui-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .shui-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .shui-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .shui-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .shui-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .shui-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .shui-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .shui-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .shui-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .shui-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .shui-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .shui-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .shui-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 节日庆祝样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .shui-header h1 {
+                font-size: 36px;
+            }
+            
+            .shui-header p {
+                font-size: 18px;
+            }
+            
+            .shui-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="shui-header">
+        <div class="container">
+            <div class="shui-header-content">
+                <h1>水族文化</h1>
+                <p>神秘独特的水书文化传承者</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="shui-main">
+        <div class="container">
+            <div class="shui-content">
+                <!-- 水族文化概览 -->
+                <section class="shui-section">
+                    <h2>水族文化概览</h2>
+                    <p>水族是中国的一个少数民族，主要分布在贵州省三都水族自治县、荔波、独山、都匀、榕江、从江、雷山等县市，少数散居在广西壮族自治区的南丹、河池、环江、融水等县市以及云南省的富源县。水族自称“睢”（suǐ），汉译为“水”，意为水人。</p>
+                    <p>水族有自己的语言——水语，属于汉藏语系壮侗语族侗水语支。水族还有自己的文字——水书，水书是一种古老的象形文字，被称为“活着的象形文字”，是水族文化的重要组成部分。</p>
+                    <p>水族文化具有悠久的历史和丰富的内涵，包括语言文字、宗教信仰、传统习俗、文学艺术、建筑风格等多个方面。水族人民勤劳勇敢、淳朴善良，在长期的历史发展过程中，创造了灿烂的少数民族文化。</p>
+                </section>
+                
+                <!-- 历史与起源 -->
+                <section class="shui-section">
+                    <h2>历史与起源</h2>
+                    <p>关于水族的起源，学术界有多种说法，主要有以下几种：</p>
+                    <ul>
+                        <li><strong>中原说：</strong>认为水族是古代中原地区的“睢人”或“睢水人”迁徙而来。据史籍记载，古代中原地区有一个名为“睢”的部落，居住在睢水流域（今河南省东部和安徽省北部）。后来，由于战乱等原因，睢人逐渐南迁，经过湖南、湖北等省，最终到达贵州南部地区定居。</li>
+                        <li><strong>百越说：</strong>认为水族是古代百越民族的一支。百越族是中国古代南方的一个重要民族，包括多个支系。水族的语言、文化、宗教信仰等方面与百越族有许多相似之处，因此有人认为水族是百越族的后裔。</li>
+                        <li><strong>骆越说：</strong>认为水族是古代骆越民族的一支。骆越是百越时期的一个重要支系，主要分布在今广西壮族自治区南部和越南北部地区。有人认为，水族是骆越民族的一部分，后来迁徙到贵州南部地区。</li>
+                    </ul>
+                    <p>无论水族的起源如何，有一点是确定的，那就是水族是一个具有悠久历史的民族，其文化传承已有数千年的历史。在长期的历史发展过程中，水族人民与其他民族相互交流、融合，共同创造了绚丽的中华文化。</p>
+                </section>
+                
+                <!-- 文化方面 -->
+                <section class="shui-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <a href="shui-shushu.html" style="text-decoration: none; color: inherit;">
+                                <h5>水书文化</h5>
+                                <p>水书是水族的独特文字，被称为“活着的象形文字”。水书主要用于记录水族的宗教信仰、天文历法、历史传说、医学知识等内容。水书的文字结构独特，多以象形、会意、指事等方式构成，具有很高的历史价值和文化价值。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="shui-religion.html" style="text-decoration: none; color: inherit;">
+                                <h5>宗教信仰</h5>
+                                <p>水族的宗教信仰主要是原始宗教，崇拜自然、崇拜祖先，信仰多神，如天神、地神、日神、月神、山神、水神、动植物神等。水族还信仰道教和佛教，尤其是道教对水族的宗教影响深远。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="shui-festival.html" style="text-decoration: none; color: inherit;">
+                                <h5>传统节日</h5>
+                                <p>水族的传统节日主要有端节、卯节、苏宁喜节等。其中，端节是水族最隆重的节日，相当于汉族的春节。端节期间，水族人民会举行丰富多彩的庆祝活动，如赛马、对歌、跳舞、宴饮等，热闹非凡。</p>
+                            </a>
+                        </div>
+                        <div class="culture-item">
+                            <a href="shui-music.html" style="text-decoration: none; color: inherit;">
+                                <h5>音乐舞蹈</h5>
+                                <p>水族的音乐舞蹈具有独特的民族风格。水族的民间音乐主要有民歌、器乐等，其中民歌包括叙事歌、情歌、劳动歌等多种类型。水族的民间舞蹈主要有铜鼓舞、芦笙舞、斗角舞等，动作优美、节奏明快，充满了民族特色。</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 服饰文化 -->
+                <section class="shui-section">
+                    <h2>服饰文化</h2>
+                    <p>水族的传统服饰具有鲜明的民族特色，以青、蓝、黑、白等颜色为主，面料多为自织的土布。水族服饰的款式和装饰因性别、年龄、地区等因素而有所不同。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/水族女装.jpg" alt="水族女装">
+                            <p>水族女装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/水族男装.jpg" alt="水族男装">
+                            <p>水族男装</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/水族头饰.jpg" alt="水族头饰">
+                            <p>水族头饰</p>
+                        </div>
+                    </div>
+                    <h3>女装特点</h3>
+                    <p>水族妇女的传统服饰主要包括上衣、裤子、围腰、头饰等。上衣多为对襟刺绣短衫，领口、袖口、下摆等部位常绣有精美的彩色图案。裤子多为长裤，裤脚宽大。围腰是水族妇女服饰的重要组成部分，围裙的颜色和图案因地区而异，有的绣有花鸟龙凤，有的织有几何图案，非常美丽。头饰多为黑色或蓝色，传统上裹在头上，形成独特的头饰造型。</p>
+                    <h3>男装特点</h3>
+                    <p>水族男子的传统服饰相对简单，主要包括上衣、裤子、头饰等。上衣多为对襟短衫，领口、袖口等部位常绣有简单的花纹。裤子多为长裤，裤脚较窄。头饰多为黑色或蓝色，传统上裹在头上，形成包头造型。</p>
+                    <h3>服饰的文化内涵</h3>
+                    <p>水族服饰不仅是一种实用的生活用品，更是水族文化的重要载体。水族服饰的颜色、图案、款式等都蕴含着丰富的文化内涵，反映了水族人民的审美观念、宗教信仰、生活方式等。例如，水族服饰中常用的蓝色和黑色，象征着水和土地，反映了水族人民对自然的崇拜和依赖；服饰上绣的花鸟龙凤等图案，寓意着吉祥、幸福和安康，反映了水族人民对美好生活的向往。</p>
+                </section>
+                
+                <!-- 饮食文化 -->
+                <section class="shui-section">
+                    <h2>饮食文化</h2>
+                    <div class="food-culture">
+                        <h3>饮食习俗</h3>
+                        <p>水族的饮食习惯以大米为主食，辅以小米、玉米、红薯等杂粮。水族人民喜欢吃酸、辣、甜的食物，其中酸菜是水族饮食中不可或缺的一部分。</p>
+                        <h3>特色美食</h3>
+                        <ul>
+                            <li><strong>酸汤鱼：</strong>是水族最著名的特色美食之一。以鲜鱼、酸汤为主要原料，加入各种调料熬制而成。酸汤鱼味道酸鲜可口、开胃提神，具有开胃健脾、增进食欲的功效。</li>
+                            <li><strong>鱼包韭菜：</strong>是水族的传统名菜，也是水族端节期间的必备美食。将鲜鱼除去内脏，洗净后填入韭菜、糯米、花生等，用稻草捆扎好，放入锅中蒸熟即可。鱼包韭菜味道鲜香、营养丰富，具有很高的食用价值。</li>
+                            <li><strong>糯米饭：</strong>是水族人民喜爱的传统食品，尤其是在节日和喜庆场合，糯米食品更是不可或缺。水族的糯米饭有多种做法，如五彩糯米饭、黑糯米饭、八宝糯米饭等，味道香甜、口感软糯。</li>
+                            <li><strong>水族酸菜：</strong>是水族饮食中重要的调味品，主要有酸辣菜、酸辣椒、酸笋等多种类型。水族酸菜味道酸辣可口，具有开胃健脾、促进消化的功效。</li>
+                        </ul>
+                        <h3>饮食礼仪</h3>
+                        <p>水族人民非常注重饮食礼仪，在饮食过程中有许多规矩和禁忌。例如，吃饭时，长辈要先入席，晚辈要后入中；长辈动筷后，晚辈才能动筷；吃饭时不能说话、不能翘腿；饭后要向长辈表示感谢等。这些饮食礼仪反映了水族人民尊老爱幼、注重礼仪的传统美德。</p>
+                    </div>
+                </section>
+                
+                <!-- 节日庆祝 -->
+                <section class="shui-section">
+                    <h2>节日庆祝</h2>
+                    <div class="festival-celebration">
+                        <h3>端节</h3>
+                        <p>端节是水族最隆重的传统节日，相当于汉族的春节。端节的日期根据水历计算，一般在农历八月至十月之间，持续49天左右。不同地区的水族端节日期有所不同，按照“古老的寨子先过，新建的寨子后过”的原则相继举行。</p>
+                        <p>端节期间，水族人民会举行丰富多彩的庆祝活动，主要包括以下几个方面：</p>
+                        <ul>
+                            <li><strong>祭祀祖先：</strong>端节的第一天，家家户户都会准备丰盛的酒菜，祭祀祖先和神灵，祈求来年风调雨顺、五谷丰登、人畜兴旺。</li>
+                            <li><strong>赛马活动：</strong>赛马是端节期间最重要的活动之一。水族人民会在专门的赛马场上举行赛马比赛，参赛的骑手经过精心挑选和训练，骑手们身着传统服饰，英姿飒爽。赛事吸引了众多观众前来观看，场面非常热闹。</li>
+                            <li><strong>对歌跳舞：</strong>端节期间，水族人民会聚集在一起，对歌跳舞，欢度节日。他们唱的歌主要有叙事歌、情歌、劳动歌等，跳的舞蹈主要有铜鼓舞、芦笙舞、斗角舞等。</li>
+                            <li><strong>走亲访友：</strong>端节期间，水族人民会走亲访友，互相拜年，赠送礼品，增进感情。</li>
+                        </ul>
+                        
+                        <h3>卯节</h3>
+                        <p>卯节是水族的另一个重要传统节日，主要流行于贵州省三都水族自治县的水族聚居地区。卯节的日期根据水历计算，一般在农历六月至七月之间，具体日期由水族长老根据水书推算确定。</p>
+                        <p>卯节期间，水族人民会举行祭祀祖先、对歌跳舞、走亲访友等活动。其中，最具特色的活动是“卯坡对歌”。在卯节当天，青年男女会聚集在专门的卯坡上，以歌传情，寻找自己的意中人。</p>
+                        
+                        <h3>苏宁喜节</h3>
+                        <p>苏宁喜节是水族的传统节日，主要流行于贵州省三都水族自治县的水族聚居地区。苏宁喜节的日期为农历十二月丑日，是为了纪念传说中的水族始祖苏宁喜而设立的。</p>
+                        <p>苏宁喜节期间，水族人民会举行祭祀活动，祈求苏宁喜保佑水族人民平安幸福。此外，人们还会对歌跳舞，欢度节日。</p>
+                    </div>
+                </section>
+                
+                <!-- 文学与艺术 -->
+                <section class="shui-section">
+                    <h2>文学与艺术</h2>
+                    <h3>民间文学</h3>
+                    <p>水族的民间文学非常丰富，包括神话传说、民间故事、诗歌谚语等多种类型。这些民间文学作品反映了水族人民的历史、文化、生活和思想感情，是水族文化的重要组成部分。</p>
+                    <ul>
+                        <li><strong>神话传说：</strong>水族的神话传说主要包括创世神话、人类起源神话、洪水神话等。例如，《开天辟地》讲述了水族始祖拱恩拱按创造天地万物的故事；《人类起源》讲述了人类是如何诞生的；《洪水滔天》讲述了洪水泛滥的原因和人类如何幸存下来的故事。</li>
+                        <li><strong>民间故事：</strong>水族的民间故事题材广泛，包括爱情故事、生活故事、动物故事等。这些故事情节生动、语言朴实，充满了民族特色和生活气息。</li>
+                        <li><strong>诗歌谚语：</strong>水族的诗歌数量众多，内容丰富。诗歌包括叙事歌、情歌、劳动歌、仪式歌等多种类型，诗句优美、韵律动听。谚语则是水族人民在长期的生产生活实践中总结出来的经验和智慧，语言简练、寓意深刻。</li>
+                    </ul>
+                    
+                    <h3>传统艺术</h3>
+                    <p>水族的传统艺术形式多样，包括音乐、舞蹈、绘画、雕刻、刺绣等。</p>
+                    <ul>
+                        <li><strong>音乐：</strong>水族的传统音乐主要包括民歌和器乐。民歌有多种类型，如叙事歌、情歌、劳动歌、仪式歌等。器乐主要有铜鼓、芦笙、唢呐、笛子等，其中铜鼓是水族最具代表性的乐器之一。</li>
+                        <li><strong>舞蹈：</strong>水族的传统舞蹈主要有铜鼓舞、芦笙舞、斗角舞等。这些舞蹈动作优美、节奏明快，充满了民族特色。</li>
+                        <li><strong>绘画：</strong>水族的传统绘画主要包括水书绘画和民间绘画。水书绘画是水书中的插图，主要用于解释水书的内容。民间绘画则主要用于装饰服饰、家具、建筑物等。</li>
+                        <li><strong>雕刻：</strong>水族的传统雕刻主要包括木刻、石刻、竹刻等。这些雕刻作品造型优美、工艺精湛，具有很高的艺术价值。</li>
+                        <li><strong>刺绣：</strong>水族的传统刺绣主要用于装饰服饰、手帕、钱包等物品。刺绣图案多为花鸟龙凤、几何图形等，色彩鲜艳、线条流畅，具有很高的审美价值。</li>
+                    </ul>
+                </section>
+                
+                <!-- 对中华文化的影响 -->
+                <section class="shui-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>水族作为中华民族大家庭的一员，其文化对中华文化的发展和繁荣做出了重要贡献。</p>
+                    <ul>
+                        <li><strong>语言文字：</strong>水族的水书是一种古老的象形文字，对研究中国古代文字的演变和发展具有重要意义。水书中保存了许多古代文化信息，如天文历法、宗教信仰、医学知识等，为研究中国古代文化提供了珍贵的资料。</li>
+                        <li><strong>文化传承：</strong>水族的传统文化是中华文化的重要组成部分，包括宗教信仰、传统习俗、文学艺术等多个方面。水族文化的传承和发展，丰富了中华文化的内涵，促进了中华文化的多元化和繁荣。</li>
+                        <li><strong>经济交流：</strong>水族人民在长期的生产生活中，创造了丰富的物质文化，如农业生产技术、手工业技艺等。这些物质文化通过贸易等方式传播到其他地区，促进了各民族之间的经济交流和发展。</li>
+                        <li><strong>民族团结：</strong>水族人民与其他民族在长期的历史发展过程中，相互交流、融合，形成了团结互助、和谐共处的良好关系。这种民族团结的精神，是中华文化的重要组成部分，也是中华民族凝聚力的重要来源。</li>
+                    </ul>
+                    <p>总之，水族文化是中华文化的重要组成部分，其独特的语言文字、宗教信仰、传统习俗、文学艺术等，丰富了中华文化的内涵，促进了中华文化的多元化和繁荣。我们应该珍惜和保护水族文化，促进水族文化的传承和发展，共同推动中华文化的创新和进步。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

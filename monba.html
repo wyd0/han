@@ -1,0 +1,644 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>门巴族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 门巴族文化页面特定样式 */
+        .monba-header {
+            background-image: url('images/门巴族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .monba-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .monba-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .monba-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .monba-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .monba-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .monba-section {
+            margin-bottom: 80px;
+        }
+        
+        .monba-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .monba-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .monba-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .monba-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .monba-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .monba-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .monba-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .monba-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 介绍部分 */
+        .monba-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .monba-intro p {
+            margin-bottom: 20px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 文化对比部分 */
+        .culture-comparison {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 60px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .comparison-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-item h5 {
+            color: #c0392b;
+            font-size: 22px;
+            margin: 0 0 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .monba-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .monba-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .monba-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .monba-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .monba-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .comparison-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .comparison-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .comparison-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .comparison-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .monba-header h1 {
+                font-size: 36px;
+            }
+            
+            .monba-header p {
+                font-size: 18px;
+            }
+            
+            .monba-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .culture-comparison {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="monba-header">
+        <div class="container">
+            <div class="monba-header-content">
+                <h1>门巴族文化</h1>
+                <p>门隅文化传承，美丽的竹编工艺</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="monba-main">
+        <div class="container">
+            <div class="monba-content">
+                <!-- 文化介绍 -->
+                <section class="monba-section">
+                    <h2>门巴族文化概况</h2>
+                    <div class="monba-intro">
+                        <p>门巴族是中国的一个人口较少的少数民族，主要分布在西藏自治区的东南部，特别是门隅地区和林芝地区等地。</p>
+                        <p>门巴族有着悠久的历史和丰富的文化传统，他们在长期的生产生活中形成了独特的语言、宗教信仰、风俗习惯和传统服饰。</p>
+                        <p>门巴族文化是中华文化的重要组成部分，对于研究中国西南少数民族的历史和文化具有重要价值。</p>
+                    </div>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="monba-section">
+                    <h3>历史沿革</h3>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>古代时期</h5>
+                            <p>门巴族的先民可追溯到古代的吐蕃时期。他们长期生活在西藏东南部的门隅地区，以农业和狩猎业为生。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>明清时期，门巴族地区被纳入中央政权的管辖范围。清朝政府在门隅地区设立了各级行政机构，加强了对门巴族的管理。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代时期</h5>
+                            <p>近现代以来，门巴族人民积极参与国家建设，为国家的统一和发展做出了重要贡献。1964年，门巴族被正式确认为中国的一个少数民族。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="monba-section">
+                    <h3>文化方面</h3>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="monba-language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>门巴族有自己的语言，属于汉藏语系藏缅语族门巴语支。门巴语与藏语比较接近，但也有自己的特点。历史上门巴族没有本民族文字，通用藏文。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="monba-religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>门巴族主要信仰藏传佛教，同时也保留着一些原始宗教信仰，如祖先崇拜、自然崇拜等。门巴族人民每年都会举行各种宗教仪式和祭祀活动。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="monba-literature.html" style="color: #c0392b; text-decoration: none;">文学艺术</a></h5>
+                            <p>门巴族的民间文学非常丰富，包括神话、传说、故事、民歌等。其中，民歌是门巴族文学的重要组成部分，分为叙事歌、情歌、劳动歌等多种类型。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="monba-craft.html" style="color: #c0392b; text-decoration: none;">传统工艺</a></h5>
+                            <p>门巴族的传统工艺主要有竹编、木刻、编织等。这些工艺具有独特的民族风格和地方特色，反映了门巴族人民的智慧和创造力。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服饰特点 -->
+                <section class="monba-section">
+                    <h3>服饰特点</h3>
+                    <p>门巴族的传统服饰具有鲜明的民族特色，反映了他们的生活环境、生活方式和审美观念。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/门巴族传统服饰.jpg" alt="门巴族传统服饰">
+                            <p>门巴族传统服饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/门巴族女性服饰.jpg" alt="门巴族女装">
+                            <p>门巴族女装</p>
+                        </div>
+                    </div>
+                    <p>门巴族男性传统服饰主要包括长袍、长裤和头巾，这些服饰通常用羊毛或棉织品制成。女性服饰则较为华丽，通常包括长袍、裙子和头巾，上面绣有美丽的图案和花纹。</p>
+                    <p>门巴族服饰的颜色以红、白、褐等颜色为主，同时也会使用其他鲜艳的颜色作为装饰。服饰的图案和花纹多以自然景物、宗教符号和几何图形为主，具有浓厚的民族特色。</p>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="monba-section">
+                    <h3>饮食文化</h3>
+                    <p>门巴族的饮食文化以青稞为主食，同时也种植小麦、玉米、水稻等作物。门巴族人民喜欢食用乳制品，尤其是酥油、奶酪等。</p>
+                    <p>门巴族的传统食品主要有糌粑、青稞酒和酥油茶。其中，酥油是门巴族人民喜爱的食品之一，常用于招待客人和节日庆典。</p>
+                    <p>门巴族有许多传统的饮食习俗，如节日做饼、婚宴聚餐等。在这些场合，门巴族人民会准备丰盛的食品，以表达对客人的尊重和欢迎。</p>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="monba-section">
+                    <h3>传统节日</h3>
+                    <p>门巴族的传统节日主要有藏历年、望果节、酥油灯节等，这些节日与藏族的传统节日基本相同，但在庆祝方式和内涵上有所不同。</p>
+                    <p>除了上述节日外，门巴族还有一些独特的传统节日，如门巴新年、林卡节等。门巴新年是门巴族最重要的传统节日之一，通常在藏历十二月初一开始，主要是为了庆祝新年的到来和祈求平安。</p>
+                    <p>林卡节是门巴族的传统节日，通常在藏历五月举行。在这一天，门巴族人民会到林卡（公园）中野餐、歌舞、游戏，享受阳光的美好时光。</p>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="monba-section">
+                    <h3>文学艺术</h3>
+                    <p>门巴族的文学艺术形式多样，包括民间文学、音乐、舞蹈、绘画等。</p>
+                    <p>民间文学是门巴族文学的重要组成部分，包括神话、传说、故事、民歌等。其中，民歌是门巴族人民表达情感、交流思想的重要方式，分为叙事歌、情歌、劳动歌等多种类型。</p>
+                    <p>门巴族的音乐和舞蹈也具有独特的民族特色。传统音乐主要包括民歌、器乐演奏等，乐器有笛子、铜铃鼓等。传统舞蹈则主要包括宗教舞蹈、民间舞蹈等，如祭祀舞、孔雀舞等。</p>
+                    <p>门巴族的绘画艺术主要以宗教绘画为主，如唐卡等，这些绘画作品通常具有浓郁的宗教色彩和民族特色。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="monba-section">
+                    <h3>对中华文化的影响</h3>
+                    <p>门巴族文化是中华文化的重要组成部分，对于丰富和发展中华文化具有重要意义。</p>
+                    <p>门巴族的语言、宗教信仰、风俗习惯、传统服饰等都具有独特的民族特色，为中华文化增添了丰富的内容。同时，门巴族文化也吸收了藏族等其他民族的文化元素，形成了独特的文化融合。</p>
+                    <p>门巴族人民在长期的生产生活中，积累了丰富的经验和智慧，这些经验和智慧对于研究中国西南少数民族的历史和文化具有重要价值。</p>
+                    <p>总之，门巴族文化是中华文化百花园中的一朵奇葩，对于丰富和发展中华文化具有重要意义。我们应该尊重和保护门巴族的文化传统，促进各民族文化的交流与融合，共同推动中华文化的繁荣和发展。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

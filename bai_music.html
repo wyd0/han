@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白族音乐舞蹈 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 白族音乐舞蹈页面特定样式 */
+        .bai-header {
+            background-image: url('images/白族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .bai-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .bai-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .bai-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .bai-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-bai {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-bai:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .bai-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .bai-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .bai-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .bai-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .bai-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .bai-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .bai-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .bai-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .bai-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .bai-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .bai-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 音乐舞蹈展示 */
+        .music-dance-showcase {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .showcase-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .showcase-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        
+        .showcase-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* 乐器展示 */
+        .instrument-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .instrument-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .instrument-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+        
+        .instrument-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .bai-header h1 {
+                font-size: 36px;
+            }
+            
+            .bai-header p {
+                font-size: 18px;
+            }
+            
+            .bai-section h2 {
+                font-size: 28px;
+            }
+            
+            .music-dance-showcase {
+                flex-direction: column;
+            }
+            
+            .showcase-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="bai-header">
+        <div class="container">
+            <div class="bai-header-content">
+                <h1>白族音乐舞蹈</h1>
+                <p>霸王鞭舞与白族调的独特魅力</p>
+                <a href="bai.html" class="back-bai">返回白族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="bai-main">
+        <div class="container">
+            <div class="bai-content">
+                <!-- 音乐舞蹈概述 -->
+                <section class="bai-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>白族是一个能歌善舞的民族，有着丰富多样的音乐舞蹈文化。白族的音乐舞蹈历史悠久，内容丰富，形式多样，具有鲜明的民族特色和地域特点。</p>
+                    <p>白族的音乐包括民间歌曲、器乐曲、宗教音乐等多种形式，其中以民间歌曲最为丰富。白族的舞蹈种类繁多，包括霸王鞭舞、八角鼓舞、龙狮舞、草帽舞等，其中以霸王鞭舞和八角鼓舞最为著名。</p>
+                    <p>白族的音乐舞蹈不仅是白族人民日常生活的重要组成部分，也是白族文化传承的重要载体。通过音乐舞蹈，白族人民表达了对生活的热爱、对自然的敬畏、对祖先的敬仰以及对美好未来的向往。</p>
+                </section>
+
+                <!-- 民间歌曲 -->
+                <section class="bai-section">
+                    <h3>民间歌曲</h3>
+                    <p>白族的民间歌曲是白族音乐的重要组成部分，内容丰富，形式多样，具有浓郁的民族特色和地域特点。白族的民间歌曲主要包括白族调、大本曲、对口山歌等多种形式。</p>
+                    <h4>白族调</h4>
+                    <p>白族调是白族最具代表性的民间歌曲形式，广泛流传于白族地区。白族调的歌词多为即兴创作，内容涉及爱情、生活、劳动、历史、传说等多个方面。白族调的旋律优美，节奏明快，富有表现力。</p>
+                    <p>白族调根据演唱形式和内容的不同，可以分为以下几种类型：</p>
+                    <ul>
+                        <li><strong>大调：</strong>主要用于正式场合，如节日庆典、婚礼等，旋律庄重，歌词典雅。</li>
+                        <li><strong>小调：</strong>主要用于日常娱乐，旋律轻快，歌词活泼，内容多为爱情、生活等。</li>
+                        <li><strong>叙事调：</strong>主要用于讲述历史故事、民间传说等，旋律平稳，歌词较长。</li>
+                        <li><strong>情歌：</strong>主要用于表达爱情，旋律优美，歌词含蓄，富有诗意。</li>
+                    </ul>
+                    <h4>大本曲</h4>
+                    <p>大本曲是白族的一种说唱艺术形式，流行于大理白族自治州的大理市、洱源县、宾川县等地。大本曲的歌词较长，内容多为历史故事、民间传说、爱情故事等，旋律优美，节奏明快。</p>
+                    <p>大本曲的演唱形式通常为一人演唱，一人伴奏，伴奏乐器主要有三弦、二胡等。大本曲的传统曲目有《白王的故事》、《杜朝选》、《梁山伯与祝英台》等。</p>
+                    <h4>对口山歌</h4>
+                    <p>对口山歌是白族的一种民间歌曲形式，主要流行于白族的农村地区。对口山歌通常由男女对唱，内容多为爱情、生活等，歌词即兴创作，旋律优美，节奏明快。</p>
+                    <p>对口山歌的演唱场合主要是在田间地头、山坡草地等户外场所，是白族人民劳动之余的一种娱乐方式。</p>
+                </section>
+
+                <!-- 器乐曲 -->
+                <section class="bai-section">
+                    <h3>器乐曲</h3>
+                    <p>白族的器乐曲是白族音乐的重要组成部分，内容丰富，形式多样，具有浓郁的民族特色。白族的器乐曲主要包括民间器乐曲和宗教器乐曲两种形式，其中以民间器乐曲最为丰富。</p>
+                    <h4>民间器乐曲</h4>
+                    <p>白族的民间器乐曲主要包括吹打乐、弦乐等多种形式，其中以吹打乐最为流行。白族的吹打乐通常由唢呐、笛子、锣鼓等乐器组成，旋律欢快，节奏明快，富有感染力。</p>
+                    <p>白族的民间器乐曲主要用于节日庆典、婚礼、葬礼等场合，是白族人民日常生活的重要组成部分。白族的传统民间器乐曲有《大开门》、《小开门》、《龙灯调》、《婚礼调》等。</p>
+                    <h4>宗教器乐曲</h4>
+                    <p>白族的宗教器乐曲主要用于宗教活动，如祭祀本主、念经、做斋等。宗教器乐曲的旋律庄重，节奏缓慢，富有神秘感。</p>
+                    <p>白族的宗教器乐曲通常由寺庙的和尚或道士演奏，使用的乐器主要有唢呐、笛子、锣鼓、木鱼等。</p>
+                    <h4>白族乐器</h4>
+                    <p>白族的传统乐器种类繁多，主要包括以下几种：</p>
+                    <div class="instrument-showcase">
+                        <div class="instrument-item">
+                            <h5>龙头三弦</h5>
+                            <p>白族特有的弦乐器，琴头雕刻有龙头装饰，音色优美，是白族民间音乐的重要伴奏乐器。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h5>唢呐</h5>
+                            <p>白族民间常用的吹管乐器，音色明亮，表现力强，主要用于节日庆典、婚礼等场合。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h5>笛子</h5>
+                            <p>白族民间常用的吹管乐器，音色清脆，旋律优美，主要用于民间歌曲和器乐曲的伴奏。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h5>锣鼓</h5>
+                            <p>白族民间常用的打击乐器，包括锣、鼓、钹等，主要用于节日庆典、婚礼等场合的伴奏。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 舞蹈 -->
+                <section class="bai-section">
+                    <h3>舞蹈</h3>
+                    <p>白族的舞蹈是白族文化的重要组成部分，种类繁多，形式多样，具有鲜明的民族特色和地域特点。白族的舞蹈主要包括霸王鞭舞、八角鼓舞、龙狮舞、草帽舞等多种形式。</p>
+                    <h4>霸王鞭舞</h4>
+                    <p>霸王鞭舞是白族最具代表性的舞蹈形式，广泛流传于白族地区。霸王鞭舞的道具是一根约一米长的竹鞭，鞭身缀有彩条、铃铛等装饰。舞者手持霸王鞭，边歌边舞，动作矫健有力，节奏明快。</p>
+                    <p>霸王鞭舞的动作主要包括鞭花、踢腿、跳跃、旋转等，舞姿优美，富有表现力。霸王鞭舞通常在节日庆典、婚礼等场合表演，是白族人民喜庆活动的重要组成部分。</p>
+                    <h4>八角鼓舞</h4>
+                    <p>八角鼓舞是白族的一种传统舞蹈形式，主要流行于大理白族自治州的剑川县、洱源县等地。八角鼓舞的道具是一个八角形的鼓，鼓身缀有彩条、铃铛等装饰。舞者手持八角鼓，边歌边舞，动作轻盈，节奏明快。</p>
+                    <p>八角鼓舞的动作主要包括击鼓、摇鼓、踢腿、跳跃等，舞姿优美，富有表现力。八角鼓舞通常在节日庆典、婚礼等场合表演，是白族人民喜庆活动的重要组成部分。</p>
+                    <h4>龙狮舞</h4>
+                    <p>龙狮舞是白族的一种传统舞蹈形式，主要流行于白族的农村地区。龙狮舞的道具是龙和狮子的造型，舞者身着龙狮服装，模仿龙和狮子的动作，边舞边跑，动作矫健有力，节奏明快。</p>
+                    <p>龙狮舞通常在春节、元宵节等传统节日表演，是白族人民喜庆活动的重要组成部分。龙狮舞的表演场面热闹非凡，深受白族人民的喜爱。</p>
+                    <h4>草帽舞</h4>
+                    <p>草帽舞是白族的一种传统舞蹈形式，主要流行于大理白族自治州的洱源县、宾川县等地。草帽舞的道具是白族传统的草帽，舞者手持草帽，边歌边舞，动作轻盈，节奏明快。</p>
+                    <p>草帽舞的动作主要包括绕圈、跳跃、旋转等，舞姿优美，富有表现力。草帽舞通常在节日庆典、婚礼等场合表演，是白族人民喜庆活动的重要组成部分。</p>
+                </section>
+
+                <!-- 音乐舞蹈与文化传承 -->
+                <section class="bai-section">
+                    <h3>音乐舞蹈与文化传承</h3>
+                    <p>白族的音乐舞蹈不仅是一种艺术形式，也是白族文化传承的重要载体。通过音乐舞蹈，白族人民传承和弘扬了本民族的历史文化、道德观念、艺术传统等。</p>
+                    <h4>音乐舞蹈的文化功能</h4>
+                    <ul>
+                        <li><strong>历史传承：</strong>白族的音乐舞蹈中蕴含着丰富的历史文化信息，通过音乐舞蹈，白族人民传承了本民族的历史故事、民间传说等。</li>
+                        <li><strong>道德教育：</strong>白族的音乐舞蹈中包含着许多道德观念和价值准则，如尊老爱幼、团结互助、勤劳善良等，对本族人民的道德教育起到了重要的作用。</li>
+                        <li><strong>艺术传承：</strong>白族的音乐舞蹈是白族艺术传统的重要组成部分，通过音乐舞蹈，白族人民传承了本民族的音乐、舞蹈、服饰等艺术形式。</li>
+                        <li><strong>社会凝聚：</strong>白族的音乐舞蹈是白族人民集体参与的活动，有助于增强民族凝聚力和社区认同感。</li>
+                    </ul>
+                    <h4>音乐舞蹈的现代传承</h4>
+                    <ul>
+                        <li><strong>学校教育：</strong>在白族地区的学校中，开设白族音乐舞蹈课程，教授白族音乐舞蹈知识，培养白族青少年的音乐舞蹈能力。</li>
+                        <li><strong>民间传承：</strong>在白族的农村地区，通过民间艺人的口传身授，传承白族的音乐舞蹈传统。</li>
+                        <li><strong>媒体传播：</strong>利用广播、电视、报纸、网络等媒体，传播白族音乐舞蹈，扩大白族音乐舞蹈的影响。</li>
+                        <li><strong>文化创新：</strong>在保持白族音乐舞蹈传统特色的基础上，进行文化创新，创作符合时代需求的白族音乐舞蹈作品。</li>
+                    </ul>
+                    <div class="music-dance-showcase">
+                        <div class="showcase-item">
+                            <img src="images/白族传统服装.jpg" alt="霸王鞭舞">
+                            <p>霸王鞭舞表演</p>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="images/白族女子服装.jpg" alt="八角鼓舞">
+                            <p>八角鼓舞表演</p>
+                        </div>
+                        <div class="showcase-item">
+                            <img src="images/白族男子服装.jpg" alt="白族调演唱">
+                            <p>白族调演唱</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈的现状与未来 -->
+                <section class="bai-section">
+                    <h3>音乐舞蹈的现状与未来</h3>
+                    <p>随着社会的发展和变迁，白族的音乐舞蹈传承与发展面临着一些挑战，同时也迎来了新的机遇。</p>
+                    <h4>现状</h4>
+                    <ul>
+                        <li><strong>传统音乐舞蹈的保护：</strong>随着现代文化的冲击，白族的一些传统音乐舞蹈形式面临着失传的危险，如一些古老的白族调和传统舞蹈。</li>
+                        <li><strong>现代音乐舞蹈的发展：</strong>在保持传统特色的基础上，白族的音乐舞蹈也在不断创新和发展，出现了一些新的音乐舞蹈形式。</li>
+                        <li><strong>传承与推广：</strong>政府和社会各界对以白族音乐舞蹈的传承与推广工作越来越重视，采取了一系列措施，如建立白族音乐舞蹈传承基地、举办白族音乐舞蹈比赛等。</li>
+                    </ul>
+                    <h4>未来</h4>
+                    <ul>
+                        <li><strong>传统与现代的结合：</strong>在保持白族音乐舞蹈传统特色的基础上，吸收现代音乐舞蹈的元素，创造出既有传统特色又符合时代需求的新作品。</li>
+                        <li><strong>教育与传承：</strong>加强白族音乐舞蹈的教育与传承工作，在学校中开设白族音乐舞蹈课程，培养白族青少年的音乐舞蹈能力。</li>
+                        <li><strong>文化产业：</strong>将白族音乐舞蹈与文化产业相结合，开发白族音乐舞蹈相关的文化产品，如音乐CD、舞蹈表演、文化旅游等，促进白族音乐舞蹈的传承与发展。</li>
+                        <li><strong>国际交流：</strong>加强与其他国家和民族的音乐舞蹈交流，吸收先进的音乐舞蹈理念和技术，促进白族音乐舞蹈的创新与发展。</li>
+                    </ul>
+                    <p>白族的音乐舞蹈是白族文化的瑰宝，是中华民族音乐舞蹈宝库中的重要组成部分。我们相信，在政府和社会各界的共同努力下，白族的音乐舞蹈一定能够得到更好的传承和发展，为白族文化的繁荣和中华民族文化的多样性做出更大的贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

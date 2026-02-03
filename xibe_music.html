@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锡伯族音乐舞蹈- 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 锡伯族音乐舞蹈页面特定样式 */
+        .xibe-header {
+            background-image: url('images/锡伯族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .xibe-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .xibe-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .xibe-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .xibe-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .xibe-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .xibe-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .xibe-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .xibe-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .xibe-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .xibe-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .xibe-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .xibe-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .xibe-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .xibe-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 音乐舞蹈特点样式 */
+        .music-dance-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 舞蹈类型样式 */
+        .dance-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .dance-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .dance-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dance-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 乐器样式 */
+        .musical-instruments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .instrument-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .instrument-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instrument-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="xibe-header">
+        <div class="container">
+            <div class="xibe-header-content">
+                <h1>锡伯族音乐舞蹈</h1>
+                <p>充满活力的艺术表达形式</p>
+                <a href="xibe.html" class="back-difference">返回锡伯族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="xibe-main">
+        <div class="container">
+            <div class="xibe-content">
+                <!-- 音乐舞蹈概述 -->
+                <section class="xibe-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>锡伯族的音乐舞蹈是其文化的重要组成部分，具有独特的民族风格和艺术魅力。锡伯族人民在长期的生产生活中，创造了丰富多彩的音乐舞蹈形式，这些艺术形式不仅是锡伯族人民表达情感、庆祝节日的重要方式，也是锡伯族文化传承的重要载体。</p>
+                    <p>锡伯族的音乐舞蹈具有鲜明的民族特色，同时也吸收了汉族、满族、维吾尔族等其他民族的艺术元素，形成了独具特色的艺术风格。它们反映了锡伯族人民的生活、情感和理想，体现了锡伯族人民的智慧和创造力。</p>
+                </section>
+
+                <!-- 锡伯族音乐 -->
+                <section class="xibe-section">
+                    <h3>锡伯族音乐</h3>
+                    <p>锡伯族音乐历史悠久，内容丰富，形式多样，是锡伯族文化的重要组成部分。锡伯族音乐主要包括民间歌曲、器乐曲等类型，每种类型都有其独特的风格和特点。</p>
+                    
+                    <h4>民间歌曲</h4>
+                    <p>锡伯族的民间歌曲是锡伯族音乐的重要组成部分，它们反映了锡伯族人民的生活、情感和理想，是锡伯族人民智慧的结晶。锡伯族的民间歌曲主要包括以下几种类型：</p>
+                    <div class="music-dance-features">
+                        <div class="feature-item">
+                            <h4>叙事歌</h4>
+                            <p>叙事歌是锡伯族民间歌曲的重要类型，主要讲述锡伯族的历史故事、传说和英雄事迹。其中，最著名的是《西迁歌》，它讲述了锡伯族西迁戍边的历史，是锡伯族人民爱国主义精神的重要体现。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>爱情歌</h4>
+                            <p>爱情歌是锡伯族民间歌曲中数量最多、最受欢迎的类型之一，主要表达青年男女之间的爱情和思念之情。这些歌曲旋律优美，歌词真挚，充满了浪漫主义色彩。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>时政歌</h4>
+                            <p>时政歌是锡伯族人民对社会现实和政治事件的反映，主要表达锡伯族人民对美好生活的向往和对不公现象的不满。这些歌曲具有强烈的时代感和现实意义。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>劳动歌</h4>
+                            <p>劳动歌是锡伯族人民在劳动过程中创作的歌曲，主要反映锡伯族人民的劳动生活和劳动情感。这些歌曲节奏明快，富有感染力，能够激发人们的劳动热情。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>器乐曲</h4>
+                    <p>锡伯族的器乐曲主要是为舞蹈伴奏的音乐，也有一些独立的器乐曲。锡伯族的传统乐器主要有：</p>
+                    <div class="musical-instruments">
+                        <div class="instrument-item">
+                            <h4>东布尔</h4>
+                            <p>东布尔是锡伯族最具代表性的传统乐器，属于弹拨乐器。它的形状类似于汉族的三弦，音色优美，表现力丰富，是锡伯族音乐中不可或缺的乐器。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4>墨克纳</h4>
+                            <p>墨克纳是锡伯族的吹管乐器，类似于汉族的笛子。它的音色清脆悦耳，常用于伴奏舞蹈和歌曲。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4>菲特克讷</h4>
+                            <p>菲特克讷是锡伯族的弦乐器，类似于汉族的二胡。它的音色深沉悠扬，常用于演奏抒情的乐曲。</p>
+                        </div>
+                        <div class="instrument-item">
+                            <h4>萨满鼓</h4>
+                            <p>萨满鼓是锡伯族萨满教仪式中使用的打击乐器，也是锡伯族传统音乐中的重要乐器之一。它的声音洪亮有力，能够营造出神秘的氛围。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>音乐特点</h4>
+                    <p>锡伯族音乐具有以下特点：</p>
+                    <ul>
+                        <li><strong>旋律优美：</strong>锡伯族音乐的旋律优美动听，节奏明快，富有感染力，能够表达出锡伯族人民的各种情感。</li>
+                        <li><strong>歌词真挚：</strong>锡伯族音乐的歌词真挚朴实，反映了锡伯族人民的生活、情感和理想，具有强烈的现实主义色彩。</li>
+                        <li><strong>民族特色鲜明：</strong>锡伯族音乐具有鲜明的民族特色，同时也吸收了汉族、满族、维吾尔族等其他民族的音乐元素，形成了独具特色的艺术风格。</li>
+                        <li><strong>与舞蹈密切相关：</strong>锡伯族音乐与舞蹈密切相关，许多音乐作品都是为舞蹈伴奏的，音乐和舞蹈相互配合，形成了完美的艺术整体。</li>
+                    </ul>
+                </section>
+
+                <!-- 锡伯族舞蹈 -->
+                <section class="xibe-section">
+                    <h3>锡伯族舞蹈</h3>
+                    <p>锡伯族舞蹈是锡伯族文化的重要组成部分，具有独特的民族风格和艺术魅力。锡伯族舞蹈历史悠久，内容丰富，形式多样，是锡伯族人民表达情感、庆祝节日的重要方式。</p>
+                    
+                    <h4>主要舞蹈类型</h4>
+                    <div class="dance-types">
+                        <div class="dance-item">
+                            <h4>贝伦舞</h4>
+                            <p>贝伦舞是锡伯族最具代表性的传统舞蹈，也是锡伯族人民最喜爱的舞蹈形式之一。贝伦舞动作矫健有力，充满生命力，主要表现锡伯族人民的劳动生活、爱情故事和节日喜庆等内容。贝伦舞的基本动作包括跳跃、旋转、踢踏等，舞蹈节奏明快，富有感染力。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>萨满舞</h4>
+                            <p>萨满舞是锡伯族萨满教仪式中表演的舞蹈，具有神秘的宗教色彩。萨满舞的动作粗犷有力，充满了原始宗教的神秘感，主要用于祭祀、驱邪等宗教仪式。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>婚礼舞</h4>
+                            <p>婚礼舞是锡伯族人民在婚礼仪式中表演的舞蹈，主要表达对新人的祝福和对美好生活的向往。婚礼舞的动作优美典雅，充满了喜庆的氛围。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>节日舞</h4>
+                            <p>节日舞是锡伯族人民在传统节日中表演的舞蹈，主要包括春节舞、西迁节舞等。这些舞蹈动作欢快热烈，充满了节日的喜庆氛围，能够激发人们的节日热情。</p>
+                        </div>
+                    </div>
+                    
+                    <h4>舞蹈特点</h4>
+                    <p>锡伯族舞蹈具有以下特点：</p>
+                    <ul>
+                        <li><strong>动作矫健有力：</strong>锡伯族舞蹈的动作矫健有力，充满生命力，体现了锡伯族人民勇敢、豪放的性格特点。</li>
+                        <li><strong>节奏明快：</strong>锡伯族舞蹈的节奏明快，富有感染力，能够激发人们的舞蹈热情。</li>
+                        <li><strong>民族特色鲜明：</strong>锡伯族舞蹈具有鲜明的民族特色，同时也吸收了汉族、满族、维吾尔族等其他民族的舞蹈元素，形成了独具特色的艺术风格。</li>
+                        <li><strong>与音乐密切相关：</strong>锡伯族舞蹈与音乐密切相关，舞蹈动作与音乐节奏完美配合，形成了和谐的艺术整体。</li>
+                        <li><strong>内容丰富多样：</strong>锡伯族舞蹈的内容丰富多样，包括劳动生活、爱情故事、节日喜庆、宗教仪式等多个方面，反映了锡伯族人民的生活和情感。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐舞蹈的文化意义 -->
+                <section class="xibe-section">
+                    <h3>音乐舞蹈的文化意义</h3>
+                    <p>锡伯族的音乐舞蹈是其文化的重要组成部分，具有多方面的文化意义：</p>
+                    <ul>
+                        <li><strong>文化传承的载体：</strong>锡伯族的音乐舞蹈是锡伯族文化传承的重要载体，通过音乐舞蹈，锡伯族的历史、文化、传统等得以记录和传承。</li>
+                        <li><strong>民族认同的标志：</strong>锡伯族的音乐舞蹈是锡伯族民族认同的重要标志，是锡伯族人民区别于其他民族的重要特征之一。</li>
+                        <li><strong>社会凝聚的纽带：</strong>锡伯族的音乐舞蹈是锡伯族社会凝聚的重要纽带，通过共同的音乐舞蹈活动，增强了锡伯族人民的民族认同感和凝聚力。</li>
+                        <li><strong>情感表达的方式：</strong>锡伯族的音乐舞蹈是锡伯族人民表达情感的重要方式，通过音乐舞蹈，锡伯族人民表达了对生活的热爱、对爱情的追求、对英雄的敬仰等各种情感。</li>
+                        <li><strong>文化交流的桥梁：</strong>锡伯族的音乐舞蹈是锡伯族与其他民族进行文化交流的桥梁，通过音乐舞蹈的传播和交流，锡伯族文化与其他民族文化得以相互学习和融合。</li>
+                    </ul>
+                    <p>锡伯族的音乐舞蹈是其文化宝库中的重要组成部分，体现了锡伯族人民的智慧和创造力，也是中华民族多元文化的重要体现。</p>
+                </section>
+
+                <!-- 音乐舞蹈的保护与发展 -->
+                <section class="xibe-section">
+                    <h3>音乐舞蹈的保护与发展</h3>
+                    <p>在当今全球化和现代化的背景下，锡伯族的音乐舞蹈面临着一些挑战，如传统音乐舞蹈的传承后继无人、现代文化的冲击等。为了保护和发展锡伯族的音乐舞蹈，需要采取一系列措施：</p>
+                    <ul>
+                        <li><strong>加强传承教育：</strong>通过学校教育、民间传承等方式，培养年轻一代对锡伯族音乐舞蹈的兴趣和掌握能力，确保传统音乐舞蹈的传承后继有人。</li>
+                        <li><strong>开展文化活动：</strong>通过举办锡伯族音乐舞蹈相关的文化活动，如比赛、展览、演出等，提高锡伯族音乐舞蹈的知名度和影响力。</li>
+                        <li><strong>加强学术研究：</strong>组织专家学者对锡伯族音乐舞蹈进行深入的学术研究，探讨其历史、特点、规律和发展趋势，为音乐舞蹈的保护和发展提供理论支持。</li>
+                        <li><strong>利用现代技术：</strong>利用现代信息技术，如录音、录像、数字化等，对锡伯族音乐舞蹈进行记录和保存，为后人留下宝贵的文化遗产。</li>
+                        <li><strong>创新发展：</strong>在保护传统音乐舞蹈的基础上，结合现代文化元素，对锡伯族音乐舞蹈进行创新和发展，使其适应现代社会的需求，焕发出新的生命力。</li>
+                    </ul>
+                    <p>锡伯族的音乐舞蹈是锡伯族人民的宝贵财富，也是中华民族多元文化的重要组成部分。通过全社会的共同努力，相信锡伯族的音乐舞蹈一定能够得到更好的保护和发展，继续在锡伯族文化传承中发挥重要的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 滚动显示动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.xibe-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乌孜别克族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 风俗习惯页面特定样式 */
+        .customs-header {
+            background-image: url('images/乌孜别克族女子传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-uzbek {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-uzbek:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .customs-content h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .customs-header p {
+                font-size: 18px;
+            }
+            
+            .customs-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="customs-header">
+        <div class="container">
+            <div class="customs-header-content">
+                <h1>乌孜别克族风俗习惯</h1>
+                <p>丰富多彩的民族传统与生活方式</p>
+                <a href="uzbek.html" class="back-uzbek">返回乌孜别克族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="customs-main">
+        <div class="container">
+            <div class="customs-content">
+                <h2>风俗习惯概况</h2>
+                <p>乌孜别克族有着独特的风俗习惯，如住房建筑多为平顶长方形，婚姻制度实行一夫一妻制，丧葬仪式按照伊斯兰教规进行等。这些风俗习惯是乌孜别克族文化的重要组成部分，反映了他们的生活方式和价值观念。</p>
+                
+                <h3>居住习俗</h3>
+                <p>乌孜别克族的居住习俗具有鲜明的民族特色：</p>
+                <ul>
+                    <li>住房建筑多为平顶长方形，用土坯或砖块建造</li>
+                    <li>房屋内部布局讲究，通常分为客厅、卧室、厨房等</li>
+                    <li>客厅是家庭活动的中心，装饰精美，摆放着地毯、挂毯等</li>
+                    <li>房屋周围通常有庭院，种植果树和蔬菜</li>
+                    <li>重视房屋的通风和采光，窗户较大</li>
+                </ul>
+                
+                <h3>婚姻习俗</h3>
+                <p>乌孜别克族的婚姻习俗遵循伊斯兰教规，同时保留了本民族的传统特色：</p>
+                <ul>
+                    <li>实行一夫一妻制，强调婚姻的神圣性和稳定性</li>
+                    <li>婚姻通常由父母包办，但也尊重子女的意愿</li>
+                    <li>婚礼仪式隆重，分为订婚、结婚等多个环节</li>
+                    <li>结婚当天，新郎要骑马去新娘家迎娶，新娘则由亲友陪伴</li>
+                    <li>婚礼上会举行歌舞表演、聚餐等活动，热闹非凡</li>
+                    <li>婚后，夫妻双方要相互尊重、相互扶持</li>
+                </ul>
+                
+                <h3>丧葬习俗</h3>
+                <p>乌孜别克族的丧葬习俗严格按照伊斯兰教规进行：</p>
+                <ul>
+                    <li>实行土葬，遗体要洗净，裹上白布</li>
+                    <li>丧葬仪式简单庄重，避免铺张浪费</li>
+                    <li>亲友要为逝者祈祷，参加殡礼</li>
+                    <li>逝者家属要守孝一段时间，期间穿着朴素</li>
+                    <li>每年忌日，亲友会前往墓地扫墓，缅怀逝者</li>
+                </ul>
+                
+                <h3>饮食习俗</h3>
+                <p>乌孜别克族的饮食习俗丰富多样，具有独特的风味：</p>
+                <ul>
+                    <li>以面食、米饭、肉类为主要食物</li>
+                    <li>喜欢吃馕、抓饭、包子、烤肉等传统食品</li>
+                    <li>饮品主要有奶茶、马奶酒、果汁等</li>
+                    <li>饮食讲究卫生，注重营养搭配</li>
+                    <li>热情好客，客人来访时会准备丰盛的食物</li>
+                    <li>按照伊斯兰教规，禁食猪肉、血液、自死物等</li>
+                </ul>
+                
+                <h3>礼仪习俗</h3>
+                <p>乌孜别克族非常重视礼仪，有着丰富的礼仪习俗：</p>
+                <ul>
+                    <li>尊老爱幼，尊重长辈是基本的道德准则</li>
+                    <li>见面时要互相问候，行握手礼或贴面礼</li>
+                    <li>客人来访时，要热情迎接，端茶送水</li>
+                    <li>坐席时，长辈要坐在上位，晚辈要尊重长辈</li>
+                    <li>送礼时，要选择有意义的礼物，表达真诚的心意</li>
+                    <li>注重个人卫生和环境卫生，保持整洁</li>
+                </ul>
+                
+                <h3>节日习俗</h3>
+                <p>乌孜别克族的节日习俗丰富多彩，充满欢乐：</p>
+                <ul>
+                    <li>肉孜节：又称开斋节，人们会穿上盛装，走亲访友，举行各种庆祝活动</li>
+                    <li>古尔邦节：又称宰牲节，人们会宰牲、聚餐、施舍</li>
+                    <li>圣纪节：纪念伊斯兰教创始人穆罕默德的诞辰和忌日</li>
+                    <li>诺鲁孜节：乌孜别克族的传统新年，人们会举行各种庆祝活动，祈求丰收和幸福</li>
+                    <li>节日期间，人们会唱歌跳舞，举行体育竞赛，展现乌孜别克族的热情好客和丰富多彩的文化生活</li>
+                </ul>
+                
+                <h3>禁忌习俗</h3>
+                <p>乌孜别克族有一些传统禁忌，需要尊重和遵守：</p>
+                <ul>
+                    <li>宗教禁忌：禁食猪肉、血液、自死物等，禁止饮酒</li>
+                    <li>行为禁忌：禁止在公共场所大声喧哗，禁止随地吐痰</li>
+                    <li>礼仪禁忌：禁止在长辈面前跷二郎腿，禁止打断别人说话</li>
+                    <li>语言禁忌：禁止说脏话、谎话，禁止背后议论别人</li>
+                    <li>节日禁忌：节日期间要保持愉快的心情，禁止争吵和打架</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

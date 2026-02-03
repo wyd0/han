@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京族生活习俗 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 京族生活习俗页面特定样式 */
+        .jing-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jing-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jing-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jing-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jing-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jing-section {
+            margin-bottom: 80px;
+        }
+        
+        .jing-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jing-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jing-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jing-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jing-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jing-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 特色内容样式 */
+        .feature-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .jing-header h1 {
+                font-size: 36px;
+            }
+            
+            .jing-header p {
+                font-size: 18px;
+            }
+            
+            .jing-section h2 {
+                font-size: 28px;
+            }
+            
+            .feature-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jing-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jing-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jing-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jing-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .jing-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jing-header">
+        <div class="container">
+            <div class="jing-header-content">
+                <h1>京族生活习俗</h1>
+                <p>探索京族独特的生活方式和风俗习惯</p>
+                <a href="jing.html" class="back-difference">返回京族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="jing-main">
+        <div class="container">
+            <div class="jing-content">
+                <!-- 生活习俗概况 -->
+                <section class="jing-section">
+                    <h2>生活习俗概况</h2>
+                    <p>京族的生活习俗是京族文化的重要组成部分，反映了京族人民的生活方式、价值观念和审美情趣。由于京族是一个海洋民族，其生活习俗与海洋密切相关，同时也受到汉族和其他民族文化的影响，形成了独特的风格。</p>
+                    <p>京族的生活习俗涵盖了居住、饮食、服饰、婚姻、丧葬、节日等各个方面，这些习俗不仅是京族人民日常生活的重要内容，也是京族文化传承和发展的重要载体。</p>
+                </section>
+
+                <!-- 居住习俗 -->
+                <section class="jing-section">
+                    <h2>居住习俗</h2>
+                    <p>京族的居住习俗具有鲜明的海洋文化特色，反映了京族人民适应海洋环境的智慧：</p>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>高脚屋</h4>
+                            <p>京族传统民居多为高脚屋，这种建筑形式适合沿海地区的气候和地理环境。高脚屋一般建在海边或河岸旁，底部架空，可以防潮、防湿、防兽，同时也便于晾晒渔网和海产品。房屋的墙壁和屋顶多采用当地的材料，如竹子、木材、茅草等，既环保又实用。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>村落布局</h4>
+                            <p>京族村落一般沿海岸线分布，村落内部布局紧凑，房屋排列整齐。村落中通常有一个中心广场，作为村民聚会、活动的场所。村落周围种植着各种树木，既可以防风固沙，又可以美化环境。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>现代居住变化</h4>
+                            <p>随着社会的发展和生活水平的提高，京族的居住条件也发生了很大变化。现代京族民居多为砖混结构的楼房，内部设施齐全，生活更加舒适。但许多京族村落仍然保留着传统的高脚屋，作为文化遗产和旅游景点。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食习俗 -->
+                <section class="jing-section">
+                    <h2>饮食习俗</h2>
+                    <p>京族的饮食习俗以海洋为特色，口味清淡，注重原汁原味，反映了京族人民与海洋的密切关系：</p>
+                    <ul>
+                        <li><strong>主食</strong>：京族的主食以大米为主，辅以玉米、红薯等。京族人民喜欢吃糯米饭，特别是在节日和喜庆场合，糯米饭是必不可少的食品。</li>
+                        <li><strong>副食</strong>：京族的副食以海鲜为主，如鱼、虾、蟹、贝等。京族人民擅长烹饪各种海鲜，如烤鱼、烤虾、清蒸鱼、海鲜汤等。此外，京族人民也种植各种蔬菜，如青菜、萝卜、黄瓜等，作为日常饮食的补充。</li>
+                        <li><strong>特色食品</strong>：京族有许多特色食品，如鱼露、沙虫酱、海螺粥、粉丝蒸螃蟹等。其中，鱼露是京族最具代表性的传统调味品，被称为"京族的味道"，是京族饮食文化的重要组成部分。</li>
+                        <li><strong>饮食习惯</strong>：京族人民的饮食习惯注重卫生和礼仪，吃饭时一般围坐在矮桌旁，使用筷子和勺子。在节日和喜庆场合，京族人民会准备丰盛的饭菜，邀请亲朋好友一起分享。</li>
+                    </ul>
+                </section>
+
+                <!-- 婚姻习俗 -->
+                <section class="jing-section">
+                    <h2>婚姻习俗</h2>
+                    <p>京族的婚姻习俗具有鲜明的民族特色，反映了京族人民的价值观和社会关系：</p>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>婚姻制度</h4>
+                            <p>京族实行一夫一妻制，婚姻自由，男女平等。青年男女可以通过自由恋爱、父母包办或媒人介绍等方式缔结婚姻。京族人民重视婚姻的稳定性，离婚率较低。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>婚姻仪式</h4>
+                            <p>京族的婚姻仪式隆重而繁琐，通常包括提亲、订婚、迎娶等环节。提亲时，男方会带着礼品到女方家，表示诚意。订婚时，双方会交换彩礼和嫁妆，确定结婚日期。迎娶时，男方会组织迎亲队伍，带着花轿或汽车到女方家迎娶新娘。新娘出嫁时，会穿着盛装，由亲朋好友护送。婚礼当天，双方会举办盛大的婚宴，邀请亲朋好友共同庆祝。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>婚后习俗</h4>
+                            <p>京族婚后，夫妻双方一般与父母分开居住，建立自己的小家庭。新娘在婚后的几天内，会回娘家省亲，称为"回门"。京族人民重视婆媳关系，强调家庭和睦。在家庭生活中，夫妻双方共同承担家务和抚养子女的责任，地位平等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="jing-section">
+                    <h2>丧葬习俗</h2>
+                    <p>京族的丧葬习俗体现了京族人民对生命的尊重和对祖先的敬仰：</p>
+                    <ul>
+                        <li><strong>丧葬仪式</strong>：京族的丧葬仪式复杂多样，通常包括报丧、停灵、吊唁、出殡、安葬等环节。报丧时，家属会通知亲朋好友，告知噩耗。停灵时，死者的遗体会在家中停放数天，供亲朋好友吊唁。吊唁时，亲朋好友会携带礼品前来慰问家属，表达哀悼之情。出殡时，家属会组织送葬队伍，将死者的遗体送往墓地。安葬时，死者的遗体会被放入棺材中，埋入地下。</li>
+                        <li><strong>墓地选择</strong>：京族人民重视墓地的选择，认为墓地的风水会影响后代的命运。墓地一般选择在海边或山坡上，地势较高，视野开阔，风景优美。</li>
+                        <li><strong>服丧习俗</strong>：京族人民在亲人去世后，会服丧一段时间，期间穿着素色衣服，不参加娱乐活动，以示哀悼。服丧期的长短根据与死者的关系而定，一般为三个月到一年不等。</li>
+                        <li><strong>祭祀活动</strong>：京族人民会定期祭祀祖先，如清明节、农历七月十五的中元节和农历除夕等。在这些节日里，京族人民会到祖先的墓地扫墓，献上鲜花、食品等祭品，表达对祖先的敬意和怀念之情。</li>
+                    </ul>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="jing-section">
+                    <h2>传统节日</h2>
+                    <p>京族的传统节日丰富多彩，反映了京族人民的宗教信仰、生活习俗和文化传统：</p>
+                    <div class="feature-content">
+                        <div class="feature-item">
+                            <h4>哈节</h4>
+                            <p>哈节是京族最盛大的传统节日，也是京族文化的重要象征。哈节在每年农历六月初至八月初十期间举行，具体日期因村落而异。哈节的主要活动包括祭祀神灵、唱歌跳舞、竞技比赛等。哈节期间，京族人民会穿上盛装，聚集在哈亭（京族传统的集会场所），举行隆重的祭祀仪式，祈求神灵保佑丰收、平安和幸福。然后，人们会唱歌跳舞，举行各种娱乐活动，庆祝节日。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>春节</h4>
+                            <p>春节是京族人民最重要的传统节日之一，与汉族的春节相似。春节前，京族人民会打扫房屋、购买年货、制作传统食品等。除夕夜，全家团聚，吃年夜饭，守岁。大年初一，人们会穿上盛装，走亲访友，互相拜年，祝福新年。春节期间，京族人民还会举行各种娱乐活动，如舞龙、舞狮、唱戏等。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>中秋节</h4>
+                            <p>中秋节是京族人民的传统节日之一，与汉族的中秋节相似。中秋节时，京族人民会赏月、吃月饼、吃团圆饭等。此外，京族人民还会举行各种娱乐活动，如唱歌、跳舞、猜灯谜等。中秋节是京族人民团圆、欢乐的节日，也是京族文化传承的重要载体。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 生活习俗的现代变迁 -->
+                <section class="jing-section">
+                    <h2>生活习俗的现代变迁</h2>
+                    <p>随着社会的发展和现代化进程的加速，京族的生活习俗也在发生着变化：</p>
+                    <ul>
+                        <li>居住条件得到显著改善，现代砖混结构的楼房逐渐取代传统的高脚屋</li>
+                        <li>饮食结构更加多样化，除了传统的海鲜和大米，也开始食用各种肉类、蔬菜和水果</li>
+                        <li>婚姻习俗更加自由、简化，青年男女多通过自由恋爱缔结婚姻，婚礼仪式也更加现代化</li>
+                        <li>丧葬习俗逐渐简化，更加注重环保和文明</li>
+                        <li>传统节日的庆祝方式更加多样化，在保留传统元素的同时，也融入了现代元素</li>
+                    </ul>
+                    <p>这些变化反映了京族生活习俗的适应性和生命力，也体现了京族文化在现代社会中的传承和发展。京族的生活习俗将继续在京族人民的生活中发挥重要作用，为京族文化的繁荣和发展做出贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

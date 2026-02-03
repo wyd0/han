@@ -1,0 +1,584 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 俄罗斯族页面特定样式 */
+        .russian-header {
+            background-image: url('images/俄罗斯族女子传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .russian-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .russian-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .russian-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .russian-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .russian-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .russian-section {
+            margin-bottom: 80px;
+        }
+        
+        .russian-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .russian-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .russian-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .russian-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .russian-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .russian-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .russian-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .russian-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 介绍部分 */
+        .russian-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .russian-intro p {
+            margin-bottom: 20px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .russian-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .russian-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .russian-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .russian-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .russian-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .timeline-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .russian-header h1 {
+                font-size: 36px;
+            }
+            
+            .russian-header p {
+                font-size: 18px;
+            }
+            
+            .russian-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="russian-header">
+        <div class="container">
+            <div class="russian-header-content">
+                <h1>俄罗斯族文化</h1>
+                <p>俄式美食香气扑鼻，热闹的复活节庆典</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="russian-main">
+        <div class="container">
+            <div class="russian-content">
+                <!-- 文化介绍 -->
+                <section class="russian-section">
+                    <h2>俄罗斯族文化介绍</h2>
+                    <div class="russian-intro">
+                        <p>俄罗斯族是中国的一个少数民族，主要分布在新疆维吾尔自治区的伊犁、塔城、阿勒泰等地，以及黑龙江、内蒙古、甘肃等省份。俄罗斯族有着悠久的历史和独特的文化，是中俄文化交流的重要桥梁。</p>
+                        <p>俄罗斯族文化以其鲜明的俄罗斯特色、丰富的艺术形式和独特的风俗习惯而闻名，是中华文化多元一体格局中的重要组成部分。</p>
+                    </div>
+                </section>
+
+                <!-- 历史沿革 -->
+                <section class="russian-section">
+                    <h2>历史沿革</h2>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>18世纪中叶</h5>
+                            <p>第一批俄罗斯人开始迁居中国，主要从事贸易和农业活动。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>19世纪中叶</h5>
+                            <p>随着中俄不平等条约的签订，更多的俄罗斯人迁居中国，主要分布在东北、新疆等地。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>20世纪初</h5>
+                            <p>由于俄国革命和内战，大量俄罗斯人迁居中国，形成了中国的俄罗斯族。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>新中国成立后</h5>
+                            <p>俄罗斯族成为中国的一个少数民族，享受民族区域自治政策，经济社会得到了快速发展，文化传统得到了保护和传承。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>改革开放以来</h5>
+                            <p>俄罗斯族与俄罗斯的联系更加密切，文化交流更加频繁，同时也积极融入中国社会，为国家的发展做出了重要贡献。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="russian-section">
+                    <h2>文化方面</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="russian-language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>俄罗斯族有自己的语言，属于印欧语系斯拉夫语族，使用俄文。同时，俄罗斯族也普遍使用汉语和维吾尔语等语言文字。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="russian-religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>俄罗斯族主要信仰东正教，东正教在俄罗斯族的生活中占有重要地位，教堂和宗教活动是俄罗斯族社会的重要组成部分。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="russian-customs.html" style="color: #c0392b; text-decoration: none;">风俗习惯</a></h5>
+                            <p>俄罗斯族有着独特的风俗习惯，如房屋建筑多为木刻楞，婚姻实行一夫一妻制，服饰样式保留了许多俄罗斯传统特色等。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服饰特点 -->
+                <section class="russian-section">
+                    <h2>服饰特点</h2>
+                    <p>俄罗斯族传统服饰以其鲜明的俄罗斯特色、精湛的工艺和独特的款式而闻名。男子一般穿长袍、长裤，外套呢子大衣，头戴礼帽。女子则穿连衣裙，外套呢子或毛皮大衣，头戴头巾或帽子，佩戴耳环、项链等装饰品。</p>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/俄罗斯族女子传统服饰.jpg" alt="俄罗斯族女子传统服饰">
+                            <p>俄罗斯族女子传统服饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/俄罗斯族男子传统服饰.jpg" alt="俄罗斯族男子传统服饰">
+                            <p>俄罗斯族男子传统服饰</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="russian-section">
+                    <h2>饮食文化</h2>
+                    <p>俄罗斯族的饮食文化以其丰富的种类和独特的风味而闻名。主要食物包括面包、牛肉、羊肉、奶制品等，同时也喜欢饮用伏特加、红酒等饮品。</p>
+                    <p>俄罗斯族的传统美食有俄式馅饼、俄式烤肉、酸奶油等，其中俄式馅饼和酸奶油是俄罗斯族最具代表性的传统美食。</p>
+                </section>
+
+                <!-- 传统节日 -->
+                <section class="russian-section">
+                    <h2>传统节日</h2>
+                    <p>俄罗斯族的传统节日主要有圣诞节、复活节、新年等。这些节日都与东正教有关，是俄罗斯族人民庆祝丰收、祈求平安的重要时刻。</p>
+                    <p>在节日期间，俄罗斯族人民会穿上盛装，举行各种庆祝活动，如唱歌跳舞、宗教仪式、家庭聚会等，展现了俄罗斯族人民的热情好客和丰富多彩的文化生活。</p>
+                </section>
+
+                <!-- 文学艺术 -->
+                <section class="russian-section">
+                    <h2>文学艺术</h2>
+                    <p>俄罗斯族有着丰富的民间文学和艺术传统。民间文学包括神话传说、故事、诗歌等，其中最著名的是《战争与和平》和《安娜·卡列尼娜》等经典作品。</p>
+                    <p>俄罗斯族的传统艺术包括音乐、舞蹈、绘画、雕刻等。音乐以其独特的旋律和节奏而闻名，舞蹈则以其优美的动作和精湛的技巧而受到人们的喜爱。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="russian-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>俄罗斯族文化是中华文化的重要组成部分，对中华文化的发展和繁荣做出了重要贡献。俄罗斯族的语言、宗教、风俗习惯、艺术形式等都为中华文化增添了丰富的内容。</p>
+                    <p>同时，俄罗斯族文化也受到了中华文化的深刻影响，在长期的历史发展过程中，与汉族和其他少数民族文化相互交流、相互融合，形成了独特的文化特色。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

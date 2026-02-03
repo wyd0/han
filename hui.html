@@ -1,0 +1,611 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回族文化 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 回族文化页面特定样式 */
+        .hui-header {
+            background-image: url('images/男子服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hui-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hui-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hui-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hui-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hui-section {
+            margin-bottom: 80px;
+        }
+        
+        .hui-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hui-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hui-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hui-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hui-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 回族文化特色网格 */
+        .hui-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .hui-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .hui-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hui-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 回族服饰展示 */
+        .hui-clothing-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .hui-clothing-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .hui-clothing-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .hui-clothing-item h6 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .hui-clothing-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hui-header h1 {
+                font-size: 36px;
+            }
+            
+            .hui-header p {
+                font-size: 18px;
+            }
+            
+            .hui-section h2 {
+                font-size: 28px;
+            }
+            
+            .hui-features-grid,
+            .hui-clothing-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .hui-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .hui-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .hui-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .hui-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .hui-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hui-feature-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .hui-feature-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hui-feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hui-clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .hui-clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hui-clothing-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hui-clothing-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 交错动画延迟 */
+        .hui-feature-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .hui-feature-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .hui-feature-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .hui-feature-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .hui-feature-item:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+        
+        .hui-feature-item:nth-child(6) {
+            transition-delay: 0.6s;
+        }
+        
+        .hui-clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .hui-clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .hui-clothing-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .hui-clothing-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .hui-main {
+            opacity: 1 !important;
+        }
+        
+        .hui-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .hui-feature-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .hui-clothing-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="hui-header">
+        <div class="container">
+            <div class="hui-header-content">
+                <h1>回族文化</h1>
+                <p>独具特色的回民风情与伊斯兰文化融合</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hui-main">
+        <div class="container">
+            <div class="hui-content">
+                <!-- 介绍部分 -->
+                <section class="hui-section">
+                    <h2>回族文化介绍</h2>
+                    <p>回族是中国分布最广的少数民族，主要分布在宁夏回族自治区、甘肃省、青海省、新疆维吾尔自治区、河北省、河南省、山东省、云南省等地区。回族有着悠久的历史和独特的文化，是中华文化的重要组成部分。</p>
+                    <p>回族文化以伊斯兰教为核心，融合了汉族、蒙古族、维吾尔族等多个民族的文化元素，形成了独特的文化体系。回族文化包括语言文字、宗教信仰、传统节日、文学艺术、风俗习惯、服饰等方面。</p>
+                </section>
+
+                <!-- 回族起源与历史 -->
+                <section class="hui-section">
+                    <h2>回族起源与历史</h2>
+                    <p>回族的起源可以追溯到唐宋时期，经过长期的发展和融合，逐渐形成了今天的回族。</p>
+                    
+                    <h3>回族的起源</h3>
+                    <ul>
+                        <li><strong>唐宋时期：</strong>阿拉伯、波斯等国的商人、使者、传教士等来到中国，与汉族、蒙古族等民族通婚，形成了回族的前身。</li>
+                        <li><strong>元朝时期：</strong>蒙古西征后，大量阿拉伯、波斯等国的人来到中国，被称为"回回"，这是回族形成的重要时期。</li>
+                        <li><strong>明朝时期：</strong>明朝政府对回族实行了同化政策，回族逐渐形成了以汉语为主要语言，以伊斯兰教为主要宗教的少数民族。</li>
+                        <li><strong>清朝时期：</strong>回族人口进一步增加，分布范围进一步扩大，形成了今天的回族分布格局。</li>
+                    </ul>
+                    
+                    <h3>回族名称的由来</h3>
+                    <p>回族名称的由来与"回回"一词密切相关：</p>
+                    <ul>
+                        <li><strong>回回的称谓：</strong>元朝时期，阿拉伯、波斯等国的人被称为"回回"，这一称谓逐渐成为了回族的代称。</li>
+                        <li><strong>回族的形成：</strong>明朝时期，"回回"这一称谓继续使用，并逐渐演变为"回族"，成为了中国少数民族的正式名称。</li>
+                    </ul>
+                </section>
+
+                <!-- 回族文化特色 -->
+                <section class="hui-section">
+                    <h2>回族文化特色</h2>
+                    <div class="hui-features-grid">
+                        <a href="hui_language.html" class="hui-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>语言文字</h5>
+                            <p>回族以汉语为主要语言，同时也保留了一些阿拉伯语、波斯语词汇。回族使用汉字，同时也会使用阿拉伯文书写伊斯兰教经典。</p>
+                        </a>
+                        <a href="hui_religion.html" class="hui-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>宗教信仰</h5>
+                            <p>回族信仰伊斯兰教，伊斯兰教是回族文化的核心，对回族的生活方式、风俗习惯、道德观念等方面产生了深远的影响。</p>
+                        </a>
+                        <a href="hui_festival.html" class="hui-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>传统节日</h5>
+                            <p>回族的传统节日主要有开斋节、古尔邦节、圣纪节等，这些节日都与伊斯兰教有关，是回族文化的重要组成部分。</p>
+                        </a>
+                        <a href="hui_literature.html" class="hui-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>文学艺术</h5>
+                            <p>回族在文学、艺术、音乐、舞蹈等方面有着独特的成就，如《古兰经》的翻译、回族民间故事、回族舞蹈等。</p>
+                        </a>
+                        <a href="hui_custom.html" class="hui-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>风俗习惯</h5>
+                            <p>回族有着独特的风俗习惯，如要禁食猪肉、要禁食血液、要禁食自死物、要禁食非诵真主之名而宰杀的动物等，这些风俗习惯都与伊斯兰教有关。</p>
+                        </a>
+                        <a href="hui_food.html" class="hui-feature-item" style="text-decoration: none; color: inherit;">
+                            <h5>饮食文化</h5>
+                            <p>回族饮食文化以清真食品为主，讲究卫生、营养、美味，如清真糕点、清真菜肴等，深受人们的喜爱。</p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 回族服饰 -->
+                <section class="hui-section">
+                    <h2>回族服饰</h2>
+                    <p>回族服饰具有独特的风格和特点，体现了回族的宗教信仰和文化传统。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>男子服饰：</strong>回族男子通常戴白色或黑色的无檐小帽，穿白色的长衫或对襟上衣，下穿长裤，脚穿布鞋或皮鞋。</li>
+                        <li><strong>女子服饰：</strong>回族女子通常戴盖头，穿长衫或连衣裙，颜色以白色、青色、绿色为主，脚穿布鞋或皮鞋。</li>
+                        <li><strong>盖头：</strong>回族女子的传统头饰，用来遮盖头发、耳朵和脖子，体现了伊斯兰教的教义。</li>
+                        <li><strong>色彩：</strong>回族服饰的颜色以白色、青色、绿色为主，这些颜色在伊斯兰教中具有特殊的意义。</li>
+                    </ul>
+                    
+                    <h3>服饰展示</h3>
+                    <div class="hui-clothing-showcase">
+                        <div class="hui-clothing-item">
+                            <img src="images/男子服饰.jpg" alt="回族 - 男子服饰">
+                            <h6>男子服饰</h6>
+                            <p>回族男子通常戴白色或黑色的无檐小帽，穿白色的长衫或对襟上衣。</p>
+                        </div>
+                        <div class="hui-clothing-item">
+                            <img src="images/女子服饰.jpg" alt="回族 - 女子服饰">
+                            <h6>女子服饰</h6>
+                            <p>回族女子通常戴盖头，穿长衫或连衣裙，颜色以白色、青色、绿色为主。</p>
+                        </div>
+                        <div class="hui-clothing-item">
+                            <img src="images/盖头.jpg" alt="回族 - 盖头">
+                            <h6>盖头</h6>
+                            <p>回族女子的传统头饰，用来遮盖头发、耳朵和脖子。</p>
+                        </div>
+                        <div class="hui-clothing-item">
+                            <img src="images/无檐小帽.jpg" alt="回族 - 无檐小帽">
+                            <h6>无檐小帽</h6>
+                            <p>回族男子的传统帽子，颜色以白色、黑色为主。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 回族传统节日 -->
+                <section class="hui-section">
+                    <h2>回族传统节日</h2>
+                    <p>回族的传统节日主要与伊斯兰教有关，这些节日承载着丰富的文化内涵，是回族文化的重要组成部分。</p>
+                    
+                    <h3>开斋节</h3>
+                    <p>开斋节是回族最重要的传统节日，每年伊斯兰教历10月1日举行。开斋节的主要内容包括封斋、开斋、走亲访友、互赠礼物等活动。</p>
+                    
+                    <h3>古尔邦节</h3>
+                    <p>古尔邦节是回族的传统节日，每年伊斯兰教历12月10日举行。古尔邦节的主要内容包括沐浴、会礼、走亲访友、互赠礼物等活动。</p>
+                    
+                    <h3>圣纪节</h3>
+                    <p>圣纪节是回族的传统节日，每年伊斯兰教历3月12日举行，用来纪念伊斯兰教创始人穆罕默德的诞辰和忌日。</p>
+                </section>
+
+                <!-- 回族文学艺术 -->
+                <section class="hui-section">
+                    <h2>回族文学艺术</h2>
+                    <p>回族在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展产生了深远的影响。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>《古兰经》的翻译：</strong>回族学者将《古兰经》翻译为汉语，促进了伊斯兰教在中国的传播。</li>
+                        <li><strong>回族民间故事：</strong>如《阿凡提的故事》《回族民间传说》等，具有浓郁的民族特色。</li>
+                        <li><strong>回族诗歌：</strong>回族诗人创作了大量的诗歌，如清代诗人丁澎的诗歌等，具有较高的艺术价值。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>音乐：</strong>回族的传统音乐包括宗教音乐、民间音乐等，如"花儿"、"宴席曲"等，具有鲜明的民族特色。</li>
+                        <li><strong>舞蹈：</strong>回族的传统舞蹈包括"踏脚舞"、"口弦舞"等，动作优美，节奏明快。</li>
+                        <li><strong>绘画：</strong>回族的传统绘画包括清真寺院绘画、民间绘画等，题材广泛，风格独特。</li>
+                        <li><strong>雕塑：</strong>回族的传统雕塑包括清真寺院雕塑、民间雕塑等，造型优美，具有鲜明的民族特色。</li>
+                    </ul>
+                </section>
+
+                <!-- 回族饮食文化 -->
+                <section class="hui-section">
+                    <h2>回族饮食文化</h2>
+                    <p>回族饮食文化以清真食品为主，讲究卫生、营养、美味，深受人们的喜爱。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>清真食品：</strong>回族饮食以清真食品为主，禁食猪肉、要禁食血液、要禁食自死物、要禁食非诵真主之名而宰杀的动物等。</li>
+                        <li><strong>讲究卫生：</strong>回族饮食讲究卫生，注重食品的清洁和新鲜。</li>
+                        <li><strong>营养丰富：</strong>回族饮食营养丰富，注重荤素搭配，如清真糕点、清真菜肴等。</li>
+                        <li><strong>味道鲜美：</strong>回族饮食味道鲜美，如兰州拉面、西安肉夹馍、新疆手抓羊肉等，深受人们的喜爱。</li>
+                    </ul>
+                    
+                    <h3>传统食品</h3>
+                    <ul>
+                        <li><strong>兰州拉面：</strong>回族的传统面食，以面条细、汤汁鲜、肉质嫩、味道香等特点而闻名。</li>
+                        <li><strong>西安肉夹馍：</strong>回族的传统小吃，以馍脆、肉香等特点而闻名。</li>
+                        <li><strong>新疆手抓羊肉：</strong>回族的传统名菜，以羊肉鲜嫩、味道香等特点而闻名。</li>
+                        <li><strong>清真糕点：</strong>回族的传统糕点，如油香、馓子、麻花等，味道香甜可口。</li>
+                    </ul>
+                </section>
+
+                <!-- 回族对中国文化的影响 -->
+                <section class="hui-section">
+                    <h2>回族对中国文化的影响</h2>
+                    <p>回族文化对中国文化的发展产生了深远的影响，主要表现在以下几个方面：</p>
+                    
+                    <ul>
+                        <li><strong>宗教文化：</strong>回族将伊斯兰教传入中国，丰富了中国的宗教文化。</li>
+                        <li><strong>饮食文化：</strong>回族的清真饮食文化，如兰州拉面、西安肉夹馍等，已经成为中国饮食文化的重要组成部分。</li>
+                        <li><strong>商业文化：</strong>回族擅长经商，对中国的商业发展做出了重要贡献。</li>
+                        <li><strong>文学艺术：</strong>回族的文学、艺术、音乐、舞蹈等对中国文化的发展产生了重要影响。</li>
+                        <li><strong>科技文化：</strong>回族学者在天文学、医学、数学等方面有着重要的成就，对中国科技的发展做出了重要贡献。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

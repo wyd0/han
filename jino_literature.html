@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基诺族民间文学 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 基诺族民间文学页面特定样式 */
+        .jino-header {
+            background-image: url('images/基诺族传统服装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .jino-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .jino-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .jino-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-jino {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-jino:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .jino-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .jino-section {
+            margin-bottom: 80px;
+        }
+        
+        .jino-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .jino-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .jino-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .jino-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .jino-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .jino-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学作品示例样式 */
+        .literature-example {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .literature-example h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .literature-example p {
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .jino-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .jino-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .jino-header-content .back-jino {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .jino-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .jino-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="jino-header">
+        <div class="container">
+            <div class="jino-header-content">
+                <h1>基诺族民间文学</h1>
+                <p>深入了解基诺族的神话传说、故事和民歌</p>
+                <a href="jino.html" class="back-jino">返回基诺族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="jino-main">
+        <div class="container">
+            <div class="jino-content">
+                <!-- 文学概述 -->
+                <section class="jino-section">
+                    <h2>文学概述</h2>
+                    <p>基诺族的民间文学非常丰富，包括神话、传说、故事、民歌等多种形式。这些民间文学作品是基诺族人民智慧的结晶，反映了他们的历史、生活、信仰和价值观。</p>
+                    <p>基诺族的民间文学主要通过口头传承的方式代代相传，是基诺族文化的重要组成部分。在漫长的历史发展过程中，这些作品不断丰富和发展，成为基诺族人民精神生活的重要内容。</p>
+                </section>
+
+                <!-- 神话传说 -->
+                <section class="jino-section">
+                    <h3>神话传说</h3>
+                    <p>神话传说是基诺族民间文学的重要组成部分，主要讲述了宇宙的起源、人类的诞生、自然现象的形成等内容。这些神话传说反映了基诺族人民对自然和世界的认识，具有浓郁的民族特色。</p>
+                    
+                    <div class="literature-example">
+                        <h4>创世神话：阿嫫尧白造人</h4>
+                        <p>相传在很久很久以前，世界上还没有人类。女神阿嫫尧白用泥土创造了人类，并教会他们如何生活。她还创造了各种动植物，为人类提供食物和资源。阿嫫尧白是基诺族人民心目中最伟大的神灵，被尊为人类的始祖。</p>
+                    </div>
+                    
+                    <div class="literature-example">
+                        <h4>洪水传说</h4>
+                        <p>基诺族有许多关于洪水的传说，讲述了远古时期发生的大洪水如何淹没了世界，只有少数人通过聪明才智或神灵的帮助得以幸存。这些传说反映了基诺族人民对自然灾害的认识和应对智慧。</p>
+                    </div>
+                </section>
+
+                <!-- 民间故事 -->
+                <section class="jino-section">
+                    <h3>民间故事</h3>
+                    <p>基诺族的民间故事内容丰富，包括生活故事、动物故事、寓言故事等多种类型。这些故事通常以生动有趣的情节和鲜明的人物形象，反映了基诺族人民的生活状况、思想情感和道德观念。</p>
+                    
+                    <div class="literature-example">
+                        <h4>动物故事：聪明的小兔子</h4>
+                        <p>在基诺族的动物故事中，小兔子常常是聪明、机智的象征。有一个故事讲述了小兔子如何运用智慧战胜了强大的老虎，保护了自己和其他小动物。这类故事不仅情节有趣，还蕴含着深刻的道理，教育人们要善于运用智慧解决问题。</p>
+                    </div>
+                    
+                    <div class="literature-example">
+                        <h4>生活故事：勇敢的猎人</h4>
+                        <p>基诺族有许多关于猎人的故事，讲述了猎人如何勇敢地面对各种困难和危险，保护自己的家园和家人。这些故事赞美了勇敢、善良、勤劳等美好品质，是基诺族人民道德教育的重要素材。</p>
+                    </div>
+                </section>
+
+                <!-- 民歌 -->
+                <section class="jino-section">
+                    <h3>民歌</h3>
+                    <p>民歌是基诺族民间文学的重要组成部分，是基诺族人民表达情感、传递思想的重要方式。基诺族的民歌内容丰富，形式多样，具有浓郁的民族特色。</p>
+                    
+                    <ul>
+                        <li><strong>山歌：</strong>山歌是基诺族最常见的民歌形式，通常在山间劳动或行走时演唱。山歌的内容多为赞美自然、表达爱情或抒发生活感受，旋律优美，节奏自由。</li>
+                        <li><strong>小调：</strong>小调是基诺族较为抒情的民歌形式，通常在休闲时演唱。小调的内容多为爱情故事或生活琐事，旋律柔和，节奏舒缓。</li>
+                        <li><strong>劳动歌：</strong>劳动歌是基诺族人民在劳动过程中演唱的歌曲，如耕田歌、采茶歌、狩猎歌等。劳动歌的节奏明快，富有感染力，能够激发人们的劳动热情。</li>
+                        <li><strong>仪式歌：</strong>仪式歌是基诺族在各种宗教仪式和节日庆典中演唱的歌曲，如祭祀歌、婚礼歌、葬礼歌等。仪式歌通常具有庄重的氛围，歌词多与宗教信仰和传统习俗有关。</li>
+                    </ul>
+                    
+                    <div class="literature-example">
+                        <h4>情歌示例</h4>
+                        <p>山上的花开了又谢，<br>
+                        河里的水流了又来，<br>
+                        我的心啊，<br>
+                        永远向着你。<br>
+                        就像星星跟着月亮，<br>
+                        就像蜜蜂跟着花朵，<br>
+                        我要永远和你在一起。</p>
+                    </div>
+                </section>
+
+                <!-- 文学特点 -->
+                <section class="jino-section">
+                    <h3>文学特点</h3>
+                    <p>基诺族的民间文学具有以下特点：</p>
+                    
+                    <ul>
+                        <li><strong>口头传承：</strong>基诺族的民间文学主要通过口头传承的方式代代相传，很少有文字记录。这使得民间文学具有较强的变异性，不同地区和不同讲述者可能会有不同的版本。</li>
+                        <li><strong>民族特色：</strong>基诺族的民间文学反映了基诺族的历史、生活、信仰和价值观，具有浓郁的民族特色。许多作品中都提到了基诺族特有的事物和习俗，如特懋克节、太阳鼓等。</li>
+                        <li><strong>现实性与幻想性结合：</strong>基诺族的民间文学既有对现实生活的真实反映，又有丰富的幻想元素。神话传说中充满了神奇的想象，而生活故事则真实地反映了基诺族人民的生活状况。</li>
+                        <li><strong>教育意义：</strong>基诺族的民间文学不仅具有娱乐功能，还具有重要的教育意义。许多作品通过生动的故事和形象的比喻，向人们传递道德观念和生活智慧。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学传承 -->
+                <section class="jino-section">
+                    <h3>文学传承</h3>
+                    <p>随着社会的发展和现代文化的冲击，基诺族的民间文学面临着传承的挑战。为了保护和传承这一宝贵的文化遗产，政府和社会各界采取了一系列措施：</p>
+                    
+                    <ul>
+                        <li>组织专业人员对基诺族的民间文学进行收集、整理和研究，建立民间文学数据库。</li>
+                        <li>在学校教育中融入基诺族民间文学内容，培养年轻一代对本民族文化的兴趣和认同感。</li>
+                        <li>通过广播、电视、网络等现代媒体推广基诺族的民间文学作品，扩大其影响力。</li>
+                        <li>鼓励民间艺人开展传承活动，培养新一代的民间文学传承人。</li>
+                    </ul>
+                    
+                    <p>这些措施对于保护和传承基诺族的民间文学起到了重要作用，使得这一宝贵的文化遗产在现代社会中依然保持着生命力。</p>
+                </section>
+
+                <!-- 文学价值 -->
+                <section class="jino-section">
+                    <h3>文学价值</h3>
+                    <p>基诺族的民间文学具有重要的价值：</p>
+                    
+                    <ul>
+                        <li><strong>历史价值：</strong>基诺族的民间文学是研究基诺族历史的重要资料，通过这些作品，我们可以了解基诺族的起源、发展和变迁。</li>
+                        <li><strong>文化价值：</strong>基诺族的民间文学是基诺族文化的重要组成部分，反映了基诺族的信仰、习俗、价值观等方面的内容，是基诺族文化的重要载体。</li>
+                        <li><strong>艺术价值：</strong>基诺族的民间文学具有独特的艺术魅力，其生动的情节、鲜明的形象、优美的语言和丰富的想象，展现了基诺族人民的艺术创造力。</li>
+                        <li><strong>社会价值：</strong>基诺族的民间文学是基诺族社会的重要精神纽带，通过这些作品，基诺族人民传承着共同的文化记忆，增强了民族凝聚力。</li>
+                    </ul>
+                    
+                    <p>基诺族的民间文学是中华民族文学宝库中的重要组成部分，对于丰富和发展中国文学具有重要意义。我们应该珍惜和保护这一宝贵的文化遗产，让它在现代社会中继续发挥重要作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

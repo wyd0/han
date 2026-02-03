@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珞巴族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 珞巴族文学艺术页面特定样式 */
+        .literature-header {
+            background-image: url('images/珞巴族传统服饰.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .literature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .literature-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .literature-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .literature-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-loba {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-loba:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .literature-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .literature-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .literature-content h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .literature-content h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .literature-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .literature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .literature-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .literature-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .literature-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .literature-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .literature-header-content .back-loba {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .literature-header h1 {
+                font-size: 36px;
+            }
+            
+            .literature-header p {
+                font-size: 18px;
+            }
+            
+            .literature-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="literature-header">
+        <div class="container">
+            <div class="literature-header-content">
+                <h1>珞巴族文学艺术</h1>
+                <p>探索珞巴族丰富的民间文学与艺术表现形式</p>
+                <a href="loba.html" class="back-loba">返回珞巴族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="literature-main">
+        <div class="container">
+            <div class="literature-content">
+                <h2>珞巴族文学艺术概况</h2>
+                
+                <p>珞巴族是中国的一个人口较少的少数民族，主要分布在西藏自治区的东南部，特别是珞渝地区和察隅县等地。珞巴族有着悠久的历史和丰富的文化传统，他们在长期的生产生活中形成了独特的文学艺术形式，这些文学艺术是珞巴族文化的重要组成部分，反映了珞巴族人民的生活、情感和智慧。</p>
+                
+                <h3>民间文学</h3>
+                <p>珞巴族的民间文学非常丰富，是珞巴族文学的重要组成部分。由于历史上珞巴族没有本民族文字，民间文学主要通过口头传承的方式保留下来。珞巴族的民间文学形式多样，包括神话、传说、故事、民歌等。</p>
+                <ul>
+                    <li><strong>神话</strong>：珞巴族的神话主要讲述天地万物的起源、人类的产生以及各种自然现象的形成。这些神话反映了珞巴族人民对自然和生命的认识，具有浓厚的幻想色彩和民族特色。例如，《创世神话》讲述了世界的起源和人类的诞生，《太阳和月亮的传说》解释了日月交替的现象。</li>
+                    <li><strong>传说</strong>：珞巴族的传说主要讲述历史人物、历史事件和地方风物的故事。这些传说反映了珞巴族的历史和文化，具有一定的历史性和真实性。例如，《珞巴族的起源传说》讲述了珞巴族的起源和发展，《察隅的传说》讲述了察隅地区的历史和文化。</li>
+                    <li><strong>故事</strong>：珞巴族的故事主要包括生活故事、爱情故事、动物故事等。这些故事反映了珞巴族人民的生活和情感，具有浓厚的生活气息和民族特色。例如，《聪明的猎人》讲述了一个猎人如何用智慧战胜困难的故事，《爱情鸟》讲述了一对恋人的爱情故事。</li>
+                    <li><strong>民歌</strong>：珞巴族的民歌是其民间文学的重要组成部分，分为山歌、小调、劳动歌等多种类型。民歌的内容丰富，形式多样，反映了珞巴族人民的生活、情感和愿望。例如，山歌是珞巴族人民在山上劳动或放牧时唱的歌曲，内容多为对自然的赞美和对生活的热爱；劳动歌是珞巴族人民在劳动时唱的歌曲，内容多为对劳动的赞美和对丰收的期望。</li>
+                </ul>
+                
+                <h3>音乐</h3>
+                <p>珞巴族的音乐具有独特的民族特色，是珞巴族文化的重要组成部分。珞巴族的音乐形式多样，包括民歌、器乐演奏等。</p>
+                <ul>
+                    <li><strong>民歌</strong>：珞巴族的民歌是其音乐的主要形式，内容丰富，形式多样。民歌的歌词通常采用比喻、夸张、拟人等修辞手法，语言生动形象，富有表现力。民歌的曲调优美动听，节奏明快，具有浓厚的民族特色和地方特色。例如，《狩猎歌》是珞巴族猎人在狩猎时唱的歌曲，节奏明快，富有动感；《情歌》是珞巴族青年男女表达爱情的歌曲，曲调优美，情感真挚。</li>
+                    <li><strong>器乐</strong>：珞巴族的器乐演奏主要使用巴乌、葫芦笙、竹笛等乐器。这些乐器具有独特的音色和演奏技巧，能够表达珞巴族人民的情感和愿望。例如，巴乌是珞巴族的传统乐器，音色低沉浑厚，常用于演奏抒情的乐曲；葫芦笙是珞巴族的传统乐器，音色清脆悦耳，常用于演奏欢快的乐曲。</li>
+                </ul>
+                
+                <h3>舞蹈</h3>
+                <p>珞巴族的舞蹈具有鲜明的民族特色，是珞巴族文化的重要组成部分。珞巴族的舞蹈形式多样，包括宗教舞蹈、民间舞蹈等。</p>
+                <ul>
+                    <li><strong>宗教舞蹈</strong>：珞巴族的宗教舞蹈主要在宗教仪式和祭祀活动中表演，通常具有浓厚的宗教色彩和神秘气息。例如，祭祀舞是在祭祀活动中表演的舞蹈，目的是向神灵祈求平安和幸福；跳神舞是在宗教仪式中表演的舞蹈，目的是驱邪治病，保佑平安。</li>
+                    <li><strong>民间舞蹈</strong>：珞巴族的民间舞蹈主要在节日庆典和社交场合中表演，通常具有热烈欢快的气氛和浓厚的生活气息。例如，狩猎舞是珞巴族的传统舞蹈，模仿狩猎的动作和场景，表达对狩猎丰收的期望；圆圈舞是珞巴族人民在节日庆典中表演的集体舞蹈，参与者手拉手围成圆圈，边歌边舞，表达欢乐和团结的情感。</li>
+                </ul>
+                
+                <h3>绘画</h3>
+                <p>珞巴族的绘画艺术主要以宗教绘画为主，如壁画等。这些绘画作品通常具有浓郁的宗教色彩和民族特色，反映了珞巴族的宗教信仰和审美观念。</p>
+                <ul>
+                    <li><strong>壁画</strong>：珞巴族的壁画主要绘制在房屋的墙壁上，内容主要包括宗教故事、历史事件和生活场景等。壁画的绘制工艺简单，但色彩鲜艳，具有浓厚的民族特色和地方特色。例如，一些壁画上会绘制出珞巴族的宗教仪式和祭祀活动，反映了珞巴族的宗教信仰和文化传统。</li>
+                    <li><strong>装饰画</strong>：珞巴族的装饰画主要绘制在日常用品上，如竹筒、木碗等。这些装饰画通常采用简单的线条和色彩，绘制出各种图案和花纹，具有浓厚的民族特色和地方特色。例如，一些竹筒上会绘制出珞巴族的传统图案和花纹，如几何图形、自然景物等。</li>
+                </ul>
+                
+                <h3>文学艺术的传承与发展</h3>
+                <p>珞巴族的文学艺术是其文化的重要组成部分，对于研究珞巴族的历史和文化具有重要价值。然而，随着社会的发展和现代化进程的加快，珞巴族的文学艺术面临着一些挑战，如传承后继无人、传统艺术形式逐渐被现代艺术形式取代等。</p>
+                <p>为了保护和发展珞巴族的文学艺术，政府和社会各界采取了一系列措施：</p>
+                <ul>
+                    <li>收集、整理和研究珞巴族的民间文学作品，建立珞巴族文学艺术档案。</li>
+                    <li>培养珞巴族文学艺术人才，鼓励年轻一代学习和传承传统文学艺术。</li>
+                    <li>通过展览、展示等方式，推广和传播珞巴族的文学艺术。</li>
+                    <li>在珞巴族聚居区的学校中开设文学艺术课程，提高年轻一代对本民族文学艺术的认识和热爱。</li>
+                    <li>组织专家学者对珞巴族的文学艺术进行调查和研究，深入了解其文化内涵和社会价值。</li>
+                </ul>
+                
+                <p>珞巴族的文学艺术是中华文化百花园中的一朵奇葩，对于丰富和发展中华文化具有重要意义。我们应该尊重和保护珞巴族的文学艺术，促进各民族文学艺术的交流与融合，共同推动中华文化的繁荣和发展。</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朝鲜族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 风俗习惯页面特定样式 */
+        .customs-header {
+            background-image: url('images/黑龙旗.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .customs-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .customs-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .customs-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-korean {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-korean:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .customs-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .customs-section {
+            margin-bottom: 80px;
+        }
+        
+        .customs-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .customs-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .customs-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .customs-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .customs-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .customs-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯类型样式 */
+        .customs-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .customs-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .customs-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .customs-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .customs-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 礼仪习俗样式 */
+        .etiquette-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        .etiquette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .etiquette-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .etiquette-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .etiquette-item p {
+            margin: 0;
+            font-size: 15px;
+            text-align: justify;
+        }
+        
+        /* 生活习俗样式 */
+        .life-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        .life-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .life-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .life-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .life-item p {
+            margin: 0;
+            font-size: 15px;
+            text-align: justify;
+        }
+        
+        /* 婚俗样式 */
+        .marriage-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 丧葬习俗样式 */
+        .funeral-section {
+            position: relative;
+            padding: 30px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .customs-header h1 {
+                font-size: 36px;
+            }
+            
+            .customs-header p {
+                font-size: 18px;
+            }
+            
+            .customs-section h2 {
+                font-size: 28px;
+            }
+            
+            .customs-types,
+            .etiquette-grid,
+            .life-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .customs-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .customs-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .customs-header-content .back-korean {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .customs-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .customs-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="customs-header">
+        <div class="container">
+            <div class="customs-header-content">
+                <h1>朝鲜族风俗习惯</h1>
+                <p>探索朝鲜族丰富多彩的传统习俗与文化内涵</p>
+                <a href="korean.html" class="back-korean">返回朝鲜族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="customs-main">
+        <div class="container">
+            <div class="customs-content">
+                <!-- 风俗习惯概览 -->
+                <section class="customs-section">
+                    <h2>风俗习惯概览</h2>
+                    <p>朝鲜族是一个重视传统习俗的民族，拥有丰富多彩的风俗习惯。这些风俗习惯不仅是朝鲜族人民生活的重要组成部分，也是朝鲜族文化的重要载体。朝鲜族的风俗习惯涵盖了生活的各个方面，包括礼仪习俗、生活习俗、婚俗、丧葬习俗等多种类型。</p>
+                    <p>朝鲜族的风俗习惯具有鲜明的民族特色和地域特色，反映了朝鲜族的历史、社会、生活和思想情感。这些风俗习惯不仅是朝鲜族人民智慧的结晶，也是中华民族文化多样性的重要体现。</p>
+                </section>
+
+                <!-- 礼仪习俗 -->
+                <section class="customs-section">
+                    <h2>礼仪习俗</h2>
+                    <div class="etiquette-section">
+                        <h4>主要礼仪习俗</h4>
+                        <div class="etiquette-grid">
+                            <div class="etiquette-item">
+                                <h5>尊老爱幼</h5>
+                                <p>尊老爱幼是朝鲜族最重要的传统美德之一，也是朝鲜族礼仪习俗的核心内容。朝鲜族人民尊重长辈，爱护晚辈，形成了良好的家庭伦理和社会风尚。在日常生活中，晚辈要对长辈表示尊敬，长辈要对晚辈表示爱护。</p>
+                            </div>
+                            <div class="etiquette-item">
+                                <h5>热情好客</h5>
+                                <p>热情好客是朝鲜族的传统美德之一，也是朝鲜族礼仪习俗的重要内容。朝鲜族人民对待客人非常热情，会尽其所能地款待客人。在朝鲜族家庭中，客人来访时，主人会准备丰盛的饭菜，敬酒敬茶，表达对客人的欢迎和尊重。</p>
+                            </div>
+                            <div class="etiquette-item">
+                                <h5>注重礼貌</h5>
+                                <p>注重礼貌是朝鲜族的传统美德之一，也是朝鲜族礼仪习俗的重要内容。朝鲜族人民在日常生活中注重礼貌，使用礼貌用语，遵守礼仪规范。例如，见面时要问好，分手时要道别，使用敬语等。</p>
+                            </div>
+                            <div class="etiquette-item">
+                                <h5>尊重他人</h5>
+                                <p>尊重他人是朝鲜族的传统美德之一，也是朝鲜族礼仪习俗的重要内容。朝鲜族人民尊重他人的人格、权利和尊严，不侵犯他人的利益，不损害他人的名誉。在人际交往中，朝鲜族人民注重平等、互助、互利，形成了良好的人际关系。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 生活习俗 -->
+                <section class="customs-section">
+                    <h2>生活习俗</h2>
+                    <div class="life-section">
+                        <h4>主要生活习俗</h4>
+                        <div class="life-grid">
+                            <div class="life-item">
+                                <h5>饮食习俗</h5>
+                                <p>朝鲜族的饮食习俗具有鲜明的民族特色，以米饭为主食，喜欢吃各种杂粮米饭，如小米饭、高梁米饭等。朝鲜族人民喜欢吃酸辣口味的食物，擅长制作泡菜、冷面、烤肉等传统食品。朝鲜族的饮食习俗还注重礼仪，如长辈先动筷，晚辈后动筷等。</p>
+                            </div>
+                            <div class="life-item">
+                                <h5>服饰习俗</h5>
+                                <p>朝鲜族的服饰习俗具有鲜明的民族特色，传统服装色彩鲜艳，线条流畅。朝鲜族的传统服装包括女性的短衣长裙和男性的长袍。朝鲜族的服饰习俗还注重场合，如节日、婚礼等重要场合要穿传统服装，日常生活中可以穿现代服装。</p>
+                            </div>
+                            <div class="life-item">
+                                <h5>居住习俗</h5>
+                                <p>朝鲜族的居住习俗具有鲜明的地域特色，适应东北平原地区寒冷的气候特点。朝鲜族的传统住宅以“草房”和“瓦房”为主，室内设有“炕”，是朝鲜族人民生活的重要组成部分。朝鲜族的居住习俗还注重整洁，保持室内外的清洁卫生。</p>
+                            </div>
+                            <div class="life-item">
+                                <h5>交通习俗</h5>
+                                <p>朝鲜族的交通习俗具有鲜明的地域特色，适应东北平原地区的自然环境。在传统社会中，朝鲜族人民主要使用牛车、马车等交通工具。在现代社会中，朝鲜族人民使用汽车、火车等现代交通工具，但在一些农村地区，仍然保留着传统的交通方式。</p>
+                            </div>
+                            <div class="life-item">
+                                <h5>娱乐习俗</h5>
+                                <p>朝鲜族的娱乐习俗具有鲜明的民族特色，包括传统游戏和传统文艺表演等多种形式。朝鲜族的传统游戏包括跳板、秋千、摔跤、拔河等，传统文艺表演包括长鼓舞、农乐舞、伽倻琴演奏等。这些娱乐活动不仅是朝鲜族人民休闲娱乐的重要方式，也是朝鲜族文化的重要组成部分。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 婚俗 -->
+                <section class="customs-section">
+                    <h2>婚俗</h2>
+                    <div class="marriage-section">
+                        <h4>传统婚俗</h4>
+                        <p>朝鲜族的传统婚俗具有鲜明的民族特色，包括提亲、订婚、结婚等多个环节，每个环节都有详细的礼仪程序。</p>
+                        <h5>提亲</h5>
+                        <p>提亲是朝鲜族传统婚俗的第一个环节，由男方家长或媒人到女方家提亲。提亲时，男方要准备礼品，如酒、肉、水果等，表达对女方的诚意和尊重。女方家长要根据男方的条件和诚意，决定是否同意这门亲事。</p>
+                        <h5>订婚</h5>
+                        <p>订婚是朝鲜族传统婚俗的第二个环节，在女方同意亲事后举行。订婚时，男方要准备彩礼，如现金、衣物、首饰等，女方要准备回礼，如衣物、鞋子等。订婚仪式通常在女方家举行，双方家长和亲友参加，共同见证这一重要时刻。</p>
+                        <h5>结婚</h5>
+                        <p>结婚是朝鲜族传统婚俗的第三个环节，也是最重要的环节。结婚仪式通常在男方家举行，包括迎亲、拜堂、婚宴等多个步骤。</p>
+                        <ul>
+                            <li><strong>迎亲：</strong>新郎和伴郎要到女方家迎亲，女方家要举行送别仪式，新娘要向父母和亲友告别。</li>
+                            <li><strong>拜堂：</strong>新娘到达男方家后，要举行拜堂仪式，向男方父母和长辈行礼，表达对他们的尊敬和感谢。</li>
+                            <li><strong>婚宴：</strong>拜堂仪式后，要举行婚宴，宴请双方亲友。婚宴上，新郎新娘要向亲友敬酒，亲友要向新郎新娘祝福。</li>
+                            <li><strong>闹洞房：</strong>婚宴后，亲友要到新房闹洞房，举行各种娱乐活动，增加婚礼的喜庆气氛。</li>
+                        </ul>
+                        <h5>现代婚俗</h5>
+                        <p>在现代社会中，朝鲜族的婚俗逐渐简化，融合了一些现代元素，但仍然保留着传统婚俗的核心内容。例如，现代朝鲜族婚礼通常会在酒店举行，穿着西装和婚纱，但仍然会保留一些传统礼仪，如向父母行礼、敬酒等。</p>
+                    </div>
+                </section>
+
+                <!-- 丧葬习俗 -->
+                <section class="customs-section">
+                    <h2>丧葬习俗</h2>
+                    <div class="funeral-section">
+                        <h4>传统丧葬习俗</h4>
+                        <p>朝鲜族的传统丧葬习俗具有鲜明的民族特色，包括临终、入殓、出殡、埋葬等多个环节，每个环节都有详细的礼仪程序。</p>
+                        <h5>临终</h5>
+                        <p>临终是朝鲜族传统丧葬习俗的第一个环节，当人即将去世时，家人要守在身边，为其送终。临终前，家人要为其换上干净的衣服，准备后事。</p>
+                        <h5>入殓</h5>
+                        <p>入殓是朝鲜族传统丧葬习俗的第二个环节，当人去世后，要为其举行入殓仪式。入殓时，要为逝者换上寿衣，放入棺材中，然后盖上棺材盖。入殓仪式通常由专业人员主持，家人和亲友参加，表达对逝者的哀悼和怀念。</p>
+                        <h5>出殡</h5>
+                        <p>出殡是朝鲜族传统丧葬习俗的第三个环节，在入殓后的第三天举行。出殡时，要举行送葬仪式，家人和亲友要为逝者送行。送葬队伍通常由孝子、孝女、亲友等组成，要抬着棺材前往墓地。</p>
+                        <h5>埋葬</h5>
+                        <p>埋葬是朝鲜族传统丧葬习俗的第四个环节，在到达墓地后举行。埋葬时，要将棺材放入墓穴中，然后填土掩埋。埋葬后，要在墓前举行祭祀仪式，表达对逝者的哀悼和怀念。</p>
+                        <h5>现代丧葬习俗</h5>
+                        <p>在现代社会中，朝鲜族的丧葬习俗逐渐简化，融合了一些现代元素，但仍然保留着传统丧葬习俗的核心内容。例如，现代朝鲜族丧葬通常会在殡仪馆举行，采用火葬方式，但仍然会保留一些传统礼仪，如守灵、送葬、祭祀等。</p>
+                    </div>
+                </section>
+
+                <!-- 风俗习惯的特点 -->
+                <section class="customs-section">
+                    <h2>风俗习惯的特点</h2>
+                    <h3>主要特点</h3>
+                    <ul>
+                        <li><strong>民族性：</strong>朝鲜族的风俗习惯具有鲜明的民族特色，反映了朝鲜族的历史、社会、生活和思想情感。</li>
+                        <li><strong>地域性：</strong>朝鲜族的风俗习惯具有鲜明的地域特色，反映了朝鲜半岛和中国东北地区的自然环境和社会生活。</li>
+                        <li><strong>传统性：</strong>朝鲜族的风俗习惯具有悠久的历史和丰富的传统，继承了古代朝鲜半岛的风俗习惯传统。</li>
+                        <li><strong>融合性：</strong>朝鲜族的风俗习惯具有融合性，吸收了汉族、满族等其他民族的风俗习惯元素，形成了独特的风格。</li>
+                        <li><strong>时代性：</strong>朝鲜族的风俗习惯具有时代性，反映了不同时代的社会生活和思想情感。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的现状与未来 -->
+                <section class="customs-section">
+                    <h2>风俗习惯的现状与未来</h2>
+                    <h3>现状</h3>
+                    <ul>
+                        <li><strong>传统与现代的融合：</strong>在现代社会中，朝鲜族的风俗习惯逐渐与现代生活方式相结合，形成了新的风俗习惯。</li>
+                        <li><strong>传承与创新：</strong>朝鲜族的风俗习惯在继承传统的同时，不断创新，适应现代社会的发展和变化。</li>
+                        <li><strong>教育与普及：</strong>通过教育和宣传，朝鲜族的风俗习惯得到了更广泛的普及和传播。</li>
+                        <li><strong>国际交流：</strong>随着国际交流的不断扩大，朝鲜族的风俗习惯逐渐走向世界，受到了国际社会的关注和认可。</li>
+                    </ul>
+                    
+                    <h3>未来发展趋势</h3>
+                    <p>展望未来，朝鲜族的风俗习惯将继续在传承中创新，在创新中发展，保持着生命力和活力。</p>
+                    <ul>
+                        <li><strong>传统与现代的平衡：</strong>风俗习惯将在保持传统特色的同时，适应现代社会的发展和变化，形成传统与现代相结合的新形式。</li>
+                        <li><strong>教育与传承：</strong>通过教育和宣传，增强年轻一代对传统风俗习惯的认识和兴趣，促进风俗习惯的传承和发展。</li>
+                        <li><strong>文化旅游：</strong>风俗习惯将成为朝鲜族文化旅游的重要资源，通过文化旅游的发展，促进风俗习惯的传承和弘扬。</li>
+                        <li><strong>国际交流：</strong>随着国际交流的不断扩大，朝鲜族的风俗习惯将逐渐走向世界，成为世界文化的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>保护与传承的意义</h3>
+                    <p>保护和传承朝鲜族的风俗习惯具有重要的意义：</p>
+                    <ul>
+                        <li><strong>文化多样性：</strong>保护和传承朝鲜族的风俗习惯，有助于维护世界文化的多样性，丰富人类的文化遗产。</li>
+                        <li><strong>民族认同：</strong>保护和传承朝鲜族的风俗习惯，有助于增强朝鲜族人民的民族认同感和凝聚力。</li>
+                        <li><strong>文化自信：</strong>保护和传承朝鲜族的风俗习惯，有助于增强朝鲜族人民的文化自信，促进朝鲜族文化的繁荣和发展。</li>
+                        <li><strong>社会和谐：</strong>保护和传承朝鲜族的风俗习惯，有助于促进社会的和谐与稳定，增强社会的凝聚力。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯与文化的关系 -->
+                <section class="customs-section">
+                    <h2>风俗习惯与文化的关系</h2>
+                    <p>风俗习惯是朝鲜族文化的重要组成部分，与朝鲜族的其他文化元素密切相关，共同构成了朝鲜族丰富多彩的文化体系。</p>
+                    
+                    <h3>风俗习惯与语言文字</h3>
+                    <p>风俗习惯与语言文字密切相关，语言文字是风俗习惯的载体，风俗习惯是语言文字的重要表现形式。朝鲜族的风俗习惯中包含了许多独特的词汇和表达方式，反映了朝鲜语的特点和魅力。同时，语言文字也为风俗习惯的传承和发展提供了重要工具。</p>
+                    
+                    <h3>风俗习惯与宗教信仰</h3>
+                    <p>风俗习惯与宗教信仰密切相关，许多风俗习惯都具有宗教意义。例如，朝鲜族的丧葬习俗与佛教、儒教等宗教信仰有关，传统节日习俗与原始宗教信仰有关。宗教信仰为风俗习惯提供了精神内涵和仪式规范，风俗习惯则为宗教信仰的传播和弘扬提供了重要方式。</p>
+                    
+                    <h3>风俗习惯与文学艺术</h3>
+                    <p>风俗习惯与文学艺术密切相关，许多文学艺术作品都反映了朝鲜族的风俗习惯，许多风俗习惯也离不开文学艺术的参与。例如，朝鲜族的传统音乐、舞蹈、绘画等艺术形式都与风俗习惯有关，风俗习惯为文学艺术提供了创作素材和灵感，文学艺术则为风俗习惯增添了文化内涵和艺术魅力。</p>
+                    
+                    <h3>风俗习惯与传统节日</h3>
+                    <p>风俗习惯与传统节日密切相关，许多风俗习惯都与传统节日有关，许多传统节日也离不开风俗习惯的参与。例如，朝鲜族的春节、秋夕节等传统节日期间，都会举行各种风俗习惯活动，如祭祀祖先、拜年、吃特色食品等。传统节日为风俗习惯提供了展示的舞台，风俗习惯则为传统节日增添了文化内涵和节日气氛。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为风俗习惯相关的部分添加动画效果
+            const customsSections = document.querySelectorAll('.customs-section');
+            
+            // 页面加载时为所有部分添加可见类
+            setTimeout(() => {
+                customsSections.forEach(section => {
+                    section.classList.add('visible');
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>

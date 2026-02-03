@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土族宗教信仰 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 土族宗教信仰页面特定样式 */
+        .tu-header {
+            background-image: url('images/传统节日.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .tu-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tu-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tu-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .tu-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .tu-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tu-section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .tu-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tu-section h2 {
+            color: #c0392b;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .tu-section h3 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tu-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tu-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tu-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tu-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 宗教建筑样式 */
+        .religion-buildings {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .building-item {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .building-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        
+        .building-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 返回土族文化按钮样式 */
+        .back-tu {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid #c0392b;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .back-tu:hover {
+            background-color: transparent;
+            color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.3);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tu-header h1 {
+                font-size: 36px;
+            }
+            
+            .tu-header p {
+                font-size: 18px;
+            }
+            
+            .tu-section h2 {
+                font-size: 28px;
+            }
+            
+            .religion-buildings {
+                flex-direction: column;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- 页面头部 -->
+    <section class="tu-header">
+        <div class="container">
+            <div class="tu-header-content">
+                <h1>土族宗教信仰</h1>
+                <p>多元融合的精神世界</p>
+                <a href="tu.html" class="back-tu">返回土族文化</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 主要内容 -->
+    <main class="tu-main">
+        <div class="container">
+            <div class="tu-content">
+                <!-- 宗教信仰概述 -->
+                <section class="tu-section">
+                    <h2>宗教信仰概述</h2>
+                    <p>土族的宗教信仰是一个多元融合的体系，主要包括藏传佛教和原始宗教。这种多元性反映了土族历史上与周边民族的文化交流和融合，形成了独特的宗教文化特色。</p>
+                </section>
+                
+                <!-- 藏传佛教 -->
+                <section class="tu-section">
+                    <h2>藏传佛教</h2>
+                    <p>藏传佛教是土族的主要宗教，对土族的文化、风俗习惯等产生了深远的影响。</p>
+                    
+                    <h3>历史传入</h3>
+                    <p>藏传佛教传入土族地区的历史可以追溯到元代。当时，随着蒙古族的西征和统治，藏传佛教开始在土族地区传播。到了明代，藏传佛教在土族地区得到了进一步的发展，特别是格鲁派（黄教）的传入，对土族社会产生了重要影响。</p>
+                    
+                    <h3>教派影响</h3>
+                    <p>土族信仰的藏传佛教主要属于格鲁派（黄教）。格鲁派的教义、教规和宗教活动对土族的日常生活、节日庆典、婚丧嫁娶等方面都产生了深远的影响。例如，土族的许多传统节日都与藏传佛教的宗教活动密切相关，土族的建筑、艺术等也受到了藏传佛教艺术的影响。</p>
+                    
+                    <h3>宗教建筑</h3>
+                    <div class="religion-buildings">
+                        <div class="building-item">
+                            <img src="images/土族寺院.jpg" alt="土族寺院">
+                            <p>土族寺院</p>
+                        </div>
+                    </div>
+                    <p>土族地区有许多著名的藏传佛教寺院，如互助土族自治县的佑宁寺、大通回族土族自治县的广惠寺等。这些寺院不仅是宗教活动的中心，也是土族文化的重要载体，保存了大量的宗教文物和艺术珍品。</p>
+                </section>
+                
+                <!-- 原始宗教 -->
+                <section class="tu-section">
+                    <h2>原始宗教</h2>
+                    <p>原始宗教在土族地区也有一定的影响，特别是在一些偏远地区，土族人民仍然保持着对自然和祖先的崇拜。</p>
+                    
+                    <h3>自然崇拜</h3>
+                    <p>土族的自然崇拜主要表现为对天地、山川、河流、日月星辰等自然现象的崇拜。土族人民认为这些自然现象都有神灵主宰，需要通过祭祀来祈求神灵的保佑。例如，土族人民会在特定的时间祭祀山神、水神、土地神等，以祈求风调雨顺、五谷丰登。</p>
+                    
+                    <h3>祖先崇拜</h3>
+                    <p>祖先崇拜是土族原始宗教的重要组成部分。土族人民认为祖先的灵魂仍然存在，并且能够影响后代的命运。因此，土族人民会在特定的时间祭祀祖先，以表达对祖先的尊敬和怀念，同时祈求祖先的保佑。</p>
+                    
+                    <h3>图腾崇拜</h3>
+                    <p>土族也有一定的图腾崇拜现象。例如，一些土族部落以动物（如虎、狼、鹿等）为图腾，认为这些动物是自己部落的祖先或保护神。图腾崇拜在土族的传统艺术、服饰等方面都有一定的体现。</p>
+                </section>
+                
+                <!-- 宗教活动 -->
+                <section class="tu-section">
+                    <h2>宗教活动</h2>
+                    <p>土族的宗教活动丰富多彩，既有藏传佛教的宗教仪式，也有原始宗教的祭祀活动。</p>
+                    
+                    <h3>藏传佛教活动</h3>
+                    <ul>
+                        <li><strong>法会：</strong>土族地区的寺院会定期举行法会，如正月法会、四月法会、六月法会等。法会期间，僧人们会诵经、祈祷，信徒们会前往寺院朝拜、转经，参加各种宗教活动。</li>
+                        <li><strong>转经：</strong>土族信徒经常会手持转经筒，围绕寺院、佛塔等宗教场所转经，以积累功德。</li>
+                        <li><strong>磕长头：</strong>一些虔诚的土族信徒会通过磕长头的方式表达对佛的虔诚，特别是在前往拉萨朝圣的过程中。</li>
+                    </ul>
+                    
+                    <h3>原始宗教活动</h3>
+                    <ul>
+                        <li><strong>祭山神：</strong>土族人民会在每年的特定时间祭祀山神，祈求山神保佑人畜平安、五谷丰登。</li>
+                        <li><strong>祭土地神：</strong>土族人民会在每年的春耕、秋收等重要农业活动前后祭祀土地神，祈求土地神保佑农作物丰收。</li>
+                        <li><strong>祭祖：</strong>土族人民会在春节、清明节等传统节日祭祀祖先，表达对祖先的尊敬和怀念。</li>
+                    </ul>
+                </section>
+                
+                <!-- 宗教对土族文化的影响 -->
+                <section class="tu-section">
+                    <h2>宗教对土族文化的影响</h2>
+                    <p>宗教信仰对土族的文化产生了深远的影响，体现在土族的日常生活、风俗习惯、艺术创作等多个方面。</p>
+                    
+                    <h3>对日常生活的影响</h3>
+                    <p>土族的日常生活受到宗教信仰的深刻影响。例如，土族人民的饮食、服饰、居住等方面都有一定的宗教禁忌和规范。土族人民在日常生活中也会经常进行一些简单的宗教活动，如诵经、祈祷等，以祈求神灵的保佑。</p>
+                    
+                    <h3>对风俗习惯的影响</h3>
+                    <p>土族的风俗习惯与宗教信仰密切相关。例如，土族的传统节日、婚丧嫁娶等重要仪式都有宗教仪式的参与。土族的传统节日如春节、清明节等，既是传统的民俗节日，也是重要的宗教节日。</p>
+                    
+                    <h3>对艺术创作的影响</h3>
+                    <p>宗教信仰对土族的艺术创作产生了重要影响。土族的传统艺术如绘画、雕刻、刺绣等，很多都以宗教题材为内容，如佛像、佛经故事、宗教符号等。土族的传统音乐、舞蹈等也与宗教活动密切相关，如宗教仪式中的诵经、舞蹈等。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

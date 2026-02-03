@@ -1,0 +1,653 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>土家族文化- 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 土家族文化页面特定样式 */
+        .tujia-header {
+            background-image: url('images/ethnicity.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        
+        .tujia-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tujia-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tujia-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .tujia-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tujia-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tujia-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .tujia-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tujia-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .tujia-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tujia-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tujia-section h5 {
+            color: #333;
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+        
+        .tujia-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tujia-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tujia-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tujia-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tujia-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+            animation: growDown 2s ease forwards;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .tujia-section.visible .timeline-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .tujia-section.visible .timeline-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tujia-section.visible .timeline-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .tujia-section.visible .timeline-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .tujia-section.visible .timeline-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .tujia-section.visible .timeline-item:nth-child(5) {
+            transition-delay: 1s;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tujia-section.visible .culture-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tujia-section.visible .culture-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tujia-section.visible .culture-item:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+        
+        .tujia-section.visible .culture-item:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+        
+        .tujia-section.visible .culture-item:nth-child(4) {
+            transition-delay: 0.5s;
+        }
+        
+        .tujia-section.visible .culture-item:nth-child(5) {
+            transition-delay: 0.6s;
+        }
+        
+        .tujia-section.visible .culture-item:nth-child(6) {
+            transition-delay: 0.7s;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服装详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .tujia-section.visible .clothing-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tujia-section.visible .clothing-item:nth-child(1) {
+            transition-delay: 0.2s;
+        }
+        
+        .tujia-section.visible .clothing-item:nth-child(2) {
+            transition-delay: 0.4s;
+        }
+        
+        .tujia-section.visible .clothing-item:nth-child(3) {
+            transition-delay: 0.6s;
+        }
+        
+        .tujia-section.visible .clothing-item:nth-child(4) {
+            transition-delay: 0.8s;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tujia-header h1 {
+                font-size: 36px;
+            }
+            
+            .tujia-header p {
+                font-size: 18px;
+            }
+            
+            .tujia-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .clothing-details {
+                flex-direction: column;
+            }
+            
+            .clothing-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes growDown {
+            from {
+                height: 0;
+            }
+            to {
+                height: 100%;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服装</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="tujia-header">
+        <div class="container">
+            <div class="tujia-header-content">
+                <h1>土家族文化</h1>
+                <p>独具特色的土家族风情与摆手舞文化传承</p>
+                <a href="difference.html" class="back-difference">返回文化差异</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="tujia-main">
+        <div class="container">
+            <div class="tujia-content">
+                <!-- 介绍部分 -->
+                <section class="tujia-section">
+                    <h2>土家族文化概览</h2>
+                    <p>土家族是中国南方的古老民族，主要分布在湖南、湖北、重庆、四川等省市，其中湖南省是土家族人口最多的省份。土家族有着悠久的历史和独特的文化，其文化深受中国传统文化、苗族文化、侗族文化等周边民族文化的影响，同时保持着自己独特的民族特色。</p>
+                    <p>土家族人民勤劳勇敢，擅长歌唱和手工艺术，有着丰富的民间文学艺术和传统节日。土家族的语言属于汉藏语系藏缅语族土家语支，有着自己的文字——土家文。</p>
+                </section>
+
+                <!-- 土家族历史 -->
+                <section class="tujia-section">
+                    <h2>土家族历史</h2>
+                    <p>土家族的历史可以追溯到远古巴人，是中国南方的土著民族之一。</p>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>远古时期</h5>
+                            <p>土家族的先民是远古巴人，居住在今重庆、湖北、湖南一带，与中国中原商周时期保持着密切联系。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>秦汉时期</h5>
+                            <p>土家族地区先后归属于秦朝和汉朝，中央王朝在土家族地区设置了郡县，加强对土家族地区的管辖。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>宋元明清时期</h5>
+                            <p>中央王朝加强对土家族地区的统治，实行土司制度，土家族社会得到进一步发展。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>近现代</h5>
+                            <p>1949年后，土家族地区实行民族区域自治，成立了多个土家族自治州、县，土家族人民的生活水平得到显著提高。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 土家族来源 -->
+                <section class="tujia-section">
+                    <h2>土家族来源</h2>
+                    <p>土家族的族源可以追溯到远古巴人，是中国南方的土著民族之一。</p>
+                    <h3>主要来源</h3>
+                    <ul>
+                        <li><strong>远古巴人：</strong>土家族是远古巴人的后裔，与古代巴国有着密切的血缘关系。</li>
+                        <li><strong>当地土著：</strong>长期居住在南方地区，与当地其他民族融合发展。</li>
+                        <li><strong>古代诸族：</strong>历史上有部分汉族、苗族等民族的人融合入土家族。</li>
+                    </ul>
+                    <p>土家族的形成是一个多民族融合的过程，在长期的历史发展中，形成了自己独特的民族文化和传统。</p>
+                </section>
+
+                <!-- 土家族文化 -->
+                <section class="tujia-section">
+                    <h2>土家族文化</h2>
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <h5><a href="tujia_language.html" style="color: #c0392b; text-decoration: none;">语言文字</a></h5>
+                            <p>土家语属于汉藏语系藏缅语族土家语支，分为北部方言和南部方言两个方言区。土家族有着自己的文字——土家文，是1984年创制的以拉丁字母为基础的拼音文字。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tujia_religion.html" style="color: #c0392b; text-decoration: none;">宗教信仰</a></h5>
+                            <p>土家族主要信仰原始宗教，崇拜自然神灵和祖先，同时也受到道教的影响。土家族人民有着丰富的祭祀活动和宗教仪式，如摆手舞、跳丧等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tujia_festival.html" style="color: #c0392b; text-decoration: none;">传统节日</a></h5>
+                            <p>土家族的传统节日有赶年、摆手节、牛王节、六月六等，其中赶年是土家族最重要的传统节日，比汉族的春节提前一天或几天举行。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tujia_art.html" style="color: #c0392b; text-decoration: none;">文学艺术</a></h5>
+                            <p>土家族有着丰富的民间文学艺术，包括神话传说、民间故事、诗歌、谚语等。土家族的传统音乐舞蹈也很有特色，如摆手舞、撒叶儿嗬等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tujia_custom.html" style="color: #c0392b; text-decoration: none;">风俗习惯</a></h5>
+                            <p>土家族有着独特的风俗习惯，如热情好客、重视家庭观念等。土家族的婚姻习俗也很有特色，有着自己的婚礼程序，如跳丧、哭嫁等。</p>
+                        </div>
+                        <div class="culture-item">
+                            <h5><a href="tujia_architecture.html" style="color: #c0392b; text-decoration: none;">建筑风格</a></h5>
+                            <p>土家族传统建筑以吊脚楼为代表，工艺精湛，风格独特，是中国传统建筑的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 土家族服装 -->
+                <section class="tujia-section">
+                    <h2>土家族服装</h2>
+                    <p>土家族服装具有独特的风格和特点，色彩鲜艳，图案美丽，反映了土家族人民的审美观点和生活情趣。</p>
+                    
+                    <h3>服装特点</h3>
+                    <ul>
+                        <li><strong>色彩鲜艳：</strong>喜欢使用红、蓝、绿、紫等绚丽的颜色，体现了土家族人民开朗活泼的性格。</li>
+                        <li><strong>图案绮丽：</strong>服装上绣有各种美丽的图案，如花卉、动物、几何图形等，寓意吉祥如意。</li>
+                        <li><strong>款式多样：</strong>不同地区、不同年龄段的土家族服装款式有所不同，体现了土家族文化的多样性。</li>
+                        <li><strong>头饰丰富：</strong>土家族女性喜欢佩戴各种银饰，如银耳环、银项圈、银手镯等，展现了土家族人民对美的追求。</li>
+                        <li><strong>传统工艺：</strong>土家族的传统工艺历史悠久，图案美丽，是中国传统工艺的重要组成部分。</li>
+                    </ul>
+                    
+                    <h3>服装展示</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/土家族女性服装.jpg" alt="土家族- 女性服装">
+                            <p>土家族女性服装：色彩鲜艳，图案美丽，佩戴银饰</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/土家族男性服装.jpg" alt="土家族- 男性服装">
+                            <p>土家族男性服装：宽松大方，适合劳动生产</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/土家族头饰.jpg" alt="土家族- 头饰">
+                            <p>土家族头饰：工艺精细，寓意吉祥，展现身份</p>
+                        </div>
+                        <div class="clothing-item">
+                            <img src="images/土家族刺绣.jpg" alt="土家族- 刺绣">
+                            <p>土家族刺绣：图案绮丽，工艺精湛，体现民族特色</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 土家族饮食文化 -->
+                <section class="tujia-section">
+                    <h2>土家族饮食文化</h2>
+                    <p>土家族饮食文化具有独特的风格和特点，受到南方地区自然环境和生活方式的影响。</p>
+                    
+                    <h3>饮食特点</h3>
+                    <ul>
+                        <li><strong>以大米为主食：</strong>南方地区气候温暖湿润，适合种植水稻，土家族人民以大米为主食。</li>
+                        <li><strong>喜欢酸辣口味：</strong>南方地区气候潮湿，土家族人民喜欢吃酸辣食物，有助于祛湿开胃。</li>
+                        <li><strong>擅长制作腌制食品：</strong>土家族的腌制食品制作工艺历史悠久，种类繁多，味道鲜美。</li>
+                        <li><strong>重视茶文化：</strong>土家族人民喜欢喝茶，茶文化是土家族饮食文化的重要组成部分。</li>
+                        <li><strong>喜欢饮酒：</strong>土家族人民喜欢喝自酿的白酒和黄酒，是重要的社交活动之一。</li>
+                    </ul>
+                    
+                    <h3>传统食品</h3>
+                    <ul>
+                        <li><strong>腊肉：</strong>土家族传统食品，以猪肉为原料制作而成，味道鲜美，是土家族饮食文化的重要组成部分。</li>
+                        <li><strong>油茶汤：</strong>土家族传统食品，由茶叶、花生、芝麻等食材制作而成，味道香浓，是土家族人民喜爱的传统食品。</li>
+                        <li><strong>合渣：</strong>土家族传统食品，以黄豆为原料制作而成，口感细腻，营养丰富。</li>
+                        <li><strong>社饭：</strong>土家族传统食品，以糯米、腊肉、青蒿等食材制作而成，味道香浓，是土家族人民喜爱的传统食品。</li>
+                        <li><strong>糍粑：</strong>土家族传统食品，以糯米为原料制作而成，口感软糯，味道香甜。</li>
+                    </ul>
+                </section>
+
+                <!-- 土家族传统节日 -->
+                <section class="tujia-section">
+                    <h2>土家族传统节日</h2>
+                    <p>土家族有许多传统节日，这些节日承载着丰富的文化内涵，是土家族文化的重要组成部分。</p>
+                    
+                    <h3>主要传统节日</h3>
+                    <ul>
+                        <li><strong>赶年：</strong>土家族最重要的传统节日，比汉族的春节提前一天或几天举行，主要活动有祭祖、跳摆手舞、吃年饭等。</li>
+                        <li><strong>摆手节：</strong>土家族传统节日，主要活动有摆手舞、撒叶儿嗬、祭祀等，是土家族人民的宗教活动和文化活动。</li>
+                        <li><strong>牛王节：</strong>土家族传统节日，在每年的农历四月初八，土家族人民会祭祀牛王，放牛休息，感谢牛的辛勤劳作。</li>
+                        <li><strong>六月六：</strong>土家族传统节日，在每年的农历六月初六，土家族人民会晒衣物、祭祀祖先等。</li>
+                        <li><strong>中元节：</strong>与汉族一样，土家族也过中元节，主要活动有祭祖、放河灯等。</li>
+                    </ul>
+                </section>
+
+                <!-- 土家族文学艺术 -->
+                <section class="tujia-section">
+                    <h2>土家族文学艺术</h2>
+                    <p>土家族在文学、艺术、音乐、舞蹈等方面有着独特的成就，对中国文化的发展做出了重要贡献。</p>
+                    
+                    <h3>文学成就</h3>
+                    <ul>
+                        <li><strong>《摆手歌》：</strong>土家族传统史诗，记载了土家族的起源、历史和文化，是土家族文化的重要组成部分。</li>
+                        <li><strong>《哭嫁歌》：</strong>土家族传统民歌，是土家族女性在出嫁时唱的歌谣，内容丰富，情感真挚。</li>
+                        <li><strong>民间故事：</strong>土家族有着丰富的民间故事，如《西兰卡普的传说》、《巴人神话》等，具有浓郁的民族特色和艺术感染力。</li>
+                    </ul>
+                    
+                    <h3>艺术成就</h3>
+                    <ul>
+                        <li><strong>摆手舞：</strong>土家族传统舞蹈形式，舞者手持道师，边唱边跳，节奏明快，气氛热烈。</li>
+                        <li><strong>撒叶儿嗬：</strong>土家族传统舞蹈形式，舞者头戴面具，身着彩衣，表现原始人类的生活场景，具有浓郁的原始文化色彩。</li>
+                        <li><strong>西兰卡普：</strong>土家族传统织锦，图案绮丽，工艺精湛，是中国传统工艺的重要组成部分。</li>
+                        <li><strong>吊脚楼建筑：</strong>土家族传统建筑，工艺精湛，风格独特，是中国传统建筑的重要组成部分。</li>
+                    </ul>
+                </section>
+
+                <!-- 土家族对中国文化的贡献 -->
+                <section class="tujia-section">
+                    <h2>土家族对中国文化的贡献</h2>
+                    <p>土家族文化是中华文化的重要组成部分，对中国文化的发展产生了重要影响。</p>
+                    
+                    <ul>
+                        <li><strong>文学艺术：</strong>土家族的民间文学艺术，如神话传说、民间故事、音乐舞蹈等，丰富了中国文学艺术的宝库。</li>
+                        <li><strong>建筑艺术：</strong>土家族传统建筑以吊脚楼为代表，工艺精湛，风格独特，丰富了中国传统建筑的内容。</li>
+                        <li><strong>工艺技术：</strong>土家族的西兰卡普、刺绣等传统工艺，丰富了中国传统工艺的内容。</li>
+                        <li><strong>饮食文化：</strong>土家族的饮食文化，如腊肉、油茶汤等，丰富了中国饮食文化的多样性。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服装</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服装</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利?</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

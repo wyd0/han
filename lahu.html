@@ -1,0 +1,742 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拉祜族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 拉祜族页面特定样式 */
+        .lahu-header {
+            background-image: url('images/lahu-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lahu-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lahu-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lahu-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lahu-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lahu-section {
+            margin-bottom: 80px;
+        }
+        
+        .lahu-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lahu-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lahu-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lahu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lahu-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lahu-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-link {
+            text-decoration: none;
+            color: #c0392b;
+        }
+        
+        .culture-link:hover {
+            color: #a93226;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .food-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .food-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 节日庆典样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 25px 0;
+        }
+        
+        .festival-celebration h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lahu-header h1 {
+                font-size: 36px;
+            }
+            
+            .lahu-header p {
+                font-size: 18px;
+            }
+            
+            .lahu-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .food-culture {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .lahu-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .lahu-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .lahu-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .lahu-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .lahu-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .food-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .food-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-celebration {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .festival-celebration.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .food-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .food-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .food-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .food-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .festival-celebration:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .festival-celebration:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .festival-celebration:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lahu-header">
+        <div class="container">
+            <div class="lahu-header-content">
+                <h1>拉祜族</h1>
+                <p>猎虎的民族，山地文化的传承者</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lahu-main">
+        <div class="container">
+            <div class="lahu-content">
+                <!-- 拉祜族文化概述 -->
+                <section class="lahu-section">
+                    <h2>拉祜族文化概述</h2>
+                    <p>拉祜族是中国55个少数民族之一，主要分布在云南省的普洱市、临沧市、西双版纳傣族自治州、红河哈尼族彝族自治州、玉溪市、德宏傣族景颇族自治州等地，以及缅甸、泰国、老挝、越南等国家。拉祜族是一个历史悠久、文化独特的民族，有着独特的语言、文化、宗教和艺术。</p>
+                    <p>拉祜族的名称来源于他们的猎虎传统，“拉祜”在拉祜语中意为“猎虎的民族”。拉祜族人民主要从事农业，擅长种植水稻、旱稻、玉米、茶叶、甘蔗等农作物。他们崇尚黑色，认为黑色是吉祥、勇敢、诚实的象征。拉祜族的文化深受自然环境的影响，他们崇拜自然，信仰多神，如天神、地神、山神、水神等。</p>
+                </section>
+
+                <!-- 历史与起源 -->
+                <section class="lahu-section">
+                    <h2>历史与起源</h2>
+                    
+                    <h3>拉祜族的起源</h3>
+                    <p>拉祜族的起源可以追溯到古代的氐羌族，与古代的彝族、哈尼族等有着密切的关系。根据拉祜族的创世传说，拉祜族人民起源于葫芦，葫芦是拉祜族的图腾之一，象征着生命和繁衍。</p>
+                    
+                    <h3>历史发展</h3>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>先秦时期</h5>
+                            <p>拉祜族的先民氐羌人就已经在青藏高原东部地区活动，是青藏高原地区的古老民族之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>唐宋时期</h5>
+                            <p>拉祜族的先民开始南迁，逐渐定居在云南地区，与当地的其他民族融合，形成了拉祜族。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>拉祜族与汉族和其他少数民族的联系逐渐加强，开始进行茶马贸易和文化交流。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>1949年以后</h5>
+                            <p>中华人民共和国成立后，拉祜族地区实行了民族区域自治，拉祜族人民获得了平等的民族权利，经济社会得到了快速发展。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>文化传承与发展</h3>
+                    <p>拉祜族有着悠久的文化传统，他们通过口头传承和传统手工艺等方式保留了丰富的民族文化。在现代社会，拉祜族文化得到了进一步的保护和发展，传统的音乐、舞蹈、手工艺等都得到了传承和创新。</p>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="lahu-section">
+                    <h2>文化方面</h2>
+                    
+                    <div class="culture-aspects">
+                        <div class="culture-item">
+                            <a href="lahu-language.html" class="culture-link"><h5>语言文字</h5></a>
+                            <p>拉祜族有自己的语言和文字。拉祜语属于汉藏语系藏缅语族彝语支，分为拉祜纳和拉祜熙两个方言区。拉祜文是一种拼音文字，是1957年由中国政府组织创制的。</p>
+                        </div>
+                        <div class="culture-item">
+                            <a href="lahu-religion.html" class="culture-link"><h5>宗教信仰</h5></a>
+                            <p>拉祜族主要信仰原始宗教，崇拜自然，信仰多神，如天神、地神、山神、水神等。他们也信仰祖先崇拜，认为祖先的灵魂会保护后代。此外，部分拉祜族群众也信仰佛教和基督教。</p>
+                        </div>
+                        <div class="culture-item">
+                            <a href="lahu-customs.html" class="culture-link"><h5>传统习俗</h5></a>
+                            <p>拉祜族有着独特的传统习俗，如婚礼、葬礼、节日等都有独特的形式和程序。他们热情好客，崇尚礼仪，重视家庭和社区的团结。拉祜族人民热爱大自热，尊重生命，有着朴素的环保意识。</p>
+                        </div>
+                        <div class="culture-item">
+                            <a href="lahu-art.html" class="culture-link"><h5>文学艺术</h5></a>
+                            <p>拉祜族有着丰富的民间文学遗产，如民间故事、诗歌、谚语、谜语等。他们的音乐和舞蹈也非常独特，如葫芦笙舞、摆舞、跺脚舞等，都是拉祜族文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 服饰文化 -->
+                <section class="lahu-section">
+                    <h2>服饰文化</h2>
+                    <p>拉祜族的服饰具有鲜明的民族特色，以黑色为主色调，设计简洁大方，穿着华丽。</p>
+                    
+                    <h3>男子服饰</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/拉祜族男子传统服饰.jpg" alt="拉祜族男子服饰">
+                            <p>拉祜族男子传统服饰</p>
+                        </div>
+                    </div>
+                    <p>拉祜族男子通常穿着黑色的对襟短衫，下着黑色的长裤，用黑色的头巾包头。他们喜欢在衣服上装饰银器或彩布，显得剽悍威武。</p>
+                    
+                    <h3>女子服饰</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/拉祜族女子传统服饰.jpg" alt="拉祜族女子服饰">
+                            <p>拉祜族女子传统服饰</p>
+                        </div>
+                    </div>
+                    <p>拉祜族女子的服饰更加华丽多彩，通常穿着黑色的上衣，下着黑色的筒裙，用黑色的头巾包头。上衣多为对襟或斜襟，上面绣有精美的图案。筒裙则色彩斑斓，图案复杂，通常用多层彩布拼接而成。她们的头饰也非常独特，喜欢用银器、珠子、花链等装饰，显得美丽多姿。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>以黑为主：</strong>拉祜族服饰以黑色为主色调，认为黑色是吉祥、勇敢、诚实的象征。</li>
+                        <li><strong>装饰华丽：</strong>服饰上绣有各种精美的图案，如花鸟、动物、几何图形等，展现出拉祜族人民的艺术才华。</li>
+                        <li><strong>民族特色鲜明：</strong>服饰的款式、色彩、装饰等都展现出鲜明的拉祜族特色，是拉祜族文化的重要象征。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="lahu-section">
+                    <h2>饮食文化</h2>
+                    <p>拉祜族的饮食文化受到云南地区自然环境的影响，以稻米为主食，喜欢吃肉类、豆类、水果等食物，擅长制作各种腌制食品和酒类。</p>
+                    
+                    <div class="food-culture">
+                        <div class="food-item">
+                            <h5>主食</h5>
+                            <p>拉祜族以米饭为主食，喜欢吃干米饭，如糯米饭、紫米饭、红米等。他们的米饭通常用甑子蒸熟，香气扑鼻，口感松软。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>菜肴</h5>
+                            <p>拉祜族的菜肴以肉类、豆类、水果等为主，如烤肉、腌肉、腌鱼、腌菜等。他们也喜欢吃各种腌制食品，如酸肉、酸鱼、酸笋等。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>传统饮品</h5>
+                            <p>拉祜族的传统饮品有米酒、茶叶、咖啡等。米酒是拉祜族的传统酒类，以糯米为原料，经过发酵而成，酒精度数低，口感酸甜。拉祜族人民也喜欢喝茶和咖啡，茶叶和咖啡是拉祜族地区的重要经济作物。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>特色食品</h5>
+                            <p>拉祜族的特色食品有甑子饭、烤肉、酸肉、酸鱼、米酒等。这些食品不仅味道独特，而且制作工艺精湛，展现出拉祜族人民的烹饪才华。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>拉祜族有着独特的饮食习俗，如吃饭时要长辈先动手，晚辈才能开始吃饭。他们热情好客，客人来访时，会拿出最好的食物款待，如烤肉、酸肉、酸鱼、米酒等。拉祜族人民注重饮食卫生，讲究饮食礼仪，有着悠久的饮食文化传统。</p>
+                </section>
+
+                <!-- 节日庆典 -->
+                <section class="lahu-section">
+                    <h2>节日庆典</h2>
+                    <p>拉祜族有许多传统节日，主要包括葫芦节、春节、清明节、端午节、中秋节等。</p>
+                    
+                    <div class="festival-celebration">
+                        <h5>葫芦节</h5>
+                        <p>葫芦节是拉祜族最重要的传统节日，通常在农历十月十六举行。在节日期间，拉祜族人民会穿上盛装，举行跳舞、唱歌、演戏、斗牛等庆祝活动，祈求来年风调雨顺，五谷丰登。葫芦节是拉祜族庆典丰收和生命的节日，葫芦是拉祜族的图腾之一，象征着生命和繁衍。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>春节</h5>
+                        <p>春节是拉祜族的传统节日之一，通常在农历正月初一举行。在节日期间，拉祜族人民会打扫房屋，贴春联，放鞭炮，吃团圆饭。他们也会举行各种庆祝活动，如唱歌、跳舞、打陀螺、荡秋千等，祈求新年平安幸福。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>清明节</h5>
+                        <p>清明节是拉祜族的传统节日之一，通常在公历四月五日前后举行。在节日期间，拉祜族人民会扫墓祭祖，缅怀祖先。他们会准备丰富的食品，如烤肉、水果、米饭、水果等，供奉给祖先，祈求祖先保佑后代平安健康。</p>
+                    </div>
+                </section>
+
+                <!-- 文学与艺术 -->
+                <section class="lahu-section">
+                    <h2>文学与艺术</h2>
+                    
+                    <h3>民间文学</h3>
+                    <p>拉祜族有着丰富的民间文学遗产，如民间故事、诗歌、谚语、谜语等。其中，《牡帕密帕》是拉祜族最著名的创世传说，讲述了拉祜族人民起源于葫芦，以及人类的发展过程，充满了传奇色彩。</p>
+                    
+                    <h3>音乐与舞蹈</h3>
+                    <p>拉祜族的音乐和舞蹈非常独特，具有浓郁的民族特色。拉祜族的传统乐器有葫芦笙、巴乌、三弦、鼓等，其中葫芦笙是最具代表性的乐器。拉祜族的舞蹈形式多样，如葫芦笙舞、摆舞、跺脚舞等，其中葫芦笙舞是最著名的舞蹈，以其欢快的节奏和优美的舞姿闻名中外。</p>
+                    
+                    <h3>手工艺</h3>
+                    <p>拉祜族的手工艺也非常发达，如纺织、刺绣、编织、竹编、木雕等。拉祜族的纺织工艺历史悠久，擅长用棉、麻等原料纺织各种布匹。刺绣品如钱包、背包、帽子等，图案精美，色彩斑斓。竹编品如竹席、竹篮、竹帽等，实用美观，耐用性强。木雕品如佛像、人物、动物等，工艺精湛，栩栩如生。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="lahu-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>拉祜族文化是中华文化的重要组成部分，对中华文化的发展和传承做出了重要贡献。</p>
+                    
+                    <h3>经济交流</h3>
+                    <p>拉祜族地区是中国云南省的重要组成部分，历史上就是中国西南地区的重要门户。拉祜族人民通过与中原地区和东南亚地区的经济交流，促进了中外贸易往来和文化交流。拉祜族地区的茶叶、咖啡、甘蔗等经济作物，对中国的经济发展产生了重要影响。</p>
+                    
+                    <h3>文化融合</h3>
+                    <p>拉祜族文化与中华文化相互融合，相互影响。拉祜族的音乐、舞蹈、手工艺等都对中华文化产生了深远的影响，同时，拉祜族也吸收了中华文化的优秀成果，如儒家思想、汉字文化等，丰富了自己的文化内涵。</p>
+                    
+                    <h3>民族团结</h3>
+                    <p>拉祜族人民热爱祖国，维护中国领土的完整，积极参与国家建设和发展。他们与其他民族和睦相处，共同维护国家的统一和民族团结。拉祜族文化的传承和发展，对于促进各民族之间的文化交流和融合，增强中华民族的凝聚力和向心力，具有重要意义。</p>
+                    
+                    <h3>文化多样性</h3>
+                    <p>拉祜族文化的独特性和多样性，丰富了中华文化的内涵，促进了中华文化的多元发展。保护和发展拉祜族文化，对于维护中华文化的多样性和丰富性，推动中华文化的创新和发展，具有重要意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

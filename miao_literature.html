@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苗族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 苗族文学艺术页面特定样式 */
+        .miao-header {
+            background-image: url('images/miao-header.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .miao-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .miao-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .miao-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-link:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .miao-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .miao-section {
+            margin-bottom: 80px;
+        }
+        
+        .miao-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .miao-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .miao-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .miao-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .miao-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .miao-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .miao-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .miao-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .miao-header-content .back-link {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .miao-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .miao-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .miao-header h1 {
+                font-size: 36px;
+            }
+            
+            .miao-header p {
+                font-size: 18px;
+            }
+            
+            .miao-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="miao-header">
+        <div class="container">
+            <div class="miao-header-content">
+                <h1>苗族文学艺术</h1>
+                <p>苗族文学与艺术的璀璨瑰宝</p>
+                <a href="miao.html" class="back-link">返回苗族主页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="miao-main">
+        <div class="container">
+            <div class="miao-content">
+                <!-- 文学艺术概况 -->
+                <section class="miao-section">
+                    <h2>文学艺术概况</h2>
+                    <p>苗族是一个有着悠久历史和丰富文化的民族，其文学艺术丰富多彩，形式多样，是中华民族文化宝库中的重要组成部分。苗族的文学艺术包括口头文学、音乐舞蹈、工艺美术等多个方面，这些艺术形式反映了苗族人民的生产生活、风俗习惯、宗教信仰和思想感情，具有独特的民族风格和艺术魅力。</p>
+                </section>
+
+                <!-- 口头文学 -->
+                <section class="miao-section">
+                    <h2>口头文学</h2>
+                    <p>苗族有着丰富的口头文学，这些文学作品通过口耳相传的方式传承了数千年，是苗族文学的主要形式。苗族的口头文学包括神话、传说、故事、诗歌等多个类型，内容丰富，题材广泛。</p>
+                    
+                    <h3>神话</h3>
+                    <p>苗族的神话主要讲述了宇宙的起源、人类的诞生、自然现象的形成等内容，是苗族原始宗教的重要组成部分。</p>
+                    <ul>
+                        <li><strong>创世神话：</strong>苗族的创世神话主要有《蝴蝶妈妈》、《姜央造人》等。《蝴蝶妈妈》讲述了蝴蝶妈妈生下了十二个蛋，这些蛋孵化出了人类和各种动物，是苗族最著名的创世神话。</li>
+                        <li><strong>自然神话：</strong>苗族的自然神话主要讲述了日月星辰、山川河流、风雨雷电等自然现象的形成过程，如《太阳和月亮》、《雷公的故事》等。</li>
+                        <li><strong>英雄神话：</strong>苗族的英雄神话主要讲述了苗族历史上的英雄人物的事迹，如《蚩尤的故事》、《盘瓠传说》等。</li>
+                    </ul>
+                    
+                    <h3>传说</h3>
+                    <p>苗族的传说主要讲述了苗族的历史、迁徙、战争、爱情等内容，是苗族历史文化的重要载体。</p>
+                    <ul>
+                        <li><strong>历史传说：</strong>苗族的历史传说主要讲述了苗族的起源、迁徙和发展历史，如《苗族古歌》、《迁徙歌》等。《苗族古歌》是苗族历史传说的代表作，记载了苗族的起源、迁徙和发展历史，是研究苗族历史的重要资料。</li>
+                        <li><strong>爱情传说：</strong>苗族的爱情传说主要讲述了苗族青年男女的爱情故事，如《阿诗玛》、《仰阿莎》等。这些传说反映了苗族人民对美好爱情的向往和追求。</li>
+                        <li><strong>地方传说：</strong>苗族的地方传说主要讲述了苗族聚居地区的山川河流、名胜古迹的由来，如《黄果树瀑布的传说》、《雷公山的传说》等。</li>
+                    </ul>
+                    
+                    <h3>故事</h3>
+                    <p>苗族的故事主要讲述了苗族人民的日常生活、风俗习惯、道德观念等内容，是苗族民间文学的重要组成部分。</p>
+                    <ul>
+                        <li><strong>生活故事：</strong>苗族的生活故事主要讲述了苗族人民的日常生活经历，如《聪明的阿弟》、《懒惰的哥哥》等。这些故事反映了苗族人民的生活智慧和道德观念。</li>
+                        <li><strong>动物故事：</strong>苗族的动物故事主要讲述了各种动物的习性和特点，如《老虎和兔子》、《狐狸和乌鸦》等。这些故事通过动物的形象，反映了人类社会的各种现象。</li>
+                        <li><strong>寓言故事：</strong>苗族的寓言故事主要通过简短的故事，说明一个深刻的道理，如《骄傲的公鸡》、《谦虚的蜜蜂》等。</li>
+                    </ul>
+                    
+                    <h3>诗歌</h3>
+                    <p>苗族的诗歌主要包括古歌、情歌、酒歌、劳动歌等多种类型，是苗族文学的重要组成部分。</p>
+                    <ul>
+                        <li><strong>古歌：</strong>苗族的古歌是苗族最古老的诗歌形式，主要讲述了苗族的起源、迁徙和发展历史，如《苗族古歌》、《开天辟地歌》等。</li>
+                        <li><strong>情歌：</strong>苗族的情歌是苗族青年男女表达爱情的重要方式，如《游方歌》、《约会歌》等。这些情歌旋律优美，歌词含蓄，反映了苗族青年男女的爱情生活。</li>
+                        <li><strong>酒歌：</strong>苗族的酒歌是苗族人民在饮酒时唱的歌曲，如《敬酒歌》、《劝酒歌》等。这些酒歌热情洋溢，反映了苗族人民热情好客的性格。</li>
+                        <li><strong>劳动歌：</strong>苗族的劳动歌是苗族人民在劳动时唱的歌曲，如《耕田歌》、《采茶歌》等。这些劳动歌节奏明快，反映了苗族人民的劳动生活。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐舞蹈 -->
+                <section class="miao-section">
+                    <h2>音乐舞蹈</h2>
+                    <p>苗族是一个能歌善舞的民族，其音乐舞蹈具有独特的风格和魅力，是苗族文化的重要组成部分。</p>
+                    
+                    <h3>音乐</h3>
+                    <p>苗族的音乐以芦笙、木鼓、唢呐等为主要乐器，旋律优美，节奏明快，具有独特的民族风格。</p>
+                    <ul>
+                        <li><strong>芦笙音乐：</strong>芦笙是苗族最具代表性的乐器，被誉为"苗族的灵魂"。芦笙音乐旋律优美，节奏明快，是苗族音乐的核心。芦笙音乐主要包括芦笙曲、芦笙舞伴奏曲等多种类型。</li>
+                        <li><strong>木鼓音乐：</strong>木鼓是苗族的传统乐器之一，主要用于宗教仪式和节日庆典。木鼓音乐节奏强烈，气势磅礴，具有浓厚的原始宗教色彩。</li>
+                        <li><strong>唢呐音乐：</strong>唢呐是苗族的传统乐器之一，主要用于婚礼、葬礼等场合。唢呐音乐旋律悠扬，表现力丰富。</li>
+                        <li><strong>民歌：</strong>苗族的民歌是苗族音乐的重要组成部分，主要包括古歌、情歌、酒歌、劳动歌等多种类型。苗族的民歌旋律优美，歌词含蓄，反映了苗族人民的生活和情感。</li>
+                    </ul>
+                    
+                    <h3>舞蹈</h3>
+                    <p>苗族的舞蹈以芦笙舞、铜鼓舞、木鼓舞等为代表，动作优美，节奏明快，具有独特的民族风格。</p>
+                    <ul>
+                        <li><strong>芦笙舞：</strong>芦笙舞是苗族最具代表性的舞蹈，主要由男子表演。芦笙舞动作优美，节奏明快，是苗族舞蹈的核心。芦笙舞主要包括集体舞、双人舞、单人舞等多种形式，通常在节日、婚礼、葬礼等场合表演。</li>
+                        <li><strong>铜鼓舞：</strong>铜鼓舞是苗族的传统舞蹈之一，主要由男子表演。铜鼓舞动作刚健有力，节奏强烈，具有浓厚的原始宗教色彩。铜鼓舞通常在宗教仪式和节日庆典上表演。</li>
+                        <li><strong>木鼓舞：</strong>木鼓舞是苗族的传统舞蹈之一，主要由男子表演。木鼓舞动作粗犷豪放，节奏强烈，具有浓厚的原始宗教色彩。木鼓舞通常在宗教仪式和节日庆典上表演。</li>
+                        <li><strong>踩鼓舞：</strong>踩鼓舞是苗族的传统舞蹈之一，主要由女子表演。踩鼓舞动作优美，节奏明快，通常在节日和婚礼上表演。</li>
+                        <li><strong>跳花舞：</strong>跳花舞是苗族的传统舞蹈之一，主要由青年男女表演。跳花舞动作优美，节奏明快，是苗族青年男女社交的重要方式。跳花舞通常在花山节等节日上表演。</li>
+                    </ul>
+                </section>
+
+                <!-- 工艺美术 -->
+                <section class="miao-section">
+                    <h2>工艺美术</h2>
+                    <p>苗族的工艺美术以银饰、刺绣、蜡染、织锦等闻名于世，工艺精湛，图案精美，具有独特的民族风格和艺术魅力。</p>
+                    
+                    <h3>银饰</h3>
+                    <p>苗族银饰是苗族工艺美术的代表作品之一，以其精湛的工艺、精美的图案和丰富的文化内涵而闻名于世。</p>
+                    <ul>
+                        <li><strong>种类：</strong>苗族银饰的种类繁多，主要包括头饰、项饰、胸饰、手饰、脚饰等。头饰主要有银角、银冠、银簪等；项饰主要有项圈、项链等；胸饰主要有银锁、银压领等；手饰主要有手镯、戒指等；脚饰主要有脚链、脚镯等。</li>
+                        <li><strong>工艺：</strong>苗族银饰的制作工艺非常精湛，主要包括铸、锻、焊、编、刻、雕等多种工艺。苗族银匠通常使用简单的工具，如锤子、凿子、钳子等，经过多道工序，制作出精美的银饰。</li>
+                        <li><strong>图案：</strong>苗族银饰的图案丰富多样，主要包括几何图形、花卉、动物、人物等。这些图案具有浓厚的民族特色和宗教象征意义，如龙凤象征吉祥，蝴蝶象征爱情，花卉象征美丽等。</li>
+                        <li><strong>文化内涵：</strong>苗族银饰不仅是一种装饰品，也是苗族文化的重要载体。苗族银饰的图案和造型反映了苗族的历史、文化、宗教信仰和审美观念，是研究苗族文化的重要资料。</li>
+                    </ul>
+                    
+                    <h3>刺绣</h3>
+                    <p>苗族刺绣是苗族工艺美术的代表作品之一，以其精湛的工艺、精美的图案和丰富的文化内涵而闻名于世。</p>
+                    <ul>
+                        <li><strong>种类：</strong>苗族刺绣的种类繁多，主要包括平绣、挑绣、结绣、打籽绣、锁绣等多种类型。不同地区的苗族刺绣有着不同的风格和特点，如黔东南苗族刺绣以平绣为主，湘西苗族刺绣以挑绣为主，川黔滇苗族刺绣以结绣为主。</li>
+                        <li><strong>工艺：</strong>苗族刺绣的制作工艺非常精湛，主要包括设计、配线、刺绣等多个工序。苗族妇女通常使用简单的工具，如绣花针、绣花线、绣花棚等，经过多道工序，制作出精美的刺绣作品。</li>
+                        <li><strong>图案：</strong>苗族刺绣的图案丰富多样，主要包括几何图形、花卉、动物、人物等。这些图案具有浓厚的民族特色和宗教象征意义，如龙凤象征吉祥，蝴蝶象征爱情，花卉象征美丽等。</li>
+                        <li><strong>应用：</strong>苗族刺绣主要应用于苗族的服饰、头巾、腰带、背包等物品上，是苗族服饰的重要组成部分。苗族妇女通常在出嫁前，要为自己和未来的家人制作大量的刺绣作品，作为嫁妆。</li>
+                    </ul>
+                    
+                    <h3>蜡染</h3>
+                    <p>苗族蜡染是苗族工艺美术的代表作品之一，以其独特的工艺、精美的图案和丰富的文化内涵而闻名于世。</p>
+                    <ul>
+                        <li><strong>工艺：</strong>苗族蜡染的制作工艺非常独特，主要包括设计、点蜡、染色、脱蜡等多个工序。苗族妇女通常使用铜刀或蜡笔，蘸上融化的蜡，在白布上绘制图案，然后将布放入染缸中染色，最后用沸水脱蜡，就得到了精美的蜡染作品。</li>
+                        <li><strong>图案：</strong>苗族蜡染的图案丰富多样，主要包括几何图形、花卉、动物、人物等。这些图案具有浓厚的民族特色和宗教象征意义，如龙凤象征吉祥，蝴蝶象征爱情，花卉象征美丽等。</li>
+                        <li><strong>应用：</strong>苗族蜡染主要应用于苗族的服饰、头巾、腰带、背包等物品上，是苗族服饰的重要组成部分。苗族妇女通常在出嫁前，要为自己和未来的家人制作大量的蜡染作品，作为嫁妆。</li>
+                        <li><strong>文化内涵：</strong>苗族蜡染不仅是一种手工艺品，也是苗族文化的重要载体。苗族蜡染的图案和造型反映了苗族的历史、文化、宗教信仰和审美观念，是研究苗族文化的重要资料。</li>
+                    </ul>
+                    
+                    <h3>织锦</h3>
+                    <p>苗族织锦是苗族工艺美术的代表作品之一，以其精湛的工艺、精美的图案和丰富的文化内涵而闻名于世。</p>
+                    <ul>
+                        <li><strong>工艺：</strong>苗族织锦的制作工艺非常精湛，主要包括设计、纺线、染色、织布等多个工序。苗族妇女通常使用传统的织布机，将彩色的丝线织成精美的锦缎。</li>
+                        <li><strong>图案：</strong>苗族织锦的图案丰富多样，主要包括几何图形、花卉、动物、人物等。这些图案具有浓厚的民族特色和宗教象征意义，如龙凤象征吉祥，蝴蝶象征爱情，花卉象征美丽等。</li>
+                        <li><strong>应用：</strong>苗族织锦主要应用于苗族的服饰、头巾、腰带、背包等物品上，是苗族服饰的重要组成部分。苗族妇女通常在出嫁前，要为自己和未来的家人制作大量的织锦作品，作为嫁妆。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的传承与发展 -->
+                <section class="miao-section">
+                    <h2>文学艺术的传承与发展</h2>
+                    <p>苗族的文学艺术是苗族文化的重要组成部分，是苗族人民智慧的结晶。为了保护和传承苗族的文学艺术，苗族人民采取了一系列措施。</p>
+                    
+                    <h3>传承方式</h3>
+                    <ul>
+                        <li><strong>口头传承：</strong>苗族的口头文学主要通过口耳相传的方式传承，如长辈给晚辈讲故事、唱民歌等。</li>
+                        <li><strong>师徒传承：</strong>苗族的音乐、舞蹈、工艺美术等主要通过师徒传承的方式传承，如银匠收徒弟、芦笙师傅收徒弟等。</li>
+                        <li><strong>家族传承：</strong>苗族的一些文学艺术形式，如刺绣、蜡染等，主要通过家族传承的方式传承，如母亲教女儿、祖母教孙女等。</li>
+                    </ul>
+                    
+                    <h3>发展现状</h3>
+                    <ul>
+                        <li><strong>保护措施：</strong>新中国成立后，党和政府重视少数民族文化的保护和发展，采取了一系列措施，如建立文化保护区、收集整理民间文学艺术作品、培养传承人等。</li>
+                        <li><strong>创新发展：</strong>在保护传统文学艺术的基础上，苗族人民也在不断创新和发展文学艺术形式，如将传统的银饰、刺绣、蜡染等与现代设计相结合，创造出具有现代风格的手工艺品。</li>
+                        <li><strong>对外交流：</strong>随着改革开放的深入，苗族的文学艺术也开始走向世界，如苗族的银饰、刺绣、蜡染等手工艺品在国际市场上受到欢迎，苗族的音乐舞蹈在国际舞台上表演。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术与文化的关系 -->
+                <section class="miao-section">
+                    <h2>文学艺术与文化的关系</h2>
+                    <p>苗族的文学艺术与苗族的文化密切相关，它不仅是苗族文化的重要组成部分，也是苗族文化传承的重要载体。</p>
+                    
+                    <h3>文学艺术与历史</h3>
+                    <p>苗族的文学艺术反映了苗族的历史，如苗族的古歌、传说等，记载了苗族的起源、迁徙和发展历史，是研究苗族历史的重要资料。</p>
+                    
+                    <h3>文学艺术与宗教</h3>
+                    <p>苗族的文学艺术与苗族的宗教信仰密切相关，如苗族的神话、宗教仪式音乐等，反映了苗族的宗教信仰和宗教仪式，是研究苗族宗教文化的重要资料。</p>
+                    
+                    <h3>文学艺术与风俗习惯</h3>
+                    <p>苗族的文学艺术与苗族的风俗习惯密切相关，如苗族的节日音乐、舞蹈、服饰等，反映了苗族的风俗习惯和节日庆典，是研究苗族风俗习惯的重要资料。</p>
+                    
+                    <h3>文学艺术与审美观念</h3>
+                    <p>苗族的文学艺术反映了苗族的审美观念，如苗族的银饰、刺绣、蜡染等手工艺品的图案和造型，反映了苗族人民对美的追求和理解，是研究苗族审美观念的重要资料。</p>
+                </section>
+
+                <!-- 文学艺术的现状与保护 -->
+                <section class="miao-section">
+                    <h2>文学艺术的现状与保护</h2>
+                    <p>随着社会的发展和现代化进程的加快，苗族的文学艺术也面临着一些挑战和机遇。</p>
+                    
+                    <h3>现状</h3>
+                    <ul>
+                        <li><strong>传统文学艺术的延续：</strong>在苗族聚居的农村地区，传统的文学艺术形式仍然得到保留和传承，如口头文学、音乐舞蹈、工艺美术等。</li>
+                        <li><strong>现代文学艺术的发展：</strong>在苗族聚居的城镇地区，现代的文学艺术形式逐渐兴起，如小说、散文、诗歌、电影、电视等。</li>
+                        <li><strong>文学艺术的融合：</strong>传统文学艺术与现代文学艺术相互融合，形成了新的文学艺术形式，如现代苗族音乐、现代苗族舞蹈、现代苗族手工艺品等。</li>
+                        <li><strong>文学艺术的挑战：</strong>随着社会的发展和现代化进程的加快，苗族的传统文学艺术也面临着一些挑战，如传承人短缺、传统工艺失传、市场需求减少等。</li>
+                    </ul>
+                    
+                    <h3>保护措施</h3>
+                    <ul>
+                        <li><strong>建立文化保护区：</strong>在苗族聚居的地区建立文化保护区，保护苗族的传统文学艺术。</li>
+                        <li><strong>收集整理民间文学艺术作品：</strong>收集整理苗族的民间文学艺术作品，建立数据库和档案。</li>
+                        <li><strong>培养传承人：</strong>通过学校教育、师徒传承等方式，培养苗族文学艺术的传承人。</li>
+                        <li><strong>发展文化产业：</strong>将苗族的文学艺术与文化产业相结合，如发展银饰、刺绣、蜡染等手工艺品产业，促进苗族文学艺术的传承和发展。</li>
+                        <li><strong>加强对外交流：</strong>加强苗族文学艺术的对外交流，如举办苗族文化节、参加国际文化展览等，提高苗族文学艺术的知名度和影响力。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统与生活</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

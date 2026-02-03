@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蒙古族传统节日 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 蒙古族传统节日页面特定样式 */
+        .mongolian-festival-header {
+            background-image: url('images/蒙古袍.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mongolian-festival-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .mongolian-festival-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mongolian-festival-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-festival-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-mongolian {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-mongolian:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .mongolian-festival-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .mongolian-festival-section {
+            margin-bottom: 80px;
+        }
+        
+        .mongolian-festival-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-festival-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-festival-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .mongolian-festival-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .mongolian-festival-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .mongolian-festival-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .mongolian-festival-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .mongolian-festival-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 节日特点网格 */
+        .festival-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .festival-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .festival-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .festival-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .mongolian-festival-header h1 {
+                font-size: 36px;
+            }
+            
+            .mongolian-festival-header p {
+                font-size: 18px;
+            }
+            
+            .mongolian-festival-section h2 {
+                font-size: 28px;
+            }
+            
+            .festival-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="mongolian-festival-header">
+        <div class="container">
+            <div class="mongolian-festival-header-content">
+                <h1>蒙古族传统节日</h1>
+                <p>草原上的盛大庆典，传承千年的文化记忆</p>
+                <a href="mongolian.html" class="back-mongolian">返回蒙古族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="mongolian-festival-main">
+        <div class="container">
+            <div class="mongolian-festival-content">
+                <!-- 节日概述 -->
+                <section class="mongolian-festival-section">
+                    <h2>蒙古族传统节日概述</h2>
+                    <p>蒙古族的传统节日是蒙古族文化的重要组成部分，这些节日承载着蒙古族的历史、信仰、风俗习惯等丰富的文化内涵。蒙古族的传统节日大多与游牧生活、宗教信仰、季节变化等有关，具有鲜明的民族特色。</p>
+                    <p>蒙古族的传统节日主要包括那达慕大会、白节、马奶节、祭敖包等。这些节日不仅是蒙古族人民欢庆的时刻，也是传承和弘扬蒙古族文化的重要载体。</p>
+                </section>
+
+                <!-- 那达慕大会 -->
+                <section class="mongolian-festival-section">
+                    <h2>那达慕大会</h2>
+                    
+                    <h3>那达慕大会的起源与发展</h3>
+                    <p>那达慕大会是蒙古族最重要的传统节日，也是蒙古族人民最喜爱的盛会。"那达慕"是蒙古语，意为"娱乐"或"游戏"。那达慕大会的起源可以追溯到古代的"祭敖包"活动，后来逐渐发展成为以体育比赛为主的综合性节日。</p>
+                    <p>那达慕大会的历史悠久，据史书记载，早在13世纪，成吉思汗统一蒙古各部后，就举行了盛大的那达慕大会。在元朝时期，那达慕大会成为国家的重要节日，每年都要举行。</p>
+                    <p>到了现代，那达慕大会不仅是蒙古族的传统节日，也是中国重要的非物质文化遗产之一。每年夏秋季节，蒙古族人民都会举行盛大的那达慕大会，庆祝丰收，展示民族文化。</p>
+                    
+                    <h3>那达慕大会的内容</h3>
+                    <div class="festival-features-grid">
+                        <div class="festival-feature-item">
+                            <h5>体育比赛</h5>
+                            <p>那达慕大会的核心内容是体育比赛，主要包括摔跤、赛马、射箭三项传统体育项目，被称为"男儿三艺"。这些项目不仅是体育比赛，也是蒙古族男子展示勇气和力量的机会。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>文艺表演</h5>
+                            <p>那达慕大会期间，会有丰富多彩的文艺表演，如蒙古族长调、呼麦、马头琴演奏、安代舞等。这些表演展示了蒙古族的艺术才华和文化魅力。</p>
+                        </div>
+                        <div class="festival-feature-item">
+                            <h5>物资交流</h5>
+                            <p>那达慕大会也是蒙古族地区重要的物资交流盛会，各地的商贾会带着各种商品前来交易，如牲畜、皮毛、奶制品、手工艺品等。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>那达慕大会的意义</h3>
+                    <ul>
+                        <li><strong>文化传承：</strong>那达慕大会是蒙古族文化的重要载体，通过这个节日，蒙古族的传统文化得以传承和弘扬。</li>
+                        <li><strong>民族团结：</strong>那达慕大会是蒙古族人民团结的象征，也是各民族交流的平台。</li>
+                        <li><strong>社会和谐：</strong>那达慕大会期间，蒙古族人民欢聚一堂，增进了彼此之间的感情，促进了社会和谐。</li>
+                        <li><strong>经济发展：</strong>那达慕大会带动了当地的旅游业和商业发展，促进了经济繁荣。</li>
+                    </ul>
+                </section>
+
+                <!-- 白节 -->
+                <section class="mongolian-festival-section">
+                    <h2>白节</h2>
+                    
+                    <h3>白节的起源与发展</h3>
+                    <p>白节是蒙古族的传统新年，相当于汉族的春节，每年农历正月初一举行。"白"在蒙古语中象征着纯洁、吉祥、幸福，因此白节被视为蒙古族最吉祥的节日。</p>
+                    <p>白节的历史悠久，起源于古代的萨满教信仰。在萨满教中，白色是神圣的颜色，代表着天空、云彩、羊群等美好的事物。后来，随着藏传佛教的传入，白节又融入了佛教的元素，成为一个综合性的节日。</p>
+                    
+                    <h3>白节的习俗</h3>
+                    <ul>
+                        <li><strong>除夕守岁：</strong>白节前一天晚上，蒙古族人民会守岁，通宵达旦地庆祝。</li>
+                        <li><strong>拜年：</strong>白节当天，蒙古族人民会穿上节日盛装，走家串户拜年，互致问候。</li>
+                        <li><strong>吃手抓肉：</strong>白节期间，蒙古族人民会准备丰富的食物，其中手抓肉是必不可少的。</li>
+                        <li><strong>喝奶茶：</strong>奶茶是蒙古族的传统饮料，白节期间，人们会用奶茶款待客人。</li>
+                        <li><strong>跳安代舞：</strong>白节期间，蒙古族人民会跳起欢快的安代舞，庆祝新年的到来。</li>
+                    </ul>
+                    
+                    <h3>白节的意义</h3>
+                    <p>白节是蒙古族人民辞旧迎新的节日，也是家庭团聚、亲友相聚的时刻。通过白节，蒙古族人民表达了对美好生活的向往和对未来的祝福。</p>
+                </section>
+
+                <!-- 马奶节 -->
+                <section class="mongolian-festival-section">
+                    <h2>马奶节</h2>
+                    
+                    <h3>马奶节的起源与发展</h3>
+                    <p>马奶节是蒙古族的传统节日，每年农历四月或八月举行。马奶节的起源与蒙古族的游牧生活密切相关，是为了庆祝马奶的丰收而设立的节日。</p>
+                    <p>在蒙古族的传统观念中，马奶是一种神圣的饮料，具有滋补身体、延年益寿的功效。因此，马奶节被视为蒙古族的重要节日之一。</p>
+                    
+                    <h3>马奶节的习俗</h3>
+                    <ul>
+                        <li><strong>祭神仪式：</strong>马奶节开始时，会举行隆重的祭神仪式，祈求天地、山水、祖先等神灵的保佑。</li>
+                        <li><strong>喝马奶酒：</strong>马奶节期间，蒙古族人民会酿制马奶酒，款待客人。</li>
+                        <li><strong>赛马：</strong>马奶节期间，会举行赛马比赛，展示蒙古族人民的骑术。</li>
+                        <li><strong>歌舞表演：</strong>马奶节期间，会有丰富多彩的歌舞表演，如长调、呼麦、安代舞等。</li>
+                    </ul>
+                    
+                    <h3>马奶节的意义</h3>
+                    <p>马奶节是蒙古族人民庆祝丰收、感恩自然的节日，也是展示蒙古族游牧文化的重要平台。通过马奶节，蒙古族人民表达了对马的感激之情，因为马是蒙古族人民的重要伙伴。</p>
+                </section>
+
+                <!-- 祭敖包 -->
+                <section class="mongolian-festival-section">
+                    <h2>祭敖包</h2>
+                    
+                    <h3>祭敖包的起源与发展</h3>
+                    <p>祭敖包是蒙古族的传统宗教仪式，也是蒙古族的重要节日之一。敖包是蒙古语，意为"堆子"，是蒙古族人民用石头、土块等堆砌而成的祭祀场所。</p>
+                    <p>祭敖包的起源可以追溯到古代的萨满教信仰。在萨满教中，敖包被视为神灵的居所，是人与神灵沟通的桥梁。后来，随着藏传佛教的传入，祭敖包又融入了佛教的元素，成为一个综合性的宗教节日。</p>
+                    
+                    <h3>祭敖包的仪式</h3>
+                    <ul>
+                        <li><strong>堆砌敖包：</strong>在祭敖包之前，蒙古族人民会堆砌或修缮敖包，在敖包上插上树枝，挂上彩旗、哈达等。</li>
+                        <li><strong>祭祀仪式：</strong>祭敖包时，蒙古族人民会在敖包前点燃香火，献上奶食品、肉食、酒等祭品，然后虔诚地祈祷。</li>
+                        <li><strong>赛马、射箭：</strong>祭敖包期间，会举行赛马、射箭等体育比赛，展示蒙古族人民的勇武。</li>
+                        <li><strong>歌舞表演：</strong>祭敖包期间，会有丰富多彩的歌舞表演，如长调、呼麦、安代舞等。</li>
+                    </ul>
+                    
+                    <h3>祭敖包的意义</h3>
+                    <p>祭敖包是蒙古族人民祈求平安、丰收、幸福的重要仪式，也是蒙古族人民团结互助、加强联系的重要机会。通过祭敖包，蒙古族人民表达了对自然的敬畏之情，以及对美好生活的向往。</p>
+                </section>
+
+                <!-- 其他传统节日 -->
+                <section class="mongolian-festival-section">
+                    <h2>其他传统节日</h2>
+                    
+                    <h3>燃灯节</h3>
+                    <p>燃灯节是藏传佛教的重要节日，每年农历十月二十五日举行。燃灯节是为了纪念藏传佛教格鲁派创始人宗喀巴大师的圆寂而设立的节日。在燃灯节期间，蒙古族人民会在寺庙、家庭等场所点燃酥油灯，以示纪念。</p>
+                    
+                    <h3>祖鲁节</h3>
+                    <p>祖鲁节是蒙古族的传统节日，每年农历十二月二十三日举行。祖鲁节是为了纪念蒙古族的祖先而设立的节日。在祖鲁节期间，蒙古族人民会举行隆重的祭祀仪式，祈求祖先的保佑。</p>
+                    
+                    <h3>麦德尔节</h3>
+                    <p>麦德尔节是蒙古族的传统节日，每年农历正月十五日举行。麦德尔节是为了纪念弥勒佛的诞辰而设立的节日。在麦德尔节期间，蒙古族人民会举行隆重的宗教仪式，祈求弥勒佛的保佑。</p>
+                </section>
+
+                <!-- 节日的文化意义 -->
+                <section class="mongolian-festival-section">
+                    <h2>蒙古族传统节日的文化意义</h2>
+                    
+                    <h3>文化传承</h3>
+                    <p>蒙古族的传统节日是蒙古族文化的重要载体，通过这些节日，蒙古族的历史、信仰、风俗习惯等文化元素得以传承和弘扬。例如，那达慕大会上的"男儿三艺"比赛，展示了蒙古族人民的勇武精神；白节的拜年习俗，体现了蒙古族人民的亲情和友情。</p>
+                    
+                    <h3>民族认同</h3>
+                    <p>蒙古族的传统节日是蒙古族民族认同的重要标志之一。通过参与传统节日的活动，蒙古族人民增强了对自己民族的认同感和自豪感。例如，那达慕大会不仅是蒙古族的传统节日，也是蒙古族人民团结的象征。</p>
+                    
+                    <h3>社会和谐</h3>
+                    <p>蒙古族的传统节日是蒙古族人民欢聚一堂、增进感情的重要机会。在节日期间，蒙古族人民会走家串户，互致问候，分享美食，增进了彼此之间的感情，促进了社会和谐。</p>
+                    
+                    <h3>人与自然的和谐</h3>
+                    <p>蒙古族的传统节日大多与自然有关，如马奶节是为了庆祝马奶的丰收，祭敖包是为了祈求自然的保佑。通过这些节日，蒙古族人民表达了对自然的敬畏之情，以及与自然和谐相处的愿望。</p>
+                </section>
+
+                <!-- 现代节日状况 -->
+                <section class="mongolian-festival-section">
+                    <h2>现代节日状况</h2>
+                    <p>在现代社会，蒙古族的传统节日发生了一些变化：</p>
+                    
+                    <h3>节日的现状</h3>
+                    <ul>
+                        <li><strong>节日形式多样化：</strong>除了传统的节日形式外，现代蒙古族的节日还融入了一些现代元素，如文艺演出、旅游活动等。</li>
+                        <li><strong>节日影响扩大：</strong>随着旅游业的发展，蒙古族的传统节日逐渐被更多的人所了解和喜爱，成为蒙古族地区的重要旅游资源。</li>
+                        <li><strong>节日功能多元化：</strong>现代蒙古族的节日不仅是文化传承的载体，也是经济发展的平台，如那达慕大会已经成为蒙古族地区重要的经济盛会。</li>
+                    </ul>
+                    
+                    <h3>节日的保护与传承</h3>
+                    <p>为了保护和传承蒙古族的传统节日，中国政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>法律保护：</strong>将蒙古族的传统节日纳入非物质文化遗产保护名录，受到法律保护。</li>
+                        <li><strong>文化教育：</strong>在学校教育中融入蒙古族传统节日的知识，促进节日文化的传承。</li>
+                        <li><strong>旅游开发：</strong>通过旅游开发，让更多的人了解和喜爱蒙古族的传统节日。</li>
+                        <li><strong>媒体宣传：</strong>通过电视、报纸、网络等媒体，宣传蒙古族的传统节日，扩大节日的影响。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

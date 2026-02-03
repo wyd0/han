@@ -1,0 +1,754 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傈僳族 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 傈僳族页面特定样式 */
+        .lisu-header {
+            background-image: url('images/lisu-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .lisu-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .lisu-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lisu-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .lisu-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .lisu-section {
+            margin-bottom: 80px;
+        }
+        
+        .lisu-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .lisu-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lisu-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .lisu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .lisu-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .lisu-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 历史时间线样式 */
+        .history-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 25px 0;
+        }
+        
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #c0392b;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(249, 249, 249, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            background-color: #c0392b;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px #c0392b;
+        }
+        
+        .timeline-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        
+        .timeline-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        /* 文化方面样式 */
+        .culture-aspects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .culture-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .culture-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .culture-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .culture-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 服饰详情样式 */
+        .clothing-details {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .clothing-item {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .clothing-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clothing-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .clothing-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* 饮食文化样式 */
+        .food-culture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .food-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .food-item h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+            text-align: center;
+        }
+        
+        /* 节日庆典样式 */
+        .festival-celebration {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 25px 0;
+        }
+        
+        .festival-celebration h5 {
+            color: #c0392b;
+            font-size: 18px;
+            margin: 0 0 15px;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes growDown {
+            from {
+                opacity: 0;
+                transform: scaleY(0);
+                transform-origin: top;
+            }
+            to {
+                opacity: 1;
+                transform: scaleY(1);
+                transform-origin: top;
+            }
+        }
+        
+        /* 链接样式 */
+        .culture-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .culture-item-link:hover .culture-item {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .lisu-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .lisu-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .lisu-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .lisu-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .lisu-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .culture-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .culture-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .clothing-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .clothing-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .food-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .food-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .festival-celebration {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .festival-celebration.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .timeline-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .timeline-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .culture-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .culture-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .culture-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .culture-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .clothing-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .clothing-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .food-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .food-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .food-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .food-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .festival-celebration:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .festival-celebration:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .festival-celebration:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        /* 响应式设置 */
+        @media (max-width: 768px) {
+            .lisu-header h1 {
+                font-size: 36px;
+            }
+            
+            .lisu-header p {
+                font-size: 18px;
+            }
+            
+            .lisu-section h2 {
+                font-size: 28px;
+            }
+            
+            .culture-aspects,
+            .food-culture {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面顶部 -->
+    <section class="lisu-header">
+        <div class="container">
+            <div class="lisu-header-content">
+                <h1>傈僳族</h1>
+                <p>大山的子民，勇敢的猎手</p>
+                <a href="difference.html" class="back-difference">返回文化区别</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="lisu-main">
+        <div class="container">
+            <div class="lisu-content">
+                <!-- 傈僳族文化概述 -->
+                <section class="lisu-section">
+                    <h2>傈僳族文化概述</h2>
+                    <p>傈僳族是中国55个少数民族之一，主要分布在云南省的怒江傈僳族自治州、迪庆藏族自治州、大理白族自治州、保山地区、临沧地区、德宏傣族景颇族自治州等地，以及四川省的甘孜藏族自治州和凉山州。</p>
+                    <p>傈僳族是一个历史悠久、文化独特的民族，有着独特的语言、文字、宗教、习俗和艺术。他们主要从事农业和狩猎业，擅长狩猎和采集，有着丰富的自然资源利用经验。傈僳族人民勇敢坚韧，热爱自由，具有强烈的民族自豪感和凝聚力。</p>
+                </section>
+
+                <!-- 历史与起源 -->
+                <section class="lisu-section">
+                    <h2>历史与起源</h2>
+                    
+                    <h3>傈僳族的起源</h3>
+                    <p>傈僳族的起源可以追溯到古代的氐羌族，与古代的氐、羌、昆明、叟等有着密切的关系。根据历史文献记载，傈僳族在唐代就已经在云南地区活动，是云南地区的古老民族之一。</p>
+                    
+                    <h3>历史发展</h3>
+                    <div class="history-timeline">
+                        <div class="timeline-item">
+                            <h5>唐代</h5>
+                            <p>傈僳族在云南地区活动，被称为"栗粟"。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>明清时期</h5>
+                            <p>傈僳族逐渐形成了自己的民族共同体，并开始大规模迁徙，从云南地区向四川、西藏等地区扩散。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>19世纪</h5>
+                            <p>傈僳族人民积极参与了反抗外国侵略和封建压迫的斗争，如抗英斗争等。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>1949年以后</h5>
+                            <p>中华人民共和国成立后，傈僳族地区实行了民族区域自治，傈僳族人民获得了平等的民族权利，经济社会得到了快速发展。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>文化传承与发展</h3>
+                    <p>傈僳族有着悠久的文化传统，他们通过口头传承和传统手工艺等方式保留了丰富的民族文化。在现代社会，傈僳族文化得到了进一步的保护和发展，传统的音乐、舞蹈、手工艺等都得到了传承和创新。</p>
+                </section>
+
+                <!-- 文化方面 -->
+                <section class="lisu-section">
+                    <h2>文化方面</h2>
+                    
+                    <div class="culture-aspects">
+                        <a href="lisu-language.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>语言文字</h5>
+                                <p>傈僳族有自己的语言和文字。傈僳语属于汉藏语系藏缅语族彝语支，分为怒江、德宏、禄劝三个方言区。傈僳文有两种，一种是拉丁字母拼写的新傈僳文，另一种是老傈僳文，即传教士创制的。</p>
+                            </div>
+                        </a>
+                        <a href="lisu-religion.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>宗教信仰</h5>
+                                <p>傈僳族主要信仰原始宗教，崇拜自然，信仰多神，如天神、地神、山神、水神等。他们也信仰祖先崇拜，认为祖先的灵魂会保护后代。此外，部分傈僳族群众也信仰基督教和天主教。</p>
+                            </div>
+                        </a>
+                        <a href="lisu-customs.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>传统习俗</h5>
+                                <p>傈僳族有着独特的传统习俗，如婚礼、葬礼、节日等都有独特的形式和程序。他们热情好客，崇尚礼仪，重视家庭和社区的团结。傈僳族人民热爱大自热，尊重生命，有着朴素的环保意识。</p>
+                            </div>
+                        </a>
+                        <a href="lisu-art.html" class="culture-item-link">
+                            <div class="culture-item">
+                                <h5>文学艺术</h5>
+                                <p>傈僳族有着丰富的民间文学遗产，如民间故事、诗歌、谚语、谜语等。他们的音乐和舞蹈也非常独特，如三弦舞、葫芦笙舞、对歌等，都是傈僳族文化的重要组成部分。</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 服饰文化 -->
+                <section class="lisu-section">
+                    <h2>服饰文化</h2>
+                    <p>傈僳族的服饰具有鲜明的民族特色，主要以棉、麻为原料，设计简洁大方，色彩斑斓，图案精美。</p>
+                    
+                    <h3>男子服饰</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/傈僳族男子传统服饰.jpg" alt="傈僳族男子传统服饰">
+                            <p>傈僳族男子传统服饰</p>
+                        </div>
+                    </div>
+                    <p>傈僳族男子通常穿着黑色或深蓝色的对襟短衫，下着长裤，用青布或蓝布包头，有的还裹腿。他们喜欢在衣服上装饰银器或彩布，显得剽悍威武。</p>
+                    
+                    <h3>女子服饰</h3>
+                    <div class="clothing-details">
+                        <div class="clothing-item">
+                            <img src="images/傈僳族女子传统服饰.jpg" alt="傈僳族女子传统服饰">
+                            <p>傈僳族女子传统服饰</p>
+                        </div>
+                    </div>
+                    <p>傈僳族女子的服饰更加华丽多彩，通常穿着色彩斑斓的上衣，下着长裙，用头巾包头。上衣多为对襟或斜襟，上面绣有精美的图案。长裙则色彩斑斓，图案复杂，通常用多层彩布拼接而成。她们的头饰也非常独特，喜欢用银器、贝壳、珠子等装饰，显得美丽多姿。</p>
+                    
+                    <h3>服饰特点</h3>
+                    <ul>
+                        <li><strong>色彩斑斓：</strong>傈僳族服饰以红、黄、绿、蓝等鲜艳的颜色为主，象征着大自然的美丽和生命的活力。</li>
+                        <li><strong>图案精美：</strong>服饰上绣有各种精美的图案，如花鸟、动物、几何图形等，展现出傈僳族人民的艺术才华。</li>
+                        <li><strong>民族特色鲜明：</strong>服饰的款式、色彩、装饰等都展现出鲜明的傈僳族特色，是傈僳族文化的重要象征。</li>
+                    </ul>
+                </section>
+
+                <!-- 饮食文化 -->
+                <section class="lisu-section">
+                    <h2>饮食文化</h2>
+                    <p>傈僳族的饮食文化受到山区自然环境的影响，以玉米、荞麦、高粱为主食，喜欢吃酸、辣、苦等口味的食物，擅长制作各种腌制食品。</p>
+                    
+                    <div class="food-culture">
+                        <div class="food-item">
+                            <h5>主食</h5>
+                            <p>傈僳族以玉米、荞麦、高粱为主食，喜欢吃粑粑、饵丝、米线等。他们的粑粑通常用玉米面或荞麦面制作，口感松软，营养丰富。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>菜肴</h5>
+                            <p>傈僳族的菜肴以酸、辣、苦等口味为主，如酸鱼、苦荞饼、烤乳猪等。他们也喜欢吃各种野生蔬菜和菌类，如蕨菜、竹笋、蘑菇等。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>腌制食品</h5>
+                            <p>傈僳族擅长制作各种腌制食品，如酸肉、酸鱼、酸笋等。这些腌制食品不仅味道独特，而且易于保存，是傈僳族饮食文化的重要组成部分。</p>
+                        </div>
+                        <div class="food-item">
+                            <h5>传统饮品</h5>
+                            <p>傈僳族的传统饮品有黄酒、白酒、水酒等。黄酒是傈僳族的传统酒类，以玉米、荞麦、高粱为原料，经过发酵而成，酒精度数低，口感酸甜。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>傈僳族有着独特的饮食习俗，如吃饭时要把菜放在地上，用手抓食或用勺子、筷子进食。他们热情好客，客人来访时，会拿出最好的食物款待，如烤肉、酸鱼、苦荞饼等。傈僳族人民注重饮食卫生，讲究饮食礼仪，有着悠久的饮食文化传统。</p>
+                </section>
+
+                <!-- 节日庆典 -->
+                <section class="lisu-section">
+                    <h2>节日庆典</h2>
+                    <p>傈僳族有许多传统节日，如刀杆节、新米节、收获节等，这些节日都有独特的庆祝方式和文化内涵。</p>
+                    
+                    <div class="festival-celebration">
+                        <h5>刀杆节</h5>
+                        <p>刀杆节是傈僳族最重要的传统节日，通常在农历二月初举行。在节日期间，傈僳族人民会举行上刀山、下火海等惊险表演，象征着他们的勇敢和坚韧。同时，还会进行对歌、跳舞、赛马等庆祝活动。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>新米节</h5>
+                        <p>新米节是傈僳族的传统新年，通常在农历十二月初举行。在节日期间，傈僳族人民会穿上盛装，进行对歌、跳舞、赛马等庆祝活动。他们还会准备丰盛的食物，如烤肉、酸鱼、苦荞饼等，款待客人。</p>
+                    </div>
+                    
+                    <div class="festival-celebration">
+                        <h5>收获节</h5>
+                        <p>收获节是傈僳族庆祝丰收的节日，通常在农历八月举行。在节日期间，傈僳族人民会举行各种庆祝活动，如跳舞、对歌等，感谢大自然的恩赐，祈求来年丰收。</p>
+                    </div>
+                </section>
+
+                <!-- 文学与艺术 -->
+                <section class="lisu-section">
+                    <h2>文学与艺术</h2>
+                    
+                    <h3>民间文学</h3>
+                    <p>傈僳族有着丰富的民间文学遗产，如民间故事、诗歌、谚语、谜语等。其中，《创世纪》是傈僳族最著名的神话故事之一，讲述了傈僳族先民创造天地万物的故事，充满了奇幻色彩。</p>
+                    
+                    <h3>音乐与舞蹈</h3>
+                    <p>傈僳族的音乐和舞蹈非常独特，具有浓郁的民族特色。他们的传统乐器有三弦、葫芦笙、巴乌、口弦等，其中三弦是最具代表性的乐器。傈僳族的舞蹈形式多样，如刀杆舞、对脚舞、跳锅庄等，其中刀杆舞是最著名的舞蹈，以其惊险的表演和勇敢的精神闻名中外。</p>
+                    
+                    <h3>手工艺</h3>
+                    <p>傈僳族的手工艺也非常发达，如纺织、刺绣、编织、竹编等。他们的纺织工艺历史悠久，擅长用棉、麻等原料纺织各种布匹。刺绣品如钱包、背包、帽子等，图案精美，色彩斑斓。竹编品如竹席、竹篮、竹帽等，实用美观，耐用性强。</p>
+                </section>
+
+                <!-- 对中华文化的影响 -->
+                <section class="lisu-section">
+                    <h2>对中华文化的影响</h2>
+                    <p>傈僳族文化是中华文化的重要组成部分，对中华文化的发展和传承做出了重要贡献。</p>
+                    
+                    <h3>经济交流</h3>
+                    <p>傈僳族地区是中国通往东南亚、南亚的重要门户，历史上就是南方丝绸之路的重要通道。傈僳族人民通过与中原地区和东南亚地区的经济交流，促进了中外贸易往来和文化交流。</p>
+                    
+                    <h3>文化融合</h3>
+                    <p>傈僳族文化与中华文化相互融合，相互影响。傈僳族的音乐、舞蹈、手工艺等都对中华文化产生了深远的影响，同时，傈僳族也吸收了中华文化的优秀成果，如儒家思想、汉字文化等，丰富了自己的文化内涵。</p>
+                    
+                    <h3>民族团结</h3>
+                    <p>傈僳族人民热爱祖国，维护中国领土的完整，积极参与国家建设和发展。他们与其他民族和睦相处，共同维护国家的统一和民族团结。傈僳族文化的传承和发展，对于促进各民族之间的文化交流和融合，增强中华民族的凝聚力和向心力，具有重要意义。</p>
+                    
+                    <h3>文化多样性</h3>
+                    <p>傈僳族文化的独特性和多样性，丰富了中华文化的内涵，促进了中华文化的多元发展。保护和发展傈僳族文化，对于维护中华文化的多样性和丰富性，推动中华文化的创新和发展，具有重要意义。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

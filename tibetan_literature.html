@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藏族文学艺术 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 藏族文学艺术页面特定样式 */
+        .tibetan-literature-header {
+            background-image: url('images/藏装.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tibetan-literature-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .tibetan-literature-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tibetan-literature-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-literature-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-tibetan {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-tibetan:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .tibetan-literature-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .tibetan-literature-section {
+            margin-bottom: 80px;
+        }
+        
+        .tibetan-literature-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-literature-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-literature-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .tibetan-literature-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .tibetan-literature-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .tibetan-literature-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .tibetan-literature-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .tibetan-literature-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 文学艺术特点网格 */
+        .literature-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .literature-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .literature-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .literature-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tibetan-literature-header h1 {
+                font-size: 36px;
+            }
+            
+            .tibetan-literature-header p {
+                font-size: 18px;
+            }
+            
+            .tibetan-literature-section h2 {
+                font-size: 28px;
+            }
+            
+            .literature-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .tibetan-literature-main {
+            opacity: 1 !important;
+        }
+        
+        .tibetan-literature-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .literature-feature-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="tibetan-literature-header">
+        <div class="container">
+            <div class="tibetan-literature-header-content">
+                <h1>藏族文学艺术</h1>
+                <p>《格萨尔王传》的史诗魅力，唐卡的绚丽色彩，展现藏族独特的文学艺术成就</p>
+                <a href="tibetan.html" class="back-tibetan">返回藏族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="tibetan-literature-main">
+        <div class="container">
+            <div class="tibetan-literature-content">
+                <!-- 文学艺术概述 -->
+                <section class="tibetan-literature-section">
+                    <h2>藏族文学艺术概述</h2>
+                    <p>藏族文学艺术是藏族文化的重要组成部分，它融合了宗教文化、民间文化和宫廷文化等多种元素，形成了独特的艺术风格和文化特色。藏族文学艺术不仅反映了藏族的历史、生活和情感，也展现了藏族对美的追求和对生活的热爱。</p>
+                    <p>藏族文学艺术的发展经历了漫长的历史过程，从远古时期的口头文学和原始艺术，到吐蕃时期的书面文学和成熟艺术，再到近现代的创新变革，藏族文学艺术不断丰富和发展，成为中华文化宝库中的重要组成部分。</p>
+                </section>
+
+                <!-- 文学成就 -->
+                <section class="tibetan-literature-section">
+                    <h2>文学成就</h2>
+                    
+                    <h3>史诗</h3>
+                    <p>藏族的史诗是藏族文学的瑰宝，其中最著名的是《格萨尔王传》。《格萨尔王传》是世界上最长的史诗之一，讲述了格萨尔王降妖除魔、保护人民的故事，具有极高的文学价值和历史价值。</p>
+                    <h4>《格萨尔王传》的特点</h4>
+                    <ul>
+                        <li><strong>篇幅宏大：</strong> 《格萨尔王传》共有100多部，100多万诗行，2000多万字，是世界上最长的史诗之一。</li>
+                        <li><strong>内容丰富：</strong> 《格萨尔王传》内容涵盖了藏族的历史、宗教、哲学、军事、科技等多个领域，是一部百科全书式的史诗。</li>
+                        <li><strong>艺术价值高：</strong> 《格萨尔王传》运用了丰富的艺术手法，如比喻、夸张、拟人等，语言生动形象，具有极高的艺术价值。</li>
+                        <li><strong>民间性强：</strong> 《格萨尔王传》是一部民间史诗，由民间艺人世代相传，不断丰富和发展，反映了藏族人民的智慧和创造力。</li>
+                    </ul>
+                    
+                    <h3>传记文学</h3>
+                    <p>藏族的传记文学以《米拉日巴传》为代表。《米拉日巴传》是一部讲述藏传佛教噶举派大师米拉日巴生平事迹的传记，具有浓厚的宗教色彩和文学价值。</p>
+                    
+                    <h3>格言文学</h3>
+                    <p>藏族的格言文学以《萨迦格言》为代表。《萨迦格言》是一部由萨迦派高僧萨班·贡噶坚赞创作的格言集，包含了深刻的人生哲理和道德教诲，对藏族的思想文化产生了深远的影响。</p>
+                    
+                    <h3>民间文学</h3>
+                    <p>藏族的民间文学丰富多彩，包括民间故事、民间歌谣、民间谚语等。这些民间文学作品反映了藏族人民的生活、情感和智慧，具有浓厚的民族特色和生活气息。</p>
+                    <h4>民间故事</h4>
+                    <ul>
+                        <li><strong>神话故事：</strong> 如《创世神话》《人类起源》等，讲述了藏族人民对宇宙起源和人类诞生的认识。</li>
+                        <li><strong>传说故事：</strong> 如《文成公主进藏》《松赞干布的故事》等，讲述了藏族历史上的重要人物和事件。</li>
+                        <li><strong>生活故事：</strong> 如《聪明的阿古登巴》《卓玛姑娘》等，讲述了藏族人民的生活经历和智慧。</li>
+                    </ul>
+                    <h4>民间歌谣</h4>
+                    <ul>
+                        <li><strong>劳动歌谣：</strong> 如《打青稞歌》《挤奶歌》等，反映了藏族人民的劳动生活。</li>
+                        <li><strong>爱情歌谣：</strong> 如《情歌》《对歌》等，表达了藏族人民对爱情的追求和向往。</li>
+                        <li><strong>颂歌：</strong> 如《赞美雪山》《赞美草原》等，表达了藏族人民对大自然的热爱和赞美。</li>
+                    </ul>
+                </section>
+
+                <!-- 艺术成就 -->
+                <section class="tibetan-literature-section">
+                    <h2>艺术成就</h2>
+                    
+                    <h3>绘画</h3>
+                    <div class="literature-features-grid">
+                        <div class="literature-feature-item">
+                            <h5>唐卡</h5>
+                            <p>唐卡是藏族的传统绘画，以宗教题材为主，采用天然颜料绘制，色彩鲜艳，保存时间长。唐卡的绘制工艺复杂，需要经过选料、构图、勾线、上色、描金等多个环节，是藏族绘画的精品。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>壁画</h5>
+                            <p>壁画是藏族的传统绘画，主要绘制在寺庙的墙壁上，题材广泛，包括宗教故事、历史事件、生活场景等。壁画的绘制工艺与唐卡相似，色彩鲜艳，构图严谨，具有很高的艺术价值。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>岩画</h5>
+                            <p>岩画是藏族的原始绘画，主要绘制在岩石上，题材包括狩猎、放牧、战争、宗教仪式等。岩画的绘制工艺简单，线条粗犷，反映了藏族先民的生活和信仰。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>雕塑</h3>
+                    <p>藏族的雕塑艺术历史悠久，主要包括佛像雕塑、护法神雕塑、人物雕塑等。藏族雕塑的材料主要有铜、金、银、石、木等，工艺精湛，造型优美，具有浓厚的宗教色彩和民族特色。</p>
+                    <h4>雕塑特点</h4>
+                    <ul>
+                        <li><strong>宗教色彩浓厚：</strong> 藏族雕塑大多以宗教题材为主，如佛像、菩萨像、护法神像等，体现了藏传佛教的教义和信仰。</li>
+                        <li><strong>造型优美：</strong> 藏族雕塑的造型优美，比例协调，线条流畅，体现了藏族艺术家的高超技艺。</li>
+                        <li><strong>工艺精湛：</strong> 藏族雕塑的工艺精湛，采用铸造、雕刻、镶嵌等多种工艺，制作精美。</li>
+                        <li><strong>材料多样：</strong> 藏族雕塑的材料多样，包括铜、金、银、石、木等，不同的材料有不同的艺术效果。</li>
+                    </ul>
+                    
+                    <h3>音乐</h3>
+                    <p>藏族的音乐具有独特的风格和特点，主要包括宗教音乐和民间音乐两大类。藏族音乐的乐器主要有扎木聂、马头琴、笛子、鼓等，音乐旋律优美，节奏明快，具有浓厚的民族特色。</p>
+                    <h4>宗教音乐</h4>
+                    <ul>
+                        <li><strong>诵经调：</strong> 藏族僧侣在诵经时使用的音乐，旋律庄重，节奏缓慢，具有浓厚的宗教氛围。</li>
+                        <li><strong>法乐：</strong> 藏族寺庙在举行法会时使用的音乐，由乐器演奏和人声演唱组成，气势宏大。</li>
+                    </ul>
+                    <h4>民间音乐</h4>
+                    <ul>
+                        <li><strong>囊玛：</strong> 藏族的一种传统音乐形式，流行于拉萨等地，由歌曲和舞曲组成，旋律优美，节奏明快。</li>
+                        <li><strong>热巴：</strong> 藏族的一种传统音乐形式，流行于昌都等地，由歌曲、舞蹈和杂技组成，形式多样，内容丰富。</li>
+                        <li><strong>弦子：</strong> 藏族的一种传统音乐形式，流行于康区等地，由弦乐器伴奏，旋律优美，节奏轻快。</li>
+                    </ul>
+                    
+                    <h3>舞蹈</h3>
+                    <p>藏族的舞蹈具有独特的风格和特点，主要包括宗教舞蹈和民间舞蹈两大类。藏族舞蹈的动作优美，节奏明快，具有浓厚的民族特色和宗教色彩。</p>
+                    <h4>宗教舞蹈</h4>
+                    <ul>
+                        <li><strong>法舞：</strong> 藏族寺庙在举行法会时表演的舞蹈，由僧侣表演，动作庄重，具有浓厚的宗教氛围。</li>
+                        <li><strong>羌姆：</strong> 藏族的一种传统宗教舞蹈，由僧侣表演，内容主要是驱邪避灾，祈求平安。</li>
+                    </ul>
+                    <h4>民间舞蹈</h4>
+                    <ul>
+                        <li><strong>锅庄舞：</strong> 藏族的一种传统民间舞蹈，流行于整个藏族地区，由多人围成圆圈，手拉手跳舞，动作整齐，节奏明快。</li>
+                        <li><strong>弦子舞：</strong> 藏族的一种传统民间舞蹈，流行于康区等地，由弦乐器伴奏，舞者边歌边舞，动作优美。</li>
+                        <li><strong>热巴舞：</strong> 藏族的一种传统民间舞蹈，流行于昌都等地，由舞者手持鼓和铃，边敲边舞，动作矫健有力。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的特点 -->
+                <section class="tibetan-literature-section">
+                    <h2>文学艺术的特点</h2>
+                    <div class="literature-features-grid">
+                        <div class="literature-feature-item">
+                            <h5>宗教色彩浓厚</h5>
+                            <p>藏族文学艺术具有浓厚的宗教色彩，无论是文学作品还是艺术作品，都与藏传佛教密切相关，反映了藏族的宗教信仰和价值观。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>民族特色鲜明</h5>
+                            <p>藏族文学艺术具有鲜明的民族特色，反映了藏族的历史、生活和情感，体现了藏族的审美观念和文化传统。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>融合性强</h5>
+                            <p>藏族文学艺术具有很强的融合性，吸收了汉文化、印度文化等多种文化的元素，形成了独特的艺术风格。</p>
+                        </div>
+                        <div class="literature-feature-item">
+                            <h5>民间性强</h5>
+                            <p>藏族文学艺术具有很强的民间性，许多作品都来源于民间，由民间艺人创作和传承，反映了藏族人民的智慧和创造力。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文学艺术的传承与发展 -->
+                <section class="tibetan-literature-section">
+                    <h2>文学艺术的传承与发展</h2>
+                    
+                    <h3>历史传承</h3>
+                    <p>藏族文学艺术的传承主要通过以下方式：</p>
+                    <ul>
+                        <li><strong>口头传承：</strong> 藏族的口头文学，如民间故事、民间歌谣等，主要通过口头传承的方式传递给下一代。</li>
+                        <li><strong>书面传承：</strong> 藏族的书面文学，如史诗、传记、格言等，主要通过书面传承的方式保存和传递。</li>
+                        <li><strong>师徒传承：</strong> 藏族的艺术技能，如唐卡绘制、雕塑、音乐、舞蹈等，主要通过师徒传承的方式传递。</li>
+                        <li><strong>家族传承：</strong> 藏族的一些艺术技能，如某些乐器的演奏、某些舞蹈的表演等，通过家族传承的方式传递。</li>
+                    </ul>
+                    
+                    <h3>现代发展</h3>
+                    <p>近现代以来，藏族文学艺术在传承传统的基础上，不断创新和发展：</p>
+                    <ul>
+                        <li><strong>文学创作：</strong> 现代藏族作家创作了大量的小说、散文、诗歌等作品，反映了现代藏族的生活和情感，具有鲜明的时代特色。</li>
+                        <li><strong>艺术创新：</strong> 现代藏族艺术家在传统艺术的基础上，不断创新，融合现代元素，创作出具有时代特色的艺术作品。</li>
+                        <li><strong>艺术教育：</strong> 现代藏族地区建立了艺术学校和培训机构，培养了大量的艺术人才，促进了藏族艺术的发展。</li>
+                        <li><strong>艺术研究：</strong> 现代学者对藏族文学艺术进行了深入的研究，出版了大量的研究著作，推动了藏族文学艺术的理论发展。</li>
+                    </ul>
+                    
+                    <h3>当代挑战与机遇</h3>
+                    <p>当代藏族文学艺术面临着一些挑战，同时也迎来了新的机遇：</p>
+                    <ul>
+                        <li><strong>挑战：</strong> 现代化、全球化的发展对藏族传统文学艺术产生了冲击，一些传统艺术形式面临失传的危险；市场经济的发展对藏族文学艺术的创作和传承产生了影响，一些作品过于追求市场效益，忽视了艺术质量。</li>
+                        <li><strong>机遇：</strong> 国家对非物质文化遗产的保护为藏族传统文学艺术的传承和发展提供了新的机遇；现代科技的发展为藏族文学艺术的传播和创新提供了新的手段；文化交流的扩大为藏族文学艺术的发展提供了新的空间。</li>
+                    </ul>
+                </section>
+
+                <!-- 文学艺术的文化意义 -->
+                <section class="tibetan-literature-section">
+                    <h2>文学艺术的文化意义</h2>
+                    
+                    <h3>文化传承</h3>
+                    <p>藏族文学艺术是藏族文化传承的重要载体，通过文学艺术作品，藏族将自己的历史、文化、宗教、哲学等方面的知识记录下来，传承给后代。文学艺术作品是藏族文化的重要组成部分，也是研究藏族历史和文化的重要资料。</p>
+                    
+                    <h3>民族认同</h3>
+                    <p>藏族文学艺术是藏族民族认同的重要标志之一，它不仅是藏族人民的精神财富，也是藏族文化的象征。文学艺术的创作和传承，有助于增强藏族人民的民族自豪感和认同感，促进民族团结和社会稳定。</p>
+                    
+                    <h3>文化交流</h3>
+                    <p>藏族文学艺术是藏族与其他民族文化交流的重要桥梁，通过文学艺术作品，藏族向其他民族展示了自己的文化特色和艺术魅力，同时也吸收了其他民族文化的精华，促进了各民族之间的相互了解和友谊。</p>
+                    
+                    <h3>人类文化遗产</h3>
+                    <p>藏族文学艺术是人类文化遗产的重要组成部分，如《格萨尔王传》、唐卡、壁画等，都具有极高的艺术价值和历史价值，为人类文明的发展做出了重要贡献。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

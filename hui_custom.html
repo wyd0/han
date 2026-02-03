@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回族风俗习惯 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 回族风俗习惯页面特定样式 */
+        .hui-custom-header {
+            background-image: url('images/思想文化.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hui-custom-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hui-custom-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hui-custom-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-custom-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-hui {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-hui:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .hui-custom-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hui-custom-section {
+            margin-bottom: 80px;
+        }
+        
+        .hui-custom-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-custom-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-custom-section h4 {
+            color: #c0392b;
+            font-size: 24px;
+            margin: 30px 0 15px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .hui-custom-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .hui-custom-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .hui-custom-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .hui-custom-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .hui-custom-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 风俗习惯特点网格 */
+        .custom-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .custom-feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .custom-feature-item h5 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hui-custom-header h1 {
+                font-size: 36px;
+            }
+            
+            .hui-custom-header p {
+                font-size: 18px;
+            }
+            
+            .hui-custom-section h2 {
+                font-size: 28px;
+            }
+            
+            .custom-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面加载时直接显示内容，确保JavaScript失效时也能正常显示 */
+        .hui-custom-main {
+            opacity: 1 !important;
+        }
+        
+        .hui-custom-section {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .custom-feature-item {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化区别</a></li>
+                    <li><a href="index.html#contact">留言反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="hui-custom-header">
+        <div class="container">
+            <div class="hui-custom-header-content">
+                <h1>回族风俗习惯</h1>
+                <p>伊斯兰文化与中国传统的融合，展现回族独特的生活方式与文化传统</p>
+                <a href="hui.html" class="back-hui">返回回族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="hui-custom-main">
+        <div class="container">
+            <div class="hui-custom-content">
+                <!-- 风俗习惯概述 -->
+                <section class="hui-custom-section">
+                    <h2>回族风俗习惯概述</h2>
+                    <p>回族风俗习惯是回族文化的重要组成部分，它融合了伊斯兰文化和中国传统文化的元素，形成了独特的民族风俗。回族风俗习惯不仅反映了回族的宗教信仰和文化传统，也展现了回族的生活方式和价值观念。</p>
+                    <p>回族风俗习惯的形成与发展，与回族的历史、宗教、地理环境等因素密切相关。从唐宋时期的初步形成，到元明清时期的繁荣发展，再到近现代的传承创新，回族风俗习惯不断丰富和发展，成为回族民族认同的重要标志。</p>
+                </section>
+
+                <!-- 日常生活习俗 -->
+                <section class="hui-custom-section">
+                    <h2>日常生活习俗</h2>
+                    
+                    <h3>饮食习俗</h3>
+                    <p>回族的饮食习俗具有鲜明的民族特色，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>禁食猪肉：</strong> 回族禁食猪肉，这是伊斯兰教的规定，也是回族饮食习俗的核心内容。</li>
+                        <li><strong>禁食血液：</strong> 回族禁食血液，认为血液是动物的灵魂所在。</li>
+                        <li><strong>禁食自死物：</strong> 回族禁食自死物，认为自死物不洁净。</li>
+                        <li><strong>禁食非诵真主之名而宰杀的动物：</strong> 回族食用的动物必须是诵真主之名而宰杀的，认为这样的动物才洁净。</li>
+                        <li><strong>喜爱清真食品：</strong> 回族喜爱清真食品，如清真糕点、清真菜肴等，这些食品制作工艺独特，味道鲜美。</li>
+                    </ul>
+                    
+                    <h3>服饰习俗</h3>
+                    <p>回族的服饰习俗具有鲜明的民族特色，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>男子服饰：</strong> 回族男子通常戴白色或黑色的无檐小帽，穿白色的长衫或对襟上衣，下穿长裤，脚穿布鞋或皮鞋。</li>
+                        <li><strong>女子服饰：</strong> 回族女子通常戴盖头，穿长衫或连衣裙，颜色以白色、青色、绿色为主，脚穿布鞋或皮鞋。</li>
+                        <li><strong>盖头：</strong> 回族女子的传统头饰，用来遮盖头发、耳朵和脖子，体现了伊斯兰教的教义。</li>
+                        <li><strong>色彩：</strong> 回族服饰的颜色以白色、青色、绿色为主，这些颜色在伊斯兰教中具有特殊的意义。</li>
+                    </ul>
+                    
+                    <h3>居住习俗</h3>
+                    <p>回族的居住习俗具有鲜明的民族特色，主要体现在以下几个方面：</p>
+                    <ul>
+                        <li><strong>聚族而居：</strong> 回族通常聚族而居，形成回族社区，这样便于开展宗教活动和文化交流。</li>
+                        <li><strong>注重清洁：</strong> 回族注重居住环境的清洁卫生，经常打扫房屋，保持整洁。</li>
+                        <li><strong>房屋布局：</strong> 回族房屋的布局通常比较简单，注重实用性和舒适性，客厅和卧室分开，厨房独立设置。</li>
+                        <li><strong>装饰风格：</strong> 回族房屋的装饰风格简洁大方，喜欢用花卉、几何图案等装饰，避免使用人物和动物图案。</li>
+                    </ul>
+                </section>
+
+                <!-- 人生礼仪 -->
+                <section class="hui-custom-section">
+                    <h2>人生礼仪</h2>
+                    
+                    <h3>诞生礼</h3>
+                    <p>回族的诞生礼是回族人生礼仪的重要组成部分，主要包括：</p>
+                    <ul>
+                        <li><strong>念诵古兰经：</strong> 婴儿出生后，家长要请阿訇到家中念诵《古兰经》，为婴儿祈福。</li>
+                        <li><strong>起经名：</strong> 婴儿出生后，家长要为婴儿起一个经名（阿拉伯语名字），如穆罕默德、法蒂玛等。</li>
+                        <li><strong>走满月：</strong> 婴儿满月后，家长要带着婴儿走亲访友，接受亲友的祝福。</li>
+                        <li><strong>剃头：</strong> 婴儿满月后，家长要为婴儿剃头，将剃下的头发用红布包好，保存起来。</li>
+                    </ul>
+                    
+                    <h3>成年礼</h3>
+                    <p>回族的成年礼是回族人生礼仪的重要组成部分，主要包括：</p>
+                    <ul>
+                        <li><strong>割礼：</strong> 回族男孩通常在7岁左右进行割礼，这是伊斯兰教的规定，也是男孩成年的标志。</li>
+                        <li><strong>宗教教育：</strong> 回族青少年在成年前后要接受系统的宗教教育，学习《古兰经》和伊斯兰教教义。</li>
+                        <li><strong>社会责任：</strong> 回族青少年成年后要承担起家庭和社会的责任，遵守伊斯兰教的教义和教规。</li>
+                    </ul>
+                    
+                    <h3>婚礼</h3>
+                    <p>回族的婚礼是回族人生礼仪的重要组成部分，具有鲜明的民族特色，主要包括：</p>
+                    <ul>
+                        <li><strong>提亲：</strong> 男方家长请媒人到女方家中提亲，女方家长同意后，双方开始商量婚事。</li>
+                        <li><strong>定亲：</strong> 男方家长带着礼物到女方家中定亲，确定婚礼日期和其他事项。</li>
+                        <li><strong>婚礼准备：</strong> 婚礼前，双方家长要准备婚礼所需的物品，如清真食品、衣物等。</li>
+                        <li><strong>婚礼仪式：</strong> 婚礼当天，男方要到女方家中迎娶新娘，然后在清真寺或家中举行婚礼仪式，由阿訇主持，念诵《古兰经》，为新人祈福。</li>
+                        <li><strong>婚宴：</strong> 婚礼仪式后，男方要举办婚宴，邀请亲友参加，品尝清真食品，庆祝新人结婚。</li>
+                    </ul>
+                    
+                    <h3>葬礼</h3>
+                    <p>回族的葬礼是回族人生礼仪的重要组成部分，具有鲜明的民族特色，主要包括：</p>
+                    <ul>
+                        <li><strong>临终关怀：</strong> 回族人临终前，亲友要在身边陪伴，为其念诵《古兰经》，祈求安拉的宽恕。</li>
+                        <li><strong>净身：</strong> 人去世后，要由专人进行净身，用清水洗净遗体，然后用白布包裹。</li>
+                        <li><strong>殡礼：</strong> 净身后，要在清真寺或家中举行殡礼，由阿訇主持，念诵《古兰经》，为逝者祈福。</li>
+                        <li><strong>安葬：</strong> 殡礼后，要将逝者安葬在回族公墓中，实行土葬，不用棺材，直接将遗体放入墓穴中。</li>
+                        <li><strong>守孝：</strong> 逝者安葬后，亲友要守孝一段时间，期间要穿着朴素，避免娱乐活动。</li>
+                    </ul>
+                </section>
+
+                <!-- 社交礼仪 -->
+                <section class="hui-custom-section">
+                    <h2>社交礼仪</h2>
+                    <div class="custom-features-grid">
+                        <div class="custom-feature-item">
+                            <h5>问候礼仪</h5>
+                            <p>回族的问候礼仪具有鲜明的民族特色，见面时要互相问候，说"安塞俩目阿来库姆"（愿安拉的平安与你同在），对方要回答"阿来库姆塞俩目"（愿安拉的平安也与你同在）。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>做客礼仪</h5>
+                            <p>回族的做客礼仪要求客人要尊重主人的宗教信仰和风俗习惯，进入清真寺或回族家庭时要脱鞋，要使用右手进食和递物，要避免谈论禁忌话题。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>待客礼仪</h5>
+                            <p>回族的待客礼仪要求主人要热情好客，要为客人准备清真食品，要尊重客人的意愿，要避免强迫客人做不愿意做的事情。</p>
+                        </div>
+                        <div class="custom-feature-item">
+                            <h5>馈赠礼仪</h5>
+                            <p>回族的馈赠礼仪要求礼物要符合伊斯兰教的规定，要避免赠送酒类、猪肉等禁忌物品，要注重礼物的实用性和文化内涵。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 节日习俗 -->
+                <section class="hui-custom-section">
+                    <h2>节日习俗</h2>
+                    
+                    <h3>开斋节习俗</h3>
+                    <p>开斋节是回族最重要的传统节日之一，节日习俗主要包括：</p>
+                    <ul>
+                        <li><strong>清洁卫生：</strong> 开斋节前，回族家庭要进行全面的清洁卫生，打扫房屋、沐浴更衣。</li>
+                        <li><strong>准备食物：</strong> 开斋节前，回族家庭要准备丰富的节日食物，如油香、馓子、麻花等。</li>
+                        <li><strong>会礼：</strong> 开斋节当天清晨，回族穆斯林要前往清真寺参加会礼，聆听阿訇讲经，祈祷祝福。</li>
+                        <li><strong>走亲访友：</strong> 会礼后，回族穆斯林要走亲访友，互致问候，赠送礼物。</li>
+                        <li><strong>聚餐：</strong> 回族家庭要举办聚餐，品尝传统美食，共度佳节。</li>
+                    </ul>
+                    
+                    <h3>古尔邦节习俗</h3>
+                    <p>古尔邦节是回族的重要传统节日，节日习俗主要包括：</p>
+                    <ul>
+                        <li><strong>准备牲畜：</strong> 古尔邦节前，有条件的回族家庭要准备牛、羊等牲畜，用于节日宰牲。</li>
+                        <li><strong>清洁卫生：</strong> 古尔邦节前，回族家庭要进行全面的清洁卫生，打扫房屋、沐浴更衣。</li>
+                        <li><strong>会礼：</strong> 古尔邦节当天清晨，回族穆斯林要前往清真寺参加会礼，聆听阿訇讲经，祈祷祝福。</li>
+                        <li><strong>宰牲：</strong> 会礼后，有条件的回族家庭要进行宰牲，将宰牲的肉分为三份，一份自己食用，一份赠送亲友，一份施舍给贫困家庭。</li>
+                        <li><strong>聚餐：</strong> 回族家庭要举办聚餐，品尝传统美食，共度佳节。</li>
+                    </ul>
+                    
+                    <h3>圣纪节习俗</h3>
+                    <p>圣纪节是回族的传统节日，节日习俗主要包括：</p>
+                    <ul>
+                        <li><strong>会礼：</strong> 圣纪节当天，回族穆斯林要前往清真寺参加会礼，聆听阿訇讲述穆罕默德的生平事迹和教诲。</li>
+                        <li><strong>诵经：</strong> 回族穆斯林要集体诵读《古兰经》，缅怀穆罕默德。</li>
+                        <li><strong>聚餐：</strong> 清真寺要举办集体聚餐，回族穆斯林要一起品尝传统美食，共度佳节。</li>
+                        <li><strong>讲述穆罕默德的故事：</strong> 回族穆斯林要讲述穆罕默德的生平事迹、品德和教诲，传承伊斯兰文化。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的文化意义 -->
+                <section class="hui-custom-section">
+                    <h2>风俗习惯的文化意义</h2>
+                    
+                    <h3>宗教意义</h3>
+                    <p>回族风俗习惯的宗教意义主要体现在：</p>
+                    <ul>
+                        <li><strong>体现宗教信仰：</strong> 回族风俗习惯体现了回族的宗教信仰，如饮食禁忌、服饰要求、婚礼、葬礼等，都源于伊斯兰教的教义和规定。</li>
+                        <li><strong>强化宗教认同：</strong> 回族风俗习惯强化了回族的宗教认同，通过共同的风俗习惯，回族增强了对伊斯兰教的信仰和认同。</li>
+                        <li><strong>传承宗教文化：</strong> 回族风俗习惯传承了回族的宗教文化，通过风俗习惯的实践，回族将伊斯兰教的教义和教规传递给下一代。</li>
+                    </ul>
+                    
+                    <h3>文化意义</h3>
+                    <p>回族风俗习惯的文化意义主要体现在：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong> 回族风俗习惯是回族文化传承的重要载体，通过风俗习惯的实践，回族将自己的文化传统传递给下一代。</li>
+                        <li><strong>文化认同：</strong> 回族风俗习惯是回族文化认同的重要标志，通过共同的风俗习惯，回族增强了对自己民族的认同感和归属感。</li>
+                        <li><strong>文化融合：</strong> 回族风俗习惯体现了文化融合的特点，它融合了伊斯兰文化和中国传统文化的元素，形成了独特的文化特色。</li>
+                    </ul>
+                    
+                    <h3>社会意义</h3>
+                    <p>回族风俗习惯的社会意义主要体现在：</p>
+                    <ul>
+                        <li><strong>社会凝聚：</strong> 回族风俗习惯是回族社会凝聚的重要手段，通过共同的风俗习惯，回族增强了内部的团结和凝聚力。</li>
+                        <li><strong>社会规范：</strong> 回族风俗习惯是回族社会规范的重要组成部分，它规定了回族的行为准则和道德规范，维护了社会秩序。</li>
+                        <li><strong>社会服务：</strong> 回族风俗习惯中的慈善、互助等内容，为回族社会提供了重要的社会服务，帮助了困难群体。</li>
+                    </ul>
+                </section>
+
+                <!-- 风俗习惯的传承与发展 -->
+                <section class="hui-custom-section">
+                    <h2>风俗习惯的传承与发展</h2>
+                    
+                    <h3>历史传承</h3>
+                    <p>回族风俗习惯的传承主要通过以下方式：</p>
+                    <ul>
+                        <li><strong>家庭传承：</strong> 回族风俗习惯主要通过家庭传承的方式传递给下一代，家长通过言传身教，将风俗习惯传授给子女。</li>
+                        <li><strong>社区传承：</strong> 回族风俗习惯通过社区传承的方式传递，清真寺和回族社区组织通过举办各种活动，促进风俗习惯的传承。</li>
+                        <li><strong>宗教传承：</strong> 回族风俗习惯通过宗教传承的方式传递，阿訇通过讲经、教义讲解等方式，将与宗教相关的风俗习惯传授给信众。</li>
+                    </ul>
+                    
+                    <h3>现代发展</h3>
+                    <p>近现代以来，回族风俗习惯在传承传统的基础上，不断创新和发展：</p>
+                    <ul>
+                        <li><strong>适应现代社会：</strong> 回族风俗习惯不断适应现代社会的发展需求，如婚礼形式的简化、节日庆祝方式的多样化等。</li>
+                        <li><strong>保留核心元素：</strong> 回族风俗习惯在发展过程中保留了核心元素，如饮食禁忌、宗教礼仪等，确保了风俗习惯的民族特色。</li>
+                        <li><strong>文化创新：</strong> 回族风俗习惯在发展过程中不断创新，如将传统风俗习惯与现代文化元素相结合，创造出新的文化形式。</li>
+                    </ul>
+                    
+                    <h3>当代挑战与机遇</h3>
+                    <p>当代回族风俗习惯面临着一些挑战，同时也迎来了新的机遇：</p>
+                    <ul>
+                        <li><strong>挑战：</strong> 现代化、全球化的发展对回族传统风俗习惯产生了冲击，一些传统风俗习惯面临失传的危险；市场经济的发展对回族风俗习惯的传承产生了影响，一些风俗习惯的实践受到了限制。</li>
+                        <li><strong>机遇：</strong> 国家对非物质文化遗产的保护为回族传统风俗习惯的传承和发展提供了新的机遇；现代科技的发展为回族风俗习惯的传播和创新提供了新的手段；文化交流的扩大为回族风俗习惯的发展提供了新的空间。</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与服饰</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快捷链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化区别</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

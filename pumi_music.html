@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普米族音乐舞蹈 - 汉韵风华</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 普米族音乐舞蹈页面特定样式 */
+        .pumi-header {
+            background-image: url('images/e1fea04a8ba3c9bfe7b87746a24a27b6.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pumi-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .pumi-header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pumi-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pumi-header p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .back-difference {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #c0392b;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            font-family: 'SimSun', serif;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            font-weight: bold;
+        }
+        
+        .back-difference:hover {
+            background-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .pumi-main {
+            padding: 80px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .pumi-section {
+            margin-bottom: 80px;
+        }
+        
+        .pumi-section h2 {
+            color: #c0392b;
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pumi-section h3 {
+            color: #c0392b;
+            font-size: 28px;
+            margin: 40px 0 25px;
+            font-family: 'SimSun', serif;
+        }
+        
+        .pumi-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .pumi-content p {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .pumi-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+        }
+        
+        .pumi-content li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .pumi-content li::before {
+            content: "•";
+            color: #c0392b;
+            font-size: 24px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        /* 音乐舞蹈特点样式 */
+        .music-dance-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .feature-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 舞蹈类型样式 */
+        .dance-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .dance-item {
+            background-color: rgba(249, 249, 249, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .dance-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .dance-item h4 {
+            color: #c0392b;
+            font-size: 20px;
+            margin: 0 0 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .dance-item p {
+            margin: 0;
+            text-align: justify;
+        }
+        
+        /* 动画关键帧 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 动画类 */
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .pumi-header-content h1 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+        
+        .pumi-header-content p {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+        
+        .pumi-header-content .back-difference {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        
+        .pumi-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .pumi-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-item,
+        .dance-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .feature-item.visible,
+        .dance-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 交错动画延迟 */
+        .feature-item:nth-child(1),
+        .dance-item:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .feature-item:nth-child(2),
+        .dance-item:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .feature-item:nth-child(3),
+        .dance-item:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .feature-item:nth-child(4),
+        .dance-item:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .pumi-header h1 {
+                font-size: 36px;
+            }
+            
+            .pumi-header p {
+                font-size: 18px;
+            }
+            
+            .pumi-section h2 {
+                font-size: 28px;
+            }
+            
+            .music-dance-features,
+            .dance-types {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>汉韵风华</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="culture.html">传统文化</a></li>
+                    <li><a href="clothing.html">中国服饰</a></li>
+                    <li><a href="difference.html">文化差异</a></li>
+                    <li><a href="index.html#contact">意见反馈</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 页面头部 -->
+    <section class="pumi-header">
+        <div class="container">
+            <div class="pumi-header-content">
+                <h1>普米族音乐舞蹈</h1>
+                <p>优美的旋律，粗犷有力的舞蹈，展现民族风采</p>
+                <a href="pumi.html" class="back-difference">返回普米族文化</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="pumi-main">
+        <div class="container">
+            <div class="pumi-content">
+                <!-- 音乐舞蹈介绍 -->
+                <section class="pumi-section">
+                    <h2>音乐舞蹈概述</h2>
+                    <p>普米族是一个能歌善舞的民族，音乐舞蹈是普米族文化的重要组成部分。普米族的音乐旋律优美，节奏明快，舞蹈动作粗犷有力，充满生命力。这些音乐舞蹈不仅是普米族人民表达情感、庆祝节日的重要方式，也是传承普米族文化的重要载体。</p>
+                    <p>普米族的音乐舞蹈主要包括以下几个方面：</p>
+                </section>
+
+                <!-- 民间歌谣 -->
+                <section class="pumi-section">
+                    <h3>民间歌谣</h3>
+                    <p>普米族的民间歌谣内容丰富，形式多样，是普米族音乐的重要组成部分。根据内容和功能，普米族的民间歌谣可以分为以下几类：</p>
+                    <ul>
+                        <li><strong>劳动歌：</strong>普米族人民在劳动过程中创作的歌谣，如耕地歌、收割歌、放牧歌等。这些歌谣节奏明快，富有感染力，能够激发劳动者的热情，提高劳动效率。</li>
+                        <li><strong>情歌：</strong>普米族青年男女表达爱情的歌谣，如相恋歌、约会歌、送别歌等。这些歌谣旋律优美，情感真挚，是普米族青年男女恋爱过程中的重要媒介。</li>
+                        <li><strong>叙事歌：</strong>普米族人民讲述历史、传说和故事的歌谣，如创世歌、迁徙歌、英雄歌等。这些歌谣篇幅较长，内容丰富，是普米族历史和文化的重要载体。</li>
+                        <li><strong>仪式歌：</strong>普米族人民在宗教仪式、节日庆典等场合演唱的歌谣，如祭祀歌、婚礼歌、丧葬歌等。这些歌谣具有神圣的色彩，是普米族宗教和礼仪文化的重要组成部分。</li>
+                        <li><strong>生活歌：</strong>普米族人民反映日常生活的歌谣，如苦歌、乐歌、儿歌等。这些歌谣贴近生活，真实反映了普米族人民的生活状况和思想感情。</li>
+                    </ul>
+                </section>
+
+                <!-- 舞蹈 -->
+                <section class="pumi-section">
+                    <h3>舞蹈</h3>
+                    <p>普米族的舞蹈种类繁多，风格独特，是普米族文化的重要组成部分。普米族的舞蹈动作粗犷有力，充满生命力，能够充分展现普米族人民的精神风貌。</p>
+                    <div class="dance-types">
+                        <div class="dance-item">
+                            <h4>锅庄舞</h4>
+                            <p>锅庄舞是普米族最负盛名的舞蹈，也是普米族人民最喜爱的传统舞蹈形式。锅庄舞通常在节日庆典、婚礼等场合表演，舞者围成圆圈，手拉手，边唱边跳。锅庄舞的动作粗犷有力，节奏明快，充满热情和活力。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>打歌</h4>
+                            <p>打歌是普米族的另一种重要舞蹈形式，通常在火把节等节日表演。打歌的动作比较自由，舞者可以根据音乐的节奏自由发挥，表达自己的情感。打歌的音乐通常由四弦琴、笛子等乐器伴奏，旋律优美，节奏明快。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>跳脚舞</h4>
+                            <p>跳脚舞是普米族青年男女喜爱的舞蹈形式，通常在夜晚的篝火旁表演。跳脚舞的动作轻盈优美，节奏明快，舞者通过舞蹈表达自己的爱情和友情。</p>
+                        </div>
+                        <div class="dance-item">
+                            <h4>宗教舞蹈</h4>
+                            <p>宗教舞蹈是普米族在宗教仪式中表演的舞蹈，如驱邪舞、祭祀舞等。这些舞蹈动作庄重严肃，具有神圣的色彩，是普米族宗教文化的重要组成部分。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 乐器 -->
+                <section class="pumi-section">
+                    <h3>乐器</h3>
+                    <p>普米族的乐器种类繁多，主要包括以下几种：</p>
+                    <ul>
+                        <li><strong>四弦琴：</strong>四弦琴是普米族最常用的乐器之一，也是普米族音乐的标志性乐器。四弦琴的琴身通常由木材制成，琴弦由丝线或钢丝制成。四弦琴的音色优美，表现力丰富，是普米族民间歌谣和舞蹈的主要伴奏乐器。</li>
+                        <li><strong>笛子：</strong>笛子是普米族常用的吹管乐器，通常由竹子制成。笛子的音色清脆悦耳，是普米族音乐的重要伴奏乐器。</li>
+                        <li><strong>葫芦笙：</strong>葫芦笙是普米族的传统乐器，由葫芦和竹管制成。葫芦笙的音色独特，表现力丰富，是普米族音乐的重要组成部分。</li>
+                        <li><strong>三弦：</strong>三弦是普米族的传统乐器，琴身通常由木材制成，琴弦由丝线制成。三弦的音色浑厚，是普米族音乐的重要伴奏乐器。</li>
+                        <li><strong>鼓：</strong>鼓是普米族的打击乐器，通常由木材和兽皮制成。鼓的节奏明快，是普米族舞蹈的重要伴奏乐器。</li>
+                    </ul>
+                </section>
+
+                <!-- 音乐舞蹈的特点 -->
+                <section class="pumi-section">
+                    <h3>音乐舞蹈的特点</h3>
+                    <div class="music-dance-features">
+                        <div class="feature-item">
+                            <h4>民族特色鲜明</h4>
+                            <p>普米族的音乐舞蹈具有鲜明的民族特色，反映了普米族人民的生活、思想和情感。普米族的音乐旋律优美，节奏明快，舞蹈动作粗犷有力，充满生命力，充分展现了普米族人民的精神风貌。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>与生活密切相关</h4>
+                            <p>普米族的音乐舞蹈与普米族人民的生活密切相关，是普米族人民生活的重要组成部分。普米族的音乐舞蹈反映了普米族人民的劳动、爱情、婚姻、宗教等各个方面的生活，是普米族人民生活的真实写照。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>形式多样</h4>
+                            <p>普米族的音乐舞蹈形式多样，内容丰富。普米族的音乐包括劳动歌、情歌、叙事歌、仪式歌、生活歌等多种类型，普米族的舞蹈包括锅庄舞、打歌、跳脚舞、宗教舞蹈等多种形式。</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>传承性强</h4>
+                            <p>普米族的音乐舞蹈具有很强的传承性，通过口传心授的方式代代相传。普米族的长辈会将音乐舞蹈传授给年轻一代，年轻一代在学习和表演的过程中，不断继承和发展普米族的音乐舞蹈文化。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 音乐舞蹈的传承与发展 -->
+                <section class="pumi-section">
+                    <h3>音乐舞蹈的传承与发展</h3>
+                    <p>在现代社会，普米族的音乐舞蹈面临着一些挑战，如年轻人对传统音乐舞蹈的兴趣减少、传统音乐舞蹈的传承者日益减少等。为了保护和传承普米族的音乐舞蹈文化，政府和社会各界采取了一系列措施：</p>
+                    <ul>
+                        <li><strong>文化保护：</strong>将普米族的音乐舞蹈纳入非物质文化遗产保护名录，加强对普米族音乐舞蹈的保护和传承。</li>
+                        <li><strong>教育传承：</strong>在普米族地区的学校开设传统音乐舞蹈课程，让年轻一代学习和了解普米族的音乐舞蹈文化。</li>
+                        <li><strong>文化活动：</strong>组织各种文化活动，如普米族音乐舞蹈比赛、展演等，激发年轻一代学习和参与普米族音乐舞蹈的兴趣。</li>
+                        <li><strong>媒体传播：</strong>利用广播、电视、网络等媒体，传播普米族的音乐舞蹈文化，扩大普米族音乐舞蹈的影响。</li>
+                        <li><strong>创新发展：</strong>在保持传统特色的基础上，对普米族的音乐舞蹈进行创新和发展，使其更加适应现代社会的需求。</li>
+                    </ul>
+                    <p>这些措施的实施，对于保护和传承普米族的音乐舞蹈文化起到了积极的作用。普米族的音乐舞蹈是中华民族多元文化的重要组成部分，保护和传承普米族的音乐舞蹈文化，对于维护中华民族的文化多样性具有重要意义。</p>
+                </section>
+
+                <!-- 音乐舞蹈的意义 -->
+                <section class="pumi-section">
+                    <h3>音乐舞蹈的意义</h3>
+                    <p>普米族的音乐舞蹈对于普米族的发展和中华民族的文化多样性具有重要意义：</p>
+                    <ul>
+                        <li><strong>文化传承：</strong>普米族的音乐舞蹈是普米族文化的重要载体，通过音乐舞蹈，普米族的历史、文化、传统知识得以传承和弘扬。</li>
+                        <li><strong>民族认同：</strong>普米族的音乐舞蹈是普米族的重要标志之一，通过音乐舞蹈，普米族人民的民族认同感和凝聚力得以增强。</li>
+                        <li><strong>社会凝聚：</strong>普米族的音乐舞蹈是普米族社区的重要活动，通过音乐舞蹈，社区成员之间的联系得以加强，社会凝聚力得以提高。</li>
+                        <li><strong>文化交流：</strong>普米族的音乐舞蹈是普米族与其他民族交流的重要工具，通过音乐舞蹈，普米族与其他民族之间的了解和友谊得以加深。</li>
+                        <li><strong>艺术价值：</strong>普米族的音乐舞蹈具有很高的艺术价值，是中华民族艺术宝库中的重要财富。</li>
+                    </ul>
+                    <p>普米族的音乐舞蹈是普米族人民智慧的结晶，是中华民族文化宝库中的重要财富。我们应该珍惜和保护普米族的音乐舞蹈文化，让它在现代社会中继续发挥重要的作用。</p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>汉韵风华</h3>
+                    <p>传承中华传统文化与美德</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="culture.html">传统文化</a></li>
+                        <li><a href="clothing.html">中国服饰</a></li>
+                        <li><a href="difference.html">文化差异</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 汉韵风华. 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
